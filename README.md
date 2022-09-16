@@ -58,7 +58,7 @@ python Fonte.py data/Defecst4J/core/<pid>-<vid>b -o <savepath>
     -h, --help            show this help message and exit
     --tool TOOL           history retrieval tool, git or shovel (default: git)
     --formula FORMULA     SBFL formula (default: Ochiai)
-    --alpha ALPHA         alpha (default: Ochiai)
+    --alpha ALPHA         alpha (default: 0)
     --tau TAU             tau (default: max)
     --lamb LAMB           lambda (default: 0.1)
     --skip-stage-2        skip stage 2 (default: False)
