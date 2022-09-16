@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionInjector.java",
+  "functionName": "estimateCallCost",
+  "functionId": "estimateCallCost___fnNode-Node__referencesThis-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionInjector.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets an estimate of the cost in characters of making the function call:\nthe sum of the identifiers and the separators.\n\n@param referencesThis\n",
+  "functionStartLine": 863,
+  "functionEndLine": 881,
+  "numCommitsSeen": 36,
+  "timeTaken": 1832,
+  "changeHistory": [
+    "b783533aac33c06fc34ed4c3f284aa8411ea0c54",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "b783533aac33c06fc34ed4c3f284aa8411ea0c54": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b783533aac33c06fc34ed4c3f284aa8411ea0c54": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRename NodeUtil.getFunctionInfo to NodeUtil.getFunctionJSDocInfo\nRename NodeUtil.getFnParameters to NodeUtil.getFunctionParameters.\nNOTE: this is a pure Eclipse refactor:rename CL\n\nR\u003djohnlenz\nDELTA\u003d18  (1 added, 0 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1913\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1101 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 8:14 AM",
+      "commitName": "b783533aac33c06fc34ed4c3f284aa8411ea0c54",
+      "commitAuthor": "tylerg@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 33.83,
+      "commitsBetweenForRepo": 98,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static int estimateCallCost(Node fnNode, boolean referencesThis) {\n    Node argsNode \u003d NodeUtil.getFunctionParameters(fnNode);\n    int numArgs \u003d argsNode.getChildCount();\n    int callCost \u003d NAME_COST_ESTIMATE + PAREN_COST;\n    if (numArgs \u003e 0) {\n        callCost +\u003d (numArgs * NAME_COST_ESTIMATE) + ((numArgs - 1) * COMMA_COST);\n    }\n    if (referencesThis) {\n        callCost +\u003d 5 + 5;\n    }\n    return callCost;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionInjector.java",
+      "functionStartLine": 784,
+      "functionName": "estimateCallCost",
+      "functionAnnotation": "",
+      "functionDoc": "Gets an estimate of the cost in characters of making the function call:\nthe sum of the identifiers and the separators.\n\n@param referencesThis\n",
+      "diff": "@@ -1,12 +1,12 @@\n private static int estimateCallCost(Node fnNode, boolean referencesThis) {\n-    Node argsNode \u003d NodeUtil.getFnParameters(fnNode);\n+    Node argsNode \u003d NodeUtil.getFunctionParameters(fnNode);\n     int numArgs \u003d argsNode.getChildCount();\n     int callCost \u003d NAME_COST_ESTIMATE + PAREN_COST;\n     if (numArgs \u003e 0) {\n         callCost +\u003d (numArgs * NAME_COST_ESTIMATE) + ((numArgs - 1) * COMMA_COST);\n     }\n     if (referencesThis) {\n         callCost +\u003d 5 + 5;\n     }\n     return callCost;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+private static int estimateCallCost(Node fnNode, boolean referencesThis) {\n+    Node argsNode \u003d NodeUtil.getFnParameters(fnNode);\n+    int numArgs \u003d argsNode.getChildCount();\n+    int callCost \u003d NAME_COST_ESTIMATE + PAREN_COST;\n+    if (numArgs \u003e 0) {\n+        callCost +\u003d (numArgs * NAME_COST_ESTIMATE) + ((numArgs - 1) * COMMA_COST);\n+    }\n+    if (referencesThis) {\n+        callCost +\u003d 5 + 5;\n+    }\n+    return callCost;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static int estimateCallCost(Node fnNode, boolean referencesThis) {\n    Node argsNode \u003d NodeUtil.getFnParameters(fnNode);\n    int numArgs \u003d argsNode.getChildCount();\n    int callCost \u003d NAME_COST_ESTIMATE + PAREN_COST;\n    if (numArgs \u003e 0) {\n        callCost +\u003d (numArgs * NAME_COST_ESTIMATE) + ((numArgs - 1) * COMMA_COST);\n    }\n    if (referencesThis) {\n        callCost +\u003d 5 + 5;\n    }\n    return callCost;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionInjector.java",
+      "functionStartLine": 784,
+      "functionName": "estimateCallCost",
+      "functionAnnotation": "",
+      "functionDoc": "Gets an estimate of the cost in characters of making the function call:\nthe sum of the identifiers and the separators.\n\n@param referencesThis\n"
+    }
+  }
+}

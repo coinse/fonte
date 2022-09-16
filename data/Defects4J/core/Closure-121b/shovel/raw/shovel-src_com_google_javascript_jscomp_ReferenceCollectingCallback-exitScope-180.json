@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-121b",
+  "repositoryPath": "/tmp/Closure-121b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReferenceCollectingCallback.java",
+  "functionName": "exitScope",
+  "functionId": "exitScope___t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Updates block stack and invokes any additional behavior.\n",
+  "functionStartLine": 180,
+  "functionEndLine": 189,
+  "numCommitsSeen": 33,
+  "timeTaken": 1670,
+  "changeHistory": [
+    "70a5626922ea7e8c98747e22b6986638ba38fadc",
+    "76abdf11394c0e7515ae63335676ea3657badb45",
+    "75a9013e3907e5db97f10578227497d7b018caf5",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "70a5626922ea7e8c98747e22b6986638ba38fadc": "Ydocchange",
+    "76abdf11394c0e7515ae63335676ea3657badb45": "Yannotationchange",
+    "75a9013e3907e5db97f10578227497d7b018caf5": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "70a5626922ea7e8c98747e22b6986638ba38fadc": {
+      "type": "Ydocchange",
+      "commitMessage": "\nFix various typos, spelling and grammar errors.\nFixes issue 734. \nContributed by Robert Gust Bardon\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4827\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1979 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/18/12, 11:09 AM",
+      "commitName": "70a5626922ea7e8c98747e22b6986638ba38fadc",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/14/11, 6:13 PM",
+      "commitNameOld": "39f629a8cfaab37da55288010640d7e516000b1f",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 185.66,
+      "commitsBetweenForRepo": 323,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void exitScope(NodeTraversal t) {\n    blockStack.pop();\n    if (t.getScope().isGlobal()) {\n        compiler.updateGlobalVarReferences(referenceMap, t.getScopeRoot());\n        behavior.afterExitScope(t, compiler.getGlobalVarReferences());\n    } else {\n        behavior.afterExitScope(t, new ReferenceMapWrapper(referenceMap));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 180,
+      "functionName": "exitScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Updates block stack and invokes any additional behavior.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Updates block statck and invokes any additional behavior.\n",
+        "newValue": "Updates block stack and invokes any additional behavior.\n"
+      }
+    },
+    "76abdf11394c0e7515ae63335676ea3657badb45": {
+      "type": "Yannotationchange",
+      "commitMessage": "\nMake our build warnings free.\n\nR\u003dacleung\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2830\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1301 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/28/11, 4:19 PM",
+      "commitName": "76abdf11394c0e7515ae63335676ea3657badb45",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "7/20/11, 8:08 AM",
+      "commitNameOld": "ae5ae60fb49108d4daa3f3e5dd2e1b135d305e9a",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 8.34,
+      "commitsBetweenForRepo": 26,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void exitScope(NodeTraversal t) {\n    blockStack.pop();\n    if (t.getScope().isGlobal()) {\n        compiler.updateGlobalVarReferences(referenceMap, t.getScopeRoot());\n        behavior.afterExitScope(t, compiler.getGlobalVarReferences());\n    } else {\n        behavior.afterExitScope(t, new ReferenceMapWrapper(referenceMap));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 180,
+      "functionName": "exitScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Updates block statck and invokes any additional behavior.\n",
+      "diff": "@@ -1,9 +1,10 @@\n+@Override\n public void exitScope(NodeTraversal t) {\n     blockStack.pop();\n     if (t.getScope().isGlobal()) {\n         compiler.updateGlobalVarReferences(referenceMap, t.getScopeRoot());\n         behavior.afterExitScope(t, compiler.getGlobalVarReferences());\n     } else {\n         behavior.afterExitScope(t, new ReferenceMapWrapper(referenceMap));\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "75a9013e3907e5db97f10578227497d7b018caf5": {
+      "type": "Ybodychange",
+      "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/24/11, 10:36 AM",
+      "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+      "commitAuthor": "bashir@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 41.93,
+      "commitsBetweenForRepo": 125,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void exitScope(NodeTraversal t) {\n    blockStack.pop();\n    if (t.getScope().isGlobal()) {\n        compiler.updateGlobalVarReferences(referenceMap, t.getScopeRoot());\n        behavior.afterExitScope(t, compiler.getGlobalVarReferences());\n    } else {\n        behavior.afterExitScope(t, new ReferenceMapWrapper(referenceMap));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 162,
+      "functionName": "exitScope",
+      "functionAnnotation": "",
+      "functionDoc": "Updates block statck and invokes any additional behavior.\n",
+      "diff": "@@ -1,4 +1,9 @@\n public void exitScope(NodeTraversal t) {\n     blockStack.pop();\n-    behavior.afterExitScope(t, referenceMap);\n+    if (t.getScope().isGlobal()) {\n+        compiler.updateGlobalVarReferences(referenceMap, t.getScopeRoot());\n+        behavior.afterExitScope(t, compiler.getGlobalVarReferences());\n+    } else {\n+        behavior.afterExitScope(t, new ReferenceMapWrapper(referenceMap));\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+public void exitScope(NodeTraversal t) {\n+    blockStack.pop();\n+    behavior.afterExitScope(t, referenceMap);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void exitScope(NodeTraversal t) {\n    blockStack.pop();\n    behavior.afterExitScope(t, referenceMap);\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 154,
+      "functionName": "exitScope",
+      "functionAnnotation": "",
+      "functionDoc": "Updates block statck and invokes any additional behavior.\n"
+    }
+  }
+}

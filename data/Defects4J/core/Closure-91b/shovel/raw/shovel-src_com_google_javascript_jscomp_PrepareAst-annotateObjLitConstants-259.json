@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "annotateObjLitConstants",
+  "functionId": "$annotateObjLitConstants___objlit-Node__key-Node__value-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "Mark objlit names that are constants by convention.\n",
+  "functionStartLine": 259,
+  "functionEndLine": 266,
+  "numCommitsSeen": 9,
+  "timeTaken": 431,
+  "changeHistory": [
+    "f93cdf97ea803c4702023daf1326dc45172de611"
+  ],
+  "changeHistoryShort": {
+    "f93cdf97ea803c4702023daf1326dc45172de611": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f93cdf97ea803c4702023daf1326dc45172de611": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/14/10, 4:04 PM",
+      "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+private void annotateObjLitConstants(Node objlit, Node key, Node value) {\n+    if (key.getType() \u003d\u003d Token.NAME || key.getType() \u003d\u003d Token.STRING) {\n+        String name \u003d key.getString();\n+        if (convention.isConstantKey(name)) {\n+            key.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void annotateObjLitConstants(Node objlit, Node key, Node value) {\n    if (key.getType() \u003d\u003d Token.NAME || key.getType() \u003d\u003d Token.STRING) {\n        String name \u003d key.getString();\n        if (convention.isConstantKey(name)) {\n            key.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 259,
+      "functionName": "annotateObjLitConstants",
+      "functionAnnotation": "",
+      "functionDoc": "Mark objlit names that are constants by convention.\n"
+    }
+  }
+}

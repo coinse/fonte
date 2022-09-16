@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LinkedDirectedGraph.java",
+  "functionName": "isConnectedInDirection",
+  "functionId": "isConnectedInDirection___n1-N__edgeValue-E__n2-N",
+  "sourceFilePath": "src/com/google/javascript/jscomp/graph/LinkedDirectedGraph.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 199,
+  "functionEndLine": 201,
+  "numCommitsSeen": 15,
+  "timeTaken": 915,
+  "changeHistory": [
+    "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Make sure that NameAnalyzer does not\nremove property assignments done via aliases. (Nick)\nR\u003dantonio\nDELTA\u003d417  (399 added, 9 deleted, 9 changed)\n\nput the graph tests in the graph package. (Nick)\nR\u003dalan\nDELTA\u003d1422  (753 added, 660 deleted, 9 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqlondb\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@168 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/2/10, 3:08 PM",
+      "commitName": "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Make sure that NameAnalyzer does not\nremove property assignments done via aliases. (Nick)\nR\u003dantonio\nDELTA\u003d417  (399 added, 9 deleted, 9 changed)\n\nput the graph tests in the graph package. (Nick)\nR\u003dalan\nDELTA\u003d1422  (753 added, 660 deleted, 9 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqlondb\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@168 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/2/10, 3:08 PM",
+          "commitName": "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "2/8/10, 3:25 PM",
+          "commitNameOld": "c0face2a48665e46f4829f54ee24cfa4cf8d4589",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 52.95,
+          "commitsBetweenForRepo": 71,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean isConnectedInDirection(N n1, E edgeValue, N n2) {\n    return isConnectedInDirection(n1, Predicates.equalTo(edgeValue), n2);\n}",
+          "path": "src/com/google/javascript/jscomp/graph/LinkedDirectedGraph.java",
+          "functionStartLine": 200,
+          "functionName": "isConnectedInDirection",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,17 +1,4 @@\n @Override\n-public boolean isConnectedInDirection(N n1, N n2) {\n-    DiGraphNode\u003cN, E\u003e dNode1 \u003d nodes.get(n1);\n-    if (dNode1 \u003d\u003d null) {\n-        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n-    }\n-    DiGraphNode\u003cN, E\u003e dNode2 \u003d nodes.get(n2);\n-    if (dNode2 \u003d\u003d null) {\n-        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n-    }\n-    for (DiGraphEdge\u003cN, E\u003e outEdge : dNode1.getOutEdges()) {\n-        if (outEdge.getDestination() \u003d\u003d dNode2) {\n-            return true;\n-        }\n-    }\n-    return false;\n+public boolean isConnectedInDirection(N n1, E edgeValue, N n2) {\n+    return isConnectedInDirection(n1, Predicates.equalTo(edgeValue), n2);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[n1-N, n2-N]",
+            "newValue": "[n1-N, edgeValue-E, n2-N]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Make sure that NameAnalyzer does not\nremove property assignments done via aliases. (Nick)\nR\u003dantonio\nDELTA\u003d417  (399 added, 9 deleted, 9 changed)\n\nput the graph tests in the graph package. (Nick)\nR\u003dalan\nDELTA\u003d1422  (753 added, 660 deleted, 9 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqlondb\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@168 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/2/10, 3:08 PM",
+          "commitName": "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "2/8/10, 3:25 PM",
+          "commitNameOld": "c0face2a48665e46f4829f54ee24cfa4cf8d4589",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 52.95,
+          "commitsBetweenForRepo": 71,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean isConnectedInDirection(N n1, E edgeValue, N n2) {\n    return isConnectedInDirection(n1, Predicates.equalTo(edgeValue), n2);\n}",
+          "path": "src/com/google/javascript/jscomp/graph/LinkedDirectedGraph.java",
+          "functionStartLine": 200,
+          "functionName": "isConnectedInDirection",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,17 +1,4 @@\n @Override\n-public boolean isConnectedInDirection(N n1, N n2) {\n-    DiGraphNode\u003cN, E\u003e dNode1 \u003d nodes.get(n1);\n-    if (dNode1 \u003d\u003d null) {\n-        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n-    }\n-    DiGraphNode\u003cN, E\u003e dNode2 \u003d nodes.get(n2);\n-    if (dNode2 \u003d\u003d null) {\n-        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n-    }\n-    for (DiGraphEdge\u003cN, E\u003e outEdge : dNode1.getOutEdges()) {\n-        if (outEdge.getDestination() \u003d\u003d dNode2) {\n-            return true;\n-        }\n-    }\n-    return false;\n+public boolean isConnectedInDirection(N n1, E edgeValue, N n2) {\n+    return isConnectedInDirection(n1, Predicates.equalTo(edgeValue), n2);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,17 @@\n+@Override\n+public boolean isConnectedInDirection(N n1, N n2) {\n+    DiGraphNode\u003cN, E\u003e dNode1 \u003d nodes.get(n1);\n+    if (dNode1 \u003d\u003d null) {\n+        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n+    }\n+    DiGraphNode\u003cN, E\u003e dNode2 \u003d nodes.get(n2);\n+    if (dNode2 \u003d\u003d null) {\n+        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n+    }\n+    for (DiGraphEdge\u003cN, E\u003e outEdge : dNode1.getOutEdges()) {\n+        if (outEdge.getDestination() \u003d\u003d dNode2) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean isConnectedInDirection(N n1, N n2) {\n    DiGraphNode\u003cN, E\u003e dNode1 \u003d nodes.get(n1);\n    if (dNode1 \u003d\u003d null) {\n        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n    }\n    DiGraphNode\u003cN, E\u003e dNode2 \u003d nodes.get(n2);\n    if (dNode2 \u003d\u003d null) {\n        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n    }\n    for (DiGraphEdge\u003cN, E\u003e outEdge : dNode1.getOutEdges()) {\n        if (outEdge.getDestination() \u003d\u003d dNode2) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/graph/LinkedDirectedGraph.java",
+      "functionStartLine": 189,
+      "functionName": "isConnectedInDirection",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

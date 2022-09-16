@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PhaseOptimizer.java",
+  "functionName": "optimizePasses",
+  "functionId": "$optimizePasses",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PhaseOptimizer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Re-arrange the passes in an optimal order.\n",
+  "functionStartLine": 362,
+  "functionEndLine": 381,
+  "numCommitsSeen": 10,
+  "timeTaken": 952,
+  "changeHistory": [
+    "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd"
+  ],
+  "changeHistoryShort": {
+    "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd": {
+      "type": "Yintroduced",
+      "commitMessage": "Add more unit tests for type checking.\n\nAdd phase optimization.\n\nFix a type inference bug.\n\nString.prototype.split may not return null.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@55 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/4/10, 12:18 PM",
+      "commitName": "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,13 @@\n+private void optimizePasses() {\n+    List\u003cNamedPass\u003e optimalPasses \u003d Lists.newArrayList();\n+    for (String passName : OPTIMAL_ORDER) {\n+        for (NamedPass pass : myPasses) {\n+            if (pass.name.equals(passName)) {\n+                optimalPasses.add(pass);\n+                break;\n+            }\n+        }\n+    }\n+    myPasses.removeAll(optimalPasses);\n+    myPasses.addAll(optimalPasses);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void optimizePasses() {\n    List\u003cNamedPass\u003e optimalPasses \u003d Lists.newArrayList();\n    for (String passName : OPTIMAL_ORDER) {\n        for (NamedPass pass : myPasses) {\n            if (pass.name.equals(passName)) {\n                optimalPasses.add(pass);\n                break;\n            }\n        }\n    }\n    myPasses.removeAll(optimalPasses);\n    myPasses.addAll(optimalPasses);\n}",
+      "path": "src/com/google/javascript/jscomp/PhaseOptimizer.java",
+      "functionStartLine": 362,
+      "functionName": "optimizePasses",
+      "functionAnnotation": "",
+      "functionDoc": "Re-arrange the passes in an optimal order.\n"
+    }
+  }
+}

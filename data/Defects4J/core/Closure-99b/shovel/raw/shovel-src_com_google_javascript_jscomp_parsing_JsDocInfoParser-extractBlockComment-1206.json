@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-99b",
+  "repositoryPath": "/tmp/Closure-99b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "extractBlockComment",
+  "functionId": "extractBlockComment___token-JsDocToken",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "Extracts the top-level block comment from the JsDoc comment, if any.\nThis method differs from the extractMultilineTextualBlock in that it\nterminates under different conditions (it doesn\u0027t have the same\nprechecks), it does not first read in the remaining of the current\nline and its conditions for ignoring the \"*\" (STAR) are different.\n\n@param token The starting token.\n@return The extraction information.\n",
+  "functionStartLine": 1206,
+  "functionEndLine": 1251,
+  "numCommitsSeen": 15,
+  "timeTaken": 1733,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,36 @@\n+private ExtractionInfo extractBlockComment(JsDocToken token) {\n+    StringBuilder builder \u003d new StringBuilder();\n+    boolean ignoreStar \u003d true;\n+    do {\n+        switch(token) {\n+            case ANNOTATION:\n+            case EOC:\n+            case EOF:\n+                return new ExtractionInfo(builder.toString().trim(), token);\n+            case STAR:\n+                if (!ignoreStar) {\n+                    if (builder.length() \u003e 0) {\n+                        builder.append(\u0027 \u0027);\n+                    }\n+                    builder.append(\u0027*\u0027);\n+                }\n+                token \u003d next();\n+                continue;\n+            case EOL:\n+                ignoreStar \u003d true;\n+                builder.append(\u0027\\n\u0027);\n+                token \u003d next();\n+                continue;\n+            default:\n+                if (!ignoreStar \u0026\u0026 builder.length() \u003e 0) {\n+                    builder.append(\u0027 \u0027);\n+                }\n+                ignoreStar \u003d false;\n+                builder.append(toString(token));\n+                String line \u003d stream.getRemainingJSDocLine();\n+                line \u003d trimEnd(line);\n+                builder.append(line);\n+                token \u003d next();\n+        }\n+    } while (true);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private ExtractionInfo extractBlockComment(JsDocToken token) {\n    StringBuilder builder \u003d new StringBuilder();\n    boolean ignoreStar \u003d true;\n    do {\n        switch(token) {\n            case ANNOTATION:\n            case EOC:\n            case EOF:\n                return new ExtractionInfo(builder.toString().trim(), token);\n            case STAR:\n                if (!ignoreStar) {\n                    if (builder.length() \u003e 0) {\n                        builder.append(\u0027 \u0027);\n                    }\n                    builder.append(\u0027*\u0027);\n                }\n                token \u003d next();\n                continue;\n            case EOL:\n                ignoreStar \u003d true;\n                builder.append(\u0027\\n\u0027);\n                token \u003d next();\n                continue;\n            default:\n                if (!ignoreStar \u0026\u0026 builder.length() \u003e 0) {\n                    builder.append(\u0027 \u0027);\n                }\n                ignoreStar \u003d false;\n                builder.append(toString(token));\n                String line \u003d stream.getRemainingJSDocLine();\n                line \u003d trimEnd(line);\n                builder.append(line);\n                token \u003d next();\n        }\n    } while (true);\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1267,
+      "functionName": "extractBlockComment",
+      "functionAnnotation": "",
+      "functionDoc": "Extracts the top-level block comment from the JsDoc comment, if any.\nThis method differs from the extractMultilineTextualBlock in that it\nterminates under different conditions (it doesn\u0027t have the same\nprechecks), it does not first read in the remaining of the current\nline and its conditions for ignoring the \"*\" (STAR) are different.\n\n@param token The starting token.\n@return The extraction information.\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-131b",
+  "repositoryPath": "/tmp/Closure-131b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "getSimpleNumber",
+  "functionId": "getSimpleNumber___s-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 794,
+  "functionEndLine": 806,
+  "numCommitsSeen": 78,
+  "timeTaken": 3638,
+  "changeHistory": [
+    "da36f250f9452743dbf0859af86312b844c0d0bd",
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e"
+  ],
+  "changeHistoryShort": {
+    "da36f250f9452743dbf0859af86312b844c0d0bd": "Ybodychange",
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "da36f250f9452743dbf0859af86312b844c0d0bd": {
+      "type": "Ybodychange",
+      "commitMessage": "\nDon\u0027t crash on large numbers :)\n\nR\u003djohnlenz\nDELTA\u003d14  (11 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1495\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1018 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/18/11, 4:27 PM",
+      "commitName": "da36f250f9452743dbf0859af86312b844c0d0bd",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "4/15/11, 9:10 AM",
+      "commitNameOld": "ee8344091722c28c9351e78dcb4155fbfddfd1af",
+      "commitAuthorOld": "zhuyi@google.com",
+      "daysBetweenCommits": 3.3,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static double getSimpleNumber(String s) {\n    if (isSimpleNumber(s)) {\n        try {\n            long l \u003d Long.parseLong(s);\n            if (l \u003c NodeUtil.MAX_POSITIVE_INTEGER_NUMBER) {\n                return l;\n            }\n        } catch (NumberFormatException e) {\n        }\n    }\n    return Double.NaN;\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 744,
+      "functionName": "getSimpleNumber",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,12 @@\n static double getSimpleNumber(String s) {\n     if (isSimpleNumber(s)) {\n-        long l \u003d Long.parseLong(s);\n-        if (l \u003c NodeUtil.MAX_POSITIVE_INTEGER_NUMBER) {\n-            return l;\n+        try {\n+            long l \u003d Long.parseLong(s);\n+            if (l \u003c NodeUtil.MAX_POSITIVE_INTEGER_NUMBER) {\n+                return l;\n+            }\n+        } catch (NumberFormatException e) {\n         }\n     }\n     return Double.NaN;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDefine number keys in object literals to be quoted string nodes. Tagged with NUMBER_PROP\nFixes issue 347\n\nR\u003dnicksantos\nDELTA\u003d229  (157 added, 19 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1252\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@966 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 2:26 PM",
+      "commitName": "41acde3e8e5e8d37ade765b41d9fd29861f03e5e",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+static double getSimpleNumber(String s) {\n+    if (isSimpleNumber(s)) {\n+        long l \u003d Long.parseLong(s);\n+        if (l \u003c NodeUtil.MAX_POSITIVE_INTEGER_NUMBER) {\n+            return l;\n+        }\n+    }\n+    return Double.NaN;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static double getSimpleNumber(String s) {\n    if (isSimpleNumber(s)) {\n        long l \u003d Long.parseLong(s);\n        if (l \u003c NodeUtil.MAX_POSITIVE_INTEGER_NUMBER) {\n            return l;\n        }\n    }\n    return Double.NaN;\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 747,
+      "functionName": "getSimpleNumber",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "getBestJSDocInfo",
+  "functionId": "getBestJSDocInfo___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Find the best JSDoc for the given node.\n",
+  "functionStartLine": 1697,
+  "functionEndLine": 1714,
+  "numCommitsSeen": 42,
+  "timeTaken": 1544,
+  "changeHistory": [
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc"
+  ],
+  "changeHistoryShort": {
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": {
+      "type": "Yintroduced",
+      "commitMessage": "\nClean up type discovery by refactoring to the following algorithm.\n1) When we see a function literal, create the authoritative\ntype for it.\n2) When we see an object literal, create the authoritative\ntype for it.\n3) When we declare a symbol, check to see if it\u0027s assigned to\nan object or function literal, and use that type if it\nmake sense to do so. Otherwise, fall back on the JSDoc info.\nThis should make it a lot easier to give accurate types to object\nliteral properties.\nI didn\u0027t intend to create any functional changes in this CL,\nbut some minor ones were inevitable.\n\nR\u003djohnlenz\nDELTA\u003d618  (320 added, 249 deleted, 49 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d392\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@739 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/31/11, 8:08 AM",
+      "commitName": "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,18 @@\n+static JSDocInfo getBestJSDocInfo(Node n) {\n+    JSDocInfo info \u003d n.getJSDocInfo();\n+    if (info \u003d\u003d null) {\n+        Node parent \u003d n.getParent();\n+        int parentType \u003d parent.getType();\n+        if (parentType \u003d\u003d Token.NAME) {\n+            info \u003d parent.getJSDocInfo();\n+            if (info \u003d\u003d null \u0026\u0026 parent.getParent().hasOneChild()) {\n+                info \u003d parent.getParent().getJSDocInfo();\n+            }\n+        } else if (parentType \u003d\u003d Token.ASSIGN) {\n+            info \u003d parent.getJSDocInfo();\n+        } else if (NodeUtil.isObjectLitKey(parent, parent.getParent())) {\n+            info \u003d parent.getJSDocInfo();\n+        }\n+    }\n+    return info;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static JSDocInfo getBestJSDocInfo(Node n) {\n    JSDocInfo info \u003d n.getJSDocInfo();\n    if (info \u003d\u003d null) {\n        Node parent \u003d n.getParent();\n        int parentType \u003d parent.getType();\n        if (parentType \u003d\u003d Token.NAME) {\n            info \u003d parent.getJSDocInfo();\n            if (info \u003d\u003d null \u0026\u0026 parent.getParent().hasOneChild()) {\n                info \u003d parent.getParent().getJSDocInfo();\n            }\n        } else if (parentType \u003d\u003d Token.ASSIGN) {\n            info \u003d parent.getJSDocInfo();\n        } else if (NodeUtil.isObjectLitKey(parent, parent.getParent())) {\n            info \u003d parent.getJSDocInfo();\n        }\n    }\n    return info;\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 1683,
+      "functionName": "getBestJSDocInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Find the best JSDoc for the given node.\n"
+    }
+  }
+}

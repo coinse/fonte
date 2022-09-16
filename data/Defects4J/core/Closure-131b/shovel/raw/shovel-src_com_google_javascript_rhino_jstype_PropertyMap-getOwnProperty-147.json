@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-131b",
+  "repositoryPath": "/tmp/Closure-131b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PropertyMap.java",
+  "functionName": "getOwnProperty",
+  "functionId": "getOwnProperty___propertyName-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PropertyMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 147,
+  "functionEndLine": 149,
+  "numCommitsSeen": 2,
+  "timeTaken": 1183,
+  "changeHistory": [
+    "b2430d29987b54e977a5e5e8db9242f4486c750b"
+  ],
+  "changeHistoryShort": {
+    "b2430d29987b54e977a5e5e8db9242f4486c750b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b2430d29987b54e977a5e5e8db9242f4486c750b": {
+      "type": "Yintroduced",
+      "commitMessage": "\nProposal: change how we represent property sets on objects.\nI went down this rabbit-hole to experiment with a few different things:\n- Separating property bookkeeping from type relation bookkeeping.\n- Use the same property-store for \"new Foo()\" and \"Foo.prototype\".\nI don\u0027t think that maintaining separate property maps for these two\ntypes actually buys us anything, and it\u0027s inconsistent with how they\u0027re\nused in practice.\n- Use the same property-store for \"Foo.\u003cBar\u003e\" and \"Foo.\u003cBaz\u003e\"\nI actually like how this ended up--it\u0027s a lot easier to see how properties\nare inherited. But I\u0027m curious what others think.\n\nR\u003djohnlenz,dimvar\nDELTA\u003d507  (347 added, 143 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5910\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2361 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/3/12, 9:30 AM",
+      "commitName": "b2430d29987b54e977a5e5e8db9242f4486c750b",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+Property getOwnProperty(String propertyName) {\n+    return properties.get(propertyName);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Property getOwnProperty(String propertyName) {\n    return properties.get(propertyName);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PropertyMap.java",
+      "functionStartLine": 125,
+      "functionName": "getOwnProperty",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

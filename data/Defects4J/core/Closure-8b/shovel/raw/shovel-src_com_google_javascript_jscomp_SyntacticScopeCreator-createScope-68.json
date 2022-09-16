@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-8b",
+  "repositoryPath": "/tmp/Closure-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SyntacticScopeCreator.java",
+  "functionName": "createScope",
+  "functionId": "createScope___n-Node__parent-Scope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/SyntacticScopeCreator.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 68,
+  "functionEndLine": 82,
+  "numCommitsSeen": 25,
+  "timeTaken": 974,
+  "changeHistory": [
+    "1b8156d41fe441ab03999f1e2c5ac4537e79fc75",
+    "76abdf11394c0e7515ae63335676ea3657badb45",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "1b8156d41fe441ab03999f1e2c5ac4537e79fc75": "Ybodychange",
+    "76abdf11394c0e7515ae63335676ea3657badb45": "Yannotationchange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1b8156d41fe441ab03999f1e2c5ac4537e79fc75": {
+      "type": "Ybodychange",
+      "commitMessage": "\nPart 4, source name/input id split: Require an InputId to lookup a CompilerInput.\n\nR\u003dnicksantos\nDELTA\u003d266  (106 added, 20 deleted, 140 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2899\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1328 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 11:43 AM",
+      "commitName": "1b8156d41fe441ab03999f1e2c5ac4537e79fc75",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "7/28/11, 4:19 PM",
+      "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 6.81,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Scope createScope(Node n, Scope parent) {\n    inputId \u003d null;\n    if (parent \u003d\u003d null) {\n        scope \u003d new Scope(n, compiler);\n    } else {\n        scope \u003d new Scope(parent, n);\n    }\n    scanRoot(n, parent);\n    inputId \u003d null;\n    Scope returnedScope \u003d scope;\n    scope \u003d null;\n    return returnedScope;\n}",
+      "path": "src/com/google/javascript/jscomp/SyntacticScopeCreator.java",
+      "functionStartLine": 68,
+      "functionName": "createScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,14 +1,14 @@\n @Override\n public Scope createScope(Node n, Scope parent) {\n-    sourceName \u003d null;\n+    inputId \u003d null;\n     if (parent \u003d\u003d null) {\n         scope \u003d new Scope(n, compiler);\n     } else {\n         scope \u003d new Scope(parent, n);\n     }\n     scanRoot(n, parent);\n-    sourceName \u003d null;\n+    inputId \u003d null;\n     Scope returnedScope \u003d scope;\n     scope \u003d null;\n     return returnedScope;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "76abdf11394c0e7515ae63335676ea3657badb45": {
+      "type": "Yannotationchange",
+      "commitMessage": "\nMake our build warnings free.\n\nR\u003dacleung\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2830\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1301 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/28/11, 4:19 PM",
+      "commitName": "76abdf11394c0e7515ae63335676ea3657badb45",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "6/30/11, 1:25 PM",
+      "commitNameOld": "9320feca198878ca9464aae089399a8891c314d7",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 28.12,
+      "commitsBetweenForRepo": 59,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Scope createScope(Node n, Scope parent) {\n    sourceName \u003d null;\n    if (parent \u003d\u003d null) {\n        scope \u003d new Scope(n, compiler);\n    } else {\n        scope \u003d new Scope(parent, n);\n    }\n    scanRoot(n, parent);\n    sourceName \u003d null;\n    Scope returnedScope \u003d scope;\n    scope \u003d null;\n    return returnedScope;\n}",
+      "path": "src/com/google/javascript/jscomp/SyntacticScopeCreator.java",
+      "functionStartLine": 67,
+      "functionName": "createScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,14 @@\n+@Override\n public Scope createScope(Node n, Scope parent) {\n     sourceName \u003d null;\n     if (parent \u003d\u003d null) {\n         scope \u003d new Scope(n, compiler);\n     } else {\n         scope \u003d new Scope(parent, n);\n     }\n     scanRoot(n, parent);\n     sourceName \u003d null;\n     Scope returnedScope \u003d scope;\n     scope \u003d null;\n     return returnedScope;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,13 @@\n+public Scope createScope(Node n, Scope parent) {\n+    sourceName \u003d null;\n+    if (parent \u003d\u003d null) {\n+        scope \u003d new Scope(n, compiler);\n+    } else {\n+        scope \u003d new Scope(parent, n);\n+    }\n+    scanRoot(n, parent);\n+    sourceName \u003d null;\n+    Scope returnedScope \u003d scope;\n+    scope \u003d null;\n+    return returnedScope;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Scope createScope(Node n, Scope parent) {\n    sourceName \u003d null;\n    if (parent \u003d\u003d null) {\n        scope \u003d new Scope(n, compiler);\n    } else {\n        scope \u003d new Scope(parent, n);\n    }\n    scanRoot(n, parent);\n    sourceName \u003d null;\n    Scope returnedScope \u003d scope;\n    scope \u003d null;\n    return returnedScope;\n}",
+      "path": "src/com/google/javascript/jscomp/SyntacticScopeCreator.java",
+      "functionStartLine": 59,
+      "functionName": "createScope",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

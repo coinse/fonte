@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Scope.java",
+  "functionName": "resolveType",
+  "functionId": "$resolveType___errorReporter-ErrorReporter",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Scope.java",
+  "functionAnnotation": "",
+  "functionDoc": "Resolve this variable\u0027s type.\n",
+  "functionStartLine": 280,
+  "functionEndLine": 284,
+  "numCommitsSeen": 19,
+  "timeTaken": 2465,
+  "changeHistory": [
+    "5da32cba7b68d69acfc535f57f21d652475d256f"
+  ],
+  "changeHistoryShort": {
+    "5da32cba7b68d69acfc535f57f21d652475d256f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5da32cba7b68d69acfc535f57f21d652475d256f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/04/19 by anatol\n\n        Replace {@inheritDoc} javadoc annotation with @Override.\n        @Override is better as it implies documentation inheritance plus checks\n        that the parent method exists at the compile-time.\n\n        R\u003dnick\n        DELTA\u003d137  (0 added, 70 deleted, 67 changed)\n\nChange on 2010/04/19 by nick\n\n        Change how we resolve types.\n        Instead of leaving shell proxy types around, unbox the proxy types.\n\n        R\u003dandrew,john\n        DELTA\u003d103  (84 added, 5 deleted, 14 changed)\n\nChange on 2010/04/19 by acleung\n\n        Enable Flow Sensitive Inlining by default.\n\n        R\u003djohn\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dpqvliw\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@191 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/19/10, 4:28 PM",
+      "commitName": "5da32cba7b68d69acfc535f57f21d652475d256f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,5 @@\n+void resolveType(ErrorReporter errorReporter) {\n+    if (type !\u003d null) {\n+        type \u003d type.resolve(errorReporter, scope);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void resolveType(ErrorReporter errorReporter) {\n    if (type !\u003d null) {\n        type \u003d type.resolve(errorReporter, scope);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Scope.java",
+      "functionStartLine": 229,
+      "functionName": "resolveType",
+      "functionAnnotation": "",
+      "functionDoc": "Resolve this variable\u0027s type.\n"
+    }
+  }
+}

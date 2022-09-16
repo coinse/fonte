@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeIterators.java",
+  "functionName": "forVar",
+  "functionId": "$forVar___name-Node__var-Node__block-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeIterators.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Create a LocalVarMotion for use with moving a value assigned\nat a variable declaration.\n",
+  "functionStartLine": 163,
+  "functionEndLine": 173,
+  "numCommitsSeen": 9,
+  "timeTaken": 1914,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 211.89,
+      "commitsBetweenForRepo": 539,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static LocalVarMotion forVar(Node name, Node var, Node block) {\n    Preconditions.checkArgument(var.isVar());\n    Preconditions.checkArgument(NodeUtil.isStatement(var));\n    return new LocalVarMotion(name, new FunctionlessLocalScope(name, var, block));\n}",
+      "path": "src/com/google/javascript/jscomp/NodeIterators.java",
+      "functionStartLine": 163,
+      "functionName": "forVar",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Create a LocalVarMotion for use with moving a value assigned\nat a variable declaration.\n",
+      "diff": "@@ -1,5 +1,5 @@\n static LocalVarMotion forVar(Node name, Node var, Node block) {\n-    Preconditions.checkArgument(var.getType() \u003d\u003d Token.VAR);\n+    Preconditions.checkArgument(var.isVar());\n     Preconditions.checkArgument(NodeUtil.isStatement(var));\n     return new LocalVarMotion(name, new FunctionlessLocalScope(name, var, block));\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/09, 11:16 AM",
+      "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,5 @@\n+static LocalVarMotion forVar(Node name, Node var, Node block) {\n+    Preconditions.checkArgument(var.getType() \u003d\u003d Token.VAR);\n+    Preconditions.checkArgument(NodeUtil.isStatement(var));\n+    return new LocalVarMotion(name, new FunctionlessLocalScope(name, var, block));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static LocalVarMotion forVar(Node name, Node var, Node block) {\n    Preconditions.checkArgument(var.getType() \u003d\u003d Token.VAR);\n    Preconditions.checkArgument(NodeUtil.isStatement(var));\n    return new LocalVarMotion(name, new FunctionlessLocalScope(name, var, block));\n}",
+      "path": "src/com/google/javascript/jscomp/NodeIterators.java",
+      "functionStartLine": 163,
+      "functionName": "forVar",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Create a LocalVarMotion for use with moving a value assigned\nat a variable declaration.\n"
+    }
+  }
+}

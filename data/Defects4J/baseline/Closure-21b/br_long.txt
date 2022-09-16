@@ -1,0 +1,17 @@
+<b>Purpose of code changes:</b>
+When it comes to an expression involving the comma operator, only the
+first element of such a sequence is checked for being free of side
+effects. If the element is free of side effects, it is classified as
+problematic and a warning is issued.
+
+As other non-rightmost elements are not checked for being free of side
+effects and therefore cannot be classified as problematic, this leads
+to unexpected behavior:
+
+1. foo((1, 2, 42)) is transformed into foo((1, 3)) and a warning is
+issued only with regard to the first element.
+2. foo((bar(), 2, 42)) is transformed into foo((bar(), 3)) and no
+warning is issued.
+3. foo(((1, 2, 3), (4, 5, 42))) is transformed into foo((1, 4, 42)) and
+warnings are issued with regard to the first elements of inner
+sequences only.

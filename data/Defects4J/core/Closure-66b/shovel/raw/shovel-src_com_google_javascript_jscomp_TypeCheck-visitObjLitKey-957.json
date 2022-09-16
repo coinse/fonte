@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeCheck.java",
+  "functionName": "visitObjLitKey",
+  "functionId": "visitObjLitKey___t-NodeTraversal__key-Node__objlit-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "Visits an object literal field definition \u003ccode\u003ekey : value\u003c/code\u003e.\n\nIf the \u003ccode\u003elvalue\u003c/code\u003e is a prototype modification, we change the\nschema of the object type it is referring to.\n\n@param t the traversal\n@param key the assign node\n",
+  "functionStartLine": 957,
+  "functionEndLine": 1004,
+  "numCommitsSeen": 46,
+  "timeTaken": 2965,
+  "changeHistory": [
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48"
+  ],
+  "changeHistoryShort": {
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic getters and setters support to TypeInference.\n\nR\u003dnicksantos\nDELTA\u003d573  (533 added, 15 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d366\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@735 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/27/11, 10:33 AM",
+      "commitName": "70f817ae4f80ac11dd2dfe97babf5896c690fb48",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,24 @@\n+private void visitObjLitKey(NodeTraversal t, Node key, Node objlit) {\n+    Node rvalue \u003d key.getFirstChild();\n+    JSType rightType \u003d NodeUtil.getObjectLitKeyTypeFromValueType(key, getJSType(rvalue));\n+    if (rightType \u003d\u003d null) {\n+        rightType \u003d getNativeType(UNKNOWN_TYPE);\n+    }\n+    Node owner \u003d objlit;\n+    JSType keyType \u003d getJSType(key);\n+    boolean valid \u003d validator.expectCanAssignToPropertyOf(t, key, rightType, keyType, owner, NodeUtil.getObjectLitKeyName(key));\n+    if (valid) {\n+        ensureTyped(t, key, rightType);\n+    } else {\n+        ensureTyped(t, key);\n+    }\n+    JSType objlitType \u003d getJSType(objlit);\n+    ObjectType type \u003d ObjectType.cast(objlitType.restrictByNotNullOrUndefined());\n+    if (type !\u003d null) {\n+        String property \u003d NodeUtil.getObjectLitKeyName(key);\n+        if (type.hasProperty(property) \u0026\u0026 !type.isPropertyTypeInferred(property) \u0026\u0026 !propertyIsImplicitCast(type, property)) {\n+            validator.expectCanAssignToPropertyOf(t, key, keyType, type.getPropertyType(property), owner, property);\n+        }\n+        return;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void visitObjLitKey(NodeTraversal t, Node key, Node objlit) {\n    Node rvalue \u003d key.getFirstChild();\n    JSType rightType \u003d NodeUtil.getObjectLitKeyTypeFromValueType(key, getJSType(rvalue));\n    if (rightType \u003d\u003d null) {\n        rightType \u003d getNativeType(UNKNOWN_TYPE);\n    }\n    Node owner \u003d objlit;\n    JSType keyType \u003d getJSType(key);\n    boolean valid \u003d validator.expectCanAssignToPropertyOf(t, key, rightType, keyType, owner, NodeUtil.getObjectLitKeyName(key));\n    if (valid) {\n        ensureTyped(t, key, rightType);\n    } else {\n        ensureTyped(t, key);\n    }\n    JSType objlitType \u003d getJSType(objlit);\n    ObjectType type \u003d ObjectType.cast(objlitType.restrictByNotNullOrUndefined());\n    if (type !\u003d null) {\n        String property \u003d NodeUtil.getObjectLitKeyName(key);\n        if (type.hasProperty(property) \u0026\u0026 !type.isPropertyTypeInferred(property) \u0026\u0026 !propertyIsImplicitCast(type, property)) {\n            validator.expectCanAssignToPropertyOf(t, key, keyType, type.getPropertyType(property), owner, property);\n        }\n        return;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 946,
+      "functionName": "visitObjLitKey",
+      "functionAnnotation": "",
+      "functionDoc": "Visits an object literal field definition \u003ccode\u003ekey : value\u003c/code\u003e.\n\nIf the \u003ccode\u003elvalue\u003c/code\u003e is a prototype modification, we change the\nschema of the object type it is referring to.\n\n@param t the traversal\n@param key the assign node\n"
+    }
+  }
+}

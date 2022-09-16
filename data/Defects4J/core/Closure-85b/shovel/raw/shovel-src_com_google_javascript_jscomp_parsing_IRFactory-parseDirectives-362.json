@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-85b",
+  "repositoryPath": "/tmp/Closure-85b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "parseDirectives",
+  "functionId": "$parseDirectives___node-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parse the directives, encode them in the AST, and remove their nodes.\n\nFor information on ES5 directives, see section 14.1 of\nEcma-262, Edition 5.\n\nIt would be nice if Rhino would eventually take care of this for\nus, but right now their directive-processing is a one-off.\n",
+  "functionStartLine": 362,
+  "functionEndLine": 377,
+  "numCommitsSeen": 28,
+  "timeTaken": 3933,
+  "changeHistory": [
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3"
+  ],
+  "changeHistoryShort": {
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": {
+      "type": "Yintroduced",
+      "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/8/09, 3:50 PM",
+      "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private void parseDirectives(Node node) {\n+    Set\u003cString\u003e directives \u003d null;\n+    while (isDirective(node.getFirstChild())) {\n+        String directive \u003d node.removeFirstChild().getFirstChild().getString();\n+        if (directives \u003d\u003d null) {\n+            directives \u003d Sets.newHashSet(directive);\n+        } else {\n+            directives.add(directive);\n+        }\n+    }\n+    if (directives !\u003d null) {\n+        node.setDirectives(directives);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void parseDirectives(Node node) {\n    Set\u003cString\u003e directives \u003d null;\n    while (isDirective(node.getFirstChild())) {\n        String directive \u003d node.removeFirstChild().getFirstChild().getString();\n        if (directives \u003d\u003d null) {\n            directives \u003d Sets.newHashSet(directive);\n        } else {\n            directives.add(directive);\n        }\n    }\n    if (directives !\u003d null) {\n        node.setDirectives(directives);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 382,
+      "functionName": "parseDirectives",
+      "functionAnnotation": "",
+      "functionDoc": "Parse the directives, encode them in the AST, and remove their nodes.\n\nFor information on ES5 directives, see section 14.1 of\nEcma-262, Edition 5.\n\nIt would be nice if Rhino would eventually take care of this for\nus, but right now their directive-processing is a one-off.\n"
+    }
+  }
+}

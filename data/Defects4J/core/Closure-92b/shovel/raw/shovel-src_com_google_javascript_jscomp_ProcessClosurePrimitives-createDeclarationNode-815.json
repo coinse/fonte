@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "createDeclarationNode",
+  "functionId": "$createDeclarationNode",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create the declaration node for this name, without inserting it\ninto the AST.\n",
+  "functionStartLine": 815,
+  "functionEndLine": 821,
+  "numCommitsSeen": 23,
+  "timeTaken": 1291,
+  "changeHistory": [
+    "1046b0c09e2371f8924f72331d42db5b554c4a32"
+  ],
+  "changeHistoryShort": {
+    "1046b0c09e2371f8924f72331d42db5b554c4a32": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1046b0c09e2371f8924f72331d42db5b554c4a32": {
+      "type": "Yintroduced",
+      "commitMessage": "Rewrite ProcessClosurePrimitives to have a distinct indexing and mutation step.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@94 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/5/10, 11:27 AM",
+      "commitName": "1046b0c09e2371f8924f72331d42db5b554c4a32",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,7 @@\n+private Node createDeclarationNode() {\n+    if (namespace.indexOf(\u0027.\u0027) \u003d\u003d -1) {\n+        return makeVarDeclNode(namespace, firstNode);\n+    } else {\n+        return makeAssignmentExprNode(namespace, firstNode);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node createDeclarationNode() {\n    if (namespace.indexOf(\u0027.\u0027) \u003d\u003d -1) {\n        return makeVarDeclNode(namespace, firstNode);\n    } else {\n        return makeAssignmentExprNode(namespace, firstNode);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 764,
+      "functionName": "createDeclarationNode",
+      "functionAnnotation": "",
+      "functionDoc": "Create the declaration node for this name, without inserting it\ninto the AST.\n"
+    }
+  }
+}

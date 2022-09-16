@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "hoistExterns",
+  "functionId": "hoistExterns___externsRoot-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Hoists inputs with the @externs annotation into the externs list.\n",
+  "functionStartLine": 1424,
+  "functionEndLine": 1460,
+  "numCommitsSeen": 177,
+  "timeTaken": 3932,
+  "changeHistory": [
+    "ad95d9311cc38f5b26ac32de1b9959cea3831b3f",
+    "6ff34092914307b4a3518de0f507649010bc2140"
+  ],
+  "changeHistoryShort": {
+    "ad95d9311cc38f5b26ac32de1b9959cea3831b3f": "Ybodychange",
+    "6ff34092914307b4a3518de0f507649010bc2140": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ad95d9311cc38f5b26ac32de1b9959cea3831b3f": {
+      "type": "Ybodychange",
+      "commitMessage": "\nSome more cleanup of JsMessageExtractorRunner\n\nR\u003djohnlenz\nDELTA\u003d48  (0 added, 45 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5612\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2242 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/4/12, 5:18 PM",
+      "commitName": "ad95d9311cc38f5b26ac32de1b9959cea3831b3f",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "9/19/12, 7:55 AM",
+      "commitNameOld": "00995a24f8cc4fc91c279165f14ffb6fe08f6d95",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 15.39,
+      "commitsBetweenForRepo": 42,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void hoistExterns(Node externsRoot) {\n    boolean staleInputs \u003d false;\n    for (CompilerInput input : inputs) {\n        if (options.dependencyOptions.needsManagement()) {\n            if (!input.getProvides().isEmpty() || !input.getRequires().isEmpty()) {\n                continue;\n            }\n        }\n        Node n \u003d input.getAstRoot(this);\n        if (n \u003d\u003d null) {\n            continue;\n        }\n        JSDocInfo info \u003d n.getJSDocInfo();\n        if (info !\u003d null \u0026\u0026 info.isExterns()) {\n            externsRoot.addChildToBack(n);\n            input.setIsExtern(true);\n            input.getModule().remove(input);\n            externs.add(input);\n            staleInputs \u003d true;\n        }\n    }\n    if (staleInputs) {\n        repartitionInputs();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1407,
+      "functionName": "hoistExterns",
+      "functionAnnotation": "",
+      "functionDoc": "Hoists inputs with the @externs annotation into the externs list.\n",
+      "diff": "@@ -1,25 +1,25 @@\n private void hoistExterns(Node externsRoot) {\n     boolean staleInputs \u003d false;\n     for (CompilerInput input : inputs) {\n-        if (options.dependencyOptions.needsManagement() \u0026\u0026 options.closurePass) {\n+        if (options.dependencyOptions.needsManagement()) {\n             if (!input.getProvides().isEmpty() || !input.getRequires().isEmpty()) {\n                 continue;\n             }\n         }\n         Node n \u003d input.getAstRoot(this);\n         if (n \u003d\u003d null) {\n             continue;\n         }\n         JSDocInfo info \u003d n.getJSDocInfo();\n         if (info !\u003d null \u0026\u0026 info.isExterns()) {\n             externsRoot.addChildToBack(n);\n             input.setIsExtern(true);\n             input.getModule().remove(input);\n             externs.add(input);\n             staleInputs \u003d true;\n         }\n     }\n     if (staleInputs) {\n         repartitionInputs();\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6ff34092914307b4a3518de0f507649010bc2140": {
+      "type": "Yintroduced",
+      "commitMessage": "\nproperly lift externs when doing source-pruning.\n\nR\u003dacleung\nDELTA\u003d133  (101 added, 29 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4602\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1915 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/20/12, 5:54 PM",
+      "commitName": "6ff34092914307b4a3518de0f507649010bc2140",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,25 @@\n+private void hoistExterns(Node externsRoot) {\n+    boolean staleInputs \u003d false;\n+    for (CompilerInput input : inputs) {\n+        if (options.dependencyOptions.needsManagement() \u0026\u0026 options.closurePass) {\n+            if (!input.getProvides().isEmpty() || !input.getRequires().isEmpty()) {\n+                continue;\n+            }\n+        }\n+        Node n \u003d input.getAstRoot(this);\n+        if (n \u003d\u003d null) {\n+            continue;\n+        }\n+        JSDocInfo info \u003d n.getJSDocInfo();\n+        if (info !\u003d null \u0026\u0026 info.isExterns()) {\n+            externsRoot.addChildToBack(n);\n+            input.setIsExtern(true);\n+            input.getModule().remove(input);\n+            externs.add(input);\n+            staleInputs \u003d true;\n+        }\n+    }\n+    if (staleInputs) {\n+        repartitionInputs();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void hoistExterns(Node externsRoot) {\n    boolean staleInputs \u003d false;\n    for (CompilerInput input : inputs) {\n        if (options.dependencyOptions.needsManagement() \u0026\u0026 options.closurePass) {\n            if (!input.getProvides().isEmpty() || !input.getRequires().isEmpty()) {\n                continue;\n            }\n        }\n        Node n \u003d input.getAstRoot(this);\n        if (n \u003d\u003d null) {\n            continue;\n        }\n        JSDocInfo info \u003d n.getJSDocInfo();\n        if (info !\u003d null \u0026\u0026 info.isExterns()) {\n            externsRoot.addChildToBack(n);\n            input.setIsExtern(true);\n            input.getModule().remove(input);\n            externs.add(input);\n            staleInputs \u003d true;\n        }\n    }\n    if (staleInputs) {\n        repartitionInputs();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1364,
+      "functionName": "hoistExterns",
+      "functionAnnotation": "",
+      "functionDoc": "Hoists inputs with the @externs annotation into the externs list.\n"
+    }
+  }
+}

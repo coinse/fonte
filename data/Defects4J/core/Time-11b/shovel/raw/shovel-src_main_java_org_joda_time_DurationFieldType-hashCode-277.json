@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-11b",
+  "repositoryPath": "/tmp/Time-11b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DurationFieldType.java",
+  "functionName": "hashCode",
+  "functionId": "$hashCode",
+  "sourceFilePath": "src/main/java/org/joda/time/DurationFieldType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "\n@inheritdoc\n",
+  "functionStartLine": 277,
+  "functionEndLine": 279,
+  "numCommitsSeen": 3,
+  "timeTaken": 336,
+  "changeHistory": [
+    "7b5032a43880b77549b3c2bedf5172b9248d4580",
+    "e16eb72a29d06ce36030b109156bea3244273fb8"
+  ],
+  "changeHistoryShort": {
+    "7b5032a43880b77549b3c2bedf5172b9248d4580": "Ybodychange",
+    "e16eb72a29d06ce36030b109156bea3244273fb8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7b5032a43880b77549b3c2bedf5172b9248d4580": {
+      "type": "Ybodychange",
+      "commitMessage": "Better hash code distribution\n\nProposed by Greg Inozemtsev\n",
+      "commitDate": "12/6/11, 5:04 AM",
+      "commitName": "7b5032a43880b77549b3c2bedf5172b9248d4580",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "12/4/11, 3:46 AM",
+      "commitNameOld": "e16eb72a29d06ce36030b109156bea3244273fb8",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 2.05,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic int hashCode() {\n    return (1 \u003c\u003c iOrdinal);\n}",
+      "path": "src/main/java/org/joda/time/DurationFieldType.java",
+      "functionStartLine": 277,
+      "functionName": "hashCode",
+      "functionAnnotation": "@Override",
+      "functionDoc": "\n@inheritdoc\n",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n public int hashCode() {\n-    return iOrdinal;\n+    return (1 \u003c\u003c iOrdinal);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e16eb72a29d06ce36030b109156bea3244273fb8": {
+      "type": "Yintroduced",
+      "commitMessage": "Make hash code deterministic\n\nReported on mailing list\n",
+      "commitDate": "12/4/11, 3:46 AM",
+      "commitName": "e16eb72a29d06ce36030b109156bea3244273fb8",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public int hashCode() {\n+    return iOrdinal;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic int hashCode() {\n    return iOrdinal;\n}",
+      "path": "src/main/java/org/joda/time/DurationFieldType.java",
+      "functionStartLine": 277,
+      "functionName": "hashCode",
+      "functionAnnotation": "@Override",
+      "functionDoc": "\n@inheritdoc\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "addReferenceTypeIndexedByProperty",
+  "functionId": "addReferenceTypeIndexedByProperty___propertyName-String__type-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 621,
+  "functionEndLine": 640,
+  "numCommitsSeen": 40,
+  "timeTaken": 3356,
+  "changeHistory": [
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45"
+  ],
+  "changeHistoryShort": {
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": {
+      "type": "Yintroduced",
+      "commitMessage": "\nremove all uses of Sets of types.\nequality can change over time, so this is not safe.\nThis means we need to be much more explicit in how\nwe collapse type duplicates in unions and in type tightening\n\nR\u003djohnlenz\nDELTA\u003d319  (210 added, 52 deleted, 57 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d121\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@623 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/13/10, 8:10 AM",
+      "commitName": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+private void addReferenceTypeIndexedByProperty(String propertyName, JSType type) {\n+    if (type instanceof ObjectType \u0026\u0026 ((ObjectType) type).hasReferenceName()) {\n+        Map\u003cString, ObjectType\u003e typeSet \u003d eachRefTypeIndexedByProperty.get(propertyName);\n+        if (typeSet \u003d\u003d null) {\n+            typeSet \u003d Maps.newHashMap();\n+            eachRefTypeIndexedByProperty.put(propertyName, typeSet);\n+        }\n+        ObjectType objType \u003d (ObjectType) type;\n+        typeSet.put(objType.getReferenceName(), objType);\n+    } else if (type instanceof NamedType) {\n+        addReferenceTypeIndexedByProperty(propertyName, ((NamedType) type).getReferencedType());\n+    } else if (type instanceof UnionType) {\n+        for (JSType alternate : ((UnionType) type).getAlternates()) {\n+            addReferenceTypeIndexedByProperty(propertyName, alternate);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void addReferenceTypeIndexedByProperty(String propertyName, JSType type) {\n    if (type instanceof ObjectType \u0026\u0026 ((ObjectType) type).hasReferenceName()) {\n        Map\u003cString, ObjectType\u003e typeSet \u003d eachRefTypeIndexedByProperty.get(propertyName);\n        if (typeSet \u003d\u003d null) {\n            typeSet \u003d Maps.newHashMap();\n            eachRefTypeIndexedByProperty.put(propertyName, typeSet);\n        }\n        ObjectType objType \u003d (ObjectType) type;\n        typeSet.put(objType.getReferenceName(), objType);\n    } else if (type instanceof NamedType) {\n        addReferenceTypeIndexedByProperty(propertyName, ((NamedType) type).getReferencedType());\n    } else if (type instanceof UnionType) {\n        for (JSType alternate : ((UnionType) type).getAlternates()) {\n            addReferenceTypeIndexedByProperty(propertyName, alternate);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 612,
+      "functionName": "addReferenceTypeIndexedByProperty",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

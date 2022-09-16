@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "compose",
+  "functionId": "compose___operand-double[](modifiers-final)__operandOffset-int(modifiers-final)__f-double[](modifiers-final)__result-double[](modifiers-final)__resultOffset-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute composition of a derivative structure by a function.\n\n@param operand array holding the operand\n@param operandOffset offset of the operand in its array\n@param f array of value and derivatives of the function at\nthe current point (i.e. at {@code operand[operandOffset]}).\n@param result array where result must be stored (for\ncomposition the result array \u003cem\u003ecannot\u003c/em\u003e be the input\narray)\n@param resultOffset offset of the result in its array\n",
+  "functionStartLine": 1708,
+  "functionEndLine": 1723,
+  "numCommitsSeen": 17,
+  "timeTaken": 2288,
+  "changeHistory": [
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,15 @@\n+public void compose(final double[] operand, final int operandOffset, final double[] f, final double[] result, final int resultOffset) {\n+    for (int i \u003d 0; i \u003c compIndirection.length; ++i) {\n+        final int[][] mappingI \u003d compIndirection[i];\n+        double r \u003d 0;\n+        for (int j \u003d 0; j \u003c mappingI.length; ++j) {\n+            final int[] mappingIJ \u003d mappingI[j];\n+            double product \u003d mappingIJ[0] * f[mappingIJ[1]];\n+            for (int k \u003d 2; k \u003c mappingIJ.length; ++k) {\n+                product *\u003d operand[operandOffset + mappingIJ[k]];\n+            }\n+            r +\u003d product;\n+        }\n+        result[resultOffset + i] \u003d r;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void compose(final double[] operand, final int operandOffset, final double[] f, final double[] result, final int resultOffset) {\n    for (int i \u003d 0; i \u003c compIndirection.length; ++i) {\n        final int[][] mappingI \u003d compIndirection[i];\n        double r \u003d 0;\n        for (int j \u003d 0; j \u003c mappingI.length; ++j) {\n            final int[] mappingIJ \u003d mappingI[j];\n            double product \u003d mappingIJ[0] * f[mappingIJ[1]];\n            for (int k \u003d 2; k \u003c mappingIJ.length; ++k) {\n                product *\u003d operand[operandOffset + mappingIJ[k]];\n            }\n            r +\u003d product;\n        }\n        result[resultOffset + i] \u003d r;\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 1204,
+      "functionName": "compose",
+      "functionAnnotation": "",
+      "functionDoc": "Compute composition of a derivative structure by a function.\n\n@param operand array holding the operand\n@param operandOffset offset of the operand in its array\n@param f array of value and derivatives of the function at\nthe current point (i.e. at {@code operand[operandOffset]}).\n@param result array where result must be stored (for\ncomposition the result array \u003cem\u003ecannot\u003c/em\u003e be the input\narray)\n@param resultOffset offset of the result in its array\n"
+    }
+  }
+}

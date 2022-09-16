@@ -1,0 +1,20 @@
+Try it (advanced mode):
+    alert(true == null ? a() : b());
+
+EVER true != null, in this case, EVER will trigger b(), but we get:
+    alert(!0 == null ? a() : b());
+
+Same for:
+    alert(true == false ? a() : b());
+
+Real life use:
+    function sum(a, b){
+      return (a == true ? 2 : a) + b;
+    }
+    alert(sum(true, 1));
+
+Results in:
+    alert((!0 == !0 ? 2 : 1) + 1);
+
+But correct is:
+    alert(3);

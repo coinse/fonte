@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeConsumer.java",
+  "functionName": "endBlock",
+  "functionId": "endBlock___shouldEndLine-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeConsumer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 114,
+  "functionEndLine": 120,
+  "numCommitsSeen": 27,
+  "timeTaken": 955,
+  "changeHistory": [
+    "222eafd303155b3eac5cd244584b2cb3c4c11975",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "222eafd303155b3eac5cd244584b2cb3c4c11975": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "222eafd303155b3eac5cd244584b2cb3c4c11975": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "tighten up some types. (Nick)\nR\u003dalan\nDELTA\u003d4  (2 added, 0 deleted, 2 changed)\n\nDon\u0027t use NAME for label names, introduce LABEL_NAME. This improves the correctness of the compiler as many passes don\u0027t distinguish between label names and variable names appropriately. (John)\nR\u003drobert\n\nRemove now unneeded checks for label names when inspecting NAME nodes. (John)\nR\u003drobert\n\nTweak code generator to break after blocks for better pretty printing. (John)\nR\u003drobert\nDELTA\u003d196  (160 added, 0 deleted, 36 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dktmses\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@170 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/5/10, 12:30 PM",
+      "commitName": "222eafd303155b3eac5cd244584b2cb3c4c11975",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "tighten up some types. (Nick)\nR\u003dalan\nDELTA\u003d4  (2 added, 0 deleted, 2 changed)\n\nDon\u0027t use NAME for label names, introduce LABEL_NAME. This improves the correctness of the compiler as many passes don\u0027t distinguish between label names and variable names appropriately. (John)\nR\u003drobert\n\nRemove now unneeded checks for label names when inspecting NAME nodes. (John)\nR\u003drobert\n\nTweak code generator to break after blocks for better pretty printing. (John)\nR\u003drobert\nDELTA\u003d196  (160 added, 0 deleted, 36 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dktmses\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@170 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/5/10, 12:30 PM",
+          "commitName": "222eafd303155b3eac5cd244584b2cb3c4c11975",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/15/10, 4:23 PM",
+          "commitNameOld": "fe722ddeb545b6b3103369dea073ad3e6becde28",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 20.84,
+          "commitsBetweenForRepo": 33,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void endBlock(boolean shouldEndLine) {\n    appendBlockEnd();\n    if (shouldEndLine) {\n        endLine();\n    }\n    statementNeedsEnded \u003d false;\n}",
+          "path": "src/com/google/javascript/jscomp/CodeConsumer.java",
+          "functionStartLine": 144,
+          "functionName": "endBlock",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n-void endBlock(boolean statementContext) {\n+void endBlock(boolean shouldEndLine) {\n     appendBlockEnd();\n-    if (statementContext) {\n+    if (shouldEndLine) {\n         endLine();\n     }\n     statementNeedsEnded \u003d false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[statementContext-boolean]",
+            "newValue": "[shouldEndLine-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "tighten up some types. (Nick)\nR\u003dalan\nDELTA\u003d4  (2 added, 0 deleted, 2 changed)\n\nDon\u0027t use NAME for label names, introduce LABEL_NAME. This improves the correctness of the compiler as many passes don\u0027t distinguish between label names and variable names appropriately. (John)\nR\u003drobert\n\nRemove now unneeded checks for label names when inspecting NAME nodes. (John)\nR\u003drobert\n\nTweak code generator to break after blocks for better pretty printing. (John)\nR\u003drobert\nDELTA\u003d196  (160 added, 0 deleted, 36 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dktmses\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@170 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/5/10, 12:30 PM",
+          "commitName": "222eafd303155b3eac5cd244584b2cb3c4c11975",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/15/10, 4:23 PM",
+          "commitNameOld": "fe722ddeb545b6b3103369dea073ad3e6becde28",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 20.84,
+          "commitsBetweenForRepo": 33,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void endBlock(boolean shouldEndLine) {\n    appendBlockEnd();\n    if (shouldEndLine) {\n        endLine();\n    }\n    statementNeedsEnded \u003d false;\n}",
+          "path": "src/com/google/javascript/jscomp/CodeConsumer.java",
+          "functionStartLine": 144,
+          "functionName": "endBlock",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n-void endBlock(boolean statementContext) {\n+void endBlock(boolean shouldEndLine) {\n     appendBlockEnd();\n-    if (statementContext) {\n+    if (shouldEndLine) {\n         endLine();\n     }\n     statementNeedsEnded \u003d false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+void endBlock(boolean statementContext) {\n+    appendBlockEnd();\n+    if (statementContext) {\n+        endLine();\n+    }\n+    statementNeedsEnded \u003d false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void endBlock(boolean statementContext) {\n    appendBlockEnd();\n    if (statementContext) {\n        endLine();\n    }\n    statementNeedsEnded \u003d false;\n}",
+      "path": "src/com/google/javascript/jscomp/CodeConsumer.java",
+      "functionStartLine": 143,
+      "functionName": "endBlock",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-60b",
+  "repositoryPath": "/tmp/Math-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Erf.java",
+  "functionName": "erf",
+  "functionId": "erf___x-double",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/special/Erf.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the error function erf(x).\n\nThe implementation of this method is based on:\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href\u003d\"http://mathworld.wolfram.com/Erf.html\"\u003e\nErf\u003c/a\u003e, equation (3).\u003c/li\u003e\n\u003c/ul\u003e\n\n@param x the value.\n@return the error function erf(x)\n@throws MathException if the algorithm fails to converge.\n",
+  "functionStartLine": 50,
+  "functionEndLine": 56,
+  "numCommitsSeen": 8,
+  "timeTaken": 366,
+  "changeHistory": [
+    "d6a438e931412713e99624cf9ed74470f1040184",
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8"
+  ],
+  "changeHistoryShort": {
+    "d6a438e931412713e99624cf9ed74470f1040184": "Yfilerename",
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d6a438e931412713e99624cf9ed74470f1040184": {
+      "type": "Yfilerename",
+      "commitMessage": "moved main java directory for compliance with maven standard directory layout\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@799870 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/09, 7:30 AM",
+      "commitName": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/09, 7:23 AM",
+      "commitNameOld": "2ad5ef61630be627f46ae1c266cf796f044bd4a8",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static double erf(double x) throws MathException {\n    double ret \u003d Gamma.regularizedGammaP(0.5, x * x, 1.0e-15, 10000);\n    if (x \u003c 0) {\n        ret \u003d -ret;\n    }\n    return ret;\n}",
+      "path": "src/main/java/org/apache/commons/math/special/Erf.java",
+      "functionStartLine": 50,
+      "functionName": "erf",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the error function erf(x).\n\nThe implementation of this method is based on:\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href\u003d\"http://mathworld.wolfram.com/Erf.html\"\u003e\nErf\u003c/a\u003e, equation (3).\u003c/li\u003e\n\u003c/ul\u003e\n\n@param x the value.\n@return the error function erf(x)\n@throws MathException if the algorithm fails to converge.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/math/special/Erf.java",
+        "newPath": "src/main/java/org/apache/commons/math/special/Erf.java"
+      }
+    },
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8": {
+      "type": "Yintroduced",
+      "commitMessage": "Replaced normal CDF routine with one based on the error function.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141214 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/5/04, 12:59 PM",
+      "commitName": "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,7 @@\n+public static double erf(double x) throws MathException {\n+    double ret \u003d Gamma.regularizedGammaP(0.5, x * x, 1.0e-15, 10000);\n+    if (x \u003c 0) {\n+        ret \u003d -ret;\n+    }\n+    return ret;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static double erf(double x) throws MathException {\n    double ret \u003d Gamma.regularizedGammaP(0.5, x * x, 1.0e-15, 10000);\n    if (x \u003c 0) {\n        ret \u003d -ret;\n    }\n    return ret;\n}",
+      "path": "src/java/org/apache/commons/math/special/Erf.java",
+      "functionStartLine": 51,
+      "functionName": "erf",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the error function erf(x).\n\nThe implementation of this method is based on:\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href\u003d\"http://mathworld.wolfram.com/Erf.html\"\u003e\nErf\u003c/a\u003e, equation (3).\u003c/li\u003e\n\u003c/ul\u003e\n\n@param x the value.\n@return the error function erf(x)\n@throws MathException if the algorithm fails to converge.\n"
+    }
+  }
+}

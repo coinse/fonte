@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "getNodeClass",
+  "functionId": "getNodeClass___n-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/Node.java",
+  "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+  "functionDoc": "Helper function to ignore differences in Node subclasses that are no longer\nused.\n",
+  "functionStartLine": 1514,
+  "functionEndLine": 1520,
+  "numCommitsSeen": 45,
+  "timeTaken": 4651,
+  "changeHistory": [
+    "43859717972907dd1ecebd8dca6e05036386e28b"
+  ],
+  "changeHistoryShort": {
+    "43859717972907dd1ecebd8dca6e05036386e28b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "43859717972907dd1ecebd8dca6e05036386e28b": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/04/14 by john\n\n        Stop creating specialized Node types for FUNCTION and SCRIPT as the added functionality isn\u0027t used anywhere.\n\n        Also correct some formatting issue with Node (as it won\u0027t need to be merged with anything else anymore).\n\n        R\u003dsteve,robert\n        DELTA\u003d3969  (1913 added, 1925 deleted, 131 changed)\n\nChange on 2010/04/14 by john\n\n        Fix source information in MinimizeExitPoints.\n\n        R\u003drobert\n        DELTA\u003d10  (5 added, 2 deleted, 3 changed)\n\nChange on 2010/04/14 by john\n\n        Maintain source information.\n\n        R\u003dantonio\n        DELTA\u003d17  (11 added, 0 deleted, 6 changed)\n\nChange on 2010/04/14 by john\n\n        Maintain source information through FoldConstants.\n\n        R\u003drobert\n        DELTA\u003d42  (22 added, 0 deleted, 20 changed)\n\nChange on 2010/04/14 by nick\n\n        lock down function type construction\n\n        R\u003djohn\n        DELTA\u003d111  (83 added, 9 deleted, 19 changed)\n\nChange on 2010/04/14 by john\n\n        Fix source info in CollapseProperties.\n\n        R\u003dnick\n        DELTA\u003d17  (8 added, 3 deleted, 6 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dmbevwz\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@184 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/14/10, 4:53 PM",
+      "commitName": "43859717972907dd1ecebd8dca6e05036386e28b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,8 @@\n+@SuppressWarnings(\"unchecked\")\n+private static Class getNodeClass(Node n) {\n+    Class c \u003d n.getClass();\n+    if (c \u003d\u003d FunctionNode.class || c \u003d\u003d ScriptOrFnNode.class) {\n+        return Node.class;\n+    }\n+    return c;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nprivate static Class getNodeClass(Node n) {\n    Class c \u003d n.getClass();\n    if (c \u003d\u003d FunctionNode.class || c \u003d\u003d ScriptOrFnNode.class) {\n        return Node.class;\n    }\n    return c;\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 1352,
+      "functionName": "getNodeClass",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "Helper function to ignore differences in Node subclasses that are no longer\nused.\n"
+    }
+  }
+}

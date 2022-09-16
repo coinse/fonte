@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-23b",
+  "repositoryPath": "/tmp/Math-23b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BrentOptimizer.java",
+  "functionName": "best",
+  "functionId": "best___a-UnivariatePointValuePair__b-UnivariatePointValuePair__isMinim-boolean",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Selects the best of two points.\n\n@param a Point and value.\n@param b Point and value.\n@param isMinim @code true} if the selected point must be the one with\nthe lowest value.\n@return the best point, or {@code null} if {@code a} and {@code b} are\nboth {@code null}.\n",
+  "functionStartLine": 283,
+  "functionEndLine": 298,
+  "numCommitsSeen": 4,
+  "timeTaken": 508,
+  "changeHistory": [
+    "d5ff460ba69e4261f066d7856e2f90b886924513"
+  ],
+  "changeHistoryShort": {
+    "d5ff460ba69e4261f066d7856e2f90b886924513": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d5ff460ba69e4261f066d7856e2f90b886924513": {
+      "type": "Yintroduced",
+      "commitMessage": "MATH-855\nThe best point is sometimes not the last one evaluated.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1381195 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/5/12, 7:22 AM",
+      "commitName": "d5ff460ba69e4261f066d7856e2f90b886924513",
+      "commitAuthor": "Gilles Sadowski",
+      "diff": "@@ -0,0 +1,13 @@\n+private UnivariatePointValuePair best(UnivariatePointValuePair a, UnivariatePointValuePair b, boolean isMinim) {\n+    if (a \u003d\u003d null) {\n+        return b;\n+    }\n+    if (b \u003d\u003d null) {\n+        return a;\n+    }\n+    if (isMinim) {\n+        return a.getValue() \u003c b.getValue() ? a : b;\n+    } else {\n+        return a.getValue() \u003e b.getValue() ? a : b;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private UnivariatePointValuePair best(UnivariatePointValuePair a, UnivariatePointValuePair b, boolean isMinim) {\n    if (a \u003d\u003d null) {\n        return b;\n    }\n    if (b \u003d\u003d null) {\n        return a;\n    }\n    if (isMinim) {\n        return a.getValue() \u003c b.getValue() ? a : b;\n    } else {\n        return a.getValue() \u003e b.getValue() ? a : b;\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java",
+      "functionStartLine": 283,
+      "functionName": "best",
+      "functionAnnotation": "",
+      "functionDoc": "Selects the best of two points.\n\n@param a Point and value.\n@param b Point and value.\n@param isMinim @code true} if the selected point must be the one with\nthe lowest value.\n@return the best point, or {@code null} if {@code a} and {@code b} are\nboth {@code null}.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LinkedDirectedGraph.java",
+  "functionName": "getDirectedSuccNodes",
+  "functionId": "getDirectedSuccNodes___dNode-DiGraphNode__N,E__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/graph/LinkedDirectedGraph.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 241,
+  "functionEndLine": 251,
+  "numCommitsSeen": 13,
+  "timeTaken": 701,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+public List\u003cDiGraphNode\u003cN, E\u003e\u003e getDirectedSuccNodes(DiGraphNode\u003cN, E\u003e dNode) {\n+    if (dNode \u003d\u003d null) {\n+        throw new IllegalArgumentException(dNode + \" is null\");\n+    }\n+    List\u003cDiGraphNode\u003cN, E\u003e\u003e nodeList \u003d Lists.newArrayList();\n+    for (DiGraphEdge\u003cN, E\u003e edge : dNode.getOutEdges()) {\n+        nodeList.add(edge.getDestination());\n+    }\n+    return nodeList;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic List\u003cDiGraphNode\u003cN, E\u003e\u003e getDirectedSuccNodes(DiGraphNode\u003cN, E\u003e dNode) {\n    if (dNode \u003d\u003d null) {\n        throw new IllegalArgumentException(dNode + \" is null\");\n    }\n    List\u003cDiGraphNode\u003cN, E\u003e\u003e nodeList \u003d Lists.newArrayList();\n    for (DiGraphEdge\u003cN, E\u003e edge : dNode.getOutEdges()) {\n        nodeList.add(edge.getDestination());\n    }\n    return nodeList;\n}",
+      "path": "src/com/google/javascript/jscomp/graph/LinkedDirectedGraph.java",
+      "functionStartLine": 233,
+      "functionName": "getDirectedSuccNodes",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

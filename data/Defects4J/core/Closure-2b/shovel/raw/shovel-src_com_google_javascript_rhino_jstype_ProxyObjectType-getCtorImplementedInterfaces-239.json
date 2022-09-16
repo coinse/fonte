@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProxyObjectType.java",
+  "functionName": "getCtorImplementedInterfaces",
+  "functionId": "getCtorImplementedInterfaces",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 239,
+  "functionEndLine": 242,
+  "numCommitsSeen": 54,
+  "timeTaken": 2736,
+  "changeHistory": [
+    "d6227f739b8380f74663b2f536ed4a9649fd0841",
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c",
+    "86860111110ec7a96d92fbefb6c3ae15e3575405"
+  ],
+  "changeHistoryShort": {
+    "d6227f739b8380f74663b2f536ed4a9649fd0841": "Ybodychange",
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c": "Ymodifierchange",
+    "86860111110ec7a96d92fbefb6c3ae15e3575405": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d6227f739b8380f74663b2f536ed4a9649fd0841": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd half-assed support for late-resolved typedefs of union types.\nThe fundamental issue is that NamedType is a proxy wrapper around\nObjectTypes, but has always been used for non-object types (like\ntypedef\u0027d unions.\nI eventually want to move towards the using UnresolvedTypes for type\nresolution. Under that system, the proxy wrapper gets thrown away.\nUnresolveTypes would also solve this issue. But that system breaks\na whole bunch of assumptions about hash codes and referential\ntransparency, so we\u0027re not ready for it yet.\n\nR\u003djohnlenz\nDELTA\u003d116  (75 added, 0 deleted, 41 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d304858\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@482 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/8/10, 1:19 PM",
+      "commitName": "d6227f739b8380f74663b2f536ed4a9649fd0841",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "9/13/10, 11:12 AM",
+      "commitNameOld": "4c6e1039b80859f17de5f3cbcfeba61ed8ea0485",
+      "commitAuthorOld": "elbaum@google.com",
+      "daysBetweenCommits": 25.09,
+      "commitsBetweenForRepo": 57,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n    return referencedObjType \u003d\u003d null ? Collections.\u003cObjectType\u003eemptyList() : referencedObjType.getCtorImplementedInterfaces();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+      "functionStartLine": 176,
+      "functionName": "getCtorImplementedInterfaces",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n public Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n-    return referencedType.getCtorImplementedInterfaces();\n+    return referencedObjType \u003d\u003d null ? Collections.\u003cObjectType\u003eemptyList() : referencedObjType.getCtorImplementedInterfaces();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Fixes a bug in AmbugateProperties in the presence of interfaces.\n\nFixes a bug in how type information on methods of interfaces gets\ninherited by implementers (issue 86)\n\nUse Joiners instead of the join() static method.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@59 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/8/10, 1:41 PM",
+      "commitName": "6d374c3ee4c9c2651ffb44048924e127fd2bf37c",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "1/7/10, 7:08 AM",
+      "commitNameOld": "86860111110ec7a96d92fbefb6c3ae15e3575405",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 1.27,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n    return referencedType.getCtorImplementedInterfaces();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+      "functionStartLine": 154,
+      "functionName": "getCtorImplementedInterfaces",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n-Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n+public Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n     return referencedType.getCtorImplementedInterfaces();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[]",
+        "newValue": "[public]"
+      }
+    },
+    "86860111110ec7a96d92fbefb6c3ae15e3575405": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix up the inheritance hierarchy so that \"Foo implements Bar\" implies\nthat Bar.prototype is the implicit prototype of Foo.prototoype.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@58 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/7/10, 7:08 AM",
+      "commitName": "86860111110ec7a96d92fbefb6c3ae15e3575405",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n+    return referencedType.getCtorImplementedInterfaces();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nIterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n    return referencedType.getCtorImplementedInterfaces();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+      "functionStartLine": 154,
+      "functionName": "getCtorImplementedInterfaces",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

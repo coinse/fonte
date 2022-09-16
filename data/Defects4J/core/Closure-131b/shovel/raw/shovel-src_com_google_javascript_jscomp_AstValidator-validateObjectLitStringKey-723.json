@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-131b",
+  "repositoryPath": "/tmp/Closure-131b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateObjectLitStringKey",
+  "functionId": "validateObjectLitStringKey___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 723,
+  "functionEndLine": 728,
+  "numCommitsSeen": 18,
+  "timeTaken": 1529,
+  "changeHistory": [
+    "f412f0c0efd54842b30207c845d65cb826217fd6",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "f412f0c0efd54842b30207c845d65cb826217fd6": "Ybodychange",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f412f0c0efd54842b30207c845d65cb826217fd6": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCreate a separate token for object literal keys.\ni was surprised how easy this was\n\nR\u003dacleung,johnlenz\nDELTA\u003d139  (52 added, 26 deleted, 61 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4618\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1922 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/25/12, 1:34 PM",
+      "commitName": "f412f0c0efd54842b30207c845d65cb826217fd6",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/17/11, 10:08 AM",
+      "commitNameOld": "4e976ac213f448bab78f5c1432340c489b533d7b",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 160.1,
+      "commitsBetweenForRepo": 258,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void validateObjectLitStringKey(Node n) {\n    validateNodeType(Token.STRING_KEY, n);\n    validateChildCount(n, 1);\n    validateObjectLiteralKeyName(n);\n    validateExpression(n.getFirstChild());\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 723,
+      "functionName": "validateObjectLitStringKey",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n private void validateObjectLitStringKey(Node n) {\n-    validateNodeType(Token.STRING, n);\n+    validateNodeType(Token.STRING_KEY, n);\n     validateChildCount(n, 1);\n     validateObjectLiteralKeyName(n);\n     validateExpression(n.getFirstChild());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+private void validateObjectLitStringKey(Node n) {\n+    validateNodeType(Token.STRING, n);\n+    validateChildCount(n, 1);\n+    validateObjectLiteralKeyName(n);\n+    validateExpression(n.getFirstChild());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateObjectLitStringKey(Node n) {\n    validateNodeType(Token.STRING, n);\n    validateChildCount(n, 1);\n    validateObjectLiteralKeyName(n);\n    validateExpression(n.getFirstChild());\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 702,
+      "functionName": "validateObjectLitStringKey",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

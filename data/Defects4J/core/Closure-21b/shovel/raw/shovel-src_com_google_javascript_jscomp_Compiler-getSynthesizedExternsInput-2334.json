@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-21b",
+  "repositoryPath": "/tmp/Closure-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "getSynthesizedExternsInput",
+  "functionId": "getSynthesizedExternsInput",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 2334,
+  "functionEndLine": 2339,
+  "numCommitsSeen": 147,
+  "timeTaken": 3062,
+  "changeHistory": [
+    "ff9dc85e994c34448130ee5bb38f801ab2f6ba16"
+  ],
+  "changeHistoryShort": {
+    "ff9dc85e994c34448130ee5bb38f801ab2f6ba16": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ff9dc85e994c34448130ee5bb38f801ab2f6ba16": {
+      "type": "Yintroduced",
+      "commitMessage": "\nProtect appearently side-effect free code from removal.\nFixes issue 64\nFixes issue 398\n\nR\u003dnicksantos\nDELTA\u003d256  (218 added, 11 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4091\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1725 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/13/12, 2:07 PM",
+      "commitName": "ff9dc85e994c34448130ee5bb38f801ab2f6ba16",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+CompilerInput getSynthesizedExternsInput() {\n+    if (synthesizedExternsInput \u003d\u003d null) {\n+        synthesizedExternsInput \u003d newExternInput(SYNTHETIC_EXTERNS);\n+    }\n+    return synthesizedExternsInput;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nCompilerInput getSynthesizedExternsInput() {\n    if (synthesizedExternsInput \u003d\u003d null) {\n        synthesizedExternsInput \u003d newExternInput(SYNTHETIC_EXTERNS);\n    }\n    return synthesizedExternsInput;\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 2224,
+      "functionName": "getSynthesizedExternsInput",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

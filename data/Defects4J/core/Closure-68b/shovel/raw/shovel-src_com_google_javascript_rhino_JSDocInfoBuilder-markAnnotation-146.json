@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-68b",
+  "repositoryPath": "/tmp/Closure-68b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSDocInfoBuilder.java",
+  "functionName": "markAnnotation",
+  "functionId": "markAnnotation___annotation-String__lineno-int__charno-int",
+  "sourceFilePath": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Adds a marker to the current JSDocInfo and populates the marker with the\nannotation information.\n",
+  "functionStartLine": 146,
+  "functionEndLine": 157,
+  "numCommitsSeen": 20,
+  "timeTaken": 786,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public void markAnnotation(String annotation, int lineno, int charno) {\n+    JSDocInfo.Marker marker \u003d currentInfo.addMarker();\n+    if (marker !\u003d null) {\n+        marker.annotation \u003d new JSDocInfo.StringPosition();\n+        marker.annotation.setItem(annotation);\n+        marker.annotation.setPositionInformation(lineno, charno, lineno, charno + annotation.length());\n+    }\n+    currentMarker \u003d marker;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void markAnnotation(String annotation, int lineno, int charno) {\n    JSDocInfo.Marker marker \u003d currentInfo.addMarker();\n    if (marker !\u003d null) {\n        marker.annotation \u003d new JSDocInfo.StringPosition();\n        marker.annotation.setItem(annotation);\n        marker.annotation.setPositionInformation(lineno, charno, lineno, charno + annotation.length());\n    }\n    currentMarker \u003d marker;\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+      "functionStartLine": 131,
+      "functionName": "markAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "Adds a marker to the current JSDocInfo and populates the marker with the\nannotation information.\n"
+    }
+  }
+}

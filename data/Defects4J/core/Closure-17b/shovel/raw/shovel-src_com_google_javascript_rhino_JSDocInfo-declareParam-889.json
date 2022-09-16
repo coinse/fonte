@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSDocInfo.java",
+  "functionName": "declareParam",
+  "functionId": "declareParam___jsType-JSTypeExpression__parameter-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/JSDocInfo.java",
+  "functionAnnotation": "",
+  "functionDoc": "Declares a parameter. Parameters are described using the {@code @param}\nannotation.\n\n@param jsType the parameter\u0027s type, it may be {@code null} when the\n    {@code @param} annotation did not specify a type.\n@param parameter the parameter\u0027s name\n",
+  "functionStartLine": 889,
+  "functionEndLine": 900,
+  "numCommitsSeen": 34,
+  "timeTaken": 1358,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+boolean declareParam(JSTypeExpression jsType, String parameter) {\n+    lazyInitInfo();\n+    if (info.parameters \u003d\u003d null) {\n+        info.parameters \u003d new LinkedHashMap\u003cString, JSTypeExpression\u003e();\n+    }\n+    if (!info.parameters.containsKey(parameter)) {\n+        info.parameters.put(parameter, jsType);\n+        return true;\n+    } else {\n+        return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean declareParam(JSTypeExpression jsType, String parameter) {\n    lazyInitInfo();\n    if (info.parameters \u003d\u003d null) {\n        info.parameters \u003d new LinkedHashMap\u003cString, JSTypeExpression\u003e();\n    }\n    if (!info.parameters.containsKey(parameter)) {\n        info.parameters.put(parameter, jsType);\n        return true;\n    } else {\n        return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfo.java",
+      "functionStartLine": 654,
+      "functionName": "declareParam",
+      "functionAnnotation": "",
+      "functionDoc": "Declares a parameter. Parameters are described using the {@code @param}\nannotation.\n\n@param jsType the parameter\u0027s type, it may be {@code null} when the\n    {@code @param} annotation did not specify a type.\n@param parameter the parameter\u0027s name\n"
+    }
+  }
+}

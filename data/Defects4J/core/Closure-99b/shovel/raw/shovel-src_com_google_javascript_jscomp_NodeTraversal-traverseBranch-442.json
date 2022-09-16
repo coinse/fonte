@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-99b",
+  "repositoryPath": "/tmp/Closure-99b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeTraversal.java",
+  "functionName": "traverseBranch",
+  "functionId": "traverseBranch___n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeTraversal.java",
+  "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+  "functionDoc": "Traverses a branch.\n",
+  "functionStartLine": 442,
+  "functionEndLine": 478,
+  "numCommitsSeen": 5,
+  "timeTaken": 297,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,30 @@\n+@SuppressWarnings(\"fallthrough\")\n+private void traverseBranch(Node n, Node parent) {\n+    int type \u003d n.getType();\n+    if (type \u003d\u003d Token.SCRIPT) {\n+        sourceName \u003d getSourceName(n);\n+    }\n+    curNode \u003d n;\n+    if (!callback.shouldTraverse(this, n, parent))\n+        return;\n+    switch(type) {\n+        case Token.CATCH:\n+            Preconditions.checkState(n.getChildCount() \u003d\u003d 3);\n+            Preconditions.checkState(n.getFirstChild().getType() \u003d\u003d Token.NAME);\n+            traverseBranch(n.getFirstChild(), n);\n+            traverseBranch(n.getFirstChild().getNext().getNext(), n);\n+            break;\n+        case Token.FUNCTION:\n+            traverseFunction(n, parent);\n+            break;\n+        default:\n+            for (Node child \u003d n.getFirstChild(); child !\u003d null; ) {\n+                Node next \u003d child.getNext();\n+                traverseBranch(child, n);\n+                child \u003d next;\n+            }\n+            break;\n+    }\n+    curNode \u003d n;\n+    callback.visit(this, n, parent);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"fallthrough\")\nprivate void traverseBranch(Node n, Node parent) {\n    int type \u003d n.getType();\n    if (type \u003d\u003d Token.SCRIPT) {\n        sourceName \u003d getSourceName(n);\n    }\n    curNode \u003d n;\n    if (!callback.shouldTraverse(this, n, parent))\n        return;\n    switch(type) {\n        case Token.CATCH:\n            Preconditions.checkState(n.getChildCount() \u003d\u003d 3);\n            Preconditions.checkState(n.getFirstChild().getType() \u003d\u003d Token.NAME);\n            traverseBranch(n.getFirstChild(), n);\n            traverseBranch(n.getFirstChild().getNext().getNext(), n);\n            break;\n        case Token.FUNCTION:\n            traverseFunction(n, parent);\n            break;\n        default:\n            for (Node child \u003d n.getFirstChild(); child !\u003d null; ) {\n                Node next \u003d child.getNext();\n                traverseBranch(child, n);\n                child \u003d next;\n            }\n            break;\n    }\n    curNode \u003d n;\n    callback.visit(this, n, parent);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+      "functionStartLine": 428,
+      "functionName": "traverseBranch",
+      "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+      "functionDoc": "Traverses a branch.\n"
+    }
+  }
+}

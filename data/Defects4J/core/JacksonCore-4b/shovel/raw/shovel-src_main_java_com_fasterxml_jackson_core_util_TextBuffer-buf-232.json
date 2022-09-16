@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-4b",
+  "repositoryPath": "/tmp/JacksonCore-4b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextBuffer.java",
+  "functionName": "buf",
+  "functionId": "buf___needed-int",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to find a buffer to use, ideally one\nrecycled earlier.\n",
+  "functionStartLine": 232,
+  "functionEndLine": 238,
+  "numCommitsSeen": 17,
+  "timeTaken": 646,
+  "changeHistory": [
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+    "1dc2c61b0e45d5f19078d297b9b63bc084804975",
+    "f15531c04f87f9e4e4724772426603a909eabe2c"
+  ],
+  "changeHistoryShort": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": "Yrename",
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc": "Ybodychange",
+    "1dc2c61b0e45d5f19078d297b9b63bc084804975": "Ymodifierchange",
+    "f15531c04f87f9e4e4724772426603a909eabe2c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": {
+      "type": "Yrename",
+      "commitMessage": "minor addition to TextBuffer\n",
+      "commitDate": "1/19/14, 7:28 PM",
+      "commitName": "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/13/13, 9:15 PM",
+      "commitNameOld": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 36.93,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private char[] buf(int needed) {\n    if (_allocator !\u003d null) {\n        return _allocator.allocCharBuffer(BufferRecycler.CHAR_TEXT_BUFFER, needed);\n    }\n    return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 232,
+      "functionName": "buf",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to find a buffer to use, ideally one\nrecycled earlier.\n",
+      "diff": "@@ -1,6 +1,6 @@\n-private char[] findBuffer(int needed) {\n+private char[] buf(int needed) {\n     if (_allocator !\u003d null) {\n         return _allocator.allocCharBuffer(BufferRecycler.CHAR_TEXT_BUFFER, needed);\n     }\n     return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "findBuffer",
+        "newValue": "buf"
+      }
+    },
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc": {
+      "type": "Ybodychange",
+      "commitMessage": "bit of source code sanitization\n",
+      "commitDate": "12/13/13, 9:15 PM",
+      "commitName": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "8/28/13, 9:04 PM",
+      "commitNameOld": "b40ac81d4a81736e2b7536b14db4ad070b598d2e",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 107.05,
+      "commitsBetweenForRepo": 70,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private char[] findBuffer(int needed) {\n    if (_allocator !\u003d null) {\n        return _allocator.allocCharBuffer(BufferRecycler.CHAR_TEXT_BUFFER, needed);\n    }\n    return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 233,
+      "functionName": "findBuffer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to find a buffer to use, ideally one\nrecycled earlier.\n",
+      "diff": "@@ -1,6 +1,6 @@\n private char[] findBuffer(int needed) {\n     if (_allocator !\u003d null) {\n-        return _allocator.allocCharBuffer(BufferRecycler.CharBufferType.TEXT_BUFFER, needed);\n+        return _allocator.allocCharBuffer(BufferRecycler.CHAR_TEXT_BUFFER, needed);\n     }\n     return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "1dc2c61b0e45d5f19078d297b9b63bc084804975": {
+      "type": "Ymodifierchange",
+      "commitMessage": "No need to declare methods \"final\" in final classes\n\nFound by IDEA.\n\nTested.\n",
+      "commitDate": "9/29/12, 2:20 AM",
+      "commitName": "1dc2c61b0e45d5f19078d297b9b63bc084804975",
+      "commitAuthor": "Francis Galiegue",
+      "commitDateOld": "7/18/12, 4:38 PM",
+      "commitNameOld": "108c640075e9d9e08238cbd8bd4d22150fe13187",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 72.4,
+      "commitsBetweenForRepo": 30,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private char[] findBuffer(int needed) {\n    if (_allocator !\u003d null) {\n        return _allocator.allocCharBuffer(BufferRecycler.CharBufferType.TEXT_BUFFER, needed);\n    }\n    return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 232,
+      "functionName": "findBuffer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to find a buffer to use, ideally one\nrecycled earlier.\n",
+      "diff": "@@ -1,6 +1,6 @@\n-private final char[] findBuffer(int needed) {\n+private char[] findBuffer(int needed) {\n     if (_allocator !\u003d null) {\n         return _allocator.allocCharBuffer(BufferRecycler.CharBufferType.TEXT_BUFFER, needed);\n     }\n     return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private, final]",
+        "newValue": "[private]"
+      }
+    },
+    "f15531c04f87f9e4e4724772426603a909eabe2c": {
+      "type": "Yintroduced",
+      "commitMessage": "Check in actual sources, moved to the new package, cleaned up a bit\n",
+      "commitDate": "12/22/11, 11:00 PM",
+      "commitName": "f15531c04f87f9e4e4724772426603a909eabe2c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+private final char[] findBuffer(int needed) {\n+    if (_allocator !\u003d null) {\n+        return _allocator.allocCharBuffer(BufferRecycler.CharBufferType.TEXT_BUFFER, needed);\n+    }\n+    return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final char[] findBuffer(int needed) {\n    if (_allocator !\u003d null) {\n        return _allocator.allocCharBuffer(BufferRecycler.CharBufferType.TEXT_BUFFER, needed);\n    }\n    return new char[Math.max(needed, MIN_SEGMENT_LEN)];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 232,
+      "functionName": "findBuffer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to find a buffer to use, ideally one\nrecycled earlier.\n"
+    }
+  }
+}

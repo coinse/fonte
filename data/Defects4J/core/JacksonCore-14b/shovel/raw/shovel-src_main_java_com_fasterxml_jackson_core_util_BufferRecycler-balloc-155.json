@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-14b",
+  "repositoryPath": "/tmp/JacksonCore-14b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BufferRecycler.java",
+  "functionName": "balloc",
+  "functionId": "balloc___size-int",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 155,
+  "functionEndLine": 155,
+  "numCommitsSeen": 11,
+  "timeTaken": 283,
+  "changeHistory": [
+    "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf",
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+    "6c842ae82802ad5e5cc9065d3b8d93f99b84f8fc",
+    "f15531c04f87f9e4e4724772426603a909eabe2c"
+  ],
+  "changeHistoryShort": {
+    "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf": "Ymodifierchange",
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc": "Yformatchange",
+    "6c842ae82802ad5e5cc9065d3b8d93f99b84f8fc": "Ymodifierchange",
+    "f15531c04f87f9e4e4724772426603a909eabe2c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Refactor BufferRecycler for sub-classing\n",
+      "commitDate": "1/13/14, 7:32 PM",
+      "commitName": "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/9/14, 10:39 PM",
+      "commitNameOld": "4646ed1f76f6d90503bc4969d1ba772daea7296d",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 3.87,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected byte[] balloc(int size) {\n    return new byte[size];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+      "functionStartLine": 157,
+      "functionName": "balloc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n-private byte[] balloc(int size) {\n+protected byte[] balloc(int size) {\n     return new byte[size];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private]",
+        "newValue": "[protected]"
+      }
+    },
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc": {
+      "type": "Yformatchange",
+      "commitMessage": "bit of source code sanitization\n",
+      "commitDate": "12/13/13, 9:15 PM",
+      "commitName": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/29/12, 2:24 AM",
+      "commitNameOld": "6c842ae82802ad5e5cc9065d3b8d93f99b84f8fc",
+      "commitAuthorOld": "Francis Galiegue",
+      "daysBetweenCommits": 440.83,
+      "commitsBetweenForRepo": 208,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private byte[] balloc(int size) {\n    return new byte[size];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+      "functionStartLine": 100,
+      "functionName": "balloc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "6c842ae82802ad5e5cc9065d3b8d93f99b84f8fc": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Private methods don\u0027t need a \"final\" modifier\n\nFound by IDEA.\n\nTested.\n",
+      "commitDate": "9/29/12, 2:24 AM",
+      "commitName": "6c842ae82802ad5e5cc9065d3b8d93f99b84f8fc",
+      "commitAuthor": "Francis Galiegue",
+      "commitDateOld": "6/4/12, 10:21 PM",
+      "commitNameOld": "2e70a2a03007748110ba8887ad1db7ea34350819",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 116.17,
+      "commitsBetweenForRepo": 53,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private byte[] balloc(int size) {\n    return new byte[size];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+      "functionStartLine": 108,
+      "functionName": "balloc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n-private final byte[] balloc(int size) {\n+private byte[] balloc(int size) {\n     return new byte[size];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private, final]",
+        "newValue": "[private]"
+      }
+    },
+    "f15531c04f87f9e4e4724772426603a909eabe2c": {
+      "type": "Yintroduced",
+      "commitMessage": "Check in actual sources, moved to the new package, cleaned up a bit\n",
+      "commitDate": "12/22/11, 11:00 PM",
+      "commitName": "f15531c04f87f9e4e4724772426603a909eabe2c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+private final byte[] balloc(int size) {\n+    return new byte[size];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final byte[] balloc(int size) {\n    return new byte[size];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+      "functionStartLine": 100,
+      "functionName": "balloc",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

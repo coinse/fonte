@@ -1,0 +1,200 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-94b",
+  "repositoryPath": "/tmp/Math-94b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MathUtils.java",
+  "functionName": "gcd",
+  "functionId": "gcd___u-int__v-int",
+  "sourceFilePath": "src/java/org/apache/commons/math/util/MathUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003e\nGets the greatest common divisor of the absolute value of two numbers,\nusing the \"binary gcd\" method which avoids division and modulo\noperations. See Knuth 4.5.2 algorithm B. This algorithm is due to Josef\nStein (1961).\n\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n@since 1.1\n",
+  "functionStartLine": 411,
+  "functionEndLine": 460,
+  "numCommitsSeen": 70,
+  "timeTaken": 1366,
+  "changeHistory": [
+    "b1ade04fc274a2030fcf1df2c760755eeb83bf1b",
+    "c7a42fb239f8b723a9daf1903ec1ad64388da6bd",
+    "20786a617657c0c20315005c621052a2735dfe67",
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6"
+  ],
+  "changeHistoryShort": {
+    "b1ade04fc274a2030fcf1df2c760755eeb83bf1b": "Ymultichange(Ybodychange,Ydocchange)",
+    "c7a42fb239f8b723a9daf1903ec1ad64388da6bd": "Ydocchange",
+    "20786a617657c0c20315005c621052a2735dfe67": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b1ade04fc274a2030fcf1df2c760755eeb83bf1b": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "PR: 35904\nChanged rounding methods to not rely on BigDecimal conversions which was causing numerical error.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@231029 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/9/05, 6:10 AM",
+      "commitName": "b1ade04fc274a2030fcf1df2c760755eeb83bf1b",
+      "commitAuthor": "Brent Worden",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "PR: 35904\nChanged rounding methods to not rely on BigDecimal conversions which was causing numerical error.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@231029 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/9/05, 6:10 AM",
+          "commitName": "b1ade04fc274a2030fcf1df2c760755eeb83bf1b",
+          "commitAuthor": "Brent Worden",
+          "commitDateOld": "7/30/05, 12:25 AM",
+          "commitNameOld": "7153fa9be229ee078c7026dba8c9b2be3d791ed2",
+          "commitAuthorOld": "Phil Steitz",
+          "daysBetweenCommits": 10.24,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int gcd(int u, int v) {\n    if (u * v \u003d\u003d 0) {\n        return (Math.abs(u) + Math.abs(v));\n    }\n    if (u \u003e 0) {\n        u \u003d -u;\n    }\n    if (v \u003e 0) {\n        v \u003d -v;\n    }\n    int k \u003d 0;\n    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n        u /\u003d 2;\n        v /\u003d 2;\n        k++;\n    }\n    if (k \u003d\u003d 31) {\n        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n    }\n    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n    do {\n        while ((t \u0026 1) \u003d\u003d 0) {\n            t /\u003d 2;\n        }\n        if (t \u003e 0) {\n            u \u003d -t;\n        } else {\n            v \u003d t;\n        }\n        t \u003d (v - u) / 2;\n    } while (t !\u003d 0);\n    return -u * (1 \u003c\u003c k);\n}",
+          "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+          "functionStartLine": 309,
+          "functionName": "gcd",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003e\nGets the greatest common divisor of the absolute value of two numbers,\nusing the \"binary gcd\" method which avoids division and modulo\noperations. See Knuth 4.5.2 algorithm B. This algorithm is due to Josef\nStein (1961).\n\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n@since 1.1\n",
+          "diff": "",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "PR: 35904\nChanged rounding methods to not rely on BigDecimal conversions which was causing numerical error.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@231029 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/9/05, 6:10 AM",
+          "commitName": "b1ade04fc274a2030fcf1df2c760755eeb83bf1b",
+          "commitAuthor": "Brent Worden",
+          "commitDateOld": "7/30/05, 12:25 AM",
+          "commitNameOld": "7153fa9be229ee078c7026dba8c9b2be3d791ed2",
+          "commitAuthorOld": "Phil Steitz",
+          "daysBetweenCommits": 10.24,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int gcd(int u, int v) {\n    if (u * v \u003d\u003d 0) {\n        return (Math.abs(u) + Math.abs(v));\n    }\n    if (u \u003e 0) {\n        u \u003d -u;\n    }\n    if (v \u003e 0) {\n        v \u003d -v;\n    }\n    int k \u003d 0;\n    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n        u /\u003d 2;\n        v /\u003d 2;\n        k++;\n    }\n    if (k \u003d\u003d 31) {\n        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n    }\n    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n    do {\n        while ((t \u0026 1) \u003d\u003d 0) {\n            t /\u003d 2;\n        }\n        if (t \u003e 0) {\n            u \u003d -t;\n        } else {\n            v \u003d t;\n        }\n        t \u003d (v - u) / 2;\n    } while (t !\u003d 0);\n    return -u * (1 \u003c\u003c k);\n}",
+          "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+          "functionStartLine": 309,
+          "functionName": "gcd",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003e\nGets the greatest common divisor of the absolute value of two numbers,\nusing the \"binary gcd\" method which avoids division and modulo\noperations. See Knuth 4.5.2 algorithm B. This algorithm is due to Josef\nStein (1961).\n\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n@since 1.1\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n@since 1.1\n",
+            "newValue": "\u003cp\u003e\nGets the greatest common divisor of the absolute value of two numbers,\nusing the \"binary gcd\" method which avoids division and modulo\noperations. See Knuth 4.5.2 algorithm B. This algorithm is due to Josef\nStein (1961).\n\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n@since 1.1\n"
+          }
+        }
+      ]
+    },
+    "c7a42fb239f8b723a9daf1903ec1ad64388da6bd": {
+      "type": "Ydocchange",
+      "commitMessage": "added @since tag to new methods.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@178166 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/24/05, 6:24 AM",
+      "commitName": "c7a42fb239f8b723a9daf1903ec1ad64388da6bd",
+      "commitAuthor": "Brent Worden",
+      "commitDateOld": "5/21/05, 10:25 PM",
+      "commitNameOld": "b64000af437bfa5282f94ac0dfd2a0b1994af099",
+      "commitAuthorOld": "Brent Worden",
+      "daysBetweenCommits": 2.33,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static int gcd(int u, int v) {\n    if (u * v \u003d\u003d 0) {\n        return (Math.abs(u) + Math.abs(v));\n    }\n    if (u \u003e 0) {\n        u \u003d -u;\n    }\n    if (v \u003e 0) {\n        v \u003d -v;\n    }\n    int k \u003d 0;\n    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n        u /\u003d 2;\n        v /\u003d 2;\n        k++;\n    }\n    if (k \u003d\u003d 31) {\n        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n    }\n    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n    do {\n        while ((t \u0026 1) \u003d\u003d 0) {\n            t /\u003d 2;\n        }\n        if (t \u003e 0) {\n            u \u003d -t;\n        } else {\n            v \u003d t;\n        }\n        t \u003d (v - u) / 2;\n    } while (t !\u003d 0);\n    return -u * (1 \u003c\u003c k);\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 553,
+      "functionName": "gcd",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n@since 1.1\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n",
+        "newValue": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n@since 1.1\n"
+      }
+    },
+    "20786a617657c0c20315005c621052a2735dfe67": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "Ported numerics improvements in commons lang Fraction implementation.\nAdded utility methods for overflow-checked integer arithmetic and\nimproved gcd method in MathUtils.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@168072 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/3/05, 10:14 PM",
+      "commitName": "20786a617657c0c20315005c621052a2735dfe67",
+      "commitAuthor": "Phil Steitz",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Ported numerics improvements in commons lang Fraction implementation.\nAdded utility methods for overflow-checked integer arithmetic and\nimproved gcd method in MathUtils.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@168072 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "5/3/05, 10:14 PM",
+          "commitName": "20786a617657c0c20315005c621052a2735dfe67",
+          "commitAuthor": "Phil Steitz",
+          "commitDateOld": "2/26/05, 5:11 AM",
+          "commitNameOld": "65b65f88b74de6b3462b04b2cf2a69f064a77557",
+          "commitAuthorOld": "Dirk Verbeeck",
+          "daysBetweenCommits": 66.67,
+          "commitsBetweenForRepo": 13,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int gcd(int u, int v) {\n    if (u * v \u003d\u003d 0) {\n        return (Math.abs(u) + Math.abs(v));\n    }\n    if (u \u003e 0) {\n        u \u003d -u;\n    }\n    if (v \u003e 0) {\n        v \u003d -v;\n    }\n    int k \u003d 0;\n    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n        u /\u003d 2;\n        v /\u003d 2;\n        k++;\n    }\n    if (k \u003d\u003d 31) {\n        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n    }\n    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n    do {\n        while ((t \u0026 1) \u003d\u003d 0) {\n            t /\u003d 2;\n        }\n        if (t \u003e 0) {\n            u \u003d -t;\n        } else {\n            v \u003d t;\n        }\n        t \u003d (v - u) / 2;\n    } while (t !\u003d 0);\n    return -u * (1 \u003c\u003c k);\n}",
+          "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+          "functionStartLine": 547,
+          "functionName": "gcd",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n",
+          "diff": "@@ -1,21 +1,33 @@\n-public static int gcd(int a, int b) {\n-    int ret;\n-    if (a \u003d\u003d 0) {\n-        ret \u003d Math.abs(b);\n-    } else if (b \u003d\u003d 0) {\n-        ret \u003d Math.abs(a);\n-    } else if (a \u003c 0) {\n-        ret \u003d gcd(-a, b);\n-    } else if (b \u003c 0) {\n-        ret \u003d gcd(a, -b);\n-    } else {\n-        int r \u003d 0;\n-        while (b \u003e 0) {\n-            r \u003d a % b;\n-            a \u003d b;\n-            b \u003d r;\n-        }\n-        ret \u003d a;\n+public static int gcd(int u, int v) {\n+    if (u * v \u003d\u003d 0) {\n+        return (Math.abs(u) + Math.abs(v));\n     }\n-    return ret;\n+    if (u \u003e 0) {\n+        u \u003d -u;\n+    }\n+    if (v \u003e 0) {\n+        v \u003d -v;\n+    }\n+    int k \u003d 0;\n+    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n+        u /\u003d 2;\n+        v /\u003d 2;\n+        k++;\n+    }\n+    if (k \u003d\u003d 31) {\n+        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n+    }\n+    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n+    do {\n+        while ((t \u0026 1) \u003d\u003d 0) {\n+            t /\u003d 2;\n+        }\n+        if (t \u003e 0) {\n+            u \u003d -t;\n+        } else {\n+            v \u003d t;\n+        }\n+        t \u003d (v - u) / 2;\n+    } while (t !\u003d 0);\n+    return -u * (1 \u003c\u003c k);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[a-int, b-int]",
+            "newValue": "[u-int, v-int]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Ported numerics improvements in commons lang Fraction implementation.\nAdded utility methods for overflow-checked integer arithmetic and\nimproved gcd method in MathUtils.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@168072 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "5/3/05, 10:14 PM",
+          "commitName": "20786a617657c0c20315005c621052a2735dfe67",
+          "commitAuthor": "Phil Steitz",
+          "commitDateOld": "2/26/05, 5:11 AM",
+          "commitNameOld": "65b65f88b74de6b3462b04b2cf2a69f064a77557",
+          "commitAuthorOld": "Dirk Verbeeck",
+          "daysBetweenCommits": 66.67,
+          "commitsBetweenForRepo": 13,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int gcd(int u, int v) {\n    if (u * v \u003d\u003d 0) {\n        return (Math.abs(u) + Math.abs(v));\n    }\n    if (u \u003e 0) {\n        u \u003d -u;\n    }\n    if (v \u003e 0) {\n        v \u003d -v;\n    }\n    int k \u003d 0;\n    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n        u /\u003d 2;\n        v /\u003d 2;\n        k++;\n    }\n    if (k \u003d\u003d 31) {\n        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n    }\n    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n    do {\n        while ((t \u0026 1) \u003d\u003d 0) {\n            t /\u003d 2;\n        }\n        if (t \u003e 0) {\n            u \u003d -t;\n        } else {\n            v \u003d t;\n        }\n        t \u003d (v - u) / 2;\n    } while (t !\u003d 0);\n    return -u * (1 \u003c\u003c k);\n}",
+          "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+          "functionStartLine": 547,
+          "functionName": "gcd",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n",
+          "diff": "@@ -1,21 +1,33 @@\n-public static int gcd(int a, int b) {\n-    int ret;\n-    if (a \u003d\u003d 0) {\n-        ret \u003d Math.abs(b);\n-    } else if (b \u003d\u003d 0) {\n-        ret \u003d Math.abs(a);\n-    } else if (a \u003c 0) {\n-        ret \u003d gcd(-a, b);\n-    } else if (b \u003c 0) {\n-        ret \u003d gcd(a, -b);\n-    } else {\n-        int r \u003d 0;\n-        while (b \u003e 0) {\n-            r \u003d a % b;\n-            a \u003d b;\n-            b \u003d r;\n-        }\n-        ret \u003d a;\n+public static int gcd(int u, int v) {\n+    if (u * v \u003d\u003d 0) {\n+        return (Math.abs(u) + Math.abs(v));\n     }\n-    return ret;\n+    if (u \u003e 0) {\n+        u \u003d -u;\n+    }\n+    if (v \u003e 0) {\n+        v \u003d -v;\n+    }\n+    int k \u003d 0;\n+    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n+        u /\u003d 2;\n+        v /\u003d 2;\n+        k++;\n+    }\n+    if (k \u003d\u003d 31) {\n+        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n+    }\n+    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n+    do {\n+        while ((t \u0026 1) \u003d\u003d 0) {\n+            t /\u003d 2;\n+        }\n+        if (t \u003e 0) {\n+            u \u003d -t;\n+        } else {\n+            v \u003d t;\n+        }\n+        t \u003d (v - u) / 2;\n+    } while (t !\u003d 0);\n+    return -u * (1 \u003c\u003c k);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Ported numerics improvements in commons lang Fraction implementation.\nAdded utility methods for overflow-checked integer arithmetic and\nimproved gcd method in MathUtils.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@168072 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "5/3/05, 10:14 PM",
+          "commitName": "20786a617657c0c20315005c621052a2735dfe67",
+          "commitAuthor": "Phil Steitz",
+          "commitDateOld": "2/26/05, 5:11 AM",
+          "commitNameOld": "65b65f88b74de6b3462b04b2cf2a69f064a77557",
+          "commitAuthorOld": "Dirk Verbeeck",
+          "daysBetweenCommits": 66.67,
+          "commitsBetweenForRepo": 13,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int gcd(int u, int v) {\n    if (u * v \u003d\u003d 0) {\n        return (Math.abs(u) + Math.abs(v));\n    }\n    if (u \u003e 0) {\n        u \u003d -u;\n    }\n    if (v \u003e 0) {\n        v \u003d -v;\n    }\n    int k \u003d 0;\n    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n        u /\u003d 2;\n        v /\u003d 2;\n        k++;\n    }\n    if (k \u003d\u003d 31) {\n        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n    }\n    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n    do {\n        while ((t \u0026 1) \u003d\u003d 0) {\n            t /\u003d 2;\n        }\n        if (t \u003e 0) {\n            u \u003d -t;\n        } else {\n            v \u003d t;\n        }\n        t \u003d (v - u) / 2;\n    } while (t !\u003d 0);\n    return -u * (1 \u003c\u003c k);\n}",
+          "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+          "functionStartLine": 547,
+          "functionName": "gcd",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n",
+          "diff": "@@ -1,21 +1,33 @@\n-public static int gcd(int a, int b) {\n-    int ret;\n-    if (a \u003d\u003d 0) {\n-        ret \u003d Math.abs(b);\n-    } else if (b \u003d\u003d 0) {\n-        ret \u003d Math.abs(a);\n-    } else if (a \u003c 0) {\n-        ret \u003d gcd(-a, b);\n-    } else if (b \u003c 0) {\n-        ret \u003d gcd(a, -b);\n-    } else {\n-        int r \u003d 0;\n-        while (b \u003e 0) {\n-            r \u003d a % b;\n-            a \u003d b;\n-            b \u003d r;\n-        }\n-        ret \u003d a;\n+public static int gcd(int u, int v) {\n+    if (u * v \u003d\u003d 0) {\n+        return (Math.abs(u) + Math.abs(v));\n     }\n-    return ret;\n+    if (u \u003e 0) {\n+        u \u003d -u;\n+    }\n+    if (v \u003e 0) {\n+        v \u003d -v;\n+    }\n+    int k \u003d 0;\n+    while ((u \u0026 1) \u003d\u003d 0 \u0026\u0026 (v \u0026 1) \u003d\u003d 0 \u0026\u0026 k \u003c 31) {\n+        u /\u003d 2;\n+        v /\u003d 2;\n+        k++;\n+    }\n+    if (k \u003d\u003d 31) {\n+        throw new ArithmeticException(\"overflow: gcd is 2^31\");\n+    }\n+    int t \u003d ((u \u0026 1) \u003d\u003d 1) ? v : -(u / 2);\n+    do {\n+        while ((t \u0026 1) \u003d\u003d 0) {\n+            t /\u003d 2;\n+        }\n+        if (t \u003e 0) {\n+            u \u003d -t;\n+        } else {\n+            v \u003d t;\n+        }\n+        t \u003d (v - u) / 2;\n+    } while (t !\u003d 0);\n+    return -u * (1 \u003c\u003c k);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Returns the greatest common divisor between two integer values.\n\n@param a the first integer value.\n@param b the second integer value.\n@return the greatest common divisor between a and b.\n",
+            "newValue": "\u003cp\u003eGets the greatest common divisor of the absolute value of\ntwo numbers, using the \"binary gcd\" method which avoids\ndivision and modulo operations.  See Knuth 4.5.2 algorithm B.\nThis algorithm is due to Josef Stein (1961).\u003c/p\u003e\n\n@param u a non-zero number\n@param v a non-zero number\n@return the greatest common divisor, never zero\n"
+          }
+        }
+      ]
+    },
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": {
+      "type": "Yintroduced",
+      "commitMessage": "added fraction class and fraction formatting classes.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@151479 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/4/05, 9:49 PM",
+      "commitName": "41598b038509e9cdb7f6dbeefdb2a2876d2708a6",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,21 @@\n+public static int gcd(int a, int b) {\n+    int ret;\n+    if (a \u003d\u003d 0) {\n+        ret \u003d Math.abs(b);\n+    } else if (b \u003d\u003d 0) {\n+        ret \u003d Math.abs(a);\n+    } else if (a \u003c 0) {\n+        ret \u003d gcd(-a, b);\n+    } else if (b \u003c 0) {\n+        ret \u003d gcd(a, -b);\n+    } else {\n+        int r \u003d 0;\n+        while (b \u003e 0) {\n+            r \u003d a % b;\n+            a \u003d b;\n+            b \u003d r;\n+        }\n+        ret \u003d a;\n+    }\n+    return ret;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static int gcd(int a, int b) {\n    int ret;\n    if (a \u003d\u003d 0) {\n        ret \u003d Math.abs(b);\n    } else if (b \u003d\u003d 0) {\n        ret \u003d Math.abs(a);\n    } else if (a \u003c 0) {\n        ret \u003d gcd(-a, b);\n    } else if (b \u003c 0) {\n        ret \u003d gcd(a, -b);\n    } else {\n        int r \u003d 0;\n        while (b \u003e 0) {\n            r \u003d a % b;\n            a \u003d b;\n            b \u003d r;\n        }\n        ret \u003d a;\n    }\n    return ret;\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 488,
+      "functionName": "gcd",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the greatest common divisor between two integer values.\n\n@param a the first integer value.\n@param b the second integer value.\n@return the greatest common divisor between a and b.\n"
+    }
+  }
+}

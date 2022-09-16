@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-61b",
+  "repositoryPath": "/tmp/Closure-61b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateChildCount",
+  "functionId": "validateChildCount___n-Node__i-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 765,
+  "functionEndLine": 779,
+  "numCommitsSeen": 7,
+  "timeTaken": 820,
+  "changeHistory": [
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,13 @@\n+private void validateChildCount(Node n, int i) {\n+    boolean valid \u003d false;\n+    if (i \u003d\u003d 0) {\n+        valid \u003d !n.hasChildren();\n+    } else if (i \u003d\u003d 1) {\n+        valid \u003d n.hasOneChild();\n+    } else {\n+        valid \u003d (n.getChildCount() \u003d\u003d i);\n+    }\n+    if (!valid) {\n+        violation(\"Expected \" + i + \" children, but was \" + n.getChildCount(), n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateChildCount(Node n, int i) {\n    boolean valid \u003d false;\n    if (i \u003d\u003d 0) {\n        valid \u003d !n.hasChildren();\n    } else if (i \u003d\u003d 1) {\n        valid \u003d n.hasOneChild();\n    } else {\n        valid \u003d (n.getChildCount() \u003d\u003d i);\n    }\n    if (!valid) {\n        violation(\"Expected \" + i + \" children, but was \" + n.getChildCount(), n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 753,
+      "functionName": "validateChildCount",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

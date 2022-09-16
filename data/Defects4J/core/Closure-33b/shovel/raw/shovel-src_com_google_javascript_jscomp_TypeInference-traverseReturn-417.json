@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "traverseReturn",
+  "functionId": "traverseReturn___n-Node__scope-FlowScope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "Traverse a return value.\n",
+  "functionStartLine": 417,
+  "functionEndLine": 432,
+  "numCommitsSeen": 69,
+  "timeTaken": 1512,
+  "changeHistory": [
+    "c8d189698a5bf3362ccd820b42f3d62c550ec983"
+  ],
+  "changeHistoryShort": {
+    "c8d189698a5bf3362ccd820b42f3d62c550ec983": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c8d189698a5bf3362ccd820b42f3d62c550ec983": {
+      "type": "Yintroduced",
+      "commitMessage": "\nreverse property inference based on return type\n\nR\u003dacleung\nDELTA\u003d57  (56 added, 1 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3991\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1686 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/15/11, 12:56 PM",
+      "commitName": "c8d189698a5bf3362ccd820b42f3d62c550ec983",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private FlowScope traverseReturn(Node n, FlowScope scope) {\n+    scope \u003d traverseChildren(n, scope);\n+    Node retValue \u003d n.getFirstChild();\n+    if (retValue !\u003d null) {\n+        JSType type \u003d functionScope.getRootNode().getJSType();\n+        if (type !\u003d null) {\n+            FunctionType fnType \u003d type.toMaybeFunctionType();\n+            if (fnType !\u003d null) {\n+                inferPropertyTypesToMatchConstraint(retValue.getJSType(), fnType.getReturnType());\n+            }\n+        }\n+    }\n+    return scope;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private FlowScope traverseReturn(Node n, FlowScope scope) {\n    scope \u003d traverseChildren(n, scope);\n    Node retValue \u003d n.getFirstChild();\n    if (retValue !\u003d null) {\n        JSType type \u003d functionScope.getRootNode().getJSType();\n        if (type !\u003d null) {\n            FunctionType fnType \u003d type.toMaybeFunctionType();\n            if (fnType !\u003d null) {\n                inferPropertyTypesToMatchConstraint(retValue.getJSType(), fnType.getReturnType());\n            }\n        }\n    }\n    return scope;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 417,
+      "functionName": "traverseReturn",
+      "functionAnnotation": "",
+      "functionDoc": "Traverse a return value.\n"
+    }
+  }
+}

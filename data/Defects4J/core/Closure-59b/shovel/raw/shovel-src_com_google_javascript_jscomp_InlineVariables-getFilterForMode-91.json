@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InlineVariables.java",
+  "functionName": "getFilterForMode",
+  "functionId": "getFilterForMode",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InlineVariables.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 91,
+  "functionEndLine": 102,
+  "numCommitsSeen": 23,
+  "timeTaken": 3021,
+  "changeHistory": [
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb"
+  ],
+  "changeHistoryShort": {
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": {
+      "type": "Yintroduced",
+      "commitMessage": "Add a mechanism for inlining local vars, and turn it on by default.\nWarnings for \"ambiguous\" function definitions.\nRefactoring and renaming of some method names.\nUse \"\u003d\" optionality annotation in externs.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@15 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/25/09, 6:53 AM",
+      "commitName": "3bee5d740c96572faea4b9fb8b632e0e07b13cbb",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+private Predicate\u003cVar\u003e getFilterForMode() {\n+    switch(mode) {\n+        case ALL:\n+            return Predicates.\u003cVar\u003ealwaysTrue();\n+        case LOCALS_ONLY:\n+            return new IdentifyLocals();\n+        case CONSTANTS_ONLY:\n+            return new IdentifyConstants();\n+        default:\n+            throw new IllegalStateException();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Predicate\u003cVar\u003e getFilterForMode() {\n    switch(mode) {\n        case ALL:\n            return Predicates.\u003cVar\u003ealwaysTrue();\n        case LOCALS_ONLY:\n            return new IdentifyLocals();\n        case CONSTANTS_ONLY:\n            return new IdentifyConstants();\n        default:\n            throw new IllegalStateException();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+      "functionStartLine": 89,
+      "functionName": "getFilterForMode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "parseBasicTypeExpression",
+  "functionId": "parseBasicTypeExpression___token-JsDocToken",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "BasicTypeExpression :\u003d \u0027*\u0027 | \u0027null\u0027 | \u0027undefined\u0027 | TypeName\n    | FunctionType | UnionType | RecordType | ArrayType\n",
+  "functionStartLine": 1685,
+  "functionEndLine": 1711,
+  "numCommitsSeen": 44,
+  "timeTaken": 5006,
+  "changeHistory": [
+    "9d5a6e3082dd99f6c44df1b3526b9e83b79aa7da",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "9d5a6e3082dd99f6c44df1b3526b9e83b79aa7da": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9d5a6e3082dd99f6c44df1b3526b9e83b79aa7da": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix a jsdoc parser bug where it was dropping the EndOfComment token\nFixes issue 477\n\nR\u003dacleung\nDELTA\u003d15  (12 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2193\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1158 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/3/11, 4:42 PM",
+      "commitName": "9d5a6e3082dd99f6c44df1b3526b9e83b79aa7da",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/16/11, 12:57 PM",
+      "commitNameOld": "c438dfd06013f82daa648d23b864842ff1881695",
+      "commitAuthorOld": "zhuyi@google.com",
+      "daysBetweenCommits": 18.16,
+      "commitsBetweenForRepo": 52,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node parseBasicTypeExpression(JsDocToken token) {\n    if (token \u003d\u003d JsDocToken.STAR) {\n        return newNode(Token.STAR);\n    } else if (token \u003d\u003d JsDocToken.LB) {\n        skipEOLs();\n        return parseArrayType(next());\n    } else if (token \u003d\u003d JsDocToken.LC) {\n        skipEOLs();\n        return parseRecordType(next());\n    } else if (token \u003d\u003d JsDocToken.LP) {\n        skipEOLs();\n        return parseUnionType(next());\n    } else if (token \u003d\u003d JsDocToken.STRING) {\n        String string \u003d stream.getString();\n        if (\"function\".equals(string)) {\n            skipEOLs();\n            return parseFunctionType(next());\n        } else if (\"null\".equals(string) || \"undefined\".equals(string)) {\n            return newStringNode(string);\n        } else {\n            return parseTypeName(token);\n        }\n    }\n    restoreLookAhead(token);\n    return reportGenericTypeSyntaxWarning();\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1685,
+      "functionName": "parseBasicTypeExpression",
+      "functionAnnotation": "",
+      "functionDoc": "BasicTypeExpression :\u003d \u0027*\u0027 | \u0027null\u0027 | \u0027undefined\u0027 | TypeName\n    | FunctionType | UnionType | RecordType | ArrayType\n",
+      "diff": "@@ -1,25 +1,26 @@\n private Node parseBasicTypeExpression(JsDocToken token) {\n     if (token \u003d\u003d JsDocToken.STAR) {\n         return newNode(Token.STAR);\n     } else if (token \u003d\u003d JsDocToken.LB) {\n         skipEOLs();\n         return parseArrayType(next());\n     } else if (token \u003d\u003d JsDocToken.LC) {\n         skipEOLs();\n         return parseRecordType(next());\n     } else if (token \u003d\u003d JsDocToken.LP) {\n         skipEOLs();\n         return parseUnionType(next());\n     } else if (token \u003d\u003d JsDocToken.STRING) {\n         String string \u003d stream.getString();\n         if (\"function\".equals(string)) {\n             skipEOLs();\n             return parseFunctionType(next());\n         } else if (\"null\".equals(string) || \"undefined\".equals(string)) {\n             return newStringNode(string);\n         } else {\n             return parseTypeName(token);\n         }\n     }\n+    restoreLookAhead(token);\n     return reportGenericTypeSyntaxWarning();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,25 @@\n+private Node parseBasicTypeExpression(JsDocToken token) {\n+    if (token \u003d\u003d JsDocToken.STAR) {\n+        return newNode(Token.STAR);\n+    } else if (token \u003d\u003d JsDocToken.LB) {\n+        skipEOLs();\n+        return parseArrayType(next());\n+    } else if (token \u003d\u003d JsDocToken.LC) {\n+        skipEOLs();\n+        return parseRecordType(next());\n+    } else if (token \u003d\u003d JsDocToken.LP) {\n+        skipEOLs();\n+        return parseUnionType(next());\n+    } else if (token \u003d\u003d JsDocToken.STRING) {\n+        String string \u003d stream.getString();\n+        if (\"function\".equals(string)) {\n+            skipEOLs();\n+            return parseFunctionType(next());\n+        } else if (\"null\".equals(string) || \"undefined\".equals(string)) {\n+            return newStringNode(string);\n+        } else {\n+            return parseTypeName(token);\n+        }\n+    }\n+    return reportGenericTypeSyntaxWarning();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node parseBasicTypeExpression(JsDocToken token) {\n    if (token \u003d\u003d JsDocToken.STAR) {\n        return newNode(Token.STAR);\n    } else if (token \u003d\u003d JsDocToken.LB) {\n        skipEOLs();\n        return parseArrayType(next());\n    } else if (token \u003d\u003d JsDocToken.LC) {\n        skipEOLs();\n        return parseRecordType(next());\n    } else if (token \u003d\u003d JsDocToken.LP) {\n        skipEOLs();\n        return parseUnionType(next());\n    } else if (token \u003d\u003d JsDocToken.STRING) {\n        String string \u003d stream.getString();\n        if (\"function\".equals(string)) {\n            skipEOLs();\n            return parseFunctionType(next());\n        } else if (\"null\".equals(string) || \"undefined\".equals(string)) {\n            return newStringNode(string);\n        } else {\n            return parseTypeName(token);\n        }\n    }\n    return reportGenericTypeSyntaxWarning();\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1516,
+      "functionName": "parseBasicTypeExpression",
+      "functionAnnotation": "",
+      "functionDoc": "BasicTypeExpression :\u003d \u0027*\u0027 | \u0027null\u0027 | \u0027undefined\u0027 | TypeName\n    | FunctionType | UnionType | RecordType | ArrayType\n"
+    }
+  }
+}

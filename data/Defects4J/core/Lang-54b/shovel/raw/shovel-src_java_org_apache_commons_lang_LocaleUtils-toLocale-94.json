@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-54b",
+  "repositoryPath": "/tmp/Lang-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LocaleUtils.java",
+  "functionName": "toLocale",
+  "functionId": "toLocale___str-String",
+  "sourceFilePath": "src/java/org/apache/commons/lang/LocaleUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")         \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")      \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")   (#)\n\u003c/pre\u003e\n\n\u003cp\u003e(#) The behaviour of the JDK variant constructor changed between JDK1.3 and JDK1.4.\nIn JDK1.3, the constructor upper cases the variant, in JDK1.4, it doesn\u0027t.\nThus, the result from getVariant() may vary depending on your JDK.\u003c/p\u003e\n\n\u003cp\u003eThis method validates the input strictly.\nThe language code must be lowercase.\nThe country code must be uppercase.\nThe separator must be an underscore.\nThe length must be correct.\n\u003c/p\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale, null if null input\n@throws IllegalArgumentException if the string is an invalid format\n",
+  "functionStartLine": 94,
+  "functionEndLine": 127,
+  "numCommitsSeen": 10,
+  "timeTaken": 514,
+  "changeHistory": [
+    "1463c01840c5738bd4daa1e50640d71b3ae751c3",
+    "ddd4f84525178a0722ecbc01229d919d11c526f7",
+    "e719209d3205f386ed156e73e21a16af68fd9906"
+  ],
+  "changeHistoryShort": {
+    "1463c01840c5738bd4daa1e50640d71b3ae751c3": "Ydocchange",
+    "ddd4f84525178a0722ecbc01229d919d11c526f7": "Ymultichange(Ybodychange,Ydocchange)",
+    "e719209d3205f386ed156e73e21a16af68fd9906": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1463c01840c5738bd4daa1e50640d71b3ae751c3": {
+      "type": "Ydocchange",
+      "commitMessage": "Handle differences between JDK1.3 and JDK1.4\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@307279 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/8/05, 2:55 AM",
+      "commitName": "1463c01840c5738bd4daa1e50640d71b3ae751c3",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "9/23/05, 4:17 PM",
+      "commitNameOld": "ddd4f84525178a0722ecbc01229d919d11c526f7",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 14.44,
+      "commitsBetweenForRepo": 9,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Locale toLocale(String str) {\n    if (str \u003d\u003d null) {\n        return null;\n    }\n    int len \u003d str.length();\n    if (len !\u003d 2 \u0026\u0026 len !\u003d 5 \u0026\u0026 len \u003c 7) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    char ch0 \u003d str.charAt(0);\n    char ch1 \u003d str.charAt(1);\n    if (ch0 \u003c \u0027a\u0027 || ch0 \u003e \u0027z\u0027 || ch1 \u003c \u0027a\u0027 || ch1 \u003e \u0027z\u0027) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    if (len \u003d\u003d 2) {\n        return new Locale(str, \"\");\n    } else {\n        if (str.charAt(2) !\u003d \u0027_\u0027) {\n            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n        }\n        char ch3 \u003d str.charAt(3);\n        char ch4 \u003d str.charAt(4);\n        if (ch3 \u003c \u0027A\u0027 || ch3 \u003e \u0027Z\u0027 || ch4 \u003c \u0027A\u0027 || ch4 \u003e \u0027Z\u0027) {\n            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n        }\n        if (len \u003d\u003d 5) {\n            return new Locale(str.substring(0, 2), str.substring(3, 5));\n        } else {\n            if (str.charAt(5) !\u003d \u0027_\u0027) {\n                throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n            }\n            return new Locale(str.substring(0, 2), str.substring(3, 5), str.substring(6));\n        }\n    }\n}",
+      "path": "src/java/org/apache/commons/lang/LocaleUtils.java",
+      "functionStartLine": 93,
+      "functionName": "toLocale",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")         \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")      \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")   (#)\n\u003c/pre\u003e\n\n\u003cp\u003e(#) The behaviour of the JDK variant constructor changed between JDK1.3 and JDK1.4.\nIn JDK1.3, the constructor upper cases the variant, in JDK1.4, it doesn\u0027t.\nThus, the result from getVariant() may vary depending on your JDK.\u003c/p\u003e\n\n\u003cp\u003eThis method validates the input strictly.\nThe language code must be lowercase.\nThe country code must be uppercase.\nThe separator must be an underscore.\nThe length must be correct.\n\u003c/p\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale, null if null input\n@throws IllegalArgumentException if the string is an invalid format\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")     \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")  \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")\n\u003c/pre\u003e\n\n\u003cp\u003eThis method validates the input strictly.\nThe language code must be lowercase.\nThe country code must be uppercase.\nThe separator must be an underscore.\nThe length must be correct.\n\u003c/p\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale, null if null input\n@throws IllegalArgumentException if the string is an invalid format\n",
+        "newValue": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")         \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")      \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")   (#)\n\u003c/pre\u003e\n\n\u003cp\u003e(#) The behaviour of the JDK variant constructor changed between JDK1.3 and JDK1.4.\nIn JDK1.3, the constructor upper cases the variant, in JDK1.4, it doesn\u0027t.\nThus, the result from getVariant() may vary depending on your JDK.\u003c/p\u003e\n\n\u003cp\u003eThis method validates the input strictly.\nThe language code must be lowercase.\nThe country code must be uppercase.\nThe separator must be an underscore.\nThe length must be correct.\n\u003c/p\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale, null if null input\n@throws IllegalArgumentException if the string is an invalid format\n"
+      }
+    },
+    "ddd4f84525178a0722ecbc01229d919d11c526f7": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Test LocaleUtils\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@291219 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/23/05, 4:17 PM",
+      "commitName": "ddd4f84525178a0722ecbc01229d919d11c526f7",
+      "commitAuthor": "Stephen Colebourne",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Test LocaleUtils\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@291219 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "9/23/05, 4:17 PM",
+          "commitName": "ddd4f84525178a0722ecbc01229d919d11c526f7",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/21/05, 12:32 PM",
+          "commitNameOld": "6e147ea0fdc82dbac8b67663c41ed3b52856cc67",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 33.16,
+          "commitsBetweenForRepo": 41,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Locale toLocale(String str) {\n    if (str \u003d\u003d null) {\n        return null;\n    }\n    int len \u003d str.length();\n    if (len !\u003d 2 \u0026\u0026 len !\u003d 5 \u0026\u0026 len \u003c 7) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    char ch0 \u003d str.charAt(0);\n    char ch1 \u003d str.charAt(1);\n    if (ch0 \u003c \u0027a\u0027 || ch0 \u003e \u0027z\u0027 || ch1 \u003c \u0027a\u0027 || ch1 \u003e \u0027z\u0027) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    if (len \u003d\u003d 2) {\n        return new Locale(str, \"\");\n    } else {\n        if (str.charAt(2) !\u003d \u0027_\u0027) {\n            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n        }\n        char ch3 \u003d str.charAt(3);\n        char ch4 \u003d str.charAt(4);\n        if (ch3 \u003c \u0027A\u0027 || ch3 \u003e \u0027Z\u0027 || ch4 \u003c \u0027A\u0027 || ch4 \u003e \u0027Z\u0027) {\n            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n        }\n        if (len \u003d\u003d 5) {\n            return new Locale(str.substring(0, 2), str.substring(3, 5));\n        } else {\n            if (str.charAt(5) !\u003d \u0027_\u0027) {\n                throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n            }\n            return new Locale(str.substring(0, 2), str.substring(3, 5), str.substring(6));\n        }\n    }\n}",
+          "path": "src/java/org/apache/commons/lang/LocaleUtils.java",
+          "functionStartLine": 89,
+          "functionName": "toLocale",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")     \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")  \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")\n\u003c/pre\u003e\n\n\u003cp\u003eThis method validates the input strictly.\nThe language code must be lowercase.\nThe country code must be uppercase.\nThe separator must be an underscore.\nThe length must be correct.\n\u003c/p\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale, null if null input\n@throws IllegalArgumentException if the string is an invalid format\n",
+          "diff": "@@ -1,23 +1,34 @@\n public static Locale toLocale(String str) {\n     if (str \u003d\u003d null) {\n         return null;\n     }\n-    if (str.length() !\u003d 2 \u0026\u0026 str.length() !\u003d 5 \u0026\u0026 str.length() \u003c 7) {\n+    int len \u003d str.length();\n+    if (len !\u003d 2 \u0026\u0026 len !\u003d 5 \u0026\u0026 len \u003c 7) {\n         throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n     }\n-    if (Character.isLowerCase(str.charAt(0)) \u003d\u003d false || Character.isLowerCase(str.charAt(1)) \u003d\u003d false) {\n+    char ch0 \u003d str.charAt(0);\n+    char ch1 \u003d str.charAt(1);\n+    if (ch0 \u003c \u0027a\u0027 || ch0 \u003e \u0027z\u0027 || ch1 \u003c \u0027a\u0027 || ch1 \u003e \u0027z\u0027) {\n         throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n     }\n-    if (str.length() \u003d\u003d 2) {\n+    if (len \u003d\u003d 2) {\n         return new Locale(str, \"\");\n     } else {\n-        if (Character.isUpperCase(str.charAt(3)) \u003d\u003d false || Character.isUpperCase(str.charAt(4)) \u003d\u003d false) {\n+        if (str.charAt(2) !\u003d \u0027_\u0027) {\n             throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n         }\n-        if (str.length() \u003d\u003d 5) {\n+        char ch3 \u003d str.charAt(3);\n+        char ch4 \u003d str.charAt(4);\n+        if (ch3 \u003c \u0027A\u0027 || ch3 \u003e \u0027Z\u0027 || ch4 \u003c \u0027A\u0027 || ch4 \u003e \u0027Z\u0027) {\n+            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n+        }\n+        if (len \u003d\u003d 5) {\n             return new Locale(str.substring(0, 2), str.substring(3, 5));\n         } else {\n+            if (str.charAt(5) !\u003d \u0027_\u0027) {\n+                throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n+            }\n             return new Locale(str.substring(0, 2), str.substring(3, 5), str.substring(6));\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Test LocaleUtils\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@291219 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "9/23/05, 4:17 PM",
+          "commitName": "ddd4f84525178a0722ecbc01229d919d11c526f7",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/21/05, 12:32 PM",
+          "commitNameOld": "6e147ea0fdc82dbac8b67663c41ed3b52856cc67",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 33.16,
+          "commitsBetweenForRepo": 41,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Locale toLocale(String str) {\n    if (str \u003d\u003d null) {\n        return null;\n    }\n    int len \u003d str.length();\n    if (len !\u003d 2 \u0026\u0026 len !\u003d 5 \u0026\u0026 len \u003c 7) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    char ch0 \u003d str.charAt(0);\n    char ch1 \u003d str.charAt(1);\n    if (ch0 \u003c \u0027a\u0027 || ch0 \u003e \u0027z\u0027 || ch1 \u003c \u0027a\u0027 || ch1 \u003e \u0027z\u0027) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    if (len \u003d\u003d 2) {\n        return new Locale(str, \"\");\n    } else {\n        if (str.charAt(2) !\u003d \u0027_\u0027) {\n            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n        }\n        char ch3 \u003d str.charAt(3);\n        char ch4 \u003d str.charAt(4);\n        if (ch3 \u003c \u0027A\u0027 || ch3 \u003e \u0027Z\u0027 || ch4 \u003c \u0027A\u0027 || ch4 \u003e \u0027Z\u0027) {\n            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n        }\n        if (len \u003d\u003d 5) {\n            return new Locale(str.substring(0, 2), str.substring(3, 5));\n        } else {\n            if (str.charAt(5) !\u003d \u0027_\u0027) {\n                throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n            }\n            return new Locale(str.substring(0, 2), str.substring(3, 5), str.substring(6));\n        }\n    }\n}",
+          "path": "src/java/org/apache/commons/lang/LocaleUtils.java",
+          "functionStartLine": 89,
+          "functionName": "toLocale",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")     \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")  \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")\n\u003c/pre\u003e\n\n\u003cp\u003eThis method validates the input strictly.\nThe language code must be lowercase.\nThe country code must be uppercase.\nThe separator must be an underscore.\nThe length must be correct.\n\u003c/p\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale, null if null input\n@throws IllegalArgumentException if the string is an invalid format\n",
+          "diff": "@@ -1,23 +1,34 @@\n public static Locale toLocale(String str) {\n     if (str \u003d\u003d null) {\n         return null;\n     }\n-    if (str.length() !\u003d 2 \u0026\u0026 str.length() !\u003d 5 \u0026\u0026 str.length() \u003c 7) {\n+    int len \u003d str.length();\n+    if (len !\u003d 2 \u0026\u0026 len !\u003d 5 \u0026\u0026 len \u003c 7) {\n         throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n     }\n-    if (Character.isLowerCase(str.charAt(0)) \u003d\u003d false || Character.isLowerCase(str.charAt(1)) \u003d\u003d false) {\n+    char ch0 \u003d str.charAt(0);\n+    char ch1 \u003d str.charAt(1);\n+    if (ch0 \u003c \u0027a\u0027 || ch0 \u003e \u0027z\u0027 || ch1 \u003c \u0027a\u0027 || ch1 \u003e \u0027z\u0027) {\n         throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n     }\n-    if (str.length() \u003d\u003d 2) {\n+    if (len \u003d\u003d 2) {\n         return new Locale(str, \"\");\n     } else {\n-        if (Character.isUpperCase(str.charAt(3)) \u003d\u003d false || Character.isUpperCase(str.charAt(4)) \u003d\u003d false) {\n+        if (str.charAt(2) !\u003d \u0027_\u0027) {\n             throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n         }\n-        if (str.length() \u003d\u003d 5) {\n+        char ch3 \u003d str.charAt(3);\n+        char ch4 \u003d str.charAt(4);\n+        if (ch3 \u003c \u0027A\u0027 || ch3 \u003e \u0027Z\u0027 || ch4 \u003c \u0027A\u0027 || ch4 \u003e \u0027Z\u0027) {\n+            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n+        }\n+        if (len \u003d\u003d 5) {\n             return new Locale(str.substring(0, 2), str.substring(3, 5));\n         } else {\n+            if (str.charAt(5) !\u003d \u0027_\u0027) {\n+                throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n+            }\n             return new Locale(str.substring(0, 2), str.substring(3, 5), str.substring(6));\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")     \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")  \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")\n\u003c/pre\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale\n@throws IllegalArgumentException if the string is an invalid format\n",
+            "newValue": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")     \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")  \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")\n\u003c/pre\u003e\n\n\u003cp\u003eThis method validates the input strictly.\nThe language code must be lowercase.\nThe country code must be uppercase.\nThe separator must be an underscore.\nThe length must be correct.\n\u003c/p\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale, null if null input\n@throws IllegalArgumentException if the string is an invalid format\n"
+          }
+        }
+      ]
+    },
+    "e719209d3205f386ed156e73e21a16af68fd9906": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial version of LocaleUtils for review of concept\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@233061 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/16/05, 2:41 PM",
+      "commitName": "e719209d3205f386ed156e73e21a16af68fd9906",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,23 @@\n+public static Locale toLocale(String str) {\n+    if (str \u003d\u003d null) {\n+        return null;\n+    }\n+    if (str.length() !\u003d 2 \u0026\u0026 str.length() !\u003d 5 \u0026\u0026 str.length() \u003c 7) {\n+        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n+    }\n+    if (Character.isLowerCase(str.charAt(0)) \u003d\u003d false || Character.isLowerCase(str.charAt(1)) \u003d\u003d false) {\n+        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n+    }\n+    if (str.length() \u003d\u003d 2) {\n+        return new Locale(str, \"\");\n+    } else {\n+        if (Character.isUpperCase(str.charAt(3)) \u003d\u003d false || Character.isUpperCase(str.charAt(4)) \u003d\u003d false) {\n+            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n+        }\n+        if (str.length() \u003d\u003d 5) {\n+            return new Locale(str.substring(0, 2), str.substring(3, 5));\n+        } else {\n+            return new Locale(str.substring(0, 2), str.substring(3, 5), str.substring(6));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Locale toLocale(String str) {\n    if (str \u003d\u003d null) {\n        return null;\n    }\n    if (str.length() !\u003d 2 \u0026\u0026 str.length() !\u003d 5 \u0026\u0026 str.length() \u003c 7) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    if (Character.isLowerCase(str.charAt(0)) \u003d\u003d false || Character.isLowerCase(str.charAt(1)) \u003d\u003d false) {\n        throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n    }\n    if (str.length() \u003d\u003d 2) {\n        return new Locale(str, \"\");\n    } else {\n        if (Character.isUpperCase(str.charAt(3)) \u003d\u003d false || Character.isUpperCase(str.charAt(4)) \u003d\u003d false) {\n            throw new IllegalArgumentException(\"Invalid locale format: \" + str);\n        }\n        if (str.length() \u003d\u003d 5) {\n            return new Locale(str.substring(0, 2), str.substring(3, 5));\n        } else {\n            return new Locale(str.substring(0, 2), str.substring(3, 5), str.substring(6));\n        }\n    }\n}",
+      "path": "src/java/org/apache/commons/lang/LocaleUtils.java",
+      "functionStartLine": 65,
+      "functionName": "toLocale",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eConverts a String to a Locale.\u003c/p\u003e\n\n\u003cp\u003eThis method takes the string format of a locale and creates the\nlocale object from it.\u003c/p\u003e\n\n\u003cpre\u003e\n  LocaleUtils.toLocale(\"en\")     \u003d new Locale(\"en\", \"\")\n  LocaleUtils.toLocale(\"en_GB\")  \u003d new Locale(\"en\", \"GB\")\n  LocaleUtils.toLocale(\"en_GB_xxx\")  \u003d new Locale(\"en\", \"GB\", \"xxx\")\n\u003c/pre\u003e\n\n@param str the locale String to convert, null returns null\n@return a Locale\n@throws IllegalArgumentException if the string is an invalid format\n"
+    }
+  }
+}

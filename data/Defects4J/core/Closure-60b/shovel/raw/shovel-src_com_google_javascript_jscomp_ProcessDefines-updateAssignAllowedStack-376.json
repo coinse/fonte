@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessDefines.java",
+  "functionName": "updateAssignAllowedStack",
+  "functionId": "$updateAssignAllowedStack___n-Node__entering-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessDefines.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines whether assignment to a define should be allowed\nin the subtree of the given node, and if not, records that fact.\n\n@param n The node whose subtree we\u0027re about to enter or exit.\n@param entering True if we\u0027re entering the subtree, false otherwise.\n",
+  "functionStartLine": 376,
+  "functionEndLine": 392,
+  "numCommitsSeen": 10,
+  "timeTaken": 595,
+  "changeHistory": [
+    "efd3c178e471df6a689c1a50fbd7c404e778bfaa",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "efd3c178e471df6a689c1a50fbd7c404e778bfaa": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "efd3c178e471df6a689c1a50fbd7c404e778bfaa": {
+      "type": "Ybodychange",
+      "commitMessage": "Better number printing.\nAdd flags for fine-grained warning controls.\nBetter type-declaration finding.\nAdded some missing externs.\nMarked externs that don\u0027t have side effects.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@10 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/13/09, 11:38 AM",
+      "commitName": "efd3c178e471df6a689c1a50fbd7c404e778bfaa",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "11/3/09, 3:51 PM",
+      "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 9.82,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void updateAssignAllowedStack(Node n, boolean entering) {\n    switch(n.getType()) {\n        case Token.CASE:\n        case Token.FOR:\n        case Token.FUNCTION:\n        case Token.HOOK:\n        case Token.IF:\n        case Token.SWITCH:\n        case Token.WHILE:\n            if (entering) {\n                assignAllowed.push(0);\n            } else {\n                assignAllowed.remove();\n            }\n            break;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessDefines.java",
+      "functionStartLine": 340,
+      "functionName": "updateAssignAllowedStack",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether assignment to a define should be allowed\nin the subtree of the given node, and if not, records that fact.\n\n@param n The node whose subtree we\u0027re about to enter or exit.\n@param entering True if we\u0027re entering the subtree, false otherwise.\n",
+      "diff": "@@ -1,17 +1,17 @@\n private void updateAssignAllowedStack(Node n, boolean entering) {\n     switch(n.getType()) {\n         case Token.CASE:\n         case Token.FOR:\n         case Token.FUNCTION:\n         case Token.HOOK:\n         case Token.IF:\n         case Token.SWITCH:\n         case Token.WHILE:\n             if (entering) {\n-                assignAllowed.add(0);\n+                assignAllowed.push(0);\n             } else {\n                 assignAllowed.remove();\n             }\n             break;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,17 @@\n+private void updateAssignAllowedStack(Node n, boolean entering) {\n+    switch(n.getType()) {\n+        case Token.CASE:\n+        case Token.FOR:\n+        case Token.FUNCTION:\n+        case Token.HOOK:\n+        case Token.IF:\n+        case Token.SWITCH:\n+        case Token.WHILE:\n+            if (entering) {\n+                assignAllowed.add(0);\n+            } else {\n+                assignAllowed.remove();\n+            }\n+            break;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void updateAssignAllowedStack(Node n, boolean entering) {\n    switch(n.getType()) {\n        case Token.CASE:\n        case Token.FOR:\n        case Token.FUNCTION:\n        case Token.HOOK:\n        case Token.IF:\n        case Token.SWITCH:\n        case Token.WHILE:\n            if (entering) {\n                assignAllowed.add(0);\n            } else {\n                assignAllowed.remove();\n            }\n            break;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessDefines.java",
+      "functionStartLine": 341,
+      "functionName": "updateAssignAllowedStack",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether assignment to a define should be allowed\nin the subtree of the given node, and if not, records that fact.\n\n@param n The node whose subtree we\u0027re about to enter or exit.\n@param entering True if we\u0027re entering the subtree, false otherwise.\n"
+    }
+  }
+}

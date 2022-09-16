@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-42b",
+  "repositoryPath": "/tmp/Math-42b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexSolver.java",
+  "functionName": "doIteration",
+  "functionId": "doIteration___tableau-SimplexTableau(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+  "functionAnnotation": "",
+  "functionDoc": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws MaxCountExceededException if the maximal iteration count has been exceeded\n@throws UnboundedSolutionException if the model is found not to have a bounded solution\n",
+  "functionStartLine": 134,
+  "functionEndLine": 156,
+  "numCommitsSeen": 18,
+  "timeTaken": 1058,
+  "changeHistory": [
+    "da8550576fcdc213c528659c61a203911d3cb084",
+    "71b31811964d5dc9387a53235e3f70616944de99",
+    "d6a438e931412713e99624cf9ed74470f1040184",
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "da8550576fcdc213c528659c61a203911d3cb084": "Ymultichange(Yexceptionschange,Ydocchange)",
+    "71b31811964d5dc9387a53235e3f70616944de99": "Ybodychange",
+    "d6a438e931412713e99624cf9ed74470f1040184": "Yfilerename",
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "da8550576fcdc213c528659c61a203911d3cb084": {
+      "type": "Ymultichange(Yexceptionschange,Ydocchange)",
+      "commitMessage": "Replaced last remaining uses of OptimizationException.\n\nthe replacement exceptions are unchecked ones: UnboundSolutionException,\nNoFeasibleSolutionException, MaxCountExceededException ...\n\nJIRA: MATH-457\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1178006 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/1/11, 7:52 AM",
+      "commitName": "da8550576fcdc213c528659c61a203911d3cb084",
+      "commitAuthor": "Luc Maisonobe",
+      "subchanges": [
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "Replaced last remaining uses of OptimizationException.\n\nthe replacement exceptions are unchecked ones: UnboundSolutionException,\nNoFeasibleSolutionException, MaxCountExceededException ...\n\nJIRA: MATH-457\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1178006 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "10/1/11, 7:52 AM",
+          "commitName": "da8550576fcdc213c528659c61a203911d3cb084",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "6/3/11, 1:49 PM",
+          "commitNameOld": "98e22d778b3a886be253638b9a6b7ec075c3d62d",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 119.75,
+          "commitsBetweenForRepo": 370,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void doIteration(final SimplexTableau tableau) throws MaxCountExceededException, UnboundedSolutionException {\n    incrementIterationsCounter();\n    Integer pivotCol \u003d getPivotColumn(tableau);\n    Integer pivotRow \u003d getPivotRow(tableau, pivotCol);\n    if (pivotRow \u003d\u003d null) {\n        throw new UnboundedSolutionException();\n    }\n    double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n    tableau.divideRow(pivotRow, pivotVal);\n    for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n        if (i !\u003d pivotRow) {\n            double multiplier \u003d tableau.getEntry(i, pivotCol);\n            tableau.subtractRow(i, pivotRow, multiplier);\n        }\n    }\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+          "functionStartLine": 134,
+          "functionName": "doIteration",
+          "functionAnnotation": "",
+          "functionDoc": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws MaxCountExceededException if the maximal iteration count has been exceeded\n@throws UnboundedSolutionException if the model is found not to have a bounded solution\n",
+          "diff": "@@ -1,16 +1,16 @@\n-protected void doIteration(final SimplexTableau tableau) throws OptimizationException {\n+protected void doIteration(final SimplexTableau tableau) throws MaxCountExceededException, UnboundedSolutionException {\n     incrementIterationsCounter();\n     Integer pivotCol \u003d getPivotColumn(tableau);\n     Integer pivotRow \u003d getPivotRow(tableau, pivotCol);\n     if (pivotRow \u003d\u003d null) {\n         throw new UnboundedSolutionException();\n     }\n     double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n     tableau.divideRow(pivotRow, pivotVal);\n     for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n         if (i !\u003d pivotRow) {\n             double multiplier \u003d tableau.getEntry(i, pivotCol);\n             tableau.subtractRow(i, pivotRow, multiplier);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[OptimizationException]",
+            "newValue": "[MaxCountExceededException, UnboundedSolutionException]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Replaced last remaining uses of OptimizationException.\n\nthe replacement exceptions are unchecked ones: UnboundSolutionException,\nNoFeasibleSolutionException, MaxCountExceededException ...\n\nJIRA: MATH-457\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1178006 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "10/1/11, 7:52 AM",
+          "commitName": "da8550576fcdc213c528659c61a203911d3cb084",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "6/3/11, 1:49 PM",
+          "commitNameOld": "98e22d778b3a886be253638b9a6b7ec075c3d62d",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 119.75,
+          "commitsBetweenForRepo": 370,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void doIteration(final SimplexTableau tableau) throws MaxCountExceededException, UnboundedSolutionException {\n    incrementIterationsCounter();\n    Integer pivotCol \u003d getPivotColumn(tableau);\n    Integer pivotRow \u003d getPivotRow(tableau, pivotCol);\n    if (pivotRow \u003d\u003d null) {\n        throw new UnboundedSolutionException();\n    }\n    double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n    tableau.divideRow(pivotRow, pivotVal);\n    for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n        if (i !\u003d pivotRow) {\n            double multiplier \u003d tableau.getEntry(i, pivotCol);\n            tableau.subtractRow(i, pivotRow, multiplier);\n        }\n    }\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+          "functionStartLine": 134,
+          "functionName": "doIteration",
+          "functionAnnotation": "",
+          "functionDoc": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws MaxCountExceededException if the maximal iteration count has been exceeded\n@throws UnboundedSolutionException if the model is found not to have a bounded solution\n",
+          "diff": "@@ -1,16 +1,16 @@\n-protected void doIteration(final SimplexTableau tableau) throws OptimizationException {\n+protected void doIteration(final SimplexTableau tableau) throws MaxCountExceededException, UnboundedSolutionException {\n     incrementIterationsCounter();\n     Integer pivotCol \u003d getPivotColumn(tableau);\n     Integer pivotRow \u003d getPivotRow(tableau, pivotCol);\n     if (pivotRow \u003d\u003d null) {\n         throw new UnboundedSolutionException();\n     }\n     double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n     tableau.divideRow(pivotRow, pivotVal);\n     for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n         if (i !\u003d pivotRow) {\n             double multiplier \u003d tableau.getEntry(i, pivotCol);\n             tableau.subtractRow(i, pivotRow, multiplier);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws OptimizationException if the maximal iteration count has been\nexceeded or if the model is found not to have a bounded solution\n",
+            "newValue": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws MaxCountExceededException if the maximal iteration count has been exceeded\n@throws UnboundedSolutionException if the model is found not to have a bounded solution\n"
+          }
+        }
+      ]
+    },
+    "71b31811964d5dc9387a53235e3f70616944de99": {
+      "type": "Ybodychange",
+      "commitMessage": "added Benjamin\u0027s patch from 2009-09-07\nJIRA: MATH-286\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@812390 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/8/09, 1:40 AM",
+      "commitName": "71b31811964d5dc9387a53235e3f70616944de99",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "9/5/09, 10:36 AM",
+      "commitNameOld": "26dac5a0e7fc9c6be9571b3e71a15d8502480d96",
+      "commitAuthorOld": "Phil Steitz",
+      "daysBetweenCommits": 2.63,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void doIteration(final SimplexTableau tableau) throws OptimizationException {\n    incrementIterationsCounter();\n    Integer pivotCol \u003d getPivotColumn(tableau);\n    Integer pivotRow \u003d getPivotRow(tableau, pivotCol);\n    if (pivotRow \u003d\u003d null) {\n        throw new UnboundedSolutionException();\n    }\n    double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n    tableau.divideRow(pivotRow, pivotVal);\n    for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n        if (i !\u003d pivotRow) {\n            double multiplier \u003d tableau.getEntry(i, pivotCol);\n            tableau.subtractRow(i, pivotRow, multiplier);\n        }\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 122,
+      "functionName": "doIteration",
+      "functionAnnotation": "",
+      "functionDoc": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws OptimizationException if the maximal iteration count has been\nexceeded or if the model is found not to have a bounded solution\n",
+      "diff": "@@ -1,16 +1,16 @@\n protected void doIteration(final SimplexTableau tableau) throws OptimizationException {\n     incrementIterationsCounter();\n     Integer pivotCol \u003d getPivotColumn(tableau);\n-    Integer pivotRow \u003d getPivotRow(pivotCol, tableau);\n+    Integer pivotRow \u003d getPivotRow(tableau, pivotCol);\n     if (pivotRow \u003d\u003d null) {\n         throw new UnboundedSolutionException();\n     }\n     double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n     tableau.divideRow(pivotRow, pivotVal);\n     for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n         if (i !\u003d pivotRow) {\n             double multiplier \u003d tableau.getEntry(i, pivotCol);\n             tableau.subtractRow(i, pivotRow, multiplier);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d6a438e931412713e99624cf9ed74470f1040184": {
+      "type": "Yfilerename",
+      "commitMessage": "moved main java directory for compliance with maven standard directory layout\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@799870 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/09, 7:30 AM",
+      "commitName": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/09, 7:23 AM",
+      "commitNameOld": "2ad5ef61630be627f46ae1c266cf796f044bd4a8",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void doIteration(final SimplexTableau tableau) throws OptimizationException {\n    incrementIterationsCounter();\n    Integer pivotCol \u003d getPivotColumn(tableau);\n    Integer pivotRow \u003d getPivotRow(pivotCol, tableau);\n    if (pivotRow \u003d\u003d null) {\n        throw new UnboundedSolutionException();\n    }\n    double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n    tableau.divideRow(pivotRow, pivotVal);\n    for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n        if (i !\u003d pivotRow) {\n            double multiplier \u003d tableau.getEntry(i, pivotCol);\n            tableau.subtractRow(i, pivotRow, multiplier);\n        }\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 99,
+      "functionName": "doIteration",
+      "functionAnnotation": "",
+      "functionDoc": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws OptimizationException if the maximal iteration count has been\nexceeded or if the model is found not to have a bounded solution\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+        "newPath": "src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java"
+      }
+    },
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,16 @@\n+protected void doIteration(final SimplexTableau tableau) throws OptimizationException {\n+    incrementIterationsCounter();\n+    Integer pivotCol \u003d getPivotColumn(tableau);\n+    Integer pivotRow \u003d getPivotRow(pivotCol, tableau);\n+    if (pivotRow \u003d\u003d null) {\n+        throw new UnboundedSolutionException();\n+    }\n+    double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n+    tableau.divideRow(pivotRow, pivotVal);\n+    for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n+        if (i !\u003d pivotRow) {\n+            double multiplier \u003d tableau.getEntry(i, pivotCol);\n+            tableau.subtractRow(i, pivotRow, multiplier);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void doIteration(final SimplexTableau tableau) throws OptimizationException {\n    incrementIterationsCounter();\n    Integer pivotCol \u003d getPivotColumn(tableau);\n    Integer pivotRow \u003d getPivotRow(pivotCol, tableau);\n    if (pivotRow \u003d\u003d null) {\n        throw new UnboundedSolutionException();\n    }\n    double pivotVal \u003d tableau.getEntry(pivotRow, pivotCol);\n    tableau.divideRow(pivotRow, pivotVal);\n    for (int i \u003d 0; i \u003c tableau.getHeight(); i++) {\n        if (i !\u003d pivotRow) {\n            double multiplier \u003d tableau.getEntry(i, pivotCol);\n            tableau.subtractRow(i, pivotRow, multiplier);\n        }\n    }\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 102,
+      "functionName": "doIteration",
+      "functionAnnotation": "",
+      "functionDoc": "Runs one iteration of the Simplex method on the given model.\n\n@param tableau simple tableau for the problem\n@throws OptimizationException if the maximal iteration count has been\nexceeded or if the model is found not to have a bounded solution\n"
+    }
+  }
+}

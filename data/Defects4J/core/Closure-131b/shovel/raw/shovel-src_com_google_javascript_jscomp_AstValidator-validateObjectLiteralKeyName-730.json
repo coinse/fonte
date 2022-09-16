@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-131b",
+  "repositoryPath": "/tmp/Closure-131b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateObjectLiteralKeyName",
+  "functionId": "validateObjectLiteralKeyName___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 730,
+  "functionEndLine": 741,
+  "numCommitsSeen": 18,
+  "timeTaken": 1312,
+  "changeHistory": [
+    "4e976ac213f448bab78f5c1432340c489b533d7b",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "4e976ac213f448bab78f5c1432340c489b533d7b": "Ybodychange",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4e976ac213f448bab78f5c1432340c489b533d7b": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRemove redundant Token to string function.\n\nR\u003dnicksantos\nDELTA\u003d148  (16 added, 89 deleted, 43 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3765\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1621 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/17/11, 10:08 AM",
+      "commitName": "4e976ac213f448bab78f5c1432340c489b533d7b",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/11/11, 4:42 PM",
+      "commitNameOld": "5524adbda991632656059566b69cc2771ba42b7d",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 5.73,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void validateObjectLiteralKeyName(Node n) {\n    if (n.isQuotedString()) {\n        try {\n            n.getString();\n        } catch (UnsupportedOperationException e) {\n            violation(\"getString failed for\" + Token.name(n.getType()), n);\n        }\n    } else {\n        validateNonEmptyString(n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 730,
+      "functionName": "validateObjectLiteralKeyName",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n private void validateObjectLiteralKeyName(Node n) {\n     if (n.isQuotedString()) {\n         try {\n             n.getString();\n         } catch (UnsupportedOperationException e) {\n-            violation(\"getString failed for\" + Node.tokenToName(n.getType()), n);\n+            violation(\"getString failed for\" + Token.name(n.getType()), n);\n         }\n     } else {\n         validateNonEmptyString(n);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private void validateObjectLiteralKeyName(Node n) {\n+    if (n.isQuotedString()) {\n+        try {\n+            n.getString();\n+        } catch (UnsupportedOperationException e) {\n+            violation(\"getString failed for\" + Node.tokenToName(n.getType()), n);\n+        }\n+    } else {\n+        validateNonEmptyString(n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateObjectLiteralKeyName(Node n) {\n    if (n.isQuotedString()) {\n        try {\n            n.getString();\n        } catch (UnsupportedOperationException e) {\n            violation(\"getString failed for\" + Node.tokenToName(n.getType()), n);\n        }\n    } else {\n        validateNonEmptyString(n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 709,
+      "functionName": "validateObjectLiteralKeyName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

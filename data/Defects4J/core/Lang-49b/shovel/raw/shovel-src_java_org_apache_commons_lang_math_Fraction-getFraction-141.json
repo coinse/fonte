@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-49b",
+  "repositoryPath": "/tmp/Lang-49b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Fraction.java",
+  "functionName": "getFraction",
+  "functionId": "getFraction___numerator-int__denominator-int",
+  "sourceFilePath": "src/java/org/apache/commons/lang/math/Fraction.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eCreates a \u003ccode\u003eFraction\u003c/code\u003e instance with the 2 parts\nof a fraction Y/Z.\u003c/p\u003e\n\n\u003cp\u003eAny negative signs are resolved to be on the numerator.\u003c/p\u003e\n\n@param numerator the numerator, for example the three in \u0027three sevenths\u0027\n@param denominator the denominator, for example the seven in \u0027three sevenths\u0027\n@return a new fraction instance\n@throws ArithmeticException if the denomiator is \u003ccode\u003ezero\u003c/code\u003e\n",
+  "functionStartLine": 141,
+  "functionEndLine": 154,
+  "numCommitsSeen": 24,
+  "timeTaken": 1258,
+  "changeHistory": [
+    "9a662f1bfd76c49bfcb9e9947f008aade2db54eb",
+    "c66659d62dbf69d4c1ccc5c9c50938273436c1b3",
+    "7e8976d60b8a24f9fc03f89d98304d77e6153b6d"
+  ],
+  "changeHistoryShort": {
+    "9a662f1bfd76c49bfcb9e9947f008aade2db54eb": "Ybodychange",
+    "c66659d62dbf69d4c1ccc5c9c50938273436c1b3": "Ydocchange",
+    "7e8976d60b8a24f9fc03f89d98304d77e6153b6d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9a662f1bfd76c49bfcb9e9947f008aade2db54eb": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed numeric problems reported in PR #29294\nSubmitted by: C. Scott Ananian\nReviewed by: Phil Steitz\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137879 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/11/04, 4:20 PM",
+      "commitName": "9a662f1bfd76c49bfcb9e9947f008aade2db54eb",
+      "commitAuthor": "Phil Steitz",
+      "commitDateOld": "2/18/04, 3:06 PM",
+      "commitNameOld": "a6c9528cd88adee314a3bf2d0f66c3938906503f",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 144.01,
+      "commitsBetweenForRepo": 79,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Fraction getFraction(int numerator, int denominator) {\n    if (denominator \u003d\u003d 0) {\n        throw new ArithmeticException(\"The denominator must not be zero\");\n    }\n    if (denominator \u003c 0) {\n        if (numerator \u003d\u003d Integer.MIN_VALUE || denominator \u003d\u003d Integer.MIN_VALUE) {\n            throw new ArithmeticException(\"overflow: can\u0027t negate\");\n        }\n        numerator \u003d -numerator;\n        denominator \u003d -denominator;\n    }\n    return new Fraction(numerator, denominator);\n}",
+      "path": "src/java/org/apache/commons/lang/math/Fraction.java",
+      "functionStartLine": 137,
+      "functionName": "getFraction",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eCreates a \u003ccode\u003eFraction\u003c/code\u003e instance with the 2 parts\nof a fraction Y/Z.\u003c/p\u003e\n\n\u003cp\u003eAny negative signs are resolved to be on the numerator.\u003c/p\u003e\n\n@param numerator the numerator, for example the three in \u0027three sevenths\u0027\n@param denominator the denominator, for example the seven in \u0027three sevenths\u0027\n@return a new fraction instance\n@throws ArithmeticException if the denomiator is \u003ccode\u003ezero\u003c/code\u003e\n",
+      "diff": "@@ -1,10 +1,13 @@\n public static Fraction getFraction(int numerator, int denominator) {\n     if (denominator \u003d\u003d 0) {\n         throw new ArithmeticException(\"The denominator must not be zero\");\n     }\n     if (denominator \u003c 0) {\n+        if (numerator \u003d\u003d Integer.MIN_VALUE || denominator \u003d\u003d Integer.MIN_VALUE) {\n+            throw new ArithmeticException(\"overflow: can\u0027t negate\");\n+        }\n         numerator \u003d -numerator;\n         denominator \u003d -denominator;\n     }\n     return new Fraction(numerator, denominator);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "c66659d62dbf69d4c1ccc5c9c50938273436c1b3": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc fixes. Shouldn\u0027t have been anything other than javadoc changes in this.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137416 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/14/03, 3:25 PM",
+      "commitName": "c66659d62dbf69d4c1ccc5c9c50938273436c1b3",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "4/8/03, 6:08 PM",
+      "commitNameOld": "2f393b75ee6673e83969e003be3ebbb762fb5485",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 96.89,
+      "commitsBetweenForRepo": 128,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Fraction getFraction(int numerator, int denominator) {\n    if (denominator \u003d\u003d 0) {\n        throw new ArithmeticException(\"The denominator must not be zero\");\n    }\n    if (denominator \u003c 0) {\n        numerator \u003d -numerator;\n        denominator \u003d -denominator;\n    }\n    return new Fraction(numerator, denominator);\n}",
+      "path": "src/java/org/apache/commons/lang/math/Fraction.java",
+      "functionStartLine": 138,
+      "functionName": "getFraction",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eCreates a \u003ccode\u003eFraction\u003c/code\u003e instance with the 2 parts\nof a fraction Y/Z.\u003c/p\u003e\n\n\u003cp\u003eAny negative signs are resolved to be on the numerator.\u003c/p\u003e\n\n@param numerator the numerator, for example the three in \u0027three sevenths\u0027\n@param denominator the denominator, for example the seven in \u0027three sevenths\u0027\n@return a new fraction instance\n@throws ArithmeticException if the denomiator is \u003ccode\u003ezero\u003c/code\u003e\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eCreates a \u003ccode\u003eFraction\u003c/code\u003e instance with the 2 parts \nof a fraction Y/Z.\u003c/p\u003e\n\n\u003cp\u003eAny negative signs are resolved to be on the numerator.\u003c/p\u003e\n\n@param numerator the numerator, for example the three in \u0027three sevenths\u0027\n@param denominator the denominator, for example the seven in \u0027three sevenths\u0027\n@return a new fraction instance\n@throws ArithmeticException if the denomiator is zero\n",
+        "newValue": "\u003cp\u003eCreates a \u003ccode\u003eFraction\u003c/code\u003e instance with the 2 parts\nof a fraction Y/Z.\u003c/p\u003e\n\n\u003cp\u003eAny negative signs are resolved to be on the numerator.\u003c/p\u003e\n\n@param numerator the numerator, for example the three in \u0027three sevenths\u0027\n@param denominator the denominator, for example the seven in \u0027three sevenths\u0027\n@return a new fraction instance\n@throws ArithmeticException if the denomiator is \u003ccode\u003ezero\u003c/code\u003e\n"
+      }
+    },
+    "7e8976d60b8a24f9fc03f89d98304d77e6153b6d": {
+      "type": "Yintroduced",
+      "commitMessage": "Add Fraction class and associated tests\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137198 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/22/02, 11:39 AM",
+      "commitName": "7e8976d60b8a24f9fc03f89d98304d77e6153b6d",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,10 @@\n+public static Fraction getFraction(int numerator, int denominator) {\n+    if (denominator \u003d\u003d 0) {\n+        throw new ArithmeticException(\"The denominator must not be zero\");\n+    }\n+    if (denominator \u003c 0) {\n+        numerator \u003d -numerator;\n+        denominator \u003d -denominator;\n+    }\n+    return new Fraction(numerator, denominator);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Fraction getFraction(int numerator, int denominator) {\n    if (denominator \u003d\u003d 0) {\n        throw new ArithmeticException(\"The denominator must not be zero\");\n    }\n    if (denominator \u003c 0) {\n        numerator \u003d -numerator;\n        denominator \u003d -denominator;\n    }\n    return new Fraction(numerator, denominator);\n}",
+      "path": "src/java/org/apache/commons/lang/math/Fraction.java",
+      "functionStartLine": 128,
+      "functionName": "getFraction",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eCreates a \u003ccode\u003eFraction\u003c/code\u003e instance with the 2 parts \nof a fraction Y/Z.\u003c/p\u003e\n\n\u003cp\u003eAny negative signs are resolved to be on the numerator.\u003c/p\u003e\n\n@param numerator the numerator, for example the three in \u0027three sevenths\u0027\n@param denominator the denominator, for example the seven in \u0027three sevenths\u0027\n@return a new fraction instance\n@throws ArithmeticException if the denomiator is zero\n"
+    }
+  }
+}

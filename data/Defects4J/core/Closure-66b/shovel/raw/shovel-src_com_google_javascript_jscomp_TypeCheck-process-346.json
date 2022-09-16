@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeCheck.java",
+  "functionName": "process",
+  "functionId": "process___externsRoot-Node__jsRoot-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "Main entry point for this phase of processing. This follows the pattern for\nJSCompiler phases.\n\n@param externsRoot The root of the externs parse tree.\n@param jsRoot The root of the input parse tree to be checked.\n",
+  "functionStartLine": 346,
+  "functionEndLine": 359,
+  "numCommitsSeen": 46,
+  "timeTaken": 3612,
+  "changeHistory": [
+    "9147da9979fb00599efd700fa5e0cccfa93d25a5",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "9147da9979fb00599efd700fa5e0cccfa93d25a5": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9147da9979fb00599efd700fa5e0cccfa93d25a5": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/04/29 by alan\n\n        Don\u0027t inline a variable that has dependence on outer scoped variables.\n\n        R\u003dnick\n        DELTA\u003d44  (41 added, 0 deleted, 3 changed)\n\nChange on 2010/04/29 by nick\n\n        Remove some dead code.\n\n        R\u003dalan\n        DELTA\u003d113  (0 added, 113 deleted, 0 changed)\n\nChange on 2010/04/30 by andrew\n\n        -Fix up a copy/paste error in a comment.\n\n        R\u003djohn\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\nChange on 2010/04/30 by nick\n\n        Prune sources that are not required when --manage_closure_dependencies\n        is on.\n\n        R\u003dalan\n        DELTA\u003d45  (22 added, 0 deleted, 23 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dlwqqkv\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@201 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/3/10, 7:03 AM",
+      "commitName": "9147da9979fb00599efd700fa5e0cccfa93d25a5",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/21/10, 4:48 PM",
+      "commitNameOld": "5bde370c377946671edd3408878413d236399944",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 11.59,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void process(Node externsRoot, Node jsRoot) {\n    Preconditions.checkNotNull(scopeCreator);\n    Preconditions.checkNotNull(topScope);\n    Node externsAndJs \u003d jsRoot.getParent();\n    Preconditions.checkState(externsAndJs !\u003d null);\n    Preconditions.checkState(externsRoot \u003d\u003d null || externsAndJs.hasChild(externsRoot));\n    if (externsRoot !\u003d null) {\n        check(externsRoot, true);\n    }\n    check(jsRoot, false);\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 325,
+      "functionName": "process",
+      "functionAnnotation": "",
+      "functionDoc": "Main entry point for this phase of processing. This follows the pattern for\nJSCompiler phases.\n\n@param externsRoot The root of the externs parse tree.\n@param jsRoot The root of the input parse tree to be checked.\n",
+      "diff": "@@ -1,12 +1,11 @@\n public void process(Node externsRoot, Node jsRoot) {\n     Preconditions.checkNotNull(scopeCreator);\n     Preconditions.checkNotNull(topScope);\n     Node externsAndJs \u003d jsRoot.getParent();\n     Preconditions.checkState(externsAndJs !\u003d null);\n     Preconditions.checkState(externsRoot \u003d\u003d null || externsAndJs.hasChild(externsRoot));\n     if (externsRoot !\u003d null) {\n         check(externsRoot, true);\n     }\n     check(jsRoot, false);\n-    potentialChecks.flush();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+public void process(Node externsRoot, Node jsRoot) {\n+    Preconditions.checkNotNull(scopeCreator);\n+    Preconditions.checkNotNull(topScope);\n+    Node externsAndJs \u003d jsRoot.getParent();\n+    Preconditions.checkState(externsAndJs !\u003d null);\n+    Preconditions.checkState(externsRoot \u003d\u003d null || externsAndJs.hasChild(externsRoot));\n+    if (externsRoot !\u003d null) {\n+        check(externsRoot, true);\n+    }\n+    check(jsRoot, false);\n+    potentialChecks.flush();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void process(Node externsRoot, Node jsRoot) {\n    Preconditions.checkNotNull(scopeCreator);\n    Preconditions.checkNotNull(topScope);\n    Node externsAndJs \u003d jsRoot.getParent();\n    Preconditions.checkState(externsAndJs !\u003d null);\n    Preconditions.checkState(externsRoot \u003d\u003d null || externsAndJs.hasChild(externsRoot));\n    if (externsRoot !\u003d null) {\n        check(externsRoot, true);\n    }\n    check(jsRoot, false);\n    potentialChecks.flush();\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 302,
+      "functionName": "process",
+      "functionAnnotation": "",
+      "functionDoc": "Main entry point for this phase of processing. This follows the pattern for\nJSCompiler phases.\n\n@param externsRoot The root of the externs parse tree.\n@param jsRoot The root of the input parse tree to be checked.\n"
+    }
+  }
+}

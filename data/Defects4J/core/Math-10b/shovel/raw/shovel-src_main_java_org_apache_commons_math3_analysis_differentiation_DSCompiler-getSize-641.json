@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "getSize",
+  "functionId": "getSize",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the array size required for holding partial derivatives data.\n\u003cp\u003e\nThis number includes the single 0 order derivative element, which is\nguaranteed to be stored in the first element of the array.\n\u003c/p\u003e\n\n@return array size required for holding partial derivatives data\n",
+  "functionStartLine": 641,
+  "functionEndLine": 643,
+  "numCommitsSeen": 17,
+  "timeTaken": 2224,
+  "changeHistory": [
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,3 @@\n+public int getSize() {\n+    return sizes[parameters][order];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public int getSize() {\n    return sizes[parameters][order];\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 630,
+      "functionName": "getSize",
+      "functionAnnotation": "",
+      "functionDoc": "Get the array size required for holding partial derivatives data.\n\u003cp\u003e\nThis number includes the single 0 order derivative element, which is\nguaranteed to be stored in the first element of the array.\n\u003c/p\u003e\n\n@return array size required for holding partial derivatives data\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MakeDeclaredNamesUnique.java",
+  "functionName": "visit",
+  "functionId": "visit___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 142,
+  "functionEndLine": 167,
+  "numCommitsSeen": 13,
+  "timeTaken": 563,
+  "changeHistory": [
+    "14ddcfdc0b8d1cece3c79221b1870b84f055d419",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "14ddcfdc0b8d1cece3c79221b1870b84f055d419": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "14ddcfdc0b8d1cece3c79221b1870b84f055d419": {
+      "type": "Ybodychange",
+      "commitMessage": "Change the internal representation of constant variables.\n\nRun inline-variables before smart-name-removal.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@37 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/17/09, 4:20 PM",
+      "commitName": "14ddcfdc0b8d1cece3c79221b1870b84f055d419",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "11/19/09, 1:23 PM",
+      "commitNameOld": "6a6ea480bae01f40f9795218ac911bb7de18d34a",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 28.12,
+      "commitsBetweenForRepo": 15,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void visit(NodeTraversal t, Node n, Node parent) {\n    switch(n.getType()) {\n        case Token.NAME:\n            String newName \u003d getReplacementName(n.getString());\n            if (newName !\u003d null) {\n                Renamer renamer \u003d nameStack.peek();\n                if (renamer.stripConstIfReplaced()) {\n                    n.removeProp(Node.IS_CONSTANT_NAME);\n                }\n                n.setString(newName);\n                t.getCompiler().reportCodeChange();\n            }\n            break;\n        case Token.FUNCTION:\n            nameStack.pop();\n            break;\n        case Token.CATCH:\n            nameStack.pop();\n            break;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+      "functionStartLine": 135,
+      "functionName": "visit",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,18 +1,22 @@\n @Override\n public void visit(NodeTraversal t, Node n, Node parent) {\n     switch(n.getType()) {\n         case Token.NAME:\n             String newName \u003d getReplacementName(n.getString());\n             if (newName !\u003d null) {\n+                Renamer renamer \u003d nameStack.peek();\n+                if (renamer.stripConstIfReplaced()) {\n+                    n.removeProp(Node.IS_CONSTANT_NAME);\n+                }\n                 n.setString(newName);\n                 t.getCompiler().reportCodeChange();\n             }\n             break;\n         case Token.FUNCTION:\n             nameStack.pop();\n             break;\n         case Token.CATCH:\n             nameStack.pop();\n             break;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,18 @@\n+@Override\n+public void visit(NodeTraversal t, Node n, Node parent) {\n+    switch(n.getType()) {\n+        case Token.NAME:\n+            String newName \u003d getReplacementName(n.getString());\n+            if (newName !\u003d null) {\n+                n.setString(newName);\n+                t.getCompiler().reportCodeChange();\n+            }\n+            break;\n+        case Token.FUNCTION:\n+            nameStack.pop();\n+            break;\n+        case Token.CATCH:\n+            nameStack.pop();\n+            break;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void visit(NodeTraversal t, Node n, Node parent) {\n    switch(n.getType()) {\n        case Token.NAME:\n            String newName \u003d getReplacementName(n.getString());\n            if (newName !\u003d null) {\n                n.setString(newName);\n                t.getCompiler().reportCodeChange();\n            }\n            break;\n        case Token.FUNCTION:\n            nameStack.pop();\n            break;\n        case Token.CATCH:\n            nameStack.pop();\n            break;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+      "functionStartLine": 136,
+      "functionName": "visit",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

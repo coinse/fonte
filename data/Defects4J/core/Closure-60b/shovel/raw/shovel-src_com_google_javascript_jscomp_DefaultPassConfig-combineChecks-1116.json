@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DefaultPassConfig.java",
+  "functionName": "combineChecks",
+  "functionId": "combineChecks___compiler-AbstractCompiler__callbacks-List__Callback__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+  "functionAnnotation": "",
+  "functionDoc": "Executes the given callbacks with a {@link CombinedCompilerPass}.\n",
+  "functionStartLine": 1116,
+  "functionEndLine": 1121,
+  "numCommitsSeen": 117,
+  "timeTaken": 7459,
+  "changeHistory": [
+    "d700e3ee80e8c050211607c62d97f89c3e18b649",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "d700e3ee80e8c050211607c62d97f89c3e18b649": "Yreturntypechange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d700e3ee80e8c050211607c62d97f89c3e18b649": {
+      "type": "Yreturntypechange",
+      "commitMessage": "\nMaking checkControlStructures, suspiciousCode, and checkControlFlow hot-swappable.\n\nR\u003dnicksantos\nDELTA\u003d114  (85 added, 1 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1866\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1095 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/13/11, 9:05 AM",
+      "commitName": "d700e3ee80e8c050211607c62d97f89c3e18b649",
+      "commitAuthor": "bashir@google.com",
+      "commitDateOld": "5/11/11, 9:39 AM",
+      "commitNameOld": "441d31de49d1ccfec562a7287b1ff4451c9815e4",
+      "commitAuthorOld": "bashir@google.com",
+      "daysBetweenCommits": 1.98,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static HotSwapCompilerPass combineChecks(AbstractCompiler compiler, List\u003cCallback\u003e callbacks) {\n    Preconditions.checkArgument(callbacks.size() \u003e 0);\n    Callback[] array \u003d callbacks.toArray(new Callback[callbacks.size()]);\n    return new CombinedCompilerPass(compiler, array);\n}",
+      "path": "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+      "functionStartLine": 1118,
+      "functionName": "combineChecks",
+      "functionAnnotation": "",
+      "functionDoc": "Executes the given callbacks with a {@link CombinedCompilerPass}.\n",
+      "diff": "@@ -1,5 +1,5 @@\n-private static CompilerPass combineChecks(AbstractCompiler compiler, List\u003cCallback\u003e callbacks) {\n+private static HotSwapCompilerPass combineChecks(AbstractCompiler compiler, List\u003cCallback\u003e callbacks) {\n     Preconditions.checkArgument(callbacks.size() \u003e 0);\n     Callback[] array \u003d callbacks.toArray(new Callback[callbacks.size()]);\n     return new CombinedCompilerPass(compiler, array);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "CompilerPass",
+        "newValue": "HotSwapCompilerPass"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,5 @@\n+private static CompilerPass combineChecks(AbstractCompiler compiler, List\u003cCallback\u003e callbacks) {\n+    Preconditions.checkArgument(callbacks.size() \u003e 0);\n+    Callback[] array \u003d callbacks.toArray(new Callback[callbacks.size()]);\n+    return new CombinedCompilerPass(compiler, array);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static CompilerPass combineChecks(AbstractCompiler compiler, List\u003cCallback\u003e callbacks) {\n    Preconditions.checkArgument(callbacks.size() \u003e 0);\n    Callback[] array \u003d callbacks.toArray(new Callback[callbacks.size()]);\n    return new CombinedCompilerPass(compiler, array);\n}",
+      "path": "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+      "functionStartLine": 687,
+      "functionName": "combineChecks",
+      "functionAnnotation": "",
+      "functionDoc": "Executes the given callbacks with a {@link CombinedCompilerPass}.\n"
+    }
+  }
+}

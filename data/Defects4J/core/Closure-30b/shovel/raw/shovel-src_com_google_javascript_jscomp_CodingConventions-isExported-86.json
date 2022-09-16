@@ -1,0 +1,96 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodingConventions.java",
+  "functionName": "isExported",
+  "functionId": "$isExported___name-String__local-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodingConventions.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 86,
+  "functionEndLine": 88,
+  "numCommitsSeen": 31,
+  "timeTaken": 2876,
+  "changeHistory": [
+    "8b7e4f656bd5c067543681a721d9f69324ea7a10",
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a"
+  ],
+  "changeHistoryShort": {
+    "8b7e4f656bd5c067543681a721d9f69324ea7a10": "Ymultichange(Ymovefromfile,Yformatchange)",
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8b7e4f656bd5c067543681a721d9f69324ea7a10": {
+      "type": "Ymultichange(Ymovefromfile,Yformatchange)",
+      "commitMessage": "\nRefactor CodingConvention to use a decorate-based api rather\nthan a subclass-based api.\nDiscourage people from subclassing DefaultCodingConvention\nby deleting it, and writing documentation that they should\nbe subclassing CodingConventions.Proxy.\n\nR\u003djohnlenz\nDELTA\u003d745  (478 added, 243 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3399\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1485 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/4/11, 6:08 AM",
+      "commitName": "8b7e4f656bd5c067543681a721d9f69324ea7a10",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "\nRefactor CodingConvention to use a decorate-based api rather\nthan a subclass-based api.\nDiscourage people from subclassing DefaultCodingConvention\nby deleting it, and writing documentation that they should\nbe subclassing CodingConventions.Proxy.\n\nR\u003djohnlenz\nDELTA\u003d745  (478 added, 243 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3399\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1485 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/4/11, 6:08 AM",
+          "commitName": "8b7e4f656bd5c067543681a721d9f69324ea7a10",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/4/11, 6:06 AM",
+          "commitNameOld": "b9ccef88272debaf064b073081137f849e61e6b1",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean isExported(String name, boolean local) {\n    return local \u0026\u0026 name.startsWith(\"$super\");\n}",
+          "path": "src/com/google/javascript/jscomp/CodingConventions.java",
+          "functionStartLine": 266,
+          "functionName": "isExported",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "",
+          "extendedDetails": {
+            "oldPath": "src/com/google/javascript/jscomp/DefaultCodingConvention.java",
+            "newPath": "src/com/google/javascript/jscomp/CodingConventions.java",
+            "oldMethodName": "isExported",
+            "newMethodName": "isExported"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "\nRefactor CodingConvention to use a decorate-based api rather\nthan a subclass-based api.\nDiscourage people from subclassing DefaultCodingConvention\nby deleting it, and writing documentation that they should\nbe subclassing CodingConventions.Proxy.\n\nR\u003djohnlenz\nDELTA\u003d745  (478 added, 243 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3399\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1485 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/4/11, 6:08 AM",
+          "commitName": "8b7e4f656bd5c067543681a721d9f69324ea7a10",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/4/11, 6:06 AM",
+          "commitNameOld": "b9ccef88272debaf064b073081137f849e61e6b1",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean isExported(String name, boolean local) {\n    return local \u0026\u0026 name.startsWith(\"$super\");\n}",
+          "path": "src/com/google/javascript/jscomp/CodingConventions.java",
+          "functionStartLine": 266,
+          "functionName": "isExported",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": {
+      "type": "Yintroduced",
+      "commitMessage": "Never rename a variable named \"$super\", because the Prototype library\nuses this to do magic.\n\nBetter dead assignment elimination.\n\nEmit an error if you declare a parameter twice.\n\nDon\u0027t do anonymous function collapsing by default.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@12 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/17/09, 4:21 PM",
+      "commitName": "fe64e87cccd2c38524c0b36c49beb4c988d1453a",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public boolean isExported(String name, boolean local) {\n+    return local \u0026\u0026 name.startsWith(\"$super\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean isExported(String name, boolean local) {\n    return local \u0026\u0026 name.startsWith(\"$super\");\n}",
+      "path": "src/com/google/javascript/jscomp/DefaultCodingConvention.java",
+      "functionStartLine": 59,
+      "functionName": "isExported",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

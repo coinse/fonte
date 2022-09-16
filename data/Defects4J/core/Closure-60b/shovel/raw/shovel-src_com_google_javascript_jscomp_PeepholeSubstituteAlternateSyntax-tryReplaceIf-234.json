@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeSubstituteAlternateSyntax.java",
+  "functionName": "tryReplaceIf",
+  "functionId": "tryReplaceIf___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+  "functionAnnotation": "",
+  "functionDoc": "Use \"return x?1:2;\" in place of \"if(x)return 1;return 2;\"\n",
+  "functionStartLine": 234,
+  "functionEndLine": 271,
+  "numCommitsSeen": 39,
+  "timeTaken": 1400,
+  "changeHistory": [
+    "836a93db616b1cde4c4656fe4c0d781f02ca8ff4"
+  ],
+  "changeHistoryShort": {
+    "836a93db616b1cde4c4656fe4c0d781f02ca8ff4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "836a93db616b1cde4c4656fe4c0d781f02ca8ff4": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd handling for \"if (cond) return expression1; return expression2;\nFixes issue 436\nIssue: http://code.google.com/p/closure-compiler/issues/detail?id\u003d436\n\nR\u003dacleung\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1912\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1100 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/13/11, 9:09 PM",
+      "commitName": "836a93db616b1cde4c4656fe4c0d781f02ca8ff4",
+      "commitAuthor": "fmeawad@google.com",
+      "diff": "@@ -0,0 +1,28 @@\n+private Node tryReplaceIf(Node n) {\n+    for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n+        if (child.getType() \u003d\u003d Token.IF) {\n+            Node cond \u003d child.getFirstChild();\n+            Node thenBranch \u003d cond.getNext();\n+            Node elseBranch \u003d thenBranch.getNext();\n+            Node nextNode \u003d child.getNext();\n+            if (nextNode !\u003d null \u0026\u0026 elseBranch \u003d\u003d null \u0026\u0026 isReturnBlock(thenBranch) \u0026\u0026 isReturnExpression(nextNode)) {\n+                Node thenExpr \u003d null;\n+                if (isReturnExpressBlock(thenBranch)) {\n+                    thenExpr \u003d getBlockReturnExpression(thenBranch);\n+                    thenExpr.detachFromParent();\n+                } else {\n+                    thenExpr \u003d NodeUtil.newUndefinedNode(child);\n+                }\n+                Node elseExpr \u003d nextNode.getFirstChild();\n+                cond.detachFromParent();\n+                elseExpr.detachFromParent();\n+                Node hookNode \u003d new Node(Token.HOOK, cond, thenExpr, elseExpr).copyInformationFrom(child);\n+                Node returnNode \u003d new Node(Token.RETURN, hookNode);\n+                n.replaceChild(child, returnNode);\n+                n.removeChild(nextNode);\n+                reportCodeChange();\n+            }\n+        }\n+    }\n+    return n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node tryReplaceIf(Node n) {\n    for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (child.getType() \u003d\u003d Token.IF) {\n            Node cond \u003d child.getFirstChild();\n            Node thenBranch \u003d cond.getNext();\n            Node elseBranch \u003d thenBranch.getNext();\n            Node nextNode \u003d child.getNext();\n            if (nextNode !\u003d null \u0026\u0026 elseBranch \u003d\u003d null \u0026\u0026 isReturnBlock(thenBranch) \u0026\u0026 isReturnExpression(nextNode)) {\n                Node thenExpr \u003d null;\n                if (isReturnExpressBlock(thenBranch)) {\n                    thenExpr \u003d getBlockReturnExpression(thenBranch);\n                    thenExpr.detachFromParent();\n                } else {\n                    thenExpr \u003d NodeUtil.newUndefinedNode(child);\n                }\n                Node elseExpr \u003d nextNode.getFirstChild();\n                cond.detachFromParent();\n                elseExpr.detachFromParent();\n                Node hookNode \u003d new Node(Token.HOOK, cond, thenExpr, elseExpr).copyInformationFrom(child);\n                Node returnNode \u003d new Node(Token.RETURN, hookNode);\n                n.replaceChild(child, returnNode);\n                n.removeChild(nextNode);\n                reportCodeChange();\n            }\n        }\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+      "functionStartLine": 177,
+      "functionName": "tryReplaceIf",
+      "functionAnnotation": "",
+      "functionDoc": "Use \"return x?1:2;\" in place of \"if(x)return 1;return 2;\"\n"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionArgumentInjector.java",
+  "functionName": "findModifiedParameters",
+  "functionId": "findModifiedParameters___n-Node__parent-Node__names-Set__String____unsafe-Set__String____inInnerFunction-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+  "functionAnnotation": "",
+  "functionDoc": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n@param unsafe The set of names that require aliases.\n@param inInnerFunction Whether the inspection is occurring on a inner\n    function.\n",
+  "functionStartLine": 194,
+  "functionEndLine": 218,
+  "numCommitsSeen": 41,
+  "timeTaken": 1435,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "e06986e0e6c0430a366647125e8c7f4bb6d57e7b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "e06986e0e6c0430a366647125e8c7f4bb6d57e7b": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 1:51 PM",
+      "commitNameOld": "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.78,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n    Preconditions.checkArgument(unsafe !\u003d null);\n    if (n.isName()) {\n        if (names.contains(n.getString())) {\n            if (inInnerFunction || canNameValueChange(n, parent)) {\n                unsafe.add(n.getString());\n            }\n        }\n    } else if (n.isFunction()) {\n        inInnerFunction \u003d true;\n    }\n    for (Node c : n.children()) {\n        findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n    }\n    return unsafe;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+      "functionStartLine": 195,
+      "functionName": "findModifiedParameters",
+      "functionAnnotation": "",
+      "functionDoc": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n@param unsafe The set of names that require aliases.\n@param inInnerFunction Whether the inspection is occurring on a inner\n    function.\n",
+      "diff": "@@ -1,16 +1,16 @@\n private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n     Preconditions.checkArgument(unsafe !\u003d null);\n-    if (n.getType() \u003d\u003d Token.NAME) {\n+    if (n.isName()) {\n         if (names.contains(n.getString())) {\n             if (inInnerFunction || canNameValueChange(n, parent)) {\n                 unsafe.add(n.getString());\n             }\n         }\n-    } else if (n.getType() \u003d\u003d Token.FUNCTION) {\n+    } else if (n.isFunction()) {\n         inInnerFunction \u003d true;\n     }\n     for (Node c : n.children()) {\n         findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n     }\n     return unsafe;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e06986e0e6c0430a366647125e8c7f4bb6d57e7b": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "\nCorrect parameter aliasing when inlining of function with inner\nfunctions.\n\nR\u003dacleung\nDELTA\u003d55  (51 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3088\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1377 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/22/11, 5:03 PM",
+      "commitName": "e06986e0e6c0430a366647125e8c7f4bb6d57e7b",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nCorrect parameter aliasing when inlining of function with inner\nfunctions.\n\nR\u003dacleung\nDELTA\u003d55  (51 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3088\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1377 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/22/11, 5:03 PM",
+          "commitName": "e06986e0e6c0430a366647125e8c7f4bb6d57e7b",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "7/28/11, 4:19 PM",
+          "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 25.03,
+          "commitsBetweenForRepo": 62,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n    Preconditions.checkArgument(unsafe !\u003d null);\n    if (n.getType() \u003d\u003d Token.NAME) {\n        if (names.contains(n.getString())) {\n            if (inInnerFunction || canNameValueChange(n, parent)) {\n                unsafe.add(n.getString());\n            }\n        }\n    } else if (n.getType() \u003d\u003d Token.FUNCTION) {\n        inInnerFunction \u003d true;\n    }\n    for (Node c : n.children()) {\n        findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n    }\n    return unsafe;\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 195,
+          "functionName": "findModifiedParameters",
+          "functionAnnotation": "",
+          "functionDoc": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n@param unsafe The set of names that require aliases.\n@param inInnerFunction Whether the inspection is occurring on a inner\n    function.\n",
+          "diff": "@@ -1,14 +1,16 @@\n-private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe) {\n+private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n     Preconditions.checkArgument(unsafe !\u003d null);\n     if (n.getType() \u003d\u003d Token.NAME) {\n         if (names.contains(n.getString())) {\n-            if (canNameValueChange(n, parent)) {\n+            if (inInnerFunction || canNameValueChange(n, parent)) {\n                 unsafe.add(n.getString());\n             }\n         }\n+    } else if (n.getType() \u003d\u003d Token.FUNCTION) {\n+        inInnerFunction \u003d true;\n     }\n     for (Node c : n.children()) {\n-        findModifiedParameters(c, n, names, unsafe);\n+        findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n     }\n     return unsafe;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[n-Node, parent-Node, names-Set\u003cString\u003e, unsafe-Set\u003cString\u003e]",
+            "newValue": "[n-Node, parent-Node, names-Set\u003cString\u003e, unsafe-Set\u003cString\u003e, inInnerFunction-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nCorrect parameter aliasing when inlining of function with inner\nfunctions.\n\nR\u003dacleung\nDELTA\u003d55  (51 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3088\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1377 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/22/11, 5:03 PM",
+          "commitName": "e06986e0e6c0430a366647125e8c7f4bb6d57e7b",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "7/28/11, 4:19 PM",
+          "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 25.03,
+          "commitsBetweenForRepo": 62,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n    Preconditions.checkArgument(unsafe !\u003d null);\n    if (n.getType() \u003d\u003d Token.NAME) {\n        if (names.contains(n.getString())) {\n            if (inInnerFunction || canNameValueChange(n, parent)) {\n                unsafe.add(n.getString());\n            }\n        }\n    } else if (n.getType() \u003d\u003d Token.FUNCTION) {\n        inInnerFunction \u003d true;\n    }\n    for (Node c : n.children()) {\n        findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n    }\n    return unsafe;\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 195,
+          "functionName": "findModifiedParameters",
+          "functionAnnotation": "",
+          "functionDoc": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n@param unsafe The set of names that require aliases.\n@param inInnerFunction Whether the inspection is occurring on a inner\n    function.\n",
+          "diff": "@@ -1,14 +1,16 @@\n-private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe) {\n+private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n     Preconditions.checkArgument(unsafe !\u003d null);\n     if (n.getType() \u003d\u003d Token.NAME) {\n         if (names.contains(n.getString())) {\n-            if (canNameValueChange(n, parent)) {\n+            if (inInnerFunction || canNameValueChange(n, parent)) {\n                 unsafe.add(n.getString());\n             }\n         }\n+    } else if (n.getType() \u003d\u003d Token.FUNCTION) {\n+        inInnerFunction \u003d true;\n     }\n     for (Node c : n.children()) {\n-        findModifiedParameters(c, n, names, unsafe);\n+        findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n     }\n     return unsafe;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nCorrect parameter aliasing when inlining of function with inner\nfunctions.\n\nR\u003dacleung\nDELTA\u003d55  (51 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3088\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1377 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/22/11, 5:03 PM",
+          "commitName": "e06986e0e6c0430a366647125e8c7f4bb6d57e7b",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "7/28/11, 4:19 PM",
+          "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 25.03,
+          "commitsBetweenForRepo": 62,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n    Preconditions.checkArgument(unsafe !\u003d null);\n    if (n.getType() \u003d\u003d Token.NAME) {\n        if (names.contains(n.getString())) {\n            if (inInnerFunction || canNameValueChange(n, parent)) {\n                unsafe.add(n.getString());\n            }\n        }\n    } else if (n.getType() \u003d\u003d Token.FUNCTION) {\n        inInnerFunction \u003d true;\n    }\n    for (Node c : n.children()) {\n        findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n    }\n    return unsafe;\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 195,
+          "functionName": "findModifiedParameters",
+          "functionAnnotation": "",
+          "functionDoc": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n@param unsafe The set of names that require aliases.\n@param inInnerFunction Whether the inspection is occurring on a inner\n    function.\n",
+          "diff": "@@ -1,14 +1,16 @@\n-private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe) {\n+private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe, boolean inInnerFunction) {\n     Preconditions.checkArgument(unsafe !\u003d null);\n     if (n.getType() \u003d\u003d Token.NAME) {\n         if (names.contains(n.getString())) {\n-            if (canNameValueChange(n, parent)) {\n+            if (inInnerFunction || canNameValueChange(n, parent)) {\n                 unsafe.add(n.getString());\n             }\n         }\n+    } else if (n.getType() \u003d\u003d Token.FUNCTION) {\n+        inInnerFunction \u003d true;\n     }\n     for (Node c : n.children()) {\n-        findModifiedParameters(c, n, names, unsafe);\n+        findModifiedParameters(c, n, names, unsafe, inInnerFunction);\n     }\n     return unsafe;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n",
+            "newValue": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n@param unsafe The set of names that require aliases.\n@param inInnerFunction Whether the inspection is occurring on a inner\n    function.\n"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe) {\n+    Preconditions.checkArgument(unsafe !\u003d null);\n+    if (n.getType() \u003d\u003d Token.NAME) {\n+        if (names.contains(n.getString())) {\n+            if (canNameValueChange(n, parent)) {\n+                unsafe.add(n.getString());\n+            }\n+        }\n+    }\n+    for (Node c : n.children()) {\n+        findModifiedParameters(c, n, names, unsafe);\n+    }\n+    return unsafe;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Set\u003cString\u003e findModifiedParameters(Node n, Node parent, Set\u003cString\u003e names, Set\u003cString\u003e unsafe) {\n    Preconditions.checkArgument(unsafe !\u003d null);\n    if (n.getType() \u003d\u003d Token.NAME) {\n        if (names.contains(n.getString())) {\n            if (canNameValueChange(n, parent)) {\n                unsafe.add(n.getString());\n            }\n        }\n    }\n    for (Node c : n.children()) {\n        findModifiedParameters(c, n, names, unsafe);\n    }\n    return unsafe;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+      "functionStartLine": 162,
+      "functionName": "findModifiedParameters",
+      "functionAnnotation": "",
+      "functionDoc": "Check for uses of the named value that imply a pass-by-value\nparameter is expected.  This is used to prevent cases like:\n\n  function (x) {\n    x\u003d2;\n    return x;\n  }\n\nWe don\u0027t want \"undefined\" to be substituted for \"x\", and get\n  undefined\u003d2\n\n@param n The node in question.\n@param parent The parent of the node.\n@param names The set of names to check.\n"
+    }
+  }
+}

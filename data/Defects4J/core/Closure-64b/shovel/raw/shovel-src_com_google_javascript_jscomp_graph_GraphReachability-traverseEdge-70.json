@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GraphReachability.java",
+  "functionName": "traverseEdge",
+  "functionId": "traverseEdge___source-N__e-E__destination-N",
+  "sourceFilePath": "src/com/google/javascript/jscomp/graph/GraphReachability.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 70,
+  "functionEndLine": 81,
+  "numCommitsSeen": 9,
+  "timeTaken": 284,
+  "changeHistory": [
+    "5885b9b72a64533fb2bd6f05d66c65b58c7d3b45",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "5885b9b72a64533fb2bd6f05d66c65b58c7d3b45": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5885b9b72a64533fb2bd6f05d66c65b58c7d3b45": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/21 by nicksantos\n\n        Add a messagebundle to compileroptions.\n\n        R\u003djohnlenz\n        DELTA\u003d65  (53 added, 7 deleted, 5 changed)\n\nChange on 2010/05/21 by johnlenz\n\n        Automated g4 rollback of changelist 15608158.\n\n        *** Reason for rollback ***\n\n          Incorrectly inlines into loops.\n\n        *** Original change description ***\n\n        Enable flow sensitive inlining in open source world.\n\n        R\u003dacleung\n        DELTA\u003d2  (0 added, 2 deleted, 0 changed)\n\nChange on 2010/05/21 by johnlenz\n\n        Automated g4 rollback of changelist 15557333.\n\n        *** Reason for rollback ***\n\n          Flow sensitive inlining incorrectly inlines into loops.\n\n        *** Original change description ***\n\n        Automated g4 rollback of changelist 15443639.\n\n        *** Reason for rollback ***\n\n          Fixed by 15522083\n\n        *** Original change description ***\n\n        Automated g4 rollback of changelist 15380611.\n\n        *** Reason for rollback ***\n\n        see attached bug\n\n        *** Original change description ***\n\n        Enable Flow Sensitive Inlining by default. Passes GMail automation test.\n\n        R\u003dacleung\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\nChange on 2010/05/21 by acleung\n\n        Automated g4 rollback of changelist 15093982.\n\n        *** Reason for rollback ***\n\n          Because third time is a charm.\n\n        *** Original change description ***\n\n        Automated g4 rollback of changelist 15093106.\n\n        *** Reason for rollback ***\n\n        breaks caribou b/c of new warnings.\n\n        *** Original change description ***\n\n        Make unreachable code detection a bit smarter.\n\n        R\u003djohnlenz\n        DELTA\u003d77  (70 added, 3 deleted, 4 changed)\n\nChange on 2010/05/21 by nicksantos\n\n        Create a shortcut mode for the deps file parser, and turn it on\n        by default.\n        Also, add tracers to deps generator.\n\n        R\u003dagrieve\n        DELTA\u003d171  (117 added, 44 deleted, 10 changed)\n\nChange on 2010/05/21 by acleung\n\n        Make ExtractPrototypeMemberDeclarations skip over devirtualized prototype methods\n\n        R\u003davd\n        DELTA\u003d80  (80 added, 0 deleted, 0 changed)\n\nChange on 2010/05/21 by robbyw\n\n        Attach ScopedAliases to the closurePass flag.\n\n        R\u003dnicksantos\n        DELTA\u003d13  (13 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d11001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@226 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/21/10, 2:27 PM",
+      "commitName": "5885b9b72a64533fb2bd6f05d66c65b58c7d3b45",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "11/3/09, 3:51 PM",
+      "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 198.9,
+      "commitsBetweenForRepo": 188,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean traverseEdge(N source, E e, N destination) {\n    if (graph.getNode(source).getAnnotation() \u003d\u003d REACHABLE \u0026\u0026 (edgePredicate \u003d\u003d null || edgePredicate.apply(new EdgeTuple\u003cN, E\u003e(source, e, destination)))) {\n        GraphNode\u003cN, E\u003e destNode \u003d graph.getNode(destination);\n        if (destNode.getAnnotation() !\u003d REACHABLE) {\n            destNode.setAnnotation(REACHABLE);\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/graph/GraphReachability.java",
+      "functionStartLine": 71,
+      "functionName": "traverseEdge",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n @Override\n public boolean traverseEdge(N source, E e, N destination) {\n-    if (graph.getNode(source).getAnnotation() \u003d\u003d REACHABLE) {\n+    if (graph.getNode(source).getAnnotation() \u003d\u003d REACHABLE \u0026\u0026 (edgePredicate \u003d\u003d null || edgePredicate.apply(new EdgeTuple\u003cN, E\u003e(source, e, destination)))) {\n         GraphNode\u003cN, E\u003e destNode \u003d graph.getNode(destination);\n         if (destNode.getAnnotation() !\u003d REACHABLE) {\n             destNode.setAnnotation(REACHABLE);\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+public boolean traverseEdge(N source, E e, N destination) {\n+    if (graph.getNode(source).getAnnotation() \u003d\u003d REACHABLE) {\n+        GraphNode\u003cN, E\u003e destNode \u003d graph.getNode(destination);\n+        if (destNode.getAnnotation() !\u003d REACHABLE) {\n+            destNode.setAnnotation(REACHABLE);\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean traverseEdge(N source, E e, N destination) {\n    if (graph.getNode(source).getAnnotation() \u003d\u003d REACHABLE) {\n        GraphNode\u003cN, E\u003e destNode \u003d graph.getNode(destination);\n        if (destNode.getAnnotation() !\u003d REACHABLE) {\n            destNode.setAnnotation(REACHABLE);\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/graph/GraphReachability.java",
+      "functionStartLine": 59,
+      "functionName": "traverseEdge",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

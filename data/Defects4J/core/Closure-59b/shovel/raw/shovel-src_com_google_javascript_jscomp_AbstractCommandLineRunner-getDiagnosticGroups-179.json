@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "getDiagnosticGroups",
+  "functionId": "getDiagnosticGroups",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "The warning classes that are available from the command-line.\n",
+  "functionStartLine": 179,
+  "functionEndLine": 184,
+  "numCommitsSeen": 73,
+  "timeTaken": 4520,
+  "changeHistory": [
+    "1004aa6826a19fcb9e6a33b029b492a100fa081b",
+    "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953",
+    "848ace840362a1f5558bec065cb40548ff66587a",
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f"
+  ],
+  "changeHistoryShort": {
+    "1004aa6826a19fcb9e6a33b029b492a100fa081b": "Ymultichange(Ybodychange,Ydocchange)",
+    "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953": "Yrename",
+    "848ace840362a1f5558bec065cb40548ff66587a": "Yfilerename",
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1004aa6826a19fcb9e6a33b029b492a100fa081b": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "\nMake all named warning groups suppressable.\nThe real radical change here is that in order to do this,\nwe need to tell the compiler which diagnostic groups it\u0027s running\nwith, which requires a bit of clean-up in the compiler\u0027s\nbootstrapping sequence.\n\nR\u003djohnlenz\nDELTA\u003d94  (74 added, 14 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d114010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@358 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/12/10, 6:27 PM",
+      "commitName": "1004aa6826a19fcb9e6a33b029b492a100fa081b",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nMake all named warning groups suppressable.\nThe real radical change here is that in order to do this,\nwe need to tell the compiler which diagnostic groups it\u0027s running\nwith, which requires a bit of clean-up in the compiler\u0027s\nbootstrapping sequence.\n\nR\u003djohnlenz\nDELTA\u003d94  (74 added, 14 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d114010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@358 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/12/10, 6:27 PM",
+          "commitName": "1004aa6826a19fcb9e6a33b029b492a100fa081b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/5/10, 7:38 PM",
+          "commitNameOld": "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 6.95,
+          "commitsBetweenForRepo": 14,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected DiagnosticGroups getDiagnosticGroups() {\n    if (compiler \u003d\u003d null) {\n        return new DiagnosticGroups();\n    }\n    return compiler.getDiagnosticGroups();\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 130,
+          "functionName": "getDiagnosticGroups",
+          "functionAnnotation": "",
+          "functionDoc": "The warning classes that are available from the command-line.\n",
+          "diff": "@@ -1,3 +1,6 @@\n protected DiagnosticGroups getDiagnosticGroups() {\n-    return new DiagnosticGroups();\n+    if (compiler \u003d\u003d null) {\n+        return new DiagnosticGroups();\n+    }\n+    return compiler.getDiagnosticGroups();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nMake all named warning groups suppressable.\nThe real radical change here is that in order to do this,\nwe need to tell the compiler which diagnostic groups it\u0027s running\nwith, which requires a bit of clean-up in the compiler\u0027s\nbootstrapping sequence.\n\nR\u003djohnlenz\nDELTA\u003d94  (74 added, 14 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d114010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@358 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/12/10, 6:27 PM",
+          "commitName": "1004aa6826a19fcb9e6a33b029b492a100fa081b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/5/10, 7:38 PM",
+          "commitNameOld": "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 6.95,
+          "commitsBetweenForRepo": 14,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected DiagnosticGroups getDiagnosticGroups() {\n    if (compiler \u003d\u003d null) {\n        return new DiagnosticGroups();\n    }\n    return compiler.getDiagnosticGroups();\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 130,
+          "functionName": "getDiagnosticGroups",
+          "functionAnnotation": "",
+          "functionDoc": "The warning classes that are available from the command-line.\n",
+          "diff": "@@ -1,3 +1,6 @@\n protected DiagnosticGroups getDiagnosticGroups() {\n-    return new DiagnosticGroups();\n+    if (compiler \u003d\u003d null) {\n+        return new DiagnosticGroups();\n+    }\n+    return compiler.getDiagnosticGroups();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "The warning classes that are available from the command-line.\n"
+          }
+        }
+      ]
+    },
+    "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953": {
+      "type": "Yrename",
+      "commitMessage": "Remove var declarations when name functions are in the same scope.\nFixes Issue 33 (John)\nR\u003dnick\nDELTA\u003d206  (155 added, 16 deleted, 35 changed)\n\nAssorted API fixes.\nFixes issue 127. (Nick)\nR\u003drobert\nDELTA\u003d7  (0 added, 1 deleted, 6 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@148 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/10, 3:55 PM",
+      "commitName": "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/22/10, 10:41 AM",
+      "commitNameOld": "6f2539acd3c37bd7f0d031b43364f75a5cd6d5f7",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.22,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected DiagnosticGroups getDiagnosticGroups() {\n    return new DiagnosticGroups();\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 123,
+      "functionName": "getDiagnosticGroups",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n-protected DiagnosticGroups getDiagnoticGroups() {\n+protected DiagnosticGroups getDiagnosticGroups() {\n     return new DiagnosticGroups();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "getDiagnoticGroups",
+        "newValue": "getDiagnosticGroups"
+      }
+    },
+    "848ace840362a1f5558bec065cb40548ff66587a": {
+      "type": "Yfilerename",
+      "commitMessage": "Rename CompilerRunner -\u003e CommandLineRunner.\nI\u0027ll also do this for JSCompilerRunner, but it will be a much\nbigger change. (Nick)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@119 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/26/10, 6:04 PM",
+      "commitName": "848ace840362a1f5558bec065cb40548ff66587a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "2/26/10, 3:45 PM",
+      "commitNameOld": "50c1b3d39ff5b17c956a2235f97f7b5da05ab6f0",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected DiagnosticGroups getDiagnoticGroups() {\n    return new DiagnosticGroups();\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 271,
+      "functionName": "getDiagnoticGroups",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/com/google/javascript/jscomp/AbstractCompilerRunner.java",
+        "newPath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java"
+      }
+    },
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": {
+      "type": "Yintroduced",
+      "commitMessage": "Add buttloads of tests.\n\nRewrite JSDoc inference to be more redundant, which should help it\nto be more robust.\n\nAssorted other fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@20 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/7/09, 1:53 PM",
+      "commitName": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,3 @@\n+protected DiagnosticGroups getDiagnoticGroups() {\n+    return new DiagnosticGroups();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected DiagnosticGroups getDiagnoticGroups() {\n    return new DiagnosticGroups();\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCompilerRunner.java",
+      "functionStartLine": 241,
+      "functionName": "getDiagnoticGroups",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-87b",
+  "repositoryPath": "/tmp/Math-87b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexTableau.java",
+  "functionName": "discardArtificialVariables",
+  "functionId": "discardArtificialVariables",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "functionAnnotation": "",
+  "functionDoc": "Removes the phase 1 objective function and artificial variables from this tableau.\n",
+  "functionStartLine": 289,
+  "functionEndLine": 304,
+  "numCommitsSeen": 6,
+  "timeTaken": 493,
+  "changeHistory": [
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,16 @@\n+protected void discardArtificialVariables() {\n+    if (numArtificialVariables \u003d\u003d 0) {\n+        return;\n+    }\n+    int width \u003d getWidth() - numArtificialVariables - 1;\n+    int height \u003d getHeight() - 1;\n+    double[][] matrix \u003d new double[height][width];\n+    for (int i \u003d 0; i \u003c height; i++) {\n+        for (int j \u003d 0; j \u003c width - 1; j++) {\n+            matrix[i][j] \u003d getEntry(i + 1, j + 1);\n+        }\n+        matrix[i][width - 1] \u003d getEntry(i + 1, getRhsOffset());\n+    }\n+    this.tableau \u003d new RealMatrixImpl(matrix);\n+    this.numArtificialVariables \u003d 0;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void discardArtificialVariables() {\n    if (numArtificialVariables \u003d\u003d 0) {\n        return;\n    }\n    int width \u003d getWidth() - numArtificialVariables - 1;\n    int height \u003d getHeight() - 1;\n    double[][] matrix \u003d new double[height][width];\n    for (int i \u003d 0; i \u003c height; i++) {\n        for (int j \u003d 0; j \u003c width - 1; j++) {\n            matrix[i][j] \u003d getEntry(i + 1, j + 1);\n        }\n        matrix[i][width - 1] \u003d getEntry(i + 1, getRhsOffset());\n    }\n    this.tableau \u003d new RealMatrixImpl(matrix);\n    this.numArtificialVariables \u003d 0;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 276,
+      "functionName": "discardArtificialVariables",
+      "functionAnnotation": "",
+      "functionDoc": "Removes the phase 1 objective function and artificial variables from this tableau.\n"
+    }
+  }
+}

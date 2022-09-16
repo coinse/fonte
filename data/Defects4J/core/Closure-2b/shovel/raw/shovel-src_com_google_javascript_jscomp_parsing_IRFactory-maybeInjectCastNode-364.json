@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "maybeInjectCastNode",
+  "functionId": "maybeInjectCastNode___node-AstNode__info-JSDocInfo__irNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 364,
+  "functionEndLine": 373,
+  "numCommitsSeen": 75,
+  "timeTaken": 2623,
+  "changeHistory": [
+    "0b054d7d1b185b02c595c646bc0f11a6d809c934"
+  ],
+  "changeHistoryShort": {
+    "0b054d7d1b185b02c595c646bc0f11a6d809c934": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0b054d7d1b185b02c595c646bc0f11a6d809c934": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAutomated g4 rollback\n\n*** Reason for rollback ***\n\nDisable cast warnings by default. Most projects however have\nit turn up to ERROR.\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nbreaks various projects without whitelists\n\n*** Original change description ***\n\nIntroduced a CAST ast node\n\nR\u003dnicksantos\nDELTA\u003d1968  (1746 added, 44 deleted, 178 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5970\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2394 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/12/12, 5:18 PM",
+      "commitName": "0b054d7d1b185b02c595c646bc0f11a6d809c934",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+private Node maybeInjectCastNode(AstNode node, JSDocInfo info, Node irNode) {\n+    if (node.getType() \u003d\u003d com.google.javascript.rhino.head.Token.LP \u0026\u0026 node instanceof ParenthesizedExpression \u0026\u0026 info.hasType() \u0026\u0026 !irNode.isObjectLit()) {\n+        irNode \u003d newNode(Token.CAST, irNode);\n+    }\n+    return irNode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node maybeInjectCastNode(AstNode node, JSDocInfo info, Node irNode) {\n    if (node.getType() \u003d\u003d com.google.javascript.rhino.head.Token.LP \u0026\u0026 node instanceof ParenthesizedExpression \u0026\u0026 info.hasType() \u0026\u0026 !irNode.isObjectLit()) {\n        irNode \u003d newNode(Token.CAST, irNode);\n    }\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 364,
+      "functionName": "maybeInjectCastNode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

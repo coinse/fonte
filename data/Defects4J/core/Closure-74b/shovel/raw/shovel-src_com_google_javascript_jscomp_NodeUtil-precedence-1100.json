@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "precedence",
+  "functionId": "precedence___type-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1100,
+  "functionEndLine": 1174,
+  "numCommitsSeen": 80,
+  "timeTaken": 6197,
+  "changeHistory": [
+    "b41c7bd823a9d7df8b9ec276ff3ce4286ab1e890",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "b41c7bd823a9d7df8b9ec276ff3ce4286ab1e890": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b41c7bd823a9d7df8b9ec276ff3ce4286ab1e890": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRemove RETURN statement token for operator precedent table\n\nR\u003dnicksantos\nDELTA\u003d1  (0 added, 1 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d973\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@921 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/21/11, 2:54 PM",
+      "commitName": "b41c7bd823a9d7df8b9ec276ff3ce4286ab1e890",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "3/15/11, 12:33 PM",
+      "commitNameOld": "653599e7c3922059a78958ea32b216ff9c42800e",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 6.1,
+      "commitsBetweenForRepo": 26,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static int precedence(int type) {\n    switch(type) {\n        case Token.COMMA:\n            return 0;\n        case Token.ASSIGN_BITOR:\n        case Token.ASSIGN_BITXOR:\n        case Token.ASSIGN_BITAND:\n        case Token.ASSIGN_LSH:\n        case Token.ASSIGN_RSH:\n        case Token.ASSIGN_URSH:\n        case Token.ASSIGN_ADD:\n        case Token.ASSIGN_SUB:\n        case Token.ASSIGN_MUL:\n        case Token.ASSIGN_DIV:\n        case Token.ASSIGN_MOD:\n        case Token.ASSIGN:\n            return 1;\n        case Token.HOOK:\n            return 2;\n        case Token.OR:\n            return 3;\n        case Token.AND:\n            return 4;\n        case Token.BITOR:\n            return 5;\n        case Token.BITXOR:\n            return 6;\n        case Token.BITAND:\n            return 7;\n        case Token.EQ:\n        case Token.NE:\n        case Token.SHEQ:\n        case Token.SHNE:\n            return 8;\n        case Token.LT:\n        case Token.GT:\n        case Token.LE:\n        case Token.GE:\n        case Token.INSTANCEOF:\n        case Token.IN:\n            return 9;\n        case Token.LSH:\n        case Token.RSH:\n        case Token.URSH:\n            return 10;\n        case Token.SUB:\n        case Token.ADD:\n            return 11;\n        case Token.MUL:\n        case Token.MOD:\n        case Token.DIV:\n            return 12;\n        case Token.INC:\n        case Token.DEC:\n        case Token.NEW:\n        case Token.DELPROP:\n        case Token.TYPEOF:\n        case Token.VOID:\n        case Token.NOT:\n        case Token.BITNOT:\n        case Token.POS:\n        case Token.NEG:\n            return 13;\n        case Token.ARRAYLIT:\n        case Token.CALL:\n        case Token.EMPTY:\n        case Token.FALSE:\n        case Token.FUNCTION:\n        case Token.GETELEM:\n        case Token.GETPROP:\n        case Token.GET_REF:\n        case Token.IF:\n        case Token.LP:\n        case Token.NAME:\n        case Token.NULL:\n        case Token.NUMBER:\n        case Token.OBJECTLIT:\n        case Token.REGEXP:\n        case Token.STRING:\n        case Token.THIS:\n        case Token.TRUE:\n            return 15;\n        default:\n            throw new Error(\"Unknown precedence for \" + Node.tokenToName(type) + \" (type \" + type + \")\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1076,
+      "functionName": "precedence",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,87 +1,86 @@\n static int precedence(int type) {\n     switch(type) {\n         case Token.COMMA:\n             return 0;\n         case Token.ASSIGN_BITOR:\n         case Token.ASSIGN_BITXOR:\n         case Token.ASSIGN_BITAND:\n         case Token.ASSIGN_LSH:\n         case Token.ASSIGN_RSH:\n         case Token.ASSIGN_URSH:\n         case Token.ASSIGN_ADD:\n         case Token.ASSIGN_SUB:\n         case Token.ASSIGN_MUL:\n         case Token.ASSIGN_DIV:\n         case Token.ASSIGN_MOD:\n         case Token.ASSIGN:\n             return 1;\n         case Token.HOOK:\n             return 2;\n         case Token.OR:\n             return 3;\n         case Token.AND:\n             return 4;\n         case Token.BITOR:\n             return 5;\n         case Token.BITXOR:\n             return 6;\n         case Token.BITAND:\n             return 7;\n         case Token.EQ:\n         case Token.NE:\n         case Token.SHEQ:\n         case Token.SHNE:\n             return 8;\n         case Token.LT:\n         case Token.GT:\n         case Token.LE:\n         case Token.GE:\n         case Token.INSTANCEOF:\n         case Token.IN:\n             return 9;\n         case Token.LSH:\n         case Token.RSH:\n         case Token.URSH:\n             return 10;\n         case Token.SUB:\n         case Token.ADD:\n             return 11;\n         case Token.MUL:\n         case Token.MOD:\n         case Token.DIV:\n             return 12;\n         case Token.INC:\n         case Token.DEC:\n         case Token.NEW:\n         case Token.DELPROP:\n         case Token.TYPEOF:\n         case Token.VOID:\n         case Token.NOT:\n         case Token.BITNOT:\n         case Token.POS:\n         case Token.NEG:\n             return 13;\n         case Token.ARRAYLIT:\n         case Token.CALL:\n         case Token.EMPTY:\n         case Token.FALSE:\n         case Token.FUNCTION:\n         case Token.GETELEM:\n         case Token.GETPROP:\n         case Token.GET_REF:\n         case Token.IF:\n         case Token.LP:\n         case Token.NAME:\n         case Token.NULL:\n         case Token.NUMBER:\n         case Token.OBJECTLIT:\n         case Token.REGEXP:\n-        case Token.RETURN:\n         case Token.STRING:\n         case Token.THIS:\n         case Token.TRUE:\n             return 15;\n         default:\n             throw new Error(\"Unknown precedence for \" + Node.tokenToName(type) + \" (type \" + type + \")\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,87 @@\n+static int precedence(int type) {\n+    switch(type) {\n+        case Token.COMMA:\n+            return 0;\n+        case Token.ASSIGN_BITOR:\n+        case Token.ASSIGN_BITXOR:\n+        case Token.ASSIGN_BITAND:\n+        case Token.ASSIGN_LSH:\n+        case Token.ASSIGN_RSH:\n+        case Token.ASSIGN_URSH:\n+        case Token.ASSIGN_ADD:\n+        case Token.ASSIGN_SUB:\n+        case Token.ASSIGN_MUL:\n+        case Token.ASSIGN_DIV:\n+        case Token.ASSIGN_MOD:\n+        case Token.ASSIGN:\n+            return 1;\n+        case Token.HOOK:\n+            return 2;\n+        case Token.OR:\n+            return 3;\n+        case Token.AND:\n+            return 4;\n+        case Token.BITOR:\n+            return 5;\n+        case Token.BITXOR:\n+            return 6;\n+        case Token.BITAND:\n+            return 7;\n+        case Token.EQ:\n+        case Token.NE:\n+        case Token.SHEQ:\n+        case Token.SHNE:\n+            return 8;\n+        case Token.LT:\n+        case Token.GT:\n+        case Token.LE:\n+        case Token.GE:\n+        case Token.INSTANCEOF:\n+        case Token.IN:\n+            return 9;\n+        case Token.LSH:\n+        case Token.RSH:\n+        case Token.URSH:\n+            return 10;\n+        case Token.SUB:\n+        case Token.ADD:\n+            return 11;\n+        case Token.MUL:\n+        case Token.MOD:\n+        case Token.DIV:\n+            return 12;\n+        case Token.INC:\n+        case Token.DEC:\n+        case Token.NEW:\n+        case Token.DELPROP:\n+        case Token.TYPEOF:\n+        case Token.VOID:\n+        case Token.NOT:\n+        case Token.BITNOT:\n+        case Token.POS:\n+        case Token.NEG:\n+            return 13;\n+        case Token.ARRAYLIT:\n+        case Token.CALL:\n+        case Token.EMPTY:\n+        case Token.FALSE:\n+        case Token.FUNCTION:\n+        case Token.GETELEM:\n+        case Token.GETPROP:\n+        case Token.GET_REF:\n+        case Token.IF:\n+        case Token.LP:\n+        case Token.NAME:\n+        case Token.NULL:\n+        case Token.NUMBER:\n+        case Token.OBJECTLIT:\n+        case Token.REGEXP:\n+        case Token.RETURN:\n+        case Token.STRING:\n+        case Token.THIS:\n+        case Token.TRUE:\n+            return 15;\n+        default:\n+            throw new Error(\"Unknown precedence for \" + Node.tokenToName(type) + \" (type \" + type + \")\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static int precedence(int type) {\n    switch(type) {\n        case Token.COMMA:\n            return 0;\n        case Token.ASSIGN_BITOR:\n        case Token.ASSIGN_BITXOR:\n        case Token.ASSIGN_BITAND:\n        case Token.ASSIGN_LSH:\n        case Token.ASSIGN_RSH:\n        case Token.ASSIGN_URSH:\n        case Token.ASSIGN_ADD:\n        case Token.ASSIGN_SUB:\n        case Token.ASSIGN_MUL:\n        case Token.ASSIGN_DIV:\n        case Token.ASSIGN_MOD:\n        case Token.ASSIGN:\n            return 1;\n        case Token.HOOK:\n            return 2;\n        case Token.OR:\n            return 3;\n        case Token.AND:\n            return 4;\n        case Token.BITOR:\n            return 5;\n        case Token.BITXOR:\n            return 6;\n        case Token.BITAND:\n            return 7;\n        case Token.EQ:\n        case Token.NE:\n        case Token.SHEQ:\n        case Token.SHNE:\n            return 8;\n        case Token.LT:\n        case Token.GT:\n        case Token.LE:\n        case Token.GE:\n        case Token.INSTANCEOF:\n        case Token.IN:\n            return 9;\n        case Token.LSH:\n        case Token.RSH:\n        case Token.URSH:\n            return 10;\n        case Token.SUB:\n        case Token.ADD:\n            return 11;\n        case Token.MUL:\n        case Token.MOD:\n        case Token.DIV:\n            return 12;\n        case Token.INC:\n        case Token.DEC:\n        case Token.NEW:\n        case Token.DELPROP:\n        case Token.TYPEOF:\n        case Token.VOID:\n        case Token.NOT:\n        case Token.BITNOT:\n        case Token.POS:\n        case Token.NEG:\n            return 13;\n        case Token.ARRAYLIT:\n        case Token.CALL:\n        case Token.EMPTY:\n        case Token.FALSE:\n        case Token.FUNCTION:\n        case Token.GETELEM:\n        case Token.GETPROP:\n        case Token.GET_REF:\n        case Token.IF:\n        case Token.LP:\n        case Token.NAME:\n        case Token.NULL:\n        case Token.NUMBER:\n        case Token.OBJECTLIT:\n        case Token.REGEXP:\n        case Token.RETURN:\n        case Token.STRING:\n        case Token.THIS:\n        case Token.TRUE:\n            return 15;\n        default:\n            throw new Error(\"Unknown precedence for \" + Node.tokenToName(type) + \" (type \" + type + \")\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 561,
+      "functionName": "precedence",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

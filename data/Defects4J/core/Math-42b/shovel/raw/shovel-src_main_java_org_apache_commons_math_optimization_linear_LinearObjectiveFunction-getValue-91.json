@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-42b",
+  "repositoryPath": "/tmp/Math-42b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LinearObjectiveFunction.java",
+  "functionName": "getValue",
+  "functionId": "getValue___point-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/optimization/linear/LinearObjectiveFunction.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute the value of the linear equation at the current point\n\n@param point point at which linear equation must be evaluated\n@return value of the linear equation at the current point\n",
+  "functionStartLine": 91,
+  "functionEndLine": 93,
+  "numCommitsSeen": 8,
+  "timeTaken": 733,
+  "changeHistory": [
+    "6bf1c2a0cfa845cd03d9f9549257e9b0e2d83b10",
+    "d6a438e931412713e99624cf9ed74470f1040184",
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "6bf1c2a0cfa845cd03d9f9549257e9b0e2d83b10": "Ybodychange",
+    "d6a438e931412713e99624cf9ed74470f1040184": "Yfilerename",
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6bf1c2a0cfa845cd03d9f9549257e9b0e2d83b10": {
+      "type": "Ybodychange",
+      "commitMessage": "MATH-653\n\"RealVector\": Removed methods taking a \"double[]\" argument whenever another\nexists that takes a \"RealVector\" argument.\nModified subclasses and unit tests accordingly.\nFixed a bug in method \"subtract(RealVector)\" (in class \"RealVector\").\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1162629 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/28/11, 6:44 PM",
+      "commitName": "6bf1c2a0cfa845cd03d9f9549257e9b0e2d83b10",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "6/3/11, 1:49 PM",
+      "commitNameOld": "98e22d778b3a886be253638b9a6b7ec075c3d62d",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 86.2,
+      "commitsBetweenForRepo": 221,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public double getValue(final double[] point) {\n    return coefficients.dotProduct(new ArrayRealVector(point, false)) + constantTerm;\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/linear/LinearObjectiveFunction.java",
+      "functionStartLine": 91,
+      "functionName": "getValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the value of the linear equation at the current point\n\n@param point point at which linear equation must be evaluated\n@return value of the linear equation at the current point\n",
+      "diff": "@@ -1,3 +1,3 @@\n public double getValue(final double[] point) {\n-    return coefficients.dotProduct(point) + constantTerm;\n+    return coefficients.dotProduct(new ArrayRealVector(point, false)) + constantTerm;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d6a438e931412713e99624cf9ed74470f1040184": {
+      "type": "Yfilerename",
+      "commitMessage": "moved main java directory for compliance with maven standard directory layout\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@799870 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/09, 7:30 AM",
+      "commitName": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/09, 7:23 AM",
+      "commitNameOld": "2ad5ef61630be627f46ae1c266cf796f044bd4a8",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public double getValue(final double[] point) {\n    return coefficients.dotProduct(point) + constantTerm;\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/linear/LinearObjectiveFunction.java",
+      "functionStartLine": 91,
+      "functionName": "getValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the value of the linear equation at the current point\n\n@param point point at which linear equation must be evaluated\n@return value of the linear equation at the current point\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/math/optimization/linear/LinearObjectiveFunction.java",
+        "newPath": "src/main/java/org/apache/commons/math/optimization/linear/LinearObjectiveFunction.java"
+      }
+    },
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,3 @@\n+public double getValue(final double[] point) {\n+    return coefficients.dotProduct(point) + constantTerm;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public double getValue(final double[] point) {\n    return coefficients.dotProduct(point) + constantTerm;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/LinearObjectiveFunction.java",
+      "functionStartLine": 87,
+      "functionName": "getValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the value of the linear equation at the current point\n\n@param point point at which linear equation must be evaluated\n@return value of the linear equation at the current point\n"
+    }
+  }
+}

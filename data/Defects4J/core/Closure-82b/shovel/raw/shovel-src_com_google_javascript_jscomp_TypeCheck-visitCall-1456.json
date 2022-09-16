@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeCheck.java",
+  "functionName": "visitCall",
+  "functionId": "visitCall___t-NodeTraversal__n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "Visits a CALL node.\n\n@param t The node traversal object that supplies context, such as the\nscope chain to use in name lookups as well as error reporting.\n@param n The node being visited.\n",
+  "functionStartLine": 1456,
+  "functionEndLine": 1486,
+  "numCommitsSeen": 32,
+  "timeTaken": 2745,
+  "changeHistory": [
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c": {
+      "type": "Ybodychange",
+      "commitMessage": "\n\nChange on 2010/06/16 by johnlenz\n\n        Remove unused member variable.\n\n        R\u003dacleung\n        DELTA\u003d17  (0 added, 12 deleted, 5 changed)\n\nChange on 2010/06/16 by acleung\n\n        Make @notypecheck behaves like it is doing typechecking except for reporting errors.\n\n        R\u003djohnlenz\n        DELTA\u003d144  (89 added, 17 deleted, 38 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d28012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@245 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/17/10, 10:16 AM",
+      "commitName": "0895c28861ee4a1969acc858f1a703ab11ddc64c",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "5/3/10, 7:03 AM",
+      "commitNameOld": "9147da9979fb00599efd700fa5e0cccfa93d25a5",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 45.13,
+      "commitsBetweenForRepo": 32,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void visitCall(NodeTraversal t, Node n) {\n    Node child \u003d n.getFirstChild();\n    JSType childType \u003d getJSType(child).restrictByNotNullOrUndefined();\n    if (!childType.canBeCalled()) {\n        report(t, n, NOT_CALLABLE, childType.toString());\n        ensureTyped(t, n);\n        return;\n    }\n    if (childType instanceof FunctionType) {\n        FunctionType functionType \u003d (FunctionType) childType;\n        if (functionType.isConstructor() \u0026\u0026 !functionType.isNativeObjectType()) {\n            report(t, n, CONSTRUCTOR_NOT_CALLABLE, childType.toString());\n        }\n        visitParameterList(t, n, functionType);\n        ensureTyped(t, n, functionType.getReturnType());\n    } else {\n        ensureTyped(t, n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 1348,
+      "functionName": "visitCall",
+      "functionAnnotation": "",
+      "functionDoc": "Visits a CALL node.\n\n@param t The node traversal object that supplies context, such as the\nscope chain to use in name lookups as well as error reporting.\n@param n The node being visited.\n",
+      "diff": "@@ -1,19 +1,19 @@\n private void visitCall(NodeTraversal t, Node n) {\n     Node child \u003d n.getFirstChild();\n     JSType childType \u003d getJSType(child).restrictByNotNullOrUndefined();\n     if (!childType.canBeCalled()) {\n-        t.report(n, NOT_CALLABLE, childType.toString());\n+        report(t, n, NOT_CALLABLE, childType.toString());\n         ensureTyped(t, n);\n         return;\n     }\n     if (childType instanceof FunctionType) {\n         FunctionType functionType \u003d (FunctionType) childType;\n         if (functionType.isConstructor() \u0026\u0026 !functionType.isNativeObjectType()) {\n-            t.report(n, CONSTRUCTOR_NOT_CALLABLE, childType.toString());\n+            report(t, n, CONSTRUCTOR_NOT_CALLABLE, childType.toString());\n         }\n         visitParameterList(t, n, functionType);\n         ensureTyped(t, n, functionType.getReturnType());\n     } else {\n         ensureTyped(t, n);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+private void visitCall(NodeTraversal t, Node n) {\n+    Node child \u003d n.getFirstChild();\n+    JSType childType \u003d getJSType(child).restrictByNotNullOrUndefined();\n+    if (!childType.canBeCalled()) {\n+        t.report(n, NOT_CALLABLE, childType.toString());\n+        ensureTyped(t, n);\n+        return;\n+    }\n+    if (childType instanceof FunctionType) {\n+        FunctionType functionType \u003d (FunctionType) childType;\n+        if (functionType.isConstructor() \u0026\u0026 !functionType.isNativeObjectType()) {\n+            t.report(n, CONSTRUCTOR_NOT_CALLABLE, childType.toString());\n+        }\n+        visitParameterList(t, n, functionType);\n+        ensureTyped(t, n, functionType.getReturnType());\n+    } else {\n+        ensureTyped(t, n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void visitCall(NodeTraversal t, Node n) {\n    Node child \u003d n.getFirstChild();\n    JSType childType \u003d getJSType(child).restrictByNotNullOrUndefined();\n    if (!childType.canBeCalled()) {\n        t.report(n, NOT_CALLABLE, childType.toString());\n        ensureTyped(t, n);\n        return;\n    }\n    if (childType instanceof FunctionType) {\n        FunctionType functionType \u003d (FunctionType) childType;\n        if (functionType.isConstructor() \u0026\u0026 !functionType.isNativeObjectType()) {\n            t.report(n, CONSTRUCTOR_NOT_CALLABLE, childType.toString());\n        }\n        visitParameterList(t, n, functionType);\n        ensureTyped(t, n, functionType.getReturnType());\n    } else {\n        ensureTyped(t, n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 1335,
+      "functionName": "visitCall",
+      "functionAnnotation": "",
+      "functionDoc": "Visits a CALL node.\n\n@param t The node traversal object that supplies context, such as the\nscope chain to use in name lookups as well as error reporting.\n@param n The node being visited.\n"
+    }
+  }
+}

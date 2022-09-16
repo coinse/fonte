@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isCallOrNewTarget",
+  "functionId": "isCallOrNewTarget___target-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns whether this is a target of a call or new.\n",
+  "functionStartLine": 3018,
+  "functionEndLine": 3023,
+  "numCommitsSeen": 144,
+  "timeTaken": 2250,
+  "changeHistory": [
+    "a35b095af0ccbd568784976af1ce240007040688"
+  ],
+  "changeHistoryShort": {
+    "a35b095af0ccbd568784976af1ce240007040688": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a35b095af0ccbd568784976af1ce240007040688": {
+      "type": "Yintroduced",
+      "commitMessage": "\nInfer IIFE arguments.\n\nR\u003ddimvar\nDELTA\u003d58  (48 added, 4 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5620\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2250 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/8/12, 2:31 PM",
+      "commitName": "a35b095af0ccbd568784976af1ce240007040688",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+static boolean isCallOrNewTarget(Node target) {\n+    Node parent \u003d target.getParent();\n+    return parent !\u003d null \u0026\u0026 NodeUtil.isCallOrNew(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d target;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isCallOrNewTarget(Node target) {\n    Node parent \u003d target.getParent();\n    return parent !\u003d null \u0026\u0026 NodeUtil.isCallOrNew(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d target;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3005,
+      "functionName": "isCallOrNewTarget",
+      "functionAnnotation": "",
+      "functionDoc": "Returns whether this is a target of a call or new.\n"
+    }
+  }
+}

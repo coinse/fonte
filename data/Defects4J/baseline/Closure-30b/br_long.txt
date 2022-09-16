@@ -1,0 +1,53 @@
+<b>What steps will reproduce the problem?</b>
+1. This bug only manifests itself in large code bases. How large, and what the specifics are, I haven't yet worked out, since the output differs. But the principle code is:
+
+sgxColorRGBA.prototype.asHex = function() {
+	var hexString = &quot;&quot;;
+	
+	str = (sgxFloor(this.r*255)).toString(16);
+	if (str.length &lt; 2) { str = &quot;0&quot;+str; }
+	hexString += str;
+
+	str = (sgxFloor(this.g*255)).toString(16);
+	if (str.length &lt; 2) { str = &quot;0&quot;+str; }
+	hexString += str;
+
+	str = (sgxFloor(this.b*255)).toString(16);
+	if (str.length &lt; 2) { str = &quot;0&quot;+str; }
+	hexString += str;
+
+	str = (sgxFloor(this.a*255)).toString(16);
+	if (str.length &lt; 2) { str = &quot;0&quot;+str; }
+	hexString += str;
+
+	return hexString;
+}
+
+Note that 'str' is not declared as var.
+
+<b>What is the expected output? What do you see instead?</b>
+I see this:
+sgxColorRGBA.prototype.pb = function() {
+  str = A(255 * this.A).toString(16);
+  2 &gt; str.length &amp;&amp; (str = &quot;0&quot; + str);
+  str = A(255 * this.w).toString(16);
+  2 &gt; str.length &amp;&amp; (str = &quot;0&quot; + str);
+  str = A(255 * this.s).toString(16);
+  2 &gt; str.length &amp;&amp; (str = &quot;0&quot; + str);
+  str = A(255 * this.r).toString(16);
+  2 &gt; str.length &amp;&amp; (str = &quot;0&quot; + str);
+  return&quot;&quot; + str + str + str + str
+};
+
+Obviously, repeatedly adding 'str' is broken in the final line, compared to the original. So whatever is aggregating the result is seeing a temporary 'str' reference and combining it, I guess. If 'str' is declared as var, the problem goes away.
+
+I'd expect a warning, at least.
+
+<b>What version of the product are you using? On what operating system?</b>
+
+Live at http://closure-compiler.appspot.com
+
+<b>Please provide any additional information below.</b>
+
+As a stand-alone method, both 'var str' and 'str' works. It's only when the project hits a certain (undetermined) size that it fails.
+

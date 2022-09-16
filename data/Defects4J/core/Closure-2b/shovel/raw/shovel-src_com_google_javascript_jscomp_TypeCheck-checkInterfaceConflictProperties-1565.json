@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeCheck.java",
+  "functionName": "checkInterfaceConflictProperties",
+  "functionId": "checkInterfaceConflictProperties___t-NodeTraversal__n-Node__functionName-String__properties-HashMap__String,ObjectType____currentProperties-HashMap__String,ObjectType____interfaceType-ObjectType",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "Check whether there\u0027s any property conflict for for a particular super\ninterface\n\n@param t The node traversal object that supplies context\n@param n The node being visited\n@param functionName The function name being checked\n@param properties The property names in the super interfaces that have\nbeen visited\n@param currentProperties The property names in the super interface\nthat have been visited\n@param interfaceType The super interface that is being visited\n",
+  "functionStartLine": 1565,
+  "functionEndLine": 1588,
+  "numCommitsSeen": 101,
+  "timeTaken": 5948,
+  "changeHistory": [
+    "b2430d29987b54e977a5e5e8db9242f4486c750b",
+    "aa7c8f99aa0cf5b8016e139b383aa0dd13f68051"
+  ],
+  "changeHistoryShort": {
+    "b2430d29987b54e977a5e5e8db9242f4486c750b": "Ybodychange",
+    "aa7c8f99aa0cf5b8016e139b383aa0dd13f68051": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b2430d29987b54e977a5e5e8db9242f4486c750b": {
+      "type": "Ybodychange",
+      "commitMessage": "\nProposal: change how we represent property sets on objects.\nI went down this rabbit-hole to experiment with a few different things:\n- Separating property bookkeeping from type relation bookkeeping.\n- Use the same property-store for \"new Foo()\" and \"Foo.prototype\".\nI don\u0027t think that maintaining separate property maps for these two\ntypes actually buys us anything, and it\u0027s inconsistent with how they\u0027re\nused in practice.\n- Use the same property-store for \"Foo.\u003cBar\u003e\" and \"Foo.\u003cBaz\u003e\"\nI actually like how this ended up--it\u0027s a lot easier to see how properties\nare inherited. But I\u0027m curious what others think.\n\nR\u003djohnlenz,dimvar\nDELTA\u003d507  (347 added, 143 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5910\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2361 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/3/12, 9:30 AM",
+      "commitName": "b2430d29987b54e977a5e5e8db9242f4486c750b",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/26/12, 10:38 AM",
+      "commitNameOld": "a8e8245f1eb0c67603513aadfeea3840719a0536",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 6.95,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void checkInterfaceConflictProperties(NodeTraversal t, Node n, String functionName, HashMap\u003cString, ObjectType\u003e properties, HashMap\u003cString, ObjectType\u003e currentProperties, ObjectType interfaceType) {\n    Set\u003cString\u003e currentPropertyNames \u003d interfaceType.getImplicitPrototype().getOwnPropertyNames();\n    for (String name : currentPropertyNames) {\n        ObjectType oType \u003d properties.get(name);\n        if (oType !\u003d null) {\n            if (!interfaceType.getPropertyType(name).isEquivalentTo(oType.getPropertyType(name))) {\n                compiler.report(t.makeError(n, INCOMPATIBLE_EXTENDED_PROPERTY_TYPE, functionName, name, oType.toString(), interfaceType.toString()));\n            }\n        }\n        currentProperties.put(name, interfaceType);\n    }\n    for (ObjectType iType : interfaceType.getCtorExtendedInterfaces()) {\n        checkInterfaceConflictProperties(t, n, functionName, properties, currentProperties, iType);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 1537,
+      "functionName": "checkInterfaceConflictProperties",
+      "functionAnnotation": "",
+      "functionDoc": "Check whether there\u0027s any property conflict for for a particular super\ninterface\n\n@param t The node traversal object that supplies context\n@param n The node being visited\n@param functionName The function name being checked\n@param properties The property names in the super interfaces that have\nbeen visited\n@param currentProperties The property names in the super interface\nthat have been visited\n@param interfaceType The super interface that is being visited\n",
+      "diff": "@@ -1,15 +1,15 @@\n private void checkInterfaceConflictProperties(NodeTraversal t, Node n, String functionName, HashMap\u003cString, ObjectType\u003e properties, HashMap\u003cString, ObjectType\u003e currentProperties, ObjectType interfaceType) {\n-    Set\u003cString\u003e currentPropertyNames \u003d interfaceType.getPropertyNames();\n+    Set\u003cString\u003e currentPropertyNames \u003d interfaceType.getImplicitPrototype().getOwnPropertyNames();\n     for (String name : currentPropertyNames) {\n         ObjectType oType \u003d properties.get(name);\n         if (oType !\u003d null) {\n             if (!interfaceType.getPropertyType(name).isEquivalentTo(oType.getPropertyType(name))) {\n                 compiler.report(t.makeError(n, INCOMPATIBLE_EXTENDED_PROPERTY_TYPE, functionName, name, oType.toString(), interfaceType.toString()));\n             }\n         }\n         currentProperties.put(name, interfaceType);\n     }\n     for (ObjectType iType : interfaceType.getCtorExtendedInterfaces()) {\n         checkInterfaceConflictProperties(t, n, functionName, properties, currentProperties, iType);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "aa7c8f99aa0cf5b8016e139b383aa0dd13f68051": {
+      "type": "Yintroduced",
+      "commitMessage": "\nType Check for Multiple Extends Interface Properties\n\nR\u003dnicksantos\nDELTA\u003d222  (222 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1944\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1113 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/18/11, 9:53 AM",
+      "commitName": "aa7c8f99aa0cf5b8016e139b383aa0dd13f68051",
+      "commitAuthor": "zhuyi@google.com",
+      "diff": "@@ -0,0 +1,15 @@\n+private void checkInterfaceConflictProperties(NodeTraversal t, Node n, String functionName, HashMap\u003cString, ObjectType\u003e properties, HashMap\u003cString, ObjectType\u003e currentProperties, ObjectType interfaceType) {\n+    Set\u003cString\u003e currentPropertyNames \u003d interfaceType.getPropertyNames();\n+    for (String name : currentPropertyNames) {\n+        ObjectType oType \u003d properties.get(name);\n+        if (oType !\u003d null) {\n+            if (!interfaceType.getPropertyType(name).isEquivalentTo(oType.getPropertyType(name))) {\n+                compiler.report(t.makeError(n, INCOMPATIBLE_EXTENDED_PROPERTY_TYPE, functionName, name, oType.toString(), interfaceType.toString()));\n+            }\n+        }\n+        currentProperties.put(name, interfaceType);\n+    }\n+    for (ObjectType iType : interfaceType.getCtorExtendedInterfaces()) {\n+        checkInterfaceConflictProperties(t, n, functionName, properties, currentProperties, iType);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void checkInterfaceConflictProperties(NodeTraversal t, Node n, String functionName, HashMap\u003cString, ObjectType\u003e properties, HashMap\u003cString, ObjectType\u003e currentProperties, ObjectType interfaceType) {\n    Set\u003cString\u003e currentPropertyNames \u003d interfaceType.getPropertyNames();\n    for (String name : currentPropertyNames) {\n        ObjectType oType \u003d properties.get(name);\n        if (oType !\u003d null) {\n            if (!interfaceType.getPropertyType(name).isEquivalentTo(oType.getPropertyType(name))) {\n                compiler.report(t.makeError(n, INCOMPATIBLE_EXTENDED_PROPERTY_TYPE, functionName, name, oType.toString(), interfaceType.toString()));\n            }\n        }\n        currentProperties.put(name, interfaceType);\n    }\n    for (ObjectType iType : interfaceType.getCtorExtendedInterfaces()) {\n        checkInterfaceConflictProperties(t, n, functionName, properties, currentProperties, iType);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 1436,
+      "functionName": "checkInterfaceConflictProperties",
+      "functionAnnotation": "",
+      "functionDoc": "Check whether there\u0027s any property conflict for for a particular super\ninterface\n\n@param t The node traversal object that supplies context\n@param n The node being visited\n@param functionName The function name being checked\n@param properties The property names in the super interfaces that have\nbeen visited\n@param currentProperties The property names in the super interface\nthat have been visited\n@param interfaceType The super interface that is being visited\n"
+    }
+  }
+}

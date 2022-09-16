@@ -1,0 +1,15 @@
+Given the following Javascript:
+
+  /** @constructor */
+  var myclass = function() {
+  }
+  
+  /** @param {boolean} success */
+  myclass.prototype.fn = function(success) { }
+  
+  myclass.prototype.test = function() {
+    this.fn();
+    this.fn = function() { };
+  }
+
+I would expect an error at both lines of test(). Instead, the second line causes the error in the first not to be reported.

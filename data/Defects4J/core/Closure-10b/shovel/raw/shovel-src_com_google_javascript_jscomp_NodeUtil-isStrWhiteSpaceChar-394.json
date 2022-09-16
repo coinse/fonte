@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isStrWhiteSpaceChar",
+  "functionId": "isStrWhiteSpaceChar___c-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Copied from Rhino\u0027s ScriptRuntime\n",
+  "functionStartLine": 394,
+  "functionEndLine": 412,
+  "numCommitsSeen": 136,
+  "timeTaken": 9033,
+  "changeHistory": [
+    "8b2d4bb4c6c1a81f368bc4f112989943d8868eeb",
+    "70a5626922ea7e8c98747e22b6986638ba38fadc",
+    "c6cc58a9bc617483366141386e047b085b4e83ff",
+    "20c504ecbbdea3908bde81709df5a3765d1e385e"
+  ],
+  "changeHistoryShort": {
+    "8b2d4bb4c6c1a81f368bc4f112989943d8868eeb": "Ymodifierchange",
+    "70a5626922ea7e8c98747e22b6986638ba38fadc": "Ybodychange",
+    "c6cc58a9bc617483366141386e047b085b4e83ff": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "20c504ecbbdea3908bde81709df5a3765d1e385e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8b2d4bb4c6c1a81f368bc4f112989943d8868eeb": {
+      "type": "Ymodifierchange",
+      "commitMessage": "\nUsing the JS idea of whitespace while trimming a user selection instead of the Java idea of whitespace.\n\nR\u003dnicksantos\nDELTA\u003d33  (24 added, 0 deleted, 9 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5201\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2097 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/23/12, 9:14 AM",
+      "commitName": "8b2d4bb4c6c1a81f368bc4f112989943d8868eeb",
+      "commitAuthor": "sevandyk@google.com",
+      "commitDateOld": "6/20/12, 11:05 AM",
+      "commitNameOld": "1787d7b2cff83a0f177dd958033c53e4502406d2",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 32.92,
+      "commitsBetweenForRepo": 33,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static TernaryValue isStrWhiteSpaceChar(int c) {\n    switch(c) {\n        case \u0027\\u000B\u0027:\n            return TernaryValue.UNKNOWN;\n        case \u0027 \u0027:\n        case \u0027\\n\u0027:\n        case \u0027\\r\u0027:\n        case \u0027\\t\u0027:\n        case \u0027\\u00A0\u0027:\n        case \u0027\\u000C\u0027:\n        case \u0027\\u2028\u0027:\n        case \u0027\\u2029\u0027:\n        case \u0027\\uFEFF\u0027:\n            return TernaryValue.TRUE;\n        default:\n            return (Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR) ? TernaryValue.TRUE : TernaryValue.FALSE;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 395,
+      "functionName": "isStrWhiteSpaceChar",
+      "functionAnnotation": "",
+      "functionDoc": "Copied from Rhino\u0027s ScriptRuntime\n",
+      "diff": "@@ -1,18 +1,18 @@\n-static TernaryValue isStrWhiteSpaceChar(int c) {\n+public static TernaryValue isStrWhiteSpaceChar(int c) {\n     switch(c) {\n         case \u0027\\u000B\u0027:\n             return TernaryValue.UNKNOWN;\n         case \u0027 \u0027:\n         case \u0027\\n\u0027:\n         case \u0027\\r\u0027:\n         case \u0027\\t\u0027:\n         case \u0027\\u00A0\u0027:\n         case \u0027\\u000C\u0027:\n         case \u0027\\u2028\u0027:\n         case \u0027\\u2029\u0027:\n         case \u0027\\uFEFF\u0027:\n             return TernaryValue.TRUE;\n         default:\n             return (Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR) ? TernaryValue.TRUE : TernaryValue.FALSE;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[static]",
+        "newValue": "[public, static]"
+      }
+    },
+    "70a5626922ea7e8c98747e22b6986638ba38fadc": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix various typos, spelling and grammar errors.\nFixes issue 734. \nContributed by Robert Gust Bardon\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4827\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1979 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/18/12, 11:09 AM",
+      "commitName": "70a5626922ea7e8c98747e22b6986638ba38fadc",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "5/8/12, 2:28 PM",
+      "commitNameOld": "3dcdbe4e8ca1488fa4d79f09e507da6d4b613bd3",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 9.86,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static TernaryValue isStrWhiteSpaceChar(int c) {\n    switch(c) {\n        case \u0027\\u000B\u0027:\n            return TernaryValue.UNKNOWN;\n        case \u0027 \u0027:\n        case \u0027\\n\u0027:\n        case \u0027\\r\u0027:\n        case \u0027\\t\u0027:\n        case \u0027\\u00A0\u0027:\n        case \u0027\\u000C\u0027:\n        case \u0027\\u2028\u0027:\n        case \u0027\\u2029\u0027:\n        case \u0027\\uFEFF\u0027:\n            return TernaryValue.TRUE;\n        default:\n            return (Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR) ? TernaryValue.TRUE : TernaryValue.FALSE;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 395,
+      "functionName": "isStrWhiteSpaceChar",
+      "functionAnnotation": "",
+      "functionDoc": "Copied from Rhino\u0027s ScriptRuntime\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "c6cc58a9bc617483366141386e047b085b4e83ff": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "\nFix \"string-to-number\" conversions in the presense of verical tabs.\nFixes issue 395.\n\nR\u003dnicksantos\nDELTA\u003d20  (14 added, 1 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1246\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@963 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 10:02 AM",
+      "commitName": "c6cc58a9bc617483366141386e047b085b4e83ff",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "\nFix \"string-to-number\" conversions in the presense of verical tabs.\nFixes issue 395.\n\nR\u003dnicksantos\nDELTA\u003d20  (14 added, 1 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1246\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@963 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/4/11, 10:02 AM",
+          "commitName": "c6cc58a9bc617483366141386e047b085b4e83ff",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "3/25/11, 4:27 PM",
+          "commitNameOld": "86a7d25f3cc1177f35dc6480260fb807912c03fa",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.73,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static TernaryValue isStrWhiteSpaceChar(int c) {\n    switch(c) {\n        case \u0027\\u000B\u0027:\n            return TernaryValue.UNKNOWN;\n        case \u0027 \u0027:\n        case \u0027\\n\u0027:\n        case \u0027\\r\u0027:\n        case \u0027\\t\u0027:\n        case \u0027\\u00A0\u0027:\n        case \u0027\\u000C\u0027:\n        case \u0027\\u2028\u0027:\n        case \u0027\\u2029\u0027:\n        case \u0027\\uFEFF\u0027:\n            return TernaryValue.TRUE;\n        default:\n            return (Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR) ? TernaryValue.TRUE : TernaryValue.FALSE;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 375,
+          "functionName": "isStrWhiteSpaceChar",
+          "functionAnnotation": "",
+          "functionDoc": "Copied from Rhino\u0027s ScriptRuntime\n",
+          "diff": "@@ -1,17 +1,18 @@\n-static boolean isStrWhiteSpaceChar(int c) {\n+static TernaryValue isStrWhiteSpaceChar(int c) {\n     switch(c) {\n+        case \u0027\\u000B\u0027:\n+            return TernaryValue.UNKNOWN;\n         case \u0027 \u0027:\n         case \u0027\\n\u0027:\n         case \u0027\\r\u0027:\n         case \u0027\\t\u0027:\n         case \u0027\\u00A0\u0027:\n         case \u0027\\u000C\u0027:\n-        case \u0027\\u000B\u0027:\n         case \u0027\\u2028\u0027:\n         case \u0027\\u2029\u0027:\n         case \u0027\\uFEFF\u0027:\n-            return true;\n+            return TernaryValue.TRUE;\n         default:\n-            return Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR;\n+            return (Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR) ? TernaryValue.TRUE : TernaryValue.FALSE;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "boolean",
+            "newValue": "TernaryValue"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nFix \"string-to-number\" conversions in the presense of verical tabs.\nFixes issue 395.\n\nR\u003dnicksantos\nDELTA\u003d20  (14 added, 1 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1246\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@963 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/4/11, 10:02 AM",
+          "commitName": "c6cc58a9bc617483366141386e047b085b4e83ff",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "3/25/11, 4:27 PM",
+          "commitNameOld": "86a7d25f3cc1177f35dc6480260fb807912c03fa",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.73,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static TernaryValue isStrWhiteSpaceChar(int c) {\n    switch(c) {\n        case \u0027\\u000B\u0027:\n            return TernaryValue.UNKNOWN;\n        case \u0027 \u0027:\n        case \u0027\\n\u0027:\n        case \u0027\\r\u0027:\n        case \u0027\\t\u0027:\n        case \u0027\\u00A0\u0027:\n        case \u0027\\u000C\u0027:\n        case \u0027\\u2028\u0027:\n        case \u0027\\u2029\u0027:\n        case \u0027\\uFEFF\u0027:\n            return TernaryValue.TRUE;\n        default:\n            return (Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR) ? TernaryValue.TRUE : TernaryValue.FALSE;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 375,
+          "functionName": "isStrWhiteSpaceChar",
+          "functionAnnotation": "",
+          "functionDoc": "Copied from Rhino\u0027s ScriptRuntime\n",
+          "diff": "@@ -1,17 +1,18 @@\n-static boolean isStrWhiteSpaceChar(int c) {\n+static TernaryValue isStrWhiteSpaceChar(int c) {\n     switch(c) {\n+        case \u0027\\u000B\u0027:\n+            return TernaryValue.UNKNOWN;\n         case \u0027 \u0027:\n         case \u0027\\n\u0027:\n         case \u0027\\r\u0027:\n         case \u0027\\t\u0027:\n         case \u0027\\u00A0\u0027:\n         case \u0027\\u000C\u0027:\n-        case \u0027\\u000B\u0027:\n         case \u0027\\u2028\u0027:\n         case \u0027\\u2029\u0027:\n         case \u0027\\uFEFF\u0027:\n-            return true;\n+            return TernaryValue.TRUE;\n         default:\n-            return Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR;\n+            return (Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR) ? TernaryValue.TRUE : TernaryValue.FALSE;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "20c504ecbbdea3908bde81709df5a3765d1e385e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPatch up NodeUtil.getNumberValue to handle strings values like\n\" 12 \" and \"baz\".\n\nR\u003dnicksantos\nDELTA\u003d123  (109 added, 2 deleted, 12 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d260\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@690 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/12/11, 2:57 PM",
+      "commitName": "20c504ecbbdea3908bde81709df5a3765d1e385e",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+static boolean isStrWhiteSpaceChar(int c) {\n+    switch(c) {\n+        case \u0027 \u0027:\n+        case \u0027\\n\u0027:\n+        case \u0027\\r\u0027:\n+        case \u0027\\t\u0027:\n+        case \u0027\\u00A0\u0027:\n+        case \u0027\\u000C\u0027:\n+        case \u0027\\u000B\u0027:\n+        case \u0027\\u2028\u0027:\n+        case \u0027\\u2029\u0027:\n+        case \u0027\\uFEFF\u0027:\n+            return true;\n+        default:\n+            return Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isStrWhiteSpaceChar(int c) {\n    switch(c) {\n        case \u0027 \u0027:\n        case \u0027\\n\u0027:\n        case \u0027\\r\u0027:\n        case \u0027\\t\u0027:\n        case \u0027\\u00A0\u0027:\n        case \u0027\\u000C\u0027:\n        case \u0027\\u000B\u0027:\n        case \u0027\\u2028\u0027:\n        case \u0027\\u2029\u0027:\n        case \u0027\\uFEFF\u0027:\n            return true;\n        default:\n            return Character.getType(c) \u003d\u003d Character.SPACE_SEPARATOR;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 290,
+      "functionName": "isStrWhiteSpaceChar",
+      "functionAnnotation": "",
+      "functionDoc": "Copied from Rhino\u0027s ScriptRuntime\n"
+    }
+  }
+}

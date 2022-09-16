@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeOptimizationsPass.java",
+  "functionName": "shouldVisit",
+  "functionId": "shouldVisit___node-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 156,
+  "functionEndLine": 165,
+  "numCommitsSeen": 10,
+  "timeTaken": 909,
+  "changeHistory": [
+    "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28"
+  ],
+  "changeHistoryShort": {
+    "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIn my sample, using this approach to running the\npeephole optimizations to a fixed point reduces build time by ~30%, the\nnumber of overall runs for the \"code removing passes\" are reduced from\n30 to 14 for one target and InlineVariables becomes the \"long\npole\".\n\nR\u003dacleung\nDELTA\u003d153  (113 added, 3 deleted, 37 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1793 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/27/12, 1:41 PM",
+      "commitName": "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private boolean shouldVisit(Node node) {\n+    if (node.isFunction() || node.isScript()) {\n+        ScopeState previous \u003d traversalState.peek();\n+        if (!previous.traverseChildScopes) {\n+            return false;\n+        }\n+        traversalState.push();\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean shouldVisit(Node node) {\n    if (node.isFunction() || node.isScript()) {\n        ScopeState previous \u003d traversalState.peek();\n        if (!previous.traverseChildScopes) {\n            return false;\n        }\n        traversalState.push();\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+      "functionStartLine": 153,
+      "functionName": "shouldVisit",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

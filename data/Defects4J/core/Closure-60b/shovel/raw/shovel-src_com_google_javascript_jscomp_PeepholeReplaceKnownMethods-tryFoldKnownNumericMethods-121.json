@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeReplaceKnownMethods.java",
+  "functionName": "tryFoldKnownNumericMethods",
+  "functionId": "tryFoldKnownNumericMethods___subtree-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java",
+  "functionAnnotation": "",
+  "functionDoc": "Try to evaluate known Numeric methods\n   .parseInt(), parseFloat()\n",
+  "functionStartLine": 121,
+  "functionEndLine": 146,
+  "numCommitsSeen": 47,
+  "timeTaken": 1461,
+  "changeHistory": [
+    "3fc66a99d98015dc798215a666f6b5ad268028c2",
+    "1f4bd3b278d61f9c26ee617cd0a5d041e4e24887"
+  ],
+  "changeHistoryShort": {
+    "3fc66a99d98015dc798215a666f6b5ad268028c2": "Ymovefromfile",
+    "1f4bd3b278d61f9c26ee617cd0a5d041e4e24887": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3fc66a99d98015dc798215a666f6b5ad268028c2": {
+      "type": "Ymovefromfile",
+      "commitMessage": "\nRefactor out of replace known methods.\n\nR\u003dzhuyi\nDELTA\u003d1555  (825 added, 729 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1180 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/14/11, 5:29 PM",
+      "commitName": "3fc66a99d98015dc798215a666f6b5ad268028c2",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "6/14/11, 5:09 PM",
+      "commitNameOld": "48aea0ff7d027507362007415963a4b662fb10a7",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node tryFoldKnownNumericMethods(Node subtree) {\n    Preconditions.checkArgument(subtree.getType() \u003d\u003d Token.CALL);\n    if (isASTNormalized()) {\n        Node callTarget \u003d subtree.getFirstChild();\n        if (!NodeUtil.isName(callTarget)) {\n            return subtree;\n        }\n        String functionNameString \u003d callTarget.getString();\n        Node firstArgument \u003d callTarget.getNext();\n        if ((firstArgument !\u003d null) \u0026\u0026 (firstArgument.getType() \u003d\u003d Token.STRING || firstArgument.getType() \u003d\u003d Token.NUMBER)) {\n            if (functionNameString.equals(\"parseInt\") || functionNameString.equals(\"parseFloat\")) {\n                subtree \u003d tryFoldParseNumber(subtree, functionNameString, firstArgument);\n            }\n        }\n    }\n    return subtree;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java",
+      "functionStartLine": 121,
+      "functionName": "tryFoldKnownNumericMethods",
+      "functionAnnotation": "",
+      "functionDoc": "Try to evaluate known Numeric methods\n   .parseInt(), parseFloat()\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+        "newPath": "src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java",
+        "oldMethodName": "tryFoldKnownNumericMethods",
+        "newMethodName": "tryFoldKnownNumericMethods"
+      }
+    },
+    "1f4bd3b278d61f9c26ee617cd0a5d041e4e24887": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd parseInt and parseFloat support to PeepholeFoldConstants.\n\nMOE re-sync of r1137\n\nRevision created by MOE tool push_codebase.\n\nR\u003dacleung\nDELTA\u003d242  (237 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2077\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1139 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/27/11, 11:18 AM",
+      "commitName": "1f4bd3b278d61f9c26ee617cd0a5d041e4e24887",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+private Node tryFoldKnownNumericMethods(Node subtree) {\n+    Preconditions.checkArgument(subtree.getType() \u003d\u003d Token.CALL);\n+    if (isASTNormalized()) {\n+        Node callTarget \u003d subtree.getFirstChild();\n+        if (!NodeUtil.isName(callTarget)) {\n+            return subtree;\n+        }\n+        String functionNameString \u003d callTarget.getString();\n+        Node firstArgument \u003d callTarget.getNext();\n+        if ((firstArgument !\u003d null) \u0026\u0026 (firstArgument.getType() \u003d\u003d Token.STRING || firstArgument.getType() \u003d\u003d Token.NUMBER)) {\n+            if (functionNameString.equals(\"parseInt\") || functionNameString.equals(\"parseFloat\")) {\n+                subtree \u003d tryFoldParseNumber(subtree, functionNameString, firstArgument);\n+            }\n+        }\n+    }\n+    return subtree;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node tryFoldKnownNumericMethods(Node subtree) {\n    Preconditions.checkArgument(subtree.getType() \u003d\u003d Token.CALL);\n    if (isASTNormalized()) {\n        Node callTarget \u003d subtree.getFirstChild();\n        if (!NodeUtil.isName(callTarget)) {\n            return subtree;\n        }\n        String functionNameString \u003d callTarget.getString();\n        Node firstArgument \u003d callTarget.getNext();\n        if ((firstArgument !\u003d null) \u0026\u0026 (firstArgument.getType() \u003d\u003d Token.STRING || firstArgument.getType() \u003d\u003d Token.NUMBER)) {\n            if (functionNameString.equals(\"parseInt\") || functionNameString.equals(\"parseFloat\")) {\n                subtree \u003d tryFoldParseNumber(subtree, functionNameString, firstArgument);\n            }\n        }\n    }\n    return subtree;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 1296,
+      "functionName": "tryFoldKnownNumericMethods",
+      "functionAnnotation": "",
+      "functionDoc": "Try to evaluate known Numeric methods\n   .parseInt(), parseFloat()\n"
+    }
+  }
+}

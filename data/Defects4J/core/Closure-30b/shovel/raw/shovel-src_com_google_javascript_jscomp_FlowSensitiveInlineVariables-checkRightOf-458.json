@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FlowSensitiveInlineVariables.java",
+  "functionName": "checkRightOf",
+  "functionId": "checkRightOf___n-Node__expressionRoot-Node__predicate-Predicate__Node__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+  "functionAnnotation": "",
+  "functionDoc": "Given an expression by its root and sub-expression n, return true if there\nthe predicate is true for some expression on the right of n.\n\nExample:\n\nNotChecked(), NotChecked(), n, Checked(), Checked();\n",
+  "functionStartLine": 458,
+  "functionEndLine": 468,
+  "numCommitsSeen": 21,
+  "timeTaken": 1395,
+  "changeHistory": [
+    "74a817bbf5256d671036356c58096f612535e4a2"
+  ],
+  "changeHistoryShort": {
+    "74a817bbf5256d671036356c58096f612535e4a2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "74a817bbf5256d671036356c58096f612535e4a2": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/04/08 by john\n\n        Part I: Add a pass that checks for references to the global RegExp object.\n\n        R\u003dalan\n        DELTA\u003d192  (185 added, 1 deleted, 6 changed)\n\nChange on 2010/04/08 by nick\n\n        type annotation fixit. Fixes issue 140.\n\n        R\u003dalan\n        DELTA\u003d69  (41 added, 0 deleted, 28 changed)\n\nChange on 2010/04/08 by alan\n\n        Fix the flow sensitive inlining case that breaks code.\n\n        R\u003djohn\n        DELTA\u003d163  (158 added, 0 deleted, 5 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003djfazwv\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@178 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/9/10, 7:21 AM",
+      "commitName": "74a817bbf5256d671036356c58096f612535e4a2",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,10 @@\n+private static boolean checkRightOf(Node n, Node expressionRoot, Predicate\u003cNode\u003e predicate) {\n+    for (Node p \u003d n; p !\u003d expressionRoot; p \u003d p.getParent()) {\n+        for (Node cur \u003d p.getNext(); cur !\u003d null; cur \u003d cur.getNext()) {\n+            if (predicate.apply(cur)) {\n+                return true;\n+            }\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean checkRightOf(Node n, Node expressionRoot, Predicate\u003cNode\u003e predicate) {\n    for (Node p \u003d n; p !\u003d expressionRoot; p \u003d p.getParent()) {\n        for (Node cur \u003d p.getNext(); cur !\u003d null; cur \u003d cur.getNext()) {\n            if (predicate.apply(cur)) {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+      "functionStartLine": 438,
+      "functionName": "checkRightOf",
+      "functionAnnotation": "",
+      "functionDoc": "Given an expression by its root and sub-expression n, return true if there\nthe predicate is true for some expression on the right of n.\n\nExample:\n\nNotChecked(), NotChecked(), n, Checked(), Checked();\n"
+    }
+  }
+}

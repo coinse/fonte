@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "mtocHelper",
+  "functionId": "mtocHelper___map-Map__Node,Node____main-Node__clone-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 3333,
+  "functionEndLine": 3343,
+  "numCommitsSeen": 156,
+  "timeTaken": 1828,
+  "changeHistory": [
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0"
+  ],
+  "changeHistoryShort": {
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0": {
+      "type": "Yintroduced",
+      "commitMessage": "Sanity-check the timestamps on scope roots. (Uncovered a bug in the changed-functions traversal. See new setting of currentScope in PhaseOptimizer.)\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44316335\n",
+      "commitDate": "3/22/13, 5:01 PM",
+      "commitName": "437a9e47d1a371f9e6724210b16d11d75366c3a0",
+      "commitAuthor": "Ben Lickly",
+      "diff": "@@ -0,0 +1,11 @@\n+private static void mtocHelper(Map\u003cNode, Node\u003e map, Node main, Node clone) {\n+    if (main.isFunction()) {\n+        map.put(main, clone);\n+    }\n+    Node mchild \u003d main.getFirstChild(), cchild \u003d clone.getFirstChild();\n+    while (mchild !\u003d null) {\n+        mtocHelper(map, mchild, cchild);\n+        mchild \u003d mchild.getNext();\n+        cchild \u003d cchild.getNext();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void mtocHelper(Map\u003cNode, Node\u003e map, Node main, Node clone) {\n    if (main.isFunction()) {\n        map.put(main, clone);\n    }\n    Node mchild \u003d main.getFirstChild(), cchild \u003d clone.getFirstChild();\n    while (mchild !\u003d null) {\n        mtocHelper(map, mchild, cchild);\n        mchild \u003d mchild.getNext();\n        cchild \u003d cchild.getNext();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3301,
+      "functionName": "mtocHelper",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

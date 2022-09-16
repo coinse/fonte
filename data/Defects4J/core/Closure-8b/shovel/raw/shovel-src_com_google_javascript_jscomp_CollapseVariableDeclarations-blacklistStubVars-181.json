@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-8b",
+  "repositoryPath": "/tmp/Closure-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CollapseVariableDeclarations.java",
+  "functionName": "blacklistStubVars",
+  "functionId": "$blacklistStubVars___t-NodeTraversal__varNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 181,
+  "functionEndLine": 188,
+  "numCommitsSeen": 23,
+  "timeTaken": 509,
+  "changeHistory": [
+    "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92"
+  ],
+  "changeHistoryShort": {
+    "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDon\u0027t redeclare vars that have been declared without initial values.\nFixes issue 397.\n\nR\u003dacleung\nDELTA\u003d46  (30 added, 0 deleted, 16 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1225\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@958 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/31/11, 6:51 PM",
+      "commitName": "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private void blacklistStubVars(NodeTraversal t, Node varNode) {\n+    for (Node child \u003d varNode.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n+        if (child.getFirstChild() \u003d\u003d null) {\n+            blacklistedVars.add(t.getScope().getVar(child.getString()));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void blacklistStubVars(NodeTraversal t, Node varNode) {\n    for (Node child \u003d varNode.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (child.getFirstChild() \u003d\u003d null) {\n            blacklistedVars.add(t.getScope().getVar(child.getString()));\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+      "functionStartLine": 179,
+      "functionName": "blacklistStubVars",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

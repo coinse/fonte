@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "reportChangeToEnclosingScope",
+  "functionId": "reportChangeToEnclosingScope___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 2027,
+  "functionEndLine": 2036,
+  "numCommitsSeen": 351,
+  "timeTaken": 2584,
+  "changeHistory": [
+    "0517d9cd0636aacd359dbff3e9e6f2b8082531b1",
+    "4ff5d0b989360d785c63978faf8eed6284e030e1"
+  ],
+  "changeHistoryShort": {
+    "0517d9cd0636aacd359dbff3e9e6f2b8082531b1": "Ymultichange(Yrename,Ybodychange)",
+    "4ff5d0b989360d785c63978faf8eed6284e030e1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0517d9cd0636aacd359dbff3e9e6f2b8082531b1": {
+      "type": "Ymultichange(Yrename,Ybodychange)",
+      "commitMessage": "Fix bug in scope-change reporting in InlineFunctions.\nFix bug to run the scope-change sanity check during loops only.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d45005173\n",
+      "commitDate": "4/8/13, 7:20 PM",
+      "commitName": "0517d9cd0636aacd359dbff3e9e6f2b8082531b1",
+      "commitAuthor": "Ben Lickly",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Fix bug in scope-change reporting in InlineFunctions.\nFix bug to run the scope-change sanity check during loops only.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d45005173\n",
+          "commitDate": "4/8/13, 7:20 PM",
+          "commitName": "0517d9cd0636aacd359dbff3e9e6f2b8082531b1",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "3/22/13, 5:01 PM",
+          "commitNameOld": "437a9e47d1a371f9e6724210b16d11d75366c3a0",
+          "commitAuthorOld": "Ben Lickly",
+          "daysBetweenCommits": 17.1,
+          "commitsBetweenForRepo": 27,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nvoid reportChangeToEnclosingScope(Node n) {\n    if (phaseOptimizer !\u003d null) {\n        phaseOptimizer.reportChangeToEnclosingScope(n);\n        phaseOptimizer.startCrossScopeReporting();\n        reportCodeChange();\n        phaseOptimizer.endCrossScopeReporting();\n    } else {\n        reportCodeChange();\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 2017,
+          "functionName": "reportChangeToEnclosingScope",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,11 +1,11 @@\n @Override\n-void reportChangeToScope(Node n) {\n+void reportChangeToEnclosingScope(Node n) {\n     if (phaseOptimizer !\u003d null) {\n-        phaseOptimizer.reportChangeToScope(n);\n+        phaseOptimizer.reportChangeToEnclosingScope(n);\n         phaseOptimizer.startCrossScopeReporting();\n         reportCodeChange();\n         phaseOptimizer.endCrossScopeReporting();\n     } else {\n         reportCodeChange();\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "reportChangeToScope",
+            "newValue": "reportChangeToEnclosingScope"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fix bug in scope-change reporting in InlineFunctions.\nFix bug to run the scope-change sanity check during loops only.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d45005173\n",
+          "commitDate": "4/8/13, 7:20 PM",
+          "commitName": "0517d9cd0636aacd359dbff3e9e6f2b8082531b1",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "3/22/13, 5:01 PM",
+          "commitNameOld": "437a9e47d1a371f9e6724210b16d11d75366c3a0",
+          "commitAuthorOld": "Ben Lickly",
+          "daysBetweenCommits": 17.1,
+          "commitsBetweenForRepo": 27,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nvoid reportChangeToEnclosingScope(Node n) {\n    if (phaseOptimizer !\u003d null) {\n        phaseOptimizer.reportChangeToEnclosingScope(n);\n        phaseOptimizer.startCrossScopeReporting();\n        reportCodeChange();\n        phaseOptimizer.endCrossScopeReporting();\n    } else {\n        reportCodeChange();\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 2017,
+          "functionName": "reportChangeToEnclosingScope",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,11 +1,11 @@\n @Override\n-void reportChangeToScope(Node n) {\n+void reportChangeToEnclosingScope(Node n) {\n     if (phaseOptimizer !\u003d null) {\n-        phaseOptimizer.reportChangeToScope(n);\n+        phaseOptimizer.reportChangeToEnclosingScope(n);\n         phaseOptimizer.startCrossScopeReporting();\n         reportCodeChange();\n         phaseOptimizer.endCrossScopeReporting();\n     } else {\n         reportCodeChange();\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "4ff5d0b989360d785c63978faf8eed6284e030e1": {
+      "type": "Yintroduced",
+      "commitMessage": "Make Peephole and UnreachableCodeElimination only work on functions that have changed since the last run.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44109570\n",
+      "commitDate": "3/20/13, 9:48 AM",
+      "commitName": "4ff5d0b989360d785c63978faf8eed6284e030e1",
+      "commitAuthor": "Ben Lickly",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+void reportChangeToScope(Node n) {\n+    if (phaseOptimizer !\u003d null) {\n+        phaseOptimizer.reportChangeToScope(n);\n+        phaseOptimizer.startCrossScopeReporting();\n+        reportCodeChange();\n+        phaseOptimizer.endCrossScopeReporting();\n+    } else {\n+        reportCodeChange();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nvoid reportChangeToScope(Node n) {\n    if (phaseOptimizer !\u003d null) {\n        phaseOptimizer.reportChangeToScope(n);\n        phaseOptimizer.startCrossScopeReporting();\n        reportCodeChange();\n        phaseOptimizer.endCrossScopeReporting();\n    } else {\n        reportCodeChange();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 2017,
+      "functionName": "reportChangeToScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

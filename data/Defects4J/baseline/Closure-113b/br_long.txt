@@ -1,0 +1,15 @@
+The Problem
+
+ProcessClosurePrimitives pass has a bug in processRequireCall method.
+The method processes goog.require calls. If a require symbol is invalid i.e is not provided anywhere, the method collects it for further error reporting. If the require symbol is valid, the method removes it from the ast.
+
+All invalid require calls must be left for further using/checking of the code! The related comment in the code confirms this.
+
+Nevertheless, the second condition (requiresLevel.isOn() -&gt; see source code) is invalid and always causes removing of the requires when we want to check these requires.
+
+In any case, the method should not use the requiresLevel to decide if we need removing. The requiresLevel should be used to check if we need error reporting. 
+
+The Solution
+
+Remove the condition.
+Please see the attached patch.

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-128b",
+  "repositoryPath": "/tmp/Closure-128b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "isSimpleNumber",
+  "functionId": "isSimpleNumber___s-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 783,
+  "functionEndLine": 792,
+  "numCommitsSeen": 78,
+  "timeTaken": 3779,
+  "changeHistory": [
+    "5909c3db59b16886917456ab950ef9661a7fe6b1",
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e"
+  ],
+  "changeHistoryShort": {
+    "5909c3db59b16886917456ab950ef9661a7fe6b1": "Ybodychange",
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5909c3db59b16886917456ab950ef9661a7fe6b1": {
+      "type": "Ybodychange",
+      "commitMessage": "\nnumbers are hard!\nfixes issue 569\n\nR\u003djohnlenz\nDELTA\u003d15  (14 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3410\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1491 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/4/11, 6:25 PM",
+      "commitName": "5909c3db59b16886917456ab950ef9661a7fe6b1",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "6/16/11, 5:50 PM",
+      "commitNameOld": "37682577ccc4c31bd976b84ba05b919b71e12c82",
+      "commitAuthorOld": "rsturgell@google.com",
+      "daysBetweenCommits": 110.02,
+      "commitsBetweenForRepo": 274,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean isSimpleNumber(String s) {\n    int len \u003d s.length();\n    for (int index \u003d 0; index \u003c len; index++) {\n        char c \u003d s.charAt(index);\n        if (c \u003c \u00270\u0027 || c \u003e \u00279\u0027) {\n            return false;\n        }\n    }\n    return len \u003e 0 \u0026\u0026 s.charAt(0) !\u003d \u00270\u0027;\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 737,
+      "functionName": "isSimpleNumber",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,10 @@\n static boolean isSimpleNumber(String s) {\n     int len \u003d s.length();\n     for (int index \u003d 0; index \u003c len; index++) {\n         char c \u003d s.charAt(index);\n         if (c \u003c \u00270\u0027 || c \u003e \u00279\u0027) {\n             return false;\n         }\n     }\n-    return len \u003e 0;\n+    return len \u003e 0 \u0026\u0026 s.charAt(0) !\u003d \u00270\u0027;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDefine number keys in object literals to be quoted string nodes. Tagged with NUMBER_PROP\nFixes issue 347\n\nR\u003dnicksantos\nDELTA\u003d229  (157 added, 19 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1252\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@966 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 2:26 PM",
+      "commitName": "41acde3e8e5e8d37ade765b41d9fd29861f03e5e",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+static boolean isSimpleNumber(String s) {\n+    int len \u003d s.length();\n+    for (int index \u003d 0; index \u003c len; index++) {\n+        char c \u003d s.charAt(index);\n+        if (c \u003c \u00270\u0027 || c \u003e \u00279\u0027) {\n+            return false;\n+        }\n+    }\n+    return len \u003e 0;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isSimpleNumber(String s) {\n    int len \u003d s.length();\n    for (int index \u003d 0; index \u003c len; index++) {\n        char c \u003d s.charAt(index);\n        if (c \u003c \u00270\u0027 || c \u003e \u00279\u0027) {\n            return false;\n        }\n    }\n    return len \u003e 0;\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 736,
+      "functionName": "isSimpleNumber",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

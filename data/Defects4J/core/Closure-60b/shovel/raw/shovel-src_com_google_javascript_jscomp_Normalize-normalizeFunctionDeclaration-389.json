@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Normalize.java",
+  "functionName": "normalizeFunctionDeclaration",
+  "functionId": "$normalizeFunctionDeclaration___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Normalize.java",
+  "functionAnnotation": "",
+  "functionDoc": "Rewrite named unhoisted functions declarations to a known\nconsistent behavior so we don\u0027t to different logic paths for the same\ncode. From:\n   function f() {}\nto:\n   var f \u003d function () {};\n",
+  "functionStartLine": 389,
+  "functionEndLine": 395,
+  "numCommitsSeen": 31,
+  "timeTaken": 1475,
+  "changeHistory": [
+    "ebb59a97610015bc41bda7f458dd1428a3a3e335",
+    "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953"
+  ],
+  "changeHistoryShort": {
+    "ebb59a97610015bc41bda7f458dd1428a3a3e335": "Ybodychange",
+    "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ebb59a97610015bc41bda7f458dd1428a3a3e335": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/04/22 by nick\n\n        fix the extern definition of Window.prototype.stop\n\n        R\u003dsiggy\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\nChange on 2010/04/22 by john\n\n        \"Anonymous function\" is a confusing term for functions with names.\n        Properly we are usually distinguishing between functions statements\n        (function declarations) and function expressions.\n\n        R\u003dalan\n        DELTA\u003d172  (7 added, 14 deleted, 151 changed)\n\nChange on 2010/04/22 by john\n\n        Standardize the definition of setTimeout/setInterval.\n        Fix for Issue 137\n\n        R\u003dnick\n        DELTA\u003d6  (2 added, 2 deleted, 2 changed)\n\nChange on 2010/04/22 by mark\n\n        Various delegate fixes.\n\n        Give the delegate proxy a name unique from the delegate base so that\n        InstanceObjectType#equals distinguishes them. This is necessary for\n        AmbiguateProperties to work.\n\n        Fix the prototype of the delegate proxy. This makes\n        DisambiguateProperties continue to work.\n\n        Add superclass methods of the delegate base to the delegate proxy.\n\n\n        R\u003dandrew,nada\n        DELTA\u003d526  (383 added, 104 deleted, 39 changed)\n\nChange on 2010/04/23 by john\n\n        Allow variable inlining of function statements. For simplicity  limited to functions defined before first use.\n\n        R\u003dnick\n        DELTA\u003d79  (49 added, 3 deleted, 27 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dhakjvx\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@197 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/23/10, 11:31 AM",
+      "commitName": "ebb59a97610015bc41bda7f458dd1428a3a3e335",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/23/10, 2:27 PM",
+      "commitNameOld": "2dc356a34ace77d20b27fa90fb6467d303bd09a8",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 30.88,
+      "commitsBetweenForRepo": 44,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void normalizeFunctionDeclaration(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    if (!NodeUtil.isFunctionExpression(n) \u0026\u0026 !NodeUtil.isHoistedFunctionDeclaration(n)) {\n        rewriteFunctionDeclaration(n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Normalize.java",
+      "functionStartLine": 297,
+      "functionName": "normalizeFunctionDeclaration",
+      "functionAnnotation": "",
+      "functionDoc": "Rewrite named unhoisted functions declarations to a known\nconsistent behavior so we don\u0027t to different logic paths for the same\ncode. From:\n   function f() {}\nto:\n   var f \u003d function () {};\n",
+      "diff": "@@ -1,6 +1,6 @@\n private void normalizeFunctionDeclaration(Node n) {\n     Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n-    if (!NodeUtil.isFunctionAnonymous(n) \u0026\u0026 !NodeUtil.isHoistedFunctionDeclaration(n)) {\n+    if (!NodeUtil.isFunctionExpression(n) \u0026\u0026 !NodeUtil.isHoistedFunctionDeclaration(n)) {\n         rewriteFunctionDeclaration(n);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953": {
+      "type": "Yintroduced",
+      "commitMessage": "Remove var declarations when name functions are in the same scope.\nFixes Issue 33 (John)\nR\u003dnick\nDELTA\u003d206  (155 added, 16 deleted, 35 changed)\n\nAssorted API fixes.\nFixes issue 127. (Nick)\nR\u003drobert\nDELTA\u003d7  (0 added, 1 deleted, 6 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@148 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/10, 3:55 PM",
+      "commitName": "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,6 @@\n+private void normalizeFunctionDeclaration(Node n) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n+    if (!NodeUtil.isFunctionAnonymous(n) \u0026\u0026 !NodeUtil.isHoistedFunctionDeclaration(n)) {\n+        rewriteFunctionDeclaration(n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void normalizeFunctionDeclaration(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    if (!NodeUtil.isFunctionAnonymous(n) \u0026\u0026 !NodeUtil.isHoistedFunctionDeclaration(n)) {\n        rewriteFunctionDeclaration(n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Normalize.java",
+      "functionStartLine": 295,
+      "functionName": "normalizeFunctionDeclaration",
+      "functionAnnotation": "",
+      "functionDoc": "Rewrite named unhoisted functions declarations to a known\nconsistent behavior so we don\u0027t to different logic paths for the same\ncode. From:\n   function f() {}\nto:\n   var f \u003d function () {};\n"
+    }
+  }
+}

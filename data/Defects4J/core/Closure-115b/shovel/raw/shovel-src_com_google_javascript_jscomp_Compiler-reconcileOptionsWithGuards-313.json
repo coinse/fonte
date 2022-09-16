@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "reconcileOptionsWithGuards",
+  "functionId": "reconcileOptionsWithGuards",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "When the CompilerOptions and its WarningsGuard overlap, reconcile\nany discrepencies.\n",
+  "functionStartLine": 313,
+  "functionEndLine": 352,
+  "numCommitsSeen": 178,
+  "timeTaken": 1422,
+  "changeHistory": [
+    "afabee81ee812ff71d8db5e429b0116f9f85d2fa"
+  ],
+  "changeHistoryShort": {
+    "afabee81ee812ff71d8db5e429b0116f9f85d2fa": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "afabee81ee812ff71d8db5e429b0116f9f85d2fa": {
+      "type": "Yintroduced",
+      "commitMessage": "Deprecation warnings should never be errors.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d42860731\n",
+      "commitDate": "2/21/13, 2:40 PM",
+      "commitName": "afabee81ee812ff71d8db5e429b0116f9f85d2fa",
+      "commitAuthor": "Ben Lickly",
+      "diff": "@@ -0,0 +1,18 @@\n+protected void reconcileOptionsWithGuards() {\n+    if (options.enables(DiagnosticGroups.CHECK_TYPES)) {\n+        options.checkTypes \u003d true;\n+    } else if (options.disables(DiagnosticGroups.CHECK_TYPES)) {\n+        options.checkTypes \u003d false;\n+    } else if (!options.checkTypes) {\n+        options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR), CheckLevel.OFF);\n+    }\n+    if (options.checkGlobalThisLevel.isOn() \u0026\u0026 !options.disables(DiagnosticGroups.GLOBAL_THIS)) {\n+        options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS, options.checkGlobalThisLevel);\n+    }\n+    if (options.getLanguageIn() \u003d\u003d LanguageMode.ECMASCRIPT5_STRICT) {\n+        options.setWarningLevel(DiagnosticGroups.ES5_STRICT, CheckLevel.ERROR);\n+    }\n+    if (!options.checkSymbols \u0026\u0026 !options.enables(DiagnosticGroups.CHECK_VARIABLES)) {\n+        options.setWarningLevel(DiagnosticGroups.CHECK_VARIABLES, CheckLevel.OFF);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void reconcileOptionsWithGuards() {\n    if (options.enables(DiagnosticGroups.CHECK_TYPES)) {\n        options.checkTypes \u003d true;\n    } else if (options.disables(DiagnosticGroups.CHECK_TYPES)) {\n        options.checkTypes \u003d false;\n    } else if (!options.checkTypes) {\n        options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR), CheckLevel.OFF);\n    }\n    if (options.checkGlobalThisLevel.isOn() \u0026\u0026 !options.disables(DiagnosticGroups.GLOBAL_THIS)) {\n        options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS, options.checkGlobalThisLevel);\n    }\n    if (options.getLanguageIn() \u003d\u003d LanguageMode.ECMASCRIPT5_STRICT) {\n        options.setWarningLevel(DiagnosticGroups.ES5_STRICT, CheckLevel.ERROR);\n    }\n    if (!options.checkSymbols \u0026\u0026 !options.enables(DiagnosticGroups.CHECK_VARIABLES)) {\n        options.setWarningLevel(DiagnosticGroups.CHECK_VARIABLES, CheckLevel.OFF);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 306,
+      "functionName": "reconcileOptionsWithGuards",
+      "functionAnnotation": "",
+      "functionDoc": "When the CompilerOptions and its WarningsGuard overlap, reconcile\nany discrepencies.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-104b",
+  "repositoryPath": "/tmp/Closure-104b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "addChildToBack",
+  "functionId": "addChildToBack___child-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 578,
+  "functionEndLine": 589,
+  "numCommitsSeen": 9,
+  "timeTaken": 1117,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+public void addChildToBack(Node child) {\n+    Preconditions.checkArgument(child.parent \u003d\u003d null);\n+    Preconditions.checkArgument(child.next \u003d\u003d null);\n+    child.parent \u003d this;\n+    child.next \u003d null;\n+    if (last \u003d\u003d null) {\n+        first \u003d last \u003d child;\n+        return;\n+    }\n+    last.next \u003d child;\n+    last \u003d child;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void addChildToBack(Node child) {\n    Preconditions.checkArgument(child.parent \u003d\u003d null);\n    Preconditions.checkArgument(child.next \u003d\u003d null);\n    child.parent \u003d this;\n    child.next \u003d null;\n    if (last \u003d\u003d null) {\n        first \u003d last \u003d child;\n        return;\n    }\n    last.next \u003d child;\n    last \u003d child;\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 571,
+      "functionName": "addChildToBack",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

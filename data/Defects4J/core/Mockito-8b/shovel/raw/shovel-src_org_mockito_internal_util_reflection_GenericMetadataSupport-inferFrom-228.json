@@ -1,0 +1,257 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Mockito-8b",
+  "repositoryPath": "/tmp/Mockito-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GenericMetadataSupport.java",
+  "functionName": "inferFrom",
+  "functionId": "inferFrom___type-Type",
+  "sourceFilePath": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create an new instance of {@link GenericMetadataSupport} inferred from a {@link Type}.\n\n\u003cp\u003e\n    At the moment \u003ccode\u003etype\u003c/code\u003e can only be a {@link Class} or a {@link ParameterizedType}, otherwise\n    it\u0027ll throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+  "functionStartLine": 228,
+  "functionEndLine": 238,
+  "numCommitsSeen": 16,
+  "timeTaken": 1652,
+  "changeHistory": [
+    "eaa090eab57c41cd5372aad831c249b8fee8c728",
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+    "52f6a9388d376d292918422296d82d77d5f6c921",
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436"
+  ],
+  "changeHistoryShort": {
+    "eaa090eab57c41cd5372aad831c249b8fee8c728": "Ymultichange(Yrename,Ydocchange)",
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99": "Ymultichange(Yfilerename,Yreturntypechange,Ybodychange,Ydocchange)",
+    "52f6a9388d376d292918422296d82d77d5f6c921": "Ymultichange(Ybodychange,Ydocchange)",
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "eaa090eab57c41cd5372aad831c249b8fee8c728": {
+      "type": "Ymultichange(Yrename,Ydocchange)",
+      "commitMessage": "tweaked javadoc + renamed \"from\" static factory to \"inferFrom\"\n",
+      "commitDate": "10/24/12, 3:52 PM",
+      "commitName": "eaa090eab57c41cd5372aad831c249b8fee8c728",
+      "commitAuthor": "Brice Dutheil",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "tweaked javadoc + renamed \"from\" static factory to \"inferFrom\"\n",
+          "commitDate": "10/24/12, 3:52 PM",
+          "commitName": "eaa090eab57c41cd5372aad831c249b8fee8c728",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "8/1/12, 8:12 AM",
+          "commitNameOld": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 84.32,
+          "commitsBetweenForRepo": 37,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static GenericMetadataSupport inferFrom(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+          "functionStartLine": 236,
+          "functionName": "inferFrom",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new instance of {@link GenericMetadataSupport} inferred from a {@link Type}.\n\n\u003cp\u003e\n    At the moment \u003ccode\u003etype\u003c/code\u003e can only be a {@link Class} or a {@link ParameterizedType}, otherwise\n    it\u0027ll throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static GenericMetadataSupport from(Type type) {\n+public static GenericMetadataSupport inferFrom(Type type) {\n     Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n         return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n         return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "from",
+            "newValue": "inferFrom"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "tweaked javadoc + renamed \"from\" static factory to \"inferFrom\"\n",
+          "commitDate": "10/24/12, 3:52 PM",
+          "commitName": "eaa090eab57c41cd5372aad831c249b8fee8c728",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "8/1/12, 8:12 AM",
+          "commitNameOld": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 84.32,
+          "commitsBetweenForRepo": 37,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static GenericMetadataSupport inferFrom(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+          "functionStartLine": 236,
+          "functionName": "inferFrom",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new instance of {@link GenericMetadataSupport} inferred from a {@link Type}.\n\n\u003cp\u003e\n    At the moment \u003ccode\u003etype\u003c/code\u003e can only be a {@link Class} or a {@link ParameterizedType}, otherwise\n    it\u0027ll throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static GenericMetadataSupport from(Type type) {\n+public static GenericMetadataSupport inferFrom(Type type) {\n     Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n         return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n         return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Create an new GenericMetadataSupport from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+            "newValue": "Create an new instance of {@link GenericMetadataSupport} inferred from a {@link Type}.\n\n\u003cp\u003e\n    At the moment \u003ccode\u003etype\u003c/code\u003e can only be a {@link Class} or a {@link ParameterizedType}, otherwise\n    it\u0027ll throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n"
+          }
+        }
+      ]
+    },
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99": {
+      "type": "Ymultichange(Yfilerename,Yreturntypechange,Ybodychange,Ydocchange)",
+      "commitMessage": "Renamed MockitoGenericMetadata to GenericMetadataSupport\n\n--HG--\nbranch : issue230\nrename : src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java \u003d\u003e src/org/mockito/internal/util/reflection/GenericMetadataSupport.java\nrename : test/org/mockito/internal/util/reflection/MockitoGenericMetadataTest.java \u003d\u003e test/org/mockito/internal/util/reflection/GenericMetadataSupportTest.java\n",
+      "commitDate": "8/1/12, 8:12 AM",
+      "commitName": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+      "commitAuthor": "Brice Dutheil",
+      "subchanges": [
+        {
+          "type": "Yfilerename",
+          "commitMessage": "Renamed MockitoGenericMetadata to GenericMetadataSupport\n\n--HG--\nbranch : issue230\nrename : src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java \u003d\u003e src/org/mockito/internal/util/reflection/GenericMetadataSupport.java\nrename : test/org/mockito/internal/util/reflection/MockitoGenericMetadataTest.java \u003d\u003e test/org/mockito/internal/util/reflection/GenericMetadataSupportTest.java\n",
+          "commitDate": "8/1/12, 8:12 AM",
+          "commitName": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "8/1/12, 8:07 AM",
+          "commitNameOld": "6e97858d79d08b455cb3690b811120965ee1975a",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static GenericMetadataSupport from(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+          "functionStartLine": 235,
+          "functionName": "from",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new GenericMetadataSupport from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static MockitoGenericMetadata from(Type type) {\n+public static GenericMetadataSupport from(Type type) {\n     Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n-        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n+        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n-        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n+        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+            "newPath": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Renamed MockitoGenericMetadata to GenericMetadataSupport\n\n--HG--\nbranch : issue230\nrename : src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java \u003d\u003e src/org/mockito/internal/util/reflection/GenericMetadataSupport.java\nrename : test/org/mockito/internal/util/reflection/MockitoGenericMetadataTest.java \u003d\u003e test/org/mockito/internal/util/reflection/GenericMetadataSupportTest.java\n",
+          "commitDate": "8/1/12, 8:12 AM",
+          "commitName": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "8/1/12, 8:07 AM",
+          "commitNameOld": "6e97858d79d08b455cb3690b811120965ee1975a",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static GenericMetadataSupport from(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+          "functionStartLine": 235,
+          "functionName": "from",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new GenericMetadataSupport from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static MockitoGenericMetadata from(Type type) {\n+public static GenericMetadataSupport from(Type type) {\n     Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n-        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n+        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n-        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n+        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "MockitoGenericMetadata",
+            "newValue": "GenericMetadataSupport"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Renamed MockitoGenericMetadata to GenericMetadataSupport\n\n--HG--\nbranch : issue230\nrename : src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java \u003d\u003e src/org/mockito/internal/util/reflection/GenericMetadataSupport.java\nrename : test/org/mockito/internal/util/reflection/MockitoGenericMetadataTest.java \u003d\u003e test/org/mockito/internal/util/reflection/GenericMetadataSupportTest.java\n",
+          "commitDate": "8/1/12, 8:12 AM",
+          "commitName": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "8/1/12, 8:07 AM",
+          "commitNameOld": "6e97858d79d08b455cb3690b811120965ee1975a",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static GenericMetadataSupport from(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+          "functionStartLine": 235,
+          "functionName": "from",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new GenericMetadataSupport from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static MockitoGenericMetadata from(Type type) {\n+public static GenericMetadataSupport from(Type type) {\n     Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n-        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n+        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n-        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n+        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Renamed MockitoGenericMetadata to GenericMetadataSupport\n\n--HG--\nbranch : issue230\nrename : src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java \u003d\u003e src/org/mockito/internal/util/reflection/GenericMetadataSupport.java\nrename : test/org/mockito/internal/util/reflection/MockitoGenericMetadataTest.java \u003d\u003e test/org/mockito/internal/util/reflection/GenericMetadataSupportTest.java\n",
+          "commitDate": "8/1/12, 8:12 AM",
+          "commitName": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "8/1/12, 8:07 AM",
+          "commitNameOld": "6e97858d79d08b455cb3690b811120965ee1975a",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static GenericMetadataSupport from(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+          "functionStartLine": 235,
+          "functionName": "from",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new GenericMetadataSupport from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static MockitoGenericMetadata from(Type type) {\n+public static GenericMetadataSupport from(Type type) {\n     Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n-        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n+        return new FromClassGenericMetadataSupport((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n-        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n+        return new FromParameterizedTypeGenericMetadataSupport((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Create an new MockitoGenericMetadata from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link MockitoGenericMetadata} should be built.\n@return The new {@link MockitoGenericMetadata}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+            "newValue": "Create an new GenericMetadataSupport from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link GenericMetadataSupport} should be built.\n@return The new {@link GenericMetadataSupport}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n"
+          }
+        }
+      ]
+    },
+    "52f6a9388d376d292918422296d82d77d5f6c921": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Generic deep stubs now operational! Wildcard types are not yet in the party.\n\n--HG--\nbranch : issue230\n",
+      "commitDate": "7/24/12, 9:52 AM",
+      "commitName": "52f6a9388d376d292918422296d82d77d5f6c921",
+      "commitAuthor": "Brice Dutheil",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Generic deep stubs now operational! Wildcard types are not yet in the party.\n\n--HG--\nbranch : issue230\n",
+          "commitDate": "7/24/12, 9:52 AM",
+          "commitName": "52f6a9388d376d292918422296d82d77d5f6c921",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "7/24/12, 5:43 AM",
+          "commitNameOld": "d8f0aa99cbc0f4399b15eca313ddc634dcb06fbb",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 0.17,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static MockitoGenericMetadata from(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+          "functionStartLine": 162,
+          "functionName": "from",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new MockitoGenericMetadata from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link MockitoGenericMetadata} should be built.\n@return The new {@link MockitoGenericMetadata}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,9 +1,10 @@\n public static MockitoGenericMetadata from(Type type) {\n+    Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n         return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n         return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Generic deep stubs now operational! Wildcard types are not yet in the party.\n\n--HG--\nbranch : issue230\n",
+          "commitDate": "7/24/12, 9:52 AM",
+          "commitName": "52f6a9388d376d292918422296d82d77d5f6c921",
+          "commitAuthor": "Brice Dutheil",
+          "commitDateOld": "7/24/12, 5:43 AM",
+          "commitNameOld": "d8f0aa99cbc0f4399b15eca313ddc634dcb06fbb",
+          "commitAuthorOld": "Brice Dutheil",
+          "daysBetweenCommits": 0.17,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static MockitoGenericMetadata from(Type type) {\n    Checks.checkNotNull(type, \"type\");\n    if (type instanceof Class) {\n        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+          "path": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+          "functionStartLine": 162,
+          "functionName": "from",
+          "functionAnnotation": "",
+          "functionDoc": "Create an new MockitoGenericMetadata from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link MockitoGenericMetadata} should be built.\n@return The new {@link MockitoGenericMetadata}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n",
+          "diff": "@@ -1,9 +1,10 @@\n public static MockitoGenericMetadata from(Type type) {\n+    Checks.checkNotNull(type, \"type\");\n     if (type instanceof Class) {\n         return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n     }\n     if (type instanceof ParameterizedType) {\n         return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n     }\n     throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Create an new MockitoGenericMetadata from a {@link Type}.\n\n@param type The class from which the {@link MockitoGenericMetadata} should be built.\n@return The new {@link MockitoGenericMetadata}.\n",
+            "newValue": "Create an new MockitoGenericMetadata from a {@link Type}.\n\n\u003cp\u003e\n    Supports only {@link Class} and {@link ParameterizedType}, otherwise throw a {@link MockitoException}.\n\u003c/p\u003e\n\n@param type The class from which the {@link MockitoGenericMetadata} should be built.\n@return The new {@link MockitoGenericMetadata}.\n@throws MockitoException Raised if type is not a {@link Class} or a {@link ParameterizedType}.\n"
+          }
+        }
+      ]
+    },
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436": {
+      "type": "Yintroduced",
+      "commitMessage": "Trying a Top-Down approach instead of the Bottom-Up approach to better solve this generic mess (tests are broken here)(missing files)\n\n--HG--\nbranch : issue230\n",
+      "commitDate": "7/24/12, 3:26 AM",
+      "commitName": "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436",
+      "commitAuthor": "Brice Dutheil",
+      "diff": "@@ -0,0 +1,9 @@\n+public static MockitoGenericMetadata from(Type type) {\n+    if (type instanceof Class) {\n+        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n+    }\n+    if (type instanceof ParameterizedType) {\n+        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n+    }\n+    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static MockitoGenericMetadata from(Type type) {\n    if (type instanceof Class) {\n        return new FromClassMockitoGenericMetadata((Class\u003c?\u003e) type);\n    }\n    if (type instanceof ParameterizedType) {\n        return new FromParameterizedTypeMockitoGenericMetadata((ParameterizedType) type);\n    }\n    throw new MockitoException(\"Type meta-data for this Type (\" + type.getClass().getCanonicalName() + \") is not supported : \" + type);\n}",
+      "path": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+      "functionStartLine": 120,
+      "functionName": "from",
+      "functionAnnotation": "",
+      "functionDoc": "Create an new MockitoGenericMetadata from a {@link Type}.\n\n@param type The class from which the {@link MockitoGenericMetadata} should be built.\n@return The new {@link MockitoGenericMetadata}.\n"
+    }
+  }
+}

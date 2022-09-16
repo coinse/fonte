@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "getType",
+  "functionId": "getType___scope-StaticScope__JSType____jsTypeName-String__sourceName-String__lineno-int__charno-int",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "Looks up a type by name. To allow for forward references to types, an\nunrecognized string has to be bound to a NamedType object that will be\nresolved later.\n\n@param scope A scope for doing type name resolution.\n@param jsTypeName The name string.\n@param sourceName The name of the source file where this reference appears.\n@param lineno The line number of the reference.\n@return a NamedType if the string argument is not one of the known types,\n    otherwise the corresponding JSType object.\n",
+  "functionStartLine": 841,
+  "functionEndLine": 853,
+  "numCommitsSeen": 40,
+  "timeTaken": 2887,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public JSType getType(StaticScope\u003cJSType\u003e scope, String jsTypeName, String sourceName, int lineno, int charno) {\n+    JSType type \u003d getType(jsTypeName);\n+    if (type \u003d\u003d null) {\n+        NamedType namedType \u003d new NamedType(this, jsTypeName, sourceName, lineno, charno);\n+        unresolvedNamedTypes.put(scope, namedType);\n+        type \u003d namedType;\n+    }\n+    return type;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JSType getType(StaticScope\u003cJSType\u003e scope, String jsTypeName, String sourceName, int lineno, int charno) {\n    JSType type \u003d getType(jsTypeName);\n    if (type \u003d\u003d null) {\n        NamedType namedType \u003d new NamedType(this, jsTypeName, sourceName, lineno, charno);\n        unresolvedNamedTypes.put(scope, namedType);\n        type \u003d namedType;\n    }\n    return type;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 705,
+      "functionName": "getType",
+      "functionAnnotation": "",
+      "functionDoc": "Looks up a type by name. To allow for forward references to types, an\nunrecognized string has to be bound to a NamedType object that will be\nresolved later.\n\n@param scope A scope for doing type name resolution.\n@param jsTypeName The name string.\n@param sourceName The name of the source file where this reference appears.\n@param lineno The line number of the reference.\n@return a NamedType if the string argument is not one of the known types,\n    otherwise the corresponding JSType object.\n"
+    }
+  }
+}

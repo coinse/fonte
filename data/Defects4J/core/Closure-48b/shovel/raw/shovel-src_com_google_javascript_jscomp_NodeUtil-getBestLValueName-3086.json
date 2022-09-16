@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getBestLValueName",
+  "functionId": "getBestLValueName___lValue-Node(annotations-@Nullable)",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the name of the given l-value node.\n",
+  "functionStartLine": 3086,
+  "functionEndLine": 3101,
+  "numCommitsSeen": 172,
+  "timeTaken": 5399,
+  "changeHistory": [
+    "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+    "072fa2d047573d2d1f0187ba4bf76b1afa75031c",
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc"
+  ],
+  "changeHistoryShort": {
+    "e58030c47800f5842a950cf7ceb40bba5bd1dd23": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange)",
+    "072fa2d047573d2d1f0187ba4bf76b1afa75031c": "Ybodychange",
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e58030c47800f5842a950cf7ceb40bba5bd1dd23": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 8:56 AM",
+      "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 8:56 AM",
+          "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/4/11, 7:12 AM",
+          "commitNameOld": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String getBestLValueName(@Nullable Node lValue) {\n    if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n        return null;\n    }\n    if (isObjectLitKey(lValue, lValue.getParent())) {\n        Node owner \u003d getBestLValue(lValue.getParent());\n        if (owner !\u003d null) {\n            String ownerName \u003d getBestLValueName(owner);\n            if (ownerName !\u003d null) {\n                return ownerName + \".\" + getObjectLitKeyName(lValue);\n            }\n        }\n        return null;\n    }\n    return lValue.getQualifiedName();\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3079,
+          "functionName": "getBestLValueName",
+          "functionAnnotation": "",
+          "functionDoc": "Get the name of the given l-value node.\n",
+          "diff": "@@ -1,16 +1,16 @@\n-private static String getBestLValueName(@Nullable Node lValue) {\n+static String getBestLValueName(@Nullable Node lValue) {\n     if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n         return null;\n     }\n-    if (NodeUtil.isObjectLitKey(lValue, lValue.getParent())) {\n+    if (isObjectLitKey(lValue, lValue.getParent())) {\n         Node owner \u003d getBestLValue(lValue.getParent());\n         if (owner !\u003d null) {\n             String ownerName \u003d getBestLValueName(owner);\n             if (ownerName !\u003d null) {\n-                return ownerName + \".\" + NodeUtil.getObjectLitKeyName(lValue);\n+                return ownerName + \".\" + getObjectLitKeyName(lValue);\n             }\n         }\n         return null;\n     }\n     return lValue.getQualifiedName();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+            "newPath": "src/com/google/javascript/jscomp/NodeUtil.java",
+            "oldMethodName": "getBestLValueName",
+            "newMethodName": "getBestLValueName"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 8:56 AM",
+          "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/4/11, 7:12 AM",
+          "commitNameOld": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String getBestLValueName(@Nullable Node lValue) {\n    if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n        return null;\n    }\n    if (isObjectLitKey(lValue, lValue.getParent())) {\n        Node owner \u003d getBestLValue(lValue.getParent());\n        if (owner !\u003d null) {\n            String ownerName \u003d getBestLValueName(owner);\n            if (ownerName !\u003d null) {\n                return ownerName + \".\" + getObjectLitKeyName(lValue);\n            }\n        }\n        return null;\n    }\n    return lValue.getQualifiedName();\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3079,
+          "functionName": "getBestLValueName",
+          "functionAnnotation": "",
+          "functionDoc": "Get the name of the given l-value node.\n",
+          "diff": "@@ -1,16 +1,16 @@\n-private static String getBestLValueName(@Nullable Node lValue) {\n+static String getBestLValueName(@Nullable Node lValue) {\n     if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n         return null;\n     }\n-    if (NodeUtil.isObjectLitKey(lValue, lValue.getParent())) {\n+    if (isObjectLitKey(lValue, lValue.getParent())) {\n         Node owner \u003d getBestLValue(lValue.getParent());\n         if (owner !\u003d null) {\n             String ownerName \u003d getBestLValueName(owner);\n             if (ownerName !\u003d null) {\n-                return ownerName + \".\" + NodeUtil.getObjectLitKeyName(lValue);\n+                return ownerName + \".\" + getObjectLitKeyName(lValue);\n             }\n         }\n         return null;\n     }\n     return lValue.getQualifiedName();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private, static]",
+            "newValue": "[static]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 8:56 AM",
+          "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/4/11, 7:12 AM",
+          "commitNameOld": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String getBestLValueName(@Nullable Node lValue) {\n    if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n        return null;\n    }\n    if (isObjectLitKey(lValue, lValue.getParent())) {\n        Node owner \u003d getBestLValue(lValue.getParent());\n        if (owner !\u003d null) {\n            String ownerName \u003d getBestLValueName(owner);\n            if (ownerName !\u003d null) {\n                return ownerName + \".\" + getObjectLitKeyName(lValue);\n            }\n        }\n        return null;\n    }\n    return lValue.getQualifiedName();\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3079,
+          "functionName": "getBestLValueName",
+          "functionAnnotation": "",
+          "functionDoc": "Get the name of the given l-value node.\n",
+          "diff": "@@ -1,16 +1,16 @@\n-private static String getBestLValueName(@Nullable Node lValue) {\n+static String getBestLValueName(@Nullable Node lValue) {\n     if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n         return null;\n     }\n-    if (NodeUtil.isObjectLitKey(lValue, lValue.getParent())) {\n+    if (isObjectLitKey(lValue, lValue.getParent())) {\n         Node owner \u003d getBestLValue(lValue.getParent());\n         if (owner !\u003d null) {\n             String ownerName \u003d getBestLValueName(owner);\n             if (ownerName !\u003d null) {\n-                return ownerName + \".\" + NodeUtil.getObjectLitKeyName(lValue);\n+                return ownerName + \".\" + getObjectLitKeyName(lValue);\n             }\n         }\n         return null;\n     }\n     return lValue.getQualifiedName();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "072fa2d047573d2d1f0187ba4bf76b1afa75031c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nWhen a property of a named object literal is declared,\ndeclare the qualified name of that property.\n\nR\u003djohnlenz\nDELTA\u003d82  (58 added, 3 deleted, 21 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d546\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@793 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/16/11, 8:38 PM",
+      "commitName": "072fa2d047573d2d1f0187ba4bf76b1afa75031c",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "2/1/11, 11:22 AM",
+      "commitNameOld": "7675b68dbd7cfc37b1359fd40be9fdf0b618bc95",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 15.39,
+      "commitsBetweenForRepo": 49,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static String getBestLValueName(@Nullable Node lValue) {\n    if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n        return null;\n    }\n    if (NodeUtil.isObjectLitKey(lValue, lValue.getParent())) {\n        Node owner \u003d getBestLValue(lValue.getParent());\n        if (owner !\u003d null) {\n            String ownerName \u003d getBestLValueName(owner);\n            if (ownerName !\u003d null) {\n                return ownerName + \".\" + NodeUtil.getObjectLitKeyName(lValue);\n            }\n        }\n        return null;\n    }\n    return lValue.getQualifiedName();\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 1760,
+      "functionName": "getBestLValueName",
+      "functionAnnotation": "",
+      "functionDoc": "Get the name of the given l-value node.\n",
+      "diff": "@@ -1,3 +1,16 @@\n private static String getBestLValueName(@Nullable Node lValue) {\n-    return lValue \u003d\u003d null ? null : lValue.getQualifiedName();\n+    if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n+        return null;\n+    }\n+    if (NodeUtil.isObjectLitKey(lValue, lValue.getParent())) {\n+        Node owner \u003d getBestLValue(lValue.getParent());\n+        if (owner !\u003d null) {\n+            String ownerName \u003d getBestLValueName(owner);\n+            if (ownerName !\u003d null) {\n+                return ownerName + \".\" + NodeUtil.getObjectLitKeyName(lValue);\n+            }\n+        }\n+        return null;\n+    }\n+    return lValue.getQualifiedName();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": {
+      "type": "Yintroduced",
+      "commitMessage": "\nClean up type discovery by refactoring to the following algorithm.\n1) When we see a function literal, create the authoritative\ntype for it.\n2) When we see an object literal, create the authoritative\ntype for it.\n3) When we declare a symbol, check to see if it\u0027s assigned to\nan object or function literal, and use that type if it\nmake sense to do so. Otherwise, fall back on the JSDoc info.\nThis should make it a lot easier to give accurate types to object\nliteral properties.\nI didn\u0027t intend to create any functional changes in this CL,\nbut some minor ones were inevitable.\n\nR\u003djohnlenz\nDELTA\u003d618  (320 added, 249 deleted, 49 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d392\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@739 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/31/11, 8:08 AM",
+      "commitName": "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+private static String getBestLValueName(@Nullable Node lValue) {\n+    return lValue \u003d\u003d null ? null : lValue.getQualifiedName();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static String getBestLValueName(@Nullable Node lValue) {\n    return lValue \u003d\u003d null ? null : lValue.getQualifiedName();\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 1720,
+      "functionName": "getBestLValueName",
+      "functionAnnotation": "",
+      "functionDoc": "Get the name of the given l-value node.\n"
+    }
+  }
+}

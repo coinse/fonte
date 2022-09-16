@@ -1,0 +1,1 @@
+Checks in `IOContext` expect buffer to either be the same or grow. But it should actually be completely legal to return another buffer with similar size, given that most allocation strategies will eventually converge into maximum allowed block size.

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CollapseVariableDeclarations.java",
+  "functionName": "canBeRedeclared",
+  "functionId": "$canBeRedeclared___n-Node__s-Scope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 188,
+  "functionEndLine": 202,
+  "numCommitsSeen": 19,
+  "timeTaken": 672,
+  "changeHistory": [
+    "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92",
+    "80ee905775eded2256972f3e762862fcf66f0095"
+  ],
+  "changeHistoryShort": {
+    "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92": "Ybodychange",
+    "80ee905775eded2256972f3e762862fcf66f0095": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92": {
+      "type": "Ybodychange",
+      "commitMessage": "\nDon\u0027t redeclare vars that have been declared without initial values.\nFixes issue 397.\n\nR\u003dacleung\nDELTA\u003d46  (30 added, 0 deleted, 16 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1225\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@958 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/31/11, 6:51 PM",
+      "commitName": "9adfc8062e31dc6b9cd5614d4ba6f8ecd27d5c92",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "3/22/11, 2:15 PM",
+      "commitNameOld": "80ee905775eded2256972f3e762862fcf66f0095",
+      "commitAuthorOld": "acleung@google.com",
+      "daysBetweenCommits": 9.19,
+      "commitsBetweenForRepo": 28,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean canBeRedeclared(Node n, Scope s) {\n    if (!NodeUtil.isExprAssign(n)) {\n        return false;\n    }\n    Node assign \u003d n.getFirstChild();\n    Node lhs \u003d assign.getFirstChild();\n    if (!NodeUtil.isName(lhs)) {\n        return false;\n    }\n    Var var \u003d s.getVar(lhs.getString());\n    return var !\u003d null \u0026\u0026 var.getScope() \u003d\u003d s \u0026\u0026 !blacklistedVars.contains(var);\n}",
+      "path": "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+      "functionStartLine": 188,
+      "functionName": "canBeRedeclared",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,12 @@\n private boolean canBeRedeclared(Node n, Scope s) {\n     if (!NodeUtil.isExprAssign(n)) {\n         return false;\n     }\n     Node assign \u003d n.getFirstChild();\n     Node lhs \u003d assign.getFirstChild();\n     if (!NodeUtil.isName(lhs)) {\n         return false;\n     }\n-    return s.isDeclared(lhs.getString(), false);\n+    Var var \u003d s.getVar(lhs.getString());\n+    return var !\u003d null \u0026\u0026 var.getScope() \u003d\u003d s \u0026\u0026 !blacklistedVars.contains(var);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "80ee905775eded2256972f3e762862fcf66f0095": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAggressive varaible declaration collapsing\n\nR\u003djohnlenz\nDELTA\u003d103  (79 added, 0 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1006\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@930 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/11, 2:15 PM",
+      "commitName": "80ee905775eded2256972f3e762862fcf66f0095",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private boolean canBeRedeclared(Node n, Scope s) {\n+    if (!NodeUtil.isExprAssign(n)) {\n+        return false;\n+    }\n+    Node assign \u003d n.getFirstChild();\n+    Node lhs \u003d assign.getFirstChild();\n+    if (!NodeUtil.isName(lhs)) {\n+        return false;\n+    }\n+    return s.isDeclared(lhs.getString(), false);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean canBeRedeclared(Node n, Scope s) {\n    if (!NodeUtil.isExprAssign(n)) {\n        return false;\n    }\n    Node assign \u003d n.getFirstChild();\n    Node lhs \u003d assign.getFirstChild();\n    if (!NodeUtil.isName(lhs)) {\n        return false;\n    }\n    return s.isDeclared(lhs.getString(), false);\n}",
+      "path": "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+      "functionStartLine": 171,
+      "functionName": "canBeRedeclared",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

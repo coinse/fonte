@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-46b",
+  "repositoryPath": "/tmp/Math-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "splitReciprocal",
+  "functionId": "splitReciprocal___in-double[](modifiers-final)__result-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute the reciprocal of in.  Use the following algorithm.\n in \u003d c + d.\n want to find x + y such that x+y \u003d 1/(c+d) and x is much\n larger than y and x has several zero bits on the right.\n\n Set b \u003d 1/(2^22),  a \u003d 1 - b.  Thus (a+b) \u003d 1.\n Use following identity to compute (a+b)/(c+d)\n\n (a+b)/(c+d)  \u003d   a/c   +    (bc - ad) / (c^2 + cd)\n set x \u003d a/c  and y \u003d (bc - ad) / (c^2 + cd)\n This will be close to the right answer, but there will be\n some rounding in the calculation of X.  So by carefully\n computing 1 - (c+d)(x+y) we can compute an error and\n add that back in.   This is done carefully so that terms\n of similar size are subtracted first.\n\n@ @param in initial number, in split form\n @param result placeholder where to put the result\n",
+  "functionStartLine": 1119,
+  "functionEndLine": 1147,
+  "numCommitsSeen": 51,
+  "timeTaken": 20684,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,19 @@\n+private static void splitReciprocal(final double[] in, final double[] result) {\n+    final double b \u003d 1.0 / 4194304.0;\n+    final double a \u003d 1.0 - b;\n+    if (in[0] \u003d\u003d 0.0) {\n+        in[0] \u003d in[1];\n+        in[1] \u003d 0.0;\n+    }\n+    result[0] \u003d a / in[0];\n+    result[1] \u003d (b * in[0] - a * in[1]) / (in[0] * in[0] + in[0] * in[1]);\n+    if (result[1] !\u003d result[1]) {\n+        result[1] \u003d 0.0;\n+    }\n+    resplit(result);\n+    for (int i \u003d 0; i \u003c 2; i++) {\n+        double err \u003d 1.0 - result[0] * in[0] - result[0] * in[1] - result[1] * in[0] - result[1] * in[1];\n+        err \u003d err * (result[0] + result[1]);\n+        result[1] +\u003d err;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void splitReciprocal(final double[] in, final double[] result) {\n    final double b \u003d 1.0 / 4194304.0;\n    final double a \u003d 1.0 - b;\n    if (in[0] \u003d\u003d 0.0) {\n        in[0] \u003d in[1];\n        in[1] \u003d 0.0;\n    }\n    result[0] \u003d a / in[0];\n    result[1] \u003d (b * in[0] - a * in[1]) / (in[0] * in[0] + in[0] * in[1]);\n    if (result[1] !\u003d result[1]) {\n        result[1] \u003d 0.0;\n    }\n    resplit(result);\n    for (int i \u003d 0; i \u003c 2; i++) {\n        double err \u003d 1.0 - result[0] * in[0] - result[0] * in[1] - result[1] * in[0] - result[1] * in[1];\n        err \u003d err * (result[0] + result[1]);\n        result[1] +\u003d err;\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 796,
+      "functionName": "splitReciprocal",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the reciprocal of in.  Use the following algorithm.\n in \u003d c + d.\n want to find x + y such that x+y \u003d 1/(c+d) and x is much\n larger than y and x has several zero bits on the right.\n\n Set b \u003d 1/(2^22),  a \u003d 1 - b.  Thus (a+b) \u003d 1.\n Use following identity to compute (a+b)/(c+d)\n\n (a+b)/(c+d)  \u003d   a/c   +    (bc - ad) / (c^2 + cd)\n set x \u003d a/c  and y \u003d (bc - ad) / (c^2 + cd)\n This will be close to the right answer, but there will be\n some rounding in the calculation of X.  So by carefully\n computing 1 - (c+d)(x+y) we can compute an error and\n add that back in.   This is done carefully so that terms\n of similar size are subtracted first.\n\n@ @param in initial number, in split form\n @param result placeholder where to put the result\n"
+    }
+  }
+}

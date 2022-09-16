@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectType.java",
+  "functionName": "defineDeclaredProperty",
+  "functionId": "defineDeclaredProperty___propertyName-String__type-JSType__inExterns-boolean",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n",
+  "functionStartLine": 239,
+  "functionEndLine": 246,
+  "numCommitsSeen": 14,
+  "timeTaken": 369,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n+    registry.registerPropertyOnType(propertyName, this);\n+    return defineProperty(propertyName, type, false, inExterns);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n    registry.registerPropertyOnType(propertyName, this);\n    return defineProperty(propertyName, type, false, inExterns);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 211,
+      "functionName": "defineDeclaredProperty",
+      "functionAnnotation": "",
+      "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n"
+    }
+  }
+}

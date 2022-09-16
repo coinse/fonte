@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-103b",
+  "repositoryPath": "/tmp/Math-103b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NormalDistributionImpl.java",
+  "functionName": "setStandardDeviation",
+  "functionId": "setStandardDeviation___sd-double",
+  "sourceFilePath": "src/java/org/apache/commons/math/distribution/NormalDistributionImpl.java",
+  "functionAnnotation": "",
+  "functionDoc": "Modify the standard deviation.\n\n@param sd standard deviation for this distribution\n@throws IllegalArgumentException if \u003ccode\u003esd\u003c/code\u003e is not positive.\n",
+  "functionStartLine": 91,
+  "functionEndLine": 97,
+  "numCommitsSeen": 17,
+  "timeTaken": 317,
+  "changeHistory": [
+    "bd4c0682a71ff99179cc6ab2b0c1f23339267945",
+    "206201617aae648e12f63d4ab8aa9751157e7e63",
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8"
+  ],
+  "changeHistoryShort": {
+    "bd4c0682a71ff99179cc6ab2b0c1f23339267945": "Yformatchange",
+    "206201617aae648e12f63d4ab8aa9751157e7e63": "Ydocchange",
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bd4c0682a71ff99179cc6ab2b0c1f23339267945": {
+      "type": "Yformatchange",
+      "commitMessage": "Eliminated tabs.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@201915 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/26/05, 3:20 PM",
+      "commitName": "bd4c0682a71ff99179cc6ab2b0c1f23339267945",
+      "commitAuthor": "Phil Steitz",
+      "commitDateOld": "2/26/05, 5:11 AM",
+      "commitNameOld": "65b65f88b74de6b3462b04b2cf2a69f064a77557",
+      "commitAuthorOld": "Dirk Verbeeck",
+      "daysBetweenCommits": 120.38,
+      "commitsBetweenForRepo": 47,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void setStandardDeviation(double sd) {\n    if (sd \u003c\u003d 0.0) {\n        throw new IllegalArgumentException(\"Standard deviation must be positive.\");\n    }\n    standardDeviation \u003d sd;\n}",
+      "path": "src/java/org/apache/commons/math/distribution/NormalDistributionImpl.java",
+      "functionStartLine": 90,
+      "functionName": "setStandardDeviation",
+      "functionAnnotation": "",
+      "functionDoc": "Modify the standard deviation.\n\n@param sd standard deviation for this distribution\n@throws IllegalArgumentException if \u003ccode\u003esd\u003c/code\u003e is not positive.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "206201617aae648e12f63d4ab8aa9751157e7e63": {
+      "type": "Ydocchange",
+      "commitMessage": "Documented some runtime exceptions.\nPR: 29013\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141231 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/19/04, 7:16 AM",
+      "commitName": "206201617aae648e12f63d4ab8aa9751157e7e63",
+      "commitAuthor": "Brent Worden",
+      "commitDateOld": "5/5/04, 12:59 PM",
+      "commitNameOld": "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8",
+      "commitAuthorOld": "Brent Worden",
+      "daysBetweenCommits": 13.76,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void setStandardDeviation(double sd) {\n    if (sd \u003c\u003d 0.0) {\n        throw new IllegalArgumentException(\"Standard deviation must be positive.\");\n    }\n    standardDeviation \u003d sd;\n}",
+      "path": "src/java/org/apache/commons/math/distribution/NormalDistributionImpl.java",
+      "functionStartLine": 87,
+      "functionName": "setStandardDeviation",
+      "functionAnnotation": "",
+      "functionDoc": "Modify the standard deviation.\n\n@param sd standard deviation for this distribution\n@throws IllegalArgumentException if \u003ccode\u003esd\u003c/code\u003e is not positive.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Modify the standard deviation.\n\n@param sd standard deviation for this distribution\n",
+        "newValue": "Modify the standard deviation.\n\n@param sd standard deviation for this distribution\n@throws IllegalArgumentException if \u003ccode\u003esd\u003c/code\u003e is not positive.\n"
+      }
+    },
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8": {
+      "type": "Yintroduced",
+      "commitMessage": "Replaced normal CDF routine with one based on the error function.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141214 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/5/04, 12:59 PM",
+      "commitName": "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,6 @@\n+public void setStandardDeviation(double sd) {\n+    if (sd \u003c\u003d 0.0) {\n+        throw new IllegalArgumentException(\"Standard deviation must be positive.\");\n+    }\n+    standardDeviation \u003d sd;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void setStandardDeviation(double sd) {\n    if (sd \u003c\u003d 0.0) {\n        throw new IllegalArgumentException(\"Standard deviation must be positive.\");\n    }\n    standardDeviation \u003d sd;\n}",
+      "path": "src/java/org/apache/commons/math/distribution/NormalDistributionImpl.java",
+      "functionStartLine": 86,
+      "functionName": "setStandardDeviation",
+      "functionAnnotation": "",
+      "functionDoc": "Modify the standard deviation.\n\n@param sd standard deviation for this distribution\n"
+    }
+  }
+}

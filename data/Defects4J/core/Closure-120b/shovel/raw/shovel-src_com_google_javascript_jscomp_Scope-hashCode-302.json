@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Scope.java",
+  "functionName": "hashCode",
+  "functionId": "$hashCode",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Scope.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 302,
+  "functionEndLine": 304,
+  "numCommitsSeen": 41,
+  "timeTaken": 1272,
+  "changeHistory": [
+    "ba0119710233a1be87c10c5e71424dc5922cc627",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "ba0119710233a1be87c10c5e71424dc5922cc627": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ba0119710233a1be87c10c5e71424dc5922cc627": {
+      "type": "Ybodychange",
+      "commitMessage": "\nDon\u0027t inline alias if \"arguments\" are modified or escaped.\nFixes issue 378\n\nR\u003dacleung\nDELTA\u003d235  (228 added, 0 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1089\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@942 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/25/11, 5:16 PM",
+      "commitName": "ba0119710233a1be87c10c5e71424dc5922cc627",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "2/14/11, 1:50 PM",
+      "commitNameOld": "95ac6a7f06053f4a85286e30394836d62d141518",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 39.1,
+      "commitsBetweenForRepo": 151,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic int hashCode() {\n    return System.identityHashCode(this);\n}",
+      "path": "src/com/google/javascript/jscomp/Scope.java",
+      "functionStartLine": 316,
+      "functionName": "hashCode",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n public int hashCode() {\n-    return nameNode.hashCode();\n+    return System.identityHashCode(this);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public int hashCode() {\n+    return nameNode.hashCode();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic int hashCode() {\n    return nameNode.hashCode();\n}",
+      "path": "src/com/google/javascript/jscomp/Scope.java",
+      "functionStartLine": 254,
+      "functionName": "hashCode",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

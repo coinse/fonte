@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "constructRootRelativePathsMap",
+  "functionId": "constructRootRelativePathsMap",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Construct and return the input root path map. The key is the exec path of\neach input file, and the value is the corresponding root relative path.\n",
+  "functionStartLine": 1501,
+  "functionEndLine": 1512,
+  "numCommitsSeen": 74,
+  "timeTaken": 2284,
+  "changeHistory": [
+    "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+    "175e998243d5a4c656f39102ced6a0967b3de622"
+  ],
+  "changeHistoryShort": {
+    "1003a7e9d8a975d5e25c7af85aa3419319995c37": "Ymultichange(Yexceptionschange,Ybodychange)",
+    "175e998243d5a4c656f39102ced6a0967b3de622": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1003a7e9d8a975d5e25c7af85aa3419319995c37": {
+      "type": "Ymultichange(Yexceptionschange,Ybodychange)",
+      "commitMessage": "\nRevise the --mf_map flag\n\nR\u003dnicksantos,laszlocsomor\nDELTA\u003d49  (2 added, 25 deleted, 22 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2896\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1325 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 7:12 AM",
+      "commitName": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+      "commitAuthor": "zhuyi@google.com",
+      "subchanges": [
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "\nRevise the --mf_map flag\n\nR\u003dnicksantos,laszlocsomor\nDELTA\u003d49  (2 added, 25 deleted, 22 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2896\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1325 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 7:12 AM",
+          "commitName": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthor": "zhuyi@google.com",
+          "commitDateOld": "7/29/11, 10:26 AM",
+          "commitNameOld": "175e998243d5a4c656f39102ced6a0967b3de622",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 5.87,
+          "commitsBetweenForRepo": 15,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Map\u003cString, String\u003e constructRootRelativePathsMap() {\n    Map\u003cString, String\u003e rootRelativePathsMap \u003d Maps.newLinkedHashMap();\n    for (String mapString : config.manifestMaps) {\n        int colonIndex \u003d mapString.indexOf(\u0027:\u0027);\n        Preconditions.checkState(colonIndex \u003e 0);\n        String execPath \u003d mapString.substring(0, colonIndex);\n        String rootRelativePath \u003d mapString.substring(colonIndex + 1);\n        Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n        rootRelativePathsMap.put(execPath, rootRelativePath);\n    }\n    return rootRelativePathsMap;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1279,
+          "functionName": "constructRootRelativePathsMap",
+          "functionAnnotation": "",
+          "functionDoc": "Construct and return the input root path map. The key is the exec path of\neach input file, and the value is the corresponding root relative path.\n",
+          "diff": "@@ -1,17 +1,12 @@\n-private Map\u003cString, String\u003e constructRootRelativePathsMap() throws IOException {\n+private Map\u003cString, String\u003e constructRootRelativePathsMap() {\n     Map\u003cString, String\u003e rootRelativePathsMap \u003d Maps.newLinkedHashMap();\n-    if (!config.manifestMapFile.equals(\"\")) {\n-        File mapFile \u003d new File(config.manifestMapFile);\n-        BufferedReader br \u003d Files.newReader(mapFile, Charsets.UTF_8);\n-        String line;\n-        while ((line \u003d br.readLine()) !\u003d null) {\n-            int colonIndex \u003d line.indexOf(\u0027:\u0027);\n-            Preconditions.checkState(colonIndex \u003e 0);\n-            String execPath \u003d line.substring(0, colonIndex);\n-            String rootRelativePath \u003d line.substring(colonIndex + 1);\n-            Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n-            rootRelativePathsMap.put(execPath, rootRelativePath);\n-        }\n+    for (String mapString : config.manifestMaps) {\n+        int colonIndex \u003d mapString.indexOf(\u0027:\u0027);\n+        Preconditions.checkState(colonIndex \u003e 0);\n+        String execPath \u003d mapString.substring(0, colonIndex);\n+        String rootRelativePath \u003d mapString.substring(colonIndex + 1);\n+        Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n+        rootRelativePathsMap.put(execPath, rootRelativePath);\n     }\n     return rootRelativePathsMap;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[IOException]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nRevise the --mf_map flag\n\nR\u003dnicksantos,laszlocsomor\nDELTA\u003d49  (2 added, 25 deleted, 22 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2896\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1325 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 7:12 AM",
+          "commitName": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthor": "zhuyi@google.com",
+          "commitDateOld": "7/29/11, 10:26 AM",
+          "commitNameOld": "175e998243d5a4c656f39102ced6a0967b3de622",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 5.87,
+          "commitsBetweenForRepo": 15,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Map\u003cString, String\u003e constructRootRelativePathsMap() {\n    Map\u003cString, String\u003e rootRelativePathsMap \u003d Maps.newLinkedHashMap();\n    for (String mapString : config.manifestMaps) {\n        int colonIndex \u003d mapString.indexOf(\u0027:\u0027);\n        Preconditions.checkState(colonIndex \u003e 0);\n        String execPath \u003d mapString.substring(0, colonIndex);\n        String rootRelativePath \u003d mapString.substring(colonIndex + 1);\n        Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n        rootRelativePathsMap.put(execPath, rootRelativePath);\n    }\n    return rootRelativePathsMap;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1279,
+          "functionName": "constructRootRelativePathsMap",
+          "functionAnnotation": "",
+          "functionDoc": "Construct and return the input root path map. The key is the exec path of\neach input file, and the value is the corresponding root relative path.\n",
+          "diff": "@@ -1,17 +1,12 @@\n-private Map\u003cString, String\u003e constructRootRelativePathsMap() throws IOException {\n+private Map\u003cString, String\u003e constructRootRelativePathsMap() {\n     Map\u003cString, String\u003e rootRelativePathsMap \u003d Maps.newLinkedHashMap();\n-    if (!config.manifestMapFile.equals(\"\")) {\n-        File mapFile \u003d new File(config.manifestMapFile);\n-        BufferedReader br \u003d Files.newReader(mapFile, Charsets.UTF_8);\n-        String line;\n-        while ((line \u003d br.readLine()) !\u003d null) {\n-            int colonIndex \u003d line.indexOf(\u0027:\u0027);\n-            Preconditions.checkState(colonIndex \u003e 0);\n-            String execPath \u003d line.substring(0, colonIndex);\n-            String rootRelativePath \u003d line.substring(colonIndex + 1);\n-            Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n-            rootRelativePathsMap.put(execPath, rootRelativePath);\n-        }\n+    for (String mapString : config.manifestMaps) {\n+        int colonIndex \u003d mapString.indexOf(\u0027:\u0027);\n+        Preconditions.checkState(colonIndex \u003e 0);\n+        String execPath \u003d mapString.substring(0, colonIndex);\n+        String rootRelativePath \u003d mapString.substring(colonIndex + 1);\n+        Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n+        rootRelativePathsMap.put(execPath, rootRelativePath);\n     }\n     return rootRelativePathsMap;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "175e998243d5a4c656f39102ced6a0967b3de622": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd --mf_map flag for JSCompiler, which reads a file that gives root path for each input file\n\nR\u003dlaszlocsomor,nicksantos\nDELTA\u003d161  (132 added, 10 deleted, 19 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2833\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1304 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/29/11, 10:26 AM",
+      "commitName": "175e998243d5a4c656f39102ced6a0967b3de622",
+      "commitAuthor": "zhuyi@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+private Map\u003cString, String\u003e constructRootRelativePathsMap() throws IOException {\n+    Map\u003cString, String\u003e rootRelativePathsMap \u003d Maps.newLinkedHashMap();\n+    if (!config.manifestMapFile.equals(\"\")) {\n+        File mapFile \u003d new File(config.manifestMapFile);\n+        BufferedReader br \u003d Files.newReader(mapFile, Charsets.UTF_8);\n+        String line;\n+        while ((line \u003d br.readLine()) !\u003d null) {\n+            int colonIndex \u003d line.indexOf(\u0027:\u0027);\n+            Preconditions.checkState(colonIndex \u003e 0);\n+            String execPath \u003d line.substring(0, colonIndex);\n+            String rootRelativePath \u003d line.substring(colonIndex + 1);\n+            Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n+            rootRelativePathsMap.put(execPath, rootRelativePath);\n+        }\n+    }\n+    return rootRelativePathsMap;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Map\u003cString, String\u003e constructRootRelativePathsMap() throws IOException {\n    Map\u003cString, String\u003e rootRelativePathsMap \u003d Maps.newLinkedHashMap();\n    if (!config.manifestMapFile.equals(\"\")) {\n        File mapFile \u003d new File(config.manifestMapFile);\n        BufferedReader br \u003d Files.newReader(mapFile, Charsets.UTF_8);\n        String line;\n        while ((line \u003d br.readLine()) !\u003d null) {\n            int colonIndex \u003d line.indexOf(\u0027:\u0027);\n            Preconditions.checkState(colonIndex \u003e 0);\n            String execPath \u003d line.substring(0, colonIndex);\n            String rootRelativePath \u003d line.substring(colonIndex + 1);\n            Preconditions.checkState(rootRelativePath.indexOf(\u0027:\u0027) \u003d\u003d -1);\n            rootRelativePathsMap.put(execPath, rootRelativePath);\n        }\n    }\n    return rootRelativePathsMap;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 1280,
+      "functionName": "constructRootRelativePathsMap",
+      "functionAnnotation": "",
+      "functionDoc": "Construct and return the input root path map. The key is the exec path of\neach input file, and the value is the corresponding root relative path.\n"
+    }
+  }
+}

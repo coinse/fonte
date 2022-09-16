@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CombinedCompilerPass.java",
+  "functionName": "traverse",
+  "functionId": "traverse___compiler-AbstractCompiler__root-Node__callbacks-List__Callback__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CombinedCompilerPass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 73,
+  "functionEndLine": 80,
+  "numCommitsSeen": 11,
+  "timeTaken": 1040,
+  "changeHistory": [
+    "c41e5b19af044fd2d5f9e835addece71c3548edb"
+  ],
+  "changeHistoryShort": {
+    "c41e5b19af044fd2d5f9e835addece71c3548edb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c41e5b19af044fd2d5f9e835addece71c3548edb": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/08/04 17:22:12 by nicksantos\n\n\tAdd a pass to strip assertion functions, so that we can get people\n\tto stop using --strip_type\u003dgoog.asserts.\n\n\tR\u003djohnlenz\n\tDELTA\u003d108  (96 added, 2 deleted, 10 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d85013\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@336 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/10, 5:22 PM",
+      "commitName": "c41e5b19af044fd2d5f9e835addece71c3548edb",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+static void traverse(AbstractCompiler compiler, Node root, List\u003cCallback\u003e callbacks) {\n+    if (callbacks.size() \u003d\u003d 1) {\n+        NodeTraversal.traverse(compiler, root, callbacks.get(0));\n+    } else {\n+        (new CombinedCompilerPass(compiler, callbacks)).process(null, root);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static void traverse(AbstractCompiler compiler, Node root, List\u003cCallback\u003e callbacks) {\n    if (callbacks.size() \u003d\u003d 1) {\n        NodeTraversal.traverse(compiler, root, callbacks.get(0));\n    } else {\n        (new CombinedCompilerPass(compiler, callbacks)).process(null, root);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/CombinedCompilerPass.java",
+      "functionStartLine": 73,
+      "functionName": "traverse",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

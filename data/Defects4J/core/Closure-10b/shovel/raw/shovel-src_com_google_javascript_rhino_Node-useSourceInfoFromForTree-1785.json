@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "useSourceInfoFromForTree",
+  "functionId": "useSourceInfoFromForTree___other-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "Overwrite all the source information in this node and its subtree with\nthat of {@code other}.\n",
+  "functionStartLine": 1785,
+  "functionEndLine": 1793,
+  "numCommitsSeen": 78,
+  "timeTaken": 2582,
+  "changeHistory": [
+    "5d1678d8a421e212375f4716be6131d7e4584e31"
+  ],
+  "changeHistoryShort": {
+    "5d1678d8a421e212375f4716be6131d7e4584e31": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5d1678d8a421e212375f4716be6131d7e4584e31": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPropose new API for sourceinfo copying\n\nR\u003djohnlenz\nDELTA\u003d58  (58 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2931\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1340 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/8/11, 4:02 PM",
+      "commitName": "5d1678d8a421e212375f4716be6131d7e4584e31",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+public Node useSourceInfoFromForTree(Node other) {\n+    useSourceInfoFrom(other);\n+    for (Node child \u003d getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n+        child.useSourceInfoFromForTree(other);\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Node useSourceInfoFromForTree(Node other) {\n    useSourceInfoFrom(other);\n    for (Node child \u003d getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        child.useSourceInfoFromForTree(other);\n    }\n    return this;\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 2148,
+      "functionName": "useSourceInfoFromForTree",
+      "functionAnnotation": "",
+      "functionDoc": "Overwrite all the source information in this node and its subtree with\nthat of {@code other}.\n"
+    }
+  }
+}

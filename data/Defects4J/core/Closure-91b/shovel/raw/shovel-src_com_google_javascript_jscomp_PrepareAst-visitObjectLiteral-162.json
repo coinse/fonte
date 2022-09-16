@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "visitObjectLiteral",
+  "functionId": "$visitObjectLiteral___objlit-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 162,
+  "functionEndLine": 169,
+  "numCommitsSeen": 9,
+  "timeTaken": 436,
+  "changeHistory": [
+    "34fd5f8275ae69fc772c2283a3c5fd13b93a7c42",
+    "f93cdf97ea803c4702023daf1326dc45172de611"
+  ],
+  "changeHistoryShort": {
+    "34fd5f8275ae69fc772c2283a3c5fd13b93a7c42": "Ybodychange",
+    "f93cdf97ea803c4702023daf1326dc45172de611": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "34fd5f8275ae69fc772c2283a3c5fd13b93a7c42": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange the OBJECTLIT AST structure from:\n\nOBJECTLIT\n  KEY1\n  VALUE1\n\nto\n\nOBJECTLIT\n  KEY1\n    VALUE1\n\nFixes issue 241\n\nR\u003dacleung,johnlenz,stevey\nDELTA\u003d268  (101 added, 51 deleted, 116 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d356416\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@494 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/18/10, 2:55 PM",
+      "commitName": "34fd5f8275ae69fc772c2283a3c5fd13b93a7c42",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "9/14/10, 4:04 PM",
+      "commitNameOld": "f93cdf97ea803c4702023daf1326dc45172de611",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 33.95,
+      "commitsBetweenForRepo": 61,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void visitObjectLiteral(Node objlit) {\n    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n    for (Node key \u003d objlit.getFirstChild(); key !\u003d null; key \u003d key.getNext()) {\n        Node value \u003d key.getFirstChild();\n        visitObjectLiteralKey(objlit, key, value);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 162,
+      "functionName": "visitObjectLiteral",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,7 @@\n private void visitObjectLiteral(Node objlit) {\n     Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n-    for (Node key \u003d objlit.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n-        Node value \u003d key.getNext();\n+    for (Node key \u003d objlit.getFirstChild(); key !\u003d null; key \u003d key.getNext()) {\n+        Node value \u003d key.getFirstChild();\n         visitObjectLiteralKey(objlit, key, value);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f93cdf97ea803c4702023daf1326dc45172de611": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/14/10, 4:04 PM",
+      "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private void visitObjectLiteral(Node objlit) {\n+    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n+    for (Node key \u003d objlit.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n+        Node value \u003d key.getNext();\n+        visitObjectLiteralKey(objlit, key, value);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void visitObjectLiteral(Node objlit) {\n    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n    for (Node key \u003d objlit.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n        Node value \u003d key.getNext();\n        visitObjectLiteralKey(objlit, key, value);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 162,
+      "functionName": "visitObjectLiteral",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

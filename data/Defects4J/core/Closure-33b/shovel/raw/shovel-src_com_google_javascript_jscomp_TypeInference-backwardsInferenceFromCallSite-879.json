@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "backwardsInferenceFromCallSite",
+  "functionId": "backwardsInferenceFromCallSite___n-Node__fnType-FunctionType",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "We only do forward type inference. We do not do full backwards\ntype inference.\n\nIn other words, if we have,\n\u003ccode\u003e\nvar x \u003d f();\ng(x);\n\u003c/code\u003e\na forward type-inference engine would try to figure out the type\nof \"x\" from the return type of \"f\". A backwards type-inference engine\nwould try to figure out the type of \"x\" from the parameter type of \"g\".\n\nHowever, there are a few special syntactic forms where we do some\nsome half-assed backwards type-inference, because programmers\nexpect it in this day and age. To take an example from java,\n\u003ccode\u003e\nList\u003cString\u003e x \u003d Lists.newArrayList();\n\u003c/code\u003e\nThe Java compiler will be able to infer the generic type of the List\nreturned by newArrayList().\n\nIn much the same way, we do some special-case backwards inference for\nJS. Those cases are enumerated here.\n",
+  "functionStartLine": 879,
+  "functionEndLine": 883,
+  "numCommitsSeen": 69,
+  "timeTaken": 1608,
+  "changeHistory": [
+    "11e74627a0d7b25f96993f17b13c0c6b69c4da68"
+  ],
+  "changeHistoryShort": {
+    "11e74627a0d7b25f96993f17b13c0c6b69c4da68": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "11e74627a0d7b25f96993f17b13c0c6b69c4da68": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd better \"bind\" inference.\nFixes issue 621\n\nR\u003djohnlenz\nDELTA\u003d168  (133 added, 33 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4043\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1705 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/4/12, 3:39 PM",
+      "commitName": "11e74627a0d7b25f96993f17b13c0c6b69c4da68",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+private void backwardsInferenceFromCallSite(Node n, FunctionType fnType) {\n+    updateTypeOfParameters(n, fnType);\n+    updateTypeOfThisOnClosure(n, fnType);\n+    updateBind(n, fnType);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void backwardsInferenceFromCallSite(Node n, FunctionType fnType) {\n    updateTypeOfParameters(n, fnType);\n    updateTypeOfThisOnClosure(n, fnType);\n    updateBind(n, fnType);\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 879,
+      "functionName": "backwardsInferenceFromCallSite",
+      "functionAnnotation": "",
+      "functionDoc": "We only do forward type inference. We do not do full backwards\ntype inference.\n\nIn other words, if we have,\n\u003ccode\u003e\nvar x \u003d f();\ng(x);\n\u003c/code\u003e\na forward type-inference engine would try to figure out the type\nof \"x\" from the return type of \"f\". A backwards type-inference engine\nwould try to figure out the type of \"x\" from the parameter type of \"g\".\n\nHowever, there are a few special syntactic forms where we do some\nsome half-assed backwards type-inference, because programmers\nexpect it in this day and age. To take an example from java,\n\u003ccode\u003e\nList\u003cString\u003e x \u003d Lists.newArrayList();\n\u003c/code\u003e\nThe Java compiler will be able to infer the generic type of the List\nreturned by newArrayList().\n\nIn much the same way, we do some special-case backwards inference for\nJS. Those cases are enumerated here.\n"
+    }
+  }
+}

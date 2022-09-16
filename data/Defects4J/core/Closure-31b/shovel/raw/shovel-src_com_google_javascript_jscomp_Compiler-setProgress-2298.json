@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "setProgress",
+  "functionId": "setProgress___newProgress-double",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 2298,
+  "functionEndLine": 2306,
+  "numCommitsSeen": 142,
+  "timeTaken": 1721,
+  "changeHistory": [
+    "68f2755b2649ad5695cc0739d39aad47c760d3fb"
+  ],
+  "changeHistoryShort": {
+    "68f2755b2649ad5695cc0739d39aad47c760d3fb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "68f2755b2649ad5695cc0739d39aad47c760d3fb": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdded progress reporting capability to JSCompiler. For now\nit only takes into account parsing and check passes which\nare the pieces that we care about.\n\nR\u003dnicksantos\nDELTA\u003d95  (90 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4192\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1770 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/8/12, 9:25 AM",
+      "commitName": "68f2755b2649ad5695cc0739d39aad47c760d3fb",
+      "commitAuthor": "bashir@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+void setProgress(double newProgress) {\n+    if (newProgress \u003e 1.0) {\n+        progress \u003d 1.0;\n+    } else if (newProgress \u003c 0.0) {\n+        progress \u003d 0.0;\n+    } else {\n+        progress \u003d newProgress;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nvoid setProgress(double newProgress) {\n    if (newProgress \u003e 1.0) {\n        progress \u003d 1.0;\n    } else if (newProgress \u003c 0.0) {\n        progress \u003d 0.0;\n    } else {\n        progress \u003d newProgress;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 2258,
+      "functionName": "setProgress",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

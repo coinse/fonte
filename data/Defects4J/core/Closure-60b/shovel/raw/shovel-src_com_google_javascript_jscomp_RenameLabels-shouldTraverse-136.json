@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RenameLabels.java",
+  "functionName": "shouldTraverse",
+  "functionId": "$shouldTraverse___nodeTraversal-NodeTraversal__node-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RenameLabels.java",
+  "functionAnnotation": "",
+  "functionDoc": "shouldTraverse is call when descending into the Node tree, so it is used\nhere to build the context for label renames.\n\n{@inheritDoc}\n",
+  "functionStartLine": 136,
+  "functionEndLine": 159,
+  "numCommitsSeen": 7,
+  "timeTaken": 408,
+  "changeHistory": [
+    "e323b879de2e53e5eedf6e7afb0d582382c6248d",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "e323b879de2e53e5eedf6e7afb0d582382c6248d": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e323b879de2e53e5eedf6e7afb0d582382c6248d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nLabel names must be made unique when inlining a function.\nFixes issue 435\n\nR\u003dnicksantos\nDELTA\u003d59  (52 added, 4 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1681\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1050 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/2/11, 1:12 PM",
+      "commitName": "e323b879de2e53e5eedf6e7afb0d582382c6248d",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 20.04,
+      "commitsBetweenForRepo": 50,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean shouldTraverse(NodeTraversal nodeTraversal, Node node, Node parent) {\n    if (node.getType() \u003d\u003d Token.LABEL) {\n        LabelNamespace current \u003d namespaceStack.peek();\n        int currentDepth \u003d current.renameMap.size() + 1;\n        String name \u003d node.getFirstChild().getString();\n        LabelInfo li \u003d new LabelInfo(currentDepth);\n        Preconditions.checkState(!current.renameMap.containsKey(name));\n        current.renameMap.put(name, li);\n        if (names.size() \u003c currentDepth) {\n            names.add(nameSupplier.get());\n        }\n        String newName \u003d getNameForId(currentDepth);\n        compiler.addToDebugLog(\"label renamed: \" + name + \" \u003d\u003e \" + newName);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/RenameLabels.java",
+      "functionStartLine": 136,
+      "functionName": "shouldTraverse",
+      "functionAnnotation": "",
+      "functionDoc": "shouldTraverse is call when descending into the Node tree, so it is used\nhere to build the context for label renames.\n\n{@inheritDoc}\n",
+      "diff": "@@ -1,16 +1,16 @@\n public boolean shouldTraverse(NodeTraversal nodeTraversal, Node node, Node parent) {\n     if (node.getType() \u003d\u003d Token.LABEL) {\n         LabelNamespace current \u003d namespaceStack.peek();\n         int currentDepth \u003d current.renameMap.size() + 1;\n         String name \u003d node.getFirstChild().getString();\n         LabelInfo li \u003d new LabelInfo(currentDepth);\n         Preconditions.checkState(!current.renameMap.containsKey(name));\n         current.renameMap.put(name, li);\n         if (names.size() \u003c currentDepth) {\n-            names.add(nameGenerator.generateNextName());\n+            names.add(nameSupplier.get());\n         }\n         String newName \u003d getNameForId(currentDepth);\n         compiler.addToDebugLog(\"label renamed: \" + name + \" \u003d\u003e \" + newName);\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,16 @@\n+public boolean shouldTraverse(NodeTraversal nodeTraversal, Node node, Node parent) {\n+    if (node.getType() \u003d\u003d Token.LABEL) {\n+        LabelNamespace current \u003d namespaceStack.peek();\n+        int currentDepth \u003d current.renameMap.size() + 1;\n+        String name \u003d node.getFirstChild().getString();\n+        LabelInfo li \u003d new LabelInfo(currentDepth);\n+        Preconditions.checkState(!current.renameMap.containsKey(name));\n+        current.renameMap.put(name, li);\n+        if (names.size() \u003c currentDepth) {\n+            names.add(nameGenerator.generateNextName());\n+        }\n+        String newName \u003d getNameForId(currentDepth);\n+        compiler.addToDebugLog(\"label renamed: \" + name + \" \u003d\u003e \" + newName);\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean shouldTraverse(NodeTraversal nodeTraversal, Node node, Node parent) {\n    if (node.getType() \u003d\u003d Token.LABEL) {\n        LabelNamespace current \u003d namespaceStack.peek();\n        int currentDepth \u003d current.renameMap.size() + 1;\n        String name \u003d node.getFirstChild().getString();\n        LabelInfo li \u003d new LabelInfo(currentDepth);\n        Preconditions.checkState(!current.renameMap.containsKey(name));\n        current.renameMap.put(name, li);\n        if (names.size() \u003c currentDepth) {\n            names.add(nameGenerator.generateNextName());\n        }\n        String newName \u003d getNameForId(currentDepth);\n        compiler.addToDebugLog(\"label renamed: \" + name + \" \u003d\u003e \" + newName);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/RenameLabels.java",
+      "functionStartLine": 117,
+      "functionName": "shouldTraverse",
+      "functionAnnotation": "",
+      "functionDoc": "shouldTraverse is call when descending into the Node tree, so it is used\nhere to build the context for label renames.\n\n{@inheritDoc}\n"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+I am trying to feed a TarInputStream from a CipherInputStream.
+It does not work, because IOUtils.skip() does not adhere to the contract it claims in javadoc:
+
+"     * <p>This method will only skip less than the requested number of
+     * bytes if the end of the input stream has been reached.</p>"
+
+However it does:
+
+            long skipped = input.skip(numToSkip);
+            if (skipped == 0) {
+                break;
+            }
+
+And the input stream javadoc says:
+
+"     * This may result from any of a number of conditions; reaching end of file
+     * before <code>n</code> bytes have been skipped is only one possibility."
+
+In the case of CipherInputStream, it stops at the end of each byte buffer.
+
+If you check the IOUtils from colleagues at commons-io, they have considered this case in IOUtils.skip() where they use a read to skip through the stream.
+An optimized version could combine trying to skip, then read then trying to skip again.

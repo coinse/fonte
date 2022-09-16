@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-87b",
+  "repositoryPath": "/tmp/Math-87b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexTableau.java",
+  "functionName": "createTableau",
+  "functionId": "createTableau___maximize-boolean(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create the tableau by itself.\n\n@param maximize if true, goal is to maximize the objective function\n@return created tableau\n",
+  "functionStartLine": 123,
+  "functionEndLine": 184,
+  "numCommitsSeen": 6,
+  "timeTaken": 527,
+  "changeHistory": [
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,38 @@\n+protected double[][] createTableau(final boolean maximize) {\n+    List\u003cLinearConstraint\u003e constraints \u003d getNormalizedConstraints();\n+    int width \u003d numDecisionVariables + numSlackVariables + numArtificialVariables + getNumObjectiveFunctions() + 1;\n+    int height \u003d constraints.size() + getNumObjectiveFunctions();\n+    double[][] matrix \u003d new double[height][width];\n+    if (getNumObjectiveFunctions() \u003d\u003d 2) {\n+        matrix[0][0] \u003d -1;\n+    }\n+    int zIndex \u003d (getNumObjectiveFunctions() \u003d\u003d 1) ? 0 : 1;\n+    matrix[zIndex][zIndex] \u003d maximize ? 1 : -1;\n+    RealVector objectiveCoefficients \u003d maximize ? f.getCoefficients().mapMultiply(-1) : f.getCoefficients();\n+    copyArray(objectiveCoefficients.getData(), matrix[zIndex], getNumObjectiveFunctions());\n+    matrix[zIndex][width - 1] \u003d maximize ? f.getConstantTerm() : -1 * f.getConstantTerm();\n+    if (!restrictToNonNegative) {\n+        matrix[zIndex][getSlackVariableOffset() - 1] \u003d getInvertedCoeffiecientSum(objectiveCoefficients);\n+    }\n+    int slackVar \u003d 0;\n+    int artificialVar \u003d 0;\n+    for (int i \u003d 0; i \u003c constraints.size(); i++) {\n+        LinearConstraint constraint \u003d constraints.get(i);\n+        int row \u003d getNumObjectiveFunctions() + i;\n+        copyArray(constraint.getCoefficients().getData(), matrix[row], 1);\n+        if (!restrictToNonNegative) {\n+            matrix[row][getSlackVariableOffset() - 1] \u003d getInvertedCoeffiecientSum(constraint.getCoefficients());\n+        }\n+        matrix[row][width - 1] \u003d constraint.getValue();\n+        if (constraint.getRelationship() \u003d\u003d Relationship.LEQ) {\n+            matrix[row][getSlackVariableOffset() + slackVar++] \u003d 1;\n+        } else if (constraint.getRelationship() \u003d\u003d Relationship.GEQ) {\n+            matrix[row][getSlackVariableOffset() + slackVar++] \u003d -1;\n+        }\n+        if ((constraint.getRelationship() \u003d\u003d Relationship.EQ) || (constraint.getRelationship() \u003d\u003d Relationship.GEQ)) {\n+            matrix[0][getArtificialVariableOffset() + artificialVar] \u003d 1;\n+            matrix[row][getArtificialVariableOffset() + artificialVar++] \u003d 1;\n+        }\n+    }\n+    return matrix;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected double[][] createTableau(final boolean maximize) {\n    List\u003cLinearConstraint\u003e constraints \u003d getNormalizedConstraints();\n    int width \u003d numDecisionVariables + numSlackVariables + numArtificialVariables + getNumObjectiveFunctions() + 1;\n    int height \u003d constraints.size() + getNumObjectiveFunctions();\n    double[][] matrix \u003d new double[height][width];\n    if (getNumObjectiveFunctions() \u003d\u003d 2) {\n        matrix[0][0] \u003d -1;\n    }\n    int zIndex \u003d (getNumObjectiveFunctions() \u003d\u003d 1) ? 0 : 1;\n    matrix[zIndex][zIndex] \u003d maximize ? 1 : -1;\n    RealVector objectiveCoefficients \u003d maximize ? f.getCoefficients().mapMultiply(-1) : f.getCoefficients();\n    copyArray(objectiveCoefficients.getData(), matrix[zIndex], getNumObjectiveFunctions());\n    matrix[zIndex][width - 1] \u003d maximize ? f.getConstantTerm() : -1 * f.getConstantTerm();\n    if (!restrictToNonNegative) {\n        matrix[zIndex][getSlackVariableOffset() - 1] \u003d getInvertedCoeffiecientSum(objectiveCoefficients);\n    }\n    int slackVar \u003d 0;\n    int artificialVar \u003d 0;\n    for (int i \u003d 0; i \u003c constraints.size(); i++) {\n        LinearConstraint constraint \u003d constraints.get(i);\n        int row \u003d getNumObjectiveFunctions() + i;\n        copyArray(constraint.getCoefficients().getData(), matrix[row], 1);\n        if (!restrictToNonNegative) {\n            matrix[row][getSlackVariableOffset() - 1] \u003d getInvertedCoeffiecientSum(constraint.getCoefficients());\n        }\n        matrix[row][width - 1] \u003d constraint.getValue();\n        if (constraint.getRelationship() \u003d\u003d Relationship.LEQ) {\n            matrix[row][getSlackVariableOffset() + slackVar++] \u003d 1;\n        } else if (constraint.getRelationship() \u003d\u003d Relationship.GEQ) {\n            matrix[row][getSlackVariableOffset() + slackVar++] \u003d -1;\n        }\n        if ((constraint.getRelationship() \u003d\u003d Relationship.EQ) || (constraint.getRelationship() \u003d\u003d Relationship.GEQ)) {\n            matrix[0][getArtificialVariableOffset() + artificialVar] \u003d 1;\n            matrix[row][getArtificialVariableOffset() + artificialVar++] \u003d 1;\n        }\n    }\n    return matrix;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 110,
+      "functionName": "createTableau",
+      "functionAnnotation": "",
+      "functionDoc": "Create the tableau by itself.\n\n@param maximize if true, goal is to maximize the objective function\n@return created tableau\n"
+    }
+  }
+}

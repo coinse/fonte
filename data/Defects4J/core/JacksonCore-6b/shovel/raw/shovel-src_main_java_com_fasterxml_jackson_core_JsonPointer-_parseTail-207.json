@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-6b",
+  "repositoryPath": "/tmp/JacksonCore-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonPointer.java",
+  "functionName": "_parseTail",
+  "functionId": "_parseTail___input-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 207,
+  "functionEndLine": 226,
+  "numCommitsSeen": 9,
+  "timeTaken": 309,
+  "changeHistory": [
+    "240c45594272f674bcb6cec26d682f582b40fda0",
+    "bb639974b0928a338b4bf60b17b1f612d619e0db"
+  ],
+  "changeHistoryShort": {
+    "240c45594272f674bcb6cec26d682f582b40fda0": "Ybodychange",
+    "bb639974b0928a338b4bf60b17b1f612d619e0db": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "240c45594272f674bcb6cec26d682f582b40fda0": {
+      "type": "Ybodychange",
+      "commitMessage": "Yet more fixes to JsonPointer handling\n",
+      "commitDate": "9/3/13, 9:14 PM",
+      "commitName": "240c45594272f674bcb6cec26d682f582b40fda0",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/3/13, 8:40 PM",
+      "commitNameOld": "2d1e19e852c77b515622d518a238d8959ea2393e",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.02,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected static JsonPointer _parseTail(String input) {\n    final int end \u003d input.length();\n    for (int i \u003d 1; i \u003c end; ) {\n        char c \u003d input.charAt(i);\n        if (c \u003d\u003d \u0027/\u0027) {\n            return new JsonPointer(input, input.substring(1, i), _parseTail(input.substring(i)));\n        }\n        ++i;\n        if (c \u003d\u003d \u0027~\u0027 \u0026\u0026 i \u003c end) {\n            return _parseQuotedTail(input, i);\n        }\n    }\n    return new JsonPointer(input, input.substring(1), EMPTY);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+      "functionStartLine": 232,
+      "functionName": "_parseTail",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,14 @@\n protected static JsonPointer _parseTail(String input) {\n     final int end \u003d input.length();\n-    for (int i \u003d 1; i \u003c end; ++i) {\n-        char c \u003d input.charAt(i++);\n+    for (int i \u003d 1; i \u003c end; ) {\n+        char c \u003d input.charAt(i);\n         if (c \u003d\u003d \u0027/\u0027) {\n-            return new JsonPointer(input, input.substring(1, i - 1), _parseTail(input.substring(i)));\n+            return new JsonPointer(input, input.substring(1, i), _parseTail(input.substring(i)));\n         }\n+        ++i;\n         if (c \u003d\u003d \u0027~\u0027 \u0026\u0026 i \u003c end) {\n             return _parseQuotedTail(input, i);\n         }\n     }\n     return new JsonPointer(input, input.substring(1), EMPTY);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "bb639974b0928a338b4bf60b17b1f612d619e0db": {
+      "type": "Yintroduced",
+      "commitMessage": "Start adding basic JSON Pointer support\n",
+      "commitDate": "8/30/13, 9:45 PM",
+      "commitName": "bb639974b0928a338b4bf60b17b1f612d619e0db",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+protected static JsonPointer _parseTail(String input) {\n+    final int end \u003d input.length();\n+    for (int i \u003d 1; i \u003c end; ++i) {\n+        char c \u003d input.charAt(i++);\n+        if (c \u003d\u003d \u0027/\u0027) {\n+            return new JsonPointer(input, input.substring(1, i - 1), _parseTail(input.substring(i)));\n+        }\n+        if (c \u003d\u003d \u0027~\u0027 \u0026\u0026 i \u003c end) {\n+            return _parseQuotedTail(input, i);\n+        }\n+    }\n+    return new JsonPointer(input, input.substring(1), EMPTY);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected static JsonPointer _parseTail(String input) {\n    final int end \u003d input.length();\n    for (int i \u003d 1; i \u003c end; ++i) {\n        char c \u003d input.charAt(i++);\n        if (c \u003d\u003d \u0027/\u0027) {\n            return new JsonPointer(input, input.substring(1, i - 1), _parseTail(input.substring(i)));\n        }\n        if (c \u003d\u003d \u0027~\u0027 \u0026\u0026 i \u003c end) {\n            return _parseQuotedTail(input, i);\n        }\n    }\n    return new JsonPointer(input, input.substring(1), EMPTY);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+      "functionStartLine": 218,
+      "functionName": "_parseTail",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

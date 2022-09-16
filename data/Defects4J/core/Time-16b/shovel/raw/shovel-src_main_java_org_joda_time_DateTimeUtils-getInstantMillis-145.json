@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-16b",
+  "repositoryPath": "/tmp/Time-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DateTimeUtils.java",
+  "functionName": "getInstantMillis",
+  "functionId": "getInstantMillis___instant-ReadableInstant",
+  "sourceFilePath": "src/main/java/org/joda/time/DateTimeUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the millisecond instant from the specified instant object handling null.\n\u003cp\u003e\nIf the instant object is \u003ccode\u003enull\u003c/code\u003e, the {@link #currentTimeMillis()}\nwill be returned. Otherwise, the millis from the object are returned.\n\n@param instant the instant to examine, null means now\n@return the time in milliseconds from 1970-01-01T00:00:00Z\n",
+  "functionStartLine": 145,
+  "functionEndLine": 150,
+  "numCommitsSeen": 31,
+  "timeTaken": 842,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "44f74aea29b99f926ce91cbaea6b2b7124d3f0ac"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "44f74aea29b99f926ce91cbaea6b2b7124d3f0ac": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static final long getInstantMillis(ReadableInstant instant) {\n    if (instant \u003d\u003d null) {\n        return DateTimeUtils.currentTimeMillis();\n    }\n    return instant.getMillis();\n}",
+      "path": "src/main/java/org/joda/time/DateTimeUtils.java",
+      "functionStartLine": 145,
+      "functionName": "getInstantMillis",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the millisecond instant from the specified instant object handling null.\n\u003cp\u003e\nIf the instant object is \u003ccode\u003enull\u003c/code\u003e, the {@link #currentTimeMillis()}\nwill be returned. Otherwise, the millis from the object are returned.\n\n@param instant the instant to examine, null means now\n@return the time in milliseconds from 1970-01-01T00:00:00Z\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/DateTimeUtils.java",
+        "newPath": "src/main/java/org/joda/time/DateTimeUtils.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static final long getInstantMillis(ReadableInstant instant) {\n    if (instant \u003d\u003d null) {\n        return DateTimeUtils.currentTimeMillis();\n    }\n    return instant.getMillis();\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/DateTimeUtils.java",
+      "functionStartLine": 145,
+      "functionName": "getInstantMillis",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the millisecond instant from the specified instant object handling null.\n\u003cp\u003e\nIf the instant object is \u003ccode\u003enull\u003c/code\u003e, the {@link #currentTimeMillis()}\nwill be returned. Otherwise, the millis from the object are returned.\n\n@param instant the instant to examine, null means now\n@return the time in milliseconds from 1970-01-01T00:00:00Z\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/DateTimeUtils.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/DateTimeUtils.java"
+      }
+    },
+    "44f74aea29b99f926ce91cbaea6b2b7124d3f0ac": {
+      "type": "Yintroduced",
+      "commitMessage": "Add methods to obtain values from objects handling null\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@384 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/14/04, 10:12 AM",
+      "commitName": "44f74aea29b99f926ce91cbaea6b2b7124d3f0ac",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,6 @@\n+public static final long getInstantMillis(ReadableInstant instant) {\n+    if (instant \u003d\u003d null) {\n+        return DateTimeUtils.currentTimeMillis();\n+    }\n+    return instant.getMillis();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static final long getInstantMillis(ReadableInstant instant) {\n    if (instant \u003d\u003d null) {\n        return DateTimeUtils.currentTimeMillis();\n    }\n    return instant.getMillis();\n}",
+      "path": "JodaTime/src/java/org/joda/time/DateTimeUtils.java",
+      "functionStartLine": 154,
+      "functionName": "getInstantMillis",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the millisecond instant from the specified instant object handling null.\n\u003cp\u003e\nIf the instant object is \u003ccode\u003enull\u003c/code\u003e, the {@link #currentTimeMillis()}\nwill be returned. Otherwise, the millis from the object are returned.\n\n@param instant the instant to examine, null means now\n@return the time in milliseconds from 1970-01-01T00:00:00Z\n"
+    }
+  }
+}

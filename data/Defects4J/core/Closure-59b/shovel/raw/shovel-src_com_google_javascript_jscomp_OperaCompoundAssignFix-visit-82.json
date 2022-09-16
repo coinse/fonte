@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "OperaCompoundAssignFix.java",
+  "functionName": "visit",
+  "functionId": "visit___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/OperaCompoundAssignFix.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 82,
+  "functionEndLine": 120,
+  "numCommitsSeen": 3,
+  "timeTaken": 630,
+  "changeHistory": [
+    "bf4fc620041677d3031a326fd2c0f91352fa6e27"
+  ],
+  "changeHistoryShort": {
+    "bf4fc620041677d3031a326fd2c0f91352fa6e27": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bf4fc620041677d3031a326fd2c0f91352fa6e27": {
+      "type": "Yintroduced",
+      "commitMessage": "\nWorkaround for Opera bug.\n\nR\u003djohnlenz\nDELTA\u003d335  (328 added, 5 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1226\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@959 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/1/11, 2:52 PM",
+      "commitName": "bf4fc620041677d3031a326fd2c0f91352fa6e27",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,30 @@\n+@Override\n+public void visit(NodeTraversal t, Node n, Node parent) {\n+    if (!NodeUtil.isName(n)) {\n+        return;\n+    }\n+    if (!NodeUtil.isGet(parent)) {\n+        return;\n+    }\n+    boolean nested \u003d false;\n+    boolean reassign \u003d false;\n+    Node lastAssign \u003d null;\n+    Node prevParent \u003d n;\n+    while (!(NodeUtil.isExpressionNode(parent) || NodeUtil.isStatementBlock(parent))) {\n+        if (NodeUtil.isAssign(parent) \u0026\u0026 NodeUtil.isName(parent.getFirstChild()) \u0026\u0026 parent.getFirstChild().getString().equals(n.getString()) \u0026\u0026 nested) {\n+            reassign \u003d true;\n+            break;\n+        } else if (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getLastChild() \u003d\u003d prevParent) {\n+            if (lastAssign \u003d\u003d null) {\n+                nested \u003d true;\n+            }\n+            lastAssign \u003d parent;\n+        }\n+        prevParent \u003d parent;\n+        parent \u003d parent.getParent();\n+    }\n+    if (!(reassign \u0026\u0026 nested)) {\n+        return;\n+    }\n+    applyWorkAround(parent, t);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void visit(NodeTraversal t, Node n, Node parent) {\n    if (!NodeUtil.isName(n)) {\n        return;\n    }\n    if (!NodeUtil.isGet(parent)) {\n        return;\n    }\n    boolean nested \u003d false;\n    boolean reassign \u003d false;\n    Node lastAssign \u003d null;\n    Node prevParent \u003d n;\n    while (!(NodeUtil.isExpressionNode(parent) || NodeUtil.isStatementBlock(parent))) {\n        if (NodeUtil.isAssign(parent) \u0026\u0026 NodeUtil.isName(parent.getFirstChild()) \u0026\u0026 parent.getFirstChild().getString().equals(n.getString()) \u0026\u0026 nested) {\n            reassign \u003d true;\n            break;\n        } else if (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getLastChild() \u003d\u003d prevParent) {\n            if (lastAssign \u003d\u003d null) {\n                nested \u003d true;\n            }\n            lastAssign \u003d parent;\n        }\n        prevParent \u003d parent;\n        parent \u003d parent.getParent();\n    }\n    if (!(reassign \u0026\u0026 nested)) {\n        return;\n    }\n    applyWorkAround(parent, t);\n}",
+      "path": "src/com/google/javascript/jscomp/OperaCompoundAssignFix.java",
+      "functionStartLine": 82,
+      "functionName": "visit",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

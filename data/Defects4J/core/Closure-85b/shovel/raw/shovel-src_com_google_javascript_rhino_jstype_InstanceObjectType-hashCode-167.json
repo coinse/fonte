@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-85b",
+  "repositoryPath": "/tmp/Closure-85b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InstanceObjectType.java",
+  "functionName": "hashCode",
+  "functionId": "hashCode",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/InstanceObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "If this is equal to a NamedType object, its hashCode must be equal\nto the hashCode of the NamedType object.\n",
+  "functionStartLine": 167,
+  "functionEndLine": 173,
+  "numCommitsSeen": 17,
+  "timeTaken": 375,
+  "changeHistory": [
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": {
+      "type": "Ybodychange",
+      "commitMessage": "Add a mechanism for inlining local vars, and turn it on by default.\nWarnings for \"ambiguous\" function definitions.\nRefactoring and renaming of some method names.\nUse \"\u003d\" optionality annotation in externs.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@15 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/25/09, 6:53 AM",
+      "commitName": "3bee5d740c96572faea4b9fb8b632e0e07b13cbb",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "11/3/09, 3:51 PM",
+      "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 21.63,
+      "commitsBetweenForRepo": 13,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic int hashCode() {\n    if (hasReferenceName()) {\n        return getReferenceName().hashCode();\n    } else {\n        return super.hashCode();\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/InstanceObjectType.java",
+      "functionStartLine": 185,
+      "functionName": "hashCode",
+      "functionAnnotation": "@Override",
+      "functionDoc": "If this is equal to a NamedType object, its hashCode must be equal\nto the hashCode of the NamedType object.\n",
+      "diff": "@@ -1,8 +1,8 @@\n @Override\n public int hashCode() {\n-    if (hasName()) {\n-        return getName().hashCode();\n+    if (hasReferenceName()) {\n+        return getReferenceName().hashCode();\n     } else {\n         return super.hashCode();\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public int hashCode() {\n+    if (hasName()) {\n+        return getName().hashCode();\n+    } else {\n+        return super.hashCode();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic int hashCode() {\n    if (hasName()) {\n        return getName().hashCode();\n    } else {\n        return super.hashCode();\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/InstanceObjectType.java",
+      "functionStartLine": 185,
+      "functionName": "hashCode",
+      "functionAnnotation": "@Override",
+      "functionDoc": "If this is equal to a NamedType object, its hashCode must be equal\nto the hashCode of the NamedType object.\n"
+    }
+  }
+}

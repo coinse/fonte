@@ -1,0 +1,351 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-23b",
+  "repositoryPath": "/tmp/Math-23b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BaseAbstractUnivariateOptimizer.java",
+  "functionName": "computeObjectiveValue",
+  "functionId": "computeObjectiveValue___point-double",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/optimization/univariate/BaseAbstractUnivariateOptimizer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+  "functionStartLine": 102,
+  "functionEndLine": 109,
+  "numCommitsSeen": 23,
+  "timeTaken": 12428,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "660821d1758a0bc7eabfd80b6e5528a579a01949",
+    "74c289e6cc999fec27551b7e16fb6245b1352a37",
+    "9be0992c0d829f45d0473127efdceda3c54a317d",
+    "8302dd02498495277ec0db9301edb2158bb0e314",
+    "7285331645183d45a7110d03b45e74acf46f8be3",
+    "9102bea5d82c6f97bf3cfb1d8525c13e58a9d418",
+    "7bbad398dd4da51c933414be9a17b07179dee5e4"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "660821d1758a0bc7eabfd80b6e5528a579a01949": "Yfilerename",
+    "74c289e6cc999fec27551b7e16fb6245b1352a37": "Ydocchange",
+    "9be0992c0d829f45d0473127efdceda3c54a317d": "Ymultichange(Yexceptionschange,Ydocchange)",
+    "8302dd02498495277ec0db9301edb2158bb0e314": "Ymultichange(Yexceptionschange,Ydocchange)",
+    "7285331645183d45a7110d03b45e74acf46f8be3": "Ymultichange(Yexceptionschange,Ydocchange)",
+    "9102bea5d82c6f97bf3cfb1d8525c13e58a9d418": "Ymultichange(Ybodychange,Ydocchange)",
+    "7bbad398dd4da51c933414be9a17b07179dee5e4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected double computeObjectiveValue(double point) {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+      "path": "src/main/java/org/apache/commons/math3/optimization/univariate/BaseAbstractUnivariateOptimizer.java",
+      "functionStartLine": 102,
+      "functionName": "computeObjectiveValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/optimization/univariate/BaseAbstractUnivariateOptimizer.java",
+        "newPath": "src/main/java/org/apache/commons/math3/optimization/univariate/BaseAbstractUnivariateOptimizer.java",
+        "oldMethodName": "computeObjectiveValue",
+        "newMethodName": "computeObjectiveValue"
+      }
+    },
+    "660821d1758a0bc7eabfd80b6e5528a579a01949": {
+      "type": "Yfilerename",
+      "commitMessage": "MATH-707\nClass name change:\n  \"AbstractUnivariateRealOptimizer\" -\u003e \"BaseAbstractUnivariateOptimizer\"\n  \"MultiStartUnivariateRealOptimizer\" -\u003e \"UnivariateMultiStartOptimizer\"\n  \"BaseUnivariateRealOptimizer\" -\u003e \"BaseUnivariateOptimizer\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1212385 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/9/11, 5:00 AM",
+      "commitName": "660821d1758a0bc7eabfd80b6e5528a579a01949",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "12/9/11, 4:42 AM",
+      "commitNameOld": "3d67eb0485d141cde38b6ce69bcde889dd0acdb7",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected double computeObjectiveValue(double point) {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/univariate/BaseAbstractUnivariateOptimizer.java",
+      "functionStartLine": 102,
+      "functionName": "computeObjectiveValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+        "newPath": "src/main/java/org/apache/commons/math/optimization/univariate/BaseAbstractUnivariateOptimizer.java"
+      }
+    },
+    "74c289e6cc999fec27551b7e16fb6245b1352a37": {
+      "type": "Ydocchange",
+      "commitMessage": "Removed completely MathUserException.\n\nJIRA: MATH-195\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1166311 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/7/11, 11:48 AM",
+      "commitName": "74c289e6cc999fec27551b7e16fb6245b1352a37",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "6/3/11, 1:49 PM",
+      "commitNameOld": "98e22d778b3a886be253638b9a6b7ec075c3d62d",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 95.92,
+      "commitsBetweenForRepo": 273,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected double computeObjectiveValue(double point) {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+      "functionStartLine": 95,
+      "functionName": "computeObjectiveValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws org.apache.commons.math.exception.MathUserException if the\nobjective function throws one.\n",
+        "newValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n"
+      }
+    },
+    "9be0992c0d829f45d0473127efdceda3c54a317d": {
+      "type": "Ymultichange(Yexceptionschange,Ydocchange)",
+      "commitMessage": "MATH-454\nPass the number of allowed function evaluations as a parameter to the\n\"optimize\" methods.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1043078 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/7/10, 7:01 AM",
+      "commitName": "9be0992c0d829f45d0473127efdceda3c54a317d",
+      "commitAuthor": "Gilles Sadowski",
+      "subchanges": [
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "MATH-454\nPass the number of allowed function evaluations as a parameter to the\n\"optimize\" methods.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1043078 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/7/10, 7:01 AM",
+          "commitName": "9be0992c0d829f45d0473127efdceda3c54a317d",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "11/20/10, 1:01 PM",
+          "commitNameOld": "8302dd02498495277ec0db9301edb2158bb0e314",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 16.75,
+          "commitsBetweenForRepo": 38,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 97,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws org.apache.commons.math.exception.MathUserException if the\nobjective function throws one.\n",
+          "diff": "@@ -1,8 +1,8 @@\n-protected double computeObjectiveValue(double point) throws MathUserException {\n+protected double computeObjectiveValue(double point) {\n     try {\n         evaluations.incrementCount();\n     } catch (MaxCountExceededException e) {\n         throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[MathUserException]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "MATH-454\nPass the number of allowed function evaluations as a parameter to the\n\"optimize\" methods.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1043078 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/7/10, 7:01 AM",
+          "commitName": "9be0992c0d829f45d0473127efdceda3c54a317d",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "11/20/10, 1:01 PM",
+          "commitNameOld": "8302dd02498495277ec0db9301edb2158bb0e314",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 16.75,
+          "commitsBetweenForRepo": 38,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 97,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws org.apache.commons.math.exception.MathUserException if the\nobjective function throws one.\n",
+          "diff": "@@ -1,8 +1,8 @@\n-protected double computeObjectiveValue(double point) throws MathUserException {\n+protected double computeObjectiveValue(double point) {\n     try {\n         evaluations.incrementCount();\n     } catch (MaxCountExceededException e) {\n         throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws MathUserException if objective function throws one\n",
+            "newValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws org.apache.commons.math.exception.MathUserException if the\nobjective function throws one.\n"
+          }
+        }
+      ]
+    },
+    "8302dd02498495277ec0db9301edb2158bb0e314": {
+      "type": "Ymultichange(Yexceptionschange,Ydocchange)",
+      "commitMessage": "removed FunctionEvaluationException, DerivativeException and MatrixVisitorException\nthese exception were  deprecated in 2.2 and a smooth transition path was set up to help users, now all user functions should use the new unchecked MathUserException\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1037328 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/20/10, 1:01 PM",
+      "commitName": "8302dd02498495277ec0db9301edb2158bb0e314",
+      "commitAuthor": "Luc Maisonobe",
+      "subchanges": [
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "removed FunctionEvaluationException, DerivativeException and MatrixVisitorException\nthese exception were  deprecated in 2.2 and a smooth transition path was set up to help users, now all user functions should use the new unchecked MathUserException\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1037328 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "11/20/10, 1:01 PM",
+          "commitName": "8302dd02498495277ec0db9301edb2158bb0e314",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "11/14/10, 5:41 AM",
+          "commitNameOld": "7285331645183d45a7110d03b45e74acf46f8be3",
+          "commitAuthorOld": "Gilles Sadowski",
+          "daysBetweenCommits": 6.31,
+          "commitsBetweenForRepo": 8,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) throws MathUserException {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 102,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws MathUserException if objective function throws one\n",
+          "diff": "@@ -1,8 +1,8 @@\n-protected double computeObjectiveValue(double point) {\n+protected double computeObjectiveValue(double point) throws MathUserException {\n     try {\n         evaluations.incrementCount();\n     } catch (MaxCountExceededException e) {\n         throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[]",
+            "newValue": "[MathUserException]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "removed FunctionEvaluationException, DerivativeException and MatrixVisitorException\nthese exception were  deprecated in 2.2 and a smooth transition path was set up to help users, now all user functions should use the new unchecked MathUserException\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1037328 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "11/20/10, 1:01 PM",
+          "commitName": "8302dd02498495277ec0db9301edb2158bb0e314",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "11/14/10, 5:41 AM",
+          "commitNameOld": "7285331645183d45a7110d03b45e74acf46f8be3",
+          "commitAuthorOld": "Gilles Sadowski",
+          "daysBetweenCommits": 6.31,
+          "commitsBetweenForRepo": 8,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) throws MathUserException {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 102,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws MathUserException if objective function throws one\n",
+          "diff": "@@ -1,8 +1,8 @@\n-protected double computeObjectiveValue(double point) {\n+protected double computeObjectiveValue(double point) throws MathUserException {\n     try {\n         evaluations.incrementCount();\n     } catch (MaxCountExceededException e) {\n         throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+            "newValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n@throws MathUserException if objective function throws one\n"
+          }
+        }
+      ]
+    },
+    "7285331645183d45a7110d03b45e74acf46f8be3": {
+      "type": "Ymultichange(Yexceptionschange,Ydocchange)",
+      "commitMessage": "MATH-441\nRemoved occurences of \"FunctionEvaluationException\".\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1034996 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/14/10, 5:41 AM",
+      "commitName": "7285331645183d45a7110d03b45e74acf46f8be3",
+      "commitAuthor": "Gilles Sadowski",
+      "subchanges": [
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "MATH-441\nRemoved occurences of \"FunctionEvaluationException\".\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1034996 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "11/14/10, 5:41 AM",
+          "commitName": "7285331645183d45a7110d03b45e74acf46f8be3",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "11/3/10, 6:46 AM",
+          "commitNameOld": "51ec76cc5685566569af3f312efee2aaccadddfc",
+          "commitAuthorOld": "Gilles Sadowski",
+          "daysBetweenCommits": 11.0,
+          "commitsBetweenForRepo": 37,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 100,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+          "diff": "@@ -1,8 +1,8 @@\n-protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n+protected double computeObjectiveValue(double point) {\n     try {\n         evaluations.incrementCount();\n     } catch (MaxCountExceededException e) {\n         throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[FunctionEvaluationException]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "MATH-441\nRemoved occurences of \"FunctionEvaluationException\".\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1034996 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "11/14/10, 5:41 AM",
+          "commitName": "7285331645183d45a7110d03b45e74acf46f8be3",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "11/3/10, 6:46 AM",
+          "commitNameOld": "51ec76cc5685566569af3f312efee2aaccadddfc",
+          "commitAuthorOld": "Gilles Sadowski",
+          "daysBetweenCommits": 11.0,
+          "commitsBetweenForRepo": 37,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 100,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+          "diff": "@@ -1,8 +1,8 @@\n-protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n+protected double computeObjectiveValue(double point) {\n     try {\n         evaluations.incrementCount();\n     } catch (MaxCountExceededException e) {\n         throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws FunctionEvaluationException if the function cannot be\nevaluated.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+            "newValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n"
+          }
+        }
+      ]
+    },
+    "9102bea5d82c6f97bf3cfb1d8525c13e58a9d418": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "MATH-394, MATH-397, MATH-404\nOverhaul of the \"optimization\" package.\nRemoved lots of duplicate code.\nRemoved methods referring to the concept of \"iteration\".\nRemoved interface methods to access the number of evaluations of the\ngradient and Jacobian.\nRemoved all references to \"OptimizationException\" (replaced by\n\"ConvergenceException\").\nJavadoc comments updated.\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990792 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/30/10, 6:06 AM",
+      "commitName": "9102bea5d82c6f97bf3cfb1d8525c13e58a9d418",
+      "commitAuthor": "Gilles Sadowski",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "MATH-394, MATH-397, MATH-404\nOverhaul of the \"optimization\" package.\nRemoved lots of duplicate code.\nRemoved methods referring to the concept of \"iteration\".\nRemoved interface methods to access the number of evaluations of the\ngradient and Jacobian.\nRemoved all references to \"OptimizationException\" (replaced by\n\"ConvergenceException\").\nJavadoc comments updated.\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990792 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/30/10, 6:06 AM",
+          "commitName": "9102bea5d82c6f97bf3cfb1d8525c13e58a9d418",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "8/1/10, 8:01 AM",
+          "commitNameOld": "a758b7ebe34f0e7b8bce305411fa7db1d1124211",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 28.92,
+          "commitsBetweenForRepo": 34,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 102,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws FunctionEvaluationException if the function cannot be\nevaluated.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+          "diff": "@@ -1,7 +1,8 @@\n protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n-    if (++evaluations \u003e maxEvaluations) {\n-        resultComputed \u003d false;\n-        throw new FunctionEvaluationException(new MaxEvaluationsExceededException(maxEvaluations), point);\n+    try {\n+        evaluations.incrementCount();\n+    } catch (MaxCountExceededException e) {\n+        throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "MATH-394, MATH-397, MATH-404\nOverhaul of the \"optimization\" package.\nRemoved lots of duplicate code.\nRemoved methods referring to the concept of \"iteration\".\nRemoved interface methods to access the number of evaluations of the\ngradient and Jacobian.\nRemoved all references to \"OptimizationException\" (replaced by\n\"ConvergenceException\").\nJavadoc comments updated.\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990792 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/30/10, 6:06 AM",
+          "commitName": "9102bea5d82c6f97bf3cfb1d8525c13e58a9d418",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "8/1/10, 8:01 AM",
+          "commitNameOld": "a758b7ebe34f0e7b8bce305411fa7db1d1124211",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 28.92,
+          "commitsBetweenForRepo": 34,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n    try {\n        evaluations.incrementCount();\n    } catch (MaxCountExceededException e) {\n        throw new TooManyEvaluationsException(e.getMax());\n    }\n    return function.value(point);\n}",
+          "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+          "functionStartLine": 102,
+          "functionName": "computeObjectiveValue",
+          "functionAnnotation": "",
+          "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws FunctionEvaluationException if the function cannot be\nevaluated.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+          "diff": "@@ -1,7 +1,8 @@\n protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n-    if (++evaluations \u003e maxEvaluations) {\n-        resultComputed \u003d false;\n-        throw new FunctionEvaluationException(new MaxEvaluationsExceededException(maxEvaluations), point);\n+    try {\n+        evaluations.incrementCount();\n+    } catch (MaxCountExceededException e) {\n+        throw new TooManyEvaluationsException(e.getMax());\n     }\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@exception FunctionEvaluationException if the function cannot be evaluated\nor the maximal number of iterations is exceeded.\n",
+            "newValue": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws FunctionEvaluationException if the function cannot be\nevaluated.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n"
+          }
+        }
+      ]
+    },
+    "7bbad398dd4da51c933414be9a17b07179dee5e4": {
+      "type": "Yintroduced",
+      "commitMessage": "MATH-397. Modified \"AbstractUnivariateRealOptimizer\" so that its usage is\nmore similar to what is done in package \"optimization.general\".\nDeprecated many methods as a consequence of the new layout.\nNew utility methods in \"ConvergingAlgorithmImpl\".\nTemporary workaround in \"BrentOptimizer\" (requirement from base class) to\navoid committing two issues at the same time...\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@980013 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/28/10, 3:27 AM",
+      "commitName": "7bbad398dd4da51c933414be9a17b07179dee5e4",
+      "commitAuthor": "Gilles Sadowski",
+      "diff": "@@ -0,0 +1,7 @@\n+protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n+    if (++evaluations \u003e maxEvaluations) {\n+        resultComputed \u003d false;\n+        throw new FunctionEvaluationException(new MaxEvaluationsExceededException(maxEvaluations), point);\n+    }\n+    return function.value(point);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected double computeObjectiveValue(double point) throws FunctionEvaluationException {\n    if (++evaluations \u003e maxEvaluations) {\n        resultComputed \u003d false;\n        throw new FunctionEvaluationException(new MaxEvaluationsExceededException(maxEvaluations), point);\n    }\n    return function.value(point);\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+      "functionStartLine": 208,
+      "functionName": "computeObjectiveValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@exception FunctionEvaluationException if the function cannot be evaluated\nor the maximal number of iterations is exceeded.\n"
+    }
+  }
+}

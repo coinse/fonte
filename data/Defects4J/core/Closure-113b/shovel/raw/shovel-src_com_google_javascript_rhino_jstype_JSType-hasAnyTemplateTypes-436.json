@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "hasAnyTemplateTypes",
+  "functionId": "hasAnyTemplateTypes",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 436,
+  "functionEndLine": 446,
+  "numCommitsSeen": 162,
+  "timeTaken": 2881,
+  "changeHistory": [
+    "177d001a30c568037141e555d84f9bd28d3d2d86",
+    "30a88df811879f5d389f56257c93ab5f740a0518"
+  ],
+  "changeHistoryShort": {
+    "177d001a30c568037141e555d84f9bd28d3d2d86": "Ymultichange(Yrename,Ybodychange)",
+    "30a88df811879f5d389f56257c93ab5f740a0518": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "177d001a30c568037141e555d84f9bd28d3d2d86": {
+      "type": "Ymultichange(Yrename,Ybodychange)",
+      "commitMessage": "\nAdds basic support for template keys and templatized types to the base JSType. Array and Object will be converted to this templatized type system.\n\nR\u003ddimvar,nicksantos\nDELTA\u003d324  (225 added, 17 deleted, 82 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5698\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2278 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/24/12, 2:07 PM",
+      "commitName": "177d001a30c568037141e555d84f9bd28d3d2d86",
+      "commitAuthor": "izaakr@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nAdds basic support for template keys and templatized types to the base JSType. Array and Object will be converted to this templatized type system.\n\nR\u003ddimvar,nicksantos\nDELTA\u003d324  (225 added, 17 deleted, 82 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5698\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2278 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/24/12, 2:07 PM",
+          "commitName": "177d001a30c568037141e555d84f9bd28d3d2d86",
+          "commitAuthor": "izaakr@google.com",
+          "commitDateOld": "10/23/12, 9:55 AM",
+          "commitNameOld": "2540311c64a343d4a9b41ae0244a8edb45339232",
+          "commitAuthorOld": "dimvar@google.com",
+          "daysBetweenCommits": 1.17,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public boolean hasAnyTemplateTypes() {\n    if (!this.inTemplatedCheckVisit) {\n        this.inTemplatedCheckVisit \u003d true;\n        boolean result \u003d hasAnyTemplateTypesInternal();\n        this.inTemplatedCheckVisit \u003d false;\n        return result;\n    } else {\n        return false;\n    }\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+          "functionStartLine": 440,
+          "functionName": "hasAnyTemplateTypes",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-public boolean hasAnyTemplate() {\n+public boolean hasAnyTemplateTypes() {\n     if (!this.inTemplatedCheckVisit) {\n         this.inTemplatedCheckVisit \u003d true;\n-        boolean result \u003d hasAnyTemplateInternal();\n+        boolean result \u003d hasAnyTemplateTypesInternal();\n         this.inTemplatedCheckVisit \u003d false;\n         return result;\n     } else {\n         return false;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "hasAnyTemplate",
+            "newValue": "hasAnyTemplateTypes"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAdds basic support for template keys and templatized types to the base JSType. Array and Object will be converted to this templatized type system.\n\nR\u003ddimvar,nicksantos\nDELTA\u003d324  (225 added, 17 deleted, 82 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5698\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2278 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/24/12, 2:07 PM",
+          "commitName": "177d001a30c568037141e555d84f9bd28d3d2d86",
+          "commitAuthor": "izaakr@google.com",
+          "commitDateOld": "10/23/12, 9:55 AM",
+          "commitNameOld": "2540311c64a343d4a9b41ae0244a8edb45339232",
+          "commitAuthorOld": "dimvar@google.com",
+          "daysBetweenCommits": 1.17,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public boolean hasAnyTemplateTypes() {\n    if (!this.inTemplatedCheckVisit) {\n        this.inTemplatedCheckVisit \u003d true;\n        boolean result \u003d hasAnyTemplateTypesInternal();\n        this.inTemplatedCheckVisit \u003d false;\n        return result;\n    } else {\n        return false;\n    }\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+          "functionStartLine": 440,
+          "functionName": "hasAnyTemplateTypes",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-public boolean hasAnyTemplate() {\n+public boolean hasAnyTemplateTypes() {\n     if (!this.inTemplatedCheckVisit) {\n         this.inTemplatedCheckVisit \u003d true;\n-        boolean result \u003d hasAnyTemplateInternal();\n+        boolean result \u003d hasAnyTemplateTypesInternal();\n         this.inTemplatedCheckVisit \u003d false;\n         return result;\n     } else {\n         return false;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "30a88df811879f5d389f56257c93ab5f740a0518": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDon\u0027t collapse templated types in unions.\n\nR\u003dnicksantos\nDELTA\u003d120  (119 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4967\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2029 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/7/12, 11:57 AM",
+      "commitName": "30a88df811879f5d389f56257c93ab5f740a0518",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+public boolean hasAnyTemplate() {\n+    if (!this.inTemplatedCheckVisit) {\n+        this.inTemplatedCheckVisit \u003d true;\n+        boolean result \u003d hasAnyTemplateInternal();\n+        this.inTemplatedCheckVisit \u003d false;\n+        return result;\n+    } else {\n+        return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean hasAnyTemplate() {\n    if (!this.inTemplatedCheckVisit) {\n        this.inTemplatedCheckVisit \u003d true;\n        boolean result \u003d hasAnyTemplateInternal();\n        this.inTemplatedCheckVisit \u003d false;\n        return result;\n    } else {\n        return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 335,
+      "functionName": "hasAnyTemplate",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

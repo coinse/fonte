@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-104b",
+  "repositoryPath": "/tmp/Closure-104b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnionTypeBuilder.java",
+  "functionName": "addAlternate",
+  "functionId": "addAlternate___alternate-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Adds an alternate to the union type under construction. Returns this\nfor easy chaining.\n",
+  "functionStartLine": 85,
+  "functionEndLine": 129,
+  "numCommitsSeen": 1,
+  "timeTaken": 102,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,38 @@\n+UnionTypeBuilder addAlternate(JSType alternate) {\n+    if (alternate.isNoType()) {\n+        return this;\n+    }\n+    isAllType \u003d isAllType || alternate.isAllType();\n+    boolean isAlternateUnknown \u003d alternate instanceof UnknownType;\n+    isNativeUnknownType \u003d isNativeUnknownType || isAlternateUnknown;\n+    if (isAlternateUnknown) {\n+        areAllUnknownsChecked \u003d areAllUnknownsChecked \u0026\u0026 alternate.isCheckedUnknownType();\n+    }\n+    if (!isAllType \u0026\u0026 !isNativeUnknownType) {\n+        if (alternate instanceof UnionType) {\n+            UnionType union \u003d (UnionType) alternate;\n+            for (JSType unionAlt : union.getAlternates()) {\n+                addAlternate(unionAlt);\n+            }\n+        } else {\n+            if (!alternate.isUnknownType()) {\n+                Iterator\u003cJSType\u003e it \u003d alternates.iterator();\n+                while (it.hasNext()) {\n+                    JSType current \u003d it.next();\n+                    if (!current.isUnknownType()) {\n+                        if (alternate.isSubtype(current)) {\n+                            return this;\n+                        } else if (current.isSubtype(alternate)) {\n+                            it.remove();\n+                        }\n+                    }\n+                }\n+            }\n+            alternates.add(alternate);\n+            result \u003d null;\n+        }\n+    } else {\n+        result \u003d null;\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "UnionTypeBuilder addAlternate(JSType alternate) {\n    if (alternate.isNoType()) {\n        return this;\n    }\n    isAllType \u003d isAllType || alternate.isAllType();\n    boolean isAlternateUnknown \u003d alternate instanceof UnknownType;\n    isNativeUnknownType \u003d isNativeUnknownType || isAlternateUnknown;\n    if (isAlternateUnknown) {\n        areAllUnknownsChecked \u003d areAllUnknownsChecked \u0026\u0026 alternate.isCheckedUnknownType();\n    }\n    if (!isAllType \u0026\u0026 !isNativeUnknownType) {\n        if (alternate instanceof UnionType) {\n            UnionType union \u003d (UnionType) alternate;\n            for (JSType unionAlt : union.getAlternates()) {\n                addAlternate(unionAlt);\n            }\n        } else {\n            if (!alternate.isUnknownType()) {\n                Iterator\u003cJSType\u003e it \u003d alternates.iterator();\n                while (it.hasNext()) {\n                    JSType current \u003d it.next();\n                    if (!current.isUnknownType()) {\n                        if (alternate.isSubtype(current)) {\n                            return this;\n                        } else if (current.isSubtype(alternate)) {\n                            it.remove();\n                        }\n                    }\n                }\n            }\n            alternates.add(alternate);\n            result \u003d null;\n        }\n    } else {\n        result \u003d null;\n    }\n    return this;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+      "functionStartLine": 85,
+      "functionName": "addAlternate",
+      "functionAnnotation": "",
+      "functionDoc": "Adds an alternate to the union type under construction. Returns this\nfor easy chaining.\n"
+    }
+  }
+}

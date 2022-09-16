@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-133b",
+  "repositoryPath": "/tmp/Closure-133b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IR.java",
+  "functionName": "script",
+  "functionId": "script",
+  "sourceFilePath": "src/com/google/javascript/rhino/IR.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 124,
+  "functionEndLine": 128,
+  "numCommitsSeen": 12,
+  "timeTaken": 1050,
+  "changeHistory": [
+    "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+    "2f28243f97f468e92316a2c7ea209c857689ab43"
+  ],
+  "changeHistoryShort": {
+    "d91c13290dc5aa0f35876eaf5aa6f536b0814233": "Ymultichange(Yparameterchange,Ybodychange)",
+    "2f28243f97f468e92316a2c7ea209c857689ab43": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d91c13290dc5aa0f35876eaf5aa6f536b0814233": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nDon\u0027t allow RETURN nodes as SCRIPT children and couple additional\nhelpers and some tests.\n\nR\u003dnicksantos\nDELTA\u003d154  (149 added, 1 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4856\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1996 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/24/12, 10:34 AM",
+      "commitName": "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nDon\u0027t allow RETURN nodes as SCRIPT children and couple additional\nhelpers and some tests.\n\nR\u003dnicksantos\nDELTA\u003d154  (149 added, 1 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4856\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1996 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/12, 10:34 AM",
+          "commitName": "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/14/12, 2:03 PM",
+          "commitNameOld": "7a8983042131c5a9c2b5421ae42075cbb8ef1aeb",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.86,
+          "commitsBetweenForRepo": 25,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Node script() {\n    Node block \u003d new Node(Token.SCRIPT);\n    return block;\n}",
+          "path": "src/com/google/javascript/rhino/IR.java",
+          "functionStartLine": 124,
+          "functionName": "script",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,4 @@\n-public static Node script(Node... stmts) {\n+public static Node script() {\n     Node block \u003d new Node(Token.SCRIPT);\n-    for (Node stmt : stmts) {\n-        Preconditions.checkState(mayBeStatement(stmt));\n-        block.addChildToBack(stmt);\n-    }\n     return block;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[stmts-Node]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nDon\u0027t allow RETURN nodes as SCRIPT children and couple additional\nhelpers and some tests.\n\nR\u003dnicksantos\nDELTA\u003d154  (149 added, 1 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4856\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1996 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/12, 10:34 AM",
+          "commitName": "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/14/12, 2:03 PM",
+          "commitNameOld": "7a8983042131c5a9c2b5421ae42075cbb8ef1aeb",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.86,
+          "commitsBetweenForRepo": 25,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Node script() {\n    Node block \u003d new Node(Token.SCRIPT);\n    return block;\n}",
+          "path": "src/com/google/javascript/rhino/IR.java",
+          "functionStartLine": 124,
+          "functionName": "script",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,4 @@\n-public static Node script(Node... stmts) {\n+public static Node script() {\n     Node block \u003d new Node(Token.SCRIPT);\n-    for (Node stmt : stmts) {\n-        Preconditions.checkState(mayBeStatement(stmt));\n-        block.addChildToBack(stmt);\n-    }\n     return block;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "2f28243f97f468e92316a2c7ea209c857689ab43": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRFC: An AST builder helper class.  This class has two goals:\n1) have a simpler method of building the AST for those new to the\ncompiler.\n2) create a more readable AST construction. Rather than something like:\nNode fn \u003d new Node(Token.FUNCTION, Node.newString(Token.NAME, \"fn\"),\nnew Node(Token.PARAM_LIST, new Node(Token.NAME, \"a\"), new\nNode(Token.NAME, \"b\")),new Node(Token.BLOCK));\nyou would have:\nNode fn \u003d function(name(\"fn\"), paramList(name(\"a\"),name(\"b\")),\nblock());\n\nThe intent is that the the referencing class will have a \"import static\nAst.*\".\n\nR\u003dnicksantos\nDELTA\u003d560  (560 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3726\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1602 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/15/11, 6:18 PM",
+      "commitName": "2f28243f97f468e92316a2c7ea209c857689ab43",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+public static Node script(Node... stmts) {\n+    Node block \u003d new Node(Token.SCRIPT);\n+    for (Node stmt : stmts) {\n+        Preconditions.checkState(mayBeStatement(stmt));\n+        block.addChildToBack(stmt);\n+    }\n+    return block;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Node script(Node... stmts) {\n    Node block \u003d new Node(Token.SCRIPT);\n    for (Node stmt : stmts) {\n        Preconditions.checkState(mayBeStatement(stmt));\n        block.addChildToBack(stmt);\n    }\n    return block;\n}",
+      "path": "src/com/google/javascript/rhino/IR.java",
+      "functionStartLine": 100,
+      "functionName": "script",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

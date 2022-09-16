@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateNumber",
+  "functionId": "validateNumber___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 647,
+  "functionEndLine": 656,
+  "numCommitsSeen": 15,
+  "timeTaken": 1248,
+  "changeHistory": [
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private void validateNumber(Node n) {\n+    validateNodeType(Token.NUMBER, n);\n+    validateChildCount(n, 0);\n+    try {\n+        n.getDouble();\n+    } catch (UnsupportedOperationException e) {\n+        violation(\"Invalid NUMBER node.\", n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateNumber(Node n) {\n    validateNodeType(Token.NUMBER, n);\n    validateChildCount(n, 0);\n    try {\n        n.getDouble();\n    } catch (UnsupportedOperationException e) {\n        violation(\"Invalid NUMBER node.\", n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 627,
+      "functionName": "validateNumber",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

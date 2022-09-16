@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-76b",
+  "repositoryPath": "/tmp/Closure-76b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeadAssignmentsElimination.java",
+  "functionName": "isVariableStillLiveWithinExpression",
+  "functionId": "isVariableStillLiveWithinExpression___n-Node__exprRoot-Node__variable-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+  "functionAnnotation": "",
+  "functionDoc": "Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\nthe root, this function returns true if there exists a read of that\nvariable before a write to that variable that is on the right side of n.\n\nFor example, suppose the node is x \u003d 1:\n\ny \u003d 1, x \u003d 1; // false, there is no reads at all.\ny \u003d 1, x \u003d 1, print(x) // true, there is a read right of n.\ny \u003d 1, x \u003d 1, x \u003d 2, print(x) // false, there is a read right of n but\n                              // it is after a write.\n\n@param n The current node we should look at.\n@param exprRoot The node\n",
+  "functionStartLine": 290,
+  "functionEndLine": 309,
+  "numCommitsSeen": 16,
+  "timeTaken": 1764,
+  "changeHistory": [
+    "6a17da87f9e132bdc147b33223826da040c77a6b",
+    "f8229e74701c28f001e5b4954c1f1f7a2b764c11",
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a"
+  ],
+  "changeHistoryShort": {
+    "6a17da87f9e132bdc147b33223826da040c77a6b": "Ybodychange",
+    "f8229e74701c28f001e5b4954c1f1f7a2b764c11": "Ymultichange(Ydocchange,Yformatchange)",
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6a17da87f9e132bdc147b33223826da040c77a6b": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix checks for variable reads in expressions with assignments.\nFixes issue 297.\n\nR\u003dnicksantos\nDELTA\u003d123  (113 added, 3 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d132\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@629 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/14/10, 11:51 AM",
+      "commitName": "6a17da87f9e132bdc147b33223826da040c77a6b",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/11/10, 9:42 PM",
+      "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 32.59,
+      "commitsBetweenForRepo": 82,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isVariableStillLiveWithinExpression(Node n, Node exprRoot, String variable) {\n    while (n !\u003d exprRoot) {\n        for (Node sibling \u003d n.getNext(); sibling !\u003d null; sibling \u003d sibling.getNext()) {\n            if (!ControlFlowGraph.isEnteringNewCfgNode(sibling)) {\n                VariableLiveness state \u003d isVariableReadBeforeKill(sibling, variable);\n                if (state \u003d\u003d VariableLiveness.READ) {\n                    return true;\n                } else if (state \u003d\u003d VariableLiveness.KILL) {\n                    return false;\n                }\n            }\n        }\n        n \u003d n.getParent();\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+      "functionStartLine": 290,
+      "functionName": "isVariableStillLiveWithinExpression",
+      "functionAnnotation": "",
+      "functionDoc": "Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\nthe root, this function returns true if there exists a read of that\nvariable before a write to that variable that is on the right side of n.\n\nFor example, suppose the node is x \u003d 1:\n\ny \u003d 1, x \u003d 1; // false, there is no reads at all.\ny \u003d 1, x \u003d 1, print(x) // true, there is a read right of n.\ny \u003d 1, x \u003d 1, x \u003d 2, print(x) // false, there is a read right of n but\n                              // it is after a write.\n\n@param n The current node we should look at.\n@param exprRoot The node\n",
+      "diff": "@@ -1,16 +1,16 @@\n private boolean isVariableStillLiveWithinExpression(Node n, Node exprRoot, String variable) {\n     while (n !\u003d exprRoot) {\n         for (Node sibling \u003d n.getNext(); sibling !\u003d null; sibling \u003d sibling.getNext()) {\n             if (!ControlFlowGraph.isEnteringNewCfgNode(sibling)) {\n-                VariableLiveness state \u003d readVariableBeforeKilling(sibling, variable);\n+                VariableLiveness state \u003d isVariableReadBeforeKill(sibling, variable);\n                 if (state \u003d\u003d VariableLiveness.READ) {\n                     return true;\n                 } else if (state \u003d\u003d VariableLiveness.KILL) {\n                     return false;\n                 }\n             }\n         }\n         n \u003d n.getParent();\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f8229e74701c28f001e5b4954c1f1f7a2b764c11": {
+      "type": "Ymultichange(Ydocchange,Yformatchange)",
+      "commitMessage": "\nsome whitespace-only changes\n\nFix up a type annotation on jquery externs.\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dweleuk\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@174 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/7/10, 5:51 PM",
+      "commitName": "f8229e74701c28f001e5b4954c1f1f7a2b764c11",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nsome whitespace-only changes\n\nFix up a type annotation on jquery externs.\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dweleuk\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@174 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/7/10, 5:51 PM",
+          "commitName": "f8229e74701c28f001e5b4954c1f1f7a2b764c11",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "12/9/09, 1:32 PM",
+          "commitNameOld": "13fa93d548673546ea7b13471858cf3febbd1f40",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 119.14,
+          "commitsBetweenForRepo": 127,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isVariableStillLiveWithinExpression(Node n, Node exprRoot, String variable) {\n    while (n !\u003d exprRoot) {\n        for (Node sibling \u003d n.getNext(); sibling !\u003d null; sibling \u003d sibling.getNext()) {\n            if (!ControlFlowGraph.isEnteringNewCfgNode(sibling)) {\n                VariableLiveness state \u003d readVariableBeforeKilling(sibling, variable);\n                if (state \u003d\u003d VariableLiveness.READ) {\n                    return true;\n                } else if (state \u003d\u003d VariableLiveness.KILL) {\n                    return false;\n                }\n            }\n        }\n        n \u003d n.getParent();\n    }\n    return false;\n}",
+          "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+          "functionStartLine": 252,
+          "functionName": "isVariableStillLiveWithinExpression",
+          "functionAnnotation": "",
+          "functionDoc": "Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\nthe root, this function returns true if there exists a read of that\nvariable before a write to that variable that is on the right side of n.\n\nFor example, suppose the node is x \u003d 1:\n\ny \u003d 1, x \u003d 1; // false, there is no reads at all.\ny \u003d 1, x \u003d 1, print(x) // true, there is a read right of n.\ny \u003d 1, x \u003d 1, x \u003d 2, print(x) // false, there is a read right of n but\n                              // it is after a write.\n\n@param n The current node we should look at.\n@param exprRoot The node\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\nthe root, this function returns true if there exists a read of that\nvariable before a write to that variable that is on the right side of n.\n\nFor example, suppose the node is x \u003d 1:\n\ny \u003d 1, x \u003d 1; // false, there is no reads at all.\ny \u003d 1, x \u003d 1, print(x) // true, there is a read right of n.\ny \u003d 1, x \u003d 1, x \u003d 2, print(x) // false, there is a read right of n but \n                              // it is after a write.\n\n@param n The current node we should look at.\n@param exprRoot The node\n",
+            "newValue": "Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\nthe root, this function returns true if there exists a read of that\nvariable before a write to that variable that is on the right side of n.\n\nFor example, suppose the node is x \u003d 1:\n\ny \u003d 1, x \u003d 1; // false, there is no reads at all.\ny \u003d 1, x \u003d 1, print(x) // true, there is a read right of n.\ny \u003d 1, x \u003d 1, x \u003d 2, print(x) // false, there is a read right of n but\n                              // it is after a write.\n\n@param n The current node we should look at.\n@param exprRoot The node\n"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "\nsome whitespace-only changes\n\nFix up a type annotation on jquery externs.\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dweleuk\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@174 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/7/10, 5:51 PM",
+          "commitName": "f8229e74701c28f001e5b4954c1f1f7a2b764c11",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "12/9/09, 1:32 PM",
+          "commitNameOld": "13fa93d548673546ea7b13471858cf3febbd1f40",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 119.14,
+          "commitsBetweenForRepo": 127,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isVariableStillLiveWithinExpression(Node n, Node exprRoot, String variable) {\n    while (n !\u003d exprRoot) {\n        for (Node sibling \u003d n.getNext(); sibling !\u003d null; sibling \u003d sibling.getNext()) {\n            if (!ControlFlowGraph.isEnteringNewCfgNode(sibling)) {\n                VariableLiveness state \u003d readVariableBeforeKilling(sibling, variable);\n                if (state \u003d\u003d VariableLiveness.READ) {\n                    return true;\n                } else if (state \u003d\u003d VariableLiveness.KILL) {\n                    return false;\n                }\n            }\n        }\n        n \u003d n.getParent();\n    }\n    return false;\n}",
+          "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+          "functionStartLine": 252,
+          "functionName": "isVariableStillLiveWithinExpression",
+          "functionAnnotation": "",
+          "functionDoc": "Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\nthe root, this function returns true if there exists a read of that\nvariable before a write to that variable that is on the right side of n.\n\nFor example, suppose the node is x \u003d 1:\n\ny \u003d 1, x \u003d 1; // false, there is no reads at all.\ny \u003d 1, x \u003d 1, print(x) // true, there is a read right of n.\ny \u003d 1, x \u003d 1, x \u003d 2, print(x) // false, there is a read right of n but\n                              // it is after a write.\n\n@param n The current node we should look at.\n@param exprRoot The node\n",
+          "diff": "",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": {
+      "type": "Yintroduced",
+      "commitMessage": "Never rename a variable named \"$super\", because the Prototype library\nuses this to do magic.\n\nBetter dead assignment elimination.\n\nEmit an error if you declare a parameter twice.\n\nDon\u0027t do anonymous function collapsing by default.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@12 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/17/09, 4:21 PM",
+      "commitName": "fe64e87cccd2c38524c0b36c49beb4c988d1453a",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,16 @@\n+private boolean isVariableStillLiveWithinExpression(Node n, Node exprRoot, String variable) {\n+    while (n !\u003d exprRoot) {\n+        for (Node sibling \u003d n.getNext(); sibling !\u003d null; sibling \u003d sibling.getNext()) {\n+            if (!ControlFlowGraph.isEnteringNewCfgNode(sibling)) {\n+                VariableLiveness state \u003d readVariableBeforeKilling(sibling, variable);\n+                if (state \u003d\u003d VariableLiveness.READ) {\n+                    return true;\n+                } else if (state \u003d\u003d VariableLiveness.KILL) {\n+                    return false;\n+                }\n+            }\n+        }\n+        n \u003d n.getParent();\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isVariableStillLiveWithinExpression(Node n, Node exprRoot, String variable) {\n    while (n !\u003d exprRoot) {\n        for (Node sibling \u003d n.getNext(); sibling !\u003d null; sibling \u003d sibling.getNext()) {\n            if (!ControlFlowGraph.isEnteringNewCfgNode(sibling)) {\n                VariableLiveness state \u003d readVariableBeforeKilling(sibling, variable);\n                if (state \u003d\u003d VariableLiveness.READ) {\n                    return true;\n                } else if (state \u003d\u003d VariableLiveness.KILL) {\n                    return false;\n                }\n            }\n        }\n        n \u003d n.getParent();\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+      "functionStartLine": 241,
+      "functionName": "isVariableStillLiveWithinExpression",
+      "functionAnnotation": "",
+      "functionDoc": "Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\nthe root, this function returns true if there exists a read of that\nvariable before a write to that variable that is on the right side of n.\n\nFor example, suppose the node is x \u003d 1:\n\ny \u003d 1, x \u003d 1; // false, there is no reads at all.\ny \u003d 1, x \u003d 1, print(x) // true, there is a read right of n.\ny \u003d 1, x \u003d 1, x \u003d 2, print(x) // false, there is a read right of n but \n                              // it is after a write.\n\n@param n The current node we should look at.\n@param exprRoot The node\n"
+    }
+  }
+}

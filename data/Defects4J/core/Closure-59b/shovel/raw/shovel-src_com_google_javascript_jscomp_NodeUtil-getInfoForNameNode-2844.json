@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getInfoForNameNode",
+  "functionId": "getInfoForNameNode___nameNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@param nameNode A name node\n@return The JSDocInfo for the name node\n",
+  "functionStartLine": 2844,
+  "functionEndLine": 2858,
+  "numCommitsSeen": 94,
+  "timeTaken": 7834,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+static JSDocInfo getInfoForNameNode(Node nameNode) {\n+    JSDocInfo info \u003d null;\n+    Node parent \u003d null;\n+    if (nameNode !\u003d null) {\n+        info \u003d nameNode.getJSDocInfo();\n+        parent \u003d nameNode.getParent();\n+    }\n+    if (info \u003d\u003d null \u0026\u0026 parent !\u003d null \u0026\u0026 ((parent.getType() \u003d\u003d Token.VAR \u0026\u0026 parent.hasOneChild()) || parent.getType() \u003d\u003d Token.FUNCTION)) {\n+        info \u003d parent.getJSDocInfo();\n+    }\n+    return info;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static JSDocInfo getInfoForNameNode(Node nameNode) {\n    JSDocInfo info \u003d null;\n    Node parent \u003d null;\n    if (nameNode !\u003d null) {\n        info \u003d nameNode.getJSDocInfo();\n        parent \u003d nameNode.getParent();\n    }\n    if (info \u003d\u003d null \u0026\u0026 parent !\u003d null \u0026\u0026 ((parent.getType() \u003d\u003d Token.VAR \u0026\u0026 parent.hasOneChild()) || parent.getType() \u003d\u003d Token.FUNCTION)) {\n        info \u003d parent.getJSDocInfo();\n    }\n    return info;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1915,
+      "functionName": "getInfoForNameNode",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param nameNode A name node\n@return The JSDocInfo for the name node\n"
+    }
+  }
+}

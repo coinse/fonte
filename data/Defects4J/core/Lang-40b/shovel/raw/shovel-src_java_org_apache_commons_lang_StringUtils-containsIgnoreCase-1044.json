@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-40b",
+  "repositoryPath": "/tmp/Lang-40b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtils.java",
+  "functionName": "containsIgnoreCase",
+  "functionId": "containsIgnoreCase___str-String__searchStr-String",
+  "sourceFilePath": "src/java/org/apache/commons/lang/StringUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eChecks if String contains a search String irrespective of case,\nhandling \u003ccode\u003enull\u003c/code\u003e. This method uses\n{@link #contains(String, String)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003efalse\u003c/code\u003e.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.contains(null, *) \u003d false\nStringUtils.contains(*, null) \u003d false\nStringUtils.contains(\"\", \"\") \u003d true\nStringUtils.contains(\"abc\", \"\") \u003d true\nStringUtils.contains(\"abc\", \"a\") \u003d true\nStringUtils.contains(\"abc\", \"z\") \u003d false\nStringUtils.contains(\"abc\", \"A\") \u003d true\nStringUtils.contains(\"abc\", \"Z\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@return true if the String contains the search String irrespective of\ncase or false if not or \u003ccode\u003enull\u003c/code\u003e string input\n",
+  "functionStartLine": 1044,
+  "functionEndLine": 1049,
+  "numCommitsSeen": 203,
+  "timeTaken": 5825,
+  "changeHistory": [
+    "0c5f9f0d1f91164b9cfb3daf887fc9dbf7bd198c"
+  ],
+  "changeHistoryShort": {
+    "0c5f9f0d1f91164b9cfb3daf887fc9dbf7bd198c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0c5f9f0d1f91164b9cfb3daf887fc9dbf7bd198c": {
+      "type": "Yintroduced",
+      "commitMessage": "Added containsIgnoreCase method - LANG-263\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@412200 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/6/06, 12:35 PM",
+      "commitName": "0c5f9f0d1f91164b9cfb3daf887fc9dbf7bd198c",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,6 @@\n+public static boolean containsIgnoreCase(String str, String searchStr) {\n+    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n+        return false;\n+    }\n+    return contains(str.toUpperCase(), searchStr.toUpperCase());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean containsIgnoreCase(String str, String searchStr) {\n    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n        return false;\n    }\n    return contains(str.toUpperCase(), searchStr.toUpperCase());\n}",
+      "path": "src/java/org/apache/commons/lang/StringUtils.java",
+      "functionStartLine": 1060,
+      "functionName": "containsIgnoreCase",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eChecks if String contains a search String irrespective of case,\nhandling \u003ccode\u003enull\u003c/code\u003e. This method uses\n{@link #contains(String, String)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003efalse\u003c/code\u003e.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.contains(null, *) \u003d false\nStringUtils.contains(*, null) \u003d false\nStringUtils.contains(\"\", \"\") \u003d true\nStringUtils.contains(\"abc\", \"\") \u003d true\nStringUtils.contains(\"abc\", \"a\") \u003d true\nStringUtils.contains(\"abc\", \"z\") \u003d false\nStringUtils.contains(\"abc\", \"A\") \u003d true\nStringUtils.contains(\"abc\", \"Z\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@return true if the String contains the search String irrespective of\ncase or false if not or \u003ccode\u003enull\u003c/code\u003e string input\n"
+    }
+  }
+}

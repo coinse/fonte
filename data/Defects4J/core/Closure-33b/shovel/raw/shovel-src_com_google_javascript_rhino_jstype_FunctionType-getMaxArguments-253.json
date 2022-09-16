@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionType.java",
+  "functionName": "getMaxArguments",
+  "functionId": "getMaxArguments",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the maximum number of arguments that this function requires,\nor Integer.MAX_VALUE if this is a variable argument function.\n",
+  "functionStartLine": 253,
+  "functionEndLine": 263,
+  "numCommitsSeen": 68,
+  "timeTaken": 2458,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+public int getMaxArguments() {\n+    Node params \u003d getParametersNode();\n+    if (params !\u003d null) {\n+        Node lastParam \u003d params.getLastChild();\n+        if (lastParam \u003d\u003d null || !lastParam.isVarArgs()) {\n+            return params.getChildCount();\n+        }\n+    }\n+    return Integer.MAX_VALUE;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public int getMaxArguments() {\n    Node params \u003d getParametersNode();\n    if (params !\u003d null) {\n        Node lastParam \u003d params.getLastChild();\n        if (lastParam \u003d\u003d null || !lastParam.isVarArgs()) {\n            return params.getChildCount();\n        }\n    }\n    return Integer.MAX_VALUE;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 287,
+      "functionName": "getMaxArguments",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the maximum number of arguments that this function requires,\nor Integer.MAX_VALUE if this is a variable argument function.\n"
+    }
+  }
+}

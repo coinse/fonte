@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-61b",
+  "repositoryPath": "/tmp/Closure-61b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DiagnosticGroups.java",
+  "functionName": "getRegisteredGroups",
+  "functionId": "getRegisteredGroups",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the registered diagnostic groups, indexed by name.\n",
+  "functionStartLine": 57,
+  "functionEndLine": 59,
+  "numCommitsSeen": 32,
+  "timeTaken": 1735,
+  "changeHistory": [
+    "1004aa6826a19fcb9e6a33b029b492a100fa081b"
+  ],
+  "changeHistoryShort": {
+    "1004aa6826a19fcb9e6a33b029b492a100fa081b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1004aa6826a19fcb9e6a33b029b492a100fa081b": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMake all named warning groups suppressable.\nThe real radical change here is that in order to do this,\nwe need to tell the compiler which diagnostic groups it\u0027s running\nwith, which requires a bit of clean-up in the compiler\u0027s\nbootstrapping sequence.\n\nR\u003djohnlenz\nDELTA\u003d94  (74 added, 14 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d114010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@358 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/12/10, 6:27 PM",
+      "commitName": "1004aa6826a19fcb9e6a33b029b492a100fa081b",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+protected Map\u003cString, DiagnosticGroup\u003e getRegisteredGroups() {\n+    return ImmutableMap.copyOf(groupsByName);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Map\u003cString, DiagnosticGroup\u003e getRegisteredGroups() {\n    return ImmutableMap.copyOf(groupsByName);\n}",
+      "path": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+      "functionStartLine": 44,
+      "functionName": "getRegisteredGroups",
+      "functionAnnotation": "",
+      "functionDoc": "Get the registered diagnostic groups, indexed by name.\n"
+    }
+  }
+}

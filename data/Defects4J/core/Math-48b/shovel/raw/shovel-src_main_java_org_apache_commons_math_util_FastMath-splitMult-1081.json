@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-48b",
+  "repositoryPath": "/tmp/Math-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "splitMult",
+  "functionId": "splitMult___a-double[]__b-double[]__ans-double[]",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Multiply two numbers in split form.\n\n@param a first term of multiplication\n@param b second term of multiplication\n@param ans placeholder where to put the result\n",
+  "functionStartLine": 1081,
+  "functionEndLine": 1087,
+  "numCommitsSeen": 51,
+  "timeTaken": 21018,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,5 @@\n+private static void splitMult(double[] a, double[] b, double[] ans) {\n+    ans[0] \u003d a[0] * b[0];\n+    ans[1] \u003d a[0] * b[1] + a[1] * b[0] + a[1] * b[1];\n+    resplit(ans);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void splitMult(double[] a, double[] b, double[] ans) {\n    ans[0] \u003d a[0] * b[0];\n    ans[1] \u003d a[0] * b[1] + a[1] * b[0] + a[1] * b[1];\n    resplit(ans);\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 758,
+      "functionName": "splitMult",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply two numbers in split form.\n\n@param a first term of multiplication\n@param b second term of multiplication\n@param ans placeholder where to put the result\n"
+    }
+  }
+}

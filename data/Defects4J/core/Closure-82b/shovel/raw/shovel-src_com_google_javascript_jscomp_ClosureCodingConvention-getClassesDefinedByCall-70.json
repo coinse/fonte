@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClosureCodingConvention.java",
+  "functionName": "getClassesDefinedByCall",
+  "functionId": "getClassesDefinedByCall___callNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "@inheritDoc}\n\n\u003cp\u003eUnderstands several different inheritance patterns that occur in\nGoogle code (various uses of {@code inherits} and {@code mixin}).\n",
+  "functionStartLine": 70,
+  "functionEndLine": 121,
+  "numCommitsSeen": 15,
+  "timeTaken": 646,
+  "changeHistory": [
+    "0d3e179ac3e994571aadb8f7c622b6442f387deb",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "0d3e179ac3e994571aadb8f7c622b6442f387deb": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0d3e179ac3e994571aadb8f7c622b6442f387deb": {
+      "type": "Ybodychange",
+      "commitMessage": "\n-Don\u0027t recognize goog.mixin(A, B) as an inhertitance pattern. Recognize only\ngoog.mixin(A.prototype, B.prototype).\n\nR\u003dnicksantos\nDELTA\u003d49  (28 added, 10 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d427\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@751 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/3/11, 10:01 AM",
+      "commitName": "0d3e179ac3e994571aadb8f7c622b6442f387deb",
+      "commitAuthor": "agrieve@google.com",
+      "commitDateOld": "1/7/11, 9:19 AM",
+      "commitNameOld": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+      "commitAuthorOld": "bashir@google.com",
+      "daysBetweenCommits": 27.03,
+      "commitsBetweenForRepo": 70,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic SubclassRelationship getClassesDefinedByCall(Node callNode) {\n    Node callName \u003d callNode.getFirstChild();\n    SubclassType type \u003d typeofClassDefiningName(callName);\n    if (type !\u003d null) {\n        Node subclass \u003d null;\n        Node superclass \u003d callNode.getLastChild();\n        boolean isDeprecatedCall \u003d callNode.getChildCount() \u003d\u003d 2 \u0026\u0026 callName.getType() \u003d\u003d Token.GETPROP;\n        if (isDeprecatedCall) {\n            subclass \u003d callName.getFirstChild();\n        } else if (callNode.getChildCount() \u003d\u003d 3) {\n            subclass \u003d callName.getNext();\n        }\n        if (type \u003d\u003d SubclassType.MIXIN) {\n            if (!endsWithPrototype(superclass)) {\n                return null;\n            }\n            if (!isDeprecatedCall) {\n                if (!endsWithPrototype(subclass)) {\n                    return null;\n                }\n                subclass \u003d subclass.getFirstChild();\n            }\n            superclass \u003d superclass.getFirstChild();\n        }\n        if (subclass !\u003d null \u0026\u0026 subclass.isUnscopedQualifiedName() \u0026\u0026 superclass.isUnscopedQualifiedName()) {\n            return new SubclassRelationship(type, subclass, superclass);\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+      "functionStartLine": 70,
+      "functionName": "getClassesDefinedByCall",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n\n\u003cp\u003eUnderstands several different inheritance patterns that occur in\nGoogle code (various uses of {@code inherits} and {@code mixin}).\n",
+      "diff": "@@ -1,18 +1,31 @@\n @Override\n public SubclassRelationship getClassesDefinedByCall(Node callNode) {\n     Node callName \u003d callNode.getFirstChild();\n     SubclassType type \u003d typeofClassDefiningName(callName);\n     if (type !\u003d null) {\n         Node subclass \u003d null;\n         Node superclass \u003d callNode.getLastChild();\n-        if (callNode.getChildCount() \u003d\u003d 2 \u0026\u0026 callName.getType() \u003d\u003d Token.GETPROP) {\n+        boolean isDeprecatedCall \u003d callNode.getChildCount() \u003d\u003d 2 \u0026\u0026 callName.getType() \u003d\u003d Token.GETPROP;\n+        if (isDeprecatedCall) {\n             subclass \u003d callName.getFirstChild();\n         } else if (callNode.getChildCount() \u003d\u003d 3) {\n             subclass \u003d callName.getNext();\n         }\n+        if (type \u003d\u003d SubclassType.MIXIN) {\n+            if (!endsWithPrototype(superclass)) {\n+                return null;\n+            }\n+            if (!isDeprecatedCall) {\n+                if (!endsWithPrototype(subclass)) {\n+                    return null;\n+                }\n+                subclass \u003d subclass.getFirstChild();\n+            }\n+            superclass \u003d superclass.getFirstChild();\n+        }\n         if (subclass !\u003d null \u0026\u0026 subclass.isUnscopedQualifiedName() \u0026\u0026 superclass.isUnscopedQualifiedName()) {\n-            return new SubclassRelationship(type, stripPrototype(subclass), stripPrototype(superclass));\n+            return new SubclassRelationship(type, subclass, superclass);\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,18 @@\n+@Override\n+public SubclassRelationship getClassesDefinedByCall(Node callNode) {\n+    Node callName \u003d callNode.getFirstChild();\n+    SubclassType type \u003d typeofClassDefiningName(callName);\n+    if (type !\u003d null) {\n+        Node subclass \u003d null;\n+        Node superclass \u003d callNode.getLastChild();\n+        if (callNode.getChildCount() \u003d\u003d 2 \u0026\u0026 callName.getType() \u003d\u003d Token.GETPROP) {\n+            subclass \u003d callName.getFirstChild();\n+        } else if (callNode.getChildCount() \u003d\u003d 3) {\n+            subclass \u003d callName.getNext();\n+        }\n+        if (subclass !\u003d null \u0026\u0026 subclass.isUnscopedQualifiedName() \u0026\u0026 superclass.isUnscopedQualifiedName()) {\n+            return new SubclassRelationship(type, stripPrototype(subclass), stripPrototype(superclass));\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic SubclassRelationship getClassesDefinedByCall(Node callNode) {\n    Node callName \u003d callNode.getFirstChild();\n    SubclassType type \u003d typeofClassDefiningName(callName);\n    if (type !\u003d null) {\n        Node subclass \u003d null;\n        Node superclass \u003d callNode.getLastChild();\n        if (callNode.getChildCount() \u003d\u003d 2 \u0026\u0026 callName.getType() \u003d\u003d Token.GETPROP) {\n            subclass \u003d callName.getFirstChild();\n        } else if (callNode.getChildCount() \u003d\u003d 3) {\n            subclass \u003d callName.getNext();\n        }\n        if (subclass !\u003d null \u0026\u0026 subclass.isUnscopedQualifiedName() \u0026\u0026 superclass.isUnscopedQualifiedName()) {\n            return new SubclassRelationship(type, stripPrototype(subclass), stripPrototype(superclass));\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+      "functionStartLine": 67,
+      "functionName": "getClassesDefinedByCall",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n\n\u003cp\u003eUnderstands several different inheritance patterns that occur in\nGoogle code (various uses of {@code inherits} and {@code mixin}).\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocTokenStream.java",
+  "functionName": "addToString",
+  "functionId": "addToString___c-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocTokenStream.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 241,
+  "functionEndLine": 250,
+  "numCommitsSeen": 10,
+  "timeTaken": 628,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private void addToString(int c) {\n+    int N \u003d stringBufferTop;\n+    if (N \u003d\u003d stringBuffer.length) {\n+        char[] tmp \u003d new char[stringBuffer.length * 2];\n+        System.arraycopy(stringBuffer, 0, tmp, 0, N);\n+        stringBuffer \u003d tmp;\n+    }\n+    stringBuffer[N] \u003d (char) c;\n+    stringBufferTop \u003d N + 1;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void addToString(int c) {\n    int N \u003d stringBufferTop;\n    if (N \u003d\u003d stringBuffer.length) {\n        char[] tmp \u003d new char[stringBuffer.length * 2];\n        System.arraycopy(stringBuffer, 0, tmp, 0, N);\n        stringBuffer \u003d tmp;\n    }\n    stringBuffer[N] \u003d (char) c;\n    stringBufferTop \u003d N + 1;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocTokenStream.java",
+      "functionStartLine": 243,
+      "functionName": "addToString",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

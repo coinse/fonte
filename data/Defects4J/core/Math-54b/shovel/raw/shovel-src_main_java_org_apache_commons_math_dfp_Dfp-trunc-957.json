@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-54b",
+  "repositoryPath": "/tmp/Math-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "trunc",
+  "functionId": "trunc___rmode-DfpField.RoundingMode(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Does the integer conversions with the specified rounding.\n\n@param rmode rounding mode to use\n@return truncated value\n",
+  "functionStartLine": 957,
+  "functionEndLine": 1041,
+  "numCommitsSeen": 4,
+  "timeTaken": 725,
+  "changeHistory": [
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,60 @@\n+protected Dfp trunc(final DfpField.RoundingMode rmode) {\n+    boolean changed \u003d false;\n+    if (isNaN()) {\n+        return newInstance(this);\n+    }\n+    if (nans \u003d\u003d INFINITE) {\n+        return newInstance(this);\n+    }\n+    if (mant[mant.length - 1] \u003d\u003d 0) {\n+        return newInstance(this);\n+    }\n+    if (exp \u003c 0) {\n+        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n+        Dfp result \u003d newInstance(getZero());\n+        result \u003d dotrap(DfpField.FLAG_INEXACT, TRUNC_TRAP, this, result);\n+        return result;\n+    }\n+    if (exp \u003e\u003d mant.length) {\n+        return newInstance(this);\n+    }\n+    Dfp result \u003d newInstance(this);\n+    for (int i \u003d 0; i \u003c mant.length - result.exp; i++) {\n+        changed |\u003d result.mant[i] !\u003d 0;\n+        result.mant[i] \u003d 0;\n+    }\n+    if (changed) {\n+        switch(rmode) {\n+            case ROUND_FLOOR:\n+                if (result.sign \u003d\u003d -1) {\n+                    result \u003d result.add(newInstance(-1));\n+                }\n+                break;\n+            case ROUND_CEIL:\n+                if (result.sign \u003d\u003d 1) {\n+                    result \u003d result.add(getOne());\n+                }\n+                break;\n+            case ROUND_HALF_EVEN:\n+            default:\n+                final Dfp half \u003d newInstance(\"0.5\");\n+                Dfp a \u003d subtract(result);\n+                a.sign \u003d 1;\n+                if (a.greaterThan(half)) {\n+                    a \u003d newInstance(getOne());\n+                    a.sign \u003d sign;\n+                    result \u003d result.add(a);\n+                }\n+                if (a.equals(half) \u0026\u0026 result.exp \u003e 0 \u0026\u0026 (result.mant[mant.length - result.exp] \u0026 1) !\u003d 0) {\n+                    a \u003d newInstance(getOne());\n+                    a.sign \u003d sign;\n+                    result \u003d result.add(a);\n+                }\n+                break;\n+        }\n+        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n+        result \u003d dotrap(DfpField.FLAG_INEXACT, TRUNC_TRAP, this, result);\n+        return result;\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Dfp trunc(final DfpField.RoundingMode rmode) {\n    boolean changed \u003d false;\n    if (isNaN()) {\n        return newInstance(this);\n    }\n    if (nans \u003d\u003d INFINITE) {\n        return newInstance(this);\n    }\n    if (mant[mant.length - 1] \u003d\u003d 0) {\n        return newInstance(this);\n    }\n    if (exp \u003c 0) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n        Dfp result \u003d newInstance(getZero());\n        result \u003d dotrap(DfpField.FLAG_INEXACT, TRUNC_TRAP, this, result);\n        return result;\n    }\n    if (exp \u003e\u003d mant.length) {\n        return newInstance(this);\n    }\n    Dfp result \u003d newInstance(this);\n    for (int i \u003d 0; i \u003c mant.length - result.exp; i++) {\n        changed |\u003d result.mant[i] !\u003d 0;\n        result.mant[i] \u003d 0;\n    }\n    if (changed) {\n        switch(rmode) {\n            case ROUND_FLOOR:\n                if (result.sign \u003d\u003d -1) {\n                    result \u003d result.add(newInstance(-1));\n                }\n                break;\n            case ROUND_CEIL:\n                if (result.sign \u003d\u003d 1) {\n                    result \u003d result.add(getOne());\n                }\n                break;\n            case ROUND_HALF_EVEN:\n            default:\n                final Dfp half \u003d newInstance(\"0.5\");\n                Dfp a \u003d subtract(result);\n                a.sign \u003d 1;\n                if (a.greaterThan(half)) {\n                    a \u003d newInstance(getOne());\n                    a.sign \u003d sign;\n                    result \u003d result.add(a);\n                }\n                if (a.equals(half) \u0026\u0026 result.exp \u003e 0 \u0026\u0026 (result.mant[mant.length - result.exp] \u0026 1) !\u003d 0) {\n                    a \u003d newInstance(getOne());\n                    a.sign \u003d sign;\n                    result \u003d result.add(a);\n                }\n                break;\n        }\n        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n        result \u003d dotrap(DfpField.FLAG_INEXACT, TRUNC_TRAP, this, result);\n        return result;\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 957,
+      "functionName": "trunc",
+      "functionAnnotation": "",
+      "functionDoc": "Does the integer conversions with the specified rounding.\n\n@param rmode rounding mode to use\n@return truncated value\n"
+    }
+  }
+}

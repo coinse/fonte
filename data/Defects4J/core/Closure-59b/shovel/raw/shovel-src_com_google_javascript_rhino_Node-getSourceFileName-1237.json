@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "getSourceFileName",
+  "functionId": "getSourceFileName",
+  "sourceFilePath": "src/com/google/javascript/rhino/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1237,
+  "functionEndLine": 1240,
+  "numCommitsSeen": 47,
+  "timeTaken": 2665,
+  "changeHistory": [
+    "48a32150dae5412868226f0c336b24d51000a1b5",
+    "9320feca198878ca9464aae089399a8891c314d7"
+  ],
+  "changeHistoryShort": {
+    "48a32150dae5412868226f0c336b24d51000a1b5": "Ybodychange",
+    "9320feca198878ca9464aae089399a8891c314d7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "48a32150dae5412868226f0c336b24d51000a1b5": {
+      "type": "Ybodychange",
+      "commitMessage": "\nadd a getDeclaration() method to all StaticSlots\n\nR\u003dacleung\nDELTA\u003d137  (77 added, 4 deleted, 56 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2553\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1259 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/12/11, 8:03 AM",
+      "commitName": "48a32150dae5412868226f0c336b24d51000a1b5",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "7/6/11, 8:36 PM",
+      "commitNameOld": "df632b1e20c0a9e8a625bfe97a4cd1d675fabf20",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 5.48,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String getSourceFileName() {\n    StaticSourceFile file \u003d getStaticSourceFile();\n    return file \u003d\u003d null ? null : file.getName();\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 1237,
+      "functionName": "getSourceFileName",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n public String getSourceFileName() {\n-    StaticSourceFile file \u003d ((StaticSourceFile) this.getProp(STATIC_SOURCE_FILE));\n+    StaticSourceFile file \u003d getStaticSourceFile();\n     return file \u003d\u003d null ? null : file.getName();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "9320feca198878ca9464aae089399a8891c314d7": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMake StaticSourceFile a property of Node\n\nR\u003djohnlenz\nDELTA\u003d183  (102 added, 25 deleted, 56 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2496\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1236 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/30/11, 1:25 PM",
+      "commitName": "9320feca198878ca9464aae089399a8891c314d7",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+public String getSourceFileName() {\n+    StaticSourceFile file \u003d ((StaticSourceFile) this.getProp(STATIC_SOURCE_FILE));\n+    return file \u003d\u003d null ? null : file.getName();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String getSourceFileName() {\n    StaticSourceFile file \u003d ((StaticSourceFile) this.getProp(STATIC_SOURCE_FILE));\n    return file \u003d\u003d null ? null : file.getName();\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 1229,
+      "functionName": "getSourceFileName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

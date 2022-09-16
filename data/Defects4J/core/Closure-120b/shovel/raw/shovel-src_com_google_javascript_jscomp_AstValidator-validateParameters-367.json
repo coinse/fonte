@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateParameters",
+  "functionId": "validateParameters___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 367,
+  "functionEndLine": 372,
+  "numCommitsSeen": 19,
+  "timeTaken": 1473,
+  "changeHistory": [
+    "5524adbda991632656059566b69cc2771ba42b7d",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "5524adbda991632656059566b69cc2771ba42b7d": "Ybodychange",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5524adbda991632656059566b69cc2771ba42b7d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRename a couple of AST nodes:\nDEFAULT becomes DEFAULT_CASE\nLP becomes PARAM_LIST\nGET becomes GETTER_DEF\nSET becomes SETTER_DEF\n\nR\u003dnicksantos\nDELTA\u003d215  (40 added, 5 deleted, 170 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3695\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1590 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/11, 4:42 PM",
+      "commitName": "5524adbda991632656059566b69cc2771ba42b7d",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/10/11, 8:36 AM",
+      "commitNameOld": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 1.34,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void validateParameters(Node n) {\n    validateNodeType(Token.PARAM_LIST, n);\n    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        validateName(c);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 366,
+      "functionName": "validateParameters",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n private void validateParameters(Node n) {\n-    validateNodeType(Token.LP, n);\n+    validateNodeType(Token.PARAM_LIST, n);\n     for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n         validateName(c);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+private void validateParameters(Node n) {\n+    validateNodeType(Token.LP, n);\n+    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n+        validateName(c);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateParameters(Node n) {\n    validateNodeType(Token.LP, n);\n    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        validateName(c);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 345,
+      "functionName": "validateParameters",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

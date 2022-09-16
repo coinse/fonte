@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionType.java",
+  "functionName": "clearCachedValues",
+  "functionId": "clearCachedValues",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 937,
+  "functionEndLine": 955,
+  "numCommitsSeen": 41,
+  "timeTaken": 1577,
+  "changeHistory": [
+    "f80152eb5a2de72e8336b26e0e78b9e6baae37d2",
+    "840ddca5b28cea7563a5be20d2624478af67bc02"
+  ],
+  "changeHistoryShort": {
+    "f80152eb5a2de72e8336b26e0e78b9e6baae37d2": "Ymodifierchange",
+    "840ddca5b28cea7563a5be20d2624478af67bc02": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f80152eb5a2de72e8336b26e0e78b9e6baae37d2": {
+      "type": "Ymodifierchange",
+      "commitMessage": "\nMake the global-this a true subtype of window.\nDeclare \u0027goog\u0027 at scope-declaration time.\n\n\nR\u003djohnlenz\nDELTA\u003d166  (126 added, 11 deleted, 29 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d784\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@861 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/7/11, 5:08 PM",
+      "commitName": "f80152eb5a2de72e8336b26e0e78b9e6baae37d2",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "1/26/11, 8:30 AM",
+      "commitNameOld": "043a352c2e85815a90a1926d112902d924bab6c1",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 40.36,
+      "commitsBetweenForRepo": 127,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void clearCachedValues() {\n    super.clearCachedValues();\n    if (subTypes !\u003d null) {\n        for (FunctionType subType : subTypes) {\n            subType.clearCachedValues();\n        }\n    }\n    if (!isNativeObjectType()) {\n        if (hasInstanceType()) {\n            getInstanceType().clearCachedValues();\n        }\n        if (prototype !\u003d null) {\n            prototype.clearCachedValues();\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 839,
+      "functionName": "clearCachedValues",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,17 +1,17 @@\n @Override\n-void clearCachedValues() {\n+public void clearCachedValues() {\n     super.clearCachedValues();\n     if (subTypes !\u003d null) {\n         for (FunctionType subType : subTypes) {\n             subType.clearCachedValues();\n         }\n     }\n     if (!isNativeObjectType()) {\n         if (hasInstanceType()) {\n             getInstanceType().clearCachedValues();\n         }\n         if (prototype !\u003d null) {\n             prototype.clearCachedValues();\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[]",
+        "newValue": "[public]"
+      }
+    },
+    "840ddca5b28cea7563a5be20d2624478af67bc02": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix a regression for when the user assigns an unknown\nvalue to a prototype. We don\u0027t need to handle this case well,\nas long as we handle it consistently.\n\nR\u003djohnlenz\nDELTA\u003d73  (73 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d298\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@699 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/18/11, 9:27 AM",
+      "commitName": "840ddca5b28cea7563a5be20d2624478af67bc02",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+@Override\n+void clearCachedValues() {\n+    super.clearCachedValues();\n+    if (subTypes !\u003d null) {\n+        for (FunctionType subType : subTypes) {\n+            subType.clearCachedValues();\n+        }\n+    }\n+    if (!isNativeObjectType()) {\n+        if (hasInstanceType()) {\n+            getInstanceType().clearCachedValues();\n+        }\n+        if (prototype !\u003d null) {\n+            prototype.clearCachedValues();\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nvoid clearCachedValues() {\n    super.clearCachedValues();\n    if (subTypes !\u003d null) {\n        for (FunctionType subType : subTypes) {\n            subType.clearCachedValues();\n        }\n    }\n    if (!isNativeObjectType()) {\n        if (hasInstanceType()) {\n            getInstanceType().clearCachedValues();\n        }\n        if (prototype !\u003d null) {\n            prototype.clearCachedValues();\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 863,
+      "functionName": "clearCachedValues",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

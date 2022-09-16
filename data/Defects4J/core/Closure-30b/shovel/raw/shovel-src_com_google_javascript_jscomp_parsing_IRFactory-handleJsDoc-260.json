@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "handleJsDoc",
+  "functionId": "handleJsDoc___node-AstNode__irNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 260,
+  "functionEndLine": 270,
+  "numCommitsSeen": 109,
+  "timeTaken": 4147,
+  "changeHistory": [
+    "6a113bd8455d0a22d242843e3b16c7f48739c280",
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+    "f95797059bdc7b6c4cfc4960081f0773ec85bbf8"
+  ],
+  "changeHistoryShort": {
+    "6a113bd8455d0a22d242843e3b16c7f48739c280": "Ybodychange",
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": "Ymultichange(Yparameterchange,Ybodychange)",
+    "f95797059bdc7b6c4cfc4960081f0773ec85bbf8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6a113bd8455d0a22d242843e3b16c7f48739c280": {
+      "type": "Ybodychange",
+      "commitMessage": "\nUse better APIs for Rhino, to make upgrading easier.\n\nR\u003djohnlenz\nDELTA\u003d19  (1 added, 9 deleted, 9 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3764\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1620 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/17/11, 9:12 AM",
+      "commitName": "6a113bd8455d0a22d242843e3b16c7f48739c280",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/11/11, 4:42 PM",
+      "commitNameOld": "5524adbda991632656059566b69cc2771ba42b7d",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 5.69,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private JSDocInfo handleJsDoc(AstNode node, Node irNode) {\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment, irNode);\n        parsedComments.add(comment);\n        if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n            return jsDocParser.retrieveAndResetParsedJSDocInfo();\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 258,
+      "functionName": "handleJsDoc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n private JSDocInfo handleJsDoc(AstNode node, Node irNode) {\n     Comment comment \u003d node.getJsDocNode();\n     if (comment !\u003d null) {\n         JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment, irNode);\n-        comment.setParsed(true);\n+        parsedComments.add(comment);\n         if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n             return jsDocParser.retrieveAndResetParsedJSDocInfo();\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nPart 3, source name/input id split:\nChange the construction of JSDocInfo to allow the determination of\nthe source type (extern or not) without requiring the source to be looked\nup by name.\n\nR\u003dnicksantos\nDELTA\u003d99  (51 added, 21 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2898\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1327 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 9:23 AM",
+      "commitName": "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nPart 3, source name/input id split:\nChange the construction of JSDocInfo to allow the determination of\nthe source type (extern or not) without requiring the source to be looked\nup by name.\n\nR\u003dnicksantos\nDELTA\u003d99  (51 added, 21 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2898\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1327 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 9:23 AM",
+          "commitName": "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "7/28/11, 4:19 PM",
+          "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 6.71,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSDocInfo handleJsDoc(AstNode node, Node irNode) {\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment, irNode);\n        comment.setParsed(true);\n        if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n            return jsDocParser.retrieveAndResetParsedJSDocInfo();\n        }\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+          "functionStartLine": 251,
+          "functionName": "handleJsDoc",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,11 +1,11 @@\n-private JSDocInfo handleJsDoc(AstNode node) {\n+private JSDocInfo handleJsDoc(AstNode node, Node irNode) {\n     Comment comment \u003d node.getJsDocNode();\n     if (comment !\u003d null) {\n-        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment);\n+        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment, irNode);\n         comment.setParsed(true);\n         if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n             return jsDocParser.retrieveAndResetParsedJSDocInfo();\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[node-AstNode]",
+            "newValue": "[node-AstNode, irNode-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nPart 3, source name/input id split:\nChange the construction of JSDocInfo to allow the determination of\nthe source type (extern or not) without requiring the source to be looked\nup by name.\n\nR\u003dnicksantos\nDELTA\u003d99  (51 added, 21 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2898\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1327 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 9:23 AM",
+          "commitName": "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "7/28/11, 4:19 PM",
+          "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 6.71,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSDocInfo handleJsDoc(AstNode node, Node irNode) {\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment, irNode);\n        comment.setParsed(true);\n        if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n            return jsDocParser.retrieveAndResetParsedJSDocInfo();\n        }\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+          "functionStartLine": 251,
+          "functionName": "handleJsDoc",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,11 +1,11 @@\n-private JSDocInfo handleJsDoc(AstNode node) {\n+private JSDocInfo handleJsDoc(AstNode node, Node irNode) {\n     Comment comment \u003d node.getJsDocNode();\n     if (comment !\u003d null) {\n-        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment);\n+        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment, irNode);\n         comment.setParsed(true);\n         if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n             return jsDocParser.retrieveAndResetParsedJSDocInfo();\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f95797059bdc7b6c4cfc4960081f0773ec85bbf8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nClean up some record keeping of comments.  This doesn\u0027t appear to have\nhelped the parsing speed at all.\n\nR\u003dnicksantos\nDELTA\u003d134  (45 added, 66 deleted, 23 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d266012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@465 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/27/10, 1:21 PM",
+      "commitName": "f95797059bdc7b6c4cfc4960081f0773ec85bbf8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private JSDocInfo handleJsDoc(AstNode node) {\n+    Comment comment \u003d node.getJsDocNode();\n+    if (comment !\u003d null) {\n+        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment);\n+        comment.setParsed(true);\n+        if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n+            return jsDocParser.retrieveAndResetParsedJSDocInfo();\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JSDocInfo handleJsDoc(AstNode node) {\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JsDocInfoParser jsDocParser \u003d createJsDocInfoParser(comment);\n        comment.setParsed(true);\n        if (!handlePossibleFileOverviewJsDoc(jsDocParser)) {\n            return jsDocParser.retrieveAndResetParsedJSDocInfo();\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 192,
+      "functionName": "handleJsDoc",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

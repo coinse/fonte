@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-121b",
+  "repositoryPath": "/tmp/Closure-121b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "hoistNoCompileFiles",
+  "functionId": "hoistNoCompileFiles",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Hoists inputs with the @nocompile annotation out of the inputs.\n",
+  "functionStartLine": 1465,
+  "functionEndLine": 1485,
+  "numCommitsSeen": 177,
+  "timeTaken": 3796,
+  "changeHistory": [
+    "12fd8481f02c292b38bf54dc7a9cd7a37fd1aeb7",
+    "6ff34092914307b4a3518de0f507649010bc2140"
+  ],
+  "changeHistoryShort": {
+    "12fd8481f02c292b38bf54dc7a9cd7a37fd1aeb7": "Ydocchange",
+    "6ff34092914307b4a3518de0f507649010bc2140": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "12fd8481f02c292b38bf54dc7a9cd7a37fd1aeb7": {
+      "type": "Ydocchange",
+      "commitMessage": "Fix typo\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d49459382\n",
+      "commitDate": "7/16/13, 4:47 PM",
+      "commitName": "12fd8481f02c292b38bf54dc7a9cd7a37fd1aeb7",
+      "commitAuthor": "Ben Lickly",
+      "commitDateOld": "5/8/13, 5:47 PM",
+      "commitNameOld": "36d7b04024393c043673f356b18b5638fad44ec4",
+      "commitAuthorOld": "Ben Lickly",
+      "daysBetweenCommits": 68.96,
+      "commitsBetweenForRepo": 121,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void hoistNoCompileFiles() {\n    boolean staleInputs \u003d false;\n    for (CompilerInput input : inputs) {\n        Node n \u003d input.getAstRoot(this);\n        if (n \u003d\u003d null) {\n            continue;\n        }\n        JSDocInfo info \u003d n.getJSDocInfo();\n        if (info !\u003d null \u0026\u0026 info.isNoCompile()) {\n            input.getModule().remove(input);\n            staleInputs \u003d true;\n        }\n    }\n    if (staleInputs) {\n        repartitionInputs();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1465,
+      "functionName": "hoistNoCompileFiles",
+      "functionAnnotation": "",
+      "functionDoc": "Hoists inputs with the @nocompile annotation out of the inputs.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Hoists inputs with the @nocompiler annotation out of the inputs.\n",
+        "newValue": "Hoists inputs with the @nocompile annotation out of the inputs.\n"
+      }
+    },
+    "6ff34092914307b4a3518de0f507649010bc2140": {
+      "type": "Yintroduced",
+      "commitMessage": "\nproperly lift externs when doing source-pruning.\n\nR\u003dacleung\nDELTA\u003d133  (101 added, 29 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4602\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1915 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/20/12, 5:54 PM",
+      "commitName": "6ff34092914307b4a3518de0f507649010bc2140",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+private void hoistNoCompileFiles() {\n+    boolean staleInputs \u003d false;\n+    for (CompilerInput input : inputs) {\n+        Node n \u003d input.getAstRoot(this);\n+        if (n \u003d\u003d null) {\n+            continue;\n+        }\n+        JSDocInfo info \u003d n.getJSDocInfo();\n+        if (info !\u003d null \u0026\u0026 info.isNoCompile()) {\n+            input.getModule().remove(input);\n+            staleInputs \u003d true;\n+        }\n+    }\n+    if (staleInputs) {\n+        repartitionInputs();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void hoistNoCompileFiles() {\n    boolean staleInputs \u003d false;\n    for (CompilerInput input : inputs) {\n        Node n \u003d input.getAstRoot(this);\n        if (n \u003d\u003d null) {\n            continue;\n        }\n        JSDocInfo info \u003d n.getJSDocInfo();\n        if (info !\u003d null \u0026\u0026 info.isNoCompile()) {\n            input.getModule().remove(input);\n            staleInputs \u003d true;\n        }\n    }\n    if (staleInputs) {\n        repartitionInputs();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1406,
+      "functionName": "hoistNoCompileFiles",
+      "functionAnnotation": "",
+      "functionDoc": "Hoists inputs with the @nocompiler annotation out of the inputs.\n"
+    }
+  }
+}

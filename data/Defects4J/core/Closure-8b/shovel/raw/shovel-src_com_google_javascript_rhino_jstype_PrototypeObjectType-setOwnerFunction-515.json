@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-8b",
+  "repositoryPath": "/tmp/Closure-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrototypeObjectType.java",
+  "functionName": "setOwnerFunction",
+  "functionId": "setOwnerFunction___type-FunctionType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 515,
+  "functionEndLine": 518,
+  "numCommitsSeen": 46,
+  "timeTaken": 3397,
+  "changeHistory": [
+    "535699c745b234bc1c89a4e298b523d6fda9d6dd",
+    "7e9b8336568ea7f05c33e1b58eb67fa6d4eee756",
+    "5fa514bee8f76534232e4653eaf16cd416e08012"
+  ],
+  "changeHistoryShort": {
+    "535699c745b234bc1c89a4e298b523d6fda9d6dd": "Yannotationchange",
+    "7e9b8336568ea7f05c33e1b58eb67fa6d4eee756": "Ybodychange",
+    "5fa514bee8f76534232e4653eaf16cd416e08012": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "535699c745b234bc1c89a4e298b523d6fda9d6dd": {
+      "type": "Yannotationchange",
+      "commitMessage": "\nCleanup a bunch of Eclipse code warnings.\n\nR\u003dnicksantos\nDELTA\u003d136  (19 added, 99 deleted, 18 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4714\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1962 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/8/12, 4:53 PM",
+      "commitName": "535699c745b234bc1c89a4e298b523d6fda9d6dd",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "4/2/12, 2:17 PM",
+      "commitNameOld": "382422adae8e9f07fc23c94089c0ebe08a2174bc",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 36.11,
+      "commitsBetweenForRepo": 89,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nvoid setOwnerFunction(FunctionType type) {\n    Preconditions.checkState(ownerFunction \u003d\u003d null || type \u003d\u003d null);\n    ownerFunction \u003d type;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 516,
+      "functionName": "setOwnerFunction",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,5 @@\n+@Override\n void setOwnerFunction(FunctionType type) {\n     Preconditions.checkState(ownerFunction \u003d\u003d null || type \u003d\u003d null);\n     ownerFunction \u003d type;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "7e9b8336568ea7f05c33e1b58eb67fa6d4eee756": {
+      "type": "Ybodychange",
+      "commitMessage": "\nSupport chrome-team\u0027s style of defining prototypes.\nFixes issue 537\n\nR\u003dacleung\nDELTA\u003d149  (127 added, 19 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3173\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1401 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/31/11, 7:30 PM",
+      "commitName": "7e9b8336568ea7f05c33e1b58eb67fa6d4eee756",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "8/25/11, 8:10 AM",
+      "commitNameOld": "5fa514bee8f76534232e4653eaf16cd416e08012",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 6.47,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void setOwnerFunction(FunctionType type) {\n    Preconditions.checkState(ownerFunction \u003d\u003d null || type \u003d\u003d null);\n    ownerFunction \u003d type;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 589,
+      "functionName": "setOwnerFunction",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n void setOwnerFunction(FunctionType type) {\n-    Preconditions.checkState(ownerFunction \u003d\u003d null);\n+    Preconditions.checkState(ownerFunction \u003d\u003d null || type \u003d\u003d null);\n     ownerFunction \u003d type;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "5fa514bee8f76534232e4653eaf16cd416e08012": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange how Function prototypes are represented in the type\nsystem.  This fixes lots of bugs when an anonymous object is\nthe prototype, and will make life a lot easier for IDEs.\n\nR\u003djohnlenz\nDELTA\u003d370  (129 added, 177 deleted, 64 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3135\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1389 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/25/11, 8:10 AM",
+      "commitName": "5fa514bee8f76534232e4653eaf16cd416e08012",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+void setOwnerFunction(FunctionType type) {\n+    Preconditions.checkState(ownerFunction \u003d\u003d null);\n+    ownerFunction \u003d type;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void setOwnerFunction(FunctionType type) {\n    Preconditions.checkState(ownerFunction \u003d\u003d null);\n    ownerFunction \u003d type;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 589,
+      "functionName": "setOwnerFunction",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

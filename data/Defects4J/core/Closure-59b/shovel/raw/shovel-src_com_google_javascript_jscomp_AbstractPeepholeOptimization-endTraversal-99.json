@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractPeepholeOptimization.java",
+  "functionName": "endTraversal",
+  "functionId": "endTraversal___traversal-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+  "functionAnnotation": "",
+  "functionDoc": "Informs the optimization that a traversal has completed.\n",
+  "functionStartLine": 99,
+  "functionEndLine": 101,
+  "numCommitsSeen": 17,
+  "timeTaken": 1721,
+  "changeHistory": [
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a"
+  ],
+  "changeHistoryShort": {
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/28 by johnlenz\n\n        Inline functions with inner functions into global scope if they don\u0027t\n        declare any names.\n\n        R\u003dacleung\n        DELTA\u003d329  (244 added, 27 deleted, 58 changed)\n\nChange on 2010/05/28 by dcc\n\n        First pass on refactoring FoldConstants into separate peephole optimizations. This changelist adds the notion of an AbstractPeepholeOptimization and adds a PeepholeOptimizationsPass that runs them. In this go around the minimization aspects of FoldConstants have been factored out into PeepholeMinimize. A future change will factor out the other components of FoldConstants into their own PeepholeOptimizations. DefaultPassConfig has also been updated to run the new PeepholeOptimizationPass.\n\n        This change does not move the minimization-related unit tests from FoldConstantsTest to PeepholeMinimizeTest -- a future, separate, change will do so. Hopefully this will make it easier to review.\n\n        R\u003dacleung\n        DELTA\u003d1966  (1271 added, 675 deleted, 20 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d13010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@235 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/29/10, 1:07 PM",
+      "commitName": "b4801b28ceea8db0f63da7440d6769cb9b7cce8a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,3 @@\n+void endTraversal(NodeTraversal traversal) {\n+    currentTraversal \u003d null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void endTraversal(NodeTraversal traversal) {\n    currentTraversal \u003d null;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+      "functionStartLine": 87,
+      "functionName": "endTraversal",
+      "functionAnnotation": "",
+      "functionDoc": "Informs the optimization that a traversal has completed.\n"
+    }
+  }
+}

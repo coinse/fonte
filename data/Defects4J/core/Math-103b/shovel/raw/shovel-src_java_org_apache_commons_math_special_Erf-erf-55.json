@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-103b",
+  "repositoryPath": "/tmp/Math-103b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Erf.java",
+  "functionName": "erf",
+  "functionId": "erf___x-double",
+  "sourceFilePath": "src/java/org/apache/commons/math/special/Erf.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the error function erf(x).\n\nThe implementation of this method is based on:\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href\u003d\"http://mathworld.wolfram.com/Erf.html\"\u003e\nErf\u003c/a\u003e, equation (3).\u003c/li\u003e\n\u003c/ul\u003e\n\n@param x the value.\n@return the error function erf(x)\n@throws MathException if the algorithm fails to converge.\n",
+  "functionStartLine": 55,
+  "functionEndLine": 61,
+  "numCommitsSeen": 5,
+  "timeTaken": 215,
+  "changeHistory": [
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8"
+  ],
+  "changeHistoryShort": {
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8": {
+      "type": "Yintroduced",
+      "commitMessage": "Replaced normal CDF routine with one based on the error function.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141214 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/5/04, 12:59 PM",
+      "commitName": "ac9e22b1d5abce5909d5ae2b2dde33166dddeae8",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,7 @@\n+public static double erf(double x) throws MathException {\n+    double ret \u003d Gamma.regularizedGammaP(0.5, x * x, 1.0e-15, 10000);\n+    if (x \u003c 0) {\n+        ret \u003d -ret;\n+    }\n+    return ret;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static double erf(double x) throws MathException {\n    double ret \u003d Gamma.regularizedGammaP(0.5, x * x, 1.0e-15, 10000);\n    if (x \u003c 0) {\n        ret \u003d -ret;\n    }\n    return ret;\n}",
+      "path": "src/java/org/apache/commons/math/special/Erf.java",
+      "functionStartLine": 51,
+      "functionName": "erf",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the error function erf(x).\n\nThe implementation of this method is based on:\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href\u003d\"http://mathworld.wolfram.com/Erf.html\"\u003e\nErf\u003c/a\u003e, equation (3).\u003c/li\u003e\n\u003c/ul\u003e\n\n@param x the value.\n@return the error function erf(x)\n@throws MathException if the algorithm fails to converge.\n"
+    }
+  }
+}

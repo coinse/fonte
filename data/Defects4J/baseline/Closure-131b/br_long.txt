@@ -1,0 +1,14 @@
+<b>What steps will reproduce the problem?</b>
+1. use unicode characters in a property name for an object, like this:
+var test={&quot;a\u0004b&quot;:&quot;c&quot;};
+
+2. compile
+
+<b>What is the expected output? What do you see instead?</b>
+Because unicode characters are not allowed in property names without quotes, the output should be the same as the input. However, the compiler converts the string \u0004 to the respective unicode character, and the output is: 
+var test={ab:&quot;c&quot;}; // unicode character between a and b can not be displayed here
+
+<b>What version of the product are you using? On what operating system?</b>
+newest current snapshot on multiple os (OSX/linux)
+
+<b>Please provide any additional information below.</b>

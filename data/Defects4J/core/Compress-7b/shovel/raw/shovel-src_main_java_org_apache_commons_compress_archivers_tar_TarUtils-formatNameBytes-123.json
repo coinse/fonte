@@ -1,0 +1,281 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Compress-7b",
+  "repositoryPath": "/tmp/Compress-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TarUtils.java",
+  "functionName": "formatNameBytes",
+  "functionId": "formatNameBytes___name-String__buf-byte[]__offset-int(modifiers-final)__length-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Copy a name (StringBuffer) into a buffer.\nCopies characters from the name into the buffer\nstarting at the specified offset. \nIf the buffer is longer than the name, the buffer\nis filled with trailing NULs.\nIf the name is longer than the buffer,\nthe output is truncated.\n\n@param name The header name from which to copy the characters.\n@param buf The buffer where the name is to be stored.\n@param offset The starting offset into the buffer\n@param length The maximum number of header bytes to copy.\n@return The updated offset, i.e. offset + length\n",
+  "functionStartLine": 123,
+  "functionEndLine": 137,
+  "numCommitsSeen": 18,
+  "timeTaken": 426,
+  "changeHistory": [
+    "1d5567004306b3c6019b4e828f811220fc3fe990",
+    "ae3c158e05af20843fb5ea72deb5b7fb1fefbd54",
+    "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+    "ca16539029cd63e0ab5c9e3cba354a539f94e316"
+  ],
+  "changeHistoryShort": {
+    "1d5567004306b3c6019b4e828f811220fc3fe990": "Ymultichange(Yrename,Yparameterchange,Yparametermetachange)",
+    "ae3c158e05af20843fb5ea72deb5b7fb1fefbd54": "Ymultichange(Ybodychange,Ydocchange)",
+    "46ad24db76c6f65480736006c2da8b8e5bf8ee25": "Ymultichange(Yparameterchange,Ybodychange,Yparametermetachange,Ydocchange)",
+    "ca16539029cd63e0ab5c9e3cba354a539f94e316": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1d5567004306b3c6019b4e828f811220fc3fe990": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Yparametermetachange)",
+      "commitMessage": "Rename TarUtils.getXXX methods as formatXXX\nUpdate Javadoc\nThrow IllegalArgumentException if value won\u0027t fit in buffer\nTreat long values as unsigned\nUse String instead of StringBuffer for names etc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@761372 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/2/09, 11:45 AM",
+      "commitName": "1d5567004306b3c6019b4e828f811220fc3fe990",
+      "commitAuthor": "Sebastian Bazley",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Rename TarUtils.getXXX methods as formatXXX\nUpdate Javadoc\nThrow IllegalArgumentException if value won\u0027t fit in buffer\nTreat long values as unsigned\nUse String instead of StringBuffer for names etc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@761372 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "4/2/09, 11:45 AM",
+          "commitName": "1d5567004306b3c6019b4e828f811220fc3fe990",
+          "commitAuthor": "Sebastian Bazley",
+          "commitDateOld": "3/31/09, 5:00 PM",
+          "commitNameOld": "91401bff7493957e0b7f5a91151d005a1d3b7a27",
+          "commitAuthorOld": "Sebastian Bazley",
+          "daysBetweenCommits": 1.78,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int formatNameBytes(String name, byte[] buf, final int offset, final int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 119,
+          "functionName": "formatNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Copy a name (StringBuffer) into a buffer.\nCopies characters from the name into the buffer\nstarting at the specified offset. \nIf the buffer is longer than the name, the buffer\nis filled with trailing NULs.\nIf the name is longer than the buffer,\nthe output is truncated.\n\n@param name The header name from which to copy the characters.\n@param buf The buffer where the name is to be stored.\n@param offset The starting offset into the buffer\n@param length The maximum number of header bytes to copy.\n@return The updated offset, i.e. offset + length\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n+public static int formatNameBytes(String name, byte[] buf, final int offset, final int length) {\n     int i;\n     for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n         buf[offset + i] \u003d (byte) name.charAt(i);\n     }\n     for (; i \u003c length; ++i) {\n         buf[offset + i] \u003d 0;\n     }\n     return offset + length;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "getNameBytes",
+            "newValue": "formatNameBytes"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Rename TarUtils.getXXX methods as formatXXX\nUpdate Javadoc\nThrow IllegalArgumentException if value won\u0027t fit in buffer\nTreat long values as unsigned\nUse String instead of StringBuffer for names etc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@761372 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "4/2/09, 11:45 AM",
+          "commitName": "1d5567004306b3c6019b4e828f811220fc3fe990",
+          "commitAuthor": "Sebastian Bazley",
+          "commitDateOld": "3/31/09, 5:00 PM",
+          "commitNameOld": "91401bff7493957e0b7f5a91151d005a1d3b7a27",
+          "commitAuthorOld": "Sebastian Bazley",
+          "daysBetweenCommits": 1.78,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int formatNameBytes(String name, byte[] buf, final int offset, final int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 119,
+          "functionName": "formatNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Copy a name (StringBuffer) into a buffer.\nCopies characters from the name into the buffer\nstarting at the specified offset. \nIf the buffer is longer than the name, the buffer\nis filled with trailing NULs.\nIf the name is longer than the buffer,\nthe output is truncated.\n\n@param name The header name from which to copy the characters.\n@param buf The buffer where the name is to be stored.\n@param offset The starting offset into the buffer\n@param length The maximum number of header bytes to copy.\n@return The updated offset, i.e. offset + length\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n+public static int formatNameBytes(String name, byte[] buf, final int offset, final int length) {\n     int i;\n     for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n         buf[offset + i] \u003d (byte) name.charAt(i);\n     }\n     for (; i \u003c length; ++i) {\n         buf[offset + i] \u003d 0;\n     }\n     return offset + length;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[name-StringBuffer, buf-byte[], offset-int, length-int]",
+            "newValue": "[name-String, buf-byte[], offset-int(modifiers-final), length-int(modifiers-final)]"
+          }
+        },
+        {
+          "type": "Yparametermetachange",
+          "commitMessage": "Rename TarUtils.getXXX methods as formatXXX\nUpdate Javadoc\nThrow IllegalArgumentException if value won\u0027t fit in buffer\nTreat long values as unsigned\nUse String instead of StringBuffer for names etc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@761372 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "4/2/09, 11:45 AM",
+          "commitName": "1d5567004306b3c6019b4e828f811220fc3fe990",
+          "commitAuthor": "Sebastian Bazley",
+          "commitDateOld": "3/31/09, 5:00 PM",
+          "commitNameOld": "91401bff7493957e0b7f5a91151d005a1d3b7a27",
+          "commitAuthorOld": "Sebastian Bazley",
+          "daysBetweenCommits": 1.78,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int formatNameBytes(String name, byte[] buf, final int offset, final int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 119,
+          "functionName": "formatNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Copy a name (StringBuffer) into a buffer.\nCopies characters from the name into the buffer\nstarting at the specified offset. \nIf the buffer is longer than the name, the buffer\nis filled with trailing NULs.\nIf the name is longer than the buffer,\nthe output is truncated.\n\n@param name The header name from which to copy the characters.\n@param buf The buffer where the name is to be stored.\n@param offset The starting offset into the buffer\n@param length The maximum number of header bytes to copy.\n@return The updated offset, i.e. offset + length\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n+public static int formatNameBytes(String name, byte[] buf, final int offset, final int length) {\n     int i;\n     for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n         buf[offset + i] \u003d (byte) name.charAt(i);\n     }\n     for (; i \u003c length; ++i) {\n         buf[offset + i] \u003d 0;\n     }\n     return offset + length;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[name-StringBuffer, buf-byte[], offset-int, length-int]",
+            "newValue": "[name-String, buf-byte[], offset-int(modifiers-final), length-int(modifiers-final)]"
+          }
+        }
+      ]
+    },
+    "ae3c158e05af20843fb5ea72deb5b7fb1fefbd54": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Attempt at Javadoc - needs refining...\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@760507 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/31/09, 9:24 AM",
+      "commitName": "ae3c158e05af20843fb5ea72deb5b7fb1fefbd54",
+      "commitAuthor": "Sebastian Bazley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Attempt at Javadoc - needs refining...\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@760507 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "3/31/09, 9:24 AM",
+          "commitName": "ae3c158e05af20843fb5ea72deb5b7fb1fefbd54",
+          "commitAuthor": "Sebastian Bazley",
+          "commitDateOld": "3/27/09, 5:03 PM",
+          "commitNameOld": "44dbd93bc551ba4158024a3fa4f2defcf94b2b33",
+          "commitAuthorOld": "Sebastian Bazley",
+          "daysBetweenCommits": 3.68,
+          "commitsBetweenForRepo": 65,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 112,
+          "functionName": "getNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Copy a name (StringBuffer) into a buffer.\nCopies characters from the name into the buffer\nstarting at the specified offset. \nIf the buffer is longer than the name, the buffer\nis filled with trailing NULs.\nIf the name is longer than the buffer,\nthe output is truncated.\n\n@param name The header name from which to copy the characters.\n@param buf The buffer where the name is to be stored.\n@param offset The starting offset into the buffer\n@param length The maximum number of header bytes to copy.\n@return The updated offset, i.e. offset + length\n",
+          "diff": "",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Attempt at Javadoc - needs refining...\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@760507 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "3/31/09, 9:24 AM",
+          "commitName": "ae3c158e05af20843fb5ea72deb5b7fb1fefbd54",
+          "commitAuthor": "Sebastian Bazley",
+          "commitDateOld": "3/27/09, 5:03 PM",
+          "commitNameOld": "44dbd93bc551ba4158024a3fa4f2defcf94b2b33",
+          "commitAuthorOld": "Sebastian Bazley",
+          "daysBetweenCommits": 3.68,
+          "commitsBetweenForRepo": 65,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 112,
+          "functionName": "getNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Copy a name (StringBuffer) into a buffer.\nCopies characters from the name into the buffer\nstarting at the specified offset. \nIf the buffer is longer than the name, the buffer\nis filled with trailing NULs.\nIf the name is longer than the buffer,\nthe output is truncated.\n\n@param name The header name from which to copy the characters.\n@param buf The buffer where the name is to be stored.\n@param offset The starting offset into the buffer\n@param length The maximum number of header bytes to copy.\n@return The updated offset, i.e. offset + length\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "Determine the number of bytes in an entry name.\n\n@param name The header name from which to parse.\n@param buf The buffer from which to parse.\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@return The number of bytes in a header\u0027s entry name.\n",
+            "newValue": "Copy a name (StringBuffer) into a buffer.\nCopies characters from the name into the buffer\nstarting at the specified offset. \nIf the buffer is longer than the name, the buffer\nis filled with trailing NULs.\nIf the name is longer than the buffer,\nthe output is truncated.\n\n@param name The header name from which to copy the characters.\n@param buf The buffer where the name is to be stored.\n@param offset The starting offset into the buffer\n@param length The maximum number of header bytes to copy.\n@return The updated offset, i.e. offset + length\n"
+          }
+        }
+      ]
+    },
+    "46ad24db76c6f65480736006c2da8b8e5bf8ee25": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Yparametermetachange,Ydocchange)",
+      "commitMessage": "applied patch from Christian Grobmeier\n\nupdated tar implementation from ant\nhttps://issues.apache.org/jira/browse/SANDBOX-273\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/sandbox/compress/trunk@732682 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/8/09, 3:09 AM",
+      "commitName": "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+      "commitAuthor": "Torsten Curdt",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "applied patch from Christian Grobmeier\n\nupdated tar implementation from ant\nhttps://issues.apache.org/jira/browse/SANDBOX-273\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/sandbox/compress/trunk@732682 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/8/09, 3:09 AM",
+          "commitName": "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+          "commitAuthor": "Torsten Curdt",
+          "commitDateOld": "7/19/08, 3:18 PM",
+          "commitNameOld": "a8a9e645e7c5ac3d5354580b9eb22df67acba520",
+          "commitAuthorOld": "Torsten Curdt",
+          "daysBetweenCommits": 172.54,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 100,
+          "functionName": "getNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Determine the number of bytes in an entry name.\n\n@param name The header name from which to parse.\n@param buf The buffer from which to parse.\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@return The number of bytes in a header\u0027s entry name.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static int getNameBytes(final StringBuffer name, final byte[] buffer, final int offset, final int length) {\n+public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n     int i;\n     for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n-        buffer[offset + i] \u003d (byte) name.charAt(i);\n+        buf[offset + i] \u003d (byte) name.charAt(i);\n     }\n     for (; i \u003c length; ++i) {\n-        buffer[offset + i] \u003d 0;\n+        buf[offset + i] \u003d 0;\n     }\n     return offset + length;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[name-StringBuffer(modifiers-final), buffer-byte[](modifiers-final), offset-int(modifiers-final), length-int(modifiers-final)]",
+            "newValue": "[name-StringBuffer, buf-byte[], offset-int, length-int]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "applied patch from Christian Grobmeier\n\nupdated tar implementation from ant\nhttps://issues.apache.org/jira/browse/SANDBOX-273\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/sandbox/compress/trunk@732682 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/8/09, 3:09 AM",
+          "commitName": "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+          "commitAuthor": "Torsten Curdt",
+          "commitDateOld": "7/19/08, 3:18 PM",
+          "commitNameOld": "a8a9e645e7c5ac3d5354580b9eb22df67acba520",
+          "commitAuthorOld": "Torsten Curdt",
+          "daysBetweenCommits": 172.54,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 100,
+          "functionName": "getNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Determine the number of bytes in an entry name.\n\n@param name The header name from which to parse.\n@param buf The buffer from which to parse.\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@return The number of bytes in a header\u0027s entry name.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static int getNameBytes(final StringBuffer name, final byte[] buffer, final int offset, final int length) {\n+public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n     int i;\n     for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n-        buffer[offset + i] \u003d (byte) name.charAt(i);\n+        buf[offset + i] \u003d (byte) name.charAt(i);\n     }\n     for (; i \u003c length; ++i) {\n-        buffer[offset + i] \u003d 0;\n+        buf[offset + i] \u003d 0;\n     }\n     return offset + length;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yparametermetachange",
+          "commitMessage": "applied patch from Christian Grobmeier\n\nupdated tar implementation from ant\nhttps://issues.apache.org/jira/browse/SANDBOX-273\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/sandbox/compress/trunk@732682 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/8/09, 3:09 AM",
+          "commitName": "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+          "commitAuthor": "Torsten Curdt",
+          "commitDateOld": "7/19/08, 3:18 PM",
+          "commitNameOld": "a8a9e645e7c5ac3d5354580b9eb22df67acba520",
+          "commitAuthorOld": "Torsten Curdt",
+          "daysBetweenCommits": 172.54,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 100,
+          "functionName": "getNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Determine the number of bytes in an entry name.\n\n@param name The header name from which to parse.\n@param buf The buffer from which to parse.\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@return The number of bytes in a header\u0027s entry name.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static int getNameBytes(final StringBuffer name, final byte[] buffer, final int offset, final int length) {\n+public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n     int i;\n     for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n-        buffer[offset + i] \u003d (byte) name.charAt(i);\n+        buf[offset + i] \u003d (byte) name.charAt(i);\n     }\n     for (; i \u003c length; ++i) {\n-        buffer[offset + i] \u003d 0;\n+        buf[offset + i] \u003d 0;\n     }\n     return offset + length;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[name-StringBuffer(modifiers-final), buffer-byte[](modifiers-final), offset-int(modifiers-final), length-int(modifiers-final)]",
+            "newValue": "[name-StringBuffer, buf-byte[], offset-int, length-int]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "applied patch from Christian Grobmeier\n\nupdated tar implementation from ant\nhttps://issues.apache.org/jira/browse/SANDBOX-273\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/sandbox/compress/trunk@732682 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/8/09, 3:09 AM",
+          "commitName": "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+          "commitAuthor": "Torsten Curdt",
+          "commitDateOld": "7/19/08, 3:18 PM",
+          "commitNameOld": "a8a9e645e7c5ac3d5354580b9eb22df67acba520",
+          "commitAuthorOld": "Torsten Curdt",
+          "daysBetweenCommits": 172.54,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buf[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buf[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+          "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+          "functionStartLine": 100,
+          "functionName": "getNameBytes",
+          "functionAnnotation": "",
+          "functionDoc": "Determine the number of bytes in an entry name.\n\n@param name The header name from which to parse.\n@param buf The buffer from which to parse.\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@return The number of bytes in a header\u0027s entry name.\n",
+          "diff": "@@ -1,10 +1,10 @@\n-public static int getNameBytes(final StringBuffer name, final byte[] buffer, final int offset, final int length) {\n+public static int getNameBytes(StringBuffer name, byte[] buf, int offset, int length) {\n     int i;\n     for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n-        buffer[offset + i] \u003d (byte) name.charAt(i);\n+        buf[offset + i] \u003d (byte) name.charAt(i);\n     }\n     for (; i \u003c length; ++i) {\n-        buffer[offset + i] \u003d 0;\n+        buf[offset + i] \u003d 0;\n     }\n     return offset + length;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Determine the number of bytes in an entry name.\n\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@param name Description of Parameter\n@param buffer Description of Parameter\n@return The number of bytes in a header\u0027s entry name.\n",
+            "newValue": "Determine the number of bytes in an entry name.\n\n@param name The header name from which to parse.\n@param buf The buffer from which to parse.\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@return The number of bytes in a header\u0027s entry name.\n"
+          }
+        }
+      ]
+    },
+    "ca16539029cd63e0ab5c9e3cba354a539f94e316": {
+      "type": "Yintroduced",
+      "commitMessage": "import of new redesign branch\n\nhttps://issues.apache.org/jira/browse/SANDBOX-247\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/sandbox/compress/branches/redesign@675498 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/10/08, 3:17 AM",
+      "commitName": "ca16539029cd63e0ab5c9e3cba354a539f94e316",
+      "commitAuthor": "Torsten Curdt",
+      "diff": "@@ -0,0 +1,10 @@\n+public static int getNameBytes(final StringBuffer name, final byte[] buffer, final int offset, final int length) {\n+    int i;\n+    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n+        buffer[offset + i] \u003d (byte) name.charAt(i);\n+    }\n+    for (; i \u003c length; ++i) {\n+        buffer[offset + i] \u003d 0;\n+    }\n+    return offset + length;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static int getNameBytes(final StringBuffer name, final byte[] buffer, final int offset, final int length) {\n    int i;\n    for (i \u003d 0; i \u003c length \u0026\u0026 i \u003c name.length(); ++i) {\n        buffer[offset + i] \u003d (byte) name.charAt(i);\n    }\n    for (; i \u003c length; ++i) {\n        buffer[offset + i] \u003d 0;\n    }\n    return offset + length;\n}",
+      "path": "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java",
+      "functionStartLine": 83,
+      "functionName": "getNameBytes",
+      "functionAnnotation": "",
+      "functionDoc": "Determine the number of bytes in an entry name.\n\n@param offset The offset into the buffer from which to parse.\n@param length The number of header bytes to parse.\n@param name Description of Parameter\n@param buffer Description of Parameter\n@return The number of bytes in a header\u0027s entry name.\n"
+    }
+  }
+}

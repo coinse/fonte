@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClosureOptimizePrimitives.java",
+  "functionName": "processObjectCreateCalls",
+  "functionId": "processObjectCreateCalls___callNodes-List__Node__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ClosureOptimizePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "Converts all of the given call nodes to object literals that are safe to\ndo so.\n",
+  "functionStartLine": 74,
+  "functionEndLine": 100,
+  "numCommitsSeen": 3,
+  "timeTaken": 560,
+  "changeHistory": [
+    "a28ca5764c6836f267b011d95fd00d0ec9a6adbe"
+  ],
+  "changeHistoryShort": {
+    "a28ca5764c6836f267b011d95fd00d0ec9a6adbe": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a28ca5764c6836f267b011d95fd00d0ec9a6adbe": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAttempt #2 - This time with all strings marked as quoted.\n-Convert goog.object.create() calls into object literals when possible.\n\nR\u003dnicksantos\nDELTA\u003d199  (199 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1632\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1041 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/27/11, 9:59 AM",
+      "commitName": "a28ca5764c6836f267b011d95fd00d0ec9a6adbe",
+      "commitAuthor": "agrieve@google.com",
+      "diff": "@@ -0,0 +1,23 @@\n+private void processObjectCreateCalls(List\u003cNode\u003e callNodes) {\n+    for (Node callNode : callNodes) {\n+        Node curParam \u003d callNode.getFirstChild().getNext();\n+        if (canOptimizeObjectCreate(curParam)) {\n+            Node objNode \u003d new Node(Token.OBJECTLIT).copyInformationFrom(callNode);\n+            while (curParam !\u003d null) {\n+                Node keyNode \u003d curParam;\n+                Node valueNode \u003d curParam.getNext();\n+                curParam \u003d valueNode.getNext();\n+                callNode.removeChild(keyNode);\n+                callNode.removeChild(valueNode);\n+                if (keyNode.getType() !\u003d Token.STRING) {\n+                    keyNode \u003d Node.newString(NodeUtil.getStringValue(keyNode)).copyInformationFrom(keyNode);\n+                }\n+                keyNode.setQuotedString();\n+                keyNode.addChildToBack(valueNode);\n+                objNode.addChildToBack(keyNode);\n+            }\n+            callNode.getParent().replaceChild(callNode, objNode);\n+            compiler.reportCodeChange();\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void processObjectCreateCalls(List\u003cNode\u003e callNodes) {\n    for (Node callNode : callNodes) {\n        Node curParam \u003d callNode.getFirstChild().getNext();\n        if (canOptimizeObjectCreate(curParam)) {\n            Node objNode \u003d new Node(Token.OBJECTLIT).copyInformationFrom(callNode);\n            while (curParam !\u003d null) {\n                Node keyNode \u003d curParam;\n                Node valueNode \u003d curParam.getNext();\n                curParam \u003d valueNode.getNext();\n                callNode.removeChild(keyNode);\n                callNode.removeChild(valueNode);\n                if (keyNode.getType() !\u003d Token.STRING) {\n                    keyNode \u003d Node.newString(NodeUtil.getStringValue(keyNode)).copyInformationFrom(keyNode);\n                }\n                keyNode.setQuotedString();\n                keyNode.addChildToBack(valueNode);\n                objNode.addChildToBack(keyNode);\n            }\n            callNode.getParent().replaceChild(callNode, objNode);\n            compiler.reportCodeChange();\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ClosureOptimizePrimitives.java",
+      "functionStartLine": 74,
+      "functionName": "processObjectCreateCalls",
+      "functionAnnotation": "",
+      "functionDoc": "Converts all of the given call nodes to object literals that are safe to\ndo so.\n"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PureFunctionIdentifier.java",
+  "functionName": "getJSDocInfoForFunction",
+  "functionId": "$getJSDocInfoForFunction___node-Node__parent-Node__gramp-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the doc info associated with the function.\n",
+  "functionStartLine": 686,
+  "functionEndLine": 698,
+  "numCommitsSeen": 66,
+  "timeTaken": 1644,
+  "changeHistory": [
+    "d48e656b8ef676a9d4d87503028d59628013307f",
+    "6d4979514fd802dd4deded67f3ba1929e74a928d",
+    "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01"
+  ],
+  "changeHistoryShort": {
+    "d48e656b8ef676a9d4d87503028d59628013307f": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6d4979514fd802dd4deded67f3ba1929e74a928d": "Ymultichange(Yparameterchange,Ybodychange)",
+    "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d48e656b8ef676a9d4d87503028d59628013307f": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks builds\n\n*** Original change description ***\n\nPropagate known local value information across functions.  This also fixes\nproblems with incomplete local information.\n\nR\u003dacleung,niranjan\nDELTA\u003d1003  (254 added, 671 deleted, 78 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@568 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/22/10, 7:55 PM",
+      "commitName": "d48e656b8ef676a9d4d87503028d59628013307f",
+      "commitAuthor": "diegosalas@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks builds\n\n*** Original change description ***\n\nPropagate known local value information across functions.  This also fixes\nproblems with incomplete local information.\n\nR\u003dacleung,niranjan\nDELTA\u003d1003  (254 added, 671 deleted, 78 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@568 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/22/10, 7:55 PM",
+          "commitName": "d48e656b8ef676a9d4d87503028d59628013307f",
+          "commitAuthor": "diegosalas@google.com",
+          "commitDateOld": "11/22/10, 3:02 PM",
+          "commitNameOld": "6d4979514fd802dd4deded67f3ba1929e74a928d",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n    JSDocInfo info \u003d node.getJSDocInfo();\n    if (info !\u003d null) {\n        return info;\n    } else if (NodeUtil.isName(parent)) {\n        return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n    } else if (NodeUtil.isAssign(parent)) {\n        return parent.getJSDocInfo();\n    } else {\n        return null;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+          "functionStartLine": 686,
+          "functionName": "getJSDocInfoForFunction",
+          "functionAnnotation": "",
+          "functionDoc": "Get the doc info associated with the function.\n",
+          "diff": "@@ -1,14 +1,12 @@\n-private JSDocInfo getJSDocInfoForFunction(Node node) {\n-    Node parent \u003d node.getParent();\n+private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n     JSDocInfo info \u003d node.getJSDocInfo();\n     if (info !\u003d null) {\n         return info;\n     } else if (NodeUtil.isName(parent)) {\n-        Node gramp \u003d parent.getParent();\n         return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n     } else if (NodeUtil.isAssign(parent)) {\n         return parent.getJSDocInfo();\n     } else {\n         return null;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[node-Node]",
+            "newValue": "[node-Node, parent-Node, gramp-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks builds\n\n*** Original change description ***\n\nPropagate known local value information across functions.  This also fixes\nproblems with incomplete local information.\n\nR\u003dacleung,niranjan\nDELTA\u003d1003  (254 added, 671 deleted, 78 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@568 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/22/10, 7:55 PM",
+          "commitName": "d48e656b8ef676a9d4d87503028d59628013307f",
+          "commitAuthor": "diegosalas@google.com",
+          "commitDateOld": "11/22/10, 3:02 PM",
+          "commitNameOld": "6d4979514fd802dd4deded67f3ba1929e74a928d",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n    JSDocInfo info \u003d node.getJSDocInfo();\n    if (info !\u003d null) {\n        return info;\n    } else if (NodeUtil.isName(parent)) {\n        return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n    } else if (NodeUtil.isAssign(parent)) {\n        return parent.getJSDocInfo();\n    } else {\n        return null;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+          "functionStartLine": 686,
+          "functionName": "getJSDocInfoForFunction",
+          "functionAnnotation": "",
+          "functionDoc": "Get the doc info associated with the function.\n",
+          "diff": "@@ -1,14 +1,12 @@\n-private JSDocInfo getJSDocInfoForFunction(Node node) {\n-    Node parent \u003d node.getParent();\n+private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n     JSDocInfo info \u003d node.getJSDocInfo();\n     if (info !\u003d null) {\n         return info;\n     } else if (NodeUtil.isName(parent)) {\n-        Node gramp \u003d parent.getParent();\n         return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n     } else if (NodeUtil.isAssign(parent)) {\n         return parent.getJSDocInfo();\n     } else {\n         return null;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6d4979514fd802dd4deded67f3ba1929e74a928d": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nPropagate known local value information across functions.  This also fixes\nproblems with incomplete local information.\n\nR\u003dnicksantos\nDELTA\u003d1000  (667 added, 250 deleted, 83 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d0\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@567 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/22/10, 3:02 PM",
+      "commitName": "6d4979514fd802dd4deded67f3ba1929e74a928d",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nPropagate known local value information across functions.  This also fixes\nproblems with incomplete local information.\n\nR\u003dnicksantos\nDELTA\u003d1000  (667 added, 250 deleted, 83 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d0\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@567 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/22/10, 3:02 PM",
+          "commitName": "6d4979514fd802dd4deded67f3ba1929e74a928d",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/15/10, 10:20 PM",
+          "commitNameOld": "da794a3a9cb2cebc0efb708ba9b465a4510c7235",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 6.7,
+          "commitsBetweenForRepo": 9,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSDocInfo getJSDocInfoForFunction(Node node) {\n    Node parent \u003d node.getParent();\n    JSDocInfo info \u003d node.getJSDocInfo();\n    if (info !\u003d null) {\n        return info;\n    } else if (NodeUtil.isName(parent)) {\n        Node gramp \u003d parent.getParent();\n        return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n    } else if (NodeUtil.isAssign(parent)) {\n        return parent.getJSDocInfo();\n    } else {\n        return null;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+          "functionStartLine": 689,
+          "functionName": "getJSDocInfoForFunction",
+          "functionAnnotation": "",
+          "functionDoc": "Get the doc info associated with the function.\n",
+          "diff": "@@ -1,12 +1,14 @@\n-private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n+private JSDocInfo getJSDocInfoForFunction(Node node) {\n+    Node parent \u003d node.getParent();\n     JSDocInfo info \u003d node.getJSDocInfo();\n     if (info !\u003d null) {\n         return info;\n     } else if (NodeUtil.isName(parent)) {\n+        Node gramp \u003d parent.getParent();\n         return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n     } else if (NodeUtil.isAssign(parent)) {\n         return parent.getJSDocInfo();\n     } else {\n         return null;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[node-Node, parent-Node, gramp-Node]",
+            "newValue": "[node-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nPropagate known local value information across functions.  This also fixes\nproblems with incomplete local information.\n\nR\u003dnicksantos\nDELTA\u003d1000  (667 added, 250 deleted, 83 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d0\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@567 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/22/10, 3:02 PM",
+          "commitName": "6d4979514fd802dd4deded67f3ba1929e74a928d",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/15/10, 10:20 PM",
+          "commitNameOld": "da794a3a9cb2cebc0efb708ba9b465a4510c7235",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 6.7,
+          "commitsBetweenForRepo": 9,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSDocInfo getJSDocInfoForFunction(Node node) {\n    Node parent \u003d node.getParent();\n    JSDocInfo info \u003d node.getJSDocInfo();\n    if (info !\u003d null) {\n        return info;\n    } else if (NodeUtil.isName(parent)) {\n        Node gramp \u003d parent.getParent();\n        return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n    } else if (NodeUtil.isAssign(parent)) {\n        return parent.getJSDocInfo();\n    } else {\n        return null;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+          "functionStartLine": 689,
+          "functionName": "getJSDocInfoForFunction",
+          "functionAnnotation": "",
+          "functionDoc": "Get the doc info associated with the function.\n",
+          "diff": "@@ -1,12 +1,14 @@\n-private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n+private JSDocInfo getJSDocInfoForFunction(Node node) {\n+    Node parent \u003d node.getParent();\n     JSDocInfo info \u003d node.getJSDocInfo();\n     if (info !\u003d null) {\n         return info;\n     } else if (NodeUtil.isName(parent)) {\n+        Node gramp \u003d parent.getParent();\n         return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n     } else if (NodeUtil.isAssign(parent)) {\n         return parent.getJSDocInfo();\n     } else {\n         return null;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01": {
+      "type": "Yintroduced",
+      "commitMessage": "\nUse new @modifies{this} annotations\n\nR\u003davd\nDELTA\u003d214  (185 added, 4 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d249465\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@460 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/24/10, 11:11 AM",
+      "commitName": "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,12 @@\n+private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n+    JSDocInfo info \u003d node.getJSDocInfo();\n+    if (info !\u003d null) {\n+        return info;\n+    } else if (NodeUtil.isName(parent)) {\n+        return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n+    } else if (NodeUtil.isAssign(parent)) {\n+        return parent.getJSDocInfo();\n+    } else {\n+        return null;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JSDocInfo getJSDocInfoForFunction(Node node, Node parent, Node gramp) {\n    JSDocInfo info \u003d node.getJSDocInfo();\n    if (info !\u003d null) {\n        return info;\n    } else if (NodeUtil.isName(parent)) {\n        return gramp.hasOneChild() ? gramp.getJSDocInfo() : null;\n    } else if (NodeUtil.isAssign(parent)) {\n        return parent.getJSDocInfo();\n    } else {\n        return null;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+      "functionStartLine": 707,
+      "functionName": "getJSDocInfoForFunction",
+      "functionAnnotation": "",
+      "functionDoc": "Get the doc info associated with the function.\n"
+    }
+  }
+}

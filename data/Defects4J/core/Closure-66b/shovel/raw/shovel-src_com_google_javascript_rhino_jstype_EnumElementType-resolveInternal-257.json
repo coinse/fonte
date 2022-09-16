@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "EnumElementType.java",
+  "functionName": "resolveInternal",
+  "functionId": "resolveInternal___t-ErrorReporter__scope-StaticScope__JSType__",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/EnumElementType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 257,
+  "functionEndLine": 262,
+  "numCommitsSeen": 15,
+  "timeTaken": 2156,
+  "changeHistory": [
+    "bca9abb0e3062d373fe52c0e8340337588c05708"
+  ],
+  "changeHistoryShort": {
+    "bca9abb0e3062d373fe52c0e8340337588c05708": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bca9abb0e3062d373fe52c0e8340337588c05708": {
+      "type": "Yintroduced",
+      "commitMessage": "Make sure that InlineVariables can inline variables that are never defined.\n\nCreate a function-inlining blacklist.\n\nSome minor type inference fixes.\n\nStart re-architecting type resolution to happen differently.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@77 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/26/10, 1:59 PM",
+      "commitName": "bca9abb0e3062d373fe52c0e8340337588c05708",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,6 @@\n+@Override\n+JSType resolveInternal(ErrorReporter t, StaticScope\u003cJSType\u003e scope) {\n+    primitiveType \u003d primitiveType.resolve(t, scope);\n+    primitiveObjectType \u003d (ObjectType) safeResolve(primitiveObjectType, t, scope);\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nJSType resolveInternal(ErrorReporter t, StaticScope\u003cJSType\u003e scope) {\n    primitiveType \u003d primitiveType.resolve(t, scope);\n    primitiveObjectType \u003d (ObjectType) safeResolve(primitiveObjectType, t, scope);\n    return this;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/EnumElementType.java",
+      "functionStartLine": 258,
+      "functionName": "resolveInternal",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

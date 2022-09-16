@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PropertyMap.java",
+  "functionName": "getSecondaryParents",
+  "functionId": "getSecondaryParents",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PropertyMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the secondary parents of this property map, for interfaces that\nneed multiple inheritance.\n",
+  "functionStartLine": 110,
+  "functionEndLine": 123,
+  "numCommitsSeen": 2,
+  "timeTaken": 1337,
+  "changeHistory": [
+    "2bbded191da279d08fe76e24f40339bb9b3df0b4",
+    "b2430d29987b54e977a5e5e8db9242f4486c750b"
+  ],
+  "changeHistoryShort": {
+    "2bbded191da279d08fe76e24f40339bb9b3df0b4": "Ybodychange",
+    "b2430d29987b54e977a5e5e8db9242f4486c750b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2bbded191da279d08fe76e24f40339bb9b3df0b4": {
+      "type": "Ybodychange",
+      "commitMessage": "\nSimplify a bunch of the subclassing around types and property maps, and\nmore clearly document the few places where we generate properties lazily.\n\nR\u003ddimvar\nDELTA\u003d398  (86 added, 282 deleted, 30 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5947\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2374 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/10/12, 9:07 AM",
+      "commitName": "2bbded191da279d08fe76e24f40339bb9b3df0b4",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "12/3/12, 9:30 AM",
+      "commitNameOld": "b2430d29987b54e977a5e5e8db9242f4486c750b",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 6.98,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "Iterable\u003cPropertyMap\u003e getSecondaryParents() {\n    if (parentSource \u003d\u003d null) {\n        return ImmutableList.of();\n    }\n    Iterable\u003cObjectType\u003e extendedInterfaces \u003d parentSource.getCtorExtendedInterfaces();\n    if (Iterables.isEmpty(extendedInterfaces)) {\n        return ImmutableList.of();\n    }\n    return Iterables.transform(extendedInterfaces, PROP_MAP_FROM_TYPE);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PropertyMap.java",
+      "functionStartLine": 110,
+      "functionName": "getSecondaryParents",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the secondary parents of this property map, for interfaces that\nneed multiple inheritance.\n",
+      "diff": "@@ -1,7 +1,10 @@\n Iterable\u003cPropertyMap\u003e getSecondaryParents() {\n+    if (parentSource \u003d\u003d null) {\n+        return ImmutableList.of();\n+    }\n     Iterable\u003cObjectType\u003e extendedInterfaces \u003d parentSource.getCtorExtendedInterfaces();\n     if (Iterables.isEmpty(extendedInterfaces)) {\n         return ImmutableList.of();\n     }\n     return Iterables.transform(extendedInterfaces, PROP_MAP_FROM_TYPE);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "b2430d29987b54e977a5e5e8db9242f4486c750b": {
+      "type": "Yintroduced",
+      "commitMessage": "\nProposal: change how we represent property sets on objects.\nI went down this rabbit-hole to experiment with a few different things:\n- Separating property bookkeeping from type relation bookkeeping.\n- Use the same property-store for \"new Foo()\" and \"Foo.prototype\".\nI don\u0027t think that maintaining separate property maps for these two\ntypes actually buys us anything, and it\u0027s inconsistent with how they\u0027re\nused in practice.\n- Use the same property-store for \"Foo.\u003cBar\u003e\" and \"Foo.\u003cBaz\u003e\"\nI actually like how this ended up--it\u0027s a lot easier to see how properties\nare inherited. But I\u0027m curious what others think.\n\nR\u003djohnlenz,dimvar\nDELTA\u003d507  (347 added, 143 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5910\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2361 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/3/12, 9:30 AM",
+      "commitName": "b2430d29987b54e977a5e5e8db9242f4486c750b",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+Iterable\u003cPropertyMap\u003e getSecondaryParents() {\n+    Iterable\u003cObjectType\u003e extendedInterfaces \u003d parentSource.getCtorExtendedInterfaces();\n+    if (Iterables.isEmpty(extendedInterfaces)) {\n+        return ImmutableList.of();\n+    }\n+    return Iterables.transform(extendedInterfaces, PROP_MAP_FROM_TYPE);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Iterable\u003cPropertyMap\u003e getSecondaryParents() {\n    Iterable\u003cObjectType\u003e extendedInterfaces \u003d parentSource.getCtorExtendedInterfaces();\n    if (Iterables.isEmpty(extendedInterfaces)) {\n        return ImmutableList.of();\n    }\n    return Iterables.transform(extendedInterfaces, PROP_MAP_FROM_TYPE);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PropertyMap.java",
+      "functionStartLine": 91,
+      "functionName": "getSecondaryParents",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the secondary parents of this property map, for interfaces that\nneed multiple inheritance.\n"
+    }
+  }
+}

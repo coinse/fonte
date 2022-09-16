@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "OperaCompoundAssignFix.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/OperaCompoundAssignFix.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 76,
+  "functionEndLine": 79,
+  "numCommitsSeen": 3,
+  "timeTaken": 663,
+  "changeHistory": [
+    "bf4fc620041677d3031a326fd2c0f91352fa6e27"
+  ],
+  "changeHistoryShort": {
+    "bf4fc620041677d3031a326fd2c0f91352fa6e27": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bf4fc620041677d3031a326fd2c0f91352fa6e27": {
+      "type": "Yintroduced",
+      "commitMessage": "\nWorkaround for Opera bug.\n\nR\u003djohnlenz\nDELTA\u003d335  (328 added, 5 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1226\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@959 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/1/11, 2:52 PM",
+      "commitName": "bf4fc620041677d3031a326fd2c0f91352fa6e27",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public void process(Node externs, Node root) {\n+    List\u003cNode\u003e code \u003d Lists.newArrayList(externs, root);\n+    NodeTraversal.traverseRoots(compiler, code, this);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    List\u003cNode\u003e code \u003d Lists.newArrayList(externs, root);\n    NodeTraversal.traverseRoots(compiler, code, this);\n}",
+      "path": "src/com/google/javascript/jscomp/OperaCompoundAssignFix.java",
+      "functionStartLine": 76,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

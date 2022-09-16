@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnalyzePrototypeProperties.java",
+  "functionName": "shouldTraverse",
+  "functionId": "$shouldTraverse___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 205,
+  "functionEndLine": 218,
+  "numCommitsSeen": 19,
+  "timeTaken": 897,
+  "changeHistory": [
+    "140d131abbce3e1457066626398126f46ddaaf6b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "140d131abbce3e1457066626398126f46ddaaf6b": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "140d131abbce3e1457066626398126f46ddaaf6b": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/14 by alan\n\n        Missed opportunities in CrossModuleMethodMotion.\n\n        R\u003dnick\n        DELTA\u003d91  (58 added, 6 deleted, 27 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@211 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/14/10, 8:55 AM",
+      "commitName": "140d131abbce3e1457066626398126f46ddaaf6b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/12/10, 7:59 AM",
+      "commitNameOld": "80fe41fd0173c3eaa56f4abb783031966ea89cef",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 32.04,
+      "commitsBetweenForRepo": 29,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n    if (isPrototypePropertyAssign(n)) {\n        symbolStack.push(new NameContext(getNameInfoForName(n.getFirstChild().getLastChild().getString(), PROPERTY)));\n    } else if (isGlobalFunctionDeclaration(t, n)) {\n        String name \u003d parent.getType() \u003d\u003d Token.NAME ? parent.getString() : n.getFirstChild().getString();\n        symbolStack.push(new NameContext(getNameInfoForName(name, VAR)));\n    } else if (NodeUtil.isFunction(n)) {\n        symbolStack.push(new NameContext(anonymousNode));\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+      "functionStartLine": 207,
+      "functionName": "shouldTraverse",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,11 @@\n public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n     if (isPrototypePropertyAssign(n)) {\n-        symbolStack.push(getNameInfoForName(n.getFirstChild().getLastChild().getString(), PROPERTY));\n-    } else if (isGlobalFunctionDeclaration(t, n, parent)) {\n+        symbolStack.push(new NameContext(getNameInfoForName(n.getFirstChild().getLastChild().getString(), PROPERTY)));\n+    } else if (isGlobalFunctionDeclaration(t, n)) {\n         String name \u003d parent.getType() \u003d\u003d Token.NAME ? parent.getString() : n.getFirstChild().getString();\n-        symbolStack.push(getNameInfoForName(name, VAR));\n+        symbolStack.push(new NameContext(getNameInfoForName(name, VAR)));\n+    } else if (NodeUtil.isFunction(n)) {\n+        symbolStack.push(new NameContext(anonymousNode));\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n+    if (isPrototypePropertyAssign(n)) {\n+        symbolStack.push(getNameInfoForName(n.getFirstChild().getLastChild().getString(), PROPERTY));\n+    } else if (isGlobalFunctionDeclaration(t, n, parent)) {\n+        String name \u003d parent.getType() \u003d\u003d Token.NAME ? parent.getString() : n.getFirstChild().getString();\n+        symbolStack.push(getNameInfoForName(name, VAR));\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n    if (isPrototypePropertyAssign(n)) {\n        symbolStack.push(getNameInfoForName(n.getFirstChild().getLastChild().getString(), PROPERTY));\n    } else if (isGlobalFunctionDeclaration(t, n, parent)) {\n        String name \u003d parent.getType() \u003d\u003d Token.NAME ? parent.getString() : n.getFirstChild().getString();\n        symbolStack.push(getNameInfoForName(name, VAR));\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+      "functionStartLine": 190,
+      "functionName": "shouldTraverse",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-106b",
+  "repositoryPath": "/tmp/Math-106b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FractionFormat.java",
+  "functionName": "getDefaultNumberFormat",
+  "functionId": "getDefaultNumberFormat___locale-Locale",
+  "sourceFilePath": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getNumberInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 0.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+  "functionStartLine": 152,
+  "functionEndLine": 157,
+  "numCommitsSeen": 7,
+  "timeTaken": 525,
+  "changeHistory": [
+    "9d4734e3274887a040bffe9d171dbc3fd9071831",
+    "cac390d88c299d6f38d1321f5a8a2b837e92b424",
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6"
+  ],
+  "changeHistoryShort": {
+    "9d4734e3274887a040bffe9d171dbc3fd9071831": "Ybodychange",
+    "cac390d88c299d6f38d1321f5a8a2b837e92b424": "Ymultichange(Ybodychange,Ydocchange)",
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9d4734e3274887a040bffe9d171dbc3fd9071831": {
+      "type": "Ybodychange",
+      "commitMessage": "Added integer parse restriction.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@201940 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/26/05, 8:46 PM",
+      "commitName": "9d4734e3274887a040bffe9d171dbc3fd9071831",
+      "commitAuthor": "Phil Steitz",
+      "commitDateOld": "6/26/05, 3:20 PM",
+      "commitNameOld": "bd4c0682a71ff99179cc6ab2b0c1f23339267945",
+      "commitAuthorOld": "Phil Steitz",
+      "daysBetweenCommits": 0.23,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static NumberFormat getDefaultNumberFormat(Locale locale) {\n    NumberFormat nf \u003d NumberFormat.getNumberInstance(locale);\n    nf.setMaximumFractionDigits(0);\n    nf.setParseIntegerOnly(true);\n    return nf;\n}",
+      "path": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+      "functionStartLine": 152,
+      "functionName": "getDefaultNumberFormat",
+      "functionAnnotation": "",
+      "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getNumberInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 0.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+      "diff": "@@ -1,5 +1,6 @@\n private static NumberFormat getDefaultNumberFormat(Locale locale) {\n     NumberFormat nf \u003d NumberFormat.getNumberInstance(locale);\n     nf.setMaximumFractionDigits(0);\n+    nf.setParseIntegerOnly(true);\n     return nf;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "cac390d88c299d6f38d1321f5a8a2b837e92b424": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Eliminated JDK 1.4 dependency.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@201821 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/25/05, 8:29 PM",
+      "commitName": "cac390d88c299d6f38d1321f5a8a2b837e92b424",
+      "commitAuthor": "Phil Steitz",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Eliminated JDK 1.4 dependency.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@201821 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "6/25/05, 8:29 PM",
+          "commitName": "cac390d88c299d6f38d1321f5a8a2b837e92b424",
+          "commitAuthor": "Phil Steitz",
+          "commitDateOld": "5/21/05, 10:25 PM",
+          "commitNameOld": "b64000af437bfa5282f94ac0dfd2a0b1994af099",
+          "commitAuthorOld": "Brent Worden",
+          "daysBetweenCommits": 34.92,
+          "commitsBetweenForRepo": 23,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static NumberFormat getDefaultNumberFormat(Locale locale) {\n    NumberFormat nf \u003d NumberFormat.getNumberInstance(locale);\n    nf.setMaximumFractionDigits(0);\n    return nf;\n}",
+          "path": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+          "functionStartLine": 152,
+          "functionName": "getDefaultNumberFormat",
+          "functionAnnotation": "",
+          "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getNumberInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 0.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+          "diff": "@@ -1,4 +1,5 @@\n private static NumberFormat getDefaultNumberFormat(Locale locale) {\n-    NumberFormat nf \u003d NumberFormat.getIntegerInstance(locale);\n+    NumberFormat nf \u003d NumberFormat.getNumberInstance(locale);\n+    nf.setMaximumFractionDigits(0);\n     return nf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Eliminated JDK 1.4 dependency.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@201821 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "6/25/05, 8:29 PM",
+          "commitName": "cac390d88c299d6f38d1321f5a8a2b837e92b424",
+          "commitAuthor": "Phil Steitz",
+          "commitDateOld": "5/21/05, 10:25 PM",
+          "commitNameOld": "b64000af437bfa5282f94ac0dfd2a0b1994af099",
+          "commitAuthorOld": "Brent Worden",
+          "daysBetweenCommits": 34.92,
+          "commitsBetweenForRepo": 23,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static NumberFormat getDefaultNumberFormat(Locale locale) {\n    NumberFormat nf \u003d NumberFormat.getNumberInstance(locale);\n    nf.setMaximumFractionDigits(0);\n    return nf;\n}",
+          "path": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+          "functionStartLine": 152,
+          "functionName": "getDefaultNumberFormat",
+          "functionAnnotation": "",
+          "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getNumberInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 0.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+          "diff": "@@ -1,4 +1,5 @@\n private static NumberFormat getDefaultNumberFormat(Locale locale) {\n-    NumberFormat nf \u003d NumberFormat.getIntegerInstance(locale);\n+    NumberFormat nf \u003d NumberFormat.getNumberInstance(locale);\n+    nf.setMaximumFractionDigits(0);\n     return nf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+            "newValue": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getNumberInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 0.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n"
+          }
+        }
+      ]
+    },
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": {
+      "type": "Yintroduced",
+      "commitMessage": "added fraction class and fraction formatting classes.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@151479 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/4/05, 9:49 PM",
+      "commitName": "41598b038509e9cdb7f6dbeefdb2a2876d2708a6",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,4 @@\n+private static NumberFormat getDefaultNumberFormat(Locale locale) {\n+    NumberFormat nf \u003d NumberFormat.getIntegerInstance(locale);\n+    return nf;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static NumberFormat getDefaultNumberFormat(Locale locale) {\n    NumberFormat nf \u003d NumberFormat.getIntegerInstance(locale);\n    return nf;\n}",
+      "path": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+      "functionStartLine": 152,
+      "functionName": "getDefaultNumberFormat",
+      "functionAnnotation": "",
+      "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n"
+    }
+  }
+}

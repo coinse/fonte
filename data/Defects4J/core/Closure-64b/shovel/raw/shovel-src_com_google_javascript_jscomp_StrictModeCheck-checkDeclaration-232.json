@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StrictModeCheck.java",
+  "functionName": "checkDeclaration",
+  "functionId": "$checkDeclaration___t-NodeTraversal__n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/StrictModeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "Checks for illegal declarations.\n",
+  "functionStartLine": 232,
+  "functionEndLine": 242,
+  "numCommitsSeen": 16,
+  "timeTaken": 450,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private void checkDeclaration(NodeTraversal t, Node n) {\n+    if (\"eval\".equals(n.getString())) {\n+        t.report(n, EVAL_DECLARATION);\n+    } else if (\"arguments\".equals(n.getString())) {\n+        t.report(n, ARGUMENTS_DECLARATION);\n+    } else if (n.getString().endsWith(\"__\")) {\n+        if (!noCajaChecks) {\n+            t.report(n, ILLEGAL_NAME);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void checkDeclaration(NodeTraversal t, Node n) {\n    if (\"eval\".equals(n.getString())) {\n        t.report(n, EVAL_DECLARATION);\n    } else if (\"arguments\".equals(n.getString())) {\n        t.report(n, ARGUMENTS_DECLARATION);\n    } else if (n.getString().endsWith(\"__\")) {\n        if (!noCajaChecks) {\n            t.report(n, ILLEGAL_NAME);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/StrictModeCheck.java",
+      "functionStartLine": 211,
+      "functionName": "checkDeclaration",
+      "functionAnnotation": "",
+      "functionDoc": "Checks for illegal declarations.\n"
+    }
+  }
+}

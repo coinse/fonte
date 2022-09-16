@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-121b",
+  "repositoryPath": "/tmp/Closure-121b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InlineVariables.java",
+  "functionName": "maybeEscapedOrModifiedArguments",
+  "functionId": "$maybeEscapedOrModifiedArguments___scope-Scope__referenceMap-ReferenceMap",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InlineVariables.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 224,
+  "functionEndLine": 244,
+  "numCommitsSeen": 52,
+  "timeTaken": 1621,
+  "changeHistory": [
+    "fb1ca6ab49d90553268b711edc805c47ceae5088",
+    "75a9013e3907e5db97f10578227497d7b018caf5",
+    "ba0119710233a1be87c10c5e71424dc5922cc627"
+  ],
+  "changeHistoryShort": {
+    "fb1ca6ab49d90553268b711edc805c47ceae5088": "Ybodychange",
+    "75a9013e3907e5db97f10578227497d7b018caf5": "Ymultichange(Yparameterchange,Ybodychange)",
+    "ba0119710233a1be87c10c5e71424dc5922cc627": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fb1ca6ab49d90553268b711edc805c47ceae5088": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCreate an inferface for references in the symbol table\n\nR\u003dacleung\nDELTA\u003d275  (214 added, 16 deleted, 45 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2317\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1185 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/16/11, 11:12 AM",
+      "commitName": "fb1ca6ab49d90553268b711edc805c47ceae5088",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/24/11, 10:36 AM",
+      "commitNameOld": "75a9013e3907e5db97f10578227497d7b018caf5",
+      "commitAuthorOld": "bashir@google.com",
+      "daysBetweenCommits": 23.02,
+      "commitsBetweenForRepo": 55,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean maybeEscapedOrModifiedArguments(Scope scope, ReferenceMap referenceMap) {\n    if (scope.isLocal()) {\n        Var arguments \u003d scope.getArgumentsVar();\n        ReferenceCollection refs \u003d referenceMap.getReferences(arguments);\n        if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n            for (Reference ref : refs.references) {\n                Node refNode \u003d ref.getNode();\n                Node refParent \u003d ref.getParent();\n                if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n                    return true;\n                }\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+      "functionStartLine": 226,
+      "functionName": "maybeEscapedOrModifiedArguments",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,16 +1,16 @@\n private boolean maybeEscapedOrModifiedArguments(Scope scope, ReferenceMap referenceMap) {\n     if (scope.isLocal()) {\n         Var arguments \u003d scope.getArgumentsVar();\n         ReferenceCollection refs \u003d referenceMap.getReferences(arguments);\n         if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n             for (Reference ref : refs.references) {\n-                Node refNode \u003d ref.getNameNode();\n+                Node refNode \u003d ref.getNode();\n                 Node refParent \u003d ref.getParent();\n                 if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n                     return true;\n                 }\n             }\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "75a9013e3907e5db97f10578227497d7b018caf5": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/24/11, 10:36 AM",
+      "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+      "commitAuthor": "bashir@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/11, 10:36 AM",
+          "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "4/12/11, 12:15 PM",
+          "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 41.93,
+          "commitsBetweenForRepo": 125,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean maybeEscapedOrModifiedArguments(Scope scope, ReferenceMap referenceMap) {\n    if (scope.isLocal()) {\n        Var arguments \u003d scope.getArgumentsVar();\n        ReferenceCollection refs \u003d referenceMap.getReferences(arguments);\n        if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n            for (Reference ref : refs.references) {\n                Node refNode \u003d ref.getNameNode();\n                Node refParent \u003d ref.getParent();\n                if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n                    return true;\n                }\n            }\n        }\n    }\n    return false;\n}",
+          "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+          "functionStartLine": 226,
+          "functionName": "maybeEscapedOrModifiedArguments",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,16 +1,16 @@\n-private boolean maybeEscapedOrModifiedArguments(Scope scope, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n+private boolean maybeEscapedOrModifiedArguments(Scope scope, ReferenceMap referenceMap) {\n     if (scope.isLocal()) {\n         Var arguments \u003d scope.getArgumentsVar();\n-        ReferenceCollection refs \u003d referenceMap.get(arguments);\n+        ReferenceCollection refs \u003d referenceMap.getReferences(arguments);\n         if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n             for (Reference ref : refs.references) {\n                 Node refNode \u003d ref.getNameNode();\n                 Node refParent \u003d ref.getParent();\n                 if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n                     return true;\n                 }\n             }\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[scope-Scope, referenceMap-Map\u003cVar,ReferenceCollection\u003e]",
+            "newValue": "[scope-Scope, referenceMap-ReferenceMap]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/11, 10:36 AM",
+          "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "4/12/11, 12:15 PM",
+          "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 41.93,
+          "commitsBetweenForRepo": 125,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean maybeEscapedOrModifiedArguments(Scope scope, ReferenceMap referenceMap) {\n    if (scope.isLocal()) {\n        Var arguments \u003d scope.getArgumentsVar();\n        ReferenceCollection refs \u003d referenceMap.getReferences(arguments);\n        if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n            for (Reference ref : refs.references) {\n                Node refNode \u003d ref.getNameNode();\n                Node refParent \u003d ref.getParent();\n                if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n                    return true;\n                }\n            }\n        }\n    }\n    return false;\n}",
+          "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+          "functionStartLine": 226,
+          "functionName": "maybeEscapedOrModifiedArguments",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,16 +1,16 @@\n-private boolean maybeEscapedOrModifiedArguments(Scope scope, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n+private boolean maybeEscapedOrModifiedArguments(Scope scope, ReferenceMap referenceMap) {\n     if (scope.isLocal()) {\n         Var arguments \u003d scope.getArgumentsVar();\n-        ReferenceCollection refs \u003d referenceMap.get(arguments);\n+        ReferenceCollection refs \u003d referenceMap.getReferences(arguments);\n         if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n             for (Reference ref : refs.references) {\n                 Node refNode \u003d ref.getNameNode();\n                 Node refParent \u003d ref.getParent();\n                 if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n                     return true;\n                 }\n             }\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "ba0119710233a1be87c10c5e71424dc5922cc627": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDon\u0027t inline alias if \"arguments\" are modified or escaped.\nFixes issue 378\n\nR\u003dacleung\nDELTA\u003d235  (228 added, 0 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1089\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@942 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/25/11, 5:16 PM",
+      "commitName": "ba0119710233a1be87c10c5e71424dc5922cc627",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,16 @@\n+private boolean maybeEscapedOrModifiedArguments(Scope scope, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n+    if (scope.isLocal()) {\n+        Var arguments \u003d scope.getArgumentsVar();\n+        ReferenceCollection refs \u003d referenceMap.get(arguments);\n+        if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n+            for (Reference ref : refs.references) {\n+                Node refNode \u003d ref.getNameNode();\n+                Node refParent \u003d ref.getParent();\n+                if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n+                    return true;\n+                }\n+            }\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean maybeEscapedOrModifiedArguments(Scope scope, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n    if (scope.isLocal()) {\n        Var arguments \u003d scope.getArgumentsVar();\n        ReferenceCollection refs \u003d referenceMap.get(arguments);\n        if (refs !\u003d null \u0026\u0026 !refs.references.isEmpty()) {\n            for (Reference ref : refs.references) {\n                Node refNode \u003d ref.getNameNode();\n                Node refParent \u003d ref.getParent();\n                if (!(NodeUtil.isGet(refParent) \u0026\u0026 refNode \u003d\u003d ref.getParent().getFirstChild() \u0026\u0026 !isLValue(refParent))) {\n                    return true;\n                }\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+      "functionStartLine": 227,
+      "functionName": "maybeEscapedOrModifiedArguments",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

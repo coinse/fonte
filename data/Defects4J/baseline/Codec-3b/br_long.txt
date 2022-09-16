@@ -1,0 +1,70 @@
+The new test case (CODEC-83) has highlighted a number of issues with the "alternative" encoding in the Double Metaphone implementation
+
+1) Bug in the handleG method when "G" is followed by "IER" 
+ *  The alternative encoding of "Angier" results in "ANKR" rather than "ANJR"
+ *  The alternative encoding of "rogier" results in "RKR" rather than "RJR"
+
+The problem is in the handleG() method and is caused by the wrong length (4 instead of 3) being used in the contains() method:
+
+{code}
+ } else if (contains(value, index + 1, 4, "IER")) {
+{code}
+
+...this should be
+
+{code}
+ } else if (contains(value, index + 1, 3, "IER")) {
+{code}
+
+
+2)  Bug in the handleL method
+ * The alternative encoding of "cabrillo" results in "KPRL " rather than "KPR"
+
+The problem is that the first thing this method does is append an "L" to both primary & alternative encoding. When the conditionL0() method returns true then the "L" should not be appended for the alternative encoding
+
+{code}
+result.append('L');
+if (charAt(value, index + 1) == 'L') {
+    if (conditionL0(value, index)) {
+        result.appendAlternate(' ');
+    }
+    index += 2;
+} else {
+    index++;
+}
+return index;
+{code}
+
+Suggest refeactoring this to
+
+{code}
+if (charAt(value, index + 1) == 'L') {
+    if (conditionL0(value, index)) {
+        result.appendPrimary('L');
+    } else {
+        result.append('L');
+    }
+    index += 2;
+} else {
+    result.append('L');
+    index++;
+}
+return index;
+{code}
+
+3) Bug in the conditionL0() method for words ending in "AS" and "OS"
+ * The alternative encoding of "gallegos" results in "KLKS" rather than "KKS"
+
+The problem is caused by the wrong start position being used in the contains() method, which means its not checking the last two characters of the word but checks the previous & current position instead:
+
+{code}
+        } else if ((contains(value, index - 1, 2, "AS", "OS") || 
+{code}
+
+...this should be
+
+{code}
+        } else if ((contains(value, value.length() - 2, 2, "AS", "OS") || 
+{code}
+
+I'll attach a patch for review

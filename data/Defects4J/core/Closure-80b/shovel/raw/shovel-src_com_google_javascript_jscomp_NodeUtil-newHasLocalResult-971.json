@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-80b",
+  "repositoryPath": "/tmp/Closure-80b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "newHasLocalResult",
+  "functionId": "newHasLocalResult___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the new has a local result.\n",
+  "functionStartLine": 971,
+  "functionEndLine": 974,
+  "numCommitsSeen": 71,
+  "timeTaken": 1845,
+  "changeHistory": [
+    "2e158bdc1a74af6453d3087a7377ace75e2bcd45"
+  ],
+  "changeHistoryShort": {
+    "2e158bdc1a74af6453d3087a7377ace75e2bcd45": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2e158bdc1a74af6453d3087a7377ace75e2bcd45": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFixup local value evaluation.\n\nR\u003dnicksantos\nDELTA\u003d163  (122 added, 29 deleted, 12 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d178\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@655 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/21/10, 11:22 AM",
+      "commitName": "2e158bdc1a74af6453d3087a7377ace75e2bcd45",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+static boolean newHasLocalResult(Node n) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.NEW);\n+    return n.isOnlyModifiesThisCall();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean newHasLocalResult(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.NEW);\n    return n.isOnlyModifiesThisCall();\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 802,
+      "functionName": "newHasLocalResult",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the new has a local result.\n"
+    }
+  }
+}

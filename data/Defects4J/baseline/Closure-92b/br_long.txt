@@ -1,0 +1,27 @@
+If there are three modules, the latter two of which depend on the root module:
+
+// Module A
+goog.provide('apps');
+
+// Module B
+goog.provide('apps.foo.bar.B');
+
+// Module C
+goog.provide('apps.foo.bar.C');
+
+and this is compiled in SIMPLE_OPTIMIZATIONS mode, the following code will be produced:
+
+// Module A
+var apps={};apps.foo.bar={};apps.foo={};
+
+// Module B
+apps.foo.bar.B={};
+
+// Module C
+apps.foo.bar.C={};
+
+This will result in a runtime error in Module A because apps.foo.bar is assigned before apps.foo.
+
+The patch for the fix (with regression test) is available at:
+http://codereview.appspot.com/2416041
+

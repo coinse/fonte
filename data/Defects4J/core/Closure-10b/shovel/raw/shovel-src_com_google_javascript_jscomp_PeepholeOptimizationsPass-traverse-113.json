@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeOptimizationsPass.java",
+  "functionName": "traverse",
+  "functionId": "traverse___node-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 113,
+  "functionEndLine": 138,
+  "numCommitsSeen": 10,
+  "timeTaken": 1162,
+  "changeHistory": [
+    "d6d733f461ee5ba26e9326c1c7609f1f00d6d2db",
+    "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28"
+  ],
+  "changeHistoryShort": {
+    "d6d733f461ee5ba26e9326c1c7609f1f00d6d2db": "Ybodychange",
+    "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d6d733f461ee5ba26e9326c1c7609f1f00d6d2db": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFixes issue 787.  Removing or replacing a Node is the AST caused any\nfollowing Function nodes to be skipped in the late peephole folding.\nTo prevent this save off the \"next\" node before visiting a Node.\n\nR\u003dnicksantos\nDELTA\u003d66  (53 added, 5 deleted, 8 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5295\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2119 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/2/12, 10:53 AM",
+      "commitName": "d6d733f461ee5ba26e9326c1c7609f1f00d6d2db",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "2/27/12, 1:41 PM",
+      "commitNameOld": "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 156.84,
+      "commitsBetweenForRepo": 295,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void traverse(Node node) {\n    if (!shouldVisit(node)) {\n        return;\n    }\n    int visits \u003d 0;\n    do {\n        Node c \u003d node.getFirstChild();\n        while (c !\u003d null) {\n            Node next \u003d c.getNext();\n            traverse(c);\n            c \u003d next;\n        }\n        visit(node);\n        visits++;\n        Preconditions.checkState(visits \u003c 10000, \"too many interations\");\n    } while (shouldRetraverse(node));\n    exitNode(node);\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+      "functionStartLine": 113,
+      "functionName": "traverse",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,15 +1,18 @@\n private void traverse(Node node) {\n     if (!shouldVisit(node)) {\n         return;\n     }\n     int visits \u003d 0;\n     do {\n-        for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n+        Node c \u003d node.getFirstChild();\n+        while (c !\u003d null) {\n+            Node next \u003d c.getNext();\n             traverse(c);\n+            c \u003d next;\n         }\n         visit(node);\n         visits++;\n         Preconditions.checkState(visits \u003c 10000, \"too many interations\");\n     } while (shouldRetraverse(node));\n     exitNode(node);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIn my sample, using this approach to running the\npeephole optimizations to a fixed point reduces build time by ~30%, the\nnumber of overall runs for the \"code removing passes\" are reduced from\n30 to 14 for one target and InlineVariables becomes the \"long\npole\".\n\nR\u003dacleung\nDELTA\u003d153  (113 added, 3 deleted, 37 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1793 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/27/12, 1:41 PM",
+      "commitName": "e88cd847e5f7f0b0aa23aa3d8860bcf58896fa28",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,15 @@\n+private void traverse(Node node) {\n+    if (!shouldVisit(node)) {\n+        return;\n+    }\n+    int visits \u003d 0;\n+    do {\n+        for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n+            traverse(c);\n+        }\n+        visit(node);\n+        visits++;\n+        Preconditions.checkState(visits \u003c 10000, \"too many interations\");\n+    } while (shouldRetraverse(node));\n+    exitNode(node);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void traverse(Node node) {\n    if (!shouldVisit(node)) {\n        return;\n    }\n    int visits \u003d 0;\n    do {\n        for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n            traverse(c);\n        }\n        visit(node);\n        visits++;\n        Preconditions.checkState(visits \u003c 10000, \"too many interations\");\n    } while (shouldRetraverse(node));\n    exitNode(node);\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+      "functionStartLine": 113,
+      "functionName": "traverse",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

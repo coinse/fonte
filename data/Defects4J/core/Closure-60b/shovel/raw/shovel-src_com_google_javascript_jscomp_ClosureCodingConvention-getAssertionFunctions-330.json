@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClosureCodingConvention.java",
+  "functionName": "getAssertionFunctions",
+  "functionId": "getAssertionFunctions",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 330,
+  "functionEndLine": 348,
+  "numCommitsSeen": 27,
+  "timeTaken": 1579,
+  "changeHistory": [
+    "279196b617c5de1ade21110979b6b13d8eda6342"
+  ],
+  "changeHistoryShort": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/04 by nick\n\n        Pipe everything through the module code path.\n        This teases out a bunch of edge-case bugs that worked in the non-module\n        code path, but not the module code path (and vice-versa)\n\n        R\u003dalan\n        DELTA\u003d136  (67 added, 19 deleted, 50 changed)\n\nChange on 2010/05/04 by nick\n\n        fiddle with the check_global_this_level decision tree\n        This should be off by default if collapse_properties is off,\n        and on by default if collapse_properties is on.\n\n        R\u003dalan\n        DELTA\u003d47  (32 added, 4 deleted, 11 changed)\n\nChange on 2010/05/04 by andrew\n\n        -Infer that arguments to goog.asserts.assert() are non-nullable after the\n        call.\n        -Infer the types of arguments to goog.asserts.assert{String,Number,...} after\n        the call.\n\n        Tested:\n          -Added new unit tests.\n\n        R\u003dnick\n        DELTA\u003d277  (266 added, 4 deleted, 7 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqdhuno\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@203 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/5/10, 4:36 PM",
+      "commitName": "279196b617c5de1ade21110979b6b13d8eda6342",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public Collection\u003cAssertionFunctionSpec\u003e getAssertionFunctions() {\n+    return ImmutableList.\u003cAssertionFunctionSpec\u003eof(new AssertionFunctionSpec(\"goog.asserts.assert\"), new AssertionFunctionSpec(\"goog.asserts.assertNumber\", JSTypeNative.NUMBER_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertString\", JSTypeNative.STRING_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertFunction\", JSTypeNative.FUNCTION_INSTANCE_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertObject\", JSTypeNative.OBJECT_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertArray\", JSTypeNative.ARRAY_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertInstanceof\", JSTypeNative.OBJECT_TYPE));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Collection\u003cAssertionFunctionSpec\u003e getAssertionFunctions() {\n    return ImmutableList.\u003cAssertionFunctionSpec\u003eof(new AssertionFunctionSpec(\"goog.asserts.assert\"), new AssertionFunctionSpec(\"goog.asserts.assertNumber\", JSTypeNative.NUMBER_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertString\", JSTypeNative.STRING_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertFunction\", JSTypeNative.FUNCTION_INSTANCE_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertObject\", JSTypeNative.OBJECT_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertArray\", JSTypeNative.ARRAY_TYPE), new AssertionFunctionSpec(\"goog.asserts.assertInstanceof\", JSTypeNative.OBJECT_TYPE));\n}",
+      "path": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+      "functionStartLine": 338,
+      "functionName": "getAssertionFunctions",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

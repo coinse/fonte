@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-76b",
+  "repositoryPath": "/tmp/Closure-76b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeConsumer.java",
+  "functionName": "shouldPreserveExtraBlocks",
+  "functionId": "shouldPreserveExtraBlocks",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeConsumer.java",
+  "functionAnnotation": "",
+  "functionDoc": "If the body of a for loop or the then clause of an if statement has\na single statement, should it be wrapped in a block?  Doing so can\nhelp when pretty-printing the code, and permits putting a debugging\nbreakpoint on the statement inside the condition.\n\n@return @boolean true} if such expressions should be wrapped\n",
+  "functionStartLine": 275,
+  "functionEndLine": 277,
+  "numCommitsSeen": 14,
+  "timeTaken": 1082,
+  "changeHistory": [
+    "fe722ddeb545b6b3103369dea073ad3e6becde28"
+  ],
+  "changeHistoryShort": {
+    "fe722ddeb545b6b3103369dea073ad3e6becde28": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fe722ddeb545b6b3103369dea073ad3e6becde28": {
+      "type": "Yintroduced",
+      "commitMessage": "Add an alias for the --define flag to ensure the api is backwards\ncompatible. \n(Nick)\nR\u003drobert\nDELTA\u003d9  (6 added, 0 deleted, 3 changed)\n\nChange the default pretty printer so that then clauses of if\nstatements and bodies of for statements get printed in blocks\nand on separate lines even if the the body is a single statement:\nif (a) {\nb\n}\nrather than\nif (a) b;\nThis makes it easier to put breakpoints on the then clause rather\nthan only on the entire if statement. (Robert)\nR\u003djohn\nDELTA\u003d125  (122 added, 0 deleted, 3 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@137 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/15/10, 4:23 PM",
+      "commitName": "fe722ddeb545b6b3103369dea073ad3e6becde28",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,3 @@\n+boolean shouldPreserveExtraBlocks() {\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean shouldPreserveExtraBlocks() {\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/CodeConsumer.java",
+      "functionStartLine": 304,
+      "functionName": "shouldPreserveExtraBlocks",
+      "functionAnnotation": "",
+      "functionDoc": "If the body of a for loop or the then clause of an if statement has\na single statement, should it be wrapped in a block?  Doing so can\nhelp when pretty-printing the code, and permits putting a debugging\nbreakpoint on the statement inside the condition.\n\n@return @boolean true} if such expressions should be wrapped\n"
+    }
+  }
+}

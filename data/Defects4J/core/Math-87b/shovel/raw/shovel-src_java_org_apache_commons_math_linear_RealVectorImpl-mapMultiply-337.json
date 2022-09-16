@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-87b",
+  "repositoryPath": "/tmp/Math-87b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RealVectorImpl.java",
+  "functionName": "mapMultiply",
+  "functionId": "mapMultiply___d-double",
+  "sourceFilePath": "src/java/org/apache/commons/math/linear/RealVectorImpl.java",
+  "functionAnnotation": "",
+  "functionDoc": "@inheritDoc}\n",
+  "functionStartLine": 337,
+  "functionEndLine": 343,
+  "numCommitsSeen": 13,
+  "timeTaken": 1342,
+  "changeHistory": [
+    "a311dce47eb28360297655aefeac518cfac069a9"
+  ],
+  "changeHistoryShort": {
+    "a311dce47eb28360297655aefeac518cfac069a9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a311dce47eb28360297655aefeac518cfac069a9": {
+      "type": "Yintroduced",
+      "commitMessage": "Support for one dimensional vectors has been added to the linear algebra\npackage with a RealVector interface, a RealVectorImpl default implementation\nusing a single double array to store elements and a RealVectorFormat class for\ninput/output.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680166 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/27/08, 12:15 PM",
+      "commitName": "a311dce47eb28360297655aefeac518cfac069a9",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,7 @@\n+public RealVector mapMultiply(double d) {\n+    double[] out \u003d new double[data.length];\n+    for (int i \u003d 0; i \u003c data.length; i++) {\n+        out[i] \u003d data[i] * d;\n+    }\n+    return new RealVectorImpl(out);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public RealVector mapMultiply(double d) {\n    double[] out \u003d new double[data.length];\n    for (int i \u003d 0; i \u003c data.length; i++) {\n        out[i] \u003d data[i] * d;\n    }\n    return new RealVectorImpl(out);\n}",
+      "path": "src/java/org/apache/commons/math/linear/RealVectorImpl.java",
+      "functionStartLine": 291,
+      "functionName": "mapMultiply",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "WarningLevel.java",
+  "functionName": "setOptionsForWarningLevel",
+  "functionId": "setOptionsForWarningLevel___options-CompilerOptions",
+  "sourceFilePath": "src/com/google/javascript/jscomp/WarningLevel.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 33,
+  "functionEndLine": 47,
+  "numCommitsSeen": 19,
+  "timeTaken": 2157,
+  "changeHistory": [
+    "28f53ea8e95302f96c6fa2fd91e4afc8178ab8a7",
+    "0b7eccf2fd3a9293d7b513fbb766d7bc06abd7e0"
+  ],
+  "changeHistoryShort": {
+    "28f53ea8e95302f96c6fa2fd91e4afc8178ab8a7": "Ybodychange",
+    "0b7eccf2fd3a9293d7b513fbb766d7bc06abd7e0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "28f53ea8e95302f96c6fa2fd91e4afc8178ab8a7": {
+      "type": "Ybodychange",
+      "commitMessage": "Silence all warnings in QUIET mode.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@74 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/21/10, 4:24 PM",
+      "commitName": "28f53ea8e95302f96c6fa2fd91e4afc8178ab8a7",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "12/23/09, 9:33 AM",
+      "commitNameOld": "915752b8e4ffd312eea298fb749dddd0edc0db2e",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 29.29,
+      "commitsBetweenForRepo": 16,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void setOptionsForWarningLevel(CompilerOptions options) {\n    switch(this) {\n        case QUIET:\n            silenceAllWarnings(options);\n            break;\n        case DEFAULT:\n            addDefaultWarnings(options);\n            break;\n        case VERBOSE:\n            addVerboseWarnings(options);\n            break;\n        default:\n            throw new RuntimeException(\"Unknown warning level.\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/WarningLevel.java",
+      "functionStartLine": 34,
+      "functionName": "setOptionsForWarningLevel",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,14 +1,15 @@\n public void setOptionsForWarningLevel(CompilerOptions options) {\n     switch(this) {\n         case QUIET:\n+            silenceAllWarnings(options);\n             break;\n         case DEFAULT:\n             addDefaultWarnings(options);\n             break;\n         case VERBOSE:\n             addVerboseWarnings(options);\n             break;\n         default:\n             throw new RuntimeException(\"Unknown warning level.\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "0b7eccf2fd3a9293d7b513fbb766d7bc06abd7e0": {
+      "type": "Yintroduced",
+      "commitMessage": "A bunch of bug fixes\nAdded the --warning_level\u003d{QUIET|DEFAULT|VERBOSE} flag,\nto match the webservice API\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@3 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/6/09, 5:24 PM",
+      "commitName": "0b7eccf2fd3a9293d7b513fbb766d7bc06abd7e0",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+public void setOptionsForWarningLevel(CompilerOptions options) {\n+    switch(this) {\n+        case QUIET:\n+            break;\n+        case DEFAULT:\n+            addDefaultWarnings(options);\n+            break;\n+        case VERBOSE:\n+            addVerboseWarnings(options);\n+            break;\n+        default:\n+            throw new RuntimeException(\"Unknown warning level.\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void setOptionsForWarningLevel(CompilerOptions options) {\n    switch(this) {\n        case QUIET:\n            break;\n        case DEFAULT:\n            addDefaultWarnings(options);\n            break;\n        case VERBOSE:\n            addVerboseWarnings(options);\n            break;\n        default:\n            throw new RuntimeException(\"Unknown warning level.\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/WarningLevel.java",
+      "functionStartLine": 34,
+      "functionName": "setOptionsForWarningLevel",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "shouldUseFunctionLiteralType",
+  "functionId": "$shouldUseFunctionLiteralType___type-FunctionType__info-JSDocInfo__lValue-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "If a variable is assigned a function literal in the global scope,\nmake that a declared type (even if there\u0027s no doc info).\nThere\u0027s only one exception to this rule:\nif the return type is inferred, and we\u0027re in a local\nscope, we should assume the whole function is inferred.\n",
+  "functionStartLine": 739,
+  "functionEndLine": 749,
+  "numCommitsSeen": 42,
+  "timeTaken": 1262,
+  "changeHistory": [
+    "7675b68dbd7cfc37b1359fd40be9fdf0b618bc95"
+  ],
+  "changeHistoryShort": {
+    "7675b68dbd7cfc37b1359fd40be9fdf0b618bc95": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7675b68dbd7cfc37b1359fd40be9fdf0b618bc95": {
+      "type": "Yintroduced",
+      "commitMessage": "\nfix a todo that\u0027s really easy now\n\nR\u003djohnlenz\nDELTA\u003d67  (28 added, 12 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d417\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@743 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/1/11, 11:22 AM",
+      "commitName": "7675b68dbd7cfc37b1359fd40be9fdf0b618bc95",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private boolean shouldUseFunctionLiteralType(FunctionType type, JSDocInfo info, Node lValue) {\n+    if (info !\u003d null) {\n+        return true;\n+    }\n+    if (lValue !\u003d null \u0026\u0026 NodeUtil.isObjectLitKey(lValue, lValue.getParent())) {\n+        return false;\n+    }\n+    return scope.isGlobal() || !type.isReturnTypeInferred();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean shouldUseFunctionLiteralType(FunctionType type, JSDocInfo info, Node lValue) {\n    if (info !\u003d null) {\n        return true;\n    }\n    if (lValue !\u003d null \u0026\u0026 NodeUtil.isObjectLitKey(lValue, lValue.getParent())) {\n        return false;\n    }\n    return scope.isGlobal() || !type.isReturnTypeInferred();\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 739,
+      "functionName": "shouldUseFunctionLiteralType",
+      "functionAnnotation": "",
+      "functionDoc": "If a variable is assigned a function literal in the global scope,\nmake that a declared type (even if there\u0027s no doc info).\nThere\u0027s only one exception to this rule:\nif the return type is inferred, and we\u0027re in a local\nscope, we should assume the whole function is inferred.\n"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-15b",
+  "repositoryPath": "/tmp/Math-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "align",
+  "functionId": "align___e-int",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Make our exp equal to the supplied one, this may cause rounding.\n Also causes de-normalized numbers.  These numbers are generally\n dangerous because most routines assume normalized numbers.\n Align doesn\u0027t round, so it will return the last digit destroyed\n by shifting right.\n\n@ @param e desired exponent\n @return last digit destroyed by shifting right\n",
+  "functionStartLine": 696,
+  "functionEndLine": 747,
+  "numCommitsSeen": 13,
+  "timeTaken": 13396,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected int align(int e) {\n    int lostdigit \u003d 0;\n    boolean inexact \u003d false;\n    int diff \u003d exp - e;\n    int adiff \u003d diff;\n    if (adiff \u003c 0) {\n        adiff \u003d -adiff;\n    }\n    if (diff \u003d\u003d 0) {\n        return 0;\n    }\n    if (adiff \u003e (mant.length + 1)) {\n        Arrays.fill(mant, 0);\n        exp \u003d e;\n        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n        dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);\n        return 0;\n    }\n    for (int i \u003d 0; i \u003c adiff; i++) {\n        if (diff \u003c 0) {\n            if (lostdigit !\u003d 0) {\n                inexact \u003d true;\n            }\n            lostdigit \u003d mant[0];\n            shiftRight();\n        } else {\n            shiftLeft();\n        }\n    }\n    if (inexact) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n        dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);\n    }\n    return lostdigit;\n}",
+      "path": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+      "functionStartLine": 696,
+      "functionName": "align",
+      "functionAnnotation": "",
+      "functionDoc": "Make our exp equal to the supplied one, this may cause rounding.\n Also causes de-normalized numbers.  These numbers are generally\n dangerous because most routines assume normalized numbers.\n Align doesn\u0027t round, so it will return the last digit destroyed\n by shifting right.\n\n@ @param e desired exponent\n @return last digit destroyed by shifting right\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+        "newPath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+        "oldMethodName": "align",
+        "newMethodName": "align"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,35 @@\n+protected int align(int e) {\n+    int lostdigit \u003d 0;\n+    boolean inexact \u003d false;\n+    int diff \u003d exp - e;\n+    int adiff \u003d diff;\n+    if (adiff \u003c 0) {\n+        adiff \u003d -adiff;\n+    }\n+    if (diff \u003d\u003d 0) {\n+        return 0;\n+    }\n+    if (adiff \u003e (mant.length + 1)) {\n+        Arrays.fill(mant, 0);\n+        exp \u003d e;\n+        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n+        dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);\n+        return 0;\n+    }\n+    for (int i \u003d 0; i \u003c adiff; i++) {\n+        if (diff \u003c 0) {\n+            if (lostdigit !\u003d 0) {\n+                inexact \u003d true;\n+            }\n+            lostdigit \u003d mant[0];\n+            shiftRight();\n+        } else {\n+            shiftLeft();\n+        }\n+    }\n+    if (inexact) {\n+        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n+        dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);\n+    }\n+    return lostdigit;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected int align(int e) {\n    int lostdigit \u003d 0;\n    boolean inexact \u003d false;\n    int diff \u003d exp - e;\n    int adiff \u003d diff;\n    if (adiff \u003c 0) {\n        adiff \u003d -adiff;\n    }\n    if (diff \u003d\u003d 0) {\n        return 0;\n    }\n    if (adiff \u003e (mant.length + 1)) {\n        Arrays.fill(mant, 0);\n        exp \u003d e;\n        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n        dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);\n        return 0;\n    }\n    for (int i \u003d 0; i \u003c adiff; i++) {\n        if (diff \u003c 0) {\n            if (lostdigit !\u003d 0) {\n                inexact \u003d true;\n            }\n            lostdigit \u003d mant[0];\n            shiftRight();\n        } else {\n            shiftLeft();\n        }\n    }\n    if (inexact) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);\n        dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);\n    }\n    return lostdigit;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 693,
+      "functionName": "align",
+      "functionAnnotation": "",
+      "functionDoc": "Make our exp equal to the supplied one, this may cause rounding.\n Also causes de-normalized numbers.  These numbers are generally\n dangerous because most routines assume normalized numbers.\n Align doesn\u0027t round, so it will return the last digit destroyed\n by shifting right.\n\n@ @param e desired exponent\n @return last digit destroyed by shifting right\n"
+    }
+  }
+}

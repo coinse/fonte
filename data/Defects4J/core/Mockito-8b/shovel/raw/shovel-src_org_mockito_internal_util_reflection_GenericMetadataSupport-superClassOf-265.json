@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Mockito-8b",
+  "repositoryPath": "/tmp/Mockito-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GenericMetadataSupport.java",
+  "functionName": "superClassOf",
+  "functionId": "$superClassOf___currentExploredClass-Class",
+  "sourceFilePath": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 265,
+  "functionEndLine": 272,
+  "numCommitsSeen": 10,
+  "timeTaken": 475,
+  "changeHistory": [
+    "ab9e9f347705bf9f4ebace4b07b085088275a256"
+  ],
+  "changeHistoryShort": {
+    "ab9e9f347705bf9f4ebace4b07b085088275a256": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ab9e9f347705bf9f4ebace4b07b085088275a256": {
+      "type": "Yintroduced",
+      "commitMessage": "Issue 230 Adds more deep stubs support for generic classes\n\n - metadata support extended beypond interfaces\n - cleans up a bit generics metadata\n",
+      "commitDate": "3/10/14, 5:20 PM",
+      "commitName": "ab9e9f347705bf9f4ebace4b07b085088275a256",
+      "commitAuthor": "Brice Dutheil",
+      "diff": "@@ -0,0 +1,8 @@\n+private Class superClassOf(Class currentExploredClass) {\n+    Type genericSuperclass \u003d currentExploredClass.getGenericSuperclass();\n+    if (genericSuperclass instanceof ParameterizedType) {\n+        Type rawType \u003d ((ParameterizedType) genericSuperclass).getRawType();\n+        return (Class) rawType;\n+    }\n+    return (Class) genericSuperclass;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Class superClassOf(Class currentExploredClass) {\n    Type genericSuperclass \u003d currentExploredClass.getGenericSuperclass();\n    if (genericSuperclass instanceof ParameterizedType) {\n        Type rawType \u003d ((ParameterizedType) genericSuperclass).getRawType();\n        return (Class) rawType;\n    }\n    return (Class) genericSuperclass;\n}",
+      "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+      "functionStartLine": 276,
+      "functionName": "superClassOf",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

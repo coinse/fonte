@@ -1,0 +1,257 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "jsString",
+  "functionId": "jsString___s-String__useSlashV-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 965,
+  "functionEndLine": 992,
+  "numCommitsSeen": 179,
+  "timeTaken": 4725,
+  "changeHistory": [
+    "e85593d14461f5342013d0d6c6e8484dca003eef",
+    "f78951b324be6cb453ebbefcb30ab83328282590",
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "e85593d14461f5342013d0d6c6e8484dca003eef": "Ymultichange(Yparameterchange,Ymodifierchange,Ybodychange)",
+    "f78951b324be6cb453ebbefcb30ab83328282590": "Ymultichange(Yparameterchange,Ymodifierchange,Ydocchange)",
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e85593d14461f5342013d0d6c6e8484dca003eef": {
+      "type": "Ymultichange(Yparameterchange,Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/21/11, 12:02 PM",
+      "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/21/11, 12:02 PM",
+          "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/17/11, 10:08 AM",
+          "commitNameOld": "4e976ac213f448bab78f5c1432340c489b533d7b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 4.08,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private String jsString(String s, boolean useSlashV) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder, useSlashV);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 955,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,25 +1,25 @@\n-String jsString(String s) {\n+private String jsString(String s, boolean useSlashV) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n-    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n+    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder, useSlashV);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[s-String]",
+            "newValue": "[s-String, useSlashV-boolean]"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/21/11, 12:02 PM",
+          "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/17/11, 10:08 AM",
+          "commitNameOld": "4e976ac213f448bab78f5c1432340c489b533d7b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 4.08,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private String jsString(String s, boolean useSlashV) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder, useSlashV);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 955,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,25 +1,25 @@\n-String jsString(String s) {\n+private String jsString(String s, boolean useSlashV) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n-    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n+    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder, useSlashV);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/21/11, 12:02 PM",
+          "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/17/11, 10:08 AM",
+          "commitNameOld": "4e976ac213f448bab78f5c1432340c489b533d7b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 4.08,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private String jsString(String s, boolean useSlashV) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder, useSlashV);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 955,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,25 +1,25 @@\n-String jsString(String s) {\n+private String jsString(String s, boolean useSlashV) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n-    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n+    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder, useSlashV);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f78951b324be6cb453ebbefcb30ab83328282590": {
+      "type": "Ymultichange(Yparameterchange,Ymodifierchange,Ydocchange)",
+      "commitMessage": "\nspeed up code generation by about 10%\n\nR\u003djohnlenz\nDELTA\u003d29  (26 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1914\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1102 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 8:40 AM",
+      "commitName": "f78951b324be6cb453ebbefcb30ab83328282590",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nspeed up code generation by about 10%\n\nR\u003djohnlenz\nDELTA\u003d29  (26 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1914\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1102 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/16/11, 8:40 AM",
+          "commitName": "f78951b324be6cb453ebbefcb30ab83328282590",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "4/18/11, 4:27 PM",
+          "commitNameOld": "da36f250f9452743dbf0859af86312b844c0d0bd",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 27.68,
+          "commitsBetweenForRepo": 81,
+          "commitsBetweenForFile": 1,
+          "actualSource": "String jsString(String s) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 956,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,25 +1,25 @@\n-static String jsString(String s, CharsetEncoder outputCharsetEncoder) {\n+String jsString(String s) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n     return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[s-String, outputCharsetEncoder-CharsetEncoder]",
+            "newValue": "[s-String]"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nspeed up code generation by about 10%\n\nR\u003djohnlenz\nDELTA\u003d29  (26 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1914\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1102 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/16/11, 8:40 AM",
+          "commitName": "f78951b324be6cb453ebbefcb30ab83328282590",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "4/18/11, 4:27 PM",
+          "commitNameOld": "da36f250f9452743dbf0859af86312b844c0d0bd",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 27.68,
+          "commitsBetweenForRepo": 81,
+          "commitsBetweenForFile": 1,
+          "actualSource": "String jsString(String s) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 956,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,25 +1,25 @@\n-static String jsString(String s, CharsetEncoder outputCharsetEncoder) {\n+String jsString(String s) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n     return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[static]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nspeed up code generation by about 10%\n\nR\u003djohnlenz\nDELTA\u003d29  (26 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1914\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1102 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/16/11, 8:40 AM",
+          "commitName": "f78951b324be6cb453ebbefcb30ab83328282590",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "4/18/11, 4:27 PM",
+          "commitNameOld": "da36f250f9452743dbf0859af86312b844c0d0bd",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 27.68,
+          "commitsBetweenForRepo": 81,
+          "commitsBetweenForFile": 1,
+          "actualSource": "String jsString(String s) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 956,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,25 +1,25 @@\n-static String jsString(String s, CharsetEncoder outputCharsetEncoder) {\n+String jsString(String s) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n     return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Outputs a js string, using the optimal (single/double) quote character\n",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/8/09, 3:50 PM",
+      "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/8/09, 3:50 PM",
+          "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/3/09, 3:51 PM",
+          "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 35.0,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String jsString(String s, CharsetEncoder outputCharsetEncoder) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 751,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n",
+          "diff": "@@ -1,25 +1,25 @@\n-static String jsString(String s) {\n+static String jsString(String s, CharsetEncoder outputCharsetEncoder) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n-    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\");\n+    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[s-String]",
+            "newValue": "[s-String, outputCharsetEncoder-CharsetEncoder]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/8/09, 3:50 PM",
+          "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/3/09, 3:51 PM",
+          "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 35.0,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String jsString(String s, CharsetEncoder outputCharsetEncoder) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 751,
+          "functionName": "jsString",
+          "functionAnnotation": "",
+          "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n",
+          "diff": "@@ -1,25 +1,25 @@\n-static String jsString(String s) {\n+static String jsString(String s, CharsetEncoder outputCharsetEncoder) {\n     int singleq \u003d 0, doubleq \u003d 0;\n     for (int i \u003d 0; i \u003c s.length(); i++) {\n         switch(s.charAt(i)) {\n             case \u0027\"\u0027:\n                 doubleq++;\n                 break;\n             case \u0027\\\u0027\u0027:\n                 singleq++;\n                 break;\n         }\n     }\n     String doublequote, singlequote;\n     char quote;\n     if (singleq \u003c doubleq) {\n         quote \u003d \u0027\\\u0027\u0027;\n         doublequote \u003d \"\\\"\";\n         singlequote \u003d \"\\\\\\\u0027\";\n     } else {\n         quote \u003d \u0027\\\"\u0027;\n         doublequote \u003d \"\\\\\\\"\";\n         singlequote \u003d \"\\\u0027\";\n     }\n-    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\");\n+    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\", outputCharsetEncoder);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,25 @@\n+static String jsString(String s) {\n+    int singleq \u003d 0, doubleq \u003d 0;\n+    for (int i \u003d 0; i \u003c s.length(); i++) {\n+        switch(s.charAt(i)) {\n+            case \u0027\"\u0027:\n+                doubleq++;\n+                break;\n+            case \u0027\\\u0027\u0027:\n+                singleq++;\n+                break;\n+        }\n+    }\n+    String doublequote, singlequote;\n+    char quote;\n+    if (singleq \u003c doubleq) {\n+        quote \u003d \u0027\\\u0027\u0027;\n+        doublequote \u003d \"\\\"\";\n+        singlequote \u003d \"\\\\\\\u0027\";\n+    } else {\n+        quote \u003d \u0027\\\"\u0027;\n+        doublequote \u003d \"\\\\\\\"\";\n+        singlequote \u003d \"\\\u0027\";\n+    }\n+    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static String jsString(String s) {\n    int singleq \u003d 0, doubleq \u003d 0;\n    for (int i \u003d 0; i \u003c s.length(); i++) {\n        switch(s.charAt(i)) {\n            case \u0027\"\u0027:\n                doubleq++;\n                break;\n            case \u0027\\\u0027\u0027:\n                singleq++;\n                break;\n        }\n    }\n    String doublequote, singlequote;\n    char quote;\n    if (singleq \u003c doubleq) {\n        quote \u003d \u0027\\\u0027\u0027;\n        doublequote \u003d \"\\\"\";\n        singlequote \u003d \"\\\\\\\u0027\";\n    } else {\n        quote \u003d \u0027\\\"\u0027;\n        doublequote \u003d \"\\\\\\\"\";\n        singlequote \u003d \"\\\u0027\";\n    }\n    return strEscape(s, quote, doublequote, singlequote, \"\\\\\\\\\");\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 733,
+      "functionName": "jsString",
+      "functionAnnotation": "",
+      "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n"
+    }
+  }
+}

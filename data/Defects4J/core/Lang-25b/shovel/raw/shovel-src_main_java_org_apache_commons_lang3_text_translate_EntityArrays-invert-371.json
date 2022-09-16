@@ -1,0 +1,116 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-25b",
+  "repositoryPath": "/tmp/Lang-25b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "EntityArrays.java",
+  "functionName": "invert",
+  "functionId": "invert___array-String[][]",
+  "sourceFilePath": "src/main/java/org/apache/commons/lang3/text/translate/EntityArrays.java",
+  "functionAnnotation": "",
+  "functionDoc": "Used to invert an escape array into an unescape array\n\n@param array String[][] to be inverted\n@return String[][] inverted array\n",
+  "functionStartLine": 371,
+  "functionEndLine": 378,
+  "numCommitsSeen": 11,
+  "timeTaken": 1180,
+  "changeHistory": [
+    "b1686009b5494119575d43525b0829162ab79853",
+    "586080851f6bca4d7aa84a7d307203ad8222407e",
+    "73a09afdcebbbc566a90dcbbd0df6d9910d3643a",
+    "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1"
+  ],
+  "changeHistoryShort": {
+    "b1686009b5494119575d43525b0829162ab79853": "Yfilerename",
+    "586080851f6bca4d7aa84a7d307203ad8222407e": "Yfilerename",
+    "73a09afdcebbbc566a90dcbbd0df6d9910d3643a": "Ymodifierchange",
+    "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b1686009b5494119575d43525b0829162ab79853": {
+      "type": "Yfilerename",
+      "commitMessage": "Move main source to src/main/java\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@895322 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/2/10, 6:11 PM",
+      "commitName": "b1686009b5494119575d43525b0829162ab79853",
+      "commitAuthor": "Paul C. Benedict Jr",
+      "commitDateOld": "1/2/10, 6:09 PM",
+      "commitNameOld": "1f725a97e73edd27301e889408832b34a3d69e63",
+      "commitAuthorOld": "Paul C. Benedict Jr",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String[][] invert(String[][] array) {\n    String[][] newarray \u003d new String[array.length][2];\n    for (int i \u003d 0; i \u003c array.length; i++) {\n        newarray[i][0] \u003d array[i][1];\n        newarray[i][1] \u003d array[i][0];\n    }\n    return newarray;\n}",
+      "path": "src/main/java/org/apache/commons/lang3/text/translate/EntityArrays.java",
+      "functionStartLine": 370,
+      "functionName": "invert",
+      "functionAnnotation": "",
+      "functionDoc": "Used to invert an escape array into an unescape array\n\n@param array String[][] to be inverted\n@return String[][] inverted array\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/lang3/text/translate/EntityArrays.java",
+        "newPath": "src/main/java/org/apache/commons/lang3/text/translate/EntityArrays.java"
+      }
+    },
+    "586080851f6bca4d7aa84a7d307203ad8222407e": {
+      "type": "Yfilerename",
+      "commitMessage": "Changing directory name from lang to lang3. Build will fail (probably) until Java code is changed in subsequent commit. LANG-563\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@889202 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/10/09, 3:33 AM",
+      "commitName": "586080851f6bca4d7aa84a7d307203ad8222407e",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "12/10/09, 3:31 AM",
+      "commitNameOld": "da479d635f66c1f82a1f858591cfb1b9941457ae",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String[][] invert(String[][] array) {\n    String[][] newarray \u003d new String[array.length][2];\n    for (int i \u003d 0; i \u003c array.length; i++) {\n        newarray[i][0] \u003d array[i][1];\n        newarray[i][1] \u003d array[i][0];\n    }\n    return newarray;\n}",
+      "path": "src/java/org/apache/commons/lang3/text/translate/EntityArrays.java",
+      "functionStartLine": 370,
+      "functionName": "invert",
+      "functionAnnotation": "",
+      "functionDoc": "Used to invert an escape array into an unescape array\n\n@param array String[][] to be inverted\n@return String[][] inverted array\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/lang/text/translate/EntityArrays.java",
+        "newPath": "src/java/org/apache/commons/lang3/text/translate/EntityArrays.java"
+      }
+    },
+    "73a09afdcebbbc566a90dcbbd0df6d9910d3643a": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Making the EntityArrays class public by cloning the arrays when they are accessed. API might need a sanity check as this is the old Entities stuff. Also changing the arrays to be private and the rest of the code to use the cloning methods. This does add performance overhead, but I think it\u0027ll be negligible and better to practice safe coding. Part of LANG-505\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@789584 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/29/09, 11:47 PM",
+      "commitName": "73a09afdcebbbc566a90dcbbd0df6d9910d3643a",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "6/29/09, 10:09 PM",
+      "commitNameOld": "54da651315973ee4f43c3044c75c2f3d17bd9beb",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String[][] invert(String[][] array) {\n    String[][] newarray \u003d new String[array.length][2];\n    for (int i \u003d 0; i \u003c array.length; i++) {\n        newarray[i][0] \u003d array[i][1];\n        newarray[i][1] \u003d array[i][0];\n    }\n    return newarray;\n}",
+      "path": "src/java/org/apache/commons/lang/text/translate/EntityArrays.java",
+      "functionStartLine": 357,
+      "functionName": "invert",
+      "functionAnnotation": "",
+      "functionDoc": "Used to invert an escape array into an unescape array\n\n@param array String[][] to be inverted\n@return String[][] inverted array\n",
+      "diff": "@@ -1,8 +1,8 @@\n-static String[][] invert(String[][] array) {\n+public static String[][] invert(String[][] array) {\n     String[][] newarray \u003d new String[array.length][2];\n     for (int i \u003d 0; i \u003c array.length; i++) {\n         newarray[i][0] \u003d array[i][1];\n         newarray[i][1] \u003d array[i][0];\n     }\n     return newarray;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[static]",
+        "newValue": "[public, static]"
+      }
+    },
+    "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1": {
+      "type": "Yintroduced",
+      "commitMessage": "Committing a rewrite of StringEscapeUtils guts - LANG-505. Entities.java can now go away. Most of the code is in the new text.translate package. More work is needed, including what to actually define as \u0027ESCAPE_XML\u0027 etc, but it\u0027s now easy for someone to look at the source to EscapeUtils and UnescapeUtils and put their own ESCAPE_XML variable together, and with lots of reuse value. \n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@787560 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/22/09, 11:15 PM",
+      "commitName": "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,8 @@\n+static String[][] invert(String[][] array) {\n+    String[][] newarray \u003d new String[array.length][2];\n+    for (int i \u003d 0; i \u003c array.length; i++) {\n+        newarray[i][0] \u003d array[i][1];\n+        newarray[i][1] \u003d array[i][0];\n+    }\n+    return newarray;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static String[][] invert(String[][] array) {\n    String[][] newarray \u003d new String[array.length][2];\n    for (int i \u003d 0; i \u003c array.length; i++) {\n        newarray[i][0] \u003d array[i][1];\n        newarray[i][1] \u003d array[i][0];\n    }\n    return newarray;\n}",
+      "path": "src/java/org/apache/commons/lang/text/translate/EntityArrays.java",
+      "functionStartLine": 348,
+      "functionName": "invert",
+      "functionAnnotation": "",
+      "functionDoc": "Used to invert an escape array into an unescape array\n\n@param array String[][] to be inverted\n@return String[][] inverted array\n"
+    }
+  }
+}

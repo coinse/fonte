@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-73b",
+  "repositoryPath": "/tmp/Closure-73b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "appendHexJavaScriptRepresentation",
+  "functionId": "appendHexJavaScriptRepresentation___codePoint-int__out-Appendable",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a javascript representation of the character in a hex escaped\nformat.\n\n@param codePoint The codepoint to append.\n@param out The buffer to which the hex representation should be appended.\n",
+  "functionStartLine": 1174,
+  "functionEndLine": 1192,
+  "numCommitsSeen": 49,
+  "timeTaken": 3218,
+  "changeHistory": [
+    "6fcb0080b198186d44552a5996ed81c3aa4a04f8"
+  ],
+  "changeHistoryShort": {
+    "6fcb0080b198186d44552a5996ed81c3aa4a04f8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6fcb0080b198186d44552a5996ed81c3aa4a04f8": {
+      "type": "Yintroduced",
+      "commitMessage": "inline a method from common libraries.\n\nAdd some debugging tools for AmbiguateProperties.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@57 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/5/10, 7:44 PM",
+      "commitName": "6fcb0080b198186d44552a5996ed81c3aa4a04f8",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private static void appendHexJavaScriptRepresentation(int codePoint, Appendable out) throws IOException {\n+    if (Character.isSupplementaryCodePoint(codePoint)) {\n+        char[] surrogates \u003d Character.toChars(codePoint);\n+        appendHexJavaScriptRepresentation(surrogates[0], out);\n+        appendHexJavaScriptRepresentation(surrogates[1], out);\n+        return;\n+    }\n+    out.append(\"\\\\u\").append(HEX_CHARS[(codePoint \u003e\u003e\u003e 12) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 8) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 4) \u0026 0xf]).append(HEX_CHARS[codePoint \u0026 0xf]);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void appendHexJavaScriptRepresentation(int codePoint, Appendable out) throws IOException {\n    if (Character.isSupplementaryCodePoint(codePoint)) {\n        char[] surrogates \u003d Character.toChars(codePoint);\n        appendHexJavaScriptRepresentation(surrogates[0], out);\n        appendHexJavaScriptRepresentation(surrogates[1], out);\n        return;\n    }\n    out.append(\"\\\\u\").append(HEX_CHARS[(codePoint \u003e\u003e\u003e 12) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 8) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 4) \u0026 0xf]).append(HEX_CHARS[codePoint \u0026 0xf]);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 975,
+      "functionName": "appendHexJavaScriptRepresentation",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a javascript representation of the character in a hex escaped\nformat.\n\n@param codePoint The codepoint to append.\n@param out The buffer to which the hex representation should be appended.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PureFunctionIdentifier.java",
+  "functionName": "hasSideEffectsArgumentsAnnotation",
+  "functionId": "$hasSideEffectsArgumentsAnnotation___docInfo-JSDocInfo",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@returns Whether the @modifies annotation includes \"arguments\"\nor any named parameters.\n",
+  "functionStartLine": 722,
+  "functionEndLine": 729,
+  "numCommitsSeen": 25,
+  "timeTaken": 1223,
+  "changeHistory": [
+    "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01"
+  ],
+  "changeHistoryShort": {
+    "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01": {
+      "type": "Yintroduced",
+      "commitMessage": "\nUse new @modifies{this} annotations\n\nR\u003davd\nDELTA\u003d214  (185 added, 4 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d249465\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@460 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/24/10, 11:11 AM",
+      "commitName": "92d3cd3eaa7d7e8b5b36322e9bab8eabe6a53c01",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,5 @@\n+private boolean hasSideEffectsArgumentsAnnotation(JSDocInfo docInfo) {\n+    Preconditions.checkNotNull(docInfo);\n+    Set\u003cString\u003e modifies \u003d docInfo.getModifies();\n+    return (modifies.size() \u003e 1 || (modifies.size() \u003d\u003d 1 \u0026\u0026 !modifies.contains(\"this\")));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean hasSideEffectsArgumentsAnnotation(JSDocInfo docInfo) {\n    Preconditions.checkNotNull(docInfo);\n    Set\u003cString\u003e modifies \u003d docInfo.getModifies();\n    return (modifies.size() \u003e 1 || (modifies.size() \u003d\u003d 1 \u0026\u0026 !modifies.contains(\"this\")));\n}",
+      "path": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+      "functionStartLine": 743,
+      "functionName": "hasSideEffectsArgumentsAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "\n@returns Whether the @modifies annotation includes \"arguments\"\nor any named parameters.\n"
+    }
+  }
+}

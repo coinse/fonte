@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-121b",
+  "repositoryPath": "/tmp/Closure-121b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProxyObjectType.java",
+  "functionName": "setReferencedType",
+  "functionId": "setReferencedType___referencedType-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 86,
+  "functionEndLine": 93,
+  "numCommitsSeen": 57,
+  "timeTaken": 1864,
+  "changeHistory": [
+    "d6227f739b8380f74663b2f536ed4a9649fd0841"
+  ],
+  "changeHistoryShort": {
+    "d6227f739b8380f74663b2f536ed4a9649fd0841": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d6227f739b8380f74663b2f536ed4a9649fd0841": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd half-assed support for late-resolved typedefs of union types.\nThe fundamental issue is that NamedType is a proxy wrapper around\nObjectTypes, but has always been used for non-object types (like\ntypedef\u0027d unions.\nI eventually want to move towards the using UnresolvedTypes for type\nresolution. Under that system, the proxy wrapper gets thrown away.\nUnresolveTypes would also solve this issue. But that system breaks\na whole bunch of assumptions about hash codes and referential\ntransparency, so we\u0027re not ready for it yet.\n\nR\u003djohnlenz\nDELTA\u003d116  (75 added, 0 deleted, 41 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d304858\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@482 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/8/10, 1:19 PM",
+      "commitName": "d6227f739b8380f74663b2f536ed4a9649fd0841",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+void setReferencedType(JSType referencedType) {\n+    this.referencedType \u003d referencedType;\n+    if (referencedType instanceof ObjectType) {\n+        this.referencedObjType \u003d (ObjectType) referencedType;\n+    } else {\n+        this.referencedObjType \u003d null;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void setReferencedType(JSType referencedType) {\n    this.referencedType \u003d referencedType;\n    if (referencedType instanceof ObjectType) {\n        this.referencedObjType \u003d (ObjectType) referencedType;\n    } else {\n        this.referencedObjType \u003d null;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+      "functionStartLine": 71,
+      "functionName": "setReferencedType",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

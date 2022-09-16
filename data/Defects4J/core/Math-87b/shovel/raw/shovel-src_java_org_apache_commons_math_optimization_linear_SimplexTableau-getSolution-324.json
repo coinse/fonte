@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-87b",
+  "repositoryPath": "/tmp/Math-87b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexTableau.java",
+  "functionName": "getSolution",
+  "functionId": "getSolution",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the current solution.\n\u003cp\u003e\n{@link #solve} should be called first for this to be the optimal solution.\n\u003c/p\u003e\n\n@return current solution\n",
+  "functionStartLine": 324,
+  "functionEndLine": 344,
+  "numCommitsSeen": 6,
+  "timeTaken": 588,
+  "changeHistory": [
+    "24a6a2692e942969f5c39bd88d3d12ac0f0bf0d9",
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "24a6a2692e942969f5c39bd88d3d12ac0f0bf0d9": "Ybodychange",
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "24a6a2692e942969f5c39bd88d3d12ac0f0bf0d9": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed a problem when setting some variables (several variables were set instead of only one)\nJIRA: MATH-272\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@781135 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/2/09, 12:37 PM",
+      "commitName": "24a6a2692e942969f5c39bd88d3d12ac0f0bf0d9",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "6/2/09, 2:06 AM",
+      "commitNameOld": "0832bf9bacfa9d8fc6cb3b9d0ee82756a7bca5ad",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.44,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected RealPointValuePair getSolution() {\n    double[] coefficients \u003d new double[getOriginalNumDecisionVariables()];\n    Integer basicRow \u003d getBasicRow(getNumObjectiveFunctions() + getOriginalNumDecisionVariables());\n    double mostNegative \u003d basicRow \u003d\u003d null ? 0 : getEntry(basicRow, getRhsOffset());\n    Set\u003cInteger\u003e basicRows \u003d new HashSet\u003cInteger\u003e();\n    for (int i \u003d 0; i \u003c coefficients.length; i++) {\n        basicRow \u003d getBasicRow(getNumObjectiveFunctions() + i);\n        if (basicRows.contains(basicRow)) {\n            coefficients[i] \u003d 0;\n        } else {\n            basicRows.add(basicRow);\n            coefficients[i] \u003d (basicRow \u003d\u003d null ? 0 : getEntry(basicRow, getRhsOffset())) - (restrictToNonNegative ? 0 : mostNegative);\n        }\n    }\n    return new RealPointValuePair(coefficients, f.getValue(coefficients));\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 324,
+      "functionName": "getSolution",
+      "functionAnnotation": "",
+      "functionDoc": "Get the current solution.\n\u003cp\u003e\n{@link #solve} should be called first for this to be the optimal solution.\n\u003c/p\u003e\n\n@return current solution\n",
+      "diff": "@@ -1,8 +1,16 @@\n protected RealPointValuePair getSolution() {\n     double[] coefficients \u003d new double[getOriginalNumDecisionVariables()];\n-    double mostNegative \u003d getDecisionVariableValue(getOriginalNumDecisionVariables());\n+    Integer basicRow \u003d getBasicRow(getNumObjectiveFunctions() + getOriginalNumDecisionVariables());\n+    double mostNegative \u003d basicRow \u003d\u003d null ? 0 : getEntry(basicRow, getRhsOffset());\n+    Set\u003cInteger\u003e basicRows \u003d new HashSet\u003cInteger\u003e();\n     for (int i \u003d 0; i \u003c coefficients.length; i++) {\n-        coefficients[i] \u003d getDecisionVariableValue(i) - (restrictToNonNegative ? 0 : mostNegative);\n+        basicRow \u003d getBasicRow(getNumObjectiveFunctions() + i);\n+        if (basicRows.contains(basicRow)) {\n+            coefficients[i] \u003d 0;\n+        } else {\n+            basicRows.add(basicRow);\n+            coefficients[i] \u003d (basicRow \u003d\u003d null ? 0 : getEntry(basicRow, getRhsOffset())) - (restrictToNonNegative ? 0 : mostNegative);\n+        }\n     }\n     return new RealPointValuePair(coefficients, f.getValue(coefficients));\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,8 @@\n+protected RealPointValuePair getSolution() {\n+    double[] coefficients \u003d new double[getOriginalNumDecisionVariables()];\n+    double mostNegative \u003d getDecisionVariableValue(getOriginalNumDecisionVariables());\n+    for (int i \u003d 0; i \u003c coefficients.length; i++) {\n+        coefficients[i] \u003d getDecisionVariableValue(i) - (restrictToNonNegative ? 0 : mostNegative);\n+    }\n+    return new RealPointValuePair(coefficients, f.getValue(coefficients));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected RealPointValuePair getSolution() {\n    double[] coefficients \u003d new double[getOriginalNumDecisionVariables()];\n    double mostNegative \u003d getDecisionVariableValue(getOriginalNumDecisionVariables());\n    for (int i \u003d 0; i \u003c coefficients.length; i++) {\n        coefficients[i] \u003d getDecisionVariableValue(i) - (restrictToNonNegative ? 0 : mostNegative);\n    }\n    return new RealPointValuePair(coefficients, f.getValue(coefficients));\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 311,
+      "functionName": "getSolution",
+      "functionAnnotation": "",
+      "functionDoc": "Get the current solution.\n\u003cp\u003e\n{@link #solve} should be called first for this to be the optimal solution.\n\u003c/p\u003e\n\n@return current solution\n"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+In particular case a HTTP-Webpage responses with a invalid HTTP-Charset field (delivered UFT8 instead of UTF8).
+This leads to an UnsupportedCharsetException in org.jsoup.helper.DataUtil at around Line 93(?) where :
+
+``` Java
+  Validate.notEmpty(charsetName, "Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+  docData = Charset.forName(charsetName).decode(byteData).toString();
+```
+
+I fixed it by wrapping a try catch statement around these two lines such that:
+
+``` Java
+try{
+  Validate.notEmpty(charsetName, "Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+  docData = Charset.forName(charsetName).decode(byteData).toString();
+} catch(UnsupportedCharsetException e){
+  return parseByteData(byteData,(String)null,baseUri,parser);
+}
+```
+
+It now falls back to the none charset argument assigned clause, and tries to detect the character set via HTML.

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DefaultPassConfig.java",
+  "functionName": "runPropertyRenaming",
+  "functionId": "runPropertyRenaming___compiler-AbstractCompiler__prevPropertyMap-VariableMap__externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1897,
+  "functionEndLine": 1926,
+  "numCommitsSeen": 117,
+  "timeTaken": 8013,
+  "changeHistory": [
+    "8703ffc3c1e71d42a8a41932055a875bf428bf8d",
+    "3924ff1e4a236d68a0b5448d185537d90ca04419"
+  ],
+  "changeHistoryShort": {
+    "8703ffc3c1e71d42a8a41932055a875bf428bf8d": "Ybodychange",
+    "3924ff1e4a236d68a0b5448d185537d90ca04419": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8703ffc3c1e71d42a8a41932055a875bf428bf8d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFlag for property affinity.\n\nR\u003djohnlenz\nDELTA\u003d68  (56 added, 1 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1139\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@952 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/30/11, 7:59 AM",
+      "commitName": "8703ffc3c1e71d42a8a41932055a875bf428bf8d",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "3/28/11, 1:28 PM",
+      "commitNameOld": "01f3b9808f2f969a10828966a7e8f1399750a1dc",
+      "commitAuthorOld": "tylerg@google.com",
+      "daysBetweenCommits": 1.77,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private VariableMap runPropertyRenaming(AbstractCompiler compiler, VariableMap prevPropertyMap, Node externs, Node root) {\n    char[] reservedChars \u003d options.anonymousFunctionNaming.getReservedCharacters();\n    switch(options.propertyRenaming) {\n        case HEURISTIC:\n            RenamePrototypes rproto \u003d new RenamePrototypes(compiler, false, reservedChars, prevPropertyMap);\n            rproto.process(externs, root);\n            return rproto.getPropertyMap();\n        case AGGRESSIVE_HEURISTIC:\n            RenamePrototypes rproto2 \u003d new RenamePrototypes(compiler, true, reservedChars, prevPropertyMap);\n            rproto2.process(externs, root);\n            return rproto2.getPropertyMap();\n        case ALL_UNQUOTED:\n            RenameProperties rprop \u003d new RenameProperties(compiler, options.propertyAffinity, options.generatePseudoNames, prevPropertyMap, reservedChars);\n            rprop.process(externs, root);\n            return rprop.getPropertyMap();\n        default:\n            throw new IllegalStateException(\"Unrecognized property renaming policy\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+      "functionStartLine": 1831,
+      "functionName": "runPropertyRenaming",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,19 +1,19 @@\n private VariableMap runPropertyRenaming(AbstractCompiler compiler, VariableMap prevPropertyMap, Node externs, Node root) {\n     char[] reservedChars \u003d options.anonymousFunctionNaming.getReservedCharacters();\n     switch(options.propertyRenaming) {\n         case HEURISTIC:\n             RenamePrototypes rproto \u003d new RenamePrototypes(compiler, false, reservedChars, prevPropertyMap);\n             rproto.process(externs, root);\n             return rproto.getPropertyMap();\n         case AGGRESSIVE_HEURISTIC:\n             RenamePrototypes rproto2 \u003d new RenamePrototypes(compiler, true, reservedChars, prevPropertyMap);\n             rproto2.process(externs, root);\n             return rproto2.getPropertyMap();\n         case ALL_UNQUOTED:\n-            RenameProperties rprop \u003d new RenameProperties(compiler, options.generatePseudoNames, prevPropertyMap, reservedChars);\n+            RenameProperties rprop \u003d new RenameProperties(compiler, options.propertyAffinity, options.generatePseudoNames, prevPropertyMap, reservedChars);\n             rprop.process(externs, root);\n             return rprop.getPropertyMap();\n         default:\n             throw new IllegalStateException(\"Unrecognized property renaming policy\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "3924ff1e4a236d68a0b5448d185537d90ca04419": {
+      "type": "Yintroduced",
+      "commitMessage": "Warn about all with statements, unless there\u0027s an explicit\n/** @suppress {with} */ tag\n\nRefactor a bunch of stuff into PassConfigs\n\nAdd a bunch of parser tests.\n\nUp-integrate John and Norris\u0027 latest changes to Rhino at trunk\n\nMinor type-tightening bug fixes.\n\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@18 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/2/09, 5:12 PM",
+      "commitName": "3924ff1e4a236d68a0b5448d185537d90ca04419",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+private VariableMap runPropertyRenaming(AbstractCompiler compiler, VariableMap prevPropertyMap, Node externs, Node root) {\n+    char[] reservedChars \u003d options.anonymousFunctionNaming.getReservedCharacters();\n+    switch(options.propertyRenaming) {\n+        case HEURISTIC:\n+            RenamePrototypes rproto \u003d new RenamePrototypes(compiler, false, reservedChars, prevPropertyMap);\n+            rproto.process(externs, root);\n+            return rproto.getPropertyMap();\n+        case AGGRESSIVE_HEURISTIC:\n+            RenamePrototypes rproto2 \u003d new RenamePrototypes(compiler, true, reservedChars, prevPropertyMap);\n+            rproto2.process(externs, root);\n+            return rproto2.getPropertyMap();\n+        case ALL_UNQUOTED:\n+            RenameProperties rprop \u003d new RenameProperties(compiler, options.generatePseudoNames, prevPropertyMap, reservedChars);\n+            rprop.process(externs, root);\n+            return rprop.getPropertyMap();\n+        default:\n+            throw new IllegalStateException(\"Unrecognized property renaming policy\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private VariableMap runPropertyRenaming(AbstractCompiler compiler, VariableMap prevPropertyMap, Node externs, Node root) {\n    char[] reservedChars \u003d options.anonymousFunctionNaming.getReservedCharacters();\n    switch(options.propertyRenaming) {\n        case HEURISTIC:\n            RenamePrototypes rproto \u003d new RenamePrototypes(compiler, false, reservedChars, prevPropertyMap);\n            rproto.process(externs, root);\n            return rproto.getPropertyMap();\n        case AGGRESSIVE_HEURISTIC:\n            RenamePrototypes rproto2 \u003d new RenamePrototypes(compiler, true, reservedChars, prevPropertyMap);\n            rproto2.process(externs, root);\n            return rproto2.getPropertyMap();\n        case ALL_UNQUOTED:\n            RenameProperties rprop \u003d new RenameProperties(compiler, options.generatePseudoNames, prevPropertyMap, reservedChars);\n            rprop.process(externs, root);\n            return rprop.getPropertyMap();\n        default:\n            throw new IllegalStateException(\"Unrecognized property renaming policy\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+      "functionStartLine": 1550,
+      "functionName": "runPropertyRenaming",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

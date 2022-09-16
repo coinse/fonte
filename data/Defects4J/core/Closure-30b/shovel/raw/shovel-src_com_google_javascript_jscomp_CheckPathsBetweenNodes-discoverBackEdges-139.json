@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CheckPathsBetweenNodes.java",
+  "functionName": "discoverBackEdges",
+  "functionId": "discoverBackEdges___u-DiGraphNode__N,E__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 139,
+  "functionEndLine": 153,
+  "numCommitsSeen": 12,
+  "timeTaken": 352,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,15 @@\n+private void discoverBackEdges(DiGraphNode\u003cN, E\u003e u) {\n+    u.setAnnotation(GRAY);\n+    for (DiGraphEdge\u003cN, E\u003e e : u.getOutEdges()) {\n+        if (ignoreEdge(e)) {\n+            continue;\n+        }\n+        DiGraphNode\u003cN, E\u003e v \u003d e.getDestination();\n+        if (v.getAnnotation() \u003d\u003d WHITE) {\n+            discoverBackEdges(v);\n+        } else if (v.getAnnotation() \u003d\u003d GRAY) {\n+            e.setAnnotation(BACK_EDGE);\n+        }\n+    }\n+    u.setAnnotation(BLACK);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void discoverBackEdges(DiGraphNode\u003cN, E\u003e u) {\n    u.setAnnotation(GRAY);\n    for (DiGraphEdge\u003cN, E\u003e e : u.getOutEdges()) {\n        if (ignoreEdge(e)) {\n            continue;\n        }\n        DiGraphNode\u003cN, E\u003e v \u003d e.getDestination();\n        if (v.getAnnotation() \u003d\u003d WHITE) {\n            discoverBackEdges(v);\n        } else if (v.getAnnotation() \u003d\u003d GRAY) {\n            e.setAnnotation(BACK_EDGE);\n        }\n    }\n    u.setAnnotation(BLACK);\n}",
+      "path": "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java",
+      "functionStartLine": 103,
+      "functionName": "discoverBackEdges",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-97b",
+  "repositoryPath": "/tmp/Math-97b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnivariateRealSolverImpl.java",
+  "functionName": "verifyInterval",
+  "functionId": "verifyInterval___lower-double__upper-double",
+  "sourceFilePath": "src/java/org/apache/commons/math/analysis/UnivariateRealSolverImpl.java",
+  "functionAnnotation": "",
+  "functionDoc": "Verifies that the endpoints specify an interval, \nthrows IllegalArgumentException if not\n\n@param lower lower endpoint\n@param upper upper endpoint\n@throws IllegalArgumentException\n",
+  "functionStartLine": 294,
+  "functionEndLine": 300,
+  "numCommitsSeen": 19,
+  "timeTaken": 494,
+  "changeHistory": [
+    "6a978ea29f680a87dfc380c760adf2e17b2e7c9c"
+  ],
+  "changeHistoryShort": {
+    "6a978ea29f680a87dfc380c760adf2e17b2e7c9c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6a978ea29f680a87dfc380c760adf2e17b2e7c9c": {
+      "type": "Yintroduced",
+      "commitMessage": "-Changed UnivariateRealFunction.solve() to throw FunctionEvaluationException.\n-Changed UnivariateRealSolver.solve() to throw more specific exceptions:\n  ConvergenceException if max iterations is exceeded\n  IllegalArgumentException if endpoints do not (appear to) bracket a root\n  FunctionEvaluationException if an error occurs evaluating the function\n-Changed UnivariateRealSolver setters to throw IllegalArgumentException\n instead of MathException when input property values are out of range.\n-Changed AbstractContinuousDistribution.inverseCumulativeProbability to handle\n corner cases where solution equals domain lower or upper bound.\n-Improved javadoc.\n-Improved test coverage.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141391 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/17/04, 2:19 PM",
+      "commitName": "6a978ea29f680a87dfc380c760adf2e17b2e7c9c",
+      "commitAuthor": "Phil Steitz",
+      "diff": "@@ -0,0 +1,5 @@\n+protected void verifyInterval(double lower, double upper) {\n+    if (lower \u003e\u003d upper) {\n+        throw new IllegalArgumentException(\"Endpoints do not specify an interval: [\" + lower + \",\" + upper + \"]\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void verifyInterval(double lower, double upper) {\n    if (lower \u003e\u003d upper) {\n        throw new IllegalArgumentException(\"Endpoints do not specify an interval: [\" + lower + \",\" + upper + \"]\");\n    }\n}",
+      "path": "src/java/org/apache/commons/math/analysis/UnivariateRealSolverImpl.java",
+      "functionStartLine": 291,
+      "functionName": "verifyInterval",
+      "functionAnnotation": "",
+      "functionDoc": "Verifies that the endpoints specify an interval, \nthrows IllegalArgumentException if not\n\n@param lower lower endpoint\n@param upper upper endpoint\n@throws IllegalArgumentException\n"
+    }
+  }
+}

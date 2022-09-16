@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IR.java",
+  "functionName": "mayBeStatementNoReturn",
+  "functionId": "mayBeStatementNoReturn___n-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/IR.java",
+  "functionAnnotation": "",
+  "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n",
+  "functionStartLine": 503,
+  "functionEndLine": 532,
+  "numCommitsSeen": 12,
+  "timeTaken": 975,
+  "changeHistory": [
+    "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+    "2f28243f97f468e92316a2c7ea209c857689ab43"
+  ],
+  "changeHistoryShort": {
+    "d91c13290dc5aa0f35876eaf5aa6f536b0814233": "Ymultichange(Yrename,Ybodychange)",
+    "2f28243f97f468e92316a2c7ea209c857689ab43": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d91c13290dc5aa0f35876eaf5aa6f536b0814233": {
+      "type": "Ymultichange(Yrename,Ybodychange)",
+      "commitMessage": "\nDon\u0027t allow RETURN nodes as SCRIPT children and couple additional\nhelpers and some tests.\n\nR\u003dnicksantos\nDELTA\u003d154  (149 added, 1 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4856\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1996 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/24/12, 10:34 AM",
+      "commitName": "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nDon\u0027t allow RETURN nodes as SCRIPT children and couple additional\nhelpers and some tests.\n\nR\u003dnicksantos\nDELTA\u003d154  (149 added, 1 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4856\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1996 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/12, 10:34 AM",
+          "commitName": "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/14/12, 2:03 PM",
+          "commitNameOld": "7a8983042131c5a9c2b5421ae42075cbb8ef1aeb",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.86,
+          "commitsBetweenForRepo": 25,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static boolean mayBeStatementNoReturn(Node n) {\n    switch(n.getType()) {\n        case Token.EMPTY:\n        case Token.FUNCTION:\n            return true;\n        case Token.BLOCK:\n        case Token.BREAK:\n        case Token.CONST:\n        case Token.CONTINUE:\n        case Token.DEBUGGER:\n        case Token.DO:\n        case Token.EXPR_RESULT:\n        case Token.FOR:\n        case Token.IF:\n        case Token.LABEL:\n        case Token.SWITCH:\n        case Token.THROW:\n        case Token.TRY:\n        case Token.VAR:\n        case Token.WHILE:\n        case Token.WITH:\n            return true;\n        default:\n            return false;\n    }\n}",
+          "path": "src/com/google/javascript/rhino/IR.java",
+          "functionStartLine": 499,
+          "functionName": "mayBeStatementNoReturn",
+          "functionAnnotation": "",
+          "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n",
+          "diff": "@@ -1,27 +1,26 @@\n-private static boolean mayBeStatement(Node n) {\n+private static boolean mayBeStatementNoReturn(Node n) {\n     switch(n.getType()) {\n         case Token.EMPTY:\n         case Token.FUNCTION:\n             return true;\n         case Token.BLOCK:\n         case Token.BREAK:\n         case Token.CONST:\n         case Token.CONTINUE:\n         case Token.DEBUGGER:\n         case Token.DO:\n         case Token.EXPR_RESULT:\n         case Token.FOR:\n         case Token.IF:\n         case Token.LABEL:\n-        case Token.RETURN:\n         case Token.SWITCH:\n         case Token.THROW:\n         case Token.TRY:\n         case Token.VAR:\n         case Token.WHILE:\n         case Token.WITH:\n             return true;\n         default:\n             return false;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "mayBeStatement",
+            "newValue": "mayBeStatementNoReturn"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nDon\u0027t allow RETURN nodes as SCRIPT children and couple additional\nhelpers and some tests.\n\nR\u003dnicksantos\nDELTA\u003d154  (149 added, 1 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4856\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1996 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/12, 10:34 AM",
+          "commitName": "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/14/12, 2:03 PM",
+          "commitNameOld": "7a8983042131c5a9c2b5421ae42075cbb8ef1aeb",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.86,
+          "commitsBetweenForRepo": 25,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static boolean mayBeStatementNoReturn(Node n) {\n    switch(n.getType()) {\n        case Token.EMPTY:\n        case Token.FUNCTION:\n            return true;\n        case Token.BLOCK:\n        case Token.BREAK:\n        case Token.CONST:\n        case Token.CONTINUE:\n        case Token.DEBUGGER:\n        case Token.DO:\n        case Token.EXPR_RESULT:\n        case Token.FOR:\n        case Token.IF:\n        case Token.LABEL:\n        case Token.SWITCH:\n        case Token.THROW:\n        case Token.TRY:\n        case Token.VAR:\n        case Token.WHILE:\n        case Token.WITH:\n            return true;\n        default:\n            return false;\n    }\n}",
+          "path": "src/com/google/javascript/rhino/IR.java",
+          "functionStartLine": 499,
+          "functionName": "mayBeStatementNoReturn",
+          "functionAnnotation": "",
+          "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n",
+          "diff": "@@ -1,27 +1,26 @@\n-private static boolean mayBeStatement(Node n) {\n+private static boolean mayBeStatementNoReturn(Node n) {\n     switch(n.getType()) {\n         case Token.EMPTY:\n         case Token.FUNCTION:\n             return true;\n         case Token.BLOCK:\n         case Token.BREAK:\n         case Token.CONST:\n         case Token.CONTINUE:\n         case Token.DEBUGGER:\n         case Token.DO:\n         case Token.EXPR_RESULT:\n         case Token.FOR:\n         case Token.IF:\n         case Token.LABEL:\n-        case Token.RETURN:\n         case Token.SWITCH:\n         case Token.THROW:\n         case Token.TRY:\n         case Token.VAR:\n         case Token.WHILE:\n         case Token.WITH:\n             return true;\n         default:\n             return false;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "2f28243f97f468e92316a2c7ea209c857689ab43": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRFC: An AST builder helper class.  This class has two goals:\n1) have a simpler method of building the AST for those new to the\ncompiler.\n2) create a more readable AST construction. Rather than something like:\nNode fn \u003d new Node(Token.FUNCTION, Node.newString(Token.NAME, \"fn\"),\nnew Node(Token.PARAM_LIST, new Node(Token.NAME, \"a\"), new\nNode(Token.NAME, \"b\")),new Node(Token.BLOCK));\nyou would have:\nNode fn \u003d function(name(\"fn\"), paramList(name(\"a\"),name(\"b\")),\nblock());\n\nThe intent is that the the referencing class will have a \"import static\nAst.*\".\n\nR\u003dnicksantos\nDELTA\u003d560  (560 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3726\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1602 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/15/11, 6:18 PM",
+      "commitName": "2f28243f97f468e92316a2c7ea209c857689ab43",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,27 @@\n+private static boolean mayBeStatement(Node n) {\n+    switch(n.getType()) {\n+        case Token.EMPTY:\n+        case Token.FUNCTION:\n+            return true;\n+        case Token.BLOCK:\n+        case Token.BREAK:\n+        case Token.CONST:\n+        case Token.CONTINUE:\n+        case Token.DEBUGGER:\n+        case Token.DO:\n+        case Token.EXPR_RESULT:\n+        case Token.FOR:\n+        case Token.IF:\n+        case Token.LABEL:\n+        case Token.RETURN:\n+        case Token.SWITCH:\n+        case Token.THROW:\n+        case Token.TRY:\n+        case Token.VAR:\n+        case Token.WHILE:\n+        case Token.WITH:\n+            return true;\n+        default:\n+            return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean mayBeStatement(Node n) {\n    switch(n.getType()) {\n        case Token.EMPTY:\n        case Token.FUNCTION:\n            return true;\n        case Token.BLOCK:\n        case Token.BREAK:\n        case Token.CONST:\n        case Token.CONTINUE:\n        case Token.DEBUGGER:\n        case Token.DO:\n        case Token.EXPR_RESULT:\n        case Token.FOR:\n        case Token.IF:\n        case Token.LABEL:\n        case Token.RETURN:\n        case Token.SWITCH:\n        case Token.THROW:\n        case Token.TRY:\n        case Token.VAR:\n        case Token.WHILE:\n        case Token.WITH:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/IR.java",
+      "functionStartLine": 451,
+      "functionName": "mayBeStatement",
+      "functionAnnotation": "",
+      "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n"
+    }
+  }
+}

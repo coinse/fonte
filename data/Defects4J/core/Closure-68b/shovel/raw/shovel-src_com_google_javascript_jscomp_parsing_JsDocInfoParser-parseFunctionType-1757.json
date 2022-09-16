@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-68b",
+  "repositoryPath": "/tmp/Closure-68b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "parseFunctionType",
+  "functionId": "parseFunctionType___token-JsDocToken",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "FunctionType :\u003d \u0027function\u0027 FunctionSignatureType\nFunctionSignatureType :\u003d\n   TypeParameters \u0027(\u0027 \u0027this\u0027 \u0027:\u0027 TypeName, ParametersType \u0027)\u0027 ResultType\n",
+  "functionStartLine": 1757,
+  "functionEndLine": 1826,
+  "numCommitsSeen": 43,
+  "timeTaken": 4684,
+  "changeHistory": [
+    "e9f7e6114414f68deb90f4116861d7a054365404",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "e9f7e6114414f68deb90f4116861d7a054365404": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e9f7e6114414f68deb90f4116861d7a054365404": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd a syntax for constructors\n{function(new:Type)}\nfixes issue 281\n\nR\u003djschorr\nDELTA\u003d199  (73 added, 4 deleted, 122 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d133\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@630 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/14/10, 1:49 PM",
+      "commitName": "e9f7e6114414f68deb90f4116861d7a054365404",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "12/7/10, 12:48 PM",
+      "commitNameOld": "be0104009f06fafdb7428398d2c8299d13a1df12",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 7.04,
+      "commitsBetweenForRepo": 25,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node parseFunctionType(JsDocToken token) {\n    if (token !\u003d JsDocToken.LP) {\n        return reportTypeSyntaxWarning(\"msg.jsdoc.missing.lp\");\n    }\n    Node functionType \u003d newNode(Token.FUNCTION);\n    Node parameters \u003d null;\n    skipEOLs();\n    if (!match(JsDocToken.RP)) {\n        token \u003d next();\n        boolean hasParams \u003d true;\n        if (token \u003d\u003d JsDocToken.STRING) {\n            String tokenStr \u003d stream.getString();\n            boolean isThis \u003d \"this\".equals(tokenStr);\n            boolean isNew \u003d \"new\".equals(tokenStr);\n            if (isThis || isNew) {\n                if (match(JsDocToken.COLON)) {\n                    next();\n                    skipEOLs();\n                    Node contextType \u003d wrapNode(isThis ? Token.THIS : Token.NEW, parseTypeName(next()));\n                    if (contextType \u003d\u003d null) {\n                        return null;\n                    }\n                    functionType.addChildToFront(contextType);\n                } else {\n                    return reportTypeSyntaxWarning(\"msg.jsdoc.missing.colon\");\n                }\n                if (match(JsDocToken.COMMA)) {\n                    next();\n                    skipEOLs();\n                    token \u003d next();\n                } else {\n                    hasParams \u003d false;\n                }\n            }\n        }\n        if (hasParams) {\n            parameters \u003d parseParametersType(token);\n            if (parameters \u003d\u003d null) {\n                return null;\n            }\n        }\n    }\n    if (parameters !\u003d null) {\n        functionType.addChildToBack(parameters);\n    }\n    skipEOLs();\n    if (!match(JsDocToken.RP)) {\n        return reportTypeSyntaxWarning(\"msg.jsdoc.missing.rp\");\n    }\n    skipEOLs();\n    Node resultType \u003d parseResultType(next());\n    if (resultType \u003d\u003d null) {\n        return null;\n    } else {\n        functionType.addChildToBack(resultType);\n    }\n    return functionType;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1676,
+      "functionName": "parseFunctionType",
+      "functionAnnotation": "",
+      "functionDoc": "FunctionType :\u003d \u0027function\u0027 FunctionSignatureType\nFunctionSignatureType :\u003d\n   TypeParameters \u0027(\u0027 \u0027this\u0027 \u0027:\u0027 TypeName, ParametersType \u0027)\u0027 ResultType\n",
+      "diff": "@@ -1,53 +1,58 @@\n private Node parseFunctionType(JsDocToken token) {\n     if (token !\u003d JsDocToken.LP) {\n         return reportTypeSyntaxWarning(\"msg.jsdoc.missing.lp\");\n     }\n     Node functionType \u003d newNode(Token.FUNCTION);\n     Node parameters \u003d null;\n     skipEOLs();\n     if (!match(JsDocToken.RP)) {\n         token \u003d next();\n         boolean hasParams \u003d true;\n-        if (token \u003d\u003d JsDocToken.STRING \u0026\u0026 \"this\".equals(stream.getString())) {\n-            if (match(JsDocToken.COLON)) {\n-                next();\n-                skipEOLs();\n-                Node thisType \u003d wrapNode(Token.THIS, parseTypeName(next()));\n-                if (thisType \u003d\u003d null) {\n-                    return null;\n+        if (token \u003d\u003d JsDocToken.STRING) {\n+            String tokenStr \u003d stream.getString();\n+            boolean isThis \u003d \"this\".equals(tokenStr);\n+            boolean isNew \u003d \"new\".equals(tokenStr);\n+            if (isThis || isNew) {\n+                if (match(JsDocToken.COLON)) {\n+                    next();\n+                    skipEOLs();\n+                    Node contextType \u003d wrapNode(isThis ? Token.THIS : Token.NEW, parseTypeName(next()));\n+                    if (contextType \u003d\u003d null) {\n+                        return null;\n+                    }\n+                    functionType.addChildToFront(contextType);\n+                } else {\n+                    return reportTypeSyntaxWarning(\"msg.jsdoc.missing.colon\");\n                 }\n-                functionType.addChildToFront(thisType);\n-            } else {\n-                return reportTypeSyntaxWarning(\"msg.jsdoc.missing.colon\");\n-            }\n-            if (match(JsDocToken.COMMA)) {\n-                next();\n-                skipEOLs();\n-                token \u003d next();\n-            } else {\n-                hasParams \u003d false;\n+                if (match(JsDocToken.COMMA)) {\n+                    next();\n+                    skipEOLs();\n+                    token \u003d next();\n+                } else {\n+                    hasParams \u003d false;\n+                }\n             }\n         }\n         if (hasParams) {\n             parameters \u003d parseParametersType(token);\n             if (parameters \u003d\u003d null) {\n                 return null;\n             }\n         }\n     }\n     if (parameters !\u003d null) {\n         functionType.addChildToBack(parameters);\n     }\n     skipEOLs();\n     if (!match(JsDocToken.RP)) {\n         return reportTypeSyntaxWarning(\"msg.jsdoc.missing.rp\");\n     }\n     skipEOLs();\n     Node resultType \u003d parseResultType(next());\n     if (resultType \u003d\u003d null) {\n         return null;\n     } else {\n         functionType.addChildToBack(resultType);\n     }\n     return functionType;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,53 @@\n+private Node parseFunctionType(JsDocToken token) {\n+    if (token !\u003d JsDocToken.LP) {\n+        return reportTypeSyntaxWarning(\"msg.jsdoc.missing.lp\");\n+    }\n+    Node functionType \u003d newNode(Token.FUNCTION);\n+    Node parameters \u003d null;\n+    skipEOLs();\n+    if (!match(JsDocToken.RP)) {\n+        token \u003d next();\n+        boolean hasParams \u003d true;\n+        if (token \u003d\u003d JsDocToken.STRING \u0026\u0026 \"this\".equals(stream.getString())) {\n+            if (match(JsDocToken.COLON)) {\n+                next();\n+                skipEOLs();\n+                Node thisType \u003d wrapNode(Token.THIS, parseTypeName(next()));\n+                if (thisType \u003d\u003d null) {\n+                    return null;\n+                }\n+                functionType.addChildToFront(thisType);\n+            } else {\n+                return reportTypeSyntaxWarning(\"msg.jsdoc.missing.colon\");\n+            }\n+            if (match(JsDocToken.COMMA)) {\n+                next();\n+                skipEOLs();\n+                token \u003d next();\n+            } else {\n+                hasParams \u003d false;\n+            }\n+        }\n+        if (hasParams) {\n+            parameters \u003d parseParametersType(token);\n+            if (parameters \u003d\u003d null) {\n+                return null;\n+            }\n+        }\n+    }\n+    if (parameters !\u003d null) {\n+        functionType.addChildToBack(parameters);\n+    }\n+    skipEOLs();\n+    if (!match(JsDocToken.RP)) {\n+        return reportTypeSyntaxWarning(\"msg.jsdoc.missing.rp\");\n+    }\n+    skipEOLs();\n+    Node resultType \u003d parseResultType(next());\n+    if (resultType \u003d\u003d null) {\n+        return null;\n+    } else {\n+        functionType.addChildToBack(resultType);\n+    }\n+    return functionType;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node parseFunctionType(JsDocToken token) {\n    if (token !\u003d JsDocToken.LP) {\n        return reportTypeSyntaxWarning(\"msg.jsdoc.missing.lp\");\n    }\n    Node functionType \u003d newNode(Token.FUNCTION);\n    Node parameters \u003d null;\n    skipEOLs();\n    if (!match(JsDocToken.RP)) {\n        token \u003d next();\n        boolean hasParams \u003d true;\n        if (token \u003d\u003d JsDocToken.STRING \u0026\u0026 \"this\".equals(stream.getString())) {\n            if (match(JsDocToken.COLON)) {\n                next();\n                skipEOLs();\n                Node thisType \u003d wrapNode(Token.THIS, parseTypeName(next()));\n                if (thisType \u003d\u003d null) {\n                    return null;\n                }\n                functionType.addChildToFront(thisType);\n            } else {\n                return reportTypeSyntaxWarning(\"msg.jsdoc.missing.colon\");\n            }\n            if (match(JsDocToken.COMMA)) {\n                next();\n                skipEOLs();\n                token \u003d next();\n            } else {\n                hasParams \u003d false;\n            }\n        }\n        if (hasParams) {\n            parameters \u003d parseParametersType(token);\n            if (parameters \u003d\u003d null) {\n                return null;\n            }\n        }\n    }\n    if (parameters !\u003d null) {\n        functionType.addChildToBack(parameters);\n    }\n    skipEOLs();\n    if (!match(JsDocToken.RP)) {\n        return reportTypeSyntaxWarning(\"msg.jsdoc.missing.rp\");\n    }\n    skipEOLs();\n    Node resultType \u003d parseResultType(next());\n    if (resultType \u003d\u003d null) {\n        return null;\n    } else {\n        functionType.addChildToBack(resultType);\n    }\n    return functionType;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1577,
+      "functionName": "parseFunctionType",
+      "functionAnnotation": "",
+      "functionDoc": "FunctionType :\u003d \u0027function\u0027 FunctionSignatureType\nFunctionSignatureType :\u003d\n   TypeParameters \u0027(\u0027 \u0027this\u0027 \u0027:\u0027 TypeName, ParametersType \u0027)\u0027 ResultType\n"
+    }
+  }
+}

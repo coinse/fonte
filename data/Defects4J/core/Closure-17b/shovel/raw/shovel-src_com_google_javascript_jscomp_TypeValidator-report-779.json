@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeValidator.java",
+  "functionName": "report",
+  "functionId": "report___error-JSError",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 779,
+  "functionEndLine": 784,
+  "numCommitsSeen": 35,
+  "timeTaken": 1249,
+  "changeHistory": [
+    "d4fd1cb4c14d66eb5dd3acad580f6c36f2f26c48",
+    "41ecd65c09b6d39253c4f855e615daabbc7e241a"
+  ],
+  "changeHistoryShort": {
+    "d4fd1cb4c14d66eb5dd3acad580f6c36f2f26c48": "Ybodychange",
+    "41ecd65c09b6d39253c4f855e615daabbc7e241a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d4fd1cb4c14d66eb5dd3acad580f6c36f2f26c48": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRetool error reporting for the DisambiguateProperties pass. Instead of having a global on/off we now report invalidation errors only certain specified properties. This helps the case where dead code removal can strip 10k of \"toObject\" methods as long as that property is valid, but we have tens of thousands of other errors we don\u0027t care about.\n\nAlso removes error reporting check in TypeValidator.java since it\u0027s redundant now.\n\nR\u003dacleung,moedinger\nDELTA\u003d85  (58 added, 7 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3178\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1406 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/2/11, 3:20 PM",
+      "commitName": "d4fd1cb4c14d66eb5dd3acad580f6c36f2f26c48",
+      "commitAuthor": "henrywong@google.com",
+      "commitDateOld": "8/18/11, 3:46 PM",
+      "commitNameOld": "bd9c7b620384fe5a98772729001ed56304459bc6",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 14.98,
+      "commitsBetweenForRepo": 38,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private JSError report(JSError error) {\n    if (shouldReport) {\n        compiler.report(error);\n    }\n    return error;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeValidator.java",
+      "functionStartLine": 749,
+      "functionName": "report",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n private JSError report(JSError error) {\n     if (shouldReport) {\n         compiler.report(error);\n     }\n-    return recordErrors ? error : null;\n+    return error;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "41ecd65c09b6d39253c4f855e615daabbc7e241a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nBetter warnings for fixing DisambiguateProperties ignores.\n\nR\u003djohnlenz\nDELTA\u003d164  (92 added, 23 deleted, 49 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2860\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1316 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/2/11, 5:01 PM",
+      "commitName": "41ecd65c09b6d39253c4f855e615daabbc7e241a",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+private JSError report(JSError error) {\n+    if (shouldReport) {\n+        compiler.report(error);\n+    }\n+    return recordErrors ? error : null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JSError report(JSError error) {\n    if (shouldReport) {\n        compiler.report(error);\n    }\n    return recordErrors ? error : null;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeValidator.java",
+      "functionStartLine": 754,
+      "functionName": "report",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

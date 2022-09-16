@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "toObjectType",
+  "functionId": "toObjectType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Casts this to an ObjectType, or returns null if this is not an ObjectType.\n\nDoes not change the underlying JS type. If you want to simulate JS\nautoboxing or dereferencing, you should use autoboxesTo() or dereference().\nThose methods may change the underlying JS type.\n",
+  "functionStartLine": 468,
+  "functionEndLine": 470,
+  "numCommitsSeen": 37,
+  "timeTaken": 3011,
+  "changeHistory": [
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404"
+  ],
+  "changeHistoryShort": {
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": {
+      "type": "Yintroduced",
+      "commitMessage": "Add warnings for functions that are ambiguously defined on different\nbrowsers.\n\nAdd better support for Caja.\n\nRollback the change to CoalesceVariableNames, because it had problems.\n\nInternal type system refactoring.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@33 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/15/09, 1:52 PM",
+      "commitName": "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,3 @@\n+public ObjectType toObjectType() {\n+    return this instanceof ObjectType ? (ObjectType) this : null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public ObjectType toObjectType() {\n    return this instanceof ObjectType ? (ObjectType) this : null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 436,
+      "functionName": "toObjectType",
+      "functionAnnotation": "",
+      "functionDoc": "Casts this to an ObjectType, or returns null if this is not an ObjectType.\n\nDoes not change the underlying JS type. If you want to simulate JS\nautoboxing or dereferencing, you should use autoboxesTo() or dereference().\nThose methods may change the underlying JS type.\n"
+    }
+  }
+}

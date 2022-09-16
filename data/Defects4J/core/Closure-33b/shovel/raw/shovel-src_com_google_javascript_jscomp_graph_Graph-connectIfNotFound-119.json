@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Graph.java",
+  "functionName": "connectIfNotFound",
+  "functionId": "connectIfNotFound___n1-N__edge-E__n2-N",
+  "sourceFilePath": "src/com/google/javascript/jscomp/graph/Graph.java",
+  "functionAnnotation": "",
+  "functionDoc": "Connects two nodes in the graph with an edge if such edge does not already\nexists between the nodes.\n\n@param n1 First node.\n@param edge The edge.\n@param n2 Second node.\n",
+  "functionStartLine": 119,
+  "functionEndLine": 123,
+  "numCommitsSeen": 12,
+  "timeTaken": 567,
+  "changeHistory": [
+    "97bbbffb65eda01aa9b38a5cec43a598afb39070",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "97bbbffb65eda01aa9b38a5cec43a598afb39070": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "97bbbffb65eda01aa9b38a5cec43a598afb39070": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/12 by nick\n\n        simplify how we build source map paths.\n\n        R\u003djoey\n        DELTA\u003d111  (76 added, 4 deleted, 31 changed)\n\nChange on 2010/05/12 by nick\n\n        Use generics magic to clean up the graph code a bit.\n        These changes don\u0027t give the performance improvements that I hoped,\n        but i think they\u0027re good changes anyway.\n\n        R\u003dalan\n        DELTA\u003d253  (69 added, 121 deleted, 63 changed)\n\nChange on 2010/05/12 by nick\n\n        API clean-up: don\u0027t store null return types or parameter-list types.\n\n        R\u003drobert\n        DELTA\u003d195  (89 added, 54 deleted, 52 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddzaoho\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@209 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/13/10, 10:46 AM",
+      "commitName": "97bbbffb65eda01aa9b38a5cec43a598afb39070",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "1/15/10, 1:56 PM",
+      "commitNameOld": "66485d3df654fa92b7500d5e15b58300677edca3",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 117.83,
+      "commitsBetweenForRepo": 130,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public final void connectIfNotFound(N n1, E edge, N n2) {\n    if (!isConnected(n1, edge, n2)) {\n        connect(n1, edge, n2);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/graph/Graph.java",
+      "functionStartLine": 120,
+      "functionName": "connectIfNotFound",
+      "functionAnnotation": "",
+      "functionDoc": "Connects two nodes in the graph with an edge if such edge does not already\nexists between the nodes.\n\n@param n1 First node.\n@param edge The edge.\n@param n2 Second node.\n",
+      "diff": "@@ -1,17 +1,5 @@\n public final void connectIfNotFound(N n1, E edge, N n2) {\n-    GraphNode\u003cN, E\u003e node1 \u003d getNode(n1);\n-    GraphNode\u003cN, E\u003e node2 \u003d getNode(n2);\n-    if (node1 \u003d\u003d null) {\n-        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n+    if (!isConnected(n1, edge, n2)) {\n+        connect(n1, edge, n2);\n     }\n-    if (node2 \u003d\u003d null) {\n-        throw new IllegalArgumentException(n2 + \" does not exist in graph\");\n-    }\n-    List\u003cGraphEdge\u003cN, E\u003e\u003e edgeList \u003d getEdges(n1, n2);\n-    for (GraphEdge\u003cN, E\u003e e : edgeList) {\n-        if (e.getValue() \u003d\u003d edge || e.getValue().equals(edge)) {\n-            return;\n-        }\n-    }\n-    connect(n1, edge, n2);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,17 @@\n+public final void connectIfNotFound(N n1, E edge, N n2) {\n+    GraphNode\u003cN, E\u003e node1 \u003d getNode(n1);\n+    GraphNode\u003cN, E\u003e node2 \u003d getNode(n2);\n+    if (node1 \u003d\u003d null) {\n+        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n+    }\n+    if (node2 \u003d\u003d null) {\n+        throw new IllegalArgumentException(n2 + \" does not exist in graph\");\n+    }\n+    List\u003cGraphEdge\u003cN, E\u003e\u003e edgeList \u003d getEdges(n1, n2);\n+    for (GraphEdge\u003cN, E\u003e e : edgeList) {\n+        if (e.getValue() \u003d\u003d edge || e.getValue().equals(edge)) {\n+            return;\n+        }\n+    }\n+    connect(n1, edge, n2);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final void connectIfNotFound(N n1, E edge, N n2) {\n    GraphNode\u003cN, E\u003e node1 \u003d getNode(n1);\n    GraphNode\u003cN, E\u003e node2 \u003d getNode(n2);\n    if (node1 \u003d\u003d null) {\n        throw new IllegalArgumentException(n1 + \" does not exist in graph\");\n    }\n    if (node2 \u003d\u003d null) {\n        throw new IllegalArgumentException(n2 + \" does not exist in graph\");\n    }\n    List\u003cGraphEdge\u003cN, E\u003e\u003e edgeList \u003d getEdges(n1, n2);\n    for (GraphEdge\u003cN, E\u003e e : edgeList) {\n        if (e.getValue() \u003d\u003d edge || e.getValue().equals(edge)) {\n            return;\n        }\n    }\n    connect(n1, edge, n2);\n}",
+      "path": "src/com/google/javascript/jscomp/graph/Graph.java",
+      "functionStartLine": 121,
+      "functionName": "connectIfNotFound",
+      "functionAnnotation": "",
+      "functionDoc": "Connects two nodes in the graph with an edge if such edge does not already\nexists between the nodes.\n\n@param n1 First node.\n@param edge The edge.\n@param n2 Second node.\n"
+    }
+  }
+}

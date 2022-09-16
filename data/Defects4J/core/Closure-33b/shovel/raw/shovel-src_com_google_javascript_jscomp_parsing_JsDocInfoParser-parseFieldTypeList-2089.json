@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "parseFieldTypeList",
+  "functionId": "parseFieldTypeList___token-JsDocToken",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "FieldTypeList :\u003d FieldType | FieldType \u0027,\u0027 FieldTypeList\n",
+  "functionStartLine": 2089,
+  "functionEndLine": 2115,
+  "numCommitsSeen": 57,
+  "timeTaken": 6340,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,18 @@\n+private Node parseFieldTypeList(JsDocToken token) {\n+    Node fieldTypeList \u003d newNode(Token.LB);\n+    do {\n+        Node fieldType \u003d parseFieldType(token);\n+        if (fieldType \u003d\u003d null) {\n+            return null;\n+        }\n+        fieldTypeList.addChildToBack(fieldType);\n+        skipEOLs();\n+        if (!match(JsDocToken.COMMA)) {\n+            break;\n+        }\n+        next();\n+        skipEOLs();\n+        token \u003d next();\n+    } while (true);\n+    return fieldTypeList;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node parseFieldTypeList(JsDocToken token) {\n    Node fieldTypeList \u003d newNode(Token.LB);\n    do {\n        Node fieldType \u003d parseFieldType(token);\n        if (fieldType \u003d\u003d null) {\n            return null;\n        }\n        fieldTypeList.addChildToBack(fieldType);\n        skipEOLs();\n        if (!match(JsDocToken.COMMA)) {\n            break;\n        }\n        next();\n        skipEOLs();\n        token \u003d next();\n    } while (true);\n    return fieldTypeList;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1869,
+      "functionName": "parseFieldTypeList",
+      "functionAnnotation": "",
+      "functionDoc": "FieldTypeList :\u003d FieldType | FieldType \u0027,\u0027 FieldTypeList\n"
+    }
+  }
+}

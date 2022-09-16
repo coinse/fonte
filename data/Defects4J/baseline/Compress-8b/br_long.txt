@@ -1,0 +1,3 @@
+TarArchiveEntry.parseTarHeader() includes the trailing space/NUL when parsing the octal size.
+
+Although the size field in the header is 12 bytes, the last byte is supposed to be space or NUL - i.e. only 11 octal digits are allowed for the size.

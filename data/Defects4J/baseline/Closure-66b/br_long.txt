@@ -1,0 +1,42 @@
+<b>What steps will reproduce the problem?</b>
+
+1. create an enum with any syntax
+my example:
+/** 
+@type {Object}
+*/
+var NS = {};
+
+/**
+@enum {number}
+*/
+NS.keys = { 
+	a: 1, 
+	b: 2, 
+	c: 3
+};
+
+/**
+@enum
+*/
+window['gKEYS'] = NS.keys;
+
+
+2. complie with --compilation_level ADVANCED_OPTIMIZATIONS --summary_detail_level 3 --warning_level VERBOSE
+
+3. look at the % typed
+
+<b>What is the expected output? What do you see instead?</b>
+it shouldn't count the enum as un-typed; it does...
+
+<b>What version of the product are you using? On what operating system?</b>
+Version: 1043
+Built on: 2011/05/02 19:47
+
+<b>Please provide any additional information below.</b>
+
+i also tried to tersely coerce the type, eg:
+/** @type {number} */ a:  (/** @type {number} */(1)),
+
+which has no effect.
+

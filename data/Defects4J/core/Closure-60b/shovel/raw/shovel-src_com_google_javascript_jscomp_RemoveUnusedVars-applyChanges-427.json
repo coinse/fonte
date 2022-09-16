@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RemoveUnusedVars.java",
+  "functionName": "applyChanges",
+  "functionId": "$applyChanges",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+  "functionAnnotation": "",
+  "functionDoc": "Applies optimizations to all previously marked nodes.\n",
+  "functionStartLine": 427,
+  "functionEndLine": 436,
+  "numCommitsSeen": 37,
+  "timeTaken": 784,
+  "changeHistory": [
+    "9d52e4fe146533053ad96d3cc29d54d05c869154"
+  ],
+  "changeHistoryShort": {
+    "9d52e4fe146533053ad96d3cc29d54d05c869154": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9d52e4fe146533053ad96d3cc29d54d05c869154": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix a NPE case in RemoveUnusedVars by separating the node changes from the analysis phase\n\nR\u003djohnlenz\nDELTA\u003d61  (29 added, 17 deleted, 15 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d880\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@888 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/15/11, 12:42 PM",
+      "commitName": "9d52e4fe146533053ad96d3cc29d54d05c869154",
+      "commitAuthor": "agrieve@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+public void applyChanges() {\n+    for (Node n : toRemove) {\n+        n.getParent().removeChild(n);\n+        compiler.reportCodeChange();\n+    }\n+    for (Node n : toReplaceWithZero) {\n+        n.getParent().replaceChild(n, Node.newNumber(0).copyInformationFrom(n));\n+        compiler.reportCodeChange();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void applyChanges() {\n    for (Node n : toRemove) {\n        n.getParent().removeChild(n);\n        compiler.reportCodeChange();\n    }\n    for (Node n : toReplaceWithZero) {\n        n.getParent().replaceChild(n, Node.newNumber(0).copyInformationFrom(n));\n        compiler.reportCodeChange();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+      "functionStartLine": 417,
+      "functionName": "applyChanges",
+      "functionAnnotation": "",
+      "functionDoc": "Applies optimizations to all previously marked nodes.\n"
+    }
+  }
+}

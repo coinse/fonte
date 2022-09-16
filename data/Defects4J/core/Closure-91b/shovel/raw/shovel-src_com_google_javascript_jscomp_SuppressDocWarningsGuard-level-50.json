@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SuppressDocWarningsGuard.java",
+  "functionName": "level",
+  "functionId": "level___error-JSError",
+  "sourceFilePath": "src/com/google/javascript/jscomp/SuppressDocWarningsGuard.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 50,
+  "functionEndLine": 86,
+  "numCommitsSeen": 1,
+  "timeTaken": 560,
+  "changeHistory": [
+    "52547e61d187e102f21e5545c24e8d232fefe92f"
+  ],
+  "changeHistoryShort": {
+    "52547e61d187e102f21e5545c24e8d232fefe92f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "52547e61d187e102f21e5545c24e8d232fefe92f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nWarningsGuard for @suppress.\n\nR\u003djohnlenz\nDELTA\u003d276  (243 added, 16 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d86010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@343 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/5/10, 7:31 PM",
+      "commitName": "52547e61d187e102f21e5545c24e8d232fefe92f",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,27 @@\n+@Override\n+public CheckLevel level(JSError error) {\n+    Node node \u003d error.node;\n+    if (node !\u003d null) {\n+        for (Node current \u003d node; current !\u003d null; current \u003d current.getParent()) {\n+            int type \u003d current.getType();\n+            JSDocInfo info \u003d null;\n+            if (type \u003d\u003d Token.FUNCTION) {\n+                info \u003d NodeUtil.getFunctionInfo(current);\n+            } else if (type \u003d\u003d Token.SCRIPT) {\n+                info \u003d current.getJSDocInfo();\n+            }\n+            if (info !\u003d null) {\n+                for (String suppressor : info.getSuppressions()) {\n+                    WarningsGuard guard \u003d suppressors.get(suppressor);\n+                    if (guard !\u003d null) {\n+                        CheckLevel newLevel \u003d guard.level(error);\n+                        if (newLevel !\u003d null) {\n+                            return newLevel;\n+                        }\n+                    }\n+                }\n+            }\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic CheckLevel level(JSError error) {\n    Node node \u003d error.node;\n    if (node !\u003d null) {\n        for (Node current \u003d node; current !\u003d null; current \u003d current.getParent()) {\n            int type \u003d current.getType();\n            JSDocInfo info \u003d null;\n            if (type \u003d\u003d Token.FUNCTION) {\n                info \u003d NodeUtil.getFunctionInfo(current);\n            } else if (type \u003d\u003d Token.SCRIPT) {\n                info \u003d current.getJSDocInfo();\n            }\n            if (info !\u003d null) {\n                for (String suppressor : info.getSuppressions()) {\n                    WarningsGuard guard \u003d suppressors.get(suppressor);\n                    if (guard !\u003d null) {\n                        CheckLevel newLevel \u003d guard.level(error);\n                        if (newLevel !\u003d null) {\n                            return newLevel;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/SuppressDocWarningsGuard.java",
+      "functionStartLine": 50,
+      "functionName": "level",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

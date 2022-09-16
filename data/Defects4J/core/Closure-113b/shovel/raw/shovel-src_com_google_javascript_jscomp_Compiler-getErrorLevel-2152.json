@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "getErrorLevel",
+  "functionId": "getErrorLevel___error-JSError",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 2152,
+  "functionEndLine": 2155,
+  "numCommitsSeen": 178,
+  "timeTaken": 13103,
+  "changeHistory": [
+    "a2d9c861616c0308024d74a3be2b34f3d4cdd066",
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777"
+  ],
+  "changeHistoryShort": {
+    "a2d9c861616c0308024d74a3be2b34f3d4cdd066": "Ybodychange",
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2d9c861616c0308024d74a3be2b34f3d4cdd066": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCreate an Emergency fail-safe switch\n\nR\u003dacleung\nDELTA\u003d198  (173 added, 13 deleted, 12 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1650\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1043 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/27/11, 12:58 PM",
+      "commitName": "a2d9c861616c0308024d74a3be2b34f3d4cdd066",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "4/21/11, 1:03 PM",
+      "commitNameOld": "7fe50e46bcfe485994a7fa112dfeb19e9e4b42c8",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 6.0,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic CheckLevel getErrorLevel(JSError error) {\n    Preconditions.checkNotNull(options);\n    return warningsGuard.level(error);\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1746,
+      "functionName": "getErrorLevel",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,5 @@\n @Override\n public CheckLevel getErrorLevel(JSError error) {\n     Preconditions.checkNotNull(options);\n-    WarningsGuard guards \u003d options.getWarningsGuard();\n-    if (guards \u003d\u003d null) {\n-        return error.level;\n-    } else {\n-        return guards.level(error);\n-    }\n+    return warningsGuard.level(error);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/06/30 15:06:33 by johnlenz\n\n\tAdd a diagnostic group so that projects with weird externs can opt-out of the stricter extern checks.\n\n\tR\u003dnicksantos\n\tDELTA\u003d54  (52 added, 0 deleted, 2 changed)\n\nChange on 2010/06/30 17:56:51 by johnlenz\n\n\tRevert warning levels until after a release is put out to control them.\n\n\tR\u003dnicksantos\n\tDELTA\u003d4  (2 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d47002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@260 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/1/10, 7:38 AM",
+      "commitName": "9de5e9b4671773bb3f2d5932e57c1b4186b9b777",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+public CheckLevel getErrorLevel(JSError error) {\n+    Preconditions.checkNotNull(options);\n+    WarningsGuard guards \u003d options.getWarningsGuard();\n+    if (guards \u003d\u003d null) {\n+        return error.level;\n+    } else {\n+        return guards.level(error);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic CheckLevel getErrorLevel(JSError error) {\n    Preconditions.checkNotNull(options);\n    WarningsGuard guards \u003d options.getWarningsGuard();\n    if (guards \u003d\u003d null) {\n        return error.level;\n    } else {\n        return guards.level(error);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1578,
+      "functionName": "getErrorLevel",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

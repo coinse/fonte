@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateRoot",
+  "functionId": "validateRoot___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 68,
+  "functionEndLine": 74,
+  "numCommitsSeen": 19,
+  "timeTaken": 1316,
+  "changeHistory": [
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+public void validateRoot(Node n) {\n+    validateNodeType(Token.BLOCK, n);\n+    validateIsSynthetic(n);\n+    validateChildCount(n, 2);\n+    validateCodeRoot(n.getFirstChild());\n+    validateCodeRoot(n.getLastChild());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void validateRoot(Node n) {\n    validateNodeType(Token.BLOCK, n);\n    validateIsSynthetic(n);\n    validateChildCount(n, 2);\n    validateCodeRoot(n.getFirstChild());\n    validateCodeRoot(n.getLastChild());\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 66,
+      "functionName": "validateRoot",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

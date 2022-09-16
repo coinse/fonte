@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "evaluatesToLocalValue",
+  "functionId": "evaluatesToLocalValue___value-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the node is known to be a value that is not referenced\nelsewhere.\n",
+  "functionStartLine": 2910,
+  "functionEndLine": 2912,
+  "numCommitsSeen": 94,
+  "timeTaken": 5738,
+  "changeHistory": [
+    "6a2378d43d1f06344f6418388d45c66fe3466a07"
+  ],
+  "changeHistoryShort": {
+    "6a2378d43d1f06344f6418388d45c66fe3466a07": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6a2378d43d1f06344f6418388d45c66fe3466a07": {
+      "type": "Yintroduced",
+      "commitMessage": "\nTake advantage of the finer grain side-effect information when\ndetermining side-effects.\nThe bulk of the changes here are the move of the \"isKnownLocalValue\"\nfunction and its tests from to NodeUtil/NodeUtilTest.\n\nR\u003dnicksantos\nDELTA\u003d664  (419 added, 201 deleted, 44 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d260873\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@466 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/27/10, 4:16 PM",
+      "commitName": "6a2378d43d1f06344f6418388d45c66fe3466a07",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+static boolean evaluatesToLocalValue(Node value) {\n+    return evaluatesToLocalValue(value, Predicates.\u003cNode\u003ealwaysFalse());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean evaluatesToLocalValue(Node value) {\n    return evaluatesToLocalValue(value, Predicates.\u003cNode\u003ealwaysFalse());\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2250,
+      "functionName": "evaluatesToLocalValue",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the node is known to be a value that is not referenced\nelsewhere.\n"
+    }
+  }
+}

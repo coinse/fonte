@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "identifyNonNullableName",
+  "functionId": "identifyNonNullableName___name-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "Identifies the name of a typedef or enum before we actually declare it.\n",
+  "functionStartLine": 1325,
+  "functionEndLine": 1328,
+  "numCommitsSeen": 65,
+  "timeTaken": 2954,
+  "changeHistory": [
+    "3698fee71e3671171c587f932795a8ab8e852cd8",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3698fee71e3671171c587f932795a8ab8e852cd8": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3698fee71e3671171c587f932795a8ab8e852cd8": {
+      "type": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+      "commitMessage": "\nwhen deciding whether named types are nullable, let enums and\ntypedefs share the same hacky logic.\n\nR\u003djohnlenz\nDELTA\u003d83  (57 added, 0 deleted, 26 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d804008\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@520 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/28/10, 8:31 AM",
+      "commitName": "3698fee71e3671171c587f932795a8ab8e852cd8",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nwhen deciding whether named types are nullable, let enums and\ntypedefs share the same hacky logic.\n\nR\u003djohnlenz\nDELTA\u003d83  (57 added, 0 deleted, 26 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d804008\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@520 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/28/10, 8:31 AM",
+          "commitName": "3698fee71e3671171c587f932795a8ab8e852cd8",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/27/10, 9:43 AM",
+          "commitNameOld": "3faef1d4959a55ebd86a09cd5395afb54ab5ec25",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void identifyNonNullableName(String name) {\n    Preconditions.checkNotNull(name);\n    nonNullableTypeNames.add(name);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1283,
+          "functionName": "identifyNonNullableName",
+          "functionAnnotation": "",
+          "functionDoc": "Identifies the name of a typedef or enum before we actually declare it.\n",
+          "diff": "@@ -1,3 +1,4 @@\n-public void identifyEnumName(String name) {\n-    enumTypeNames.add(name);\n+public void identifyNonNullableName(String name) {\n+    Preconditions.checkNotNull(name);\n+    nonNullableTypeNames.add(name);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "identifyEnumName",
+            "newValue": "identifyNonNullableName"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nwhen deciding whether named types are nullable, let enums and\ntypedefs share the same hacky logic.\n\nR\u003djohnlenz\nDELTA\u003d83  (57 added, 0 deleted, 26 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d804008\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@520 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/28/10, 8:31 AM",
+          "commitName": "3698fee71e3671171c587f932795a8ab8e852cd8",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/27/10, 9:43 AM",
+          "commitNameOld": "3faef1d4959a55ebd86a09cd5395afb54ab5ec25",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void identifyNonNullableName(String name) {\n    Preconditions.checkNotNull(name);\n    nonNullableTypeNames.add(name);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1283,
+          "functionName": "identifyNonNullableName",
+          "functionAnnotation": "",
+          "functionDoc": "Identifies the name of a typedef or enum before we actually declare it.\n",
+          "diff": "@@ -1,3 +1,4 @@\n-public void identifyEnumName(String name) {\n-    enumTypeNames.add(name);\n+public void identifyNonNullableName(String name) {\n+    Preconditions.checkNotNull(name);\n+    nonNullableTypeNames.add(name);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nwhen deciding whether named types are nullable, let enums and\ntypedefs share the same hacky logic.\n\nR\u003djohnlenz\nDELTA\u003d83  (57 added, 0 deleted, 26 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d804008\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@520 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/28/10, 8:31 AM",
+          "commitName": "3698fee71e3671171c587f932795a8ab8e852cd8",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/27/10, 9:43 AM",
+          "commitNameOld": "3faef1d4959a55ebd86a09cd5395afb54ab5ec25",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void identifyNonNullableName(String name) {\n    Preconditions.checkNotNull(name);\n    nonNullableTypeNames.add(name);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1283,
+          "functionName": "identifyNonNullableName",
+          "functionAnnotation": "",
+          "functionDoc": "Identifies the name of a typedef or enum before we actually declare it.\n",
+          "diff": "@@ -1,3 +1,4 @@\n-public void identifyEnumName(String name) {\n-    enumTypeNames.add(name);\n+public void identifyNonNullableName(String name) {\n+    Preconditions.checkNotNull(name);\n+    nonNullableTypeNames.add(name);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Identifies the name of an enum before we actually declare it.\n",
+            "newValue": "Identifies the name of a typedef or enum before we actually declare it.\n"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,3 @@\n+public void identifyEnumName(String name) {\n+    enumTypeNames.add(name);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void identifyEnumName(String name) {\n    enumTypeNames.add(name);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 1103,
+      "functionName": "identifyEnumName",
+      "functionAnnotation": "",
+      "functionDoc": "Identifies the name of an enum before we actually declare it.\n"
+    }
+  }
+}

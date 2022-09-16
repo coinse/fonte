@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DataFlowAnalysis.java",
+  "functionName": "analyze",
+  "functionId": "analyze___maxSteps-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DataFlowAnalysis.java",
+  "functionAnnotation": "",
+  "functionDoc": "Finds a fixed-point solution. The function has the side effect of replacing\nthe existing node annotations with the computed solutions using {@link\ncom.google.javascript.jscomp.graph.GraphNode#setAnnotation(Annotation)}.\n\n\u003cp\u003eInitially, each node\u0027s input and output flow state contains the value\ngiven by {@link #createInitialEstimateLattice()} (with the exception of the\nentry node of the graph which takes on the {@link #createEntryLattice()}\nvalue. Each node will use the output state of its predecessor and compute a\noutput state according to the instruction. At that time, any nodes that\ndepends on the node\u0027s newly modified output value will need to recompute\ntheir output state again. Each step will perform a computation at one node\nuntil no extra computation will modify any existing output state anymore.\n\n@param maxSteps Max number of iterations before the method stops and throw\n       a {@link MaxIterationsExceededException}. This will prevent the\n       analysis from going into a infinite loop.\n",
+  "functionStartLine": 201,
+  "functionEndLine": 229,
+  "numCommitsSeen": 15,
+  "timeTaken": 710,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,24 @@\n+final void analyze(int maxSteps) {\n+    initialize();\n+    int step \u003d 0;\n+    while (!orderedWorkSet.isEmpty()) {\n+        if (step \u003e maxSteps) {\n+            throw new MaxIterationsExceededException(\"Analysis did not terminate after \" + maxSteps + \" iterations\");\n+        }\n+        DiGraphNode\u003cN, Branch\u003e curNode \u003d orderedWorkSet.iterator().next();\n+        orderedWorkSet.remove(curNode);\n+        joinInputs(curNode);\n+        if (flow(curNode)) {\n+            List\u003cDiGraphNode\u003cN, Branch\u003e\u003e nextNodes \u003d isForward() ? cfg.getDirectedSuccNodes(curNode) : cfg.getDirectedPredNodes(curNode);\n+            for (DiGraphNode\u003cN, Branch\u003e nextNode : nextNodes) {\n+                if (nextNode !\u003d cfg.getImplicitReturn()) {\n+                    orderedWorkSet.add(nextNode);\n+                }\n+            }\n+        }\n+        step++;\n+    }\n+    if (isForward()) {\n+        joinInputs(getCfg().getImplicitReturn());\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "final void analyze(int maxSteps) {\n    initialize();\n    int step \u003d 0;\n    while (!orderedWorkSet.isEmpty()) {\n        if (step \u003e maxSteps) {\n            throw new MaxIterationsExceededException(\"Analysis did not terminate after \" + maxSteps + \" iterations\");\n        }\n        DiGraphNode\u003cN, Branch\u003e curNode \u003d orderedWorkSet.iterator().next();\n        orderedWorkSet.remove(curNode);\n        joinInputs(curNode);\n        if (flow(curNode)) {\n            List\u003cDiGraphNode\u003cN, Branch\u003e\u003e nextNodes \u003d isForward() ? cfg.getDirectedSuccNodes(curNode) : cfg.getDirectedPredNodes(curNode);\n            for (DiGraphNode\u003cN, Branch\u003e nextNode : nextNodes) {\n                if (nextNode !\u003d cfg.getImplicitReturn()) {\n                    orderedWorkSet.add(nextNode);\n                }\n            }\n        }\n        step++;\n    }\n    if (isForward()) {\n        joinInputs(getCfg().getImplicitReturn());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/DataFlowAnalysis.java",
+      "functionStartLine": 261,
+      "functionName": "analyze",
+      "functionAnnotation": "",
+      "functionDoc": "Finds a fixed-point solution. The function has the side effect of replacing\nthe existing node annotations with the computed solutions using {@link\ncom.google.javascript.jscomp.graph.GraphNode#setAnnotation(Annotation)}.\n\n\u003cp\u003eInitially, each node\u0027s input and output flow state contains the value\ngiven by {@link #createInitialEstimateLattice()} (with the exception of the\nentry node of the graph which takes on the {@link #createEntryLattice()}\nvalue. Each node will use the output state of its predecessor and compute a\noutput state according to the instruction. At that time, any nodes that\ndepends on the node\u0027s newly modified output value will need to recompute\ntheir output state again. Each step will perform a computation at one node\nuntil no extra computation will modify any existing output state anymore.\n\n@param maxSteps Max number of iterations before the method stops and throw\n       a {@link MaxIterationsExceededException}. This will prevent the\n       analysis from going into a infinite loop.\n"
+    }
+  }
+}

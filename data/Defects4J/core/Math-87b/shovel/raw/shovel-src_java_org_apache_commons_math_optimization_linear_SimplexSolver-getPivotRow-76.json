@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-87b",
+  "repositoryPath": "/tmp/Math-87b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexSolver.java",
+  "functionName": "getPivotRow",
+  "functionId": "getPivotRow___col-int(modifiers-final)__tableau-SimplexTableau(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the row with the minimum ratio as given by the minimum ratio test (MRT).\n\n@param tableau simple tableau for the problem\n@param col the column to test the ratio of.  See {@link #getPivotColumn()}\n@return row with the minimum ratio\n",
+  "functionStartLine": 76,
+  "functionEndLine": 90,
+  "numCommitsSeen": 4,
+  "timeTaken": 404,
+  "changeHistory": [
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5",
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5": "Ybodychange",
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5": {
+      "type": "Ybodychange",
+      "commitMessage": "added a threshold for comparisons in Simplex solver\nJira: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@763412 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/8/09, 2:41 PM",
+      "commitName": "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "4/5/09, 7:20 AM",
+      "commitNameOld": "9c8d2c79c1ef565337599849cd066ff63b8d5816",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 3.31,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Integer getPivotRow(final int col, final SimplexTableau tableau) {\n    double minRatio \u003d Double.MAX_VALUE;\n    Integer minRatioPos \u003d null;\n    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getHeight(); i++) {\n        double rhs \u003d tableau.getEntry(i, tableau.getWidth() - 1);\n        if (MathUtils.compareTo(tableau.getEntry(i, col), 0, epsilon) \u003e\u003d 0) {\n            double ratio \u003d rhs / tableau.getEntry(i, col);\n            if (ratio \u003c minRatio) {\n                minRatio \u003d ratio;\n                minRatioPos \u003d i;\n            }\n        }\n    }\n    return minRatioPos;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 79,
+      "functionName": "getPivotRow",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the row with the minimum ratio as given by the minimum ratio test (MRT).\n\n@param tableau simple tableau for the problem\n@param col the column to test the ratio of.  See {@link #getPivotColumn()}\n@return row with the minimum ratio\n",
+      "diff": "@@ -1,15 +1,15 @@\n private Integer getPivotRow(final int col, final SimplexTableau tableau) {\n     double minRatio \u003d Double.MAX_VALUE;\n     Integer minRatioPos \u003d null;\n     for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getHeight(); i++) {\n         double rhs \u003d tableau.getEntry(i, tableau.getWidth() - 1);\n-        if (tableau.getEntry(i, col) \u003e\u003d 0) {\n+        if (MathUtils.compareTo(tableau.getEntry(i, col), 0, epsilon) \u003e\u003d 0) {\n             double ratio \u003d rhs / tableau.getEntry(i, col);\n             if (ratio \u003c minRatio) {\n                 minRatio \u003d ratio;\n                 minRatioPos \u003d i;\n             }\n         }\n     }\n     return minRatioPos;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,15 @@\n+private Integer getPivotRow(final int col, final SimplexTableau tableau) {\n+    double minRatio \u003d Double.MAX_VALUE;\n+    Integer minRatioPos \u003d null;\n+    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getHeight(); i++) {\n+        double rhs \u003d tableau.getEntry(i, tableau.getWidth() - 1);\n+        if (tableau.getEntry(i, col) \u003e\u003d 0) {\n+            double ratio \u003d rhs / tableau.getEntry(i, col);\n+            if (ratio \u003c minRatio) {\n+                minRatio \u003d ratio;\n+                minRatioPos \u003d i;\n+            }\n+        }\n+    }\n+    return minRatioPos;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Integer getPivotRow(final int col, final SimplexTableau tableau) {\n    double minRatio \u003d Double.MAX_VALUE;\n    Integer minRatioPos \u003d null;\n    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getHeight(); i++) {\n        double rhs \u003d tableau.getEntry(i, tableau.getWidth() - 1);\n        if (tableau.getEntry(i, col) \u003e\u003d 0) {\n            double ratio \u003d rhs / tableau.getEntry(i, col);\n            if (ratio \u003c minRatio) {\n                minRatio \u003d ratio;\n                minRatioPos \u003d i;\n            }\n        }\n    }\n    return minRatioPos;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 79,
+      "functionName": "getPivotRow",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the row with the minimum ratio as given by the minimum ratio test (MRT).\n\n@param tableau simple tableau for the problem\n@param col the column to test the ratio of.  See {@link #getPivotColumn()}\n@return row with the minimum ratio\n"
+    }
+  }
+}

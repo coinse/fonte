@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "validAssignmentTarget",
+  "functionId": "$validAssignmentTarget___target-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1218,
+  "functionEndLine": 1227,
+  "numCommitsSeen": 89,
+  "timeTaken": 6038,
+  "changeHistory": [
+    "14a3fc38f91b54ba0d82e02b8e2a1e08b8605ca7",
+    "4839e1ea57f9a1a26debd2cc8f22beef7282b490"
+  ],
+  "changeHistoryShort": {
+    "14a3fc38f91b54ba0d82e02b8e2a1e08b8605ca7": "Ybodychange",
+    "4839e1ea57f9a1a26debd2cc8f22beef7282b490": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "14a3fc38f91b54ba0d82e02b8e2a1e08b8605ca7": {
+      "type": "Ybodychange",
+      "commitMessage": "\nfix a cryptic warning due to an equally cryptic cast.\n\nR\u003djohnlenz\nDELTA\u003d11 (11 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6240\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2503 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/1/13, 1:21 PM",
+      "commitName": "14a3fc38f91b54ba0d82e02b8e2a1e08b8605ca7",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "1/10/13, 4:31 PM",
+      "commitNameOld": "9bf6d8db973a4691ad1551bdcbc559a86ba60532",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 21.87,
+      "commitsBetweenForRepo": 43,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean validAssignmentTarget(Node target) {\n    switch(target.getType()) {\n        case Token.CAST:\n        case Token.NAME:\n        case Token.GETPROP:\n        case Token.GETELEM:\n            return true;\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 1141,
+      "functionName": "validAssignmentTarget",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,10 @@\n private boolean validAssignmentTarget(Node target) {\n     switch(target.getType()) {\n+        case Token.CAST:\n         case Token.NAME:\n         case Token.GETPROP:\n         case Token.GETELEM:\n             return true;\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "4839e1ea57f9a1a26debd2cc8f22beef7282b490": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDon\u0027t let invalid LHS assignments to slip through.\nFixes issue 215.\nFixes issue 214.\n\nR\u003dnicksantos\nDELTA\u003d98  (82 added, 1 deleted, 15 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d248\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@685 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/11/11, 11:28 AM",
+      "commitName": "4839e1ea57f9a1a26debd2cc8f22beef7282b490",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private boolean validAssignmentTarget(Node target) {\n+    switch(target.getType()) {\n+        case Token.NAME:\n+        case Token.GETPROP:\n+        case Token.GETELEM:\n+            return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean validAssignmentTarget(Node target) {\n    switch(target.getType()) {\n        case Token.NAME:\n        case Token.GETPROP:\n        case Token.GETELEM:\n            return true;\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 824,
+      "functionName": "validAssignmentTarget",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

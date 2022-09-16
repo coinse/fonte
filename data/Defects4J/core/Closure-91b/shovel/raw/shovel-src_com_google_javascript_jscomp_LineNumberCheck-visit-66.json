@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LineNumberCheck.java",
+  "functionName": "visit",
+  "functionId": "visit___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/LineNumberCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 66,
+  "functionEndLine": 78,
+  "numCommitsSeen": 4,
+  "timeTaken": 180,
+  "changeHistory": [
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4": {
+      "type": "Ybodychange",
+      "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/29/10, 7:04 AM",
+      "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/11/10, 9:31 PM",
+      "commitNameOld": "7bfdbd9164601af44d17edd51be829fde2cc51aa",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 17.36,
+      "commitsBetweenForRepo": 25,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void visit(NodeTraversal t, Node n, Node parent) {\n    if (n.getType() \u003d\u003d Token.SCRIPT) {\n        requiresLineNumbers \u003d false;\n    } else if (requiresLineNumbers) {\n        if (n.getLineno() \u003d\u003d -1) {\n            compiler.report(t.makeError(n, MISSING_LINE_INFO, n.toStringTree()));\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/LineNumberCheck.java",
+      "functionStartLine": 57,
+      "functionName": "visit",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n public void visit(NodeTraversal t, Node n, Node parent) {\n     if (n.getType() \u003d\u003d Token.SCRIPT) {\n         requiresLineNumbers \u003d false;\n     } else if (requiresLineNumbers) {\n         if (n.getLineno() \u003d\u003d -1) {\n-            compiler.report(JSError.make(t, n, MISSING_LINE_INFO, n.toStringTree()));\n+            compiler.report(t.makeError(n, MISSING_LINE_INFO, n.toStringTree()));\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public void visit(NodeTraversal t, Node n, Node parent) {\n+    if (n.getType() \u003d\u003d Token.SCRIPT) {\n+        requiresLineNumbers \u003d false;\n+    } else if (requiresLineNumbers) {\n+        if (n.getLineno() \u003d\u003d -1) {\n+            compiler.report(JSError.make(t, n, MISSING_LINE_INFO, n.toStringTree()));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void visit(NodeTraversal t, Node n, Node parent) {\n    if (n.getType() \u003d\u003d Token.SCRIPT) {\n        requiresLineNumbers \u003d false;\n    } else if (requiresLineNumbers) {\n        if (n.getLineno() \u003d\u003d -1) {\n            compiler.report(JSError.make(t, n, MISSING_LINE_INFO, n.toStringTree()));\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/LineNumberCheck.java",
+      "functionStartLine": 57,
+      "functionName": "visit",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

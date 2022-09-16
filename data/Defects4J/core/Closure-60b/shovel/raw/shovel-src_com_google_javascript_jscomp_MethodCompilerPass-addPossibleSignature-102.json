@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MethodCompilerPass.java",
+  "functionName": "addPossibleSignature",
+  "functionId": "addPossibleSignature___name-String__node-Node__t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MethodCompilerPass.java",
+  "functionAnnotation": "",
+  "functionDoc": "Adds a node that may represent a function signature (if it\u0027s a function\nitself or the name of a function).\n",
+  "functionStartLine": 102,
+  "functionEndLine": 109,
+  "numCommitsSeen": 14,
+  "timeTaken": 470,
+  "changeHistory": [
+    "938f48a60c544f6b7bdb5d49006f654a51ca9a22",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "938f48a60c544f6b7bdb5d49006f654a51ca9a22": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "938f48a60c544f6b7bdb5d49006f654a51ca9a22": {
+      "type": "Ybodychange",
+      "commitMessage": "The MethodCompilerPass was being a little too smart for itself, leading\nto incorrect behavior by the InlineGetter pass (inlining extern\ndefinitions of functions which it thought were empty functions). This\nresults in slight worse behavior by the depreciated \"MethodCheck\" pass,\nbut most projects have moved on to \"check_types\" which is on by default. (John)\nR\u003dAlan\nDELTA\u003d77  (44 added, 28 deleted, 5 changed)\n\nIssue 103: Fix inappropriate renaming of local \"$super\" when the coding\nconvention declares it to be \"exported\". (John)\nFixes issue 103.\nR\u003dAlan\nDELTA\u003d86  (77 added, 3 deleted, 6 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@139 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/16/10, 3:53 PM",
+      "commitName": "938f48a60c544f6b7bdb5d49006f654a51ca9a22",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "12/8/09, 3:50 PM",
+      "commitNameOld": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 97.96,
+      "commitsBetweenForRepo": 93,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void addPossibleSignature(String name, Node node, NodeTraversal t) {\n    if (node.getType() \u003d\u003d Token.FUNCTION) {\n        addSignature(name, node, t.getSourceName());\n    } else {\n        nonMethodProperties.add(name);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MethodCompilerPass.java",
+      "functionStartLine": 101,
+      "functionName": "addPossibleSignature",
+      "functionAnnotation": "",
+      "functionDoc": "Adds a node that may represent a function signature (if it\u0027s a function\nitself or the name of a function).\n",
+      "diff": "@@ -1,25 +1,7 @@\n private void addPossibleSignature(String name, Node node, NodeTraversal t) {\n-    boolean signatureAdded \u003d false;\n     if (node.getType() \u003d\u003d Token.FUNCTION) {\n         addSignature(name, node, t.getSourceName());\n-        signatureAdded \u003d true;\n-    } else if (node.getType() \u003d\u003d Token.NAME) {\n-        String functionName \u003d node.getString();\n-        Scope.Var v \u003d t.getScope().getVar(functionName);\n-        if (v \u003d\u003d null) {\n-            if (compiler.isIdeMode()) {\n-                return;\n-            } else {\n-                throw new IllegalStateException(\"VarCheck should have caught this undefined function\");\n-            }\n-        }\n-        Node function \u003d v.getInitialValue();\n-        if (function !\u003d null \u0026\u0026 function.getType() \u003d\u003d Token.FUNCTION) {\n-            addSignature(name, function, v.getInputName());\n-            signatureAdded \u003d true;\n-        }\n-    }\n-    if (!signatureAdded) {\n+    } else {\n         nonMethodProperties.add(name);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,25 @@\n+private void addPossibleSignature(String name, Node node, NodeTraversal t) {\n+    boolean signatureAdded \u003d false;\n+    if (node.getType() \u003d\u003d Token.FUNCTION) {\n+        addSignature(name, node, t.getSourceName());\n+        signatureAdded \u003d true;\n+    } else if (node.getType() \u003d\u003d Token.NAME) {\n+        String functionName \u003d node.getString();\n+        Scope.Var v \u003d t.getScope().getVar(functionName);\n+        if (v \u003d\u003d null) {\n+            if (compiler.isIdeMode()) {\n+                return;\n+            } else {\n+                throw new IllegalStateException(\"VarCheck should have caught this undefined function\");\n+            }\n+        }\n+        Node function \u003d v.getInitialValue();\n+        if (function !\u003d null \u0026\u0026 function.getType() \u003d\u003d Token.FUNCTION) {\n+            addSignature(name, function, v.getInputName());\n+            signatureAdded \u003d true;\n+        }\n+    }\n+    if (!signatureAdded) {\n+        nonMethodProperties.add(name);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void addPossibleSignature(String name, Node node, NodeTraversal t) {\n    boolean signatureAdded \u003d false;\n    if (node.getType() \u003d\u003d Token.FUNCTION) {\n        addSignature(name, node, t.getSourceName());\n        signatureAdded \u003d true;\n    } else if (node.getType() \u003d\u003d Token.NAME) {\n        String functionName \u003d node.getString();\n        Scope.Var v \u003d t.getScope().getVar(functionName);\n        if (v \u003d\u003d null) {\n            if (compiler.isIdeMode()) {\n                return;\n            } else {\n                throw new IllegalStateException(\"VarCheck should have caught this undefined function\");\n            }\n        }\n        Node function \u003d v.getInitialValue();\n        if (function !\u003d null \u0026\u0026 function.getType() \u003d\u003d Token.FUNCTION) {\n            addSignature(name, function, v.getInputName());\n            signatureAdded \u003d true;\n        }\n    }\n    if (!signatureAdded) {\n        nonMethodProperties.add(name);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MethodCompilerPass.java",
+      "functionStartLine": 101,
+      "functionName": "addPossibleSignature",
+      "functionAnnotation": "",
+      "functionDoc": "Adds a node that may represent a function signature (if it\u0027s a function\nitself or the name of a function).\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-54b",
+  "repositoryPath": "/tmp/Math-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "newInstance",
+  "functionId": "newInstance___d-Dfp(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create an instance by copying an existing one.\nUse this internally in preference to constructors to facilitate subclasses.\n\n@param d instance to copy\n@return a new instance with the same value as d\n",
+  "functionStartLine": 591,
+  "functionEndLine": 603,
+  "numCommitsSeen": 4,
+  "timeTaken": 727,
+  "changeHistory": [
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,9 @@\n+public Dfp newInstance(final Dfp d) {\n+    if (field.getRadixDigits() !\u003d d.field.getRadixDigits()) {\n+        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+        final Dfp result \u003d newInstance(getZero());\n+        result.nans \u003d QNAN;\n+        return dotrap(DfpField.FLAG_INVALID, NEW_INSTANCE_TRAP, d, result);\n+    }\n+    return new Dfp(d);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Dfp newInstance(final Dfp d) {\n    if (field.getRadixDigits() !\u003d d.field.getRadixDigits()) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        final Dfp result \u003d newInstance(getZero());\n        result.nans \u003d QNAN;\n        return dotrap(DfpField.FLAG_INVALID, NEW_INSTANCE_TRAP, d, result);\n    }\n    return new Dfp(d);\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 591,
+      "functionName": "newInstance",
+      "functionAnnotation": "",
+      "functionDoc": "Create an instance by copying an existing one.\nUse this internally in preference to constructors to facilitate subclasses.\n\n@param d instance to copy\n@return a new instance with the same value as d\n"
+    }
+  }
+}

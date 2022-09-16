@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GlobalNamespace.java",
+  "functionName": "getOrCreateName",
+  "functionId": "$getOrCreateName___name-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GlobalNamespace.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets a {@link Name} instance for a global name. Creates it if necessary,\nas well as instances for any of its prefixes that are not yet defined.\n\n@param name A global name (e.g. \"a\", \"a.b.c.d\")\n@return The {@link Name} instance for {@code name}\n",
+  "functionStartLine": 841,
+  "functionEndLine": 856,
+  "numCommitsSeen": 27,
+  "timeTaken": 1478,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,16 @@\n+Name getOrCreateName(String name) {\n+    Name node \u003d nameMap.get(name);\n+    if (node \u003d\u003d null) {\n+        int i \u003d name.lastIndexOf(\u0027.\u0027);\n+        if (i \u003e\u003d 0) {\n+            String parentName \u003d name.substring(0, i);\n+            Name parent \u003d getOrCreateName(parentName);\n+            node \u003d parent.addProperty(name.substring(i + 1), inExterns);\n+        } else {\n+            node \u003d new Name(name, null, inExterns);\n+            globalNames.add(node);\n+        }\n+        nameMap.put(name, node);\n+    }\n+    return node;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Name getOrCreateName(String name) {\n    Name node \u003d nameMap.get(name);\n    if (node \u003d\u003d null) {\n        int i \u003d name.lastIndexOf(\u0027.\u0027);\n        if (i \u003e\u003d 0) {\n            String parentName \u003d name.substring(0, i);\n            Name parent \u003d getOrCreateName(parentName);\n            node \u003d parent.addProperty(name.substring(i + 1), inExterns);\n        } else {\n            node \u003d new Name(name, null, inExterns);\n            globalNames.add(node);\n        }\n        nameMap.put(name, node);\n    }\n    return node;\n}",
+      "path": "src/com/google/javascript/jscomp/GlobalNamespace.java",
+      "functionStartLine": 729,
+      "functionName": "getOrCreateName",
+      "functionAnnotation": "",
+      "functionDoc": "Gets a {@link Name} instance for a global name. Creates it if necessary,\nas well as instances for any of its prefixes that are not yet defined.\n\n@param name A global name (e.g. \"a\", \"a.b.c.d\")\n@return The {@link Name} instance for {@code name}\n"
+    }
+  }
+}

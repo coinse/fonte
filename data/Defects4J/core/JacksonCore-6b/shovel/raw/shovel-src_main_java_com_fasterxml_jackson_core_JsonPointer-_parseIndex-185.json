@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-6b",
+  "repositoryPath": "/tmp/JacksonCore-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonPointer.java",
+  "functionName": "_parseIndex",
+  "functionId": "_parseIndex___str-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 185,
+  "functionEndLine": 205,
+  "numCommitsSeen": 16,
+  "timeTaken": 410,
+  "changeHistory": [
+    "0d9cd9fa434c0070638332b7f2243af0277461eb",
+    "4769c36b6fe444cb929bc6cb81104903a806e525",
+    "bb639974b0928a338b4bf60b17b1f612d619e0db"
+  ],
+  "changeHistoryShort": {
+    "0d9cd9fa434c0070638332b7f2243af0277461eb": "Ybodychange",
+    "4769c36b6fe444cb929bc6cb81104903a806e525": "Ymultichange(Yrename,Ybodychange)",
+    "bb639974b0928a338b4bf60b17b1f612d619e0db": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0d9cd9fa434c0070638332b7f2243af0277461eb": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix #173\n",
+      "commitDate": "12/7/14, 10:16 AM",
+      "commitName": "0d9cd9fa434c0070638332b7f2243af0277461eb",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/14/14, 1:26 PM",
+      "commitNameOld": "4769c36b6fe444cb929bc6cb81104903a806e525",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 267.91,
+      "commitsBetweenForRepo": 140,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static final int _parseIndex(String str) {\n    final int len \u003d str.length();\n    if (len \u003d\u003d 0 || len \u003e 10) {\n        return -1;\n    }\n    for (int i \u003d 0; i \u003c len; ++i) {\n        char c \u003d str.charAt(i);\n        if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n            return -1;\n        }\n    }\n    if (len \u003d\u003d 10) {\n        long l \u003d NumberInput.parseLong(str);\n        if (l \u003e Integer.MAX_VALUE) {\n            return -1;\n        }\n    }\n    return NumberInput.parseInt(str);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+      "functionStartLine": 185,
+      "functionName": "_parseIndex",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,19 +1,19 @@\n private static final int _parseIndex(String str) {\n     final int len \u003d str.length();\n     if (len \u003d\u003d 0 || len \u003e 10) {\n         return -1;\n     }\n     for (int i \u003d 0; i \u003c len; ++i) {\n-        char c \u003d str.charAt(i++);\n+        char c \u003d str.charAt(i);\n         if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n             return -1;\n         }\n     }\n     if (len \u003d\u003d 10) {\n         long l \u003d NumberInput.parseLong(str);\n         if (l \u003e Integer.MAX_VALUE) {\n             return -1;\n         }\n     }\n     return NumberInput.parseInt(str);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "4769c36b6fe444cb929bc6cb81104903a806e525": {
+      "type": "Ymultichange(Yrename,Ybodychange)",
+      "commitMessage": "addressing #133\n",
+      "commitDate": "3/14/14, 1:26 PM",
+      "commitName": "4769c36b6fe444cb929bc6cb81104903a806e525",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "addressing #133\n",
+          "commitDate": "3/14/14, 1:26 PM",
+          "commitName": "4769c36b6fe444cb929bc6cb81104903a806e525",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/14, 7:59 PM",
+          "commitNameOld": "32e4e9152823258764c91262d94d54989397c5b7",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 46.69,
+          "commitsBetweenForRepo": 15,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static final int _parseIndex(String str) {\n    final int len \u003d str.length();\n    if (len \u003d\u003d 0 || len \u003e 10) {\n        return -1;\n    }\n    for (int i \u003d 0; i \u003c len; ++i) {\n        char c \u003d str.charAt(i++);\n        if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n            return -1;\n        }\n    }\n    if (len \u003d\u003d 10) {\n        long l \u003d NumberInput.parseLong(str);\n        if (l \u003e Integer.MAX_VALUE) {\n            return -1;\n        }\n    }\n    return NumberInput.parseInt(str);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+          "functionStartLine": 185,
+          "functionName": "_parseIndex",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,19 @@\n-private static final int _parseInt(String str) {\n+private static final int _parseIndex(String str) {\n     final int len \u003d str.length();\n-    if (len \u003d\u003d 0) {\n+    if (len \u003d\u003d 0 || len \u003e 10) {\n         return -1;\n     }\n     for (int i \u003d 0; i \u003c len; ++i) {\n         char c \u003d str.charAt(i++);\n         if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n             return -1;\n         }\n     }\n+    if (len \u003d\u003d 10) {\n+        long l \u003d NumberInput.parseLong(str);\n+        if (l \u003e Integer.MAX_VALUE) {\n+            return -1;\n+        }\n+    }\n     return NumberInput.parseInt(str);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "_parseInt",
+            "newValue": "_parseIndex"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "addressing #133\n",
+          "commitDate": "3/14/14, 1:26 PM",
+          "commitName": "4769c36b6fe444cb929bc6cb81104903a806e525",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/14, 7:59 PM",
+          "commitNameOld": "32e4e9152823258764c91262d94d54989397c5b7",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 46.69,
+          "commitsBetweenForRepo": 15,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static final int _parseIndex(String str) {\n    final int len \u003d str.length();\n    if (len \u003d\u003d 0 || len \u003e 10) {\n        return -1;\n    }\n    for (int i \u003d 0; i \u003c len; ++i) {\n        char c \u003d str.charAt(i++);\n        if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n            return -1;\n        }\n    }\n    if (len \u003d\u003d 10) {\n        long l \u003d NumberInput.parseLong(str);\n        if (l \u003e Integer.MAX_VALUE) {\n            return -1;\n        }\n    }\n    return NumberInput.parseInt(str);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+          "functionStartLine": 185,
+          "functionName": "_parseIndex",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,19 @@\n-private static final int _parseInt(String str) {\n+private static final int _parseIndex(String str) {\n     final int len \u003d str.length();\n-    if (len \u003d\u003d 0) {\n+    if (len \u003d\u003d 0 || len \u003e 10) {\n         return -1;\n     }\n     for (int i \u003d 0; i \u003c len; ++i) {\n         char c \u003d str.charAt(i++);\n         if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n             return -1;\n         }\n     }\n+    if (len \u003d\u003d 10) {\n+        long l \u003d NumberInput.parseLong(str);\n+        if (l \u003e Integer.MAX_VALUE) {\n+            return -1;\n+        }\n+    }\n     return NumberInput.parseInt(str);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "bb639974b0928a338b4bf60b17b1f612d619e0db": {
+      "type": "Yintroduced",
+      "commitMessage": "Start adding basic JSON Pointer support\n",
+      "commitDate": "8/30/13, 9:45 PM",
+      "commitName": "bb639974b0928a338b4bf60b17b1f612d619e0db",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+private static final int _parseInt(String str) {\n+    final int len \u003d str.length();\n+    if (len \u003d\u003d 0) {\n+        return -1;\n+    }\n+    for (int i \u003d 0; i \u003c len; ++i) {\n+        char c \u003d str.charAt(i++);\n+        if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n+            return -1;\n+        }\n+    }\n+    return NumberInput.parseInt(str);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static final int _parseInt(String str) {\n    final int len \u003d str.length();\n    if (len \u003d\u003d 0) {\n        return -1;\n    }\n    for (int i \u003d 0; i \u003c len; ++i) {\n        char c \u003d str.charAt(i++);\n        if (c \u003e \u00279\u0027 || c \u003c \u00270\u0027) {\n            return -1;\n        }\n    }\n    return NumberInput.parseInt(str);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+      "functionStartLine": 202,
+      "functionName": "_parseInt",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

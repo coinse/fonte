@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexTableau.java",
+  "functionName": "getDecisionVariableValue",
+  "functionId": "getDecisionVariableValue___decisionVariable-int(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the value of the given decision variable.  This is not the actual\nvalue as it is guaranteed to be \u003e\u003d 0 and thus must be corrected before\nbeing returned to the user.\n\n@param decisionVariable The index of the decision variable\n@return The value of the given decision variable.\n",
+  "functionStartLine": 340,
+  "functionEndLine": 354,
+  "numCommitsSeen": 5,
+  "timeTaken": 516,
+  "changeHistory": [
+    "b03d68547460332b861044db80ccd08edec361a1",
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "b03d68547460332b861044db80ccd08edec361a1": "Ybodychange",
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b03d68547460332b861044db80ccd08edec361a1": {
+      "type": "Ybodychange",
+      "commitMessage": "fixed an error in Simplex algorithm when several ambiguous solutions exist\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@759045 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/27/09, 12:56 AM",
+      "commitName": "b03d68547460332b861044db80ccd08edec361a1",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "3/26/09, 4:39 PM",
+      "commitNameOld": "8cd536c73f6466883ac4ba59ea06c463b796d126",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.35,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected double getDecisionVariableValue(final int decisionVariable) {\n    int col \u003d getNumObjectiveFunctions() + decisionVariable;\n    Integer basicRow \u003d getBasicRow(col);\n    if (basicRow \u003d\u003d null) {\n        return 0;\n    }\n    for (int i \u003d getNumObjectiveFunctions(); i \u003c col; i++) {\n        if (tableau.getEntry(basicRow, i) \u003d\u003d 1) {\n            return 0;\n        }\n    }\n    return getEntry(basicRow, getRhsOffset());\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 329,
+      "functionName": "getDecisionVariableValue",
+      "functionAnnotation": "",
+      "functionDoc": "Get the value of the given decision variable.  This is not the actual\nvalue as it is guaranteed to be \u003e\u003d 0 and thus must be corrected before\nbeing returned to the user.\n\n@param decisionVariable The index of the decision variable\n@return The value of the given decision variable.\n",
+      "diff": "@@ -1,4 +1,13 @@\n protected double getDecisionVariableValue(final int decisionVariable) {\n-    Integer basicRow \u003d getBasicRow(getNumObjectiveFunctions() + decisionVariable);\n-    return basicRow \u003d\u003d null ? 0 : getEntry(basicRow, getRhsOffset());\n+    int col \u003d getNumObjectiveFunctions() + decisionVariable;\n+    Integer basicRow \u003d getBasicRow(col);\n+    if (basicRow \u003d\u003d null) {\n+        return 0;\n+    }\n+    for (int i \u003d getNumObjectiveFunctions(); i \u003c col; i++) {\n+        if (tableau.getEntry(basicRow, i) \u003d\u003d 1) {\n+            return 0;\n+        }\n+    }\n+    return getEntry(basicRow, getRhsOffset());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,4 @@\n+protected double getDecisionVariableValue(final int decisionVariable) {\n+    Integer basicRow \u003d getBasicRow(getNumObjectiveFunctions() + decisionVariable);\n+    return basicRow \u003d\u003d null ? 0 : getEntry(basicRow, getRhsOffset());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected double getDecisionVariableValue(final int decisionVariable) {\n    Integer basicRow \u003d getBasicRow(getNumObjectiveFunctions() + decisionVariable);\n    return basicRow \u003d\u003d null ? 0 : getEntry(basicRow, getRhsOffset());\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 329,
+      "functionName": "getDecisionVariableValue",
+      "functionAnnotation": "",
+      "functionDoc": "Get the value of the given decision variable.  This is not the actual\nvalue as it is guaranteed to be \u003e\u003d 0 and thus must be corrected before\nbeing returned to the user.\n\n@param decisionVariable The index of the decision variable\n@return The value of the given decision variable.\n"
+    }
+  }
+}

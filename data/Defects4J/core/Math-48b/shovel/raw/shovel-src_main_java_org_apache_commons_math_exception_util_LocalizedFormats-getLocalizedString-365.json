@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-48b",
+  "repositoryPath": "/tmp/Math-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LocalizedFormats.java",
+  "functionName": "getLocalizedString",
+  "functionId": "getLocalizedString___locale-Locale(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/exception/util/LocalizedFormats.java",
+  "functionAnnotation": "",
+  "functionDoc": "@inheritDoc}\n",
+  "functionStartLine": 365,
+  "functionEndLine": 382,
+  "numCommitsSeen": 42,
+  "timeTaken": 5004,
+  "changeHistory": [
+    "986597f52ce9c6c1ff13fb134b91696de6ec2796",
+    "53335bad55937b1447697455d11e42fe3d26874e",
+    "1eaea0b549f685bd416cef68faa3a137b9bb3519"
+  ],
+  "changeHistoryShort": {
+    "986597f52ce9c6c1ff13fb134b91696de6ec2796": "Yfilerename",
+    "53335bad55937b1447697455d11e42fe3d26874e": "Yfilerename",
+    "1eaea0b549f685bd416cef68faa3a137b9bb3519": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "986597f52ce9c6c1ff13fb134b91696de6ec2796": {
+      "type": "Yfilerename",
+      "commitMessage": "Moved \"Localizable\", \"DummyLocalizable\" and \"LocalizedFormats\" from\npackage \"exception\" to package \"exception.util\". Modified \"import\"\nstatements in all affected files.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@983921 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/10/10, 3:46 AM",
+      "commitName": "986597f52ce9c6c1ff13fb134b91696de6ec2796",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "8/6/10, 6:29 AM",
+      "commitNameOld": "baf90f0ecacb9c719a77acdaaca507d8c6b52a0c",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 3.89,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String getLocalizedString(final Locale locale) {\n    try {\n        ResourceBundle bundle \u003d ResourceBundle.getBundle(\"META-INF/localization/LocalizedFormats\", locale);\n        if (bundle.getLocale().getLanguage().equals(locale.getLanguage())) {\n            return bundle.getString(toString());\n        }\n    } catch (MissingResourceException mre) {\n    }\n    return sourceFormat;\n}",
+      "path": "src/main/java/org/apache/commons/math/exception/util/LocalizedFormats.java",
+      "functionStartLine": 322,
+      "functionName": "getLocalizedString",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/exception/LocalizedFormats.java",
+        "newPath": "src/main/java/org/apache/commons/math/exception/util/LocalizedFormats.java"
+      }
+    },
+    "53335bad55937b1447697455d11e42fe3d26874e": {
+      "type": "Yfilerename",
+      "commitMessage": "Moved the localization framework used for exceptions in the exceptions package.\nIts former place (in the utils package) was misleading as utils is rather for\nnumerical utilities, not low level library management\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@981404 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/2/10, 1:10 AM",
+      "commitName": "53335bad55937b1447697455d11e42fe3d26874e",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/10, 4:38 PM",
+      "commitNameOld": "70f29147ed9f8fe3b3d37c742ef126f046325d92",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.36,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String getLocalizedString(final Locale locale) {\n    try {\n        ResourceBundle bundle \u003d ResourceBundle.getBundle(\"META-INF/localization/LocalizedFormats\", locale);\n        if (bundle.getLocale().getLanguage().equals(locale.getLanguage())) {\n            return bundle.getString(toString());\n        }\n    } catch (MissingResourceException mre) {\n    }\n    return sourceFormat;\n}",
+      "path": "src/main/java/org/apache/commons/math/exception/LocalizedFormats.java",
+      "functionStartLine": 323,
+      "functionName": "getLocalizedString",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/util/LocalizedFormats.java",
+        "newPath": "src/main/java/org/apache/commons/math/exception/LocalizedFormats.java"
+      }
+    },
+    "1eaea0b549f685bd416cef68faa3a137b9bb3519": {
+      "type": "Yintroduced",
+      "commitMessage": "changed the localization mechanism for error messages. The new system is based on an enum rather than on duplicated string literals.\nJIRA: MATH-361\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@955423 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/16/10, 4:03 PM",
+      "commitName": "1eaea0b549f685bd416cef68faa3a137b9bb3519",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,10 @@\n+public String getLocalizedString(final Locale locale) {\n+    try {\n+        ResourceBundle bundle \u003d ResourceBundle.getBundle(\"META-INF/localization/LocalizedFormats\", locale);\n+        if (bundle.getLocale().getLanguage().equals(locale.getLanguage())) {\n+            return bundle.getString(toString());\n+        }\n+    } catch (MissingResourceException mre) {\n+    }\n+    return sourceFormat;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String getLocalizedString(final Locale locale) {\n    try {\n        ResourceBundle bundle \u003d ResourceBundle.getBundle(\"META-INF/localization/LocalizedFormats\", locale);\n        if (bundle.getLocale().getLanguage().equals(locale.getLanguage())) {\n            return bundle.getString(toString());\n        }\n    } catch (MissingResourceException mre) {\n    }\n    return sourceFormat;\n}",
+      "path": "src/main/java/org/apache/commons/math/util/LocalizedFormats.java",
+      "functionStartLine": 295,
+      "functionName": "getLocalizedString",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n"
+    }
+  }
+}

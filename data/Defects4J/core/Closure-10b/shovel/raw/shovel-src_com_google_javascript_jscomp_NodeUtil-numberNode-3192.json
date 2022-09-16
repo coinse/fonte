@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "numberNode",
+  "functionId": "numberNode___value-double__srcref-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return An appropriate AST node for the double value.\n",
+  "functionStartLine": 3192,
+  "functionEndLine": 3207,
+  "numCommitsSeen": 136,
+  "timeTaken": 3829,
+  "changeHistory": [
+    "58fdad08ba7f8e24ac48a006f1e2989bda46b9a9",
+    "edb6e4c48c19be681f38e9ee27e67b66a1944640"
+  ],
+  "changeHistoryShort": {
+    "58fdad08ba7f8e24ac48a006f1e2989bda46b9a9": "Ydocchange",
+    "edb6e4c48c19be681f38e9ee27e67b66a1944640": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "58fdad08ba7f8e24ac48a006f1e2989bda46b9a9": {
+      "type": "Ydocchange",
+      "commitMessage": "\nSome NodeUtil cleanup, narrow the public interface, remove some unused\nfunctions, and some other cleanup.\n\nR\u003dnicksantos\nDELTA\u003d130  (40 added, 50 deleted, 40 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5519\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2202 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/20/12, 11:55 AM",
+      "commitName": "58fdad08ba7f8e24ac48a006f1e2989bda46b9a9",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "9/14/12, 9:58 AM",
+      "commitNameOld": "d61a07480fcd4289fb6738c630efda54945da73f",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 6.08,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static Node numberNode(double value, Node srcref) {\n    Node result;\n    if (Double.isNaN(value)) {\n        result \u003d IR.name(\"NaN\");\n    } else if (value \u003d\u003d Double.POSITIVE_INFINITY) {\n        result \u003d IR.name(\"Infinity\");\n    } else if (value \u003d\u003d Double.NEGATIVE_INFINITY) {\n        result \u003d IR.neg(IR.name(\"Infinity\"));\n    } else {\n        result \u003d IR.number(value);\n    }\n    if (srcref !\u003d null) {\n        result.srcrefTree(srcref);\n    }\n    return result;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3192,
+      "functionName": "numberNode",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return An appropriate AST node for the double value.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "\n@return An appropriate AST node for the double value.\n"
+      }
+    },
+    "edb6e4c48c19be681f38e9ee27e67b66a1944640": {
+      "type": "Yintroduced",
+      "commitMessage": "\nTry out the IR AST construction functions in the Peephole passes\n\nR\u003dnicksantos\nDELTA\u003d154  (41 added, 35 deleted, 78 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3795\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1637 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/21/11, 4:28 PM",
+      "commitName": "edb6e4c48c19be681f38e9ee27e67b66a1944640",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,16 @@\n+static Node numberNode(double value, Node srcref) {\n+    Node result;\n+    if (Double.isNaN(value)) {\n+        result \u003d IR.name(\"NaN\");\n+    } else if (value \u003d\u003d Double.POSITIVE_INFINITY) {\n+        result \u003d IR.name(\"Infinity\");\n+    } else if (value \u003d\u003d Double.NEGATIVE_INFINITY) {\n+        result \u003d IR.neg(IR.name(\"Infinity\"));\n+    } else {\n+        result \u003d IR.number(value);\n+    }\n+    if (srcref !\u003d null) {\n+        result.srcrefTree(srcref);\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Node numberNode(double value, Node srcref) {\n    Node result;\n    if (Double.isNaN(value)) {\n        result \u003d IR.name(\"NaN\");\n    } else if (value \u003d\u003d Double.POSITIVE_INFINITY) {\n        result \u003d IR.name(\"Infinity\");\n    } else if (value \u003d\u003d Double.NEGATIVE_INFINITY) {\n        result \u003d IR.neg(IR.name(\"Infinity\"));\n    } else {\n        result \u003d IR.number(value);\n    }\n    if (srcref !\u003d null) {\n        result.srcrefTree(srcref);\n    }\n    return result;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3140,
+      "functionName": "numberNode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

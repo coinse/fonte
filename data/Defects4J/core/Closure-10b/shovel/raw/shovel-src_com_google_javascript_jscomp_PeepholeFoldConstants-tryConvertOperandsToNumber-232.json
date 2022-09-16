@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeFoldConstants.java",
+  "functionName": "tryConvertOperandsToNumber",
+  "functionId": "tryConvertOperandsToNumber___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 232,
+  "functionEndLine": 238,
+  "numCommitsSeen": 68,
+  "timeTaken": 3323,
+  "changeHistory": [
+    "bb877849306e221202b283f9b8eb3873d7bdc9ae"
+  ],
+  "changeHistoryShort": {
+    "bb877849306e221202b283f9b8eb3873d7bdc9ae": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bb877849306e221202b283f9b8eb3873d7bdc9ae": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMore constant folding tweaks.\n- Remove extraneous unary \"+\"\n- Convert number to integer for BIT ops (not shift)\n- reduce literals in numberic contexts\n\nR\u003dnicksantos\nDELTA\u003d275  (225 added, 30 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d319\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@712 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/19/11, 3:22 PM",
+      "commitName": "bb877849306e221202b283f9b8eb3873d7bdc9ae",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private void tryConvertOperandsToNumber(Node n) {\n+    Node next;\n+    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d next) {\n+        next \u003d c.getNext();\n+        tryConvertToNumber(c);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void tryConvertOperandsToNumber(Node n) {\n    Node next;\n    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d next) {\n        next \u003d c.getNext();\n        tryConvertToNumber(c);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 202,
+      "functionName": "tryConvertOperandsToNumber",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

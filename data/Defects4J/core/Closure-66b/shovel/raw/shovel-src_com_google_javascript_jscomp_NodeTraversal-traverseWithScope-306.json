@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeTraversal.java",
+  "functionName": "traverseWithScope",
+  "functionId": "traverseWithScope___root-Node__s-Scope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeTraversal.java",
+  "functionAnnotation": "",
+  "functionDoc": "Traverses a parse tree recursively with a scope, starting with the given\nroot. This should only be used in the global scope. Otherwise, use\n{@link #traverseAtScope}.\n",
+  "functionStartLine": 306,
+  "functionEndLine": 314,
+  "numCommitsSeen": 15,
+  "timeTaken": 755,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,8 @@\n+void traverseWithScope(Node root, Scope s) {\n+    Preconditions.checkState(s.isGlobal());\n+    sourceName \u003d \"\";\n+    curNode \u003d root;\n+    pushScope(s);\n+    traverseBranch(root, null);\n+    popScope();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void traverseWithScope(Node root, Scope s) {\n    Preconditions.checkState(s.isGlobal());\n    sourceName \u003d \"\";\n    curNode \u003d root;\n    pushScope(s);\n    traverseBranch(root, null);\n    popScope();\n}",
+      "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+      "functionStartLine": 296,
+      "functionName": "traverseWithScope",
+      "functionAnnotation": "",
+      "functionDoc": "Traverses a parse tree recursively with a scope, starting with the given\nroot. This should only be used in the global scope. Otherwise, use\n{@link #traverseAtScope}.\n"
+    }
+  }
+}

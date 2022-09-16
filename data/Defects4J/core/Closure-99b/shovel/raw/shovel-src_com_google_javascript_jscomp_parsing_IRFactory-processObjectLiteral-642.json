@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-99b",
+  "repositoryPath": "/tmp/Closure-99b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "processObjectLiteral",
+  "functionId": "$processObjectLiteral___literalNode-ObjectLiteral",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 642,
+  "functionEndLine": 659,
+  "numCommitsSeen": 12,
+  "timeTaken": 1208,
+  "changeHistory": [
+    "eb5eae4438f49ffddd3c8be1413eeb9e7ecfb311",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "eb5eae4438f49ffddd3c8be1413eeb9e7ecfb311": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "eb5eae4438f49ffddd3c8be1413eeb9e7ecfb311": {
+      "type": "Ybodychange",
+      "commitMessage": "Change on 2010/04/26 by nick\n\n        forbid getters and setters. fixes closure-compiler issue 154.\n\n        R\u003drobert\n        DELTA\u003d57  (55 added, 0 deleted, 2 changed)\n\nChange on 2010/04/26 by nick\n\n        create a helper method for getting the transitive closure of a\n        number of roots.\n\n        R\u003dalan\n        DELTA\u003d172  (168 added, 2 deleted, 2 changed)\n\nChange on 2010/04/26 by nick\n\n        create a new mechanism for type name resolution.\n\n        R\u003djohn\n        DELTA\u003d222  (210 added, 5 deleted, 7 changed)\n\nChange on 2010/04/27 by john\n\n        Remove unused variables in uncalled global functions when not removing\n        unused global names. Fixes issue 155.\n\n        R\u003dnick\n        DELTA\u003d42  (34 added, 3 deleted, 5 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003daepekd\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@199 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/27/10, 12:02 PM",
+      "commitName": "eb5eae4438f49ffddd3c8be1413eeb9e7ecfb311",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/14/10, 4:53 PM",
+      "commitNameOld": "43859717972907dd1ecebd8dca6e05036386e28b",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 12.8,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nNode processObjectLiteral(ObjectLiteral literalNode) {\n    if (literalNode.isDestructuring()) {\n        reportDestructuringAssign(literalNode);\n    }\n    Node node \u003d new Node(Token.OBJECTLIT);\n    for (ObjectProperty el : literalNode.getElements()) {\n        if (el.isGetter()) {\n            reportGetter(el);\n        } else if (el.isSetter()) {\n            reportSetter(el);\n        } else {\n            node.addChildToBack(transformAsString(el.getLeft()));\n            node.addChildToBack(transform(el.getRight()));\n        }\n    }\n    return node;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 642,
+      "functionName": "processObjectLiteral",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,12 +1,18 @@\n @Override\n Node processObjectLiteral(ObjectLiteral literalNode) {\n     if (literalNode.isDestructuring()) {\n         reportDestructuringAssign(literalNode);\n     }\n     Node node \u003d new Node(Token.OBJECTLIT);\n     for (ObjectProperty el : literalNode.getElements()) {\n-        node.addChildToBack(transformAsString(el.getLeft()));\n-        node.addChildToBack(transform(el.getRight()));\n+        if (el.isGetter()) {\n+            reportGetter(el);\n+        } else if (el.isSetter()) {\n+            reportSetter(el);\n+        } else {\n+            node.addChildToBack(transformAsString(el.getLeft()));\n+            node.addChildToBack(transform(el.getRight()));\n+        }\n     }\n     return node;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+@Override\n+Node processObjectLiteral(ObjectLiteral literalNode) {\n+    if (literalNode.isDestructuring()) {\n+        reportDestructuringAssign(literalNode);\n+    }\n+    Node node \u003d new Node(Token.OBJECTLIT);\n+    for (ObjectProperty el : literalNode.getElements()) {\n+        node.addChildToBack(transformAsString(el.getLeft()));\n+        node.addChildToBack(transform(el.getRight()));\n+    }\n+    return node;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nNode processObjectLiteral(ObjectLiteral literalNode) {\n    if (literalNode.isDestructuring()) {\n        reportDestructuringAssign(literalNode);\n    }\n    Node node \u003d new Node(Token.OBJECTLIT);\n    for (ObjectProperty el : literalNode.getElements()) {\n        node.addChildToBack(transformAsString(el.getLeft()));\n        node.addChildToBack(transform(el.getRight()));\n    }\n    return node;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 607,
+      "functionName": "processObjectLiteral",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

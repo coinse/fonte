@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionType.java",
+  "functionName": "hasImplementedInterfaces",
+  "functionId": "hasImplementedInterfaces",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 211,
+  "functionEndLine": 221,
+  "numCommitsSeen": 79,
+  "timeTaken": 3315,
+  "changeHistory": [
+    "e82290302eaf2757281651588ee43441ed6d57d6"
+  ],
+  "changeHistoryShort": {
+    "e82290302eaf2757281651588ee43441ed6d57d6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e82290302eaf2757281651588ee43441ed6d57d6": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd type check that an interface cannot implement any interfaces\n\nR\u003djohnlenz,nicksantos\nDELTA\u003d60  (42 added, 7 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1507\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1024 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/19/11, 5:06 PM",
+      "commitName": "e82290302eaf2757281651588ee43441ed6d57d6",
+      "commitAuthor": "zhuyi@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+public boolean hasImplementedInterfaces() {\n+    if (!implementedInterfaces.isEmpty()) {\n+        return true;\n+    }\n+    FunctionType superCtor \u003d isConstructor() ? getSuperClassConstructor() : null;\n+    if (superCtor !\u003d null) {\n+        return superCtor.hasImplementedInterfaces();\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean hasImplementedInterfaces() {\n    if (!implementedInterfaces.isEmpty()) {\n        return true;\n    }\n    FunctionType superCtor \u003d isConstructor() ? getSuperClassConstructor() : null;\n    if (superCtor !\u003d null) {\n        return superCtor.hasImplementedInterfaces();\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 195,
+      "functionName": "hasImplementedInterfaces",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

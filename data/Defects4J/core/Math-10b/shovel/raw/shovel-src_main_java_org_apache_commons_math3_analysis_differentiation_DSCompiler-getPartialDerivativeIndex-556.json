@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "getPartialDerivativeIndex",
+  "functionId": "getPartialDerivativeIndex___parameters-int(modifiers-final)__order-int(modifiers-final)__sizes-int[][](modifiers-final)__orders-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the index of a partial derivative in an array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param sizes sizes array\n@param orders derivation orders with respect to each parameter\n(the lenght of this array must match the number of parameters)\n@return index of the partial derivative\n@exception NumberIsTooLargeException if sum of derivation orders is larger\nthan the instance limits\n",
+  "functionStartLine": 556,
+  "functionEndLine": 587,
+  "numCommitsSeen": 17,
+  "timeTaken": 2225,
+  "changeHistory": [
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,16 @@\n+private static int getPartialDerivativeIndex(final int parameters, final int order, final int[][] sizes, final int... orders) throws NumberIsTooLargeException {\n+    int index \u003d 0;\n+    int m \u003d order;\n+    int ordersSum \u003d 0;\n+    for (int i \u003d parameters - 1; i \u003e\u003d 0; --i) {\n+        int derivativeOrder \u003d orders[i];\n+        ordersSum +\u003d derivativeOrder;\n+        if (ordersSum \u003e order) {\n+            throw new NumberIsTooLargeException(ordersSum, order, true);\n+        }\n+        while (derivativeOrder-- \u003e 0) {\n+            index +\u003d sizes[i][m--];\n+        }\n+    }\n+    return index;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static int getPartialDerivativeIndex(final int parameters, final int order, final int[][] sizes, final int... orders) throws NumberIsTooLargeException {\n    int index \u003d 0;\n    int m \u003d order;\n    int ordersSum \u003d 0;\n    for (int i \u003d parameters - 1; i \u003e\u003d 0; --i) {\n        int derivativeOrder \u003d orders[i];\n        ordersSum +\u003d derivativeOrder;\n        if (ordersSum \u003e order) {\n            throw new NumberIsTooLargeException(ordersSum, order, true);\n        }\n        while (derivativeOrder-- \u003e 0) {\n            index +\u003d sizes[i][m--];\n        }\n    }\n    return index;\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 545,
+      "functionName": "getPartialDerivativeIndex",
+      "functionAnnotation": "",
+      "functionDoc": "Get the index of a partial derivative in an array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param sizes sizes array\n@param orders derivation orders with respect to each parameter\n(the lenght of this array must match the number of parameters)\n@return index of the partial derivative\n@exception NumberIsTooLargeException if sum of derivation orders is larger\nthan the instance limits\n"
+    }
+  }
+}

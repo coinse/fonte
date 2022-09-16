@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-76b",
+  "repositoryPath": "/tmp/Closure-76b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isAssociative",
+  "functionId": "isAssociative___type-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns true if the operator is associative.\ne.g. (a * b) * c \u003d a * (b * c)\nNote: \"+\" is not associative because it is also the concatenation\nfor strings. e.g. \"a\" + (1 + 2) is not \"a\" + 1 + 2\n",
+  "functionStartLine": 1322,
+  "functionEndLine": 1334,
+  "numCommitsSeen": 74,
+  "timeTaken": 5267,
+  "changeHistory": [
+    "685443251d5be1186e0d8abf4ad1181153bebe01",
+    "b14f33a0c7d07320600acdf732f16f6f52aa999c",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "685443251d5be1186e0d8abf4ad1181153bebe01": "Ybodychange",
+    "b14f33a0c7d07320600acdf732f16f6f52aa999c": "Ydocchange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "685443251d5be1186e0d8abf4ad1181153bebe01": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd BITXOR to the list of commutative and associative operators.\n\nR\u003dnicksantos\nDELTA\u003d21  (21 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d250\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@687 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/11/11, 3:59 PM",
+      "commitName": "685443251d5be1186e0d8abf4ad1181153bebe01",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "1/11/11, 12:06 PM",
+      "commitNameOld": "711b76ac1015234f86805f1735ff2c3da195f55c",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.16,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean isAssociative(int type) {\n    switch(type) {\n        case Token.MUL:\n        case Token.AND:\n        case Token.OR:\n        case Token.BITOR:\n        case Token.BITXOR:\n        case Token.BITAND:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1115,
+      "functionName": "isAssociative",
+      "functionAnnotation": "",
+      "functionDoc": "Returns true if the operator is associative.\ne.g. (a * b) * c \u003d a * (b * c)\nNote: \"+\" is not associative because it is also the concatenation\nfor strings. e.g. \"a\" + (1 + 2) is not \"a\" + 1 + 2\n",
+      "diff": "@@ -1,12 +1,13 @@\n static boolean isAssociative(int type) {\n     switch(type) {\n         case Token.MUL:\n         case Token.AND:\n         case Token.OR:\n         case Token.BITOR:\n+        case Token.BITXOR:\n         case Token.BITAND:\n             return true;\n         default:\n             return false;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "b14f33a0c7d07320600acdf732f16f6f52aa999c": {
+      "type": "Ydocchange",
+      "commitMessage": "\nFold more associative operations.\nFixes issue 245\n\nR\u003dnicksantos\nDELTA\u003d250  (139 added, 61 deleted, 50 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1041044\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@530 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/1/10, 9:37 AM",
+      "commitName": "b14f33a0c7d07320600acdf732f16f6f52aa999c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "10/18/10, 2:55 PM",
+      "commitNameOld": "34fd5f8275ae69fc772c2283a3c5fd13b93a7c42",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 13.78,
+      "commitsBetweenForRepo": 36,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean isAssociative(int type) {\n    switch(type) {\n        case Token.MUL:\n        case Token.AND:\n        case Token.OR:\n        case Token.BITOR:\n        case Token.BITAND:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 928,
+      "functionName": "isAssociative",
+      "functionAnnotation": "",
+      "functionDoc": "Returns true if the operator is associative.\ne.g. (a * b) * c \u003d a * (b * c)\nNote: \"+\" is not associative because it is also the concatenation\nfor strings. e.g. \"a\" + (1 + 2) is not \"a\" + 1 + 2\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Returns true if the operator is associative.\ne.g. (a * b) * c \u003d a * (b * c)\nNote: \"+\" is not associative because it is also the concatentation\nfor strings. e.g. \"a\" + (1 + 2) is not \"a\" + 1 + 2\n",
+        "newValue": "Returns true if the operator is associative.\ne.g. (a * b) * c \u003d a * (b * c)\nNote: \"+\" is not associative because it is also the concatenation\nfor strings. e.g. \"a\" + (1 + 2) is not \"a\" + 1 + 2\n"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+static boolean isAssociative(int type) {\n+    switch(type) {\n+        case Token.MUL:\n+        case Token.AND:\n+        case Token.OR:\n+        case Token.BITOR:\n+        case Token.BITAND:\n+            return true;\n+        default:\n+            return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isAssociative(int type) {\n    switch(type) {\n        case Token.MUL:\n        case Token.AND:\n        case Token.OR:\n        case Token.BITOR:\n        case Token.BITAND:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 644,
+      "functionName": "isAssociative",
+      "functionAnnotation": "",
+      "functionDoc": "Returns true if the operator is associative.\ne.g. (a * b) * c \u003d a * (b * c)\nNote: \"+\" is not associative because it is also the concatentation\nfor strings. e.g. \"a\" + (1 + 2) is not \"a\" + 1 + 2\n"
+    }
+  }
+}

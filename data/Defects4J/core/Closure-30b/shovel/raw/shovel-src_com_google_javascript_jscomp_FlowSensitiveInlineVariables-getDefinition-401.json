@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FlowSensitiveInlineVariables.java",
+  "functionName": "getDefinition",
+  "functionId": "$getDefinition___n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+  "functionAnnotation": "",
+  "functionDoc": "Set the def node\n\n@param n A node that has a corresponding CFG node in the CFG.\n",
+  "functionStartLine": 401,
+  "functionEndLine": 424,
+  "numCommitsSeen": 21,
+  "timeTaken": 989,
+  "changeHistory": [
+    "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f": {
+      "type": "Ybodychange",
+      "commitMessage": "\nInline NodeUtil.isXXX functions and call the Node.isXXX functions\ndirectly.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3673\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1578 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/9/11, 1:51 PM",
+      "commitName": "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "8/22/11, 4:35 PM",
+      "commitNameOld": "6c2efacb7315e03b25d0b23a6c881df9955b210a",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 78.93,
+      "commitsBetweenForRepo": 187,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void getDefinition(Node n, Node parent) {\n    AbstractCfgNodeTraversalCallback gatherCb \u003d new AbstractCfgNodeTraversalCallback() {\n\n        @Override\n        public void visit(NodeTraversal t, Node n, Node parent) {\n            switch(n.getType()) {\n                case Token.NAME:\n                    if (n.getString().equals(varName) \u0026\u0026 n.hasChildren()) {\n                        def \u003d n;\n                    }\n                    return;\n                case Token.ASSIGN:\n                    Node lhs \u003d n.getFirstChild();\n                    if (lhs.isName() \u0026\u0026 lhs.getString().equals(varName)) {\n                        def \u003d n;\n                    }\n                    return;\n            }\n        }\n    };\n    NodeTraversal.traverse(compiler, n, gatherCb);\n}",
+      "path": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+      "functionStartLine": 401,
+      "functionName": "getDefinition",
+      "functionAnnotation": "",
+      "functionDoc": "Set the def node\n\n@param n A node that has a corresponding CFG node in the CFG.\n",
+      "diff": "@@ -1,22 +1,22 @@\n private void getDefinition(Node n, Node parent) {\n     AbstractCfgNodeTraversalCallback gatherCb \u003d new AbstractCfgNodeTraversalCallback() {\n \n         @Override\n         public void visit(NodeTraversal t, Node n, Node parent) {\n             switch(n.getType()) {\n                 case Token.NAME:\n                     if (n.getString().equals(varName) \u0026\u0026 n.hasChildren()) {\n                         def \u003d n;\n                     }\n                     return;\n                 case Token.ASSIGN:\n                     Node lhs \u003d n.getFirstChild();\n-                    if (NodeUtil.isName(lhs) \u0026\u0026 lhs.getString().equals(varName)) {\n+                    if (lhs.isName() \u0026\u0026 lhs.getString().equals(varName)) {\n                         def \u003d n;\n                     }\n                     return;\n             }\n         }\n     };\n     NodeTraversal.traverse(compiler, n, gatherCb);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,22 @@\n+private void getDefinition(Node n, Node parent) {\n+    AbstractCfgNodeTraversalCallback gatherCb \u003d new AbstractCfgNodeTraversalCallback() {\n+\n+        @Override\n+        public void visit(NodeTraversal t, Node n, Node parent) {\n+            switch(n.getType()) {\n+                case Token.NAME:\n+                    if (n.getString().equals(varName) \u0026\u0026 n.hasChildren()) {\n+                        def \u003d n;\n+                    }\n+                    return;\n+                case Token.ASSIGN:\n+                    Node lhs \u003d n.getFirstChild();\n+                    if (NodeUtil.isName(lhs) \u0026\u0026 lhs.getString().equals(varName)) {\n+                        def \u003d n;\n+                    }\n+                    return;\n+            }\n+        }\n+    };\n+    NodeTraversal.traverse(compiler, n, gatherCb);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void getDefinition(Node n, Node parent) {\n    AbstractCfgNodeTraversalCallback gatherCb \u003d new AbstractCfgNodeTraversalCallback() {\n\n        @Override\n        public void visit(NodeTraversal t, Node n, Node parent) {\n            switch(n.getType()) {\n                case Token.NAME:\n                    if (n.getString().equals(varName) \u0026\u0026 n.hasChildren()) {\n                        def \u003d n;\n                    }\n                    return;\n                case Token.ASSIGN:\n                    Node lhs \u003d n.getFirstChild();\n                    if (NodeUtil.isName(lhs) \u0026\u0026 lhs.getString().equals(varName)) {\n                        def \u003d n;\n                    }\n                    return;\n            }\n        }\n    };\n    NodeTraversal.traverse(compiler, n, gatherCb);\n}",
+      "path": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+      "functionStartLine": 321,
+      "functionName": "getDefinition",
+      "functionAnnotation": "",
+      "functionDoc": "Set the def node\n\n@param n A node that has a corresponding CFG node in the CFG.\n"
+    }
+  }
+}

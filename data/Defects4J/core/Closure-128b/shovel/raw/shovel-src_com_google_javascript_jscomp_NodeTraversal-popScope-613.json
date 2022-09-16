@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-128b",
+  "repositoryPath": "/tmp/Closure-128b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeTraversal.java",
+  "functionName": "popScope",
+  "functionId": "popScope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeTraversal.java",
+  "functionAnnotation": "",
+  "functionDoc": "Pops back to the previous scope (e.g. when leaving a function).\n",
+  "functionStartLine": 613,
+  "functionEndLine": 626,
+  "numCommitsSeen": 26,
+  "timeTaken": 1328,
+  "changeHistory": [
+    "4ff5d0b989360d785c63978faf8eed6284e030e1",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "4ff5d0b989360d785c63978faf8eed6284e030e1": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4ff5d0b989360d785c63978faf8eed6284e030e1": {
+      "type": "Ybodychange",
+      "commitMessage": "Make Peephole and UnreachableCodeElimination only work on functions that have changed since the last run.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44109570\n",
+      "commitDate": "3/20/13, 9:48 AM",
+      "commitName": "4ff5d0b989360d785c63978faf8eed6284e030e1",
+      "commitAuthor": "Ben Lickly",
+      "commitDateOld": "7/30/12, 3:33 PM",
+      "commitNameOld": "6588923bf1f47ee23764ea41f3e73febb92e3053",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 232.76,
+      "commitsBetweenForRepo": 462,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void popScope() {\n    if (scopeCallback !\u003d null) {\n        scopeCallback.exitScope(this);\n    }\n    if (scopeRoots.isEmpty()) {\n        scopes.pop();\n    } else {\n        scopeRoots.pop();\n    }\n    cfgs.pop();\n    if (!scopes.isEmpty()) {\n        compiler.setScope(scopes.peek().getRootNode());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+      "functionStartLine": 613,
+      "functionName": "popScope",
+      "functionAnnotation": "",
+      "functionDoc": "Pops back to the previous scope (e.g. when leaving a function).\n",
+      "diff": "@@ -1,11 +1,14 @@\n private void popScope() {\n     if (scopeCallback !\u003d null) {\n         scopeCallback.exitScope(this);\n     }\n     if (scopeRoots.isEmpty()) {\n         scopes.pop();\n     } else {\n         scopeRoots.pop();\n     }\n     cfgs.pop();\n+    if (!scopes.isEmpty()) {\n+        compiler.setScope(scopes.peek().getRootNode());\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private void popScope() {\n+    if (scopeCallback !\u003d null) {\n+        scopeCallback.exitScope(this);\n+    }\n+    if (scopeRoots.isEmpty()) {\n+        scopes.pop();\n+    } else {\n+        scopeRoots.pop();\n+    }\n+    cfgs.pop();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void popScope() {\n    if (scopeCallback !\u003d null) {\n        scopeCallback.exitScope(this);\n    }\n    if (scopeRoots.isEmpty()) {\n        scopes.pop();\n    } else {\n        scopeRoots.pop();\n    }\n    cfgs.pop();\n}",
+      "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+      "functionStartLine": 530,
+      "functionName": "popScope",
+      "functionAnnotation": "",
+      "functionDoc": "Pops back to the previous scope (e.g. when leaving a function).\n"
+    }
+  }
+}

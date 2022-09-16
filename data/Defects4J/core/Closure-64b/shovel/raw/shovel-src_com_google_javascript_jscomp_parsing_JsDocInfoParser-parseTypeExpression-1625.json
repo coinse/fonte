@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "parseTypeExpression",
+  "functionId": "parseTypeExpression___token-JsDocToken",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "TypeExpression :\u003d BasicTypeExpression\n    | \u0027?\u0027 BasicTypeExpression\n    | \u0027!\u0027 BasicTypeExpression\n    | BasicTypeExpression \u0027?\u0027\n    | BasicTypeExpression \u0027!\u0027\n    | \u0027?\u0027\n",
+  "functionStartLine": 1625,
+  "functionEndLine": 1664,
+  "numCommitsSeen": 45,
+  "timeTaken": 4697,
+  "changeHistory": [
+    "2dbbe0784ee3e549eb0cc4d679aeddaac1243145",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "2dbbe0784ee3e549eb0cc4d679aeddaac1243145": "Ymultichange(Ybodychange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2dbbe0784ee3e549eb0cc4d679aeddaac1243145": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "\nChange on 2010/04/09 by nick\n\n        Make it possible to explicitly specify unknown parameter and\n        return types.\n\n        R\u003dnada\n        DELTA\u003d77  (74 added, 0 deleted, 3 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dwjzzsm\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@179 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/9/10, 11:07 AM",
+      "commitName": "2dbbe0784ee3e549eb0cc4d679aeddaac1243145",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nChange on 2010/04/09 by nick\n\n        Make it possible to explicitly specify unknown parameter and\n        return types.\n\n        R\u003dnada\n        DELTA\u003d77  (74 added, 0 deleted, 3 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dwjzzsm\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@179 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/9/10, 11:07 AM",
+          "commitName": "2dbbe0784ee3e549eb0cc4d679aeddaac1243145",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/5/10, 11:58 PM",
+          "commitNameOld": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 3.46,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Node parseTypeExpression(JsDocToken token) {\n    if (token \u003d\u003d JsDocToken.QMARK) {\n        token \u003d next();\n        if (token \u003d\u003d JsDocToken.COMMA || token \u003d\u003d JsDocToken.EQUALS || token \u003d\u003d JsDocToken.RC || token \u003d\u003d JsDocToken.RP || token \u003d\u003d JsDocToken.PIPE) {\n            restoreLookAhead(token);\n            return newNode(Token.QMARK);\n        }\n        return wrapNode(Token.QMARK, parseBasicTypeExpression(token));\n    } else if (token \u003d\u003d JsDocToken.BANG) {\n        return wrapNode(Token.BANG, parseBasicTypeExpression(next()));\n    } else {\n        Node basicTypeExpr \u003d parseBasicTypeExpression(token);\n        if (basicTypeExpr !\u003d null) {\n            if (match(JsDocToken.QMARK)) {\n                next();\n                return wrapNode(Token.QMARK, basicTypeExpr);\n            } else if (match(JsDocToken.BANG)) {\n                next();\n                return wrapNode(Token.BANG, basicTypeExpr);\n            }\n        }\n        return basicTypeExpr;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+          "functionStartLine": 1453,
+          "functionName": "parseTypeExpression",
+          "functionAnnotation": "",
+          "functionDoc": "TypeExpression :\u003d BasicTypeExpression\n    | \u0027?\u0027 BasicTypeExpression\n    | \u0027!\u0027 BasicTypeExpression\n    | BasicTypeExpression \u0027?\u0027\n    | BasicTypeExpression \u0027!\u0027\n    | \u0027?\u0027\n",
+          "diff": "@@ -1,19 +1,24 @@\n private Node parseTypeExpression(JsDocToken token) {\n     if (token \u003d\u003d JsDocToken.QMARK) {\n-        return wrapNode(Token.QMARK, parseBasicTypeExpression(next()));\n+        token \u003d next();\n+        if (token \u003d\u003d JsDocToken.COMMA || token \u003d\u003d JsDocToken.EQUALS || token \u003d\u003d JsDocToken.RC || token \u003d\u003d JsDocToken.RP || token \u003d\u003d JsDocToken.PIPE) {\n+            restoreLookAhead(token);\n+            return newNode(Token.QMARK);\n+        }\n+        return wrapNode(Token.QMARK, parseBasicTypeExpression(token));\n     } else if (token \u003d\u003d JsDocToken.BANG) {\n         return wrapNode(Token.BANG, parseBasicTypeExpression(next()));\n     } else {\n         Node basicTypeExpr \u003d parseBasicTypeExpression(token);\n         if (basicTypeExpr !\u003d null) {\n             if (match(JsDocToken.QMARK)) {\n                 next();\n                 return wrapNode(Token.QMARK, basicTypeExpr);\n             } else if (match(JsDocToken.BANG)) {\n                 next();\n                 return wrapNode(Token.BANG, basicTypeExpr);\n             }\n         }\n         return basicTypeExpr;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nChange on 2010/04/09 by nick\n\n        Make it possible to explicitly specify unknown parameter and\n        return types.\n\n        R\u003dnada\n        DELTA\u003d77  (74 added, 0 deleted, 3 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dwjzzsm\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@179 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/9/10, 11:07 AM",
+          "commitName": "2dbbe0784ee3e549eb0cc4d679aeddaac1243145",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/5/10, 11:58 PM",
+          "commitNameOld": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 3.46,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Node parseTypeExpression(JsDocToken token) {\n    if (token \u003d\u003d JsDocToken.QMARK) {\n        token \u003d next();\n        if (token \u003d\u003d JsDocToken.COMMA || token \u003d\u003d JsDocToken.EQUALS || token \u003d\u003d JsDocToken.RC || token \u003d\u003d JsDocToken.RP || token \u003d\u003d JsDocToken.PIPE) {\n            restoreLookAhead(token);\n            return newNode(Token.QMARK);\n        }\n        return wrapNode(Token.QMARK, parseBasicTypeExpression(token));\n    } else if (token \u003d\u003d JsDocToken.BANG) {\n        return wrapNode(Token.BANG, parseBasicTypeExpression(next()));\n    } else {\n        Node basicTypeExpr \u003d parseBasicTypeExpression(token);\n        if (basicTypeExpr !\u003d null) {\n            if (match(JsDocToken.QMARK)) {\n                next();\n                return wrapNode(Token.QMARK, basicTypeExpr);\n            } else if (match(JsDocToken.BANG)) {\n                next();\n                return wrapNode(Token.BANG, basicTypeExpr);\n            }\n        }\n        return basicTypeExpr;\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+          "functionStartLine": 1453,
+          "functionName": "parseTypeExpression",
+          "functionAnnotation": "",
+          "functionDoc": "TypeExpression :\u003d BasicTypeExpression\n    | \u0027?\u0027 BasicTypeExpression\n    | \u0027!\u0027 BasicTypeExpression\n    | BasicTypeExpression \u0027?\u0027\n    | BasicTypeExpression \u0027!\u0027\n    | \u0027?\u0027\n",
+          "diff": "@@ -1,19 +1,24 @@\n private Node parseTypeExpression(JsDocToken token) {\n     if (token \u003d\u003d JsDocToken.QMARK) {\n-        return wrapNode(Token.QMARK, parseBasicTypeExpression(next()));\n+        token \u003d next();\n+        if (token \u003d\u003d JsDocToken.COMMA || token \u003d\u003d JsDocToken.EQUALS || token \u003d\u003d JsDocToken.RC || token \u003d\u003d JsDocToken.RP || token \u003d\u003d JsDocToken.PIPE) {\n+            restoreLookAhead(token);\n+            return newNode(Token.QMARK);\n+        }\n+        return wrapNode(Token.QMARK, parseBasicTypeExpression(token));\n     } else if (token \u003d\u003d JsDocToken.BANG) {\n         return wrapNode(Token.BANG, parseBasicTypeExpression(next()));\n     } else {\n         Node basicTypeExpr \u003d parseBasicTypeExpression(token);\n         if (basicTypeExpr !\u003d null) {\n             if (match(JsDocToken.QMARK)) {\n                 next();\n                 return wrapNode(Token.QMARK, basicTypeExpr);\n             } else if (match(JsDocToken.BANG)) {\n                 next();\n                 return wrapNode(Token.BANG, basicTypeExpr);\n             }\n         }\n         return basicTypeExpr;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "TypeExpression :\u003d BasicTypeExpression\n    | \u0027?\u0027 BasicTypeExpression\n    | \u0027!\u0027 BasicTypeExpression\n    | BasicTypeExpression \u0027?\u0027\n    | BasicTypeExpression \u0027!\u0027\n",
+            "newValue": "TypeExpression :\u003d BasicTypeExpression\n    | \u0027?\u0027 BasicTypeExpression\n    | \u0027!\u0027 BasicTypeExpression\n    | BasicTypeExpression \u0027?\u0027\n    | BasicTypeExpression \u0027!\u0027\n    | \u0027?\u0027\n"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+private Node parseTypeExpression(JsDocToken token) {\n+    if (token \u003d\u003d JsDocToken.QMARK) {\n+        return wrapNode(Token.QMARK, parseBasicTypeExpression(next()));\n+    } else if (token \u003d\u003d JsDocToken.BANG) {\n+        return wrapNode(Token.BANG, parseBasicTypeExpression(next()));\n+    } else {\n+        Node basicTypeExpr \u003d parseBasicTypeExpression(token);\n+        if (basicTypeExpr !\u003d null) {\n+            if (match(JsDocToken.QMARK)) {\n+                next();\n+                return wrapNode(Token.QMARK, basicTypeExpr);\n+            } else if (match(JsDocToken.BANG)) {\n+                next();\n+                return wrapNode(Token.BANG, basicTypeExpr);\n+            }\n+        }\n+        return basicTypeExpr;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node parseTypeExpression(JsDocToken token) {\n    if (token \u003d\u003d JsDocToken.QMARK) {\n        return wrapNode(Token.QMARK, parseBasicTypeExpression(next()));\n    } else if (token \u003d\u003d JsDocToken.BANG) {\n        return wrapNode(Token.BANG, parseBasicTypeExpression(next()));\n    } else {\n        Node basicTypeExpr \u003d parseBasicTypeExpression(token);\n        if (basicTypeExpr !\u003d null) {\n            if (match(JsDocToken.QMARK)) {\n                next();\n                return wrapNode(Token.QMARK, basicTypeExpr);\n            } else if (match(JsDocToken.BANG)) {\n                next();\n                return wrapNode(Token.BANG, basicTypeExpr);\n            }\n        }\n        return basicTypeExpr;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1491,
+      "functionName": "parseTypeExpression",
+      "functionAnnotation": "",
+      "functionDoc": "TypeExpression :\u003d BasicTypeExpression\n    | \u0027?\u0027 BasicTypeExpression\n    | \u0027!\u0027 BasicTypeExpression\n    | BasicTypeExpression \u0027?\u0027\n    | BasicTypeExpression \u0027!\u0027\n"
+    }
+  }
+}

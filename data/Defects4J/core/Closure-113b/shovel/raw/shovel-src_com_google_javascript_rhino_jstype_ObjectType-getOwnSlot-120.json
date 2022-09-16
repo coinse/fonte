@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectType.java",
+  "functionName": "getOwnSlot",
+  "functionId": "getOwnSlot___name-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 120,
+  "functionEndLine": 122,
+  "numCommitsSeen": 55,
+  "timeTaken": 1555,
+  "changeHistory": [
+    "2bbded191da279d08fe76e24f40339bb9b3df0b4",
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+    "8dc67305aec856292735bb821fe41e7f9032e7e1"
+  ],
+  "changeHistoryShort": {
+    "2bbded191da279d08fe76e24f40339bb9b3df0b4": "Ybodychange",
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021": "Yreturntypechange",
+    "8dc67305aec856292735bb821fe41e7f9032e7e1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2bbded191da279d08fe76e24f40339bb9b3df0b4": {
+      "type": "Ybodychange",
+      "commitMessage": "\nSimplify a bunch of the subclassing around types and property maps, and\nmore clearly document the few places where we generate properties lazily.\n\nR\u003ddimvar\nDELTA\u003d398  (86 added, 282 deleted, 30 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5947\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2374 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/10/12, 9:07 AM",
+      "commitName": "2bbded191da279d08fe76e24f40339bb9b3df0b4",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "12/3/12, 9:30 AM",
+      "commitNameOld": "b2430d29987b54e977a5e5e8db9242f4486c750b",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 6.98,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Property getOwnSlot(String name) {\n    return getPropertyMap().getOwnProperty(name);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 121,
+      "functionName": "getOwnSlot",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,4 @@\n @Override\n public Property getOwnSlot(String name) {\n-    if (hasOwnProperty(name)) {\n-        return getSlot(name);\n-    }\n-    return null;\n+    return getPropertyMap().getOwnProperty(name);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021": {
+      "type": "Yreturntypechange",
+      "commitMessage": "\nMake sure that a function and its prototype are declared in the same place\n\nR\u003djohnlenz\nDELTA\u003d56  (30 added, 2 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3693\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1588 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/11, 9:54 AM",
+      "commitName": "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "9/19/11, 2:19 PM",
+      "commitNameOld": "27d9224ea579a3cf5780de2994bac258b3cfcd42",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 52.86,
+      "commitsBetweenForRepo": 121,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Property getOwnSlot(String name) {\n    if (hasOwnProperty(name)) {\n        return getSlot(name);\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 104,
+      "functionName": "getOwnSlot",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,7 @@\n @Override\n-public StaticSlot\u003cJSType\u003e getOwnSlot(String name) {\n+public Property getOwnSlot(String name) {\n     if (hasOwnProperty(name)) {\n         return getSlot(name);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "StaticSlot\u003cJSType\u003e",
+        "newValue": "Property"
+      }
+    },
+    "8dc67305aec856292735bb821fe41e7f9032e7e1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMake ObjectType implement StaticScope.\nThis is part of a long-term plan to write a general\nsymbol table with a unified API across many different types\nof data structures.\nI accidentally fixed a bug in interfaces when doing this, so added tests for the bugs i fixed.\n\nR\u003dacleung\nDELTA\u003d177  (101 added, 49 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2282\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1182 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/15/11, 1:20 PM",
+      "commitName": "8dc67305aec856292735bb821fe41e7f9032e7e1",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public StaticSlot\u003cJSType\u003e getOwnSlot(String name) {\n+    if (hasOwnProperty(name)) {\n+        return getSlot(name);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic StaticSlot\u003cJSType\u003e getOwnSlot(String name) {\n    if (hasOwnProperty(name)) {\n        return getSlot(name);\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 98,
+      "functionName": "getOwnSlot",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

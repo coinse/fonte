@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "inferArguments",
+  "functionId": "inferArguments___functionScope-Scope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "Infers all of a function\u0027s arguments if their types aren\u0027t declared.\n",
+  "functionStartLine": 121,
+  "functionEndLine": 164,
+  "numCommitsSeen": 103,
+  "timeTaken": 3917,
+  "changeHistory": [
+    "a35b095af0ccbd568784976af1ce240007040688",
+    "a7f99cbb3ba646de8e19f0248099dad9cf0432a6"
+  ],
+  "changeHistoryShort": {
+    "a35b095af0ccbd568784976af1ce240007040688": "Ybodychange",
+    "a7f99cbb3ba646de8e19f0248099dad9cf0432a6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a35b095af0ccbd568784976af1ce240007040688": {
+      "type": "Ybodychange",
+      "commitMessage": "\nInfer IIFE arguments.\n\nR\u003ddimvar\nDELTA\u003d58  (48 added, 4 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5620\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2250 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/8/12, 2:31 PM",
+      "commitName": "a35b095af0ccbd568784976af1ce240007040688",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "10/4/12, 11:18 AM",
+      "commitNameOld": "a7f99cbb3ba646de8e19f0248099dad9cf0432a6",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 4.13,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void inferArguments(Scope functionScope) {\n    Node functionNode \u003d functionScope.getRootNode();\n    Node astParameters \u003d functionNode.getFirstChild().getNext();\n    Node iifeArgumentNode \u003d null;\n    if (NodeUtil.isCallOrNewTarget(functionNode)) {\n        iifeArgumentNode \u003d functionNode.getNext();\n    }\n    FunctionType functionType \u003d JSType.toMaybeFunctionType(functionNode.getJSType());\n    if (functionType !\u003d null) {\n        Node parameterTypes \u003d functionType.getParametersNode();\n        if (parameterTypes !\u003d null) {\n            Node parameterTypeNode \u003d parameterTypes.getFirstChild();\n            for (Node astParameter : astParameters.children()) {\n                Var var \u003d functionScope.getVar(astParameter.getString());\n                Preconditions.checkNotNull(var);\n                if (var.isTypeInferred() \u0026\u0026 var.getType() \u003d\u003d unknownType) {\n                    JSType newType \u003d null;\n                    if (iifeArgumentNode !\u003d null) {\n                        newType \u003d iifeArgumentNode.getJSType();\n                    } else if (parameterTypeNode !\u003d null) {\n                        newType \u003d parameterTypeNode.getJSType();\n                    }\n                    if (newType !\u003d null) {\n                        var.setType(newType);\n                        astParameter.setJSType(newType);\n                    }\n                }\n                if (parameterTypeNode !\u003d null) {\n                    parameterTypeNode \u003d parameterTypeNode.getNext();\n                }\n                if (iifeArgumentNode !\u003d null) {\n                    iifeArgumentNode \u003d iifeArgumentNode.getNext();\n                }\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 121,
+      "functionName": "inferArguments",
+      "functionAnnotation": "",
+      "functionDoc": "Infers all of a function\u0027s arguments if their types aren\u0027t declared.\n",
+      "diff": "@@ -1,24 +1,37 @@\n private void inferArguments(Scope functionScope) {\n     Node functionNode \u003d functionScope.getRootNode();\n     Node astParameters \u003d functionNode.getFirstChild().getNext();\n+    Node iifeArgumentNode \u003d null;\n+    if (NodeUtil.isCallOrNewTarget(functionNode)) {\n+        iifeArgumentNode \u003d functionNode.getNext();\n+    }\n     FunctionType functionType \u003d JSType.toMaybeFunctionType(functionNode.getJSType());\n     if (functionType !\u003d null) {\n         Node parameterTypes \u003d functionType.getParametersNode();\n         if (parameterTypes !\u003d null) {\n             Node parameterTypeNode \u003d parameterTypes.getFirstChild();\n             for (Node astParameter : astParameters.children()) {\n-                if (parameterTypeNode \u003d\u003d null) {\n-                    return;\n-                }\n                 Var var \u003d functionScope.getVar(astParameter.getString());\n                 Preconditions.checkNotNull(var);\n-                if (var.isTypeInferred() \u0026\u0026 var.getType() \u003d\u003d unknownType \u0026\u0026 parameterTypeNode.getJSType() !\u003d null) {\n-                    JSType newType \u003d parameterTypeNode.getJSType();\n-                    var.setType(newType);\n-                    astParameter.setJSType(newType);\n+                if (var.isTypeInferred() \u0026\u0026 var.getType() \u003d\u003d unknownType) {\n+                    JSType newType \u003d null;\n+                    if (iifeArgumentNode !\u003d null) {\n+                        newType \u003d iifeArgumentNode.getJSType();\n+                    } else if (parameterTypeNode !\u003d null) {\n+                        newType \u003d parameterTypeNode.getJSType();\n+                    }\n+                    if (newType !\u003d null) {\n+                        var.setType(newType);\n+                        astParameter.setJSType(newType);\n+                    }\n                 }\n-                parameterTypeNode \u003d parameterTypeNode.getNext();\n+                if (parameterTypeNode !\u003d null) {\n+                    parameterTypeNode \u003d parameterTypeNode.getNext();\n+                }\n+                if (iifeArgumentNode !\u003d null) {\n+                    iifeArgumentNode \u003d iifeArgumentNode.getNext();\n+                }\n             }\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a7f99cbb3ba646de8e19f0248099dad9cf0432a6": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAlternate proposal for handling IIFEs\nFixes issue 61\n\nR\u003ddimvar\nDELTA\u003d243  (149 added, 31 deleted, 63 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5594\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2240 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/4/12, 11:18 AM",
+      "commitName": "a7f99cbb3ba646de8e19f0248099dad9cf0432a6",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,24 @@\n+private void inferArguments(Scope functionScope) {\n+    Node functionNode \u003d functionScope.getRootNode();\n+    Node astParameters \u003d functionNode.getFirstChild().getNext();\n+    FunctionType functionType \u003d JSType.toMaybeFunctionType(functionNode.getJSType());\n+    if (functionType !\u003d null) {\n+        Node parameterTypes \u003d functionType.getParametersNode();\n+        if (parameterTypes !\u003d null) {\n+            Node parameterTypeNode \u003d parameterTypes.getFirstChild();\n+            for (Node astParameter : astParameters.children()) {\n+                if (parameterTypeNode \u003d\u003d null) {\n+                    return;\n+                }\n+                Var var \u003d functionScope.getVar(astParameter.getString());\n+                Preconditions.checkNotNull(var);\n+                if (var.isTypeInferred() \u0026\u0026 var.getType() \u003d\u003d unknownType \u0026\u0026 parameterTypeNode.getJSType() !\u003d null) {\n+                    JSType newType \u003d parameterTypeNode.getJSType();\n+                    var.setType(newType);\n+                    astParameter.setJSType(newType);\n+                }\n+                parameterTypeNode \u003d parameterTypeNode.getNext();\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void inferArguments(Scope functionScope) {\n    Node functionNode \u003d functionScope.getRootNode();\n    Node astParameters \u003d functionNode.getFirstChild().getNext();\n    FunctionType functionType \u003d JSType.toMaybeFunctionType(functionNode.getJSType());\n    if (functionType !\u003d null) {\n        Node parameterTypes \u003d functionType.getParametersNode();\n        if (parameterTypes !\u003d null) {\n            Node parameterTypeNode \u003d parameterTypes.getFirstChild();\n            for (Node astParameter : astParameters.children()) {\n                if (parameterTypeNode \u003d\u003d null) {\n                    return;\n                }\n                Var var \u003d functionScope.getVar(astParameter.getString());\n                Preconditions.checkNotNull(var);\n                if (var.isTypeInferred() \u0026\u0026 var.getType() \u003d\u003d unknownType \u0026\u0026 parameterTypeNode.getJSType() !\u003d null) {\n                    JSType newType \u003d parameterTypeNode.getJSType();\n                    var.setType(newType);\n                    astParameter.setJSType(newType);\n                }\n                parameterTypeNode \u003d parameterTypeNode.getNext();\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 121,
+      "functionName": "inferArguments",
+      "functionAnnotation": "",
+      "functionDoc": "Infers all of a function\u0027s arguments if their types aren\u0027t declared.\n"
+    }
+  }
+}

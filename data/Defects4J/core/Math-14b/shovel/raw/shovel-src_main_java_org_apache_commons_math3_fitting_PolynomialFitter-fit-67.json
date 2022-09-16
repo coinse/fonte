@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-14b",
+  "repositoryPath": "/tmp/Math-14b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PolynomialFitter.java",
+  "functionName": "fit",
+  "functionId": "fit___guess-double[]",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/fitting/PolynomialFitter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the coefficients of the polynomial fitting the weighted data points.\nThe degree of the fitting polynomial is {@code guess.length - 1}.\n\n@param guess First guess for the coefficients. They must be sorted in\nincreasing order of the polynomial\u0027s degree.\n@return the coefficients of the polynomial that best fits the observed points.\n@throws org.apache.commons.math3.exception.ConvergenceException\nif the algorithm failed to converge.\n",
+  "functionStartLine": 67,
+  "functionEndLine": 69,
+  "numCommitsSeen": 1,
+  "timeTaken": 349,
+  "changeHistory": [
+    "a3a1f9a217c2ac49927aa3364ecd2eee4079a29f"
+  ],
+  "changeHistoryShort": {
+    "a3a1f9a217c2ac49927aa3364ecd2eee4079a29f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a3a1f9a217c2ac49927aa3364ecd2eee4079a29f": {
+      "type": "Yintroduced",
+      "commitMessage": "MATH-874\nRefactored of the contents of package \"o.a.c.m.optimization\"\ninto the new \"o.a.c.m.optim\" and \"o.a.c.m.fitting\" packages.\n* All deprecated classes/fields/methods have been removed in the\n  replacement packages.\n* Simplified API: a single \"optimize(OptimizationData... data)\"\n  for all optimizer types.\n* Simplified class hierarchy, merged interfaces and abstract\n  classes, only base classes are generic.\n* The new classes do not use the \"DerivativeStructure\" type.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1420684 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/12/12, 6:10 AM",
+      "commitName": "a3a1f9a217c2ac49927aa3364ecd2eee4079a29f",
+      "commitAuthor": "Gilles Sadowski",
+      "diff": "@@ -0,0 +1,3 @@\n+public double[] fit(double[] guess) {\n+    return fit(new PolynomialFunction.Parametric(), guess);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public double[] fit(double[] guess) {\n    return fit(new PolynomialFunction.Parametric(), guess);\n}",
+      "path": "src/main/java/org/apache/commons/math3/fitting/PolynomialFitter.java",
+      "functionStartLine": 67,
+      "functionName": "fit",
+      "functionAnnotation": "",
+      "functionDoc": "Get the coefficients of the polynomial fitting the weighted data points.\nThe degree of the fitting polynomial is {@code guess.length - 1}.\n\n@param guess First guess for the coefficients. They must be sorted in\nincreasing order of the polynomial\u0027s degree.\n@return the coefficients of the polynomial that best fits the observed points.\n@throws org.apache.commons.math3.exception.ConvergenceException\nif the algorithm failed to converge.\n"
+    }
+  }
+}

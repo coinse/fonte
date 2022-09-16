@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-13b",
+  "repositoryPath": "/tmp/Lang-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SerializationUtils.java",
+  "functionName": "resolveClass",
+  "functionId": "$resolveClass___desc-ObjectStreamClass",
+  "sourceFilePath": "src/main/java/org/apache/commons/lang3/SerializationUtils.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Overriden version that uses the parametrized \u003ccode\u003eClassLoader\u003c/code\u003e or the \u003ccode\u003eClassLoader\u003c/code\u003e\nof the current \u003ccode\u003eThread\u003c/code\u003e to resolve the class.\n\n@param desc An instance of class \u003ccode\u003eObjectStreamClass\u003c/code\u003e.\n@return A \u003ccode\u003eClass\u003c/code\u003e object corresponding to \u003ccode\u003edesc\u003c/code\u003e.\n@throws IOException Any of the usual Input/Output exceptions.\n@throws ClassNotFoundException If class of a serialized object cannot be found.\n",
+  "functionStartLine": 260,
+  "functionEndLine": 267,
+  "numCommitsSeen": 11,
+  "timeTaken": 267,
+  "changeHistory": [
+    "01ab63a0f1d4b8d17d86dc4be56cbc7b92154a48"
+  ],
+  "changeHistoryShort": {
+    "01ab63a0f1d4b8d17d86dc4be56cbc7b92154a48": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "01ab63a0f1d4b8d17d86dc4be56cbc7b92154a48": {
+      "type": "Yintroduced",
+      "commitMessage": "Applying Sven Ludwig\u0027s patch from LANG-626. This modifies the SerializationUtils.clone method to use the threadContextLoader if it is unable to find a class using the object\u0027s current classloader. This should (hopefully) help with Weblogic and Tomcat situations where Lang is outside the web-inf for some reason (likely user error with Tomcat, by design for Weblogic)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@1153046 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/11, 11:57 PM",
+      "commitName": "01ab63a0f1d4b8d17d86dc4be56cbc7b92154a48",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+protected Class\u003c?\u003e resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {\n+    String name \u003d desc.getName();\n+    try {\n+        return Class.forName(name, false, classLoader);\n+    } catch (ClassNotFoundException ex) {\n+        return Class.forName(name, false, Thread.currentThread().getContextClassLoader());\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nprotected Class\u003c?\u003e resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {\n    String name \u003d desc.getName();\n    try {\n        return Class.forName(name, false, classLoader);\n    } catch (ClassNotFoundException ex) {\n        return Class.forName(name, false, Thread.currentThread().getContextClassLoader());\n    }\n}",
+      "path": "src/main/java/org/apache/commons/lang3/SerializationUtils.java",
+      "functionStartLine": 258,
+      "functionName": "resolveClass",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Overriden version that uses the parametrized \u003ccode\u003eClassLoader\u003c/code\u003e or the \u003ccode\u003eClassLoader\u003c/code\u003e\nof the current \u003ccode\u003eThread\u003c/code\u003e to resolve the class.\n\n@param desc An instance of class \u003ccode\u003eObjectStreamClass\u003c/code\u003e.\n@return A \u003ccode\u003eClass\u003c/code\u003e object corresponding to \u003ccode\u003edesc\u003c/code\u003e.\n@throws IOException Any of the usual Input/Output exceptions.\n@throws ClassNotFoundException If class of a serialized object cannot be found.\n"
+    }
+  }
+}

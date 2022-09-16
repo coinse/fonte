@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-15b",
+  "repositoryPath": "/tmp/Time-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FieldUtils.java",
+  "functionName": "safeMultiply",
+  "functionId": "safeMultiply___val1-long__scalar-int",
+  "sourceFilePath": "src/main/java/org/joda/time/field/FieldUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Multiply two values throwing an exception if overflow occurs.\n\n@param val1 the first value\n@param scalar the second value\n@return the new total\n@throws ArithmeticException if the value is too big or too small\n@since 1.2\n",
+  "functionStartLine": 136,
+  "functionEndLine": 151,
+  "numCommitsSeen": 19,
+  "timeTaken": 971,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "f574d59dd322be0df10694c296bbdff9a7a2fba2"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "f574d59dd322be0df10694c296bbdff9a7a2fba2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static long safeMultiply(long val1, int scalar) {\n    switch(scalar) {\n        case -1:\n            return -val1;\n        case 0:\n            return 0L;\n        case 1:\n            return val1;\n    }\n    long total \u003d val1 * scalar;\n    if (total / scalar !\u003d val1) {\n        throw new ArithmeticException(\"The calculation caused an overflow: \" + val1 + \" * \" + scalar);\n    }\n    return total;\n}",
+      "path": "src/main/java/org/joda/time/field/FieldUtils.java",
+      "functionStartLine": 136,
+      "functionName": "safeMultiply",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply two values throwing an exception if overflow occurs.\n\n@param val1 the first value\n@param scalar the second value\n@return the new total\n@throws ArithmeticException if the value is too big or too small\n@since 1.2\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/field/FieldUtils.java",
+        "newPath": "src/main/java/org/joda/time/field/FieldUtils.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static long safeMultiply(long val1, int scalar) {\n    switch(scalar) {\n        case -1:\n            return -val1;\n        case 0:\n            return 0L;\n        case 1:\n            return val1;\n    }\n    long total \u003d val1 * scalar;\n    if (total / scalar !\u003d val1) {\n        throw new ArithmeticException(\"The calculation caused an overflow: \" + val1 + \" * \" + scalar);\n    }\n    return total;\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/field/FieldUtils.java",
+      "functionStartLine": 136,
+      "functionName": "safeMultiply",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply two values throwing an exception if overflow occurs.\n\n@param val1 the first value\n@param scalar the second value\n@return the new total\n@throws ArithmeticException if the value is too big or too small\n@since 1.2\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/field/FieldUtils.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/field/FieldUtils.java"
+      }
+    },
+    "f574d59dd322be0df10694c296bbdff9a7a2fba2": {
+      "type": "Yintroduced",
+      "commitMessage": "Performance optimization for overflow checking multiplications\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@905 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "9/18/05, 12:42 PM",
+      "commitName": "f574d59dd322be0df10694c296bbdff9a7a2fba2",
+      "commitAuthor": "Brian S O\u0027Neill",
+      "diff": "@@ -0,0 +1,15 @@\n+public static long safeMultiply(long val1, int scalar) {\n+    switch(scalar) {\n+        case -1:\n+            return -val1;\n+        case 0:\n+            return 0L;\n+        case 1:\n+            return val1;\n+    }\n+    long total \u003d val1 * scalar;\n+    if (total / scalar !\u003d val1) {\n+        throw new ArithmeticException(\"The calculation caused an overflow: \" + val1 + \" * \" + scalar);\n+    }\n+    return total;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static long safeMultiply(long val1, int scalar) {\n    switch(scalar) {\n        case -1:\n            return -val1;\n        case 0:\n            return 0L;\n        case 1:\n            return val1;\n    }\n    long total \u003d val1 * scalar;\n    if (total / scalar !\u003d val1) {\n        throw new ArithmeticException(\"The calculation caused an overflow: \" + val1 + \" * \" + scalar);\n    }\n    return total;\n}",
+      "path": "JodaTime/src/java/org/joda/time/field/FieldUtils.java",
+      "functionStartLine": 136,
+      "functionName": "safeMultiply",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply two values throwing an exception if overflow occurs.\n\n@param val1 the first value\n@param scalar the second value\n@return the new total\n@throws ArithmeticException if the value is too big or too small\n@since 1.2\n"
+    }
+  }
+}

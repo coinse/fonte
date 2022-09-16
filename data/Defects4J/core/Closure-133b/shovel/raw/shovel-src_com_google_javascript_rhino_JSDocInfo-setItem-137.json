@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-133b",
+  "repositoryPath": "/tmp/Closure-133b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSDocInfo.java",
+  "functionName": "setItem",
+  "functionId": "$setItem___item-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/JSDocInfo.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 137,
+  "functionEndLine": 143,
+  "numCommitsSeen": 39,
+  "timeTaken": 1785,
+  "changeHistory": [
+    "ff67789e6125face69d6dc28697121cb3b6df854"
+  ],
+  "changeHistoryShort": {
+    "ff67789e6125face69d6dc28697121cb3b6df854": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ff67789e6125face69d6dc28697121cb3b6df854": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix a bunch of bugs in marker generation, and add lots of inline\nassertions to prevent this from regressing.\nRight now, Grok has a bunch of checks to work around these bugs,\nand we would like to get rid of them.\n\nR\u003djschorr,tylerg\nDELTA\u003d272  (134 added, 14 deleted, 124 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3268\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1442 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/14/11, 8:18 AM",
+      "commitName": "ff67789e6125face69d6dc28697121cb3b6df854",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public void setItem(String item) {\n+    Preconditions.checkArgument(item.charAt(0) !\u003d \u0027 \u0027 \u0026\u0026 item.charAt(item.length() - 1) !\u003d \u0027 \u0027, \"String has leading or trailing whitespace\");\n+    super.setItem(item);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void setItem(String item) {\n    Preconditions.checkArgument(item.charAt(0) !\u003d \u0027 \u0027 \u0026\u0026 item.charAt(item.length() - 1) !\u003d \u0027 \u0027, \"String has leading or trailing whitespace\");\n    super.setItem(item);\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfo.java",
+      "functionStartLine": 134,
+      "functionName": "setItem",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getObjectLitKeyTypeFromValueType",
+  "functionId": "getObjectLitKeyTypeFromValueType___key-Node__valueType-JSType",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@param key A OBJECTLIT key node.\n@return The type expected when using the key.\n",
+  "functionStartLine": 2096,
+  "functionEndLine": 2122,
+  "numCommitsSeen": 87,
+  "timeTaken": 3697,
+  "changeHistory": [
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48"
+  ],
+  "changeHistoryShort": {
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic getters and setters support to TypeInference.\n\nR\u003dnicksantos\nDELTA\u003d573  (533 added, 15 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d366\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@735 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/27/11, 10:33 AM",
+      "commitName": "70f817ae4f80ac11dd2dfe97babf5896c690fb48",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,24 @@\n+static JSType getObjectLitKeyTypeFromValueType(Node key, JSType valueType) {\n+    if (valueType !\u003d null) {\n+        switch(key.getType()) {\n+            case Token.GET:\n+                if (valueType.isFunctionType()) {\n+                    FunctionType fntype \u003d ((FunctionType) valueType);\n+                    valueType \u003d fntype.getReturnType();\n+                } else {\n+                    return null;\n+                }\n+                break;\n+            case Token.SET:\n+                if (valueType.isFunctionType()) {\n+                    FunctionType fntype \u003d ((FunctionType) valueType);\n+                    Node param \u003d fntype.getParametersNode().getFirstChild();\n+                    valueType \u003d param.getJSType();\n+                } else {\n+                    return null;\n+                }\n+                break;\n+        }\n+    }\n+    return valueType;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static JSType getObjectLitKeyTypeFromValueType(Node key, JSType valueType) {\n    if (valueType !\u003d null) {\n        switch(key.getType()) {\n            case Token.GET:\n                if (valueType.isFunctionType()) {\n                    FunctionType fntype \u003d ((FunctionType) valueType);\n                    valueType \u003d fntype.getReturnType();\n                } else {\n                    return null;\n                }\n                break;\n            case Token.SET:\n                if (valueType.isFunctionType()) {\n                    FunctionType fntype \u003d ((FunctionType) valueType);\n                    Node param \u003d fntype.getParametersNode().getFirstChild();\n                    valueType \u003d param.getJSType();\n                } else {\n                    return null;\n                }\n                break;\n        }\n    }\n    return valueType;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1888,
+      "functionName": "getObjectLitKeyTypeFromValueType",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param key A OBJECTLIT key node.\n@return The type expected when using the key.\n"
+    }
+  }
+}

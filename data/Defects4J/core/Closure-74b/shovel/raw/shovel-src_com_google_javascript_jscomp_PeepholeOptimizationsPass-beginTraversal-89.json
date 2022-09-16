@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeOptimizationsPass.java",
+  "functionName": "beginTraversal",
+  "functionId": "beginTraversal___t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+  "functionAnnotation": "",
+  "functionDoc": "Make sure that all the optimizations have the current traversal so they\ncan report errors.\n",
+  "functionStartLine": 89,
+  "functionEndLine": 93,
+  "numCommitsSeen": 6,
+  "timeTaken": 1663,
+  "changeHistory": [
+    "66527dd399f7142edc491037b4488b158073ae55",
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a"
+  ],
+  "changeHistoryShort": {
+    "66527dd399f7142edc491037b4488b158073ae55": "Yformatchange",
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "66527dd399f7142edc491037b4488b158073ae55": {
+      "type": "Yformatchange",
+      "commitMessage": "\nFix needed PeepholeRemoveDeadCode to fix the Calendar builde.\n\nR\u003ddcc\nDELTA\u003d330  (161 added, 96 deleted, 73 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d103004\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@354 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/12/10, 12:04 PM",
+      "commitName": "66527dd399f7142edc491037b4488b158073ae55",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "6/16/10, 12:33 PM",
+      "commitNameOld": "e33e925eea3a8e4de958864e531e1adc4da62e18",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 56.98,
+      "commitsBetweenForRepo": 109,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void beginTraversal(NodeTraversal t) {\n    for (AbstractPeepholeOptimization optimization : peepholeOptimizations) {\n        optimization.beginTraversal(t);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+      "functionStartLine": 91,
+      "functionName": "beginTraversal",
+      "functionAnnotation": "",
+      "functionDoc": "Make sure that all the optimizations have the current traversal so they\ncan report errors.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/28 by johnlenz\n\n        Inline functions with inner functions into global scope if they don\u0027t\n        declare any names.\n\n        R\u003dacleung\n        DELTA\u003d329  (244 added, 27 deleted, 58 changed)\n\nChange on 2010/05/28 by dcc\n\n        First pass on refactoring FoldConstants into separate peephole optimizations. This changelist adds the notion of an AbstractPeepholeOptimization and adds a PeepholeOptimizationsPass that runs them. In this go around the minimization aspects of FoldConstants have been factored out into PeepholeMinimize. A future change will factor out the other components of FoldConstants into their own PeepholeOptimizations. DefaultPassConfig has also been updated to run the new PeepholeOptimizationPass.\n\n        This change does not move the minimization-related unit tests from FoldConstantsTest to PeepholeMinimizeTest -- a future, separate, change will do so. Hopefully this will make it easier to review.\n\n        R\u003dacleung\n        DELTA\u003d1966  (1271 added, 675 deleted, 20 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d13010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@235 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/29/10, 1:07 PM",
+      "commitName": "b4801b28ceea8db0f63da7440d6769cb9b7cce8a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,5 @@\n+private void beginTraversal(NodeTraversal t) {\n+    for (AbstractPeepholeOptimization optimization : peepholeOptimizations) {\n+        optimization.beginTraversal(t);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void beginTraversal(NodeTraversal t) {\n    for (AbstractPeepholeOptimization optimization : peepholeOptimizations) {\n        optimization.beginTraversal(t);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+      "functionStartLine": 83,
+      "functionName": "beginTraversal",
+      "functionAnnotation": "",
+      "functionDoc": "Make sure that all the optimizations have the current traversal so they\ncan report errors.\n"
+    }
+  }
+}

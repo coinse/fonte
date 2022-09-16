@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MustBeReachingVariableDef.java",
+  "functionName": "addToDefIfLocal",
+  "functionId": "addToDefIfLocal___name-String__node-Node(annotations-@Nullable)__rValue-Node(annotations-@Nullable)__def-MustDef",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+  "functionAnnotation": "",
+  "functionDoc": "Set the variable lattice for the given name to the node value in the def\nlattice. Do nothing if the variable name is one of the escaped variable.\n\n@param node The CFG node where the definition should be record to.\n    {@code null} if this is a conditional define.\n",
+  "functionStartLine": 325,
+  "functionEndLine": 356,
+  "numCommitsSeen": 21,
+  "timeTaken": 768,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,26 @@\n+private void addToDefIfLocal(String name, @Nullable Node node, @Nullable Node rValue, MustDef def) {\n+    Var var \u003d jsScope.getVar(name);\n+    if (var \u003d\u003d null || var.scope !\u003d jsScope) {\n+        return;\n+    }\n+    for (Var other : def.reachingDef.keySet()) {\n+        Definition otherDef \u003d def.reachingDef.get(other);\n+        if (otherDef \u003d\u003d null) {\n+            continue;\n+        }\n+        if (otherDef.depends.contains(var)) {\n+            def.reachingDef.put(other, null);\n+        }\n+    }\n+    if (!escaped.contains(var)) {\n+        if (node \u003d\u003d null) {\n+            def.reachingDef.put(var, null);\n+        } else {\n+            Definition definition \u003d new Definition(node);\n+            if (rValue !\u003d null) {\n+                computeDependence(definition, rValue);\n+            }\n+            def.reachingDef.put(var, definition);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void addToDefIfLocal(String name, @Nullable Node node, @Nullable Node rValue, MustDef def) {\n    Var var \u003d jsScope.getVar(name);\n    if (var \u003d\u003d null || var.scope !\u003d jsScope) {\n        return;\n    }\n    for (Var other : def.reachingDef.keySet()) {\n        Definition otherDef \u003d def.reachingDef.get(other);\n        if (otherDef \u003d\u003d null) {\n            continue;\n        }\n        if (otherDef.depends.contains(var)) {\n            def.reachingDef.put(other, null);\n        }\n    }\n    if (!escaped.contains(var)) {\n        if (node \u003d\u003d null) {\n            def.reachingDef.put(var, null);\n        } else {\n            Definition definition \u003d new Definition(node);\n            if (rValue !\u003d null) {\n                computeDependence(definition, rValue);\n            }\n            def.reachingDef.put(var, definition);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+      "functionStartLine": 305,
+      "functionName": "addToDefIfLocal",
+      "functionAnnotation": "",
+      "functionDoc": "Set the variable lattice for the given name to the node value in the def\nlattice. Do nothing if the variable name is one of the escaped variable.\n\n@param node The CFG node where the definition should be record to.\n    {@code null} if this is a conditional define.\n"
+    }
+  }
+}

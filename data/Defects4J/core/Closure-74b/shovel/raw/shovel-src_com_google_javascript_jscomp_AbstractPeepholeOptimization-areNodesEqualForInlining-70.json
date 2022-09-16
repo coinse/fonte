@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractPeepholeOptimization.java",
+  "functionName": "areNodesEqualForInlining",
+  "functionId": "areNodesEqualForInlining___n1-Node__n2-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+  "functionAnnotation": "",
+  "functionDoc": "Are the nodes equal for the purpose of inlining?\nIf type aware optimizations are on, type equality is checked.\n",
+  "functionStartLine": 70,
+  "functionEndLine": 76,
+  "numCommitsSeen": 11,
+  "timeTaken": 1680,
+  "changeHistory": [
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a"
+  ],
+  "changeHistoryShort": {
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/28 by johnlenz\n\n        Inline functions with inner functions into global scope if they don\u0027t\n        declare any names.\n\n        R\u003dacleung\n        DELTA\u003d329  (244 added, 27 deleted, 58 changed)\n\nChange on 2010/05/28 by dcc\n\n        First pass on refactoring FoldConstants into separate peephole optimizations. This changelist adds the notion of an AbstractPeepholeOptimization and adds a PeepholeOptimizationsPass that runs them. In this go around the minimization aspects of FoldConstants have been factored out into PeepholeMinimize. A future change will factor out the other components of FoldConstants into their own PeepholeOptimizations. DefaultPassConfig has also been updated to run the new PeepholeOptimizationPass.\n\n        This change does not move the minimization-related unit tests from FoldConstantsTest to PeepholeMinimizeTest -- a future, separate, change will do so. Hopefully this will make it easier to review.\n\n        R\u003dacleung\n        DELTA\u003d1966  (1271 added, 675 deleted, 20 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d13010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@235 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/29/10, 1:07 PM",
+      "commitName": "b4801b28ceea8db0f63da7440d6769cb9b7cce8a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,4 @@\n+protected boolean areNodesEqualForInlining(Node n1, Node n2) {\n+    Preconditions.checkNotNull(currentTraversal);\n+    return currentTraversal.getCompiler().areNodesEqualForInlining(n1, n2);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected boolean areNodesEqualForInlining(Node n1, Node n2) {\n    Preconditions.checkNotNull(currentTraversal);\n    return currentTraversal.getCompiler().areNodesEqualForInlining(n1, n2);\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+      "functionStartLine": 69,
+      "functionName": "areNodesEqualForInlining",
+      "functionAnnotation": "",
+      "functionDoc": "Are the nodes equal for the purpose of inlining?\nIf type aware optimizations are on, type equality is checked.\n"
+    }
+  }
+}

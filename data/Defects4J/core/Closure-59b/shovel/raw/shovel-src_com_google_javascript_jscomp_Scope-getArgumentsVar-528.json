@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Scope.java",
+  "functionName": "getArgumentsVar",
+  "functionId": "getArgumentsVar",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Scope.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get a unique VAR object to represents \"arguments\" within this scope\n",
+  "functionStartLine": 528,
+  "functionEndLine": 533,
+  "numCommitsSeen": 19,
+  "timeTaken": 832,
+  "changeHistory": [
+    "ba0119710233a1be87c10c5e71424dc5922cc627"
+  ],
+  "changeHistoryShort": {
+    "ba0119710233a1be87c10c5e71424dc5922cc627": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ba0119710233a1be87c10c5e71424dc5922cc627": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDon\u0027t inline alias if \"arguments\" are modified or escaped.\nFixes issue 378\n\nR\u003dacleung\nDELTA\u003d235  (228 added, 0 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1089\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@942 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/25/11, 5:16 PM",
+      "commitName": "ba0119710233a1be87c10c5e71424dc5922cc627",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+public Var getArgumentsVar() {\n+    if (arguments \u003d\u003d null) {\n+        arguments \u003d new Arguments(this);\n+    }\n+    return arguments;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Var getArgumentsVar() {\n    if (arguments \u003d\u003d null) {\n        arguments \u003d new Arguments(this);\n    }\n    return arguments;\n}",
+      "path": "src/com/google/javascript/jscomp/Scope.java",
+      "functionStartLine": 485,
+      "functionName": "getArgumentsVar",
+      "functionAnnotation": "",
+      "functionDoc": "Get a unique VAR object to represents \"arguments\" within this scope\n"
+    }
+  }
+}

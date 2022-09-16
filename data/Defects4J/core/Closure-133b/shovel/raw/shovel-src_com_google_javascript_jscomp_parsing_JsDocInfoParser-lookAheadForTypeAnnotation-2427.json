@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-133b",
+  "repositoryPath": "/tmp/Closure-133b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "lookAheadForTypeAnnotation",
+  "functionId": "lookAheadForTypeAnnotation",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "Look ahead for a type annotation by advancing the character stream.\nDoes not modify the token stream.\nThis is kind of a hack, and is only necessary because we use the token\nstream to parse types, but need the underlying character stream to get\nJsDoc descriptions.\n\n@return Whether we found a type annotation.\n",
+  "functionStartLine": 2427,
+  "functionEndLine": 2443,
+  "numCommitsSeen": 72,
+  "timeTaken": 5109,
+  "changeHistory": [
+    "4fe0dd22b4462cbd3943f3a8d77db8136ff4d9b7"
+  ],
+  "changeHistoryShort": {
+    "4fe0dd22b4462cbd3943f3a8d77db8136ff4d9b7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4fe0dd22b4462cbd3943f3a8d77db8136ff4d9b7": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDon\u0027t eat the first token of the @return description.\nThis is kind of a hack because it mixes the character stream up\nwith the token stream, but it\u0027s probably more maintainable\nand has less overhead than trying to manage the description\nin the token stream\n(which is the \"pure-but-lots-of-work\" solution).\n\nR\u003djschorr\nDELTA\u003d58  (48 added, 7 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1178\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@954 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/30/11, 10:44 AM",
+      "commitName": "4fe0dd22b4462cbd3943f3a8d77db8136ff4d9b7",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+private boolean lookAheadForTypeAnnotation() {\n+    boolean matchedLc \u003d false;\n+    int c;\n+    while (true) {\n+        c \u003d stream.getChar();\n+        if (c \u003d\u003d \u0027 \u0027) {\n+            continue;\n+        } else if (c \u003d\u003d \u0027{\u0027) {\n+            matchedLc \u003d true;\n+            break;\n+        } else {\n+            break;\n+        }\n+    }\n+    stream.ungetChar(c);\n+    return matchedLc;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean lookAheadForTypeAnnotation() {\n    boolean matchedLc \u003d false;\n    int c;\n    while (true) {\n        c \u003d stream.getChar();\n        if (c \u003d\u003d \u0027 \u0027) {\n            continue;\n        } else if (c \u003d\u003d \u0027{\u0027) {\n            matchedLc \u003d true;\n            break;\n        } else {\n            break;\n        }\n    }\n    stream.ungetChar(c);\n    return matchedLc;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 2251,
+      "functionName": "lookAheadForTypeAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "Look ahead for a type annotation by advancing the character stream.\nDoes not modify the token stream.\nThis is kind of a hack, and is only necessary because we use the token\nstream to parse types, but need the underlying character stream to get\nJsDoc descriptions.\n\n@return Whether we found a type annotation.\n"
+    }
+  }
+}

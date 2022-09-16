@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GoogleCodingConvention.java",
+  "functionName": "isConstant",
+  "functionId": "isConstant___name-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GoogleCodingConvention.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "@inheritDoc}\n\n\u003cp\u003eThis enforces the Google const name convention, that the first character\nafter the last $ must be an upper-case letter and all subsequent letters\nmust be upper case. The name must be at least 2 characters long.\n\n\u003cp\u003eExamples:\n\u003cpre\u003e\n     aaa          Not constant - lower-case letters in the name\n     A            Not constant - too short\n     goog$A       Constant - letters after the $ are upper-case.\n     AA17         Constant - digits can appear after the first letter\n     goog$7A      Not constant - first character after the $ must be\n                  upper case.\n     $A           Constant - doesn\u0027t have to be anything in front of the $\n\u003c/pre\u003e\n",
+  "functionStartLine": 61,
+  "functionEndLine": 77,
+  "numCommitsSeen": 10,
+  "timeTaken": 258,
+  "changeHistory": [
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/06/17 by nicksantos\n\n        don\u0027t use Sets to build union types.\n\n        R\u003djohnlenz\n        DELTA\u003d76  (52 added, 6 deleted, 18 changed)\n\nChange on 2010/06/17 by nicksantos\n\n        fix a couple bugs in goog.scope processing\n\n        R\u003drobbyw\n        DELTA\u003d54  (42 added, 11 deleted, 1 changed)\n\n\nChange on 2010/06/17 by acleung\n\n        Disables function argument check with @notypecheck is on for the whole file.\n\n        R\u003djohnlenz\n        DELTA\u003d8  (5 added, 1 deleted, 2 changed)\n\nChange on 2010/06/17 by dcc\n\n        Fix NPE in ExportExternsPass with --check_types\u003dfalse.\n\n        R\u003dacleung\n        DELTA\u003d72  (66 added, 4 deleted, 2 changed)\n\nChange on 2010/06/17 by johnlenz\n\n        Change stub method parameters to allow sanity checks to pass with\n        CrossModuleMethodMotion.\n\n        R\u003dnicksantos\n        DELTA\u003d7  (3 added, 0 deleted, 4 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Modify AliasKeywords so passes the sanity checks: don\u0027t create coding\n        convention constants without annotation them so that the tests pass\n        when the sanity checks are on.\n\n        R\u003dnicksantos\n        DELTA\u003d18  (5 added, 0 deleted, 13 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Fix source maps when run with sanity checks.\n\n        R\u003dnicksantos\n        DELTA\u003d10  (7 added, 0 deleted, 3 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Changes to PrepareAst to make it valid to run during SanityChecks.\n\n        R\u003dnicksantos\n        DELTA\u003d18  (5 added, 0 deleted, 13 changed)\n\nChange on 2010/06/18 by nicksantos\n\n        fix constant annotations in CollapseProperties.\n\n        R\u003djohnlenz\n        DELTA\u003d61  (49 added, 1 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d30002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@246 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/18/10, 5:18 PM",
+      "commitName": "e829dafb9b3365bda6b6bb80f5fa97783752d143",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "11/17/09, 4:21 PM",
+      "commitNameOld": "fe64e87cccd2c38524c0b36c49beb4c988d1453a",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 213.0,
+      "commitsBetweenForRepo": 194,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean isConstant(String name) {\n    if (name.length() \u003c\u003d 1) {\n        return false;\n    }\n    int pos \u003d name.lastIndexOf(\u0027$\u0027);\n    if (pos \u003e\u003d 0) {\n        name \u003d name.substring(pos + 1);\n        if (name.length() \u003d\u003d 0) {\n            return false;\n        }\n    }\n    return isConstantKey(name);\n}",
+      "path": "src/com/google/javascript/jscomp/GoogleCodingConvention.java",
+      "functionStartLine": 60,
+      "functionName": "isConstant",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n\n\u003cp\u003eThis enforces the Google const name convention, that the first character\nafter the last $ must be an upper-case letter and all subsequent letters\nmust be upper case. The name must be at least 2 characters long.\n\n\u003cp\u003eExamples:\n\u003cpre\u003e\n     aaa          Not constant - lower-case letters in the name\n     A            Not constant - too short\n     goog$A       Constant - letters after the $ are upper-case.\n     AA17         Constant - digits can appear after the first letter\n     goog$7A      Not constant - first character after the $ must be\n                  upper case.\n     $A           Constant - doesn\u0027t have to be anything in front of the $\n\u003c/pre\u003e\n",
+      "diff": "@@ -1,17 +1,14 @@\n @Override\n public boolean isConstant(String name) {\n     if (name.length() \u003c\u003d 1) {\n         return false;\n     }\n     int pos \u003d name.lastIndexOf(\u0027$\u0027);\n     if (pos \u003e\u003d 0) {\n         name \u003d name.substring(pos + 1);\n         if (name.length() \u003d\u003d 0) {\n             return false;\n         }\n     }\n-    if (!Character.isUpperCase(name.charAt(0))) {\n-        return false;\n-    }\n-    return name.toUpperCase().equals(name);\n+    return isConstantKey(name);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,17 @@\n+@Override\n+public boolean isConstant(String name) {\n+    if (name.length() \u003c\u003d 1) {\n+        return false;\n+    }\n+    int pos \u003d name.lastIndexOf(\u0027$\u0027);\n+    if (pos \u003e\u003d 0) {\n+        name \u003d name.substring(pos + 1);\n+        if (name.length() \u003d\u003d 0) {\n+            return false;\n+        }\n+    }\n+    if (!Character.isUpperCase(name.charAt(0))) {\n+        return false;\n+    }\n+    return name.toUpperCase().equals(name);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean isConstant(String name) {\n    if (name.length() \u003c\u003d 1) {\n        return false;\n    }\n    int pos \u003d name.lastIndexOf(\u0027$\u0027);\n    if (pos \u003e\u003d 0) {\n        name \u003d name.substring(pos + 1);\n        if (name.length() \u003d\u003d 0) {\n            return false;\n        }\n    }\n    if (!Character.isUpperCase(name.charAt(0))) {\n        return false;\n    }\n    return name.toUpperCase().equals(name);\n}",
+      "path": "src/com/google/javascript/jscomp/GoogleCodingConvention.java",
+      "functionStartLine": 60,
+      "functionName": "isConstant",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n\n\u003cp\u003eThis enforces the Google const name convention, that the first character\nafter the last $ must be an upper-case letter and all subsequent letters\nmust be upper case. The name must be at least 2 characters long.\n\n\u003cp\u003eExamples:\n\u003cpre\u003e\n     aaa          Not constant - lower-case letters in the name\n     A            Not constant - too short\n     goog$A       Constant - letters after the $ are upper-case.\n     AA17         Constant - digits can appear after the first letter\n     goog$7A      Not constant - first character after the $ must be\n                  upper case.\n     $A           Constant - doesn\u0027t have to be anything in front of the $\n\u003c/pre\u003e\n"
+    }
+  }
+}

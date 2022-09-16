@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-50b",
+  "repositoryPath": "/tmp/Math-50b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnivariateRealSolverUtils.java",
+  "functionName": "verifyBracketing",
+  "functionId": "verifyBracketing___function-UnivariateRealFunction__lower-double(modifiers-final)__upper-double(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Check that the endpoints specify an interval and the end points\nbracket a root.\n\n@param function Function.\n@param lower Lower endpoint.\n@param upper Upper endpoint.\n@throws NoBracketingException if function has the same sign at the\nendpoints.\n",
+  "functionStartLine": 368,
+  "functionEndLine": 380,
+  "numCommitsSeen": 20,
+  "timeTaken": 1683,
+  "changeHistory": [
+    "4fb53c76030656981644a1a9792cd439c16a4137",
+    "74ff198bd249a56d1349b963bd265f8899743b9b"
+  ],
+  "changeHistoryShort": {
+    "4fb53c76030656981644a1a9792cd439c16a4137": "Ydocchange",
+    "74ff198bd249a56d1349b963bd265f8899743b9b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4fb53c76030656981644a1a9792cd439c16a4137": {
+      "type": "Ydocchange",
+      "commitMessage": "MATH-599 (part of the patch provided by D. Hendriks on JIRA, issue MATH-605).\nImproved Javadoc.\nAllow a bracketing interval to contain the root at its end-points.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1145146 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/11/11, 5:32 AM",
+      "commitName": "4fb53c76030656981644a1a9792cd439c16a4137",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "7/10/11, 9:04 AM",
+      "commitNameOld": "7a6670e8628e75a69dbdeeb6527d6fb5a2a6e55b",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.85,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static void verifyBracketing(UnivariateRealFunction function, final double lower, final double upper) {\n    if (function \u003d\u003d null) {\n        throw new NullArgumentException(LocalizedFormats.FUNCTION);\n    }\n    verifyInterval(lower, upper);\n    if (!isBracketing(function, lower, upper)) {\n        throw new NoBracketingException(lower, upper, function.value(lower), function.value(upper));\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+      "functionStartLine": 368,
+      "functionName": "verifyBracketing",
+      "functionAnnotation": "",
+      "functionDoc": "Check that the endpoints specify an interval and the end points\nbracket a root.\n\n@param function Function.\n@param lower Lower endpoint.\n@param upper Upper endpoint.\n@throws NoBracketingException if function has the same sign at the\nendpoints.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Check that the endpoints specify an interval and the function takes\nopposite signs at the endpoints.\n\n@param function Function.\n@param lower Lower endpoint.\n@param upper Upper endpoint.\n@throws NoBracketingException if function has the same sign at the\nendpoints.\n",
+        "newValue": "Check that the endpoints specify an interval and the end points\nbracket a root.\n\n@param function Function.\n@param lower Lower endpoint.\n@param upper Upper endpoint.\n@throws NoBracketingException if function has the same sign at the\nendpoints.\n"
+      }
+    },
+    "74ff198bd249a56d1349b963bd265f8899743b9b": {
+      "type": "Yintroduced",
+      "commitMessage": "MATH-439\nRefactored the \"solvers\" package. Implementations refer to number of\nevaluation of the objective function (instead of the number of iterations).\nNew interfaces and base classes.\n\"NewtonSolver\" fits in the design without resorting to a cast.\nCreated class \"MullerSolver2\" to contain the code of the method named \"solve2\"\nin class \"MullerSolver\".\nRemoved \"UnivariateRealSolverFactory\" and \"UnivariateRealSolverFactoryImpl\".\nDefault solver in \"UnivariateRealSolverUtils\" is explicitely instantiated.\n\"AbstractContinuousDistribution\": Type of exception thrown changed in\n\"UnivariateRealSolverUtils\".\nFactored out duplicate code (in \"GaussNewtonOptimizerTest\" and\n\"LevenbergMarquardtOptimizerTest\"): class \"Circle\" is now called\n\"CircleVectorial\". Also factored out the \"Circle\" class from\n\"NonLinearConjugateGradientOptimizerTest\": class is named \"CircleScalar\".\nCreated \"SecantSolverTest\", moving there all the tests for the class\n\"SecantSolver\" that were located in class \"BrentSolverTest\".\nCreated new interface and base class for polynomial functions solvers\n(\"LaguerreSolver\") so that the function type is now checked at compile time.\nRemoved deprecated exceptions (MATH-441).\nJavadoc clean-up.\nLowered tolerance values in some unit tests.\nTests upgraded to Junit 4 (MATH-423).\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1039083 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/25/10, 8:22 AM",
+      "commitName": "74ff198bd249a56d1349b963bd265f8899743b9b",
+      "commitAuthor": "Gilles Sadowski",
+      "diff": "@@ -0,0 +1,9 @@\n+public static void verifyBracketing(UnivariateRealFunction function, final double lower, final double upper) {\n+    if (function \u003d\u003d null) {\n+        throw new NullArgumentException(LocalizedFormats.FUNCTION);\n+    }\n+    verifyInterval(lower, upper);\n+    if (!isBracketing(function, lower, upper)) {\n+        throw new NoBracketingException(lower, upper, function.value(lower), function.value(upper));\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static void verifyBracketing(UnivariateRealFunction function, final double lower, final double upper) {\n    if (function \u003d\u003d null) {\n        throw new NullArgumentException(LocalizedFormats.FUNCTION);\n    }\n    verifyInterval(lower, upper);\n    if (!isBracketing(function, lower, upper)) {\n        throw new NoBracketingException(lower, upper, function.value(lower), function.value(upper));\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+      "functionStartLine": 283,
+      "functionName": "verifyBracketing",
+      "functionAnnotation": "",
+      "functionDoc": "Check that the endpoints specify an interval and the function takes\nopposite signs at the endpoints.\n\n@param function Function.\n@param lower Lower endpoint.\n@param upper Upper endpoint.\n@throws NoBracketingException if function has the same sign at the\nendpoints.\n"
+    }
+  }
+}

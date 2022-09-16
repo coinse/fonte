@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-99b",
+  "repositoryPath": "/tmp/Closure-99b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "attachJsDoc",
+  "functionId": "attachJsDoc___comment-Comment__info-JSDocInfo",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Attach JSDocInfo to a node, if we can find one.\n",
+  "functionStartLine": 251,
+  "functionEndLine": 262,
+  "numCommitsSeen": 12,
+  "timeTaken": 1826,
+  "changeHistory": [
+    "c764a46abf211d4677fadc33f7d466e5b14fa088",
+    "7287c0ac1d7fb09e5b52a0bf68caf79bfcb09d87"
+  ],
+  "changeHistoryShort": {
+    "c764a46abf211d4677fadc33f7d466e5b14fa088": "Ybodychange",
+    "7287c0ac1d7fb09e5b52a0bf68caf79bfcb09d87": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c764a46abf211d4677fadc33f7d466e5b14fa088": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/04/13 by john\n\n        Here is a crazy thought, let\u0027s not require the JSTypeRegistry during\n        parsing.\n\n        There are basically two changes here:\n        1) The IRFactory was looking for enums to seed the JSTypeRegistry, so\n        we do that when we setup for type interence.\n        2) The JSDocParser was checking the types of @defines objects, now do\n        that during ProcessDefines.\n\n        R\u003drobert,mark\n        DELTA\u003d207  (82 added, 89 deleted, 36 changed)\n\nChange on 2010/04/14 by nick\n\n        Add a debugging function for JSType hashcodes.\n        i found this useful, and thought others might too.\n\n        R\u003djohn\n        DELTA\u003d69  (69 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dfqsoxx\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@183 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/14/10, 9:15 AM",
+      "commitName": "c764a46abf211d4677fadc33f7d466e5b14fa088",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/5/10, 12:30 PM",
+      "commitNameOld": "222eafd303155b3eac5cd244584b2cb3c4c11975",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 8.86,
+      "commitsBetweenForRepo": 11,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void attachJsDoc(Comment comment, JSDocInfo info) {\n    Collection\u003cNodeWithJsDoc\u003e candidates \u003d nodesWithJsDoc.get(comment.getValue());\n    if (candidates.isEmpty()) {\n        return;\n    }\n    Iterator\u003cNodeWithJsDoc\u003e candidateIter \u003d candidates.iterator();\n    Node node \u003d candidateIter.next().node;\n    candidateIter.remove();\n    node.setJSDocInfo(info);\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 252,
+      "functionName": "attachJsDoc",
+      "functionAnnotation": "",
+      "functionDoc": "Attach JSDocInfo to a node, if we can find one.\n",
+      "diff": "@@ -1,19 +1,10 @@\n private void attachJsDoc(Comment comment, JSDocInfo info) {\n     Collection\u003cNodeWithJsDoc\u003e candidates \u003d nodesWithJsDoc.get(comment.getValue());\n     if (candidates.isEmpty()) {\n         return;\n     }\n     Iterator\u003cNodeWithJsDoc\u003e candidateIter \u003d candidates.iterator();\n     Node node \u003d candidateIter.next().node;\n     candidateIter.remove();\n     node.setJSDocInfo(info);\n-    if (info.hasEnumParameterType()) {\n-        if (node.getType() \u003d\u003d Token.NAME) {\n-            registry.identifyEnumName(node.getString());\n-        } else if (node.getType() \u003d\u003d Token.VAR \u0026\u0026 node.getChildCount() \u003d\u003d 1) {\n-            registry.identifyEnumName(node.getFirstChild().getString());\n-        } else if (node.getType() \u003d\u003d Token.ASSIGN) {\n-            registry.identifyEnumName(node.getFirstChild().getQualifiedName());\n-        }\n-    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "7287c0ac1d7fb09e5b52a0bf68caf79bfcb09d87": {
+      "type": "Yintroduced",
+      "commitMessage": "Speed up parsing a bit by refactoring how we pull jsdoc comments into\nthe AST.\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@101 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/10/10, 3:02 PM",
+      "commitName": "7287c0ac1d7fb09e5b52a0bf68caf79bfcb09d87",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,19 @@\n+private void attachJsDoc(Comment comment, JSDocInfo info) {\n+    Collection\u003cNodeWithJsDoc\u003e candidates \u003d nodesWithJsDoc.get(comment.getValue());\n+    if (candidates.isEmpty()) {\n+        return;\n+    }\n+    Iterator\u003cNodeWithJsDoc\u003e candidateIter \u003d candidates.iterator();\n+    Node node \u003d candidateIter.next().node;\n+    candidateIter.remove();\n+    node.setJSDocInfo(info);\n+    if (info.hasEnumParameterType()) {\n+        if (node.getType() \u003d\u003d Token.NAME) {\n+            registry.identifyEnumName(node.getString());\n+        } else if (node.getType() \u003d\u003d Token.VAR \u0026\u0026 node.getChildCount() \u003d\u003d 1) {\n+            registry.identifyEnumName(node.getFirstChild().getString());\n+        } else if (node.getType() \u003d\u003d Token.ASSIGN) {\n+            registry.identifyEnumName(node.getFirstChild().getQualifiedName());\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void attachJsDoc(Comment comment, JSDocInfo info) {\n    Collection\u003cNodeWithJsDoc\u003e candidates \u003d nodesWithJsDoc.get(comment.getValue());\n    if (candidates.isEmpty()) {\n        return;\n    }\n    Iterator\u003cNodeWithJsDoc\u003e candidateIter \u003d candidates.iterator();\n    Node node \u003d candidateIter.next().node;\n    candidateIter.remove();\n    node.setJSDocInfo(info);\n    if (info.hasEnumParameterType()) {\n        if (node.getType() \u003d\u003d Token.NAME) {\n            registry.identifyEnumName(node.getString());\n        } else if (node.getType() \u003d\u003d Token.VAR \u0026\u0026 node.getChildCount() \u003d\u003d 1) {\n            registry.identifyEnumName(node.getFirstChild().getString());\n        } else if (node.getType() \u003d\u003d Token.ASSIGN) {\n            registry.identifyEnumName(node.getFirstChild().getQualifiedName());\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 244,
+      "functionName": "attachJsDoc",
+      "functionAnnotation": "",
+      "functionDoc": "Attach JSDocInfo to a node, if we can find one.\n"
+    }
+  }
+}

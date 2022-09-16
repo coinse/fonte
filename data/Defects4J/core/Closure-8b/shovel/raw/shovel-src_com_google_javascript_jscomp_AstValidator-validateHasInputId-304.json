@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-8b",
+  "repositoryPath": "/tmp/Closure-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateHasInputId",
+  "functionId": "validateHasInputId___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 304,
+  "functionEndLine": 309,
+  "numCommitsSeen": 15,
+  "timeTaken": 2128,
+  "changeHistory": [
+    "f203be4152b8fd8dac8b82cac3d417e020cb9b1a"
+  ],
+  "changeHistoryShort": {
+    "f203be4152b8fd8dac8b82cac3d417e020cb9b1a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f203be4152b8fd8dac8b82cac3d417e020cb9b1a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPart 2: source name/input id splitting.\nRequire an input id on all AST classes and SCRIPT nodes.\n\nR\u003dnicksantos\nDELTA\u003d112  (95 added, 6 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2895\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1324 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/3/11, 1:55 PM",
+      "commitName": "f203be4152b8fd8dac8b82cac3d417e020cb9b1a",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+private void validateHasInputId(Node n) {\n+    InputId inputId \u003d n.getInputId();\n+    if (inputId \u003d\u003d null) {\n+        violation(\"Missing \u0027input id\u0027 annotation.\", n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateHasInputId(Node n) {\n    InputId inputId \u003d n.getInputId();\n    if (inputId \u003d\u003d null) {\n        violation(\"Missing \u0027input id\u0027 annotation.\", n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 305,
+      "functionName": "validateHasInputId",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

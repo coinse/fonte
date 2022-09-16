@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ComposeWarningsGuard.java",
+  "functionName": "enables",
+  "functionId": "enables___group-DiagnosticGroup",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ComposeWarningsGuard.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Determines whether this guard will \"elevate\" the status of any disabled\ndiagnostic type in the group to a warning or an error.\n",
+  "functionStartLine": 149,
+  "functionEndLine": 159,
+  "numCommitsSeen": 16,
+  "timeTaken": 401,
+  "changeHistory": [
+    "c72f52d7152d6c638dcedb827bcc8c7fd023774d",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "c72f52d7152d6c638dcedb827bcc8c7fd023774d": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c72f52d7152d6c638dcedb827bcc8c7fd023774d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nfix a subtle bug in warnings guard ordering.\n\nR\u003djohnlenz\nDELTA\u003d44  (43 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d103006\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@357 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/12/10, 4:54 PM",
+      "commitName": "c72f52d7152d6c638dcedb827bcc8c7fd023774d",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/18/10, 4:41 PM",
+      "commitNameOld": "dd09a0d5d3af753bf28fe2ceba0dab7eb22373bc",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 86.01,
+      "commitsBetweenForRepo": 130,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean enables(DiagnosticGroup group) {\n    for (WarningsGuard guard : guards) {\n        if (guard.enables(group)) {\n            return true;\n        } else if (guard.disables(group)) {\n            return false;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ComposeWarningsGuard.java",
+      "functionStartLine": 111,
+      "functionName": "enables",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Determines whether this guard will \"elevate\" the status of any disabled\ndiagnostic type in the group to a warning or an error.\n",
+      "diff": "@@ -1,9 +1,11 @@\n @Override\n public boolean enables(DiagnosticGroup group) {\n     for (WarningsGuard guard : guards) {\n         if (guard.enables(group)) {\n             return true;\n+        } else if (guard.disables(group)) {\n+            return false;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public boolean enables(DiagnosticGroup group) {\n+    for (WarningsGuard guard : guards) {\n+        if (guard.enables(group)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean enables(DiagnosticGroup group) {\n    for (WarningsGuard guard : guards) {\n        if (guard.enables(group)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ComposeWarningsGuard.java",
+      "functionStartLine": 105,
+      "functionName": "enables",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Determines whether this guard will \"elevate\" the status of any disabled\ndiagnostic type in the group to a warning or an error.\n"
+    }
+  }
+}

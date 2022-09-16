@@ -1,0 +1,170 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CompositeFormat.java",
+  "functionName": "getDefaultNumberFormat",
+  "functionId": "getDefaultNumberFormat___locale-Locale(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/math/util/CompositeFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing that the maximum number of fraction digits is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+  "functionStartLine": 53,
+  "functionEndLine": 57,
+  "numCommitsSeen": 20,
+  "timeTaken": 944,
+  "changeHistory": [
+    "4850e8849830763b0bc886d39c69a603cd1c36cd",
+    "1560839416cb0784bb9e27eab1f2aa0362d75371",
+    "3842ecf3762347198bbc933abadb73c21327ca0c"
+  ],
+  "changeHistoryShort": {
+    "4850e8849830763b0bc886d39c69a603cd1c36cd": "Ydocchange",
+    "1560839416cb0784bb9e27eab1f2aa0362d75371": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Yparametermetachange)",
+    "3842ecf3762347198bbc933abadb73c21327ca0c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4850e8849830763b0bc886d39c69a603cd1c36cd": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc fixes.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680165 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/27/08, 12:11 PM",
+      "commitName": "4850e8849830763b0bc886d39c69a603cd1c36cd",
+      "commitAuthor": "Phil Steitz",
+      "commitDateOld": "7/26/08, 11:28 AM",
+      "commitNameOld": "1560839416cb0784bb9e27eab1f2aa0362d75371",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 1.03,
+      "commitsBetweenForRepo": 11,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n    nf.setMaximumFractionDigits(2);\n    return nf;\n}",
+      "path": "src/java/org/apache/commons/math/util/CompositeFormat.java",
+      "functionStartLine": 50,
+      "functionName": "getDefaultNumberFormat",
+      "functionAnnotation": "",
+      "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing that the maximum number of fraction digits is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+        "newValue": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing that the maximum number of fraction digits is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n"
+      }
+    },
+    "1560839416cb0784bb9e27eab1f2aa0362d75371": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Yparametermetachange)",
+      "commitMessage": "extracted a CompositeFormat base class from ComplexFormat\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680026 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/26/08, 11:28 AM",
+      "commitName": "1560839416cb0784bb9e27eab1f2aa0362d75371",
+      "commitAuthor": "Luc Maisonobe",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "extracted a CompositeFormat base class from ComplexFormat\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680026 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/26/08, 11:28 AM",
+          "commitName": "1560839416cb0784bb9e27eab1f2aa0362d75371",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "7/21/08, 10:45 AM",
+          "commitNameOld": "23c13a13483dcf7fc77001224291560679bdbf62",
+          "commitAuthorOld": "Niall Kegan Pemberton",
+          "daysBetweenCommits": 5.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n    nf.setMaximumFractionDigits(2);\n    return nf;\n}",
+          "path": "src/java/org/apache/commons/math/util/CompositeFormat.java",
+          "functionStartLine": 50,
+          "functionName": "getDefaultNumberFormat",
+          "functionAnnotation": "",
+          "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-private static NumberFormat getDefaultNumberFormat(Locale locale) {\n-    NumberFormat nf \u003d NumberFormat.getInstance(locale);\n+protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n+    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n     nf.setMaximumFractionDigits(2);\n     return nf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+            "newPath": "src/java/org/apache/commons/math/util/CompositeFormat.java",
+            "oldMethodName": "getDefaultNumberFormat",
+            "newMethodName": "getDefaultNumberFormat"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "extracted a CompositeFormat base class from ComplexFormat\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680026 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/26/08, 11:28 AM",
+          "commitName": "1560839416cb0784bb9e27eab1f2aa0362d75371",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "7/21/08, 10:45 AM",
+          "commitNameOld": "23c13a13483dcf7fc77001224291560679bdbf62",
+          "commitAuthorOld": "Niall Kegan Pemberton",
+          "daysBetweenCommits": 5.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n    nf.setMaximumFractionDigits(2);\n    return nf;\n}",
+          "path": "src/java/org/apache/commons/math/util/CompositeFormat.java",
+          "functionStartLine": 50,
+          "functionName": "getDefaultNumberFormat",
+          "functionAnnotation": "",
+          "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-private static NumberFormat getDefaultNumberFormat(Locale locale) {\n-    NumberFormat nf \u003d NumberFormat.getInstance(locale);\n+protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n+    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n     nf.setMaximumFractionDigits(2);\n     return nf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private, static]",
+            "newValue": "[protected, static]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "extracted a CompositeFormat base class from ComplexFormat\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680026 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/26/08, 11:28 AM",
+          "commitName": "1560839416cb0784bb9e27eab1f2aa0362d75371",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "7/21/08, 10:45 AM",
+          "commitNameOld": "23c13a13483dcf7fc77001224291560679bdbf62",
+          "commitAuthorOld": "Niall Kegan Pemberton",
+          "daysBetweenCommits": 5.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n    nf.setMaximumFractionDigits(2);\n    return nf;\n}",
+          "path": "src/java/org/apache/commons/math/util/CompositeFormat.java",
+          "functionStartLine": 50,
+          "functionName": "getDefaultNumberFormat",
+          "functionAnnotation": "",
+          "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-private static NumberFormat getDefaultNumberFormat(Locale locale) {\n-    NumberFormat nf \u003d NumberFormat.getInstance(locale);\n+protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n+    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n     nf.setMaximumFractionDigits(2);\n     return nf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yparametermetachange",
+          "commitMessage": "extracted a CompositeFormat base class from ComplexFormat\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680026 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/26/08, 11:28 AM",
+          "commitName": "1560839416cb0784bb9e27eab1f2aa0362d75371",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "7/21/08, 10:45 AM",
+          "commitNameOld": "23c13a13483dcf7fc77001224291560679bdbf62",
+          "commitAuthorOld": "Niall Kegan Pemberton",
+          "daysBetweenCommits": 5.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n    nf.setMaximumFractionDigits(2);\n    return nf;\n}",
+          "path": "src/java/org/apache/commons/math/util/CompositeFormat.java",
+          "functionStartLine": 50,
+          "functionName": "getDefaultNumberFormat",
+          "functionAnnotation": "",
+          "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-private static NumberFormat getDefaultNumberFormat(Locale locale) {\n-    NumberFormat nf \u003d NumberFormat.getInstance(locale);\n+protected static NumberFormat getDefaultNumberFormat(final Locale locale) {\n+    final NumberFormat nf \u003d NumberFormat.getInstance(locale);\n     nf.setMaximumFractionDigits(2);\n     return nf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[locale-Locale]",
+            "newValue": "[locale-Locale(modifiers-final)]"
+          }
+        }
+      ]
+    },
+    "3842ecf3762347198bbc933abadb73c21327ca0c": {
+      "type": "Yintroduced",
+      "commitMessage": "Added locale support to complex format.  Added test cases for specific locales.\nPR: 31325\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141451 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/20/04, 9:45 PM",
+      "commitName": "3842ecf3762347198bbc933abadb73c21327ca0c",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,5 @@\n+private static NumberFormat getDefaultNumberFormat(Locale locale) {\n+    NumberFormat nf \u003d NumberFormat.getInstance(locale);\n+    nf.setMaximumFractionDigits(2);\n+    return nf;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static NumberFormat getDefaultNumberFormat(Locale locale) {\n    NumberFormat nf \u003d NumberFormat.getInstance(locale);\n    nf.setMaximumFractionDigits(2);\n    return nf;\n}",
+      "path": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+      "functionStartLine": 246,
+      "functionName": "getDefaultNumberFormat",
+      "functionAnnotation": "",
+      "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance(java.util.Locale)} with the only\ncustomizing is the maximum number of fraction digits, which is set to 2.\n\n@param locale the specific locale used by the format.\n@return the default number format specific to the given locale.\n"
+    }
+  }
+}

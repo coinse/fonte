@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getFunctionInfo",
+  "functionId": "getFunctionInfo___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the JSDocInfo for a function.\n",
+  "functionStartLine": 2713,
+  "functionEndLine": 2728,
+  "numCommitsSeen": 68,
+  "timeTaken": 3216,
+  "changeHistory": [
+    "52547e61d187e102f21e5545c24e8d232fefe92f"
+  ],
+  "changeHistoryShort": {
+    "52547e61d187e102f21e5545c24e8d232fefe92f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "52547e61d187e102f21e5545c24e8d232fefe92f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nWarningsGuard for @suppress.\n\nR\u003djohnlenz\nDELTA\u003d276  (243 added, 16 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d86010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@343 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/5/10, 7:31 PM",
+      "commitName": "52547e61d187e102f21e5545c24e8d232fefe92f",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,13 @@\n+static JSDocInfo getFunctionInfo(Node n) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n+    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n+    if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n+        Node parent \u003d n.getParent();\n+        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n+            fnInfo \u003d parent.getJSDocInfo();\n+        } else if (parent.getType() \u003d\u003d Token.NAME) {\n+            fnInfo \u003d parent.getParent().getJSDocInfo();\n+        }\n+    }\n+    return fnInfo;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static JSDocInfo getFunctionInfo(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n    if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n        Node parent \u003d n.getParent();\n        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n            fnInfo \u003d parent.getJSDocInfo();\n        } else if (parent.getType() \u003d\u003d Token.NAME) {\n            fnInfo \u003d parent.getParent().getJSDocInfo();\n        }\n    }\n    return fnInfo;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2083,
+      "functionName": "getFunctionInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Get the JSDocInfo for a function.\n"
+    }
+  }
+}

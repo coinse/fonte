@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeTraversal.java",
+  "functionName": "traverseBranch",
+  "functionId": "traverseBranch___n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeTraversal.java",
+  "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+  "functionDoc": "Traverses a branch.\n",
+  "functionStartLine": 438,
+  "functionEndLine": 465,
+  "numCommitsSeen": 10,
+  "timeTaken": 512,
+  "changeHistory": [
+    "6d8fd424925b186d720112e4f14e6898386a66b0",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6d8fd424925b186d720112e4f14e6898386a66b0": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6d8fd424925b186d720112e4f14e6898386a66b0": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix the CATCH tree structure.\n\nR\u003djohnlenz,dhans\nDELTA\u003d341  (5 added, 116 deleted, 220 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d211729\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@415 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/9/10, 2:49 PM",
+      "commitName": "6d8fd424925b186d720112e4f14e6898386a66b0",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "8/12/10, 6:02 PM",
+      "commitNameOld": "15acafb00636f99295b394145b9b60a5e624ddfa",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 27.87,
+      "commitsBetweenForRepo": 56,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"fallthrough\")\nprivate void traverseBranch(Node n, Node parent) {\n    int type \u003d n.getType();\n    if (type \u003d\u003d Token.SCRIPT) {\n        sourceName \u003d getSourceName(n);\n    }\n    curNode \u003d n;\n    if (!callback.shouldTraverse(this, n, parent))\n        return;\n    switch(type) {\n        case Token.FUNCTION:\n            traverseFunction(n, parent);\n            break;\n        default:\n            for (Node child \u003d n.getFirstChild(); child !\u003d null; ) {\n                Node next \u003d child.getNext();\n                traverseBranch(child, n);\n                child \u003d next;\n            }\n            break;\n    }\n    curNode \u003d n;\n    callback.visit(this, n, parent);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+      "functionStartLine": 442,
+      "functionName": "traverseBranch",
+      "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+      "functionDoc": "Traverses a branch.\n",
+      "diff": "@@ -1,30 +1,24 @@\n @SuppressWarnings(\"fallthrough\")\n private void traverseBranch(Node n, Node parent) {\n     int type \u003d n.getType();\n     if (type \u003d\u003d Token.SCRIPT) {\n         sourceName \u003d getSourceName(n);\n     }\n     curNode \u003d n;\n     if (!callback.shouldTraverse(this, n, parent))\n         return;\n     switch(type) {\n-        case Token.CATCH:\n-            Preconditions.checkState(n.getChildCount() \u003d\u003d 3);\n-            Preconditions.checkState(n.getFirstChild().getType() \u003d\u003d Token.NAME);\n-            traverseBranch(n.getFirstChild(), n);\n-            traverseBranch(n.getFirstChild().getNext().getNext(), n);\n-            break;\n         case Token.FUNCTION:\n             traverseFunction(n, parent);\n             break;\n         default:\n             for (Node child \u003d n.getFirstChild(); child !\u003d null; ) {\n                 Node next \u003d child.getNext();\n                 traverseBranch(child, n);\n                 child \u003d next;\n             }\n             break;\n     }\n     curNode \u003d n;\n     callback.visit(this, n, parent);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,30 @@\n+@SuppressWarnings(\"fallthrough\")\n+private void traverseBranch(Node n, Node parent) {\n+    int type \u003d n.getType();\n+    if (type \u003d\u003d Token.SCRIPT) {\n+        sourceName \u003d getSourceName(n);\n+    }\n+    curNode \u003d n;\n+    if (!callback.shouldTraverse(this, n, parent))\n+        return;\n+    switch(type) {\n+        case Token.CATCH:\n+            Preconditions.checkState(n.getChildCount() \u003d\u003d 3);\n+            Preconditions.checkState(n.getFirstChild().getType() \u003d\u003d Token.NAME);\n+            traverseBranch(n.getFirstChild(), n);\n+            traverseBranch(n.getFirstChild().getNext().getNext(), n);\n+            break;\n+        case Token.FUNCTION:\n+            traverseFunction(n, parent);\n+            break;\n+        default:\n+            for (Node child \u003d n.getFirstChild(); child !\u003d null; ) {\n+                Node next \u003d child.getNext();\n+                traverseBranch(child, n);\n+                child \u003d next;\n+            }\n+            break;\n+    }\n+    curNode \u003d n;\n+    callback.visit(this, n, parent);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"fallthrough\")\nprivate void traverseBranch(Node n, Node parent) {\n    int type \u003d n.getType();\n    if (type \u003d\u003d Token.SCRIPT) {\n        sourceName \u003d getSourceName(n);\n    }\n    curNode \u003d n;\n    if (!callback.shouldTraverse(this, n, parent))\n        return;\n    switch(type) {\n        case Token.CATCH:\n            Preconditions.checkState(n.getChildCount() \u003d\u003d 3);\n            Preconditions.checkState(n.getFirstChild().getType() \u003d\u003d Token.NAME);\n            traverseBranch(n.getFirstChild(), n);\n            traverseBranch(n.getFirstChild().getNext().getNext(), n);\n            break;\n        case Token.FUNCTION:\n            traverseFunction(n, parent);\n            break;\n        default:\n            for (Node child \u003d n.getFirstChild(); child !\u003d null; ) {\n                Node next \u003d child.getNext();\n                traverseBranch(child, n);\n                child \u003d next;\n            }\n            break;\n    }\n    curNode \u003d n;\n    callback.visit(this, n, parent);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+      "functionStartLine": 428,
+      "functionName": "traverseBranch",
+      "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+      "functionDoc": "Traverses a branch.\n"
+    }
+  }
+}

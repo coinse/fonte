@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClosureCodingConvention.java",
+  "functionName": "typeofClassDefiningName",
+  "functionId": "typeofClassDefiningName___callName-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines whether the given node is a class-defining name, like\n\"inherits\" or \"mixin.\"\n\n@return The type of class-defining name, or null.\n",
+  "functionStartLine": 136,
+  "functionEndLine": 157,
+  "numCommitsSeen": 34,
+  "timeTaken": 1069,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/8/11, 12:25 PM",
+      "commitNameOld": "9d8201624c22636577d47a40aa03de44363b695b",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 1.84,
+      "commitsBetweenForRepo": 11,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private SubclassType typeofClassDefiningName(Node callName) {\n    String methodName \u003d null;\n    if (callName.isGetProp()) {\n        methodName \u003d callName.getLastChild().getString();\n    } else if (callName.isName()) {\n        String name \u003d callName.getString();\n        int dollarIndex \u003d name.lastIndexOf(\u0027$\u0027);\n        if (dollarIndex !\u003d -1) {\n            methodName \u003d name.substring(dollarIndex + 1);\n        }\n    }\n    if (methodName !\u003d null) {\n        if (methodName.equals(\"inherits\")) {\n            return SubclassType.INHERITS;\n        } else if (methodName.equals(\"mixin\")) {\n            return SubclassType.MIXIN;\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+      "functionStartLine": 137,
+      "functionName": "typeofClassDefiningName",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether the given node is a class-defining name, like\n\"inherits\" or \"mixin.\"\n\n@return The type of class-defining name, or null.\n",
+      "diff": "@@ -1,20 +1,20 @@\n private SubclassType typeofClassDefiningName(Node callName) {\n     String methodName \u003d null;\n-    if (callName.getType() \u003d\u003d Token.GETPROP) {\n+    if (callName.isGetProp()) {\n         methodName \u003d callName.getLastChild().getString();\n-    } else if (callName.getType() \u003d\u003d Token.NAME) {\n+    } else if (callName.isName()) {\n         String name \u003d callName.getString();\n         int dollarIndex \u003d name.lastIndexOf(\u0027$\u0027);\n         if (dollarIndex !\u003d -1) {\n             methodName \u003d name.substring(dollarIndex + 1);\n         }\n     }\n     if (methodName !\u003d null) {\n         if (methodName.equals(\"inherits\")) {\n             return SubclassType.INHERITS;\n         } else if (methodName.equals(\"mixin\")) {\n             return SubclassType.MIXIN;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,20 @@\n+private SubclassType typeofClassDefiningName(Node callName) {\n+    String methodName \u003d null;\n+    if (callName.getType() \u003d\u003d Token.GETPROP) {\n+        methodName \u003d callName.getLastChild().getString();\n+    } else if (callName.getType() \u003d\u003d Token.NAME) {\n+        String name \u003d callName.getString();\n+        int dollarIndex \u003d name.lastIndexOf(\u0027$\u0027);\n+        if (dollarIndex !\u003d -1) {\n+            methodName \u003d name.substring(dollarIndex + 1);\n+        }\n+    }\n+    if (methodName !\u003d null) {\n+        if (methodName.equals(\"inherits\")) {\n+            return SubclassType.INHERITS;\n+        } else if (methodName.equals(\"mixin\")) {\n+            return SubclassType.MIXIN;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private SubclassType typeofClassDefiningName(Node callName) {\n    String methodName \u003d null;\n    if (callName.getType() \u003d\u003d Token.GETPROP) {\n        methodName \u003d callName.getLastChild().getString();\n    } else if (callName.getType() \u003d\u003d Token.NAME) {\n        String name \u003d callName.getString();\n        int dollarIndex \u003d name.lastIndexOf(\u0027$\u0027);\n        if (dollarIndex !\u003d -1) {\n            methodName \u003d name.substring(dollarIndex + 1);\n        }\n    }\n    if (methodName !\u003d null) {\n        if (methodName.equals(\"inherits\")) {\n            return SubclassType.INHERITS;\n        } else if (methodName.equals(\"mixin\")) {\n            return SubclassType.MIXIN;\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+      "functionStartLine": 114,
+      "functionName": "typeofClassDefiningName",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether the given node is a class-defining name, like\n\"inherits\" or \"mixin.\"\n\n@return The type of class-defining name, or null.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-15b",
+  "repositoryPath": "/tmp/Gson-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonWriter.java",
+  "functionName": "push",
+  "functionId": "push___newTop-int",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 353,
+  "functionEndLine": 360,
+  "numCommitsSeen": 17,
+  "timeTaken": 701,
+  "changeHistory": [
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c"
+  ],
+  "changeHistoryShort": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": {
+      "type": "Yintroduced",
+      "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+      "commitDate": "8/14/12, 2:32 PM",
+      "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,8 @@\n+private void push(int newTop) {\n+    if (stackSize \u003d\u003d stack.length) {\n+        int[] newStack \u003d new int[stackSize * 2];\n+        System.arraycopy(stack, 0, newStack, 0, stackSize);\n+        stack \u003d newStack;\n+    }\n+    stack[stackSize++] \u003d newTop;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void push(int newTop) {\n    if (stackSize \u003d\u003d stack.length) {\n        int[] newStack \u003d new int[stackSize * 2];\n        System.arraycopy(stack, 0, newStack, 0, stackSize);\n        stack \u003d newStack;\n    }\n    stack[stackSize++] \u003d newTop;\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 353,
+      "functionName": "push",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

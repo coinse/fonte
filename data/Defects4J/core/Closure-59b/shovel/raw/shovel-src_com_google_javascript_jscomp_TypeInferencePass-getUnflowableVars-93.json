@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInferencePass.java",
+  "functionName": "getUnflowableVars",
+  "functionId": "getUnflowableVars___scope-Scope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInferencePass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 93,
+  "functionEndLine": 100,
+  "numCommitsSeen": 13,
+  "timeTaken": 1435,
+  "changeHistory": [
+    "c0face2a48665e46f4829f54ee24cfa4cf8d4589"
+  ],
+  "changeHistoryShort": {
+    "c0face2a48665e46f4829f54ee24cfa4cf8d4589": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c0face2a48665e46f4829f54ee24cfa4cf8d4589": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix a bug in type inference when there are more than two inner\nfunctions in a local scope.\n\nAdd a --print_pass_graph flag that prints the passes run as a DOT file.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@96 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/8/10, 3:25 PM",
+      "commitName": "c0face2a48665e46f4829f54ee24cfa4cf8d4589",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,7 @@\n+private Collection\u003cVar\u003e getUnflowableVars(Scope scope) {\n+    List\u003cVar\u003e vars \u003d Lists.newArrayList();\n+    for (Scope current \u003d scope; current.isLocal(); current \u003d current.getParent()) {\n+        vars.addAll(escapedLocalVars.get(current));\n+    }\n+    return vars;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Collection\u003cVar\u003e getUnflowableVars(Scope scope) {\n    List\u003cVar\u003e vars \u003d Lists.newArrayList();\n    for (Scope current \u003d scope; current.isLocal(); current \u003d current.getParent()) {\n        vars.addAll(escapedLocalVars.get(current));\n    }\n    return vars;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInferencePass.java",
+      "functionStartLine": 83,
+      "functionName": "getUnflowableVars",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

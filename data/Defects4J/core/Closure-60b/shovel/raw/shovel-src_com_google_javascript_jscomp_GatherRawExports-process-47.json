@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GatherRawExports.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GatherRawExports.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 47,
+  "functionEndLine": 50,
+  "numCommitsSeen": 9,
+  "timeTaken": 2424,
+  "changeHistory": [
+    "8936be78f9ecad965b20fbf9ea78eda49514454e",
+    "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42"
+  ],
+  "changeHistoryShort": {
+    "8936be78f9ecad965b20fbf9ea78eda49514454e": "Ybodychange",
+    "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8936be78f9ecad965b20fbf9ea78eda49514454e": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCreate an explicit \"LifeCycleStage\", so that we can have more\nstages besides normalized and unnormalized.\n\nR\u003djohnlenz\nDELTA\u003d82  (18 added, 35 deleted, 29 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d158\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@644 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/16/10, 1:20 PM",
+      "commitName": "8936be78f9ecad965b20fbf9ea78eda49514454e",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/11/10, 9:42 PM",
+      "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 34.65,
+      "commitsBetweenForRepo": 96,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());\n    NodeTraversal.traverse(compiler, root, this);\n}",
+      "path": "src/com/google/javascript/jscomp/GatherRawExports.java",
+      "functionStartLine": 47,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n @Override\n public void process(Node externs, Node root) {\n-    Preconditions.checkState(compiler.isNormalized());\n+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());\n     NodeTraversal.traverse(compiler, root, this);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42": {
+      "type": "Yintroduced",
+      "commitMessage": "Add a pass for collecting symbols exported like window[\u0027x\u0027] \u003d ...\n\nFix for issue #70.\n\nAssorted minor bug fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@31 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/11/09, 3:29 PM",
+      "commitName": "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public void process(Node externs, Node root) {\n+    Preconditions.checkState(compiler.isNormalized());\n+    NodeTraversal.traverse(compiler, root, this);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    Preconditions.checkState(compiler.isNormalized());\n    NodeTraversal.traverse(compiler, root, this);\n}",
+      "path": "src/com/google/javascript/jscomp/GatherRawExports.java",
+      "functionStartLine": 47,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

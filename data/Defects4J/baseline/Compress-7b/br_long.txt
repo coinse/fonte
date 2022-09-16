@@ -1,0 +1,13 @@
+if a tarfile contains files with special characters, the names of the tar entries are wrong.
+
+example:
+correct name: 0302-0601-3±±±F06±W220±ZB±LALALA±±±±±±±±±±CAN±±DC±±±04±060302±MOE.model
+name resolved by TarUtils.parseName: 0302-0101-3ﾱﾱﾱF06ﾱW220ﾱZBﾱHECKMODULﾱﾱﾱﾱﾱﾱﾱﾱﾱﾱECEﾱﾱDCﾱﾱﾱ07ﾱ060302ﾱDOERN.model
+
+please use: 
+result.append(new String(new byte[] { buffer[i] }));
+
+instead of: 
+result.append((char) buffer[i]);
+
+to solve this encoding problem.

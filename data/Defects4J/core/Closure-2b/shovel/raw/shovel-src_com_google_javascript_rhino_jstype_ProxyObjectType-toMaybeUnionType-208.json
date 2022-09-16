@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProxyObjectType.java",
+  "functionName": "toMaybeUnionType",
+  "functionId": "toMaybeUnionType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 208,
+  "functionEndLine": 210,
+  "numCommitsSeen": 54,
+  "timeTaken": 1839,
+  "changeHistory": [
+    "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9"
+  ],
+  "changeHistoryShort": {
+    "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd a toUnionType method.\nI think this should be a lot more correct and easier for clients\nto use, because it will resolve typedefs of UnionTypes better.\nI will probably do this for all other instanceof checks if we\nagree that this is the way we want to go.\n\nR\u003djohnlenz\nDELTA\u003d79  (14 added, 7 deleted, 58 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3047\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1362 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/17/11, 11:43 AM",
+      "commitName": "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public UnionType toMaybeUnionType() {\n+    return referencedType.toMaybeUnionType();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic UnionType toMaybeUnionType() {\n    return referencedType.toMaybeUnionType();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+      "functionStartLine": 196,
+      "functionName": "toMaybeUnionType",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

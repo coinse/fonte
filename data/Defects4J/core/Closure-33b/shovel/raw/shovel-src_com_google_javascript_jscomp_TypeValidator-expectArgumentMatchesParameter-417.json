@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeValidator.java",
+  "functionName": "expectArgumentMatchesParameter",
+  "functionId": "expectArgumentMatchesParameter___t-NodeTraversal__n-Node__argType-JSType__paramType-JSType__callNode-Node__ordinal-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Expect that the type of an argument matches the type of the parameter\nthat it\u0027s fulfilling.\n\n@param t The node traversal.\n@param n The node to issue warnings on.\n@param argType The type of the argument.\n@param paramType The type of the parameter.\n@param callNode The call node, to help with the warning message.\n@param ordinal The argument ordinal, to help with the warning message.\n",
+  "functionStartLine": 417,
+  "functionEndLine": 426,
+  "numCommitsSeen": 34,
+  "timeTaken": 1406,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,5 @@\n+void expectArgumentMatchesParameter(NodeTraversal t, Node n, JSType argType, JSType paramType, Node callNode, int ordinal) {\n+    if (!argType.canAssignTo(paramType)) {\n+        mismatch(t, n, String.format(\"actual parameter %d of %s does not match \" + \"formal parameter\", ordinal, getReadableJSTypeName(callNode.getFirstChild(), false)), argType, paramType);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void expectArgumentMatchesParameter(NodeTraversal t, Node n, JSType argType, JSType paramType, Node callNode, int ordinal) {\n    if (!argType.canAssignTo(paramType)) {\n        mismatch(t, n, String.format(\"actual parameter %d of %s does not match \" + \"formal parameter\", ordinal, getReadableJSTypeName(callNode.getFirstChild(), false)), argType, paramType);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeValidator.java",
+      "functionStartLine": 346,
+      "functionName": "expectArgumentMatchesParameter",
+      "functionAnnotation": "",
+      "functionDoc": "Expect that the type of an argument matches the type of the parameter\nthat it\u0027s fulfilling.\n\n@param t The node traversal.\n@param n The node to issue warnings on.\n@param argType The type of the argument.\n@param paramType The type of the parameter.\n@param callNode The call node, to help with the warning message.\n@param ordinal The argument ordinal, to help with the warning message.\n"
+    }
+  }
+}

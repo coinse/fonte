@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSModuleGraph.java",
+  "functionName": "depthCompare",
+  "functionId": "depthCompare___m1-JSModule__m2-JSModule",
+  "sourceFilePath": "src/com/google/javascript/jscomp/JSModuleGraph.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 380,
+  "functionEndLine": 387,
+  "numCommitsSeen": 13,
+  "timeTaken": 2074,
+  "changeHistory": [
+    "0b3f6f9feca6f027037a12978017ff055a0be538",
+    "475548341c38755063c8475379745ba31caffe41"
+  ],
+  "changeHistoryShort": {
+    "0b3f6f9feca6f027037a12978017ff055a0be538": "Ybodychange",
+    "475548341c38755063c8475379745ba31caffe41": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0b3f6f9feca6f027037a12978017ff055a0be538": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRestructure how a JSModule\u0027s depth is stored.\n\nR\u003dnicksantos\nDELTA\u003d49  (18 added, 13 deleted, 18 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d69001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@313 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/26/10, 7:13 PM",
+      "commitName": "0b3f6f9feca6f027037a12978017ff055a0be538",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "7/8/10, 5:15 PM",
+      "commitNameOld": "0c8a0c53b2124d05b017a63bdbc720a57c89ead2",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 18.08,
+      "commitsBetweenForRepo": 46,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private int depthCompare(JSModule m1, JSModule m2) {\n    if (m1 \u003d\u003d m2) {\n        return 0;\n    }\n    int d1 \u003d m1.getDepth();\n    int d2 \u003d m2.getDepth();\n    return d1 \u003c d2 ? -1 : d2 \u003d\u003d d1 ? m1.getName().compareTo(m2.getName()) : 1;\n}",
+      "path": "src/com/google/javascript/jscomp/JSModuleGraph.java",
+      "functionStartLine": 366,
+      "functionName": "depthCompare",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,8 @@\n private int depthCompare(JSModule m1, JSModule m2) {\n     if (m1 \u003d\u003d m2) {\n         return 0;\n     }\n-    int d1 \u003d getDepth(m1);\n-    int d2 \u003d getDepth(m2);\n+    int d1 \u003d m1.getDepth();\n+    int d2 \u003d m2.getDepth();\n     return d1 \u003c d2 ? -1 : d2 \u003d\u003d d1 ? m1.getName().compareTo(m2.getName()) : 1;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "475548341c38755063c8475379745ba31caffe41": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/06 by nick\n\n        Automatic source sorting--now with modules!\n\n        R\u003dalan\n        DELTA\u003d194  (176 added, 7 deleted, 11 changed)\n\nChange on 2010/05/06 by nick\n\n        Identify unknown @suppress parameters.\n\n        R\u003dalan\n        DELTA\u003d109  (83 added, 12 deleted, 14 changed)\n\nChange on 2010/05/06 by alan\n\n        Enable flow sensitive inlining in open source world.\n\n        R\u003dnick\n        DELTA\u003d2  (2 added, 0 deleted, 0 changed)\n\nChange on 2010/05/06 by alan\n\n        Factor out JoinOp\n\n        R\u003dnick\n        DELTA\u003d137  (77 added, 54 deleted, 6 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dewwtfu\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@204 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/7/10, 2:59 PM",
+      "commitName": "475548341c38755063c8475379745ba31caffe41",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,8 @@\n+private int depthCompare(JSModule m1, JSModule m2) {\n+    if (m1 \u003d\u003d m2) {\n+        return 0;\n+    }\n+    int d1 \u003d getDepth(m1);\n+    int d2 \u003d getDepth(m2);\n+    return d1 \u003c d2 ? -1 : d2 \u003d\u003d d1 ? m1.getName().compareTo(m2.getName()) : 1;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private int depthCompare(JSModule m1, JSModule m2) {\n    if (m1 \u003d\u003d m2) {\n        return 0;\n    }\n    int d1 \u003d getDepth(m1);\n    int d2 \u003d getDepth(m2);\n    return d1 \u003c d2 ? -1 : d2 \u003d\u003d d1 ? m1.getName().compareTo(m2.getName()) : 1;\n}",
+      "path": "src/com/google/javascript/jscomp/JSModuleGraph.java",
+      "functionStartLine": 374,
+      "functionName": "depthCompare",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

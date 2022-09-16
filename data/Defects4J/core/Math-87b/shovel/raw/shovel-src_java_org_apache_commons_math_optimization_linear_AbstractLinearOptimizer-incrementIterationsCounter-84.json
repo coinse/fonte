@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-87b",
+  "repositoryPath": "/tmp/Math-87b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractLinearOptimizer.java",
+  "functionName": "incrementIterationsCounter",
+  "functionId": "incrementIterationsCounter",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/AbstractLinearOptimizer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Increment the iterations counter by 1.\n\n@exception OptimizationException if the maximal number\nof iterations is exceeded\n",
+  "functionStartLine": 84,
+  "functionEndLine": 91,
+  "numCommitsSeen": 3,
+  "timeTaken": 385,
+  "changeHistory": [
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,7 @@\n+protected void incrementIterationsCounter() throws OptimizationException {\n+    if (++iterations \u003e maxIterations) {\n+        if (++iterations \u003e maxIterations) {\n+            throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void incrementIterationsCounter() throws OptimizationException {\n    if (++iterations \u003e maxIterations) {\n        if (++iterations \u003e maxIterations) {\n            throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n        }\n    }\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/AbstractLinearOptimizer.java",
+      "functionStartLine": 88,
+      "functionName": "incrementIterationsCounter",
+      "functionAnnotation": "",
+      "functionDoc": "Increment the iterations counter by 1.\n\n@exception OptimizationException if the maximal number\nof iterations is exceeded\n"
+    }
+  }
+}

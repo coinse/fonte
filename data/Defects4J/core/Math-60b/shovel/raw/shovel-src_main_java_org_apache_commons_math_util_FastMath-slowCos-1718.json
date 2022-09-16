@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-60b",
+  "repositoryPath": "/tmp/Math-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "slowCos",
+  "functionId": "slowCos___x-double(modifiers-final)__result-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": " For x between 0 and pi/4 compute cosine\n\n@param x number from which cosine is requested\n@param result placeholder where to put the result in extended precision\n@return cos(x)\n",
+  "functionStartLine": 1718,
+  "functionEndLine": 1753,
+  "numCommitsSeen": 6,
+  "timeTaken": 10310,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,30 @@\n+private static double slowCos(final double x, final double[] result) {\n+    final double[] xs \u003d new double[2];\n+    final double[] ys \u003d new double[2];\n+    final double[] facts \u003d new double[2];\n+    final double[] as \u003d new double[2];\n+    split(x, xs);\n+    ys[0] \u003d ys[1] \u003d 0.0;\n+    for (int i \u003d 19; i \u003e\u003d 0; i--) {\n+        splitMult(xs, ys, as);\n+        ys[0] \u003d as[0];\n+        ys[1] \u003d as[1];\n+        if ((i \u0026 1) !\u003d 0) {\n+            continue;\n+        }\n+        split(FACT[i], as);\n+        splitReciprocal(as, facts);\n+        if ((i \u0026 2) !\u003d 0) {\n+            facts[0] \u003d -facts[0];\n+            facts[1] \u003d -facts[1];\n+        }\n+        splitAdd(ys, facts, as);\n+        ys[0] \u003d as[0];\n+        ys[1] \u003d as[1];\n+    }\n+    if (result !\u003d null) {\n+        result[0] \u003d ys[0];\n+        result[1] \u003d ys[1];\n+    }\n+    return ys[0] + ys[1];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static double slowCos(final double x, final double[] result) {\n    final double[] xs \u003d new double[2];\n    final double[] ys \u003d new double[2];\n    final double[] facts \u003d new double[2];\n    final double[] as \u003d new double[2];\n    split(x, xs);\n    ys[0] \u003d ys[1] \u003d 0.0;\n    for (int i \u003d 19; i \u003e\u003d 0; i--) {\n        splitMult(xs, ys, as);\n        ys[0] \u003d as[0];\n        ys[1] \u003d as[1];\n        if ((i \u0026 1) !\u003d 0) {\n            continue;\n        }\n        split(FACT[i], as);\n        splitReciprocal(as, facts);\n        if ((i \u0026 2) !\u003d 0) {\n            facts[0] \u003d -facts[0];\n            facts[1] \u003d -facts[1];\n        }\n        splitAdd(ys, facts, as);\n        ys[0] \u003d as[0];\n        ys[1] \u003d as[1];\n    }\n    if (result !\u003d null) {\n        result[0] \u003d ys[0];\n        result[1] \u003d ys[1];\n    }\n    return ys[0] + ys[1];\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 1428,
+      "functionName": "slowCos",
+      "functionAnnotation": "",
+      "functionDoc": " For x between 0 and pi/4 compute cosine\n\n@param x number from which cosine is requested\n@param result placeholder where to put the result in extended precision\n@return cos(x)\n"
+    }
+  }
+}

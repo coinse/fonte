@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "canAssignTo",
+  "functionId": "canAssignTo___that-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Tests whether values of {@code this} type can be safely assigned\nto values of {@code that} type.\u003cp\u003e\n\nThe default implementation verifies that {@code this} is a subtype\nof {@code that}.\u003cp\u003e\n",
+  "functionStartLine": 522,
+  "functionEndLine": 527,
+  "numCommitsSeen": 54,
+  "timeTaken": 1536,
+  "changeHistory": [
+    "31193006e16b909a3115f998789057fb05d76b18",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "31193006e16b909a3115f998789057fb05d76b18": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "31193006e16b909a3115f998789057fb05d76b18": {
+      "type": "Ybodychange",
+      "commitMessage": "Add a --debug flag for easier debugging.\n\nTurn off autoboxing from number -\u003e Number, string -\u003e String, etc.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@32 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/14/09, 4:18 PM",
+      "commitName": "31193006e16b909a3115f998789057fb05d76b18",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "12/7/09, 1:53 PM",
+      "commitNameOld": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 7.1,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean canAssignTo(JSType that) {\n    if (this.isSubtype(that)) {\n        return true;\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 405,
+      "functionName": "canAssignTo",
+      "functionAnnotation": "",
+      "functionDoc": "Tests whether values of {@code this} type can be safely assigned\nto values of {@code that} type.\u003cp\u003e\n\nThe default implementation verifies that {@code this} is a subtype\nof {@code that}.\u003cp\u003e\n",
+      "diff": "@@ -1,12 +1,6 @@\n public boolean canAssignTo(JSType that) {\n     if (this.isSubtype(that)) {\n         return true;\n     }\n-    if (autoboxesTo() !\u003d null) {\n-        return autoboxesTo().isSubtype(that);\n-    }\n-    if (unboxesTo() !\u003d null) {\n-        return unboxesTo().isSubtype(that);\n-    }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+public boolean canAssignTo(JSType that) {\n+    if (this.isSubtype(that)) {\n+        return true;\n+    }\n+    if (autoboxesTo() !\u003d null) {\n+        return autoboxesTo().isSubtype(that);\n+    }\n+    if (unboxesTo() !\u003d null) {\n+        return unboxesTo().isSubtype(that);\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean canAssignTo(JSType that) {\n    if (this.isSubtype(that)) {\n        return true;\n    }\n    if (autoboxesTo() !\u003d null) {\n        return autoboxesTo().isSubtype(that);\n    }\n    if (unboxesTo() !\u003d null) {\n        return unboxesTo().isSubtype(that);\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 405,
+      "functionName": "canAssignTo",
+      "functionAnnotation": "",
+      "functionDoc": "Tests whether values of {@code this} type can be safely assigned\nto values of {@code that} type.\u003cp\u003e\n\nThe default implementation verifies that {@code this} is a subtype\nof {@code that}.\u003cp\u003e\n"
+    }
+  }
+}

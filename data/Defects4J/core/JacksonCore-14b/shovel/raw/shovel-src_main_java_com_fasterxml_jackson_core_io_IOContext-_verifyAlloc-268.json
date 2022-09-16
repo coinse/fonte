@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-14b",
+  "repositoryPath": "/tmp/JacksonCore-14b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IOContext.java",
+  "functionName": "_verifyAlloc",
+  "functionId": "_verifyAlloc___buffer-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/io/IOContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 268,
+  "functionEndLine": 270,
+  "numCommitsSeen": 13,
+  "timeTaken": 2144,
+  "changeHistory": [
+    "4ceaba85f15f3baac5be7e8697a110194548a126",
+    "288b1f323ecaa19345474d78d8263cc443eac3d3",
+    "a8bc72e0faf362ec898080bc16018cb7d19ba936",
+    "2343927df4929441e817e356fec2a3624a0c5b1c"
+  ],
+  "changeHistoryShort": {
+    "4ceaba85f15f3baac5be7e8697a110194548a126": "Ymodifierchange",
+    "288b1f323ecaa19345474d78d8263cc443eac3d3": "Yformatchange",
+    "a8bc72e0faf362ec898080bc16018cb7d19ba936": "Ymodifierchange",
+    "2343927df4929441e817e356fec2a3624a0c5b1c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4ceaba85f15f3baac5be7e8697a110194548a126": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Fix #143 (regression, not present in 2.3.3)\n",
+      "commitDate": "6/6/14, 1:44 PM",
+      "commitName": "4ceaba85f15f3baac5be7e8697a110194548a126",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "4/18/14, 9:07 PM",
+      "commitNameOld": "84dc1843f7ce5f6071f701e8588e5673f49b31ac",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 48.69,
+      "commitsBetweenForRepo": 98,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected final void _verifyAlloc(Object buffer) {\n    if (buffer !\u003d null) {\n        throw new IllegalStateException(\"Trying to call same allocXxx() method second time\");\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/io/IOContext.java",
+      "functionStartLine": 260,
+      "functionName": "_verifyAlloc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n-protected void _verifyAlloc(Object buffer) {\n+protected final void _verifyAlloc(Object buffer) {\n     if (buffer !\u003d null) {\n         throw new IllegalStateException(\"Trying to call same allocXxx() method second time\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[protected]",
+        "newValue": "[protected, final]"
+      }
+    },
+    "288b1f323ecaa19345474d78d8263cc443eac3d3": {
+      "type": "Yformatchange",
+      "commitMessage": "...\n",
+      "commitDate": "1/14/14, 9:03 PM",
+      "commitName": "288b1f323ecaa19345474d78d8263cc443eac3d3",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/13/14, 8:36 PM",
+      "commitNameOld": "d1ed0e8626379b5a553ce9ba0f66de9aa75e180b",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.02,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void _verifyAlloc(Object buffer) {\n    if (buffer !\u003d null) {\n        throw new IllegalStateException(\"Trying to call same allocXxx() method second time\");\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/io/IOContext.java",
+      "functionStartLine": 252,
+      "functionName": "_verifyAlloc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "a8bc72e0faf362ec898080bc16018cb7d19ba936": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Change IOContext to be sub-classable (remove \u0027final\u0027)\n",
+      "commitDate": "1/13/14, 7:22 PM",
+      "commitName": "a8bc72e0faf362ec898080bc16018cb7d19ba936",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/13/13, 9:15 PM",
+      "commitNameOld": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 30.92,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void _verifyAlloc(Object buffer) {\n    if (buffer !\u003d null) {\n        throw new IllegalStateException(\"Trying to call same allocXxx() method second time\");\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/io/IOContext.java",
+      "functionStartLine": 234,
+      "functionName": "_verifyAlloc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n-private final void _verifyAlloc(Object buffer) {\n+protected void _verifyAlloc(Object buffer) {\n     if (buffer !\u003d null) {\n         throw new IllegalStateException(\"Trying to call same allocXxx() method second time\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private, final]",
+        "newValue": "[protected]"
+      }
+    },
+    "2343927df4929441e817e356fec2a3624a0c5b1c": {
+      "type": "Yintroduced",
+      "commitMessage": "trying to clean up code, to trim unneeded code\n",
+      "commitDate": "4/6/13, 8:44 PM",
+      "commitName": "2343927df4929441e817e356fec2a3624a0c5b1c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,5 @@\n+private final void _verifyAlloc(Object buffer) {\n+    if (buffer !\u003d null) {\n+        throw new IllegalStateException(\"Trying to call same allocXxx() method second time\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final void _verifyAlloc(Object buffer) {\n    if (buffer !\u003d null) {\n        throw new IllegalStateException(\"Trying to call same allocXxx() method second time\");\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/io/IOContext.java",
+      "functionStartLine": 244,
+      "functionName": "_verifyAlloc",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

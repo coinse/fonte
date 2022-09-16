@@ -1,0 +1,34 @@
+1. EXAMPLE
+
+Node nodeTry = IR.block(
+  IR.var(
+    IR.name(&quot;testing&quot;), 
+    IR.number(11)
+  )
+);
+Node nodeCatch = IR.catchNode(
+  IR.name(&quot;blabla&quot;),
+    IR.block(
+      IR.var(
+        IR.name(&quot;testing&quot;),
+	IR.number(22)
+      )
+    )
+);
+IR.tryCatch(nodeTry, nodeCatch);
+
+
+2. THROWS ERROR
+
+Exception in thread &quot;main&quot; java.lang.RuntimeException: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+null
+  Node(FUNCTION tt): input.js:2:4
+    function tt() {
+  Parent(BLOCK): input.js:1:4
+try {
+
+
+3. SOLUTION
+
+IR.block is verifing the catch node is a statement which it isnt.

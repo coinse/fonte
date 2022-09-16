@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "filterNoResolvedType",
+  "functionId": "filterNoResolvedType___type-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "When computing infimums, we may get a situation like\ninf(Type1, Type2)\nwhere both types are unresolved, so they\u0027re technically\nsubtypes of one another.\n\nIf this happens, filter them down to NoResolvedType.\n",
+  "functionStartLine": 778,
+  "functionEndLine": 804,
+  "numCommitsSeen": 54,
+  "timeTaken": 3622,
+  "changeHistory": [
+    "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9",
+    "043a352c2e85815a90a1926d112902d924bab6c1"
+  ],
+  "changeHistoryShort": {
+    "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9": "Ybodychange",
+    "043a352c2e85815a90a1926d112902d924bab6c1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd a toUnionType method.\nI think this should be a lot more correct and easier for clients\nto use, because it will resolve typedefs of UnionTypes better.\nI will probably do this for all other instanceof checks if we\nagree that this is the way we want to go.\n\nR\u003djohnlenz\nDELTA\u003d79  (14 added, 7 deleted, 58 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3047\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1362 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/17/11, 11:43 AM",
+      "commitName": "5ac633a4e4471847da5aa22bb1fcf28727eb7fe9",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "7/28/11, 2:24 PM",
+      "commitNameOld": "5200a1c2404a424425ab2b04a7a64e08e0ee4925",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 19.89,
+      "commitsBetweenForRepo": 49,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static JSType filterNoResolvedType(JSType type) {\n    if (type.isNoResolvedType()) {\n        return type.getNativeType(JSTypeNative.NO_RESOLVED_TYPE);\n    } else if (type.isUnionType()) {\n        UnionType unionType \u003d type.toMaybeUnionType();\n        boolean needsFiltering \u003d false;\n        for (JSType alt : unionType.getAlternates()) {\n            if (alt.isNoResolvedType()) {\n                needsFiltering \u003d true;\n                break;\n            }\n        }\n        if (needsFiltering) {\n            UnionTypeBuilder builder \u003d new UnionTypeBuilder(type.registry);\n            for (JSType alt : unionType.getAlternates()) {\n                if (!alt.isNoResolvedType()) {\n                    builder.addAlternate(alt);\n                }\n            }\n            return builder.build();\n        }\n    }\n    return type;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 678,
+      "functionName": "filterNoResolvedType",
+      "functionAnnotation": "",
+      "functionDoc": "When computing infimums, we may get a situation like\ninf(Type1, Type2)\nwhere both types are unresolved, so they\u0027re technically\nsubtypes of one another.\n\nIf this happens, filter them down to NoResolvedType.\n",
+      "diff": "@@ -1,24 +1,24 @@\n static JSType filterNoResolvedType(JSType type) {\n     if (type.isNoResolvedType()) {\n         return type.getNativeType(JSTypeNative.NO_RESOLVED_TYPE);\n-    } else if (type instanceof UnionType) {\n-        UnionType unionType \u003d (UnionType) type;\n+    } else if (type.isUnionType()) {\n+        UnionType unionType \u003d type.toMaybeUnionType();\n         boolean needsFiltering \u003d false;\n         for (JSType alt : unionType.getAlternates()) {\n             if (alt.isNoResolvedType()) {\n                 needsFiltering \u003d true;\n                 break;\n             }\n         }\n         if (needsFiltering) {\n             UnionTypeBuilder builder \u003d new UnionTypeBuilder(type.registry);\n             for (JSType alt : unionType.getAlternates()) {\n                 if (!alt.isNoResolvedType()) {\n                     builder.addAlternate(alt);\n                 }\n             }\n             return builder.build();\n         }\n     }\n     return type;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "043a352c2e85815a90a1926d112902d924bab6c1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nWhen we can\u0027t find a forward-declared type,\nthat type should resolve to an empty type.\nThis ensures that if someone tries to pass a param or return\nvalue to it, they get a type warning.\nTry #3\n!!!\n\nR\u003djohnlenz\nDELTA\u003d534  (451 added, 37 deleted, 46 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d362\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@731 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/26/11, 8:30 AM",
+      "commitName": "043a352c2e85815a90a1926d112902d924bab6c1",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,24 @@\n+static JSType filterNoResolvedType(JSType type) {\n+    if (type.isNoResolvedType()) {\n+        return type.getNativeType(JSTypeNative.NO_RESOLVED_TYPE);\n+    } else if (type instanceof UnionType) {\n+        UnionType unionType \u003d (UnionType) type;\n+        boolean needsFiltering \u003d false;\n+        for (JSType alt : unionType.getAlternates()) {\n+            if (alt.isNoResolvedType()) {\n+                needsFiltering \u003d true;\n+                break;\n+            }\n+        }\n+        if (needsFiltering) {\n+            UnionTypeBuilder builder \u003d new UnionTypeBuilder(type.registry);\n+            for (JSType alt : unionType.getAlternates()) {\n+                if (!alt.isNoResolvedType()) {\n+                    builder.addAlternate(alt);\n+                }\n+            }\n+            return builder.build();\n+        }\n+    }\n+    return type;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static JSType filterNoResolvedType(JSType type) {\n    if (type.isNoResolvedType()) {\n        return type.getNativeType(JSTypeNative.NO_RESOLVED_TYPE);\n    } else if (type instanceof UnionType) {\n        UnionType unionType \u003d (UnionType) type;\n        boolean needsFiltering \u003d false;\n        for (JSType alt : unionType.getAlternates()) {\n            if (alt.isNoResolvedType()) {\n                needsFiltering \u003d true;\n                break;\n            }\n        }\n        if (needsFiltering) {\n            UnionTypeBuilder builder \u003d new UnionTypeBuilder(type.registry);\n            for (JSType alt : unionType.getAlternates()) {\n                if (!alt.isNoResolvedType()) {\n                    builder.addAlternate(alt);\n                }\n            }\n            return builder.build();\n        }\n    }\n    return type;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 659,
+      "functionName": "filterNoResolvedType",
+      "functionAnnotation": "",
+      "functionDoc": "When computing infimums, we may get a situation like\ninf(Type1, Type2)\nwhere both types are unresolved, so they\u0027re technically\nsubtypes of one another.\n\nIf this happens, filter them down to NoResolvedType.\n"
+    }
+  }
+}

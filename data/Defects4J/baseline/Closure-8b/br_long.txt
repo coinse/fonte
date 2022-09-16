@@ -1,0 +1,38 @@
+The Closure Compiler is a great tool, but I'm having problems with it. It often produces code that triggers TypeError in Firefox, even though original code does not. Here is why. The original code may look as follows:
+
+function(argument){
+...//use argument
+var variable = ...;
+...//argument not used anymore
+}
+
+But often Closure Compiler will translate it to:
+function(a){
+...
+var a = ...;
+...
+}
+
+This is not wrong JS, since argument is no longer used, Closure Compiler tries to reuse the name 'a' for something else.
+
+This triggers the following in Firefox 13-15:
+TypeError: variable a re-declares argument
+
+Still, the resulting code is correct and runs, but it's very annoying debugging it when I'm getting all the time a lot of TypeErrors in the console.
+
+Also, our customers have noticed these TypeErrors when testing the product and it undermines our code reliability.
+
+Could you please rename variables in such a way as to avoid these TypeErrors (not to rename vars in a way that will coincide with function argument names)?
+
+<b>What steps will reproduce the problem?</b>
+This happens reproducibly on our real-life JS input, which I cannot submit for various reasons. If my problem description is not clear enough, please make a comment and I will try to construct some artificial example that also triggers the TypeError.
+
+<b>What is the expected output? What do you see instead?</b>
+The expected output is obfuscated code with variables renamed to unique names, in order not to trigger TypeError in Firefox. Instead I see variables renamed to the same name, which runs OK, but Firefox complains with TypeError.
+
+<b>What version of the product are you using? On what operating system?</b>
+Closure Compiler (http://code.google.com/closure/compiler)
+Version: 20120917 (revision 2180)
+Built on: 2012/09/17 14:33
+
+<b>Please provide any additional information below.</b>

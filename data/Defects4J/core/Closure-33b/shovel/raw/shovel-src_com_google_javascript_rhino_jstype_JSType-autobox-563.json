@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "autobox",
+  "functionId": "autobox",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Dereference a type for property access.\n\nAutoboxes the type, and filters null/undefined, and returns the result.\n",
+  "functionStartLine": 563,
+  "functionEndLine": 567,
+  "numCommitsSeen": 54,
+  "timeTaken": 1552,
+  "changeHistory": [
+    "a69d5521ba50a1952682ab53bb0f1a1288314e8a"
+  ],
+  "changeHistoryShort": {
+    "a69d5521ba50a1952682ab53bb0f1a1288314e8a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a69d5521ba50a1952682ab53bb0f1a1288314e8a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nbetter property checks on union types\n\nR\u003djohnlenz\nDELTA\u003d90  (68 added, 2 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3236\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1427 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/12/11, 7:22 AM",
+      "commitName": "a69d5521ba50a1952682ab53bb0f1a1288314e8a",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+public JSType autobox() {\n+    JSType restricted \u003d restrictByNotNullOrUndefined();\n+    JSType autobox \u003d restricted.autoboxesTo();\n+    return autobox \u003d\u003d null ? restricted : autobox;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JSType autobox() {\n    JSType restricted \u003d restrictByNotNullOrUndefined();\n    JSType autobox \u003d restricted.autoboxesTo();\n    return autobox \u003d\u003d null ? restricted : autobox;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 548,
+      "functionName": "autobox",
+      "functionAnnotation": "",
+      "functionDoc": "Dereference a type for property access.\n\nAutoboxes the type, and filters null/undefined, and returns the result.\n"
+    }
+  }
+}

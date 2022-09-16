@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MinimizeExitPoints.java",
+  "functionName": "matchingExitNode",
+  "functionId": "matchingExitNode___n-Node__type-int__labelName-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MinimizeExitPoints.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines if n matches the type and name for the following types of\n\"exits\":\n   - return without values\n   - continues and breaks with or without names.\n\n@param n The node to inspect.\n@param type The Token type to look for.\n@param labelName The name that must be associated with the exit type.\n@nullable labelName non-null only for breaks associated with labels.\n@return Whether the node matches the specified block-exit type.\n",
+  "functionStartLine": 283,
+  "functionEndLine": 298,
+  "numCommitsSeen": 9,
+  "timeTaken": 491,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private static boolean matchingExitNode(Node n, int type, String labelName) {\n+    if (n.getType() \u003d\u003d type) {\n+        if (type \u003d\u003d Token.RETURN) {\n+            return !n.hasChildren();\n+        } else {\n+            if (labelName \u003d\u003d null) {\n+                return !n.hasChildren();\n+            } else {\n+                return n.hasChildren() \u0026\u0026 labelName.equals(n.getFirstChild().getString());\n+            }\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean matchingExitNode(Node n, int type, String labelName) {\n    if (n.getType() \u003d\u003d type) {\n        if (type \u003d\u003d Token.RETURN) {\n            return !n.hasChildren();\n        } else {\n            if (labelName \u003d\u003d null) {\n                return !n.hasChildren();\n            } else {\n                return n.hasChildren() \u0026\u0026 labelName.equals(n.getFirstChild().getString());\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/MinimizeExitPoints.java",
+      "functionStartLine": 284,
+      "functionName": "matchingExitNode",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if n matches the type and name for the following types of\n\"exits\":\n   - return without values\n   - continues and breaks with or without names.\n\n@param n The node to inspect.\n@param type The Token type to look for.\n@param labelName The name that must be associated with the exit type.\n@nullable labelName non-null only for breaks associated with labels.\n@return Whether the node matches the specified block-exit type.\n"
+    }
+  }
+}

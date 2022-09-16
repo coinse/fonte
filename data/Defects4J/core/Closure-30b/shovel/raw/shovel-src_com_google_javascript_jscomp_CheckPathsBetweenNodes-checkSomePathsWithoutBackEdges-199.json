@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CheckPathsBetweenNodes.java",
+  "functionName": "checkSomePathsWithoutBackEdges",
+  "functionId": "checkSomePathsWithoutBackEdges___a-DiGraphNode__N,E____b-DiGraphNode__N,E__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java",
+  "functionAnnotation": "",
+  "functionDoc": "Verify that some non-looping paths from {@code a} to {@code b} pass\nthrough at least one node where {@code nodePredicate} is true.\n",
+  "functionStartLine": 199,
+  "functionEndLine": 229,
+  "numCommitsSeen": 12,
+  "timeTaken": 884,
+  "changeHistory": [
+    "1c438ecc7aabda089f109a9b7d51295439570615",
+    "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567"
+  ],
+  "changeHistoryShort": {
+    "1c438ecc7aabda089f109a9b7d51295439570615": "Ybodychange",
+    "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1c438ecc7aabda089f109a9b7d51295439570615": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAvoid unneccessary revisits in CheckPathsBetweenNodes\n\nR\u003dnicksantos\nDELTA\u003d62  (62 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d642\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@811 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/23/11, 1:04 AM",
+      "commitName": "1c438ecc7aabda089f109a9b7d51295439570615",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "11/11/10, 9:42 PM",
+      "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 103.14,
+      "commitsBetweenForRepo": 254,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean checkSomePathsWithoutBackEdges(DiGraphNode\u003cN, E\u003e a, DiGraphNode\u003cN, E\u003e b) {\n    if (nodePredicate.apply(a.getValue()) \u0026\u0026 (inclusive || (a !\u003d start \u0026\u0026 a !\u003d end))) {\n        return true;\n    }\n    if (a \u003d\u003d b) {\n        return false;\n    }\n    for (DiGraphEdge\u003cN, E\u003e e : a.getOutEdges()) {\n        if (e.getAnnotation() \u003d\u003d VISITED_EDGE) {\n            continue;\n        }\n        e.setAnnotation(VISITED_EDGE);\n        if (ignoreEdge(e)) {\n            continue;\n        }\n        if (e.getAnnotation() \u003d\u003d BACK_EDGE) {\n            continue;\n        }\n        DiGraphNode\u003cN, E\u003e next \u003d e.getDestination();\n        if (checkSomePathsWithoutBackEdges(next, b)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java",
+      "functionStartLine": 199,
+      "functionName": "checkSomePathsWithoutBackEdges",
+      "functionAnnotation": "",
+      "functionDoc": "Verify that some non-looping paths from {@code a} to {@code b} pass\nthrough at least one node where {@code nodePredicate} is true.\n",
+      "diff": "@@ -1,21 +1,25 @@\n private boolean checkSomePathsWithoutBackEdges(DiGraphNode\u003cN, E\u003e a, DiGraphNode\u003cN, E\u003e b) {\n     if (nodePredicate.apply(a.getValue()) \u0026\u0026 (inclusive || (a !\u003d start \u0026\u0026 a !\u003d end))) {\n         return true;\n     }\n     if (a \u003d\u003d b) {\n         return false;\n     }\n     for (DiGraphEdge\u003cN, E\u003e e : a.getOutEdges()) {\n+        if (e.getAnnotation() \u003d\u003d VISITED_EDGE) {\n+            continue;\n+        }\n+        e.setAnnotation(VISITED_EDGE);\n         if (ignoreEdge(e)) {\n             continue;\n         }\n         if (e.getAnnotation() \u003d\u003d BACK_EDGE) {\n             continue;\n         }\n         DiGraphNode\u003cN, E\u003e next \u003d e.getDestination();\n         if (checkSomePathsWithoutBackEdges(next, b)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567": {
+      "type": "Yintroduced",
+      "commitMessage": "Enhancement to CheckPathBetweenNodes. This is needed to fix a bug in variable inlining. (Alan)\nR\u003drobert\nDELTA\u003d164  (145 added, 8 deleted, 11 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@158 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/26/10, 3:22 PM",
+      "commitName": "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,21 @@\n+private boolean checkSomePathsWithoutBackEdges(DiGraphNode\u003cN, E\u003e a, DiGraphNode\u003cN, E\u003e b) {\n+    if (nodePredicate.apply(a.getValue()) \u0026\u0026 (inclusive || (a !\u003d start \u0026\u0026 a !\u003d end))) {\n+        return true;\n+    }\n+    if (a \u003d\u003d b) {\n+        return false;\n+    }\n+    for (DiGraphEdge\u003cN, E\u003e e : a.getOutEdges()) {\n+        if (ignoreEdge(e)) {\n+            continue;\n+        }\n+        if (e.getAnnotation() \u003d\u003d BACK_EDGE) {\n+            continue;\n+        }\n+        DiGraphNode\u003cN, E\u003e next \u003d e.getDestination();\n+        if (checkSomePathsWithoutBackEdges(next, b)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean checkSomePathsWithoutBackEdges(DiGraphNode\u003cN, E\u003e a, DiGraphNode\u003cN, E\u003e b) {\n    if (nodePredicate.apply(a.getValue()) \u0026\u0026 (inclusive || (a !\u003d start \u0026\u0026 a !\u003d end))) {\n        return true;\n    }\n    if (a \u003d\u003d b) {\n        return false;\n    }\n    for (DiGraphEdge\u003cN, E\u003e e : a.getOutEdges()) {\n        if (ignoreEdge(e)) {\n            continue;\n        }\n        if (e.getAnnotation() \u003d\u003d BACK_EDGE) {\n            continue;\n        }\n        DiGraphNode\u003cN, E\u003e next \u003d e.getDestination();\n        if (checkSomePathsWithoutBackEdges(next, b)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java",
+      "functionStartLine": 191,
+      "functionName": "checkSomePathsWithoutBackEdges",
+      "functionAnnotation": "",
+      "functionDoc": "Verify that some non-looping paths from {@code a} to {@code b} pass\nthrough at least one node where {@code nodePredicate} is true.\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "getLeastSupertype",
+  "functionId": "getLeastSupertype___that-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the least supertype of {@code this} and {@code that}.\nThe least supertype is the join (\u0026#8744;) or supremum of both types in the\ntype lattice.\u003cp\u003e\nExamples:\n\u003cul\u003e\n\u003cli\u003e{@code number \u0026#8744; *} \u003d {@code *}\u003c/li\u003e\n\u003cli\u003e{@code number \u0026#8744; Object} \u003d {@code (number, Object)}\u003c/li\u003e\n\u003cli\u003e{@code Number \u0026#8744; Object} \u003d {@code Object}\u003c/li\u003e\n\u003c/ul\u003e\n\n@return @code this \u0026#8744; that}\n",
+  "functionStartLine": 683,
+  "functionEndLine": 689,
+  "numCommitsSeen": 54,
+  "timeTaken": 1654,
+  "changeHistory": [
+    "7dc66e4ee2b0a306b71b1fd7f95602209671bc83",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "7dc66e4ee2b0a306b71b1fd7f95602209671bc83": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7dc66e4ee2b0a306b71b1fd7f95602209671bc83": {
+      "type": "Ybodychange",
+      "commitMessage": "\nfix an infinite loop caused by the new proxy-boxing api\n\nR\u003djohnlenz\nDELTA\u003d70  (65 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3250\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1439 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/13/11, 12:26 PM",
+      "commitName": "7dc66e4ee2b0a306b71b1fd7f95602209671bc83",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "9/12/11, 7:22 AM",
+      "commitNameOld": "a69d5521ba50a1952682ab53bb0f1a1288314e8a",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 1.21,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JSType getLeastSupertype(JSType that) {\n    if (that.isUnionType()) {\n        return that.toMaybeUnionType().getLeastSupertype(this);\n    }\n    return getLeastSupertype(this, that);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 661,
+      "functionName": "getLeastSupertype",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the least supertype of {@code this} and {@code that}.\nThe least supertype is the join (\u0026#8744;) or supremum of both types in the\ntype lattice.\u003cp\u003e\nExamples:\n\u003cul\u003e\n\u003cli\u003e{@code number \u0026#8744; *} \u003d {@code *}\u003c/li\u003e\n\u003cli\u003e{@code number \u0026#8744; Object} \u003d {@code (number, Object)}\u003c/li\u003e\n\u003cli\u003e{@code Number \u0026#8744; Object} \u003d {@code Object}\u003c/li\u003e\n\u003c/ul\u003e\n\n@return @code this \u0026#8744; that}\n",
+      "diff": "@@ -1,6 +1,6 @@\n public JSType getLeastSupertype(JSType that) {\n     if (that.isUnionType()) {\n-        return that.getLeastSupertype(this);\n+        return that.toMaybeUnionType().getLeastSupertype(this);\n     }\n     return getLeastSupertype(this, that);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,6 @@\n+public JSType getLeastSupertype(JSType that) {\n+    if (that.isUnionType()) {\n+        return that.getLeastSupertype(this);\n+    }\n+    return getLeastSupertype(this, that);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JSType getLeastSupertype(JSType that) {\n    if (that.isUnionType()) {\n        return that.getLeastSupertype(this);\n    }\n    return getLeastSupertype(this, that);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 525,
+      "functionName": "getLeastSupertype",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the least supertype of {@code this} and {@code that}.\nThe least supertype is the join (\u0026#8744;) or supremum of both types in the\ntype lattice.\u003cp\u003e\nExamples:\n\u003cul\u003e\n\u003cli\u003e{@code number \u0026#8744; *} \u003d {@code *}\u003c/li\u003e\n\u003cli\u003e{@code number \u0026#8744; Object} \u003d {@code (number, Object)}\u003c/li\u003e\n\u003cli\u003e{@code Number \u0026#8744; Object} \u003d {@code Object}\u003c/li\u003e\n\u003c/ul\u003e\n\n@return @code this \u0026#8744; that}\n"
+    }
+  }
+}

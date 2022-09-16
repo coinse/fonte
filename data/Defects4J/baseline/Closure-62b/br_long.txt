@@ -1,0 +1,38 @@
+For some reason, the caret doesn't always show up in the output when there are errors.
+
+When test.js looks like this:
+
+
+&gt;alert(1;
+
+
+, the output is this:
+
+
+&gt;java -jar compiler.jar --js test.js
+test.js:1: ERROR - Parse error. missing ) after argument list
+
+1 error(s), 0 warning(s)
+
+
+However, when test.js looks like this (notice the line break after the semicolon):
+
+
+&gt;alert(1;
+&gt;
+
+
+, the output is this:
+
+
+&gt;java -jar compiler.jar --js test.js
+test.js:1: ERROR - Parse error. missing ) after argument list
+alert(1;
+        ^
+
+1 error(s), 0 warning(s)
+
+
+That's the simplest reproduction of the problem that I could come up with, but I just encountered the problem in a file with ~100 LOC in it. This is the first time I believe I've run into the problem, but when it happens, my error parser fails and it becomes a pain to track down the raw output to find the actual problem.
+
+Tested against r1171, committed 6/10 08:06. The problem is present going back to at least r1000, so this isn't a new issue.

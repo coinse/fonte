@@ -1,0 +1,16 @@
+NullPointerException defect in ChecksumCalculatingInputStream#getValue() detected as stated in pull request 33: https://github.com/apache/commons-compress/pull/33
+
+Furthermore the following test describes the problem:
+
+{code:java}
+    @Test(expected = NullPointerException.class) //I assume this behaviour to be a bug or at least a defect.
+    public void testGetValueThrowsNullPointerException() {
+
+        ChecksumCalculatingInputStream checksumCalculatingInputStream = new ChecksumCalculatingInputStream(null,null);
+
+        checksumCalculatingInputStream.getValue();
+
+
+    }
+{code}
+

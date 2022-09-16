@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-60b",
+  "repositoryPath": "/tmp/Lang-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StrBuilder.java",
+  "functionName": "contains",
+  "functionId": "contains___ch-char",
+  "sourceFilePath": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Checks if the string builder contains the specified char.\n\n@param ch the character to find\n@return true if the builder contains the character\n",
+  "functionStartLine": 1671,
+  "functionEndLine": 1679,
+  "numCommitsSeen": 45,
+  "timeTaken": 2902,
+  "changeHistory": [
+    "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b"
+  ],
+  "changeHistoryShort": {
+    "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d": "Ydocchange",
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8": "Ybodychange",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d": {
+      "type": "Ydocchange",
+      "commitMessage": "Add StrMatcher and update StrBuilder and test cases to use it, plus fix other bugs\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232652 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/14/05, 2:45 PM",
+      "commitName": "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/10/05, 2:22 PM",
+      "commitNameOld": "72b0971a40eb02851b88c1de5c4ae8052a38cbbe",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 4.02,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean contains(char ch) {\n    char[] thisBuf \u003d buffer;\n    for (int i \u003d 0; i \u003c thisBuf.length; i++) {\n        if (thisBuf[i] \u003d\u003d ch) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 1585,
+      "functionName": "contains",
+      "functionAnnotation": "",
+      "functionDoc": "Checks if the string builder contains the specified char.\n\n@param ch the character to find\n@return true if the builder contains the character\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Checks of the string builder contains the specified char.\n\n@param ch the character to find\n@return true if the builder contains the character\n",
+        "newValue": "Checks if the string builder contains the specified char.\n\n@param ch the character to find\n@return true if the builder contains the character\n"
+      }
+    },
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8": {
+      "type": "Ybodychange",
+      "commitMessage": "Use the name \"buffer\", not \"buf\".\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@227240 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/3/05, 11:02 AM",
+      "commitName": "dc03d7c8f81fa7933a095e65860078c1e0c595b8",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "8/3/05, 11:00 AM",
+      "commitNameOld": "57696acf0979b0d3a6e69639c14acda8b01ded28",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean contains(char ch) {\n    char[] thisBuf \u003d buffer;\n    for (int i \u003d 0; i \u003c thisBuf.length; i++) {\n        if (thisBuf[i] \u003d\u003d ch) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 1280,
+      "functionName": "contains",
+      "functionAnnotation": "",
+      "functionDoc": "Checks of the string builder contains the specified char.\n\n@param ch the character to find\n@return true if the builder contains the character\n",
+      "diff": "@@ -1,9 +1,9 @@\n public boolean contains(char ch) {\n-    char[] thisBuf \u003d buf;\n+    char[] thisBuf \u003d buffer;\n     for (int i \u003d 0; i \u003c thisBuf.length; i++) {\n         if (thisBuf[i] \u003d\u003d ch) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": {
+      "type": "Yintroduced",
+      "commitMessage": "Add initial version of StrBuilder, currently without any tests\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137978 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/16/04, 8:09 AM",
+      "commitName": "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean contains(char ch) {\n+    char[] thisBuf \u003d buf;\n+    for (int i \u003d 0; i \u003c thisBuf.length; i++) {\n+        if (thisBuf[i] \u003d\u003d ch) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean contains(char ch) {\n    char[] thisBuf \u003d buf;\n    for (int i \u003d 0; i \u003c thisBuf.length; i++) {\n        if (thisBuf[i] \u003d\u003d ch) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 1200,
+      "functionName": "contains",
+      "functionAnnotation": "",
+      "functionDoc": "Checks of the string builder contains the specified char.\n\n@param ch the character to find\n@return true if the builder contains the character\n"
+    }
+  }
+}

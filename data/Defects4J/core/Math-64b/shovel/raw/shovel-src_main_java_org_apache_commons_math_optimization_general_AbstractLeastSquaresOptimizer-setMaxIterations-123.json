@@ -1,0 +1,144 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-64b",
+  "repositoryPath": "/tmp/Math-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractLeastSquaresOptimizer.java",
+  "functionName": "setMaxIterations",
+  "functionId": "setMaxIterations___maxIterations-int",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+  "functionAnnotation": "",
+  "functionDoc": "@inheritDoc}\n",
+  "functionStartLine": 123,
+  "functionEndLine": 125,
+  "numCommitsSeen": 23,
+  "timeTaken": 1152,
+  "changeHistory": [
+    "d6a438e931412713e99624cf9ed74470f1040184",
+    "a7faf40b61f445d15d9a210b23fa0008b87e25e2",
+    "8cb418e7fa50aba9977fe073aec66ad3f6e4f07c"
+  ],
+  "changeHistoryShort": {
+    "d6a438e931412713e99624cf9ed74470f1040184": "Yfilerename",
+    "a7faf40b61f445d15d9a210b23fa0008b87e25e2": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+    "8cb418e7fa50aba9977fe073aec66ad3f6e4f07c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d6a438e931412713e99624cf9ed74470f1040184": {
+      "type": "Yfilerename",
+      "commitMessage": "moved main java directory for compliance with maven standard directory layout\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@799870 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/09, 7:30 AM",
+      "commitName": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/09, 7:23 AM",
+      "commitNameOld": "2ad5ef61630be627f46ae1c266cf796f044bd4a8",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void setMaxIterations(int maxIterations) {\n    this.maxIterations \u003d maxIterations;\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+      "functionStartLine": 116,
+      "functionName": "setMaxIterations",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+        "newPath": "src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java"
+      }
+    },
+    "a7faf40b61f445d15d9a210b23fa0008b87e25e2": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+      "commitMessage": "separated iteration counter from function evaluation counters,\nsome optimizers are based on gradient/jacobian only and cannot\nreliably be protected by monitoring the objective function calls.\n\nWe now have two or three counters for each algorithm:\n - iteration counter, which is checked against a max allowance\n   to prevent infinite loops if no convergence is reached\n - objective function evaluations, for user information only\n - objective function gradient/jacobian if the function is\n   differentiable, for user information only\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@757181 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/22/09, 6:00 AM",
+      "commitName": "a7faf40b61f445d15d9a210b23fa0008b87e25e2",
+      "commitAuthor": "Luc Maisonobe",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "separated iteration counter from function evaluation counters,\nsome optimizers are based on gradient/jacobian only and cannot\nreliably be protected by monitoring the objective function calls.\n\nWe now have two or three counters for each algorithm:\n - iteration counter, which is checked against a max allowance\n   to prevent infinite loops if no convergence is reached\n - objective function evaluations, for user information only\n - objective function gradient/jacobian if the function is\n   differentiable, for user information only\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@757181 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "3/22/09, 6:00 AM",
+          "commitName": "a7faf40b61f445d15d9a210b23fa0008b87e25e2",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "3/15/09, 2:35 PM",
+          "commitNameOld": "513511976ddc778f7c52d69bf43db3c3f4b88803",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 6.64,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void setMaxIterations(int maxIterations) {\n    this.maxIterations \u003d maxIterations;\n}",
+          "path": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+          "functionStartLine": 110,
+          "functionName": "setMaxIterations",
+          "functionAnnotation": "",
+          "functionDoc": "@inheritDoc}\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public void setMaxEvaluations(int maxEvaluations) {\n-    this.maxEvaluations \u003d maxEvaluations;\n+public void setMaxIterations(int maxIterations) {\n+    this.maxIterations \u003d maxIterations;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "setMaxEvaluations",
+            "newValue": "setMaxIterations"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "separated iteration counter from function evaluation counters,\nsome optimizers are based on gradient/jacobian only and cannot\nreliably be protected by monitoring the objective function calls.\n\nWe now have two or three counters for each algorithm:\n - iteration counter, which is checked against a max allowance\n   to prevent infinite loops if no convergence is reached\n - objective function evaluations, for user information only\n - objective function gradient/jacobian if the function is\n   differentiable, for user information only\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@757181 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "3/22/09, 6:00 AM",
+          "commitName": "a7faf40b61f445d15d9a210b23fa0008b87e25e2",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "3/15/09, 2:35 PM",
+          "commitNameOld": "513511976ddc778f7c52d69bf43db3c3f4b88803",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 6.64,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void setMaxIterations(int maxIterations) {\n    this.maxIterations \u003d maxIterations;\n}",
+          "path": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+          "functionStartLine": 110,
+          "functionName": "setMaxIterations",
+          "functionAnnotation": "",
+          "functionDoc": "@inheritDoc}\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public void setMaxEvaluations(int maxEvaluations) {\n-    this.maxEvaluations \u003d maxEvaluations;\n+public void setMaxIterations(int maxIterations) {\n+    this.maxIterations \u003d maxIterations;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[maxEvaluations-int]",
+            "newValue": "[maxIterations-int]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "separated iteration counter from function evaluation counters,\nsome optimizers are based on gradient/jacobian only and cannot\nreliably be protected by monitoring the objective function calls.\n\nWe now have two or three counters for each algorithm:\n - iteration counter, which is checked against a max allowance\n   to prevent infinite loops if no convergence is reached\n - objective function evaluations, for user information only\n - objective function gradient/jacobian if the function is\n   differentiable, for user information only\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@757181 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "3/22/09, 6:00 AM",
+          "commitName": "a7faf40b61f445d15d9a210b23fa0008b87e25e2",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "3/15/09, 2:35 PM",
+          "commitNameOld": "513511976ddc778f7c52d69bf43db3c3f4b88803",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 6.64,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void setMaxIterations(int maxIterations) {\n    this.maxIterations \u003d maxIterations;\n}",
+          "path": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+          "functionStartLine": 110,
+          "functionName": "setMaxIterations",
+          "functionAnnotation": "",
+          "functionDoc": "@inheritDoc}\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public void setMaxEvaluations(int maxEvaluations) {\n-    this.maxEvaluations \u003d maxEvaluations;\n+public void setMaxIterations(int maxIterations) {\n+    this.maxIterations \u003d maxIterations;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "8cb418e7fa50aba9977fe073aec66ad3f6e4f07c": {
+      "type": "Yintroduced",
+      "commitMessage": "adapted the Gauss-Newton optimizer to the new top-level optimization interfaces\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@754500 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/14/09, 10:38 AM",
+      "commitName": "8cb418e7fa50aba9977fe073aec66ad3f6e4f07c",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,3 @@\n+public void setMaxEvaluations(int maxEvaluations) {\n+    this.maxEvaluations \u003d maxEvaluations;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void setMaxEvaluations(int maxEvaluations) {\n    this.maxEvaluations \u003d maxEvaluations;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+      "functionStartLine": 103,
+      "functionName": "setMaxEvaluations",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n"
+    }
+  }
+}

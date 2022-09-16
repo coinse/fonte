@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-60b",
+  "repositoryPath": "/tmp/Math-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "split",
+  "functionId": "split___d-double(modifiers-final)__split-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute split[0], split[1] such that their sum is equal to d,\nand split[0] has its 30 least significant bits as zero.\n\n@param d number to split\n@param split placeholder where to place the result\n",
+  "functionStartLine": 944,
+  "functionEndLine": 954,
+  "numCommitsSeen": 6,
+  "timeTaken": 10197,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,11 @@\n+private static void split(final double d, final double[] split) {\n+    if (d \u003c 8e298 \u0026\u0026 d \u003e -8e298) {\n+        final double a \u003d d * 1073741824.0;\n+        split[0] \u003d (d + a) - a;\n+        split[1] \u003d d - split[0];\n+    } else {\n+        final double a \u003d d * 9.31322574615478515625E-10;\n+        split[0] \u003d (d + a - d) * 1073741824.0;\n+        split[1] \u003d d - split[0];\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void split(final double d, final double[] split) {\n    if (d \u003c 8e298 \u0026\u0026 d \u003e -8e298) {\n        final double a \u003d d * 1073741824.0;\n        split[0] \u003d (d + a) - a;\n        split[1] \u003d d - split[0];\n    } else {\n        final double a \u003d d * 9.31322574615478515625E-10;\n        split[0] \u003d (d + a - d) * 1073741824.0;\n        split[1] \u003d d - split[0];\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 722,
+      "functionName": "split",
+      "functionAnnotation": "",
+      "functionDoc": "Compute split[0], split[1] such that their sum is equal to d,\nand split[0] has its 30 least significant bits as zero.\n\n@param d number to split\n@param split placeholder where to place the result\n"
+    }
+  }
+}

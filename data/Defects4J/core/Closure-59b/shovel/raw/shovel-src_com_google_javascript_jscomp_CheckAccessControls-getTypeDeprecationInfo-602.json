@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CheckAccessControls.java",
+  "functionName": "getTypeDeprecationInfo",
+  "functionId": "getTypeDeprecationInfo___type-JSType",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CheckAccessControls.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the deprecation reason for the type if it is marked\nas being deprecated. Returns empty string if the type is deprecated\nbut no reason was given. Returns null if the type is not deprecated.\n",
+  "functionStartLine": 602,
+  "functionEndLine": 622,
+  "numCommitsSeen": 14,
+  "timeTaken": 654,
+  "changeHistory": [
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": {
+      "type": "Ybodychange",
+      "commitMessage": "Add warnings for functions that are ambiguously defined on different\nbrowsers.\n\nAdd better support for Caja.\n\nRollback the change to CoalesceVariableNames, because it had problems.\n\nInternal type system refactoring.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@33 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/15/09, 1:52 PM",
+      "commitName": "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "11/3/09, 3:51 PM",
+      "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 41.92,
+      "commitsBetweenForRepo": 23,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static String getTypeDeprecationInfo(JSType type) {\n    if (type \u003d\u003d null) {\n        return null;\n    }\n    JSDocInfo info \u003d type.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.isDeprecated()) {\n        if (info.getDeprecationReason() !\u003d null) {\n            return info.getDeprecationReason();\n        }\n        return \"\";\n    }\n    ObjectType objType \u003d ObjectType.cast(type);\n    if (objType !\u003d null) {\n        ObjectType implicitProto \u003d objType.getImplicitPrototype();\n        if (implicitProto !\u003d null) {\n            return getTypeDeprecationInfo(implicitProto);\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/CheckAccessControls.java",
+      "functionStartLine": 522,
+      "functionName": "getTypeDeprecationInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the deprecation reason for the type if it is marked\nas being deprecated. Returns empty string if the type is deprecated\nbut no reason was given. Returns null if the type is not deprecated.\n",
+      "diff": "@@ -1,19 +1,20 @@\n private static String getTypeDeprecationInfo(JSType type) {\n     if (type \u003d\u003d null) {\n         return null;\n     }\n     JSDocInfo info \u003d type.getJSDocInfo();\n     if (info !\u003d null \u0026\u0026 info.isDeprecated()) {\n         if (info.getDeprecationReason() !\u003d null) {\n             return info.getDeprecationReason();\n         }\n         return \"\";\n     }\n-    if (type instanceof ObjectType) {\n-        ObjectType implicitProto \u003d ((ObjectType) type).getImplicitPrototype();\n+    ObjectType objType \u003d ObjectType.cast(type);\n+    if (objType !\u003d null) {\n+        ObjectType implicitProto \u003d objType.getImplicitPrototype();\n         if (implicitProto !\u003d null) {\n             return getTypeDeprecationInfo(implicitProto);\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+private static String getTypeDeprecationInfo(JSType type) {\n+    if (type \u003d\u003d null) {\n+        return null;\n+    }\n+    JSDocInfo info \u003d type.getJSDocInfo();\n+    if (info !\u003d null \u0026\u0026 info.isDeprecated()) {\n+        if (info.getDeprecationReason() !\u003d null) {\n+            return info.getDeprecationReason();\n+        }\n+        return \"\";\n+    }\n+    if (type instanceof ObjectType) {\n+        ObjectType implicitProto \u003d ((ObjectType) type).getImplicitPrototype();\n+        if (implicitProto !\u003d null) {\n+            return getTypeDeprecationInfo(implicitProto);\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static String getTypeDeprecationInfo(JSType type) {\n    if (type \u003d\u003d null) {\n        return null;\n    }\n    JSDocInfo info \u003d type.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.isDeprecated()) {\n        if (info.getDeprecationReason() !\u003d null) {\n            return info.getDeprecationReason();\n        }\n        return \"\";\n    }\n    if (type instanceof ObjectType) {\n        ObjectType implicitProto \u003d ((ObjectType) type).getImplicitPrototype();\n        if (implicitProto !\u003d null) {\n            return getTypeDeprecationInfo(implicitProto);\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/CheckAccessControls.java",
+      "functionStartLine": 526,
+      "functionName": "getTypeDeprecationInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the deprecation reason for the type if it is marked\nas being deprecated. Returns empty string if the type is deprecated\nbut no reason was given. Returns null if the type is not deprecated.\n"
+    }
+  }
+}

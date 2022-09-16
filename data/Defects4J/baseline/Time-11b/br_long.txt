@@ -1,0 +1,53 @@
+When a DateTimeZone is build with duplicate-named 'recurring saving time' in a first thread, all goes Ok: a warning message is generated and an identifier is automatically generated in PrecalculatedZone.create(). When a second thread does the same, an NPE is generated in ZoneInfoCompiler.verbose().
+
+The cause is that the cVerbose ThreadLocal is incorrectly initialized in ZoneInfoCompiler:
+
+``` java
+   static {
+        cVerbose.set(Boolean.FALSE);
+    }
+```
+
+...will initialize cVerbose only for the first thread and not for the subsequent ones. The NPE is caused by the autoboxing in:
+
+``` java
+   public static boolean verbose() {
+        return cVerbose.get();
+    }
+```
+
+A better approach could be to remove the initialization and test for null:
+
+``` java
+public static boolean verbose(){
+    Boolean verbose = cVerbose.get();
+    return (verbose != null) ? verbose : false;
+}
+```
+
+---
+
+Here follows a test case:
+
+``` java
+    @Test
+    public void testDateTimeZoneBuilder() throws Exception {
+        getTestDataTimeZoneBuilder().toDateTimeZone("TestDTZ1", true);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getTestDataTimeZoneBuilder().toDateTimeZone("TestDTZ2", true);
+            }
+        });
+        t.start();
+        t.join();
+    }
+
+    private DateTimeZoneBuilder getTestDataTimeZoneBuilder() {
+         return new DateTimeZoneBuilder()
+         .addCutover(1601, 'w', 1, 1, 1, false, 7200000)
+         .setStandardOffset(3600000)
+         .addRecurringSavings("", 3600000, 1601, Integer.MAX_VALUE, 'w', 3, -1, 1, false, 7200000)
+         .addRecurringSavings("", 0, 1601, Integer.MAX_VALUE, 'w', 10, -1, 1, false, 10800000);
+    }
+```

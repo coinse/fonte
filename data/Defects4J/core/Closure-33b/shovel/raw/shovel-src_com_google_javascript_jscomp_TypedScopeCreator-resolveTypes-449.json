@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "resolveTypes",
+  "functionId": "$resolveTypes",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 449,
+  "functionEndLine": 464,
+  "numCommitsSeen": 90,
+  "timeTaken": 7609,
+  "changeHistory": [
+    "5da32cba7b68d69acfc535f57f21d652475d256f"
+  ],
+  "changeHistoryShort": {
+    "5da32cba7b68d69acfc535f57f21d652475d256f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5da32cba7b68d69acfc535f57f21d652475d256f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/04/19 by anatol\n\n        Replace {@inheritDoc} javadoc annotation with @Override.\n        @Override is better as it implies documentation inheritance plus checks\n        that the parent method exists at the compile-time.\n\n        R\u003dnick\n        DELTA\u003d137  (0 added, 70 deleted, 67 changed)\n\nChange on 2010/04/19 by nick\n\n        Change how we resolve types.\n        Instead of leaving shell proxy types around, unbox the proxy types.\n\n        R\u003dandrew,john\n        DELTA\u003d103  (84 added, 5 deleted, 14 changed)\n\nChange on 2010/04/19 by acleung\n\n        Enable Flow Sensitive Inlining by default.\n\n        R\u003djohn\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dpqvliw\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@191 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/19/10, 4:28 PM",
+      "commitName": "5da32cba7b68d69acfc535f57f21d652475d256f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,10 @@\n+void resolveTypes() {\n+    for (DeferredSetType deferred : deferredSetTypes) {\n+        deferred.resolve(scope);\n+    }\n+    Iterator\u003cVar\u003e vars \u003d scope.getVars();\n+    while (vars.hasNext()) {\n+        vars.next().resolveType(typeParsingErrorReporter);\n+    }\n+    typeRegistry.resolveTypesInScope(scope);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void resolveTypes() {\n    for (DeferredSetType deferred : deferredSetTypes) {\n        deferred.resolve(scope);\n    }\n    Iterator\u003cVar\u003e vars \u003d scope.getVars();\n    while (vars.hasNext()) {\n        vars.next().resolveType(typeParsingErrorReporter);\n    }\n    typeRegistry.resolveTypesInScope(scope);\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 322,
+      "functionName": "resolveTypes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

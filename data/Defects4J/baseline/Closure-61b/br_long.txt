@@ -1,0 +1,23 @@
+<b>What steps will reproduce the problem?</b>
+1. Try the following code, in Simple mode
+Math.blah = function(test) { test.a = 5; };
+var test = new Object();
+Math.blah(test); 
+2. The output is
+Math.blah=function(a){a.a=5};var test={};
+
+
+<b>What is the expected output? What do you see instead?</b>
+Note that Math.blah(test) was removed. It should not be. It issues a warning: JSC_USELESS_CODE: Suspicious code. This code lacks side-effects. Is there a bug? at line 4 character 9
+
+<b>What version of the product are you using? On what operating system?</b>
+Tested on Google hosted Closure service.
+
+<b>Please provide any additional information below.</b>
+Closure seems to be protective about Math in particular, and doesn't like people messing around with her? So, when I try the following code:-
+var n = {};
+n.blah = function(test) { test.a = 5; };
+var test = new Object();
+n.blah(test);
+
+It works. When I replace n by Math, then again, Closure kicks out blah. I need that poor fellow. Please talk some sense into it.

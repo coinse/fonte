@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "compile",
+  "functionId": "compile___externs-List__JSSourceFile____inputs-List__JSSourceFile____options-CompilerOptions",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compiles a list of inputs.\n",
+  "functionStartLine": 503,
+  "functionEndLine": 519,
+  "numCommitsSeen": 90,
+  "timeTaken": 5587,
+  "changeHistory": [
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6"
+  ],
+  "changeHistoryShort": {
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6": {
+      "type": "Yintroduced",
+      "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/5/10, 11:58 PM",
+      "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,14 @@\n+public Result compile(List\u003cJSSourceFile\u003e externs, List\u003cJSSourceFile\u003e inputs, CompilerOptions options) {\n+    Preconditions.checkState(jsRoot \u003d\u003d null);\n+    try {\n+        init(externs, inputs, options);\n+        if (hasErrors()) {\n+            return getResult();\n+        }\n+        return compile();\n+    } finally {\n+        Tracer t \u003d newTracer(\"generateReport\");\n+        errorManager.generateReport();\n+        stopTracer(t, \"generateReport\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Result compile(List\u003cJSSourceFile\u003e externs, List\u003cJSSourceFile\u003e inputs, CompilerOptions options) {\n    Preconditions.checkState(jsRoot \u003d\u003d null);\n    try {\n        init(externs, inputs, options);\n        if (hasErrors()) {\n            return getResult();\n        }\n        return compile();\n    } finally {\n        Tracer t \u003d newTracer(\"generateReport\");\n        errorManager.generateReport();\n        stopTracer(t, \"generateReport\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 462,
+      "functionName": "compile",
+      "functionAnnotation": "",
+      "functionDoc": "Compiles a list of inputs.\n"
+    }
+  }
+}

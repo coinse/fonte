@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-92b",
+  "repositoryPath": "/tmp/Math-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MathUtils.java",
+  "functionName": "addAndCheck",
+  "functionId": "addAndCheck___a-long__b-long__msg-String",
+  "sourceFilePath": "src/java/org/apache/commons/math/util/MathUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Add two long integers, checking for overflow.\n\n@param a an addend\n@param b an addend\n@param msg the message to use for any thrown exception.\n@return the sum \u003ccode\u003ea+b\u003c/code\u003e\n@throws ArithmeticException if the result can not be represented as an\n        long\n@since 1.2\n",
+  "functionStartLine": 109,
+  "functionEndLine": 142,
+  "numCommitsSeen": 51,
+  "timeTaken": 1210,
+  "changeHistory": [
+    "6378fb99209275e2da4f15664d87bab2aff2e47f",
+    "430f487ebc550a07ed2f06a758cd2dd480669fc9"
+  ],
+  "changeHistoryShort": {
+    "6378fb99209275e2da4f15664d87bab2aff2e47f": "Ybodychange",
+    "430f487ebc550a07ed2f06a758cd2dd480669fc9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6378fb99209275e2da4f15664d87bab2aff2e47f": {
+      "type": "Ybodychange",
+      "commitMessage": "No code change.  Fixed spelling errors in comments.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@735830 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/19/09, 1:25 PM",
+      "commitName": "6378fb99209275e2da4f15664d87bab2aff2e47f",
+      "commitAuthor": "Phil Steitz",
+      "commitDateOld": "1/19/09, 11:43 AM",
+      "commitNameOld": "7cd3d822b65b7acdd1f6e1c82b291cd994f4fe05",
+      "commitAuthorOld": "Phil Steitz",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static long addAndCheck(long a, long b, String msg) {\n    long ret;\n    if (a \u003e b) {\n        ret \u003d addAndCheck(b, a, msg);\n    } else {\n        if (a \u003c 0) {\n            if (b \u003c 0) {\n                if (Long.MIN_VALUE - b \u003c\u003d a) {\n                    ret \u003d a + b;\n                } else {\n                    throw new ArithmeticException(msg);\n                }\n            } else {\n                ret \u003d a + b;\n            }\n        } else {\n            if (a \u003c\u003d Long.MAX_VALUE - b) {\n                ret \u003d a + b;\n            } else {\n                throw new ArithmeticException(msg);\n            }\n        }\n    }\n    return ret;\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 109,
+      "functionName": "addAndCheck",
+      "functionAnnotation": "",
+      "functionDoc": "Add two long integers, checking for overflow.\n\n@param a an addend\n@param b an addend\n@param msg the message to use for any thrown exception.\n@return the sum \u003ccode\u003ea+b\u003c/code\u003e\n@throws ArithmeticException if the result can not be represented as an\n        long\n@since 1.2\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "430f487ebc550a07ed2f06a758cd2dd480669fc9": {
+      "type": "Yintroduced",
+      "commitMessage": "MATH-154. Added addAndCheck, mulAndCheck, and subAndCheck MathUtils methods for long integer arguments.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@590577 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/31/07, 12:23 AM",
+      "commitName": "430f487ebc550a07ed2f06a758cd2dd480669fc9",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,25 @@\n+private static long addAndCheck(long a, long b, String msg) {\n+    long ret;\n+    if (a \u003e b) {\n+        ret \u003d addAndCheck(b, a, msg);\n+    } else {\n+        if (a \u003c 0) {\n+            if (b \u003c 0) {\n+                if (Long.MIN_VALUE - b \u003c\u003d a) {\n+                    ret \u003d a + b;\n+                } else {\n+                    throw new ArithmeticException(msg);\n+                }\n+            } else {\n+                ret \u003d a + b;\n+            }\n+        } else {\n+            if (a \u003c\u003d Long.MAX_VALUE - b) {\n+                ret \u003d a + b;\n+            } else {\n+                throw new ArithmeticException(msg);\n+            }\n+        }\n+    }\n+    return ret;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static long addAndCheck(long a, long b, String msg) {\n    long ret;\n    if (a \u003e b) {\n        ret \u003d addAndCheck(b, a, msg);\n    } else {\n        if (a \u003c 0) {\n            if (b \u003c 0) {\n                if (Long.MIN_VALUE - b \u003c\u003d a) {\n                    ret \u003d a + b;\n                } else {\n                    throw new ArithmeticException(msg);\n                }\n            } else {\n                ret \u003d a + b;\n            }\n        } else {\n            if (a \u003c\u003d Long.MAX_VALUE - b) {\n                ret \u003d a + b;\n            } else {\n                throw new ArithmeticException(msg);\n            }\n        }\n    }\n    return ret;\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 96,
+      "functionName": "addAndCheck",
+      "functionAnnotation": "",
+      "functionDoc": "Add two long integers, checking for overflow.\n\n@param a an addend\n@param b an addend\n@param msg the message to use for any thrown exception.\n@return the sum \u003ccode\u003ea+b\u003c/code\u003e\n@throws ArithmeticException if the result can not be represented as an\n        long\n@since 1.2\n"
+    }
+  }
+}

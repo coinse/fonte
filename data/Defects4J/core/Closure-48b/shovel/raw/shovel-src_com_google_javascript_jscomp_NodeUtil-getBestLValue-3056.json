@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getBestLValue",
+  "functionId": "getBestLValue___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Find the l-value that the given r-value is being assigned to.\n",
+  "functionStartLine": 3056,
+  "functionEndLine": 3069,
+  "numCommitsSeen": 172,
+  "timeTaken": 5588,
+  "changeHistory": [
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+    "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc"
+  ],
+  "changeHistoryShort": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": "Ybodychange",
+    "e58030c47800f5842a950cf7ceb40bba5bd1dd23": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange)",
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/9/11, 12:32 PM",
+      "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 10:08 AM",
+      "commitNameOld": "ca41f5d443aad22b11b2b6d514fdf20101f33276",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static Node getBestLValue(Node n) {\n    Node parent \u003d n.getParent();\n    boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n    if (isFunctionDeclaration) {\n        return n.getFirstChild();\n    } else if (parent.isName()) {\n        return parent;\n    } else if (parent.isAssign()) {\n        return parent.getFirstChild();\n    } else if (isObjectLitKey(parent, parent.getParent())) {\n        return parent;\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3136,
+      "functionName": "getBestLValue",
+      "functionAnnotation": "",
+      "functionDoc": "Find the l-value that the given r-value is being assigned to.\n",
+      "diff": "@@ -1,15 +1,14 @@\n static Node getBestLValue(Node n) {\n     Node parent \u003d n.getParent();\n-    int parentType \u003d parent.getType();\n     boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n     if (isFunctionDeclaration) {\n         return n.getFirstChild();\n-    } else if (parentType \u003d\u003d Token.NAME) {\n+    } else if (parent.isName()) {\n         return parent;\n-    } else if (parentType \u003d\u003d Token.ASSIGN) {\n+    } else if (parent.isAssign()) {\n         return parent.getFirstChild();\n     } else if (isObjectLitKey(parent, parent.getParent())) {\n         return parent;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e58030c47800f5842a950cf7ceb40bba5bd1dd23": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 8:56 AM",
+      "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 8:56 AM",
+          "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/4/11, 7:12 AM",
+          "commitNameOld": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node getBestLValue(Node n) {\n    Node parent \u003d n.getParent();\n    int parentType \u003d parent.getType();\n    boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n    if (isFunctionDeclaration) {\n        return n.getFirstChild();\n    } else if (parentType \u003d\u003d Token.NAME) {\n        return parent;\n    } else if (parentType \u003d\u003d Token.ASSIGN) {\n        return parent.getFirstChild();\n    } else if (isObjectLitKey(parent, parent.getParent())) {\n        return parent;\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3062,
+          "functionName": "getBestLValue",
+          "functionAnnotation": "",
+          "functionDoc": "Find the l-value that the given r-value is being assigned to.\n",
+          "diff": "@@ -1,15 +1,15 @@\n-private static Node getBestLValue(Node n) {\n+static Node getBestLValue(Node n) {\n     Node parent \u003d n.getParent();\n     int parentType \u003d parent.getType();\n-    boolean isFunctionDeclaration \u003d NodeUtil.isFunctionDeclaration(n);\n+    boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n     if (isFunctionDeclaration) {\n         return n.getFirstChild();\n     } else if (parentType \u003d\u003d Token.NAME) {\n         return parent;\n     } else if (parentType \u003d\u003d Token.ASSIGN) {\n         return parent.getFirstChild();\n-    } else if (NodeUtil.isObjectLitKey(parent, parent.getParent())) {\n+    } else if (isObjectLitKey(parent, parent.getParent())) {\n         return parent;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+            "newPath": "src/com/google/javascript/jscomp/NodeUtil.java",
+            "oldMethodName": "getBestLValue",
+            "newMethodName": "getBestLValue"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 8:56 AM",
+          "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/4/11, 7:12 AM",
+          "commitNameOld": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node getBestLValue(Node n) {\n    Node parent \u003d n.getParent();\n    int parentType \u003d parent.getType();\n    boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n    if (isFunctionDeclaration) {\n        return n.getFirstChild();\n    } else if (parentType \u003d\u003d Token.NAME) {\n        return parent;\n    } else if (parentType \u003d\u003d Token.ASSIGN) {\n        return parent.getFirstChild();\n    } else if (isObjectLitKey(parent, parent.getParent())) {\n        return parent;\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3062,
+          "functionName": "getBestLValue",
+          "functionAnnotation": "",
+          "functionDoc": "Find the l-value that the given r-value is being assigned to.\n",
+          "diff": "@@ -1,15 +1,15 @@\n-private static Node getBestLValue(Node n) {\n+static Node getBestLValue(Node n) {\n     Node parent \u003d n.getParent();\n     int parentType \u003d parent.getType();\n-    boolean isFunctionDeclaration \u003d NodeUtil.isFunctionDeclaration(n);\n+    boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n     if (isFunctionDeclaration) {\n         return n.getFirstChild();\n     } else if (parentType \u003d\u003d Token.NAME) {\n         return parent;\n     } else if (parentType \u003d\u003d Token.ASSIGN) {\n         return parent.getFirstChild();\n-    } else if (NodeUtil.isObjectLitKey(parent, parent.getParent())) {\n+    } else if (isObjectLitKey(parent, parent.getParent())) {\n         return parent;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private, static]",
+            "newValue": "[static]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nFirst crack at a new js indexer.\nOnly about 10% of the tests pass, but that\u0027s 10 better than 0\nwoohoo!\n\nR\u003dacleung,stevey\nDELTA\u003d1067  (523 added, 183 deleted, 361 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2897\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1326 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/11, 8:56 AM",
+          "commitName": "e58030c47800f5842a950cf7ceb40bba5bd1dd23",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/4/11, 7:12 AM",
+          "commitNameOld": "1003a7e9d8a975d5e25c7af85aa3419319995c37",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node getBestLValue(Node n) {\n    Node parent \u003d n.getParent();\n    int parentType \u003d parent.getType();\n    boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n    if (isFunctionDeclaration) {\n        return n.getFirstChild();\n    } else if (parentType \u003d\u003d Token.NAME) {\n        return parent;\n    } else if (parentType \u003d\u003d Token.ASSIGN) {\n        return parent.getFirstChild();\n    } else if (isObjectLitKey(parent, parent.getParent())) {\n        return parent;\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3062,
+          "functionName": "getBestLValue",
+          "functionAnnotation": "",
+          "functionDoc": "Find the l-value that the given r-value is being assigned to.\n",
+          "diff": "@@ -1,15 +1,15 @@\n-private static Node getBestLValue(Node n) {\n+static Node getBestLValue(Node n) {\n     Node parent \u003d n.getParent();\n     int parentType \u003d parent.getType();\n-    boolean isFunctionDeclaration \u003d NodeUtil.isFunctionDeclaration(n);\n+    boolean isFunctionDeclaration \u003d isFunctionDeclaration(n);\n     if (isFunctionDeclaration) {\n         return n.getFirstChild();\n     } else if (parentType \u003d\u003d Token.NAME) {\n         return parent;\n     } else if (parentType \u003d\u003d Token.ASSIGN) {\n         return parent.getFirstChild();\n-    } else if (NodeUtil.isObjectLitKey(parent, parent.getParent())) {\n+    } else if (isObjectLitKey(parent, parent.getParent())) {\n         return parent;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": {
+      "type": "Yintroduced",
+      "commitMessage": "\nClean up type discovery by refactoring to the following algorithm.\n1) When we see a function literal, create the authoritative\ntype for it.\n2) When we see an object literal, create the authoritative\ntype for it.\n3) When we declare a symbol, check to see if it\u0027s assigned to\nan object or function literal, and use that type if it\nmake sense to do so. Otherwise, fall back on the JSDoc info.\nThis should make it a lot easier to give accurate types to object\nliteral properties.\nI didn\u0027t intend to create any functional changes in this CL,\nbut some minor ones were inevitable.\n\nR\u003djohnlenz\nDELTA\u003d618  (320 added, 249 deleted, 49 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d392\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@739 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/31/11, 8:08 AM",
+      "commitName": "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,15 @@\n+private static Node getBestLValue(Node n) {\n+    Node parent \u003d n.getParent();\n+    int parentType \u003d parent.getType();\n+    boolean isFunctionDeclaration \u003d NodeUtil.isFunctionDeclaration(n);\n+    if (isFunctionDeclaration) {\n+        return n.getFirstChild();\n+    } else if (parentType \u003d\u003d Token.NAME) {\n+        return parent;\n+    } else if (parentType \u003d\u003d Token.ASSIGN) {\n+        return parent.getFirstChild();\n+    } else if (NodeUtil.isObjectLitKey(parent, parent.getParent())) {\n+        return parent;\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Node getBestLValue(Node n) {\n    Node parent \u003d n.getParent();\n    int parentType \u003d parent.getType();\n    boolean isFunctionDeclaration \u003d NodeUtil.isFunctionDeclaration(n);\n    if (isFunctionDeclaration) {\n        return n.getFirstChild();\n    } else if (parentType \u003d\u003d Token.NAME) {\n        return parent;\n    } else if (parentType \u003d\u003d Token.ASSIGN) {\n        return parent.getFirstChild();\n    } else if (NodeUtil.isObjectLitKey(parent, parent.getParent())) {\n        return parent;\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 1703,
+      "functionName": "getBestLValue",
+      "functionAnnotation": "",
+      "functionDoc": "Find the l-value that the given r-value is being assigned to.\n"
+    }
+  }
+}

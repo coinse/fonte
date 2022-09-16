@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GlobalNamespace.java",
+  "functionName": "getValueType",
+  "functionId": "$getValueType___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GlobalNamespace.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the type of a value or simple expression.\n\n@param n An rvalue in an assignment or variable declaration (not null)\n@return A {@link Name.Type}\n",
+  "functionStartLine": 456,
+  "functionEndLine": 478,
+  "numCommitsSeen": 22,
+  "timeTaken": 1323,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,18 @@\n+Name.Type getValueType(Node n) {\n+    switch(n.getType()) {\n+        case Token.OBJECTLIT:\n+            return Name.Type.OBJECTLIT;\n+        case Token.FUNCTION:\n+            return Name.Type.FUNCTION;\n+        case Token.OR:\n+            return getValueType(n.getLastChild());\n+        case Token.HOOK:\n+            Node second \u003d n.getFirstChild().getNext();\n+            Name.Type t \u003d getValueType(second);\n+            if (t !\u003d Name.Type.OTHER)\n+                return t;\n+            Node third \u003d second.getNext();\n+            return getValueType(third);\n+    }\n+    return Name.Type.OTHER;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Name.Type getValueType(Node n) {\n    switch(n.getType()) {\n        case Token.OBJECTLIT:\n            return Name.Type.OBJECTLIT;\n        case Token.FUNCTION:\n            return Name.Type.FUNCTION;\n        case Token.OR:\n            return getValueType(n.getLastChild());\n        case Token.HOOK:\n            Node second \u003d n.getFirstChild().getNext();\n            Name.Type t \u003d getValueType(second);\n            if (t !\u003d Name.Type.OTHER)\n                return t;\n            Node third \u003d second.getNext();\n            return getValueType(third);\n    }\n    return Name.Type.OTHER;\n}",
+      "path": "src/com/google/javascript/jscomp/GlobalNamespace.java",
+      "functionStartLine": 410,
+      "functionName": "getValueType",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the type of a value or simple expression.\n\n@param n An rvalue in an assignment or variable declaration (not null)\n@return A {@link Name.Type}\n"
+    }
+  }
+}

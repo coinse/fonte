@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-46b",
+  "repositoryPath": "/tmp/Math-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "expint",
+  "functionId": "expint___p-int__result-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute exp(p) for a integer p in extended precision.\n\n@param p integer whose exponential is requested\n@param result placeholder where to put the result in extended precision\n@return exp(p) in standard precision (equal to result[0] + result[1])\n",
+  "functionStartLine": 1208,
+  "functionEndLine": 1246,
+  "numCommitsSeen": 51,
+  "timeTaken": 20995,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,25 @@\n+private static double expint(int p, final double[] result) {\n+    final double[] xs \u003d new double[2];\n+    final double[] as \u003d new double[2];\n+    final double[] ys \u003d new double[2];\n+    xs[0] \u003d 2.718281828459045;\n+    xs[1] \u003d 1.4456468917292502E-16;\n+    split(1.0, ys);\n+    while (p \u003e 0) {\n+        if ((p \u0026 1) !\u003d 0) {\n+            quadMult(ys, xs, as);\n+            ys[0] \u003d as[0];\n+            ys[1] \u003d as[1];\n+        }\n+        quadMult(xs, xs, as);\n+        xs[0] \u003d as[0];\n+        xs[1] \u003d as[1];\n+        p \u003e\u003e\u003d 1;\n+    }\n+    if (result !\u003d null) {\n+        result[0] \u003d ys[0];\n+        result[1] \u003d ys[1];\n+        resplit(result);\n+    }\n+    return ys[0] + ys[1];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static double expint(int p, final double[] result) {\n    final double[] xs \u003d new double[2];\n    final double[] as \u003d new double[2];\n    final double[] ys \u003d new double[2];\n    xs[0] \u003d 2.718281828459045;\n    xs[1] \u003d 1.4456468917292502E-16;\n    split(1.0, ys);\n    while (p \u003e 0) {\n        if ((p \u0026 1) !\u003d 0) {\n            quadMult(ys, xs, as);\n            ys[0] \u003d as[0];\n            ys[1] \u003d as[1];\n        }\n        quadMult(xs, xs, as);\n        xs[0] \u003d as[0];\n        xs[1] \u003d as[1];\n        p \u003e\u003e\u003d 1;\n    }\n    if (result !\u003d null) {\n        result[0] \u003d ys[0];\n        result[1] \u003d ys[1];\n        resplit(result);\n    }\n    return ys[0] + ys[1];\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 885,
+      "functionName": "expint",
+      "functionAnnotation": "",
+      "functionDoc": "Compute exp(p) for a integer p in extended precision.\n\n@param p integer whose exponential is requested\n@param result placeholder where to put the result in extended precision\n@return exp(p) in standard precision (equal to result[0] + result[1])\n"
+    }
+  }
+}

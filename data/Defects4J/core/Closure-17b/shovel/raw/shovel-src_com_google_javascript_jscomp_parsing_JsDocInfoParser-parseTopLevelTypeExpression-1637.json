@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "parseTopLevelTypeExpression",
+  "functionId": "parseTopLevelTypeExpression___token-JsDocToken",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "TopLevelTypeExpression :\u003d TypeExpression\n    | TypeUnionList\n\nWe made this rule up, for the sake of backwards compatibility.\n",
+  "functionStartLine": 1637,
+  "functionEndLine": 1653,
+  "numCommitsSeen": 61,
+  "timeTaken": 6871,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,15 @@\n+private Node parseTopLevelTypeExpression(JsDocToken token) {\n+    Node typeExpr \u003d parseTypeExpression(token);\n+    if (typeExpr !\u003d null) {\n+        if (match(JsDocToken.PIPE)) {\n+            next();\n+            if (match(JsDocToken.PIPE)) {\n+                next();\n+            }\n+            skipEOLs();\n+            token \u003d next();\n+            return parseUnionTypeWithAlternate(token, typeExpr);\n+        }\n+    }\n+    return typeExpr;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node parseTopLevelTypeExpression(JsDocToken token) {\n    Node typeExpr \u003d parseTypeExpression(token);\n    if (typeExpr !\u003d null) {\n        if (match(JsDocToken.PIPE)) {\n            next();\n            if (match(JsDocToken.PIPE)) {\n                next();\n            }\n            skipEOLs();\n            token \u003d next();\n            return parseUnionTypeWithAlternate(token, typeExpr);\n        }\n    }\n    return typeExpr;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 1443,
+      "functionName": "parseTopLevelTypeExpression",
+      "functionAnnotation": "",
+      "functionDoc": "TopLevelTypeExpression :\u003d TypeExpression\n    | TypeUnionList\n\nWe made this rule up, for the sake of backwards compatibility.\n"
+    }
+  }
+}

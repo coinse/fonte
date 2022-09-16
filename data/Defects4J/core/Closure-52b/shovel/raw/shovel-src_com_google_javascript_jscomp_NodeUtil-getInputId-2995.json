@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-52b",
+  "repositoryPath": "/tmp/Closure-52b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getInputId",
+  "functionId": "getInputId___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@param n The node.\n@return The InputId property on the node or its ancestors.\n",
+  "functionStartLine": 2995,
+  "functionEndLine": 3001,
+  "numCommitsSeen": 105,
+  "timeTaken": 2398,
+  "changeHistory": [
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6"
+  ],
+  "changeHistoryShort": {
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPart 3, source name/input id split:\nChange the construction of JSDocInfo to allow the determination of\nthe source type (extern or not) without requiring the source to be looked\nup by name.\n\nR\u003dnicksantos\nDELTA\u003d99  (51 added, 21 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2898\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1327 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 9:23 AM",
+      "commitName": "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+public static InputId getInputId(Node n) {\n+    while (n !\u003d null \u0026\u0026 n.getType() !\u003d Token.SCRIPT) {\n+        n \u003d n.getParent();\n+    }\n+    return (n !\u003d null \u0026\u0026 n.getType() \u003d\u003d Token.SCRIPT) ? n.getInputId() : null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static InputId getInputId(Node n) {\n    while (n !\u003d null \u0026\u0026 n.getType() !\u003d Token.SCRIPT) {\n        n \u003d n.getParent();\n    }\n    return (n !\u003d null \u0026\u0026 n.getType() \u003d\u003d Token.SCRIPT) ? n.getInputId() : null;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2921,
+      "functionName": "getInputId",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param n The node.\n@return The InputId property on the node or its ancestors.\n"
+    }
+  }
+}

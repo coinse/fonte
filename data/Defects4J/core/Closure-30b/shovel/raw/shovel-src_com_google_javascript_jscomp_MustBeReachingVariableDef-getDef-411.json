@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MustBeReachingVariableDef.java",
+  "functionName": "getDef",
+  "functionId": "getDef___name-String__useNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the must reaching definition of a given node. The node must be one of\nthe control flow graph nodes.\n\n@param name name of the variable. It can only be names of local variable\n    that are not function parameters, escaped variables or variables\n    declared in catch.\n@param useNode the location of the use where the definition reaches.\n",
+  "functionStartLine": 411,
+  "functionEndLine": 421,
+  "numCommitsSeen": 21,
+  "timeTaken": 761,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,11 @@\n+Node getDef(String name, Node useNode) {\n+    Preconditions.checkArgument(getCfg().hasNode(useNode));\n+    GraphNode\u003cNode, Branch\u003e n \u003d getCfg().getNode(useNode);\n+    FlowState\u003cMustDef\u003e state \u003d n.getAnnotation();\n+    Definition def \u003d state.getIn().reachingDef.get(jsScope.getVar(name));\n+    if (def \u003d\u003d null) {\n+        return null;\n+    } else {\n+        return def.node;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Node getDef(String name, Node useNode) {\n    Preconditions.checkArgument(getCfg().hasNode(useNode));\n    GraphNode\u003cNode, Branch\u003e n \u003d getCfg().getNode(useNode);\n    FlowState\u003cMustDef\u003e state \u003d n.getAnnotation();\n    Definition def \u003d state.getIn().reachingDef.get(jsScope.getVar(name));\n    if (def \u003d\u003d null) {\n        return null;\n    } else {\n        return def.node;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+      "functionStartLine": 363,
+      "functionName": "getDef",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the must reaching definition of a given node. The node must be one of\nthe control flow graph nodes.\n\n@param name name of the variable. It can only be names of local variable\n    that are not function parameters, escaped variables or variables\n    declared in catch.\n@param useNode the location of the use where the definition reaches.\n"
+    }
+  }
+}

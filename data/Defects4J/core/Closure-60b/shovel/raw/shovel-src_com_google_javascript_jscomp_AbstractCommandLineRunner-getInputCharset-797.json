@@ -1,0 +1,170 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "getInputCharset",
+  "functionId": "getInputCharset",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Query the flag for the input charset, and return a Charset object\nrepresenting the selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+  "functionStartLine": 797,
+  "functionEndLine": 806,
+  "numCommitsSeen": 68,
+  "timeTaken": 4546,
+  "changeHistory": [
+    "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e",
+    "c080c668a4ccd9eb151cbb4f90980ddbbfbaba44",
+    "848ace840362a1f5558bec065cb40548ff66587a",
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3"
+  ],
+  "changeHistoryShort": {
+    "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e": "Ydocchange",
+    "c080c668a4ccd9eb151cbb4f90980ddbbfbaba44": "Ymultichange(Ymodifierchange,Ybodychange,Ydocchange)",
+    "848ace840362a1f5558bec065cb40548ff66587a": "Yfilerename",
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e": {
+      "type": "Ydocchange",
+      "commitMessage": "\nClean up the command-line runner api, which uncovered a bunch\nof bugs in Options serialization.\nSet the output charset to US-ASCII by default, but let the user\nset it to UTF-8.\nFixes Issue 205\n\nR\u003dbowdidge\nDELTA\u003d107  (69 added, 17 deleted, 21 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d87017\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@344 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/5/10, 7:38 PM",
+      "commitName": "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "8/5/10, 4:13 PM",
+      "commitNameOld": "114620510958121ebec3dd8d037d70571fb7da20",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.14,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Charset getInputCharset() throws FlagUsageException {\n    if (!config.charset.isEmpty()) {\n        if (!Charset.isSupported(config.charset)) {\n            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n        }\n        return Charset.forName(config.charset);\n    }\n    return Charsets.UTF_8;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 666,
+      "functionName": "getInputCharset",
+      "functionAnnotation": "",
+      "functionDoc": "Query the flag for the input charset, and return a Charset object\nrepresenting the selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Query the flag for the charset, and return a Charset object representing\nthe selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+        "newValue": "Query the flag for the input charset, and return a Charset object\nrepresenting the selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n"
+      }
+    },
+    "c080c668a4ccd9eb151cbb4f90980ddbbfbaba44": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange,Ydocchange)",
+      "commitMessage": "rolling back the EventTarget changes for a little bit\n\ndecouple command-line options from command-line parsing. (Nick)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@127 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/4/10, 10:33 AM",
+      "commitName": "c080c668a4ccd9eb151cbb4f90980ddbbfbaba44",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "rolling back the EventTarget changes for a little bit\n\ndecouple command-line options from command-line parsing. (Nick)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@127 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/4/10, 10:33 AM",
+          "commitName": "c080c668a4ccd9eb151cbb4f90980ddbbfbaba44",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "2/26/10, 6:04 PM",
+          "commitNameOld": "848ace840362a1f5558bec065cb40548ff66587a",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 5.69,
+          "commitsBetweenForRepo": 8,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Charset getInputCharset() throws FlagUsageException {\n    if (!config.charset.isEmpty()) {\n        if (!Charset.isSupported(config.charset)) {\n            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n        }\n        return Charset.forName(config.charset);\n    }\n    return Charsets.UTF_8;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 639,
+          "functionName": "getInputCharset",
+          "functionAnnotation": "",
+          "functionDoc": "Query the flag for the charset, and return a Charset object representing\nthe selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-private static Charset getInputCharset() throws FlagUsageException {\n-    if (!FLAG_charset.get().isEmpty()) {\n-        if (!Charset.isSupported(FLAG_charset.get())) {\n-            throw new FlagUsageException(FLAG_charset.get() + \" is not a valid charset name.\");\n+private Charset getInputCharset() throws FlagUsageException {\n+    if (!config.charset.isEmpty()) {\n+        if (!Charset.isSupported(config.charset)) {\n+            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n         }\n-        return Charset.forName(FLAG_charset.get());\n+        return Charset.forName(config.charset);\n     }\n     return Charsets.UTF_8;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private, static]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "rolling back the EventTarget changes for a little bit\n\ndecouple command-line options from command-line parsing. (Nick)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@127 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/4/10, 10:33 AM",
+          "commitName": "c080c668a4ccd9eb151cbb4f90980ddbbfbaba44",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "2/26/10, 6:04 PM",
+          "commitNameOld": "848ace840362a1f5558bec065cb40548ff66587a",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 5.69,
+          "commitsBetweenForRepo": 8,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Charset getInputCharset() throws FlagUsageException {\n    if (!config.charset.isEmpty()) {\n        if (!Charset.isSupported(config.charset)) {\n            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n        }\n        return Charset.forName(config.charset);\n    }\n    return Charsets.UTF_8;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 639,
+          "functionName": "getInputCharset",
+          "functionAnnotation": "",
+          "functionDoc": "Query the flag for the charset, and return a Charset object representing\nthe selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-private static Charset getInputCharset() throws FlagUsageException {\n-    if (!FLAG_charset.get().isEmpty()) {\n-        if (!Charset.isSupported(FLAG_charset.get())) {\n-            throw new FlagUsageException(FLAG_charset.get() + \" is not a valid charset name.\");\n+private Charset getInputCharset() throws FlagUsageException {\n+    if (!config.charset.isEmpty()) {\n+        if (!Charset.isSupported(config.charset)) {\n+            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n         }\n-        return Charset.forName(FLAG_charset.get());\n+        return Charset.forName(config.charset);\n     }\n     return Charsets.UTF_8;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "rolling back the EventTarget changes for a little bit\n\ndecouple command-line options from command-line parsing. (Nick)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@127 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/4/10, 10:33 AM",
+          "commitName": "c080c668a4ccd9eb151cbb4f90980ddbbfbaba44",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "2/26/10, 6:04 PM",
+          "commitNameOld": "848ace840362a1f5558bec065cb40548ff66587a",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 5.69,
+          "commitsBetweenForRepo": 8,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Charset getInputCharset() throws FlagUsageException {\n    if (!config.charset.isEmpty()) {\n        if (!Charset.isSupported(config.charset)) {\n            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n        }\n        return Charset.forName(config.charset);\n    }\n    return Charsets.UTF_8;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 639,
+          "functionName": "getInputCharset",
+          "functionAnnotation": "",
+          "functionDoc": "Query the flag for the charset, and return a Charset object representing\nthe selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-private static Charset getInputCharset() throws FlagUsageException {\n-    if (!FLAG_charset.get().isEmpty()) {\n-        if (!Charset.isSupported(FLAG_charset.get())) {\n-            throw new FlagUsageException(FLAG_charset.get() + \" is not a valid charset name.\");\n+private Charset getInputCharset() throws FlagUsageException {\n+    if (!config.charset.isEmpty()) {\n+        if (!Charset.isSupported(config.charset)) {\n+            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n         }\n-        return Charset.forName(FLAG_charset.get());\n+        return Charset.forName(config.charset);\n     }\n     return Charsets.UTF_8;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Query the flag for the charset, and return a Charset object representing\nthe selection.  Keep this in a separate function\nso it can be called both in static and normal methods.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+            "newValue": "Query the flag for the charset, and return a Charset object representing\nthe selection.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n"
+          }
+        }
+      ]
+    },
+    "848ace840362a1f5558bec065cb40548ff66587a": {
+      "type": "Yfilerename",
+      "commitMessage": "Rename CompilerRunner -\u003e CommandLineRunner.\nI\u0027ll also do this for JSCompilerRunner, but it will be a much\nbigger change. (Nick)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@119 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/26/10, 6:04 PM",
+      "commitName": "848ace840362a1f5558bec065cb40548ff66587a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "2/26/10, 3:45 PM",
+      "commitNameOld": "50c1b3d39ff5b17c956a2235f97f7b5da05ab6f0",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static Charset getInputCharset() throws FlagUsageException {\n    if (!FLAG_charset.get().isEmpty()) {\n        if (!Charset.isSupported(FLAG_charset.get())) {\n            throw new FlagUsageException(FLAG_charset.get() + \" is not a valid charset name.\");\n        }\n        return Charset.forName(FLAG_charset.get());\n    }\n    return Charsets.UTF_8;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 793,
+      "functionName": "getInputCharset",
+      "functionAnnotation": "",
+      "functionDoc": "Query the flag for the charset, and return a Charset object representing\nthe selection.  Keep this in a separate function\nso it can be called both in static and normal methods.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/com/google/javascript/jscomp/AbstractCompilerRunner.java",
+        "newPath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java"
+      }
+    },
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": {
+      "type": "Yintroduced",
+      "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/8/09, 3:50 PM",
+      "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private static Charset getInputCharset() throws FlagUsageException {\n+    if (!FLAG_charset.get().isEmpty()) {\n+        if (!Charset.isSupported(FLAG_charset.get())) {\n+            throw new FlagUsageException(FLAG_charset.get() + \" is not a valid charset name.\");\n+        }\n+        return Charset.forName(FLAG_charset.get());\n+    }\n+    return Charsets.UTF_8;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Charset getInputCharset() throws FlagUsageException {\n    if (!FLAG_charset.get().isEmpty()) {\n        if (!Charset.isSupported(FLAG_charset.get())) {\n            throw new FlagUsageException(FLAG_charset.get() + \" is not a valid charset name.\");\n        }\n        return Charset.forName(FLAG_charset.get());\n    }\n    return Charsets.UTF_8;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCompilerRunner.java",
+      "functionStartLine": 736,
+      "functionName": "getInputCharset",
+      "functionAnnotation": "",
+      "functionDoc": "Query the flag for the charset, and return a Charset object representing\nthe selection.  Keep this in a separate function\nso it can be called both in static and normal methods.\n\n@return Charset to use when reading inputs\n@throws FlagUsageException if flag is not a valid Charset name.\n"
+    }
+  }
+}

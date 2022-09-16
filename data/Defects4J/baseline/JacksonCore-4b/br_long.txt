@@ -1,0 +1,25 @@
+I noticed that even in Jackson 2.4, if a JSON key is longer than 262144 bytes, ArrayIndexOutOfBoundsException is thrown from TextBuffer. Below is the stack trace:
+
+```
+java.lang.ArrayIndexOutOfBoundsException
+    at java.lang.System.arraycopy(Native Method)
+    at com.fasterxml.jackson.core.util.TextBuffer.expandCurrentSegment(TextBuffer.java:604)
+    at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.addName(UTF8StreamJsonParser.java:2034)
+    at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.findName(UTF8StreamJsonParser.java:1928)
+    at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.parseLongFieldName(UTF8StreamJsonParser.java:1534)
+    at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.parseMediumFieldName(UTF8StreamJsonParser.java:1502)
+    at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._parseFieldName(UTF8StreamJsonParser.java:1437)
+    at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.nextToken(UTF8StreamJsonParser.java:668)
+    ... <below are our code> ...
+```
+
+Looking at TextBuffer.expandCurrentSegment(TextBuffer.java:604), once the length of _currentSegment is increased to MAX_SEGMENT_LEN + 1 (262145) bytes, the newLen will stay at MAX_SEGMENT_LEN, which is smaller than len. Therefore System.arraycopy() will fail.
+
+I understand it is rare to have key larger than 262144 bytes, but it would be nice if
+- Jackson explicitly throw exception stating that key is too long.
+- Document that the maximum key length is 262144 bytes.
+
+OR
+- Update TextBuffer to support super long key.
+
+Thanks!

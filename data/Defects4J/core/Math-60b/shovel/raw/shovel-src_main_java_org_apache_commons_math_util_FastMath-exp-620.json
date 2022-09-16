@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-60b",
+  "repositoryPath": "/tmp/Math-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "exp",
+  "functionId": "exp___x-double",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Exponential function.\n\nComputes exp(x), function result is nearly rounded.   It will be correctly\nrounded to the theoretical value for 99.9% of input values, otherwise it will\nhave a 1 UPL error.\n\nMethod:\n   Lookup intVal \u003d exp(int(x))\n   Lookup fracVal \u003d exp(int(x-int(x) / 1024.0) * 1024.0 );\n   Compute z as the exponential of the remaining bits by a polynomial minus one\n   exp(x) \u003d intVal * fracVal * (1 + z)\n\nAccuracy:\n   Calculation is done with 63 bits of precision, so result should be correctly\n   rounded for 99.9% of input values, with less than 1 ULP error otherwise.\n\n@param x a double\n@return double e\u003csup\u003ex\u003c/sup\u003e\n",
+  "functionStartLine": 620,
+  "functionEndLine": 622,
+  "numCommitsSeen": 6,
+  "timeTaken": 10183,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,3 @@\n+public static double exp(double x) {\n+    return exp(x, 0.0, null);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static double exp(double x) {\n    return exp(x, 0.0, null);\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 420,
+      "functionName": "exp",
+      "functionAnnotation": "",
+      "functionDoc": "Exponential function.\n\nComputes exp(x), function result is nearly rounded.   It will be correctly\nrounded to the theoretical value for 99.9% of input values, otherwise it will\nhave a 1 UPL error.\n\nMethod:\n   Lookup intVal \u003d exp(int(x))\n   Lookup fracVal \u003d exp(int(x-int(x) / 1024.0) * 1024.0 );\n   Compute z as the exponential of the remaining bits by a polynomial minus one\n   exp(x) \u003d intVal * fracVal * (1 + z)\n\nAccuracy:\n   Calculation is done with 63 bits of precision, so result should be correctly\n   rounded for 99.9% of input values, with less than 1 ULP error otherwise.\n\n@param x a double\n@return double e\u003csup\u003ex\u003c/sup\u003e\n"
+    }
+  }
+}

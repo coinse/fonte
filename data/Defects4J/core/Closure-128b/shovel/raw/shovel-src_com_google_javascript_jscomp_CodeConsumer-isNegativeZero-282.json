@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-128b",
+  "repositoryPath": "/tmp/Closure-128b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeConsumer.java",
+  "functionName": "isNegativeZero",
+  "functionId": "isNegativeZero___x-double",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeConsumer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 282,
+  "functionEndLine": 284,
+  "numCommitsSeen": 22,
+  "timeTaken": 778,
+  "changeHistory": [
+    "a02241e5df48e44e23dc0e66dbef3fdc3c91eb3e"
+  ],
+  "changeHistoryShort": {
+    "a02241e5df48e44e23dc0e66dbef3fdc3c91eb3e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a02241e5df48e44e23dc0e66dbef3fdc3c91eb3e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nCorrect output of -0.0.\nFixes issue 582.\n\nR\u003dacleung\nDELTA\u003d9  (8 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3489\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1519 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/17/11, 2:07 PM",
+      "commitName": "a02241e5df48e44e23dc0e66dbef3fdc3c91eb3e",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+static boolean isNegativeZero(double x) {\n+    return x \u003d\u003d 0.0 \u0026\u0026 Math.copySign(1, x) \u003d\u003d -1.0;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isNegativeZero(double x) {\n    return x \u003d\u003d 0.0 \u0026\u0026 Math.copySign(1, x) \u003d\u003d -1.0;\n}",
+      "path": "src/com/google/javascript/jscomp/CodeConsumer.java",
+      "functionStartLine": 261,
+      "functionName": "isNegativeZero",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "assertDefinitionNode",
+  "functionId": "$assertDefinitionNode___n-Node__type-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Asserts that it\u0027s ok to define this node\u0027s name.\nThe node should have a source name and be of the specified type.\n",
+  "functionStartLine": 689,
+  "functionEndLine": 692,
+  "numCommitsSeen": 83,
+  "timeTaken": 4909,
+  "changeHistory": [
+    "e8eafe7acfd53e5385e4f31692c4db67c3777185"
+  ],
+  "changeHistoryShort": {
+    "e8eafe7acfd53e5385e4f31692c4db67c3777185": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e8eafe7acfd53e5385e4f31692c4db67c3777185": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRefactor typedscopecreator a bit to make it easier\nto see what\u0027s going on. basically, i removed a level of dynamic\ndispatch. there should be no functional changes in this cl.\n\nR\u003djohnlenz\nDELTA\u003d228  (89 added, 62 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d54005\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@292 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/19/10, 5:30 PM",
+      "commitName": "e8eafe7acfd53e5385e4f31692c4db67c3777185",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+void assertDefinitionNode(Node n, int type) {\n+    Preconditions.checkState(sourceName !\u003d null);\n+    Preconditions.checkState(n.getType() \u003d\u003d type);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void assertDefinitionNode(Node n, int type) {\n    Preconditions.checkState(sourceName !\u003d null);\n    Preconditions.checkState(n.getType() \u003d\u003d type);\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 420,
+      "functionName": "assertDefinitionNode",
+      "functionAnnotation": "",
+      "functionDoc": "Asserts that it\u0027s ok to define this node\u0027s name.\nThe node should have a source name and be of the specified type.\n"
+    }
+  }
+}

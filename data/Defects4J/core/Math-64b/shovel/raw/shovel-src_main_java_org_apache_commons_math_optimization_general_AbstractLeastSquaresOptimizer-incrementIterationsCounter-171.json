@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-64b",
+  "repositoryPath": "/tmp/Math-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractLeastSquaresOptimizer.java",
+  "functionName": "incrementIterationsCounter",
+  "functionId": "incrementIterationsCounter",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Increment the iterations counter by 1.\n\n@exception OptimizationException if the maximal number\nof iterations is exceeded\n",
+  "functionStartLine": 171,
+  "functionEndLine": 176,
+  "numCommitsSeen": 20,
+  "timeTaken": 1873,
+  "changeHistory": [
+    "d6a438e931412713e99624cf9ed74470f1040184",
+    "c92a3d9eee0701aae4e62d6678815c0eb03f5a11",
+    "a7faf40b61f445d15d9a210b23fa0008b87e25e2"
+  ],
+  "changeHistoryShort": {
+    "d6a438e931412713e99624cf9ed74470f1040184": "Yfilerename",
+    "c92a3d9eee0701aae4e62d6678815c0eb03f5a11": "Ybodychange",
+    "a7faf40b61f445d15d9a210b23fa0008b87e25e2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d6a438e931412713e99624cf9ed74470f1040184": {
+      "type": "Yfilerename",
+      "commitMessage": "moved main java directory for compliance with maven standard directory layout\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@799870 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/09, 7:30 AM",
+      "commitName": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/09, 7:23 AM",
+      "commitNameOld": "2ad5ef61630be627f46ae1c266cf796f044bd4a8",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void incrementIterationsCounter() throws OptimizationException {\n    if (++iterations \u003e maxIterations) {\n        throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+      "functionStartLine": 164,
+      "functionName": "incrementIterationsCounter",
+      "functionAnnotation": "",
+      "functionDoc": "Increment the iterations counter by 1.\n\n@exception OptimizationException if the maximal number\nof iterations is exceeded\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+        "newPath": "src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java"
+      }
+    },
+    "c92a3d9eee0701aae4e62d6678815c0eb03f5a11": {
+      "type": "Ybodychange",
+      "commitMessage": "added protection against infinite loops by setting a maximal number of evaluations\n(some classes were forgotten in the first pass to fix this problem)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@786466 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/19/09, 5:03 AM",
+      "commitName": "c92a3d9eee0701aae4e62d6678815c0eb03f5a11",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "6/7/09, 2:24 PM",
+      "commitNameOld": "4eb810e816aac9329ae05715a8ebb8aa7c400031",
+      "commitAuthorOld": "William Barker",
+      "daysBetweenCommits": 11.61,
+      "commitsBetweenForRepo": 15,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void incrementIterationsCounter() throws OptimizationException {\n    if (++iterations \u003e maxIterations) {\n        throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n    }\n}",
+      "path": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+      "functionStartLine": 164,
+      "functionName": "incrementIterationsCounter",
+      "functionAnnotation": "",
+      "functionDoc": "Increment the iterations counter by 1.\n\n@exception OptimizationException if the maximal number\nof iterations is exceeded\n",
+      "diff": "@@ -1,7 +1,5 @@\n protected void incrementIterationsCounter() throws OptimizationException {\n     if (++iterations \u003e maxIterations) {\n-        if (++iterations \u003e maxIterations) {\n-            throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n-        }\n+        throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a7faf40b61f445d15d9a210b23fa0008b87e25e2": {
+      "type": "Yintroduced",
+      "commitMessage": "separated iteration counter from function evaluation counters,\nsome optimizers are based on gradient/jacobian only and cannot\nreliably be protected by monitoring the objective function calls.\n\nWe now have two or three counters for each algorithm:\n - iteration counter, which is checked against a max allowance\n   to prevent infinite loops if no convergence is reached\n - objective function evaluations, for user information only\n - objective function gradient/jacobian if the function is\n   differentiable, for user information only\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@757181 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/22/09, 6:00 AM",
+      "commitName": "a7faf40b61f445d15d9a210b23fa0008b87e25e2",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,7 @@\n+protected void incrementIterationsCounter() throws OptimizationException {\n+    if (++iterations \u003e maxIterations) {\n+        if (++iterations \u003e maxIterations) {\n+            throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void incrementIterationsCounter() throws OptimizationException {\n    if (++iterations \u003e maxIterations) {\n        if (++iterations \u003e maxIterations) {\n            throw new OptimizationException(new MaxIterationsExceededException(maxIterations));\n        }\n    }\n}",
+      "path": "src/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+      "functionStartLine": 148,
+      "functionName": "incrementIterationsCounter",
+      "functionAnnotation": "",
+      "functionDoc": "Increment the iterations counter by 1.\n\n@exception OptimizationException if the maximal number\nof iterations is exceeded\n"
+    }
+  }
+}

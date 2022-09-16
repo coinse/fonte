@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-54b",
+  "repositoryPath": "/tmp/Math-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "sqrt",
+  "functionId": "sqrt",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute the square root.\n\n@return square root of the instance\n",
+  "functionStartLine": 1856,
+  "functionEndLine": 1947,
+  "numCommitsSeen": 4,
+  "timeTaken": 739,
+  "changeHistory": [
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,64 @@\n+public Dfp sqrt() {\n+    if (nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] \u003d\u003d 0) {\n+        return newInstance(this);\n+    }\n+    if (nans !\u003d FINITE) {\n+        if (nans \u003d\u003d INFINITE \u0026\u0026 sign \u003d\u003d 1) {\n+            return newInstance(this);\n+        }\n+        if (nans \u003d\u003d QNAN) {\n+            return newInstance(this);\n+        }\n+        if (nans \u003d\u003d SNAN) {\n+            Dfp result;\n+            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+            result \u003d newInstance(this);\n+            result \u003d dotrap(DfpField.FLAG_INVALID, SQRT_TRAP, null, result);\n+            return result;\n+        }\n+    }\n+    if (sign \u003d\u003d -1) {\n+        Dfp result;\n+        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+        result \u003d newInstance(this);\n+        result.nans \u003d QNAN;\n+        result \u003d dotrap(DfpField.FLAG_INVALID, SQRT_TRAP, null, result);\n+        return result;\n+    }\n+    Dfp x \u003d newInstance(this);\n+    if (x.exp \u003c -1 || x.exp \u003e 1) {\n+        x.exp \u003d this.exp / 2;\n+    }\n+    switch(x.mant[mant.length - 1] / 2000) {\n+        case 0:\n+            x.mant[mant.length - 1] \u003d x.mant[mant.length - 1] / 2 + 1;\n+            break;\n+        case 2:\n+            x.mant[mant.length - 1] \u003d 1500;\n+            break;\n+        case 3:\n+            x.mant[mant.length - 1] \u003d 2200;\n+            break;\n+        default:\n+            x.mant[mant.length - 1] \u003d 3000;\n+    }\n+    Dfp dx \u003d newInstance(x);\n+    Dfp px \u003d getZero();\n+    Dfp ppx \u003d getZero();\n+    while (x.unequal(px)) {\n+        dx \u003d newInstance(x);\n+        dx.sign \u003d -1;\n+        dx \u003d dx.add(this.divide(x));\n+        dx \u003d dx.divide(2);\n+        ppx \u003d px;\n+        px \u003d x;\n+        x \u003d x.add(dx);\n+        if (x.equals(ppx)) {\n+            break;\n+        }\n+        if (dx.mant[mant.length - 1] \u003d\u003d 0) {\n+            break;\n+        }\n+    }\n+    return x;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Dfp sqrt() {\n    if (nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] \u003d\u003d 0) {\n        return newInstance(this);\n    }\n    if (nans !\u003d FINITE) {\n        if (nans \u003d\u003d INFINITE \u0026\u0026 sign \u003d\u003d 1) {\n            return newInstance(this);\n        }\n        if (nans \u003d\u003d QNAN) {\n            return newInstance(this);\n        }\n        if (nans \u003d\u003d SNAN) {\n            Dfp result;\n            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n            result \u003d newInstance(this);\n            result \u003d dotrap(DfpField.FLAG_INVALID, SQRT_TRAP, null, result);\n            return result;\n        }\n    }\n    if (sign \u003d\u003d -1) {\n        Dfp result;\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        result \u003d newInstance(this);\n        result.nans \u003d QNAN;\n        result \u003d dotrap(DfpField.FLAG_INVALID, SQRT_TRAP, null, result);\n        return result;\n    }\n    Dfp x \u003d newInstance(this);\n    if (x.exp \u003c -1 || x.exp \u003e 1) {\n        x.exp \u003d this.exp / 2;\n    }\n    switch(x.mant[mant.length - 1] / 2000) {\n        case 0:\n            x.mant[mant.length - 1] \u003d x.mant[mant.length - 1] / 2 + 1;\n            break;\n        case 2:\n            x.mant[mant.length - 1] \u003d 1500;\n            break;\n        case 3:\n            x.mant[mant.length - 1] \u003d 2200;\n            break;\n        default:\n            x.mant[mant.length - 1] \u003d 3000;\n    }\n    Dfp dx \u003d newInstance(x);\n    Dfp px \u003d getZero();\n    Dfp ppx \u003d getZero();\n    while (x.unequal(px)) {\n        dx \u003d newInstance(x);\n        dx.sign \u003d -1;\n        dx \u003d dx.add(this.divide(x));\n        dx \u003d dx.divide(2);\n        ppx \u003d px;\n        px \u003d x;\n        x \u003d x.add(dx);\n        if (x.equals(ppx)) {\n            break;\n        }\n        if (dx.mant[mant.length - 1] \u003d\u003d 0) {\n            break;\n        }\n    }\n    return x;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 1856,
+      "functionName": "sqrt",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the square root.\n\n@return square root of the instance\n"
+    }
+  }
+}

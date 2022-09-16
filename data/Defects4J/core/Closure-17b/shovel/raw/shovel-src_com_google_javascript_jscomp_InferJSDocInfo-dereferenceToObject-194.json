@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InferJSDocInfo.java",
+  "functionName": "dereferenceToObject",
+  "functionId": "dereferenceToObject___type-JSType",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+  "functionAnnotation": "",
+  "functionDoc": "Dereferences the given type to an object, or returns null.\n",
+  "functionStartLine": 194,
+  "functionEndLine": 196,
+  "numCommitsSeen": 20,
+  "timeTaken": 1900,
+  "changeHistory": [
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f"
+  ],
+  "changeHistoryShort": {
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": "Ybodychange",
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": {
+      "type": "Ybodychange",
+      "commitMessage": "Add warnings for functions that are ambiguously defined on different\nbrowsers.\n\nAdd better support for Caja.\n\nRollback the change to CoalesceVariableNames, because it had problems.\n\nInternal type system refactoring.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@33 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/15/09, 1:52 PM",
+      "commitName": "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "12/7/09, 1:53 PM",
+      "commitNameOld": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 8.0,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private ObjectType dereferenceToObject(JSType type) {\n    return ObjectType.cast(type \u003d\u003d null ? null : type.dereference());\n}",
+      "path": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+      "functionStartLine": 183,
+      "functionName": "dereferenceToObject",
+      "functionAnnotation": "",
+      "functionDoc": "Dereferences the given type to an object, or returns null.\n",
+      "diff": "@@ -1,4 +1,3 @@\n private ObjectType dereferenceToObject(JSType type) {\n-    type \u003d type \u003d\u003d null ? null : type.dereference();\n-    return (type instanceof ObjectType) ? (ObjectType) type : null;\n+    return ObjectType.cast(type \u003d\u003d null ? null : type.dereference());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": {
+      "type": "Yintroduced",
+      "commitMessage": "Add buttloads of tests.\n\nRewrite JSDoc inference to be more redundant, which should help it\nto be more robust.\n\nAssorted other fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@20 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/7/09, 1:53 PM",
+      "commitName": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+private ObjectType dereferenceToObject(JSType type) {\n+    type \u003d type \u003d\u003d null ? null : type.dereference();\n+    return (type instanceof ObjectType) ? (ObjectType) type : null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private ObjectType dereferenceToObject(JSType type) {\n    type \u003d type \u003d\u003d null ? null : type.dereference();\n    return (type instanceof ObjectType) ? (ObjectType) type : null;\n}",
+      "path": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+      "functionStartLine": 183,
+      "functionName": "dereferenceToObject",
+      "functionAnnotation": "",
+      "functionDoc": "Dereferences the given type to an object, or returns null.\n"
+    }
+  }
+}

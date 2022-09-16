@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-80b",
+  "repositoryPath": "/tmp/Closure-80b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isToStringMethodCall",
+  "functionId": "isToStringMethodCall___call-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 2962,
+  "functionEndLine": 2969,
+  "numCommitsSeen": 71,
+  "timeTaken": 2331,
+  "changeHistory": [
+    "ef332935817a940ca10d1ce431d8a2037fe59ac9"
+  ],
+  "changeHistoryShort": {
+    "ef332935817a940ca10d1ce431d8a2037fe59ac9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ef332935817a940ca10d1ce431d8a2037fe59ac9": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAssume \"toString\" and \"valueOf\" are side-effect free and \"toString\"\nreturns a string.\n\nR\u003dnicksantos\nDELTA\u003d39  (36 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d17\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@571 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/29/10, 1:42 PM",
+      "commitName": "ef332935817a940ca10d1ce431d8a2037fe59ac9",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+private static boolean isToStringMethodCall(Node call) {\n+    Node getNode \u003d call.getFirstChild();\n+    if (isGet(getNode)) {\n+        Node propNode \u003d getNode.getLastChild();\n+        return isString(propNode) \u0026\u0026 \"toString\".equals(propNode.getString());\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean isToStringMethodCall(Node call) {\n    Node getNode \u003d call.getFirstChild();\n    if (isGet(getNode)) {\n        Node propNode \u003d getNode.getLastChild();\n        return isString(propNode) \u0026\u0026 \"toString\".equals(propNode.getString());\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2446,
+      "functionName": "isToStringMethodCall",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

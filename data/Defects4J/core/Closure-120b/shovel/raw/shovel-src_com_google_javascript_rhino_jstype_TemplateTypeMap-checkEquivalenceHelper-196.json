@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TemplateTypeMap.java",
+  "functionName": "checkEquivalenceHelper",
+  "functionId": "checkEquivalenceHelper___that-TemplateTypeMap__eqMethod-EquivalenceMethod",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/TemplateTypeMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines if this map and the specified map have equivalent template\ntypes.\n",
+  "functionStartLine": 196,
+  "functionEndLine": 243,
+  "numCommitsSeen": 4,
+  "timeTaken": 2215,
+  "changeHistory": [
+    "65b54396fb95cdee741f45b9f53b967452e2274c",
+    "2065172121162371081ca134f05d0da599ca0ba4"
+  ],
+  "changeHistoryShort": {
+    "65b54396fb95cdee741f45b9f53b967452e2274c": "Ybodychange",
+    "2065172121162371081ca134f05d0da599ca0ba4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "65b54396fb95cdee741f45b9f53b967452e2274c": {
+      "type": "Ybodychange",
+      "commitMessage": "Makes subtype relations work with @implemented templatized types.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d45106345\n",
+      "commitDate": "4/10/13, 4:18 PM",
+      "commitName": "65b54396fb95cdee741f45b9f53b967452e2274c",
+      "commitAuthor": "Ben Lickly",
+      "commitDateOld": "3/20/13, 4:08 PM",
+      "commitNameOld": "75aeb38f6a718778023d3d7f10dc491003161eff",
+      "commitAuthorOld": "Ben Lickly",
+      "daysBetweenCommits": 21.01,
+      "commitsBetweenForRepo": 39,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean checkEquivalenceHelper(TemplateTypeMap that, EquivalenceMethod eqMethod) {\n    ImmutableList\u003cTemplateType\u003e thisKeys \u003d getTemplateKeys();\n    ImmutableList\u003cTemplateType\u003e thatKeys \u003d that.getTemplateKeys();\n    EquivalenceMatch[] thatMatches \u003d new EquivalenceMatch[thatKeys.size()];\n    Arrays.fill(thatMatches, EquivalenceMatch.NO_KEY_MATCH);\n    for (int i \u003d 0; i \u003c thisKeys.size(); i++) {\n        TemplateType thisKey \u003d thisKeys.get(i);\n        JSType thisType \u003d getResolvedTemplateType(thisKey);\n        EquivalenceMatch thisMatch \u003d EquivalenceMatch.NO_KEY_MATCH;\n        for (int j \u003d 0; j \u003c thatKeys.size(); j++) {\n            TemplateType thatKey \u003d thatKeys.get(j);\n            JSType thatType \u003d that.getResolvedTemplateType(thatKey);\n            if (thisKey \u003d\u003d thatKey) {\n                EquivalenceMatch newMatchType \u003d EquivalenceMatch.VALUE_MISMATCH;\n                if (thisType.checkEquivalenceHelper(thatType, eqMethod)) {\n                    newMatchType \u003d EquivalenceMatch.VALUE_MATCH;\n                }\n                if (thisMatch !\u003d EquivalenceMatch.VALUE_MATCH) {\n                    thisMatch \u003d newMatchType;\n                }\n                if (thatMatches[j] !\u003d EquivalenceMatch.VALUE_MATCH) {\n                    thatMatches[j] \u003d newMatchType;\n                }\n            }\n        }\n        if (failedEquivalenceCheck(thisMatch, eqMethod)) {\n            return false;\n        }\n    }\n    for (int i \u003d 0; i \u003c thatMatches.length; i++) {\n        if (failedEquivalenceCheck(thatMatches[i], eqMethod)) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/TemplateTypeMap.java",
+      "functionStartLine": 196,
+      "functionName": "checkEquivalenceHelper",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if this map and the specified map have equivalent template\ntypes.\n",
+      "diff": "@@ -1,12 +1,36 @@\n public boolean checkEquivalenceHelper(TemplateTypeMap that, EquivalenceMethod eqMethod) {\n-    int thisNumKeys \u003d templateKeys.size();\n-    int thatNumKeys \u003d that.getTemplateKeys().size();\n-    for (int i \u003d 0; i \u003c Math.min(thisNumKeys, thatNumKeys); i++) {\n-        JSType thisTemplateType \u003d getTemplateType(templateKeys.get(i));\n-        JSType thatTemplateType \u003d that.getTemplateType(that.getTemplateKeys().get(i));\n-        if (!thisTemplateType.checkEquivalenceHelper(thatTemplateType, eqMethod)) {\n+    ImmutableList\u003cTemplateType\u003e thisKeys \u003d getTemplateKeys();\n+    ImmutableList\u003cTemplateType\u003e thatKeys \u003d that.getTemplateKeys();\n+    EquivalenceMatch[] thatMatches \u003d new EquivalenceMatch[thatKeys.size()];\n+    Arrays.fill(thatMatches, EquivalenceMatch.NO_KEY_MATCH);\n+    for (int i \u003d 0; i \u003c thisKeys.size(); i++) {\n+        TemplateType thisKey \u003d thisKeys.get(i);\n+        JSType thisType \u003d getResolvedTemplateType(thisKey);\n+        EquivalenceMatch thisMatch \u003d EquivalenceMatch.NO_KEY_MATCH;\n+        for (int j \u003d 0; j \u003c thatKeys.size(); j++) {\n+            TemplateType thatKey \u003d thatKeys.get(j);\n+            JSType thatType \u003d that.getResolvedTemplateType(thatKey);\n+            if (thisKey \u003d\u003d thatKey) {\n+                EquivalenceMatch newMatchType \u003d EquivalenceMatch.VALUE_MISMATCH;\n+                if (thisType.checkEquivalenceHelper(thatType, eqMethod)) {\n+                    newMatchType \u003d EquivalenceMatch.VALUE_MATCH;\n+                }\n+                if (thisMatch !\u003d EquivalenceMatch.VALUE_MATCH) {\n+                    thisMatch \u003d newMatchType;\n+                }\n+                if (thatMatches[j] !\u003d EquivalenceMatch.VALUE_MATCH) {\n+                    thatMatches[j] \u003d newMatchType;\n+                }\n+            }\n+        }\n+        if (failedEquivalenceCheck(thisMatch, eqMethod)) {\n             return false;\n         }\n     }\n-    return thisNumKeys \u003d\u003d thatNumKeys || eqMethod \u003d\u003d EquivalenceMethod.INVARIANT;\n+    for (int i \u003d 0; i \u003c thatMatches.length; i++) {\n+        if (failedEquivalenceCheck(thatMatches[i], eqMethod)) {\n+            return false;\n+        }\n+    }\n+    return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "2065172121162371081ca134f05d0da599ca0ba4": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdds a TemplateTypeMap, which encapsulates a mapping between template keys (String) and their values (JSType). Hooks into all relevant JSTypes except TemplatizedType.\n\nR\u003ddimvar,nicksantos,johnlenz\nDELTA\u003d487 (242 added, 197 deleted, 48 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6208\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2493 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/29/13, 11:03 AM",
+      "commitName": "2065172121162371081ca134f05d0da599ca0ba4",
+      "commitAuthor": "izaakr@google.com",
+      "diff": "@@ -0,0 +1,12 @@\n+public boolean checkEquivalenceHelper(TemplateTypeMap that, EquivalenceMethod eqMethod) {\n+    int thisNumKeys \u003d templateKeys.size();\n+    int thatNumKeys \u003d that.getTemplateKeys().size();\n+    for (int i \u003d 0; i \u003c Math.min(thisNumKeys, thatNumKeys); i++) {\n+        JSType thisTemplateType \u003d getTemplateType(templateKeys.get(i));\n+        JSType thatTemplateType \u003d that.getTemplateType(that.getTemplateKeys().get(i));\n+        if (!thisTemplateType.checkEquivalenceHelper(thatTemplateType, eqMethod)) {\n+            return false;\n+        }\n+    }\n+    return thisNumKeys \u003d\u003d thatNumKeys || eqMethod \u003d\u003d EquivalenceMethod.INVARIANT;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean checkEquivalenceHelper(TemplateTypeMap that, EquivalenceMethod eqMethod) {\n    int thisNumKeys \u003d templateKeys.size();\n    int thatNumKeys \u003d that.getTemplateKeys().size();\n    for (int i \u003d 0; i \u003c Math.min(thisNumKeys, thatNumKeys); i++) {\n        JSType thisTemplateType \u003d getTemplateType(templateKeys.get(i));\n        JSType thatTemplateType \u003d that.getTemplateType(that.getTemplateKeys().get(i));\n        if (!thisTemplateType.checkEquivalenceHelper(thatTemplateType, eqMethod)) {\n            return false;\n        }\n    }\n    return thisNumKeys \u003d\u003d thatNumKeys || eqMethod \u003d\u003d EquivalenceMethod.INVARIANT;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/TemplateTypeMap.java",
+      "functionStartLine": 137,
+      "functionName": "checkEquivalenceHelper",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if this map and the specified map have equivalent template\ntypes.\n"
+    }
+  }
+}

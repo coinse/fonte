@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "getType",
+  "functionId": "getType___jsTypeName-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "Looks up a type by name.\n\n@param jsTypeName The name string.\n@return the corresponding JSType object or {@code null} it cannot be found\n",
+  "functionStartLine": 880,
+  "functionEndLine": 888,
+  "numCommitsSeen": 69,
+  "timeTaken": 4623,
+  "changeHistory": [
+    "16a9c4d210fea92c24ff05aa2d6767e3f5ceb362",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "16a9c4d210fea92c24ff05aa2d6767e3f5ceb362": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "16a9c4d210fea92c24ff05aa2d6767e3f5ceb362": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange @template to be a repeatable JSDoc tag.\n\nR\u003dnicksantos\nDELTA\u003d67  (18 added, 6 deleted, 43 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4910\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2008 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/31/12, 2:10 PM",
+      "commitName": "16a9c4d210fea92c24ff05aa2d6767e3f5ceb362",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "5/23/12, 9:49 AM",
+      "commitNameOld": "59aac0b247db74ec7047132f368953935edd81b8",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 8.18,
+      "commitsBetweenForRepo": 16,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JSType getType(String jsTypeName) {\n    TemplateType templateType \u003d templateTypes.get(jsTypeName);\n    if (templateType !\u003d null) {\n        return templateType;\n    }\n    return namesToTypes.get(jsTypeName);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 870,
+      "functionName": "getType",
+      "functionAnnotation": "",
+      "functionDoc": "Looks up a type by name.\n\n@param jsTypeName The name string.\n@return the corresponding JSType object or {@code null} it cannot be found\n",
+      "diff": "@@ -1,6 +1,7 @@\n public JSType getType(String jsTypeName) {\n-    if (jsTypeName.equals(templateTypeName)) {\n+    TemplateType templateType \u003d templateTypes.get(jsTypeName);\n+    if (templateType !\u003d null) {\n         return templateType;\n     }\n     return namesToTypes.get(jsTypeName);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,6 @@\n+public JSType getType(String jsTypeName) {\n+    if (jsTypeName.equals(templateTypeName)) {\n+        return templateType;\n+    }\n+    return namesToTypes.get(jsTypeName);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JSType getType(String jsTypeName) {\n    if (jsTypeName.equals(templateTypeName)) {\n        return templateType;\n    }\n    return namesToTypes.get(jsTypeName);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 672,
+      "functionName": "getType",
+      "functionAnnotation": "",
+      "functionDoc": "Looks up a type by name.\n\n@param jsTypeName The name string.\n@return the corresponding JSType object or {@code null} it cannot be found\n"
+    }
+  }
+}

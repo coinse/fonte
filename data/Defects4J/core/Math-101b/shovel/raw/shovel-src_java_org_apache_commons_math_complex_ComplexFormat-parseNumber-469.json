@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-101b",
+  "repositoryPath": "/tmp/Math-101b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ComplexFormat.java",
+  "functionName": "parseNumber",
+  "functionId": "parseNumber___source-String__format-NumberFormat__pos-ParsePosition",
+  "sourceFilePath": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses \u003ccode\u003esource\u003c/code\u003e for a number.  This method can parse normal,\nnumeric values as well as special values.  These special values include\nDouble.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY.\n\n@param source the string to parse\n@param format the number format used to parse normal, numeric values.\n@param pos input/ouput parsing parameter.\n@return the parsed number.\n",
+  "functionStartLine": 469,
+  "functionEndLine": 487,
+  "numCommitsSeen": 15,
+  "timeTaken": 588,
+  "changeHistory": [
+    "d1cdea807a3886e8fc7c5ba02266f809d2b54469",
+    "322706393973a99fc70f0cbd8cadee38bae3aa94"
+  ],
+  "changeHistoryShort": {
+    "d1cdea807a3886e8fc7c5ba02266f809d2b54469": "Ybodychange",
+    "322706393973a99fc70f0cbd8cadee38bae3aa94": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d1cdea807a3886e8fc7c5ba02266f809d2b54469": {
+      "type": "Ybodychange",
+      "commitMessage": "PR: 38091\nComplexFormat was not formatting double values with the provided NumberFormat.  Instead, the real part format was always used.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@365680 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/3/06, 8:47 AM",
+      "commitName": "d1cdea807a3886e8fc7c5ba02266f809d2b54469",
+      "commitAuthor": "Brent Worden",
+      "commitDateOld": "12/22/05, 1:16 PM",
+      "commitNameOld": "6ef3b2932f4ca9219e41784bb0cd229dcabcdb11",
+      "commitAuthorOld": "Phil Steitz",
+      "daysBetweenCommits": 11.81,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Number parseNumber(String source, NumberFormat format, ParsePosition pos) {\n    int startIndex \u003d pos.getIndex();\n    Number number \u003d format.parse(source, pos);\n    int endIndex \u003d pos.getIndex();\n    if (startIndex \u003d\u003d endIndex) {\n        double[] special \u003d { Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY };\n        for (int i \u003d 0; i \u003c special.length; ++i) {\n            number \u003d parseNumber(source, special[i], pos);\n            if (number !\u003d null) {\n                break;\n            }\n        }\n    }\n    return number;\n}",
+      "path": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+      "functionStartLine": 468,
+      "functionName": "parseNumber",
+      "functionAnnotation": "",
+      "functionDoc": "Parses \u003ccode\u003esource\u003c/code\u003e for a number.  This method can parse normal,\nnumeric values as well as special values.  These special values include\nDouble.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY.\n\n@param source the string to parse\n@param format the number format used to parse normal, numeric values.\n@param pos input/ouput parsing parameter.\n@return the parsed number.\n",
+      "diff": "@@ -1,15 +1,15 @@\n private Number parseNumber(String source, NumberFormat format, ParsePosition pos) {\n     int startIndex \u003d pos.getIndex();\n-    Number number \u003d getRealFormat().parse(source, pos);\n+    Number number \u003d format.parse(source, pos);\n     int endIndex \u003d pos.getIndex();\n     if (startIndex \u003d\u003d endIndex) {\n         double[] special \u003d { Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY };\n         for (int i \u003d 0; i \u003c special.length; ++i) {\n             number \u003d parseNumber(source, special[i], pos);\n             if (number !\u003d null) {\n                 break;\n             }\n         }\n     }\n     return number;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "322706393973a99fc70f0cbd8cadee38bae3aa94": {
+      "type": "Yintroduced",
+      "commitMessage": "PR: 29000\nMade ComplexFormat extend java.text.Format providing complex object formatting and parsing.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141256 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/1/04, 6:47 AM",
+      "commitName": "322706393973a99fc70f0cbd8cadee38bae3aa94",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,15 @@\n+private Number parseNumber(String source, NumberFormat format, ParsePosition pos) {\n+    int startIndex \u003d pos.getIndex();\n+    Number number \u003d getRealFormat().parse(source, pos);\n+    int endIndex \u003d pos.getIndex();\n+    if (startIndex \u003d\u003d endIndex) {\n+        double[] special \u003d { Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY };\n+        for (int i \u003d 0; i \u003c special.length; ++i) {\n+            number \u003d parseNumber(source, special[i], pos);\n+            if (number !\u003d null) {\n+                break;\n+            }\n+        }\n+    }\n+    return number;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Number parseNumber(String source, NumberFormat format, ParsePosition pos) {\n    int startIndex \u003d pos.getIndex();\n    Number number \u003d getRealFormat().parse(source, pos);\n    int endIndex \u003d pos.getIndex();\n    if (startIndex \u003d\u003d endIndex) {\n        double[] special \u003d { Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY };\n        for (int i \u003d 0; i \u003c special.length; ++i) {\n            number \u003d parseNumber(source, special[i], pos);\n            if (number !\u003d null) {\n                break;\n            }\n        }\n    }\n    return number;\n}",
+      "path": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+      "functionStartLine": 429,
+      "functionName": "parseNumber",
+      "functionAnnotation": "",
+      "functionDoc": "Parses \u003ccode\u003esource\u003c/code\u003e for a number.  This method can parse normal,\nnumeric values as well as special values.  These special values include\nDouble.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY.\n\n@param source the string to parse\n@param format the number format used to parse normal, numeric values.\n@param pos input/ouput parsing parameter.\n@return the parsed number.\n"
+    }
+  }
+}

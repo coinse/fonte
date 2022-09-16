@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "verifyScopeChanges",
+  "functionId": "verifyScopeChanges___map-Map__Node,Node____main-Node__verifyUnchangedNodes-boolean__compiler-AbstractCompiler",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Checks that the scope roots marked as changed have indeed changed\n",
+  "functionStartLine": 3343,
+  "functionEndLine": 3377,
+  "numCommitsSeen": 307,
+  "timeTaken": 2124,
+  "changeHistory": [
+    "4f2e95df78fb35087e9257f3f8deaa52d64586c8",
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0"
+  ],
+  "changeHistoryShort": {
+    "4f2e95df78fb35087e9257f3f8deaa52d64586c8": "Ymultichange(Yparameterchange,Ybodychange)",
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4f2e95df78fb35087e9257f3f8deaa52d64586c8": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Fix bugs in scope-change reporting found by the scope-change sanity check.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d45177496\n",
+      "commitDate": "4/17/13, 2:42 PM",
+      "commitName": "4f2e95df78fb35087e9257f3f8deaa52d64586c8",
+      "commitAuthor": "Ben Lickly",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fix bugs in scope-change reporting found by the scope-change sanity check.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d45177496\n",
+          "commitDate": "4/17/13, 2:42 PM",
+          "commitName": "4f2e95df78fb35087e9257f3f8deaa52d64586c8",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "3/22/13, 5:01 PM",
+          "commitNameOld": "437a9e47d1a371f9e6724210b16d11d75366c3a0",
+          "commitAuthorOld": "Ben Lickly",
+          "daysBetweenCommits": 25.9,
+          "commitsBetweenForRepo": 40,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes, AbstractCompiler compiler) {\n    final Map\u003cNode, Node\u003e mtoc \u003d map;\n    final boolean checkUnchanged \u003d verifyUnchangedNodes;\n    Node clone \u003d mtoc.get(main);\n    if (main.getChangeTime() \u003e clone.getChangeTime()) {\n        Preconditions.checkState(!main.isEquivalentToShallow(clone));\n    } else if (checkUnchanged) {\n        Preconditions.checkState(main.isEquivalentToShallow(clone));\n    }\n    visitPreOrder(main, new Visitor() {\n\n        @Override\n        public void visit(Node n) {\n            if (n.isFunction() \u0026\u0026 mtoc.containsKey(n)) {\n                Node clone \u003d mtoc.get(n);\n                if (n.getChangeTime() \u003e clone.getChangeTime()) {\n                    Preconditions.checkState(!n.isEquivalentToShallow(clone));\n                } else if (checkUnchanged) {\n                    Preconditions.checkState(n.isEquivalentToShallow(clone));\n                }\n            }\n        }\n    }, Predicates.\u003cNode\u003ealwaysTrue());\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3314,
+          "functionName": "verifyScopeChanges",
+          "functionAnnotation": "",
+          "functionDoc": "Checks that the scope roots marked as changed have indeed changed\n",
+          "diff": "@@ -1,24 +1,24 @@\n-public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes) {\n+public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes, AbstractCompiler compiler) {\n     final Map\u003cNode, Node\u003e mtoc \u003d map;\n     final boolean checkUnchanged \u003d verifyUnchangedNodes;\n     Node clone \u003d mtoc.get(main);\n     if (main.getChangeTime() \u003e clone.getChangeTime()) {\n         Preconditions.checkState(!main.isEquivalentToShallow(clone));\n     } else if (checkUnchanged) {\n         Preconditions.checkState(main.isEquivalentToShallow(clone));\n     }\n     visitPreOrder(main, new Visitor() {\n \n         @Override\n         public void visit(Node n) {\n             if (n.isFunction() \u0026\u0026 mtoc.containsKey(n)) {\n                 Node clone \u003d mtoc.get(n);\n                 if (n.getChangeTime() \u003e clone.getChangeTime()) {\n                     Preconditions.checkState(!n.isEquivalentToShallow(clone));\n                 } else if (checkUnchanged) {\n                     Preconditions.checkState(n.isEquivalentToShallow(clone));\n                 }\n             }\n         }\n     }, Predicates.\u003cNode\u003ealwaysTrue());\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[map-Map\u003cNode,Node\u003e, main-Node, verifyUnchangedNodes-boolean]",
+            "newValue": "[map-Map\u003cNode,Node\u003e, main-Node, verifyUnchangedNodes-boolean, compiler-AbstractCompiler]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fix bugs in scope-change reporting found by the scope-change sanity check.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d45177496\n",
+          "commitDate": "4/17/13, 2:42 PM",
+          "commitName": "4f2e95df78fb35087e9257f3f8deaa52d64586c8",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "3/22/13, 5:01 PM",
+          "commitNameOld": "437a9e47d1a371f9e6724210b16d11d75366c3a0",
+          "commitAuthorOld": "Ben Lickly",
+          "daysBetweenCommits": 25.9,
+          "commitsBetweenForRepo": 40,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes, AbstractCompiler compiler) {\n    final Map\u003cNode, Node\u003e mtoc \u003d map;\n    final boolean checkUnchanged \u003d verifyUnchangedNodes;\n    Node clone \u003d mtoc.get(main);\n    if (main.getChangeTime() \u003e clone.getChangeTime()) {\n        Preconditions.checkState(!main.isEquivalentToShallow(clone));\n    } else if (checkUnchanged) {\n        Preconditions.checkState(main.isEquivalentToShallow(clone));\n    }\n    visitPreOrder(main, new Visitor() {\n\n        @Override\n        public void visit(Node n) {\n            if (n.isFunction() \u0026\u0026 mtoc.containsKey(n)) {\n                Node clone \u003d mtoc.get(n);\n                if (n.getChangeTime() \u003e clone.getChangeTime()) {\n                    Preconditions.checkState(!n.isEquivalentToShallow(clone));\n                } else if (checkUnchanged) {\n                    Preconditions.checkState(n.isEquivalentToShallow(clone));\n                }\n            }\n        }\n    }, Predicates.\u003cNode\u003ealwaysTrue());\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 3314,
+          "functionName": "verifyScopeChanges",
+          "functionAnnotation": "",
+          "functionDoc": "Checks that the scope roots marked as changed have indeed changed\n",
+          "diff": "@@ -1,24 +1,24 @@\n-public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes) {\n+public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes, AbstractCompiler compiler) {\n     final Map\u003cNode, Node\u003e mtoc \u003d map;\n     final boolean checkUnchanged \u003d verifyUnchangedNodes;\n     Node clone \u003d mtoc.get(main);\n     if (main.getChangeTime() \u003e clone.getChangeTime()) {\n         Preconditions.checkState(!main.isEquivalentToShallow(clone));\n     } else if (checkUnchanged) {\n         Preconditions.checkState(main.isEquivalentToShallow(clone));\n     }\n     visitPreOrder(main, new Visitor() {\n \n         @Override\n         public void visit(Node n) {\n             if (n.isFunction() \u0026\u0026 mtoc.containsKey(n)) {\n                 Node clone \u003d mtoc.get(n);\n                 if (n.getChangeTime() \u003e clone.getChangeTime()) {\n                     Preconditions.checkState(!n.isEquivalentToShallow(clone));\n                 } else if (checkUnchanged) {\n                     Preconditions.checkState(n.isEquivalentToShallow(clone));\n                 }\n             }\n         }\n     }, Predicates.\u003cNode\u003ealwaysTrue());\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0": {
+      "type": "Yintroduced",
+      "commitMessage": "Sanity-check the timestamps on scope roots. (Uncovered a bug in the changed-functions traversal. See new setting of currentScope in PhaseOptimizer.)\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44316335\n",
+      "commitDate": "3/22/13, 5:01 PM",
+      "commitName": "437a9e47d1a371f9e6724210b16d11d75366c3a0",
+      "commitAuthor": "Ben Lickly",
+      "diff": "@@ -0,0 +1,24 @@\n+public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes) {\n+    final Map\u003cNode, Node\u003e mtoc \u003d map;\n+    final boolean checkUnchanged \u003d verifyUnchangedNodes;\n+    Node clone \u003d mtoc.get(main);\n+    if (main.getChangeTime() \u003e clone.getChangeTime()) {\n+        Preconditions.checkState(!main.isEquivalentToShallow(clone));\n+    } else if (checkUnchanged) {\n+        Preconditions.checkState(main.isEquivalentToShallow(clone));\n+    }\n+    visitPreOrder(main, new Visitor() {\n+\n+        @Override\n+        public void visit(Node n) {\n+            if (n.isFunction() \u0026\u0026 mtoc.containsKey(n)) {\n+                Node clone \u003d mtoc.get(n);\n+                if (n.getChangeTime() \u003e clone.getChangeTime()) {\n+                    Preconditions.checkState(!n.isEquivalentToShallow(clone));\n+                } else if (checkUnchanged) {\n+                    Preconditions.checkState(n.isEquivalentToShallow(clone));\n+                }\n+            }\n+        }\n+    }, Predicates.\u003cNode\u003ealwaysTrue());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static void verifyScopeChanges(Map\u003cNode, Node\u003e map, Node main, boolean verifyUnchangedNodes) {\n    final Map\u003cNode, Node\u003e mtoc \u003d map;\n    final boolean checkUnchanged \u003d verifyUnchangedNodes;\n    Node clone \u003d mtoc.get(main);\n    if (main.getChangeTime() \u003e clone.getChangeTime()) {\n        Preconditions.checkState(!main.isEquivalentToShallow(clone));\n    } else if (checkUnchanged) {\n        Preconditions.checkState(main.isEquivalentToShallow(clone));\n    }\n    visitPreOrder(main, new Visitor() {\n\n        @Override\n        public void visit(Node n) {\n            if (n.isFunction() \u0026\u0026 mtoc.containsKey(n)) {\n                Node clone \u003d mtoc.get(n);\n                if (n.getChangeTime() \u003e clone.getChangeTime()) {\n                    Preconditions.checkState(!n.isEquivalentToShallow(clone));\n                } else if (checkUnchanged) {\n                    Preconditions.checkState(n.isEquivalentToShallow(clone));\n                }\n            }\n        }\n    }, Predicates.\u003cNode\u003ealwaysTrue());\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3314,
+      "functionName": "verifyScopeChanges",
+      "functionAnnotation": "",
+      "functionDoc": "Checks that the scope roots marked as changed have indeed changed\n"
+    }
+  }
+}

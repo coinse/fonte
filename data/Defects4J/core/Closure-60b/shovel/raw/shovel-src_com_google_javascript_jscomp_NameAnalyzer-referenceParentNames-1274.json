@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NameAnalyzer.java",
+  "functionName": "referenceParentNames",
+  "functionId": "referenceParentNames",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Adds mutual references between all known global names and their parent\nnames. (e.g. between \u003ccode\u003ea.b.c\u003c/code\u003e and \u003ccode\u003ea.b\u003c/code\u003e).\n",
+  "functionStartLine": 1274,
+  "functionEndLine": 1296,
+  "numCommitsSeen": 28,
+  "timeTaken": 2119,
+  "changeHistory": [
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix a bunch of passes to preserve more type information.\n\nFix goog.provide/goog.require handling to work in the presence of modules.\n\nImprove a bunch of type annotations in gecko_dom.\n\nMake NameAnalyzer use the Graph package.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@95 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/8/10, 11:30 AM",
+      "commitName": "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "1/8/10, 1:41 PM",
+      "commitNameOld": "6d374c3ee4c9c2651ffb44048924e127fd2bf37c",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 30.91,
+      "commitsBetweenForRepo": 28,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void referenceParentNames() {\n    Set\u003cJsName\u003e allNamesCopy \u003d Sets.newHashSet(allNames.values());\n    for (JsName name : allNamesCopy) {\n        String curName \u003d name.name;\n        JsName curJsName \u003d name;\n        while (curName.indexOf(\u0027.\u0027) !\u003d -1) {\n            String parentName \u003d curName.substring(0, curName.lastIndexOf(\u0027.\u0027));\n            if (!globalNames.contains(parentName)) {\n                JsName parentJsName \u003d getName(parentName, true);\n                recordReference(curJsName.name, parentJsName.name, RefType.REGULAR);\n                recordReference(parentJsName.name, curJsName.name, RefType.REGULAR);\n                curJsName \u003d parentJsName;\n            }\n            curName \u003d parentName;\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+      "functionStartLine": 1070,
+      "functionName": "referenceParentNames",
+      "functionAnnotation": "",
+      "functionDoc": "Adds mutual references between all known global names and their parent\nnames. (e.g. between \u003ccode\u003ea.b.c\u003c/code\u003e and \u003ccode\u003ea.b\u003c/code\u003e).\n",
+      "diff": "@@ -1,19 +1,17 @@\n private void referenceParentNames() {\n     Set\u003cJsName\u003e allNamesCopy \u003d Sets.newHashSet(allNames.values());\n     for (JsName name : allNamesCopy) {\n         String curName \u003d name.name;\n         JsName curJsName \u003d name;\n         while (curName.indexOf(\u0027.\u0027) !\u003d -1) {\n             String parentName \u003d curName.substring(0, curName.lastIndexOf(\u0027.\u0027));\n             if (!globalNames.contains(parentName)) {\n                 JsName parentJsName \u003d getName(parentName, true);\n-                curJsName.refersTo.add(parentName);\n-                parentJsName.referencedBy.add(curName);\n-                parentJsName.refersTo.add(curName);\n-                curJsName.referencedBy.add(parentName);\n+                recordReference(curJsName.name, parentJsName.name, RefType.REGULAR);\n+                recordReference(parentJsName.name, curJsName.name, RefType.REGULAR);\n                 curJsName \u003d parentJsName;\n             }\n             curName \u003d parentName;\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+private void referenceParentNames() {\n+    Set\u003cJsName\u003e allNamesCopy \u003d Sets.newHashSet(allNames.values());\n+    for (JsName name : allNamesCopy) {\n+        String curName \u003d name.name;\n+        JsName curJsName \u003d name;\n+        while (curName.indexOf(\u0027.\u0027) !\u003d -1) {\n+            String parentName \u003d curName.substring(0, curName.lastIndexOf(\u0027.\u0027));\n+            if (!globalNames.contains(parentName)) {\n+                JsName parentJsName \u003d getName(parentName, true);\n+                curJsName.refersTo.add(parentName);\n+                parentJsName.referencedBy.add(curName);\n+                parentJsName.refersTo.add(curName);\n+                curJsName.referencedBy.add(parentName);\n+                curJsName \u003d parentJsName;\n+            }\n+            curName \u003d parentName;\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void referenceParentNames() {\n    Set\u003cJsName\u003e allNamesCopy \u003d Sets.newHashSet(allNames.values());\n    for (JsName name : allNamesCopy) {\n        String curName \u003d name.name;\n        JsName curJsName \u003d name;\n        while (curName.indexOf(\u0027.\u0027) !\u003d -1) {\n            String parentName \u003d curName.substring(0, curName.lastIndexOf(\u0027.\u0027));\n            if (!globalNames.contains(parentName)) {\n                JsName parentJsName \u003d getName(parentName, true);\n                curJsName.refersTo.add(parentName);\n                parentJsName.referencedBy.add(curName);\n                parentJsName.refersTo.add(curName);\n                curJsName.referencedBy.add(parentName);\n                curJsName \u003d parentJsName;\n            }\n            curName \u003d parentName;\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+      "functionStartLine": 1084,
+      "functionName": "referenceParentNames",
+      "functionAnnotation": "",
+      "functionDoc": "Adds mutual references between all known global names and their parent\nnames. (e.g. between \u003ccode\u003ea.b.c\u003c/code\u003e and \u003ccode\u003ea.b\u003c/code\u003e).\n"
+    }
+  }
+}

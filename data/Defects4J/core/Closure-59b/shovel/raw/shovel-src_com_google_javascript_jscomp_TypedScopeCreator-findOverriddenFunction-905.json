@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "findOverriddenFunction",
+  "functionId": "$findOverriddenFunction___ownerType-ObjectType__propName-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Find the function that\u0027s being overridden on this type, if any.\n",
+  "functionStartLine": 905,
+  "functionEndLine": 925,
+  "numCommitsSeen": 59,
+  "timeTaken": 5390,
+  "changeHistory": [
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c"
+  ],
+  "changeHistoryShort": {
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixes a bug in AmbugateProperties in the presence of interfaces.\n\nFixes a bug in how type information on methods of interfaces gets\ninherited by implementers (issue 86)\n\nUse Joiners instead of the join() static method.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@59 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/8/10, 1:41 PM",
+      "commitName": "6d374c3ee4c9c2651ffb44048924e127fd2bf37c",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private FunctionType findOverriddenFunction(ObjectType ownerType, String propName) {\n+    JSType propType \u003d ownerType.getPropertyType(propName);\n+    if (propType instanceof FunctionType) {\n+        return (FunctionType) propType;\n+    } else {\n+        for (ObjectType iface : ownerType.getCtorImplementedInterfaces()) {\n+            propType \u003d iface.getPropertyType(propName);\n+            if (propType instanceof FunctionType) {\n+                return (FunctionType) propType;\n+            }\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private FunctionType findOverriddenFunction(ObjectType ownerType, String propName) {\n    JSType propType \u003d ownerType.getPropertyType(propName);\n    if (propType instanceof FunctionType) {\n        return (FunctionType) propType;\n    } else {\n        for (ObjectType iface : ownerType.getCtorImplementedInterfaces()) {\n            propType \u003d iface.getPropertyType(propName);\n            if (propType instanceof FunctionType) {\n                return (FunctionType) propType;\n            }\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 553,
+      "functionName": "findOverriddenFunction",
+      "functionAnnotation": "",
+      "functionDoc": "Find the function that\u0027s being overridden on this type, if any.\n"
+    }
+  }
+}

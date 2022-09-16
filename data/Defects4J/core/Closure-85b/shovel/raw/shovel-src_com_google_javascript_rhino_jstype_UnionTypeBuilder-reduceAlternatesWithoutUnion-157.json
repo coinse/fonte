@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-85b",
+  "repositoryPath": "/tmp/Closure-85b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnionTypeBuilder.java",
+  "functionName": "reduceAlternatesWithoutUnion",
+  "functionId": "reduceAlternatesWithoutUnion",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Reduce the alternates into a non-union type.\nIf the alternates can\u0027t be accurately represented with a non-union\ntype, return null.\n",
+  "functionStartLine": 157,
+  "functionEndLine": 178,
+  "numCommitsSeen": 5,
+  "timeTaken": 2860,
+  "changeHistory": [
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45"
+  ],
+  "changeHistoryShort": {
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": {
+      "type": "Yintroduced",
+      "commitMessage": "\nremove all uses of Sets of types.\nequality can change over time, so this is not safe.\nThis means we need to be much more explicit in how\nwe collapse type duplicates in unions and in type tightening\n\nR\u003djohnlenz\nDELTA\u003d319  (210 added, 52 deleted, 57 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d121\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@623 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/13/10, 8:10 AM",
+      "commitName": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,22 @@\n+private JSType reduceAlternatesWithoutUnion() {\n+    if (isAllType) {\n+        return registry.getNativeType(ALL_TYPE);\n+    } else if (isNativeUnknownType) {\n+        if (areAllUnknownsChecked) {\n+            return registry.getNativeType(CHECKED_UNKNOWN_TYPE);\n+        } else {\n+            return registry.getNativeType(UNKNOWN_TYPE);\n+        }\n+    } else {\n+        int size \u003d alternates.size();\n+        if (size \u003e MAX_UNION_SIZE) {\n+            return registry.getNativeType(UNKNOWN_TYPE);\n+        } else if (size \u003e 1) {\n+            return null;\n+        } else if (size \u003d\u003d 1) {\n+            return alternates.iterator().next();\n+        } else {\n+            return registry.getNativeType(NO_TYPE);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JSType reduceAlternatesWithoutUnion() {\n    if (isAllType) {\n        return registry.getNativeType(ALL_TYPE);\n    } else if (isNativeUnknownType) {\n        if (areAllUnknownsChecked) {\n            return registry.getNativeType(CHECKED_UNKNOWN_TYPE);\n        } else {\n            return registry.getNativeType(UNKNOWN_TYPE);\n        }\n    } else {\n        int size \u003d alternates.size();\n        if (size \u003e MAX_UNION_SIZE) {\n            return registry.getNativeType(UNKNOWN_TYPE);\n        } else if (size \u003e 1) {\n            return null;\n        } else if (size \u003d\u003d 1) {\n            return alternates.iterator().next();\n        } else {\n            return registry.getNativeType(NO_TYPE);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+      "functionStartLine": 157,
+      "functionName": "reduceAlternatesWithoutUnion",
+      "functionAnnotation": "",
+      "functionDoc": "Reduce the alternates into a non-union type.\nIf the alternates can\u0027t be accurately represented with a non-union\ntype, return null.\n"
+    }
+  }
+}

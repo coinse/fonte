@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "isUnflowable",
+  "functionId": "isUnflowable___v-Var",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1374,
+  "functionEndLine": 1378,
+  "numCommitsSeen": 69,
+  "timeTaken": 3214,
+  "changeHistory": [
+    "e5a39d3f2708e35fe6688446d25b26e76b71e25b",
+    "dff730a3759cad9c491f72d9905eee93962d3d35"
+  ],
+  "changeHistoryShort": {
+    "e5a39d3f2708e35fe6688446d25b26e76b71e25b": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "dff730a3759cad9c491f72d9905eee93962d3d35": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e5a39d3f2708e35fe6688446d25b26e76b71e25b": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nfix a minor regression in how local variables are flowed\n\nR\u003dacleung\nDELTA\u003d41  (39 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3464\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1511 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/13/11, 1:38 PM",
+      "commitName": "e5a39d3f2708e35fe6688446d25b26e76b71e25b",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nfix a minor regression in how local variables are flowed\n\nR\u003dacleung\nDELTA\u003d41  (39 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3464\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1511 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/13/11, 1:38 PM",
+          "commitName": "e5a39d3f2708e35fe6688446d25b26e76b71e25b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/12/11, 4:13 PM",
+          "commitNameOld": "e8c234a050e4ed6c8220d5afc0b6a4d5d166b7e0",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 0.89,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isUnflowable(Var v) {\n    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped() \u0026\u0026 v.getScope() \u003d\u003d syntacticScope;\n}",
+          "path": "src/com/google/javascript/jscomp/TypeInference.java",
+          "functionStartLine": 1290,
+          "functionName": "isUnflowable",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-private static boolean isUnflowable(Var v) {\n-    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped();\n+private boolean isUnflowable(Var v) {\n+    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped() \u0026\u0026 v.getScope() \u003d\u003d syntacticScope;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private, static]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nfix a minor regression in how local variables are flowed\n\nR\u003dacleung\nDELTA\u003d41  (39 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3464\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1511 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/13/11, 1:38 PM",
+          "commitName": "e5a39d3f2708e35fe6688446d25b26e76b71e25b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/12/11, 4:13 PM",
+          "commitNameOld": "e8c234a050e4ed6c8220d5afc0b6a4d5d166b7e0",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 0.89,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isUnflowable(Var v) {\n    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped() \u0026\u0026 v.getScope() \u003d\u003d syntacticScope;\n}",
+          "path": "src/com/google/javascript/jscomp/TypeInference.java",
+          "functionStartLine": 1290,
+          "functionName": "isUnflowable",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-private static boolean isUnflowable(Var v) {\n-    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped();\n+private boolean isUnflowable(Var v) {\n+    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped() \u0026\u0026 v.getScope() \u003d\u003d syntacticScope;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "dff730a3759cad9c491f72d9905eee93962d3d35": {
+      "type": "Yintroduced",
+      "commitMessage": "\nBreak out basic function analysis into a separate pass, rather\nthan trying to do it as we go.\nThere should be no functional change, but this should make it\na lot easier to move things around in the future.\n\nR\u003dacleung\nDELTA\u003d332  (224 added, 89 deleted, 19 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3318\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1460 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/21/11, 5:18 PM",
+      "commitName": "dff730a3759cad9c491f72d9905eee93962d3d35",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+private static boolean isUnflowable(Var v) {\n+    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean isUnflowable(Var v) {\n    return v !\u003d null \u0026\u0026 v.isLocal() \u0026\u0026 v.isMarkedEscaped();\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 1286,
+      "functionName": "isUnflowable",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

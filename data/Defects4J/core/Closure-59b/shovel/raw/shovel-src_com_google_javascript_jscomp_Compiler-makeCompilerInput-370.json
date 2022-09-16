@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "makeCompilerInput",
+  "functionId": "makeCompilerInput___files-List__JSSourceFile____isExtern-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 370,
+  "functionEndLine": 377,
+  "numCommitsSeen": 113,
+  "timeTaken": 6546,
+  "changeHistory": [
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6": "Ymultichange(Yparameterchange,Yreturntypechange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6": {
+      "type": "Ymultichange(Yparameterchange,Yreturntypechange,Ybodychange)",
+      "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/5/10, 11:58 PM",
+      "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/5/10, 11:58 PM",
+          "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/22/10, 10:51 PM",
+          "commitNameOld": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 14.05,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private List\u003cCompilerInput\u003e makeCompilerInput(List\u003cJSSourceFile\u003e files, boolean isExtern) {\n    List\u003cCompilerInput\u003e inputs \u003d Lists.newArrayList();\n    for (JSSourceFile file : files) {\n        inputs.add(new CompilerInput(file, isExtern));\n    }\n    return inputs;\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 317,
+          "functionName": "makeCompilerInput",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n-private CompilerInput[] makeCompilerInput(JSSourceFile[] files, boolean isExtern) {\n-    CompilerInput[] inputs \u003d new CompilerInput[files.length];\n-    for (int i \u003d 0; i \u003c files.length; ++i) {\n-        inputs[i] \u003d new CompilerInput(files[i], isExtern);\n+private List\u003cCompilerInput\u003e makeCompilerInput(List\u003cJSSourceFile\u003e files, boolean isExtern) {\n+    List\u003cCompilerInput\u003e inputs \u003d Lists.newArrayList();\n+    for (JSSourceFile file : files) {\n+        inputs.add(new CompilerInput(file, isExtern));\n     }\n     return inputs;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[files-JSSourceFile[], isExtern-boolean]",
+            "newValue": "[files-List\u003cJSSourceFile\u003e, isExtern-boolean]"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/5/10, 11:58 PM",
+          "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/22/10, 10:51 PM",
+          "commitNameOld": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 14.05,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private List\u003cCompilerInput\u003e makeCompilerInput(List\u003cJSSourceFile\u003e files, boolean isExtern) {\n    List\u003cCompilerInput\u003e inputs \u003d Lists.newArrayList();\n    for (JSSourceFile file : files) {\n        inputs.add(new CompilerInput(file, isExtern));\n    }\n    return inputs;\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 317,
+          "functionName": "makeCompilerInput",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n-private CompilerInput[] makeCompilerInput(JSSourceFile[] files, boolean isExtern) {\n-    CompilerInput[] inputs \u003d new CompilerInput[files.length];\n-    for (int i \u003d 0; i \u003c files.length; ++i) {\n-        inputs[i] \u003d new CompilerInput(files[i], isExtern);\n+private List\u003cCompilerInput\u003e makeCompilerInput(List\u003cJSSourceFile\u003e files, boolean isExtern) {\n+    List\u003cCompilerInput\u003e inputs \u003d Lists.newArrayList();\n+    for (JSSourceFile file : files) {\n+        inputs.add(new CompilerInput(file, isExtern));\n     }\n     return inputs;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "CompilerInput[]",
+            "newValue": "List\u003cCompilerInput\u003e"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/5/10, 11:58 PM",
+          "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/22/10, 10:51 PM",
+          "commitNameOld": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 14.05,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private List\u003cCompilerInput\u003e makeCompilerInput(List\u003cJSSourceFile\u003e files, boolean isExtern) {\n    List\u003cCompilerInput\u003e inputs \u003d Lists.newArrayList();\n    for (JSSourceFile file : files) {\n        inputs.add(new CompilerInput(file, isExtern));\n    }\n    return inputs;\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 317,
+          "functionName": "makeCompilerInput",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n-private CompilerInput[] makeCompilerInput(JSSourceFile[] files, boolean isExtern) {\n-    CompilerInput[] inputs \u003d new CompilerInput[files.length];\n-    for (int i \u003d 0; i \u003c files.length; ++i) {\n-        inputs[i] \u003d new CompilerInput(files[i], isExtern);\n+private List\u003cCompilerInput\u003e makeCompilerInput(List\u003cJSSourceFile\u003e files, boolean isExtern) {\n+    List\u003cCompilerInput\u003e inputs \u003d Lists.newArrayList();\n+    for (JSSourceFile file : files) {\n+        inputs.add(new CompilerInput(file, isExtern));\n     }\n     return inputs;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private CompilerInput[] makeCompilerInput(JSSourceFile[] files, boolean isExtern) {\n+    CompilerInput[] inputs \u003d new CompilerInput[files.length];\n+    for (int i \u003d 0; i \u003c files.length; ++i) {\n+        inputs[i] \u003d new CompilerInput(files[i], isExtern);\n+    }\n+    return inputs;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private CompilerInput[] makeCompilerInput(JSSourceFile[] files, boolean isExtern) {\n    CompilerInput[] inputs \u003d new CompilerInput[files.length];\n    for (int i \u003d 0; i \u003c files.length; ++i) {\n        inputs[i] \u003d new CompilerInput(files[i], isExtern);\n    }\n    return inputs;\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 295,
+      "functionName": "makeCompilerInput",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

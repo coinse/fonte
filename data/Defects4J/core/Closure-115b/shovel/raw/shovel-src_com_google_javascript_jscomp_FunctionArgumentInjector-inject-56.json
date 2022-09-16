@@ -1,0 +1,206 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionArgumentInjector.java",
+  "functionName": "inject",
+  "functionId": "inject___compiler-AbstractCompiler__node-Node__parent-Node__replacements-Map__String,Node__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+  "functionAnnotation": "",
+  "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n",
+  "functionStartLine": 56,
+  "functionEndLine": 59,
+  "numCommitsSeen": 66,
+  "timeTaken": 1611,
+  "changeHistory": [
+    "cc4ec1a70e6fa02bda751582c3902b3c19f85bbb",
+    "dd5a73fdb8740d4753a2c08efaa9eb56932943a0",
+    "51e81d0fd794bee6d8765513f853a312f176dcd7",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "cc4ec1a70e6fa02bda751582c3902b3c19f85bbb": "Ymultichange(Yparameterchange,Ybodychange)",
+    "dd5a73fdb8740d4753a2c08efaa9eb56932943a0": "Ymultichange(Yparameterchange,Ybodychange)",
+    "51e81d0fd794bee6d8765513f853a312f176dcd7": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cc4ec1a70e6fa02bda751582c3902b3c19f85bbb": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nFixed invalid \"this\" replacement within inner functions.\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks things\n\n*** Original change description ***\n\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\nR\u003dmoedinger\nDELTA\u003d263  (223 added, 4 deleted, 36 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2320\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1188 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/16/11, 5:29 PM",
+      "commitName": "cc4ec1a70e6fa02bda751582c3902b3c19f85bbb",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nFixed invalid \"this\" replacement within inner functions.\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks things\n\n*** Original change description ***\n\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\nR\u003dmoedinger\nDELTA\u003d263  (223 added, 4 deleted, 36 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2320\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1188 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/16/11, 5:29 PM",
+          "commitName": "cc4ec1a70e6fa02bda751582c3902b3c19f85bbb",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "6/7/11, 10:32 AM",
+          "commitNameOld": "dd5a73fdb8740d4753a2c08efaa9eb56932943a0",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.29,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n    return inject(compiler, node, parent, replacements, true);\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 56,
+          "functionName": "inject",
+          "functionAnnotation": "",
+          "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n",
+          "diff": "@@ -1,15 +1,3 @@\n-static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n-    if (node.getType() \u003d\u003d Token.NAME) {\n-        Node replacementTemplate \u003d replacements.get(node.getString());\n-        if (replacementTemplate !\u003d null) {\n-            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n-            Node replacement \u003d replacementTemplate.cloneTree();\n-            parent.replaceChild(node, replacement);\n-            return replacement;\n-        }\n-    }\n-    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n-        c \u003d inject(c, node, replacements);\n-    }\n-    return node;\n+static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n+    return inject(compiler, node, parent, replacements, true);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[node-Node, parent-Node, replacements-Map\u003cString,Node\u003e]",
+            "newValue": "[compiler-AbstractCompiler, node-Node, parent-Node, replacements-Map\u003cString,Node\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nFixed invalid \"this\" replacement within inner functions.\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks things\n\n*** Original change description ***\n\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\nR\u003dmoedinger\nDELTA\u003d263  (223 added, 4 deleted, 36 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2320\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1188 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/16/11, 5:29 PM",
+          "commitName": "cc4ec1a70e6fa02bda751582c3902b3c19f85bbb",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "6/7/11, 10:32 AM",
+          "commitNameOld": "dd5a73fdb8740d4753a2c08efaa9eb56932943a0",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 9.29,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n    return inject(compiler, node, parent, replacements, true);\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 56,
+          "functionName": "inject",
+          "functionAnnotation": "",
+          "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n",
+          "diff": "@@ -1,15 +1,3 @@\n-static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n-    if (node.getType() \u003d\u003d Token.NAME) {\n-        Node replacementTemplate \u003d replacements.get(node.getString());\n-        if (replacementTemplate !\u003d null) {\n-            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n-            Node replacement \u003d replacementTemplate.cloneTree();\n-            parent.replaceChild(node, replacement);\n-            return replacement;\n-        }\n-    }\n-    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n-        c \u003d inject(c, node, replacements);\n-    }\n-    return node;\n+static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n+    return inject(compiler, node, parent, replacements, true);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "dd5a73fdb8740d4753a2c08efaa9eb56932943a0": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks gmail\n\n*** Original change description ***\n\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2200\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1165 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/7/11, 10:32 AM",
+      "commitName": "dd5a73fdb8740d4753a2c08efaa9eb56932943a0",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks gmail\n\n*** Original change description ***\n\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2200\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1165 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/7/11, 10:32 AM",
+          "commitName": "dd5a73fdb8740d4753a2c08efaa9eb56932943a0",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "6/7/11, 9:49 AM",
+          "commitNameOld": "51e81d0fd794bee6d8765513f853a312f176dcd7",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n    if (node.getType() \u003d\u003d Token.NAME) {\n        Node replacementTemplate \u003d replacements.get(node.getString());\n        if (replacementTemplate !\u003d null) {\n            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n            Node replacement \u003d replacementTemplate.cloneTree();\n            parent.replaceChild(node, replacement);\n            return replacement;\n        }\n    }\n    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        c \u003d inject(c, node, replacements);\n    }\n    return node;\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 52,
+          "functionName": "inject",
+          "functionAnnotation": "",
+          "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n",
+          "diff": "@@ -1,26 +1,15 @@\n-static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n+static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n     if (node.getType() \u003d\u003d Token.NAME) {\n         Node replacementTemplate \u003d replacements.get(node.getString());\n         if (replacementTemplate !\u003d null) {\n             Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n             Node replacement \u003d replacementTemplate.cloneTree();\n             parent.replaceChild(node, replacement);\n             return replacement;\n         }\n-    } else if (node.getType() \u003d\u003d Token.THIS) {\n-        Node replacementTemplate \u003d replacements.get(THIS_MARKER);\n-        Preconditions.checkNotNull(replacementTemplate);\n-        if (replacementTemplate.getType() !\u003d Token.THIS) {\n-            Node replacement \u003d replacementTemplate.cloneTree();\n-            parent.replaceChild(node, replacement);\n-            if (NodeUtil.mayHaveSideEffects(replacementTemplate, compiler)) {\n-                replacements.remove(THIS_MARKER);\n-            }\n-            return replacement;\n-        }\n     }\n     for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n-        c \u003d inject(compiler, c, node, replacements);\n+        c \u003d inject(c, node, replacements);\n     }\n     return node;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[compiler-AbstractCompiler, node-Node, parent-Node, replacements-Map\u003cString,Node\u003e]",
+            "newValue": "[node-Node, parent-Node, replacements-Map\u003cString,Node\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nBreaks gmail\n\n*** Original change description ***\n\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2200\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1165 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/7/11, 10:32 AM",
+          "commitName": "dd5a73fdb8740d4753a2c08efaa9eb56932943a0",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "6/7/11, 9:49 AM",
+          "commitNameOld": "51e81d0fd794bee6d8765513f853a312f176dcd7",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n    if (node.getType() \u003d\u003d Token.NAME) {\n        Node replacementTemplate \u003d replacements.get(node.getString());\n        if (replacementTemplate !\u003d null) {\n            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n            Node replacement \u003d replacementTemplate.cloneTree();\n            parent.replaceChild(node, replacement);\n            return replacement;\n        }\n    }\n    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        c \u003d inject(c, node, replacements);\n    }\n    return node;\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 52,
+          "functionName": "inject",
+          "functionAnnotation": "",
+          "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n",
+          "diff": "@@ -1,26 +1,15 @@\n-static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n+static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n     if (node.getType() \u003d\u003d Token.NAME) {\n         Node replacementTemplate \u003d replacements.get(node.getString());\n         if (replacementTemplate !\u003d null) {\n             Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n             Node replacement \u003d replacementTemplate.cloneTree();\n             parent.replaceChild(node, replacement);\n             return replacement;\n         }\n-    } else if (node.getType() \u003d\u003d Token.THIS) {\n-        Node replacementTemplate \u003d replacements.get(THIS_MARKER);\n-        Preconditions.checkNotNull(replacementTemplate);\n-        if (replacementTemplate.getType() !\u003d Token.THIS) {\n-            Node replacement \u003d replacementTemplate.cloneTree();\n-            parent.replaceChild(node, replacement);\n-            if (NodeUtil.mayHaveSideEffects(replacementTemplate, compiler)) {\n-                replacements.remove(THIS_MARKER);\n-            }\n-            return replacement;\n-        }\n     }\n     for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n-        c \u003d inject(compiler, c, node, replacements);\n+        c \u003d inject(c, node, replacements);\n     }\n     return node;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "51e81d0fd794bee6d8765513f853a312f176dcd7": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\nR\u003dacleung\nDELTA\u003d243  (204 added, 4 deleted, 35 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2199\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1164 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/7/11, 9:49 AM",
+      "commitName": "51e81d0fd794bee6d8765513f853a312f176dcd7",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\nR\u003dacleung\nDELTA\u003d243  (204 added, 4 deleted, 35 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2199\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1164 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/7/11, 9:49 AM",
+          "commitName": "51e81d0fd794bee6d8765513f853a312f176dcd7",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/16/11, 8:14 AM",
+          "commitNameOld": "b783533aac33c06fc34ed4c3f284aa8411ea0c54",
+          "commitAuthorOld": "tylerg@google.com",
+          "daysBetweenCommits": 22.07,
+          "commitsBetweenForRepo": 62,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n    if (node.getType() \u003d\u003d Token.NAME) {\n        Node replacementTemplate \u003d replacements.get(node.getString());\n        if (replacementTemplate !\u003d null) {\n            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n            Node replacement \u003d replacementTemplate.cloneTree();\n            parent.replaceChild(node, replacement);\n            return replacement;\n        }\n    } else if (node.getType() \u003d\u003d Token.THIS) {\n        Node replacementTemplate \u003d replacements.get(THIS_MARKER);\n        Preconditions.checkNotNull(replacementTemplate);\n        if (replacementTemplate.getType() !\u003d Token.THIS) {\n            Node replacement \u003d replacementTemplate.cloneTree();\n            parent.replaceChild(node, replacement);\n            if (NodeUtil.mayHaveSideEffects(replacementTemplate, compiler)) {\n                replacements.remove(THIS_MARKER);\n            }\n            return replacement;\n        }\n    }\n    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        c \u003d inject(compiler, c, node, replacements);\n    }\n    return node;\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 56,
+          "functionName": "inject",
+          "functionAnnotation": "",
+          "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n",
+          "diff": "@@ -1,15 +1,26 @@\n-static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n+static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n     if (node.getType() \u003d\u003d Token.NAME) {\n         Node replacementTemplate \u003d replacements.get(node.getString());\n         if (replacementTemplate !\u003d null) {\n             Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n             Node replacement \u003d replacementTemplate.cloneTree();\n             parent.replaceChild(node, replacement);\n             return replacement;\n         }\n+    } else if (node.getType() \u003d\u003d Token.THIS) {\n+        Node replacementTemplate \u003d replacements.get(THIS_MARKER);\n+        Preconditions.checkNotNull(replacementTemplate);\n+        if (replacementTemplate.getType() !\u003d Token.THIS) {\n+            Node replacement \u003d replacementTemplate.cloneTree();\n+            parent.replaceChild(node, replacement);\n+            if (NodeUtil.mayHaveSideEffects(replacementTemplate, compiler)) {\n+                replacements.remove(THIS_MARKER);\n+            }\n+            return replacement;\n+        }\n     }\n     for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n-        c \u003d inject(c, node, replacements);\n+        c \u003d inject(compiler, c, node, replacements);\n     }\n     return node;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[node-Node, parent-Node, replacements-Map\u003cString,Node\u003e]",
+            "newValue": "[compiler-AbstractCompiler, node-Node, parent-Node, replacements-Map\u003cString,Node\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nWhen it is possible to make the ES5 Strict mode assumptions about a\nfunction\u0027s \"this\" it is easier to inline a function referencing \"this\".\nAdd \"CompilerOption.assumeStrictThis\" and take advantage of it during\nfunction inlining.\n\nR\u003dacleung\nDELTA\u003d243  (204 added, 4 deleted, 35 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2199\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1164 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/7/11, 9:49 AM",
+          "commitName": "51e81d0fd794bee6d8765513f853a312f176dcd7",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/16/11, 8:14 AM",
+          "commitNameOld": "b783533aac33c06fc34ed4c3f284aa8411ea0c54",
+          "commitAuthorOld": "tylerg@google.com",
+          "daysBetweenCommits": 22.07,
+          "commitsBetweenForRepo": 62,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n    if (node.getType() \u003d\u003d Token.NAME) {\n        Node replacementTemplate \u003d replacements.get(node.getString());\n        if (replacementTemplate !\u003d null) {\n            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n            Node replacement \u003d replacementTemplate.cloneTree();\n            parent.replaceChild(node, replacement);\n            return replacement;\n        }\n    } else if (node.getType() \u003d\u003d Token.THIS) {\n        Node replacementTemplate \u003d replacements.get(THIS_MARKER);\n        Preconditions.checkNotNull(replacementTemplate);\n        if (replacementTemplate.getType() !\u003d Token.THIS) {\n            Node replacement \u003d replacementTemplate.cloneTree();\n            parent.replaceChild(node, replacement);\n            if (NodeUtil.mayHaveSideEffects(replacementTemplate, compiler)) {\n                replacements.remove(THIS_MARKER);\n            }\n            return replacement;\n        }\n    }\n    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        c \u003d inject(compiler, c, node, replacements);\n    }\n    return node;\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+          "functionStartLine": 56,
+          "functionName": "inject",
+          "functionAnnotation": "",
+          "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n",
+          "diff": "@@ -1,15 +1,26 @@\n-static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n+static Node inject(AbstractCompiler compiler, Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n     if (node.getType() \u003d\u003d Token.NAME) {\n         Node replacementTemplate \u003d replacements.get(node.getString());\n         if (replacementTemplate !\u003d null) {\n             Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n             Node replacement \u003d replacementTemplate.cloneTree();\n             parent.replaceChild(node, replacement);\n             return replacement;\n         }\n+    } else if (node.getType() \u003d\u003d Token.THIS) {\n+        Node replacementTemplate \u003d replacements.get(THIS_MARKER);\n+        Preconditions.checkNotNull(replacementTemplate);\n+        if (replacementTemplate.getType() !\u003d Token.THIS) {\n+            Node replacement \u003d replacementTemplate.cloneTree();\n+            parent.replaceChild(node, replacement);\n+            if (NodeUtil.mayHaveSideEffects(replacementTemplate, compiler)) {\n+                replacements.remove(THIS_MARKER);\n+            }\n+            return replacement;\n+        }\n     }\n     for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n-        c \u003d inject(c, node, replacements);\n+        c \u003d inject(compiler, c, node, replacements);\n     }\n     return node;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,15 @@\n+static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n+    if (node.getType() \u003d\u003d Token.NAME) {\n+        Node replacementTemplate \u003d replacements.get(node.getString());\n+        if (replacementTemplate !\u003d null) {\n+            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n+            Node replacement \u003d replacementTemplate.cloneTree();\n+            parent.replaceChild(node, replacement);\n+            return replacement;\n+        }\n+    }\n+    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n+        c \u003d inject(c, node, replacements);\n+    }\n+    return node;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Node inject(Node node, Node parent, Map\u003cString, Node\u003e replacements) {\n    if (node.getType() \u003d\u003d Token.NAME) {\n        Node replacementTemplate \u003d replacements.get(node.getString());\n        if (replacementTemplate !\u003d null) {\n            Preconditions.checkState(parent.getType() !\u003d Token.FUNCTION || parent.getType() !\u003d Token.VAR || parent.getType() !\u003d Token.CATCH);\n            Node replacement \u003d replacementTemplate.cloneTree();\n            parent.replaceChild(node, replacement);\n            return replacement;\n        }\n    }\n    for (Node c \u003d node.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        c \u003d inject(c, node, replacements);\n    }\n    return node;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+      "functionStartLine": 52,
+      "functionName": "inject",
+      "functionAnnotation": "",
+      "functionDoc": "With the map provided, replace the names with expression trees.\n\n@param node The root of the node tree within which to perform the\n    substitutions.\n@param parent The parent root node.\n@param replacements The map of names to template node trees with which\n    to replace the name Nodes.\n@returns The root node or its replacement.\n"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+With the latest master:
+
+``` java
+new Partial(yearOfCentury(),  1).with(weekyear(), 1);
+// NullPointerException
+// org.joda.time.Partial.with (Partial.java:447)
+```
+
+Fails with yearOfCentury, year and yearOfEra. Probably because weekyear has a null range duration type.

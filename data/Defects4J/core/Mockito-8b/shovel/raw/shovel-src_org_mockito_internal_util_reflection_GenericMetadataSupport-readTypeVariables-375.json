@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Mockito-8b",
+  "repositoryPath": "/tmp/Mockito-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GenericMetadataSupport.java",
+  "functionName": "readTypeVariables",
+  "functionId": "$readTypeVariables",
+  "sourceFilePath": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 375,
+  "functionEndLine": 380,
+  "numCommitsSeen": 15,
+  "timeTaken": 1049,
+  "changeHistory": [
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+    "d8f0aa99cbc0f4399b15eca313ddc634dcb06fbb",
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436"
+  ],
+  "changeHistoryShort": {
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99": "Yfilerename",
+    "d8f0aa99cbc0f4399b15eca313ddc634dcb06fbb": "Ybodychange",
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99": {
+      "type": "Yfilerename",
+      "commitMessage": "Renamed MockitoGenericMetadata to GenericMetadataSupport\n\n--HG--\nbranch : issue230\nrename : src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java \u003d\u003e src/org/mockito/internal/util/reflection/GenericMetadataSupport.java\nrename : test/org/mockito/internal/util/reflection/MockitoGenericMetadataTest.java \u003d\u003e test/org/mockito/internal/util/reflection/GenericMetadataSupportTest.java\n",
+      "commitDate": "8/1/12, 8:12 AM",
+      "commitName": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+      "commitAuthor": "Brice Dutheil",
+      "commitDateOld": "8/1/12, 8:07 AM",
+      "commitNameOld": "6e97858d79d08b455cb3690b811120965ee1975a",
+      "commitAuthorOld": "Brice Dutheil",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void readTypeVariables() {\n    for (Type type : typeVariable.getBounds()) {\n        registerTypeVariablesOn(type);\n    }\n    registerTypeVariablesOn(getActualTypeArgumentFor(typeVariable));\n}",
+      "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+      "functionStartLine": 353,
+      "functionName": "readTypeVariables",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+        "newPath": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java"
+      }
+    },
+    "d8f0aa99cbc0f4399b15eca313ddc634dcb06fbb": {
+      "type": "Ybodychange",
+      "commitMessage": "Almost there, now can resolve most TypeVariables declaration, certainly not exhaustive\n\n--HG--\nbranch : issue230\n",
+      "commitDate": "7/24/12, 5:43 AM",
+      "commitName": "d8f0aa99cbc0f4399b15eca313ddc634dcb06fbb",
+      "commitAuthor": "Brice Dutheil",
+      "commitDateOld": "7/24/12, 3:26 AM",
+      "commitNameOld": "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436",
+      "commitAuthorOld": "Brice Dutheil",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void readTypeVariables() {\n    for (Type type : typeVariable.getBounds()) {\n        registerTypeVariablesOn(type);\n    }\n    registerTypeVariablesOn(getActualTypeArgumentFor(typeVariable));\n}",
+      "path": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+      "functionStartLine": 224,
+      "functionName": "readTypeVariables",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,6 @@\n private void readTypeVariables() {\n-    registerTypeVariablesOn(parameterizedType);\n+    for (Type type : typeVariable.getBounds()) {\n+        registerTypeVariablesOn(type);\n+    }\n+    registerTypeVariablesOn(getActualTypeArgumentFor(typeVariable));\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436": {
+      "type": "Yintroduced",
+      "commitMessage": "Trying a Top-Down approach instead of the Bottom-Up approach to better solve this generic mess (tests are broken here)(missing files)\n\n--HG--\nbranch : issue230\n",
+      "commitDate": "7/24/12, 3:26 AM",
+      "commitName": "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436",
+      "commitAuthor": "Brice Dutheil",
+      "diff": "@@ -0,0 +1,3 @@\n+private void readTypeVariables() {\n+    registerTypeVariablesOn(parameterizedType);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void readTypeVariables() {\n    registerTypeVariablesOn(parameterizedType);\n}",
+      "path": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+      "functionStartLine": 191,
+      "functionName": "readTypeVariables",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

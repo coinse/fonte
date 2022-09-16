@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-52b",
+  "repositoryPath": "/tmp/Closure-52b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "transformNumberAsString",
+  "functionId": "transformNumberAsString___literalNode-NumberLiteral",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 289,
+  "functionEndLine": 297,
+  "numCommitsSeen": 47,
+  "timeTaken": 2458,
+  "changeHistory": [
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e"
+  ],
+  "changeHistoryShort": {
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": "Ybodychange",
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": {
+      "type": "Ybodychange",
+      "commitMessage": "\nPart 3, source name/input id split:\nChange the construction of JSDocInfo to allow the determination of\nthe source type (extern or not) without requiring the source to be looked\nup by name.\n\nR\u003dnicksantos\nDELTA\u003d99  (51 added, 21 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2898\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1327 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 9:23 AM",
+      "commitName": "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "7/28/11, 4:19 PM",
+      "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 6.71,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node transformNumberAsString(NumberLiteral literalNode) {\n    Node irNode \u003d newStringNode(getStringValue(literalNode.getNumber()));\n    JSDocInfo jsDocInfo \u003d handleJsDoc(literalNode, irNode);\n    if (jsDocInfo !\u003d null) {\n        irNode.setJSDocInfo(jsDocInfo);\n    }\n    setSourceInfo(irNode, literalNode);\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 283,
+      "functionName": "transformNumberAsString",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n private Node transformNumberAsString(NumberLiteral literalNode) {\n-    JSDocInfo jsDocInfo \u003d handleJsDoc(literalNode);\n     Node irNode \u003d newStringNode(getStringValue(literalNode.getNumber()));\n+    JSDocInfo jsDocInfo \u003d handleJsDoc(literalNode, irNode);\n     if (jsDocInfo !\u003d null) {\n         irNode.setJSDocInfo(jsDocInfo);\n     }\n     setSourceInfo(irNode, literalNode);\n     return irNode;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDefine number keys in object literals to be quoted string nodes. Tagged with NUMBER_PROP\nFixes issue 347\n\nR\u003dnicksantos\nDELTA\u003d229  (157 added, 19 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1252\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@966 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 2:26 PM",
+      "commitName": "41acde3e8e5e8d37ade765b41d9fd29861f03e5e",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private Node transformNumberAsString(NumberLiteral literalNode) {\n+    JSDocInfo jsDocInfo \u003d handleJsDoc(literalNode);\n+    Node irNode \u003d newStringNode(getStringValue(literalNode.getNumber()));\n+    if (jsDocInfo !\u003d null) {\n+        irNode.setJSDocInfo(jsDocInfo);\n+    }\n+    setSourceInfo(irNode, literalNode);\n+    return irNode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node transformNumberAsString(NumberLiteral literalNode) {\n    JSDocInfo jsDocInfo \u003d handleJsDoc(literalNode);\n    Node irNode \u003d newStringNode(getStringValue(literalNode.getNumber()));\n    if (jsDocInfo !\u003d null) {\n        irNode.setJSDocInfo(jsDocInfo);\n    }\n    setSourceInfo(irNode, literalNode);\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 255,
+      "functionName": "transformNumberAsString",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

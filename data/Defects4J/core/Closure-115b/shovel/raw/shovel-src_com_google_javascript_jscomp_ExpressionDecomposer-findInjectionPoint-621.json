@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ExpressionDecomposer.java",
+  "functionName": "findInjectionPoint",
+  "functionId": "findInjectionPoint___subExpression-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return For the subExpression, find the nearest statement Node before which\nit can be inlined.  Null if no such location can be found.\n",
+  "functionStartLine": 621,
+  "functionEndLine": 636,
+  "numCommitsSeen": 25,
+  "timeTaken": 1461,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 1:51 PM",
+      "commitNameOld": "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.78,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static Node findInjectionPoint(Node subExpression) {\n    Node expressionRoot \u003d findExpressionRoot(subExpression);\n    Preconditions.checkNotNull(expressionRoot);\n    Node injectionPoint \u003d expressionRoot;\n    Node parent \u003d injectionPoint.getParent();\n    while (parent.isLabel()) {\n        injectionPoint \u003d parent;\n        parent \u003d injectionPoint.getParent();\n    }\n    Preconditions.checkState(NodeUtil.isStatementBlock(injectionPoint.getParent()));\n    return injectionPoint;\n}",
+      "path": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+      "functionStartLine": 605,
+      "functionName": "findInjectionPoint",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return For the subExpression, find the nearest statement Node before which\nit can be inlined.  Null if no such location can be found.\n",
+      "diff": "@@ -1,12 +1,12 @@\n static Node findInjectionPoint(Node subExpression) {\n     Node expressionRoot \u003d findExpressionRoot(subExpression);\n     Preconditions.checkNotNull(expressionRoot);\n     Node injectionPoint \u003d expressionRoot;\n     Node parent \u003d injectionPoint.getParent();\n-    while (parent.getType() \u003d\u003d Token.LABEL) {\n+    while (parent.isLabel()) {\n         injectionPoint \u003d parent;\n         parent \u003d injectionPoint.getParent();\n     }\n     Preconditions.checkState(NodeUtil.isStatementBlock(injectionPoint.getParent()));\n     return injectionPoint;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+static Node findInjectionPoint(Node subExpression) {\n+    Node expressionRoot \u003d findExpressionRoot(subExpression);\n+    Preconditions.checkNotNull(expressionRoot);\n+    Node injectionPoint \u003d expressionRoot;\n+    Node parent \u003d injectionPoint.getParent();\n+    while (parent.getType() \u003d\u003d Token.LABEL) {\n+        injectionPoint \u003d parent;\n+        parent \u003d injectionPoint.getParent();\n+    }\n+    Preconditions.checkState(NodeUtil.isStatementBlock(injectionPoint.getParent()));\n+    return injectionPoint;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Node findInjectionPoint(Node subExpression) {\n    Node expressionRoot \u003d findExpressionRoot(subExpression);\n    Preconditions.checkNotNull(expressionRoot);\n    Node injectionPoint \u003d expressionRoot;\n    Node parent \u003d injectionPoint.getParent();\n    while (parent.getType() \u003d\u003d Token.LABEL) {\n        injectionPoint \u003d parent;\n        parent \u003d injectionPoint.getParent();\n    }\n    Preconditions.checkState(NodeUtil.isStatementBlock(injectionPoint.getParent()));\n    return injectionPoint;\n}",
+      "path": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+      "functionStartLine": 498,
+      "functionName": "findInjectionPoint",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return For the subExpression, find the nearest statement Node before which\nit can be inlined.  Null if no such location can be found.\n"
+    }
+  }
+}

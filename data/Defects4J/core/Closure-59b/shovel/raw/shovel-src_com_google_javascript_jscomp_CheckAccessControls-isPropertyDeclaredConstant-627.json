@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CheckAccessControls.java",
+  "functionName": "isPropertyDeclaredConstant",
+  "functionId": "isPropertyDeclaredConstant___objectType-ObjectType__prop-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CheckAccessControls.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns if a property is declared constant.\n",
+  "functionStartLine": 627,
+  "functionEndLine": 640,
+  "numCommitsSeen": 14,
+  "timeTaken": 482,
+  "changeHistory": [
+    "0dcb6c9c4145839c667faecaedb9411a8a5b8ce0"
+  ],
+  "changeHistoryShort": {
+    "0dcb6c9c4145839c667faecaedb9411a8a5b8ce0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0dcb6c9c4145839c667faecaedb9411a8a5b8ce0": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix a bug in @const checking where it wouldn\u0027t detect @const\nwhen a class doesn\u0027t assign a value that it declared, but\na subclass does\n\nR\u003dzhuyi\nDELTA\u003d78  (62 added, 10 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2231\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1170 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/9/11, 4:02 PM",
+      "commitName": "0dcb6c9c4145839c667faecaedb9411a8a5b8ce0",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private static boolean isPropertyDeclaredConstant(ObjectType objectType, String prop) {\n+    for (; objectType !\u003d null \u0026\u0026 objectType.hasReferenceName(); objectType \u003d objectType.getImplicitPrototype()) {\n+        JSDocInfo docInfo \u003d objectType.getOwnPropertyJSDocInfo(prop);\n+        if (docInfo !\u003d null \u0026\u0026 docInfo.isConstant()) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean isPropertyDeclaredConstant(ObjectType objectType, String prop) {\n    for (; objectType !\u003d null \u0026\u0026 objectType.hasReferenceName(); objectType \u003d objectType.getImplicitPrototype()) {\n        JSDocInfo docInfo \u003d objectType.getOwnPropertyJSDocInfo(prop);\n        if (docInfo !\u003d null \u0026\u0026 docInfo.isConstant()) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/CheckAccessControls.java",
+      "functionStartLine": 614,
+      "functionName": "isPropertyDeclaredConstant",
+      "functionAnnotation": "",
+      "functionDoc": "Returns if a property is declared constant.\n"
+    }
+  }
+}

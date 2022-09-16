@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionPrototypeType.java",
+  "functionName": "getCtorImplementedInterfaces",
+  "functionId": "getCtorImplementedInterfaces",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionPrototypeType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 90,
+  "functionEndLine": 92,
+  "numCommitsSeen": 12,
+  "timeTaken": 2103,
+  "changeHistory": [
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c",
+    "86860111110ec7a96d92fbefb6c3ae15e3575405"
+  ],
+  "changeHistoryShort": {
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c": "Ymodifierchange",
+    "86860111110ec7a96d92fbefb6c3ae15e3575405": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6d374c3ee4c9c2651ffb44048924e127fd2bf37c": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Fixes a bug in AmbugateProperties in the presence of interfaces.\n\nFixes a bug in how type information on methods of interfaces gets\ninherited by implementers (issue 86)\n\nUse Joiners instead of the join() static method.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@59 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/8/10, 1:41 PM",
+      "commitName": "6d374c3ee4c9c2651ffb44048924e127fd2bf37c",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "1/7/10, 7:08 AM",
+      "commitNameOld": "86860111110ec7a96d92fbefb6c3ae15e3575405",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 1.27,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n    return getOwnerFunction().getImplementedInterfaces();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionPrototypeType.java",
+      "functionStartLine": 92,
+      "functionName": "getCtorImplementedInterfaces",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n-Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n+public Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n     return getOwnerFunction().getImplementedInterfaces();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[]",
+        "newValue": "[public]"
+      }
+    },
+    "86860111110ec7a96d92fbefb6c3ae15e3575405": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix up the inheritance hierarchy so that \"Foo implements Bar\" implies\nthat Bar.prototype is the implicit prototype of Foo.prototoype.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@58 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/7/10, 7:08 AM",
+      "commitName": "86860111110ec7a96d92fbefb6c3ae15e3575405",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+Iterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n+    return getOwnerFunction().getImplementedInterfaces();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nIterable\u003cObjectType\u003e getCtorImplementedInterfaces() {\n    return getOwnerFunction().getImplementedInterfaces();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionPrototypeType.java",
+      "functionStartLine": 92,
+      "functionName": "getCtorImplementedInterfaces",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

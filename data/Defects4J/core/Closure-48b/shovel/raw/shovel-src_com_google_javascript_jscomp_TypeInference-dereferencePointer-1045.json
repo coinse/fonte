@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "dereferencePointer",
+  "functionId": "dereferencePointer___n-Node__scope-FlowScope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "If we access a property of a symbol, then that symbol is not\nnull or undefined.\n",
+  "functionStartLine": 1045,
+  "functionEndLine": 1054,
+  "numCommitsSeen": 63,
+  "timeTaken": 4042,
+  "changeHistory": [
+    "de684ba3efacbeb36f741eb8ed1598cf34df7783",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "de684ba3efacbeb36f741eb8ed1598cf34df7783": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "de684ba3efacbeb36f741eb8ed1598cf34df7783": {
+      "type": "Ybodychange",
+      "commitMessage": "\ndereference all qualified names, not just simple ones\nFixes issue 483\n\nR\u003dacleung\nDELTA\u003d41  (30 added, 3 deleted, 8 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2680\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1273 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/19/11, 4:09 PM",
+      "commitName": "de684ba3efacbeb36f741eb8ed1598cf34df7783",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "7/1/11, 2:00 PM",
+      "commitNameOld": "03ce555bcedcf98d99de1b4f8a6238ba75ee6850",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 18.09,
+      "commitsBetweenForRepo": 27,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private FlowScope dereferencePointer(Node n, FlowScope scope) {\n    if (n.isQualifiedName()) {\n        JSType type \u003d getJSType(n);\n        JSType narrowed \u003d type.restrictByNotNullOrUndefined();\n        if (type !\u003d narrowed) {\n            scope \u003d narrowScope(scope, n, narrowed);\n        }\n    }\n    return scope;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 1099,
+      "functionName": "dereferencePointer",
+      "functionAnnotation": "",
+      "functionDoc": "If we access a property of a symbol, then that symbol is not\nnull or undefined.\n",
+      "diff": "@@ -1,11 +1,10 @@\n private FlowScope dereferencePointer(Node n, FlowScope scope) {\n-    if (n.getType() \u003d\u003d Token.NAME) {\n+    if (n.isQualifiedName()) {\n         JSType type \u003d getJSType(n);\n         JSType narrowed \u003d type.restrictByNotNullOrUndefined();\n         if (type !\u003d narrowed) {\n-            scope \u003d scope.createChildFlowScope();\n-            redeclare(scope, n.getString(), narrowed);\n+            scope \u003d narrowScope(scope, n, narrowed);\n         }\n     }\n     return scope;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private FlowScope dereferencePointer(Node n, FlowScope scope) {\n+    if (n.getType() \u003d\u003d Token.NAME) {\n+        JSType type \u003d getJSType(n);\n+        JSType narrowed \u003d type.restrictByNotNullOrUndefined();\n+        if (type !\u003d narrowed) {\n+            scope \u003d scope.createChildFlowScope();\n+            redeclare(scope, n.getString(), narrowed);\n+        }\n+    }\n+    return scope;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private FlowScope dereferencePointer(Node n, FlowScope scope) {\n    if (n.getType() \u003d\u003d Token.NAME) {\n        JSType type \u003d getJSType(n);\n        JSType narrowed \u003d type.restrictByNotNullOrUndefined();\n        if (type !\u003d narrowed) {\n            scope \u003d scope.createChildFlowScope();\n            redeclare(scope, n.getString(), narrowed);\n        }\n    }\n    return scope;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 909,
+      "functionName": "dereferencePointer",
+      "functionAnnotation": "",
+      "functionDoc": "If we access a property of a symbol, then that symbol is not\nnull or undefined.\n"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "compileSizes",
+  "functionId": "compileSizes___parameters-int(modifiers-final)__order-int(modifiers-final)__valueCompiler-DSCompiler(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compile the sizes array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@return sizes array\n",
+  "functionStartLine": 233,
+  "functionEndLine": 249,
+  "numCommitsSeen": 33,
+  "timeTaken": 2712,
+  "changeHistory": [
+    "95ffd4c253513ca9dd7f73d39e8e0bdb1c14b861",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "95ffd4c253513ca9dd7f73d39e8e0bdb1c14b861": "Ymultichange(Yparameterchange,Ydocchange)",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "95ffd4c253513ca9dd7f73d39e8e0bdb1c14b861": {
+      "type": "Ymultichange(Yparameterchange,Ydocchange)",
+      "commitMessage": "Fixed PMD warnings.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1421949 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/14/12, 7:53 AM",
+      "commitName": "95ffd4c253513ca9dd7f73d39e8e0bdb1c14b861",
+      "commitAuthor": "Luc Maisonobe",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fixed PMD warnings.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1421949 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/14/12, 7:53 AM",
+          "commitName": "95ffd4c253513ca9dd7f73d39e8e0bdb1c14b861",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "10/21/12, 9:32 AM",
+          "commitNameOld": "c657a840cc1ce8f80ecbdb761851c356a82cf41b",
+          "commitAuthorOld": "Thomas Neidhart",
+          "daysBetweenCommits": 53.97,
+          "commitsBetweenForRepo": 180,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler) {\n    final int[][] sizes \u003d new int[parameters + 1][order + 1];\n    if (parameters \u003d\u003d 0) {\n        Arrays.fill(sizes[0], 1);\n    } else {\n        System.arraycopy(valueCompiler.sizes, 0, sizes, 0, parameters);\n        sizes[parameters][0] \u003d 1;\n        for (int i \u003d 0; i \u003c order; ++i) {\n            sizes[parameters][i + 1] \u003d sizes[parameters][i] + sizes[parameters - 1][i + 1];\n        }\n    }\n    return sizes;\n}",
+          "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+          "functionStartLine": 233,
+          "functionName": "compileSizes",
+          "functionAnnotation": "",
+          "functionDoc": "Compile the sizes array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@return sizes array\n",
+          "diff": "@@ -1,13 +1,13 @@\n-private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler, final DSCompiler derivativeCompiler) {\n+private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler) {\n     final int[][] sizes \u003d new int[parameters + 1][order + 1];\n     if (parameters \u003d\u003d 0) {\n         Arrays.fill(sizes[0], 1);\n     } else {\n         System.arraycopy(valueCompiler.sizes, 0, sizes, 0, parameters);\n         sizes[parameters][0] \u003d 1;\n         for (int i \u003d 0; i \u003c order; ++i) {\n             sizes[parameters][i + 1] \u003d sizes[parameters][i] + sizes[parameters - 1][i + 1];\n         }\n     }\n     return sizes;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[parameters-int(modifiers-final), order-int(modifiers-final), valueCompiler-DSCompiler(modifiers-final), derivativeCompiler-DSCompiler(modifiers-final)]",
+            "newValue": "[parameters-int(modifiers-final), order-int(modifiers-final), valueCompiler-DSCompiler(modifiers-final)]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Fixed PMD warnings.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1421949 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/14/12, 7:53 AM",
+          "commitName": "95ffd4c253513ca9dd7f73d39e8e0bdb1c14b861",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "10/21/12, 9:32 AM",
+          "commitNameOld": "c657a840cc1ce8f80ecbdb761851c356a82cf41b",
+          "commitAuthorOld": "Thomas Neidhart",
+          "daysBetweenCommits": 53.97,
+          "commitsBetweenForRepo": 180,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler) {\n    final int[][] sizes \u003d new int[parameters + 1][order + 1];\n    if (parameters \u003d\u003d 0) {\n        Arrays.fill(sizes[0], 1);\n    } else {\n        System.arraycopy(valueCompiler.sizes, 0, sizes, 0, parameters);\n        sizes[parameters][0] \u003d 1;\n        for (int i \u003d 0; i \u003c order; ++i) {\n            sizes[parameters][i + 1] \u003d sizes[parameters][i] + sizes[parameters - 1][i + 1];\n        }\n    }\n    return sizes;\n}",
+          "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+          "functionStartLine": 233,
+          "functionName": "compileSizes",
+          "functionAnnotation": "",
+          "functionDoc": "Compile the sizes array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@return sizes array\n",
+          "diff": "@@ -1,13 +1,13 @@\n-private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler, final DSCompiler derivativeCompiler) {\n+private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler) {\n     final int[][] sizes \u003d new int[parameters + 1][order + 1];\n     if (parameters \u003d\u003d 0) {\n         Arrays.fill(sizes[0], 1);\n     } else {\n         System.arraycopy(valueCompiler.sizes, 0, sizes, 0, parameters);\n         sizes[parameters][0] \u003d 1;\n         for (int i \u003d 0; i \u003c order; ++i) {\n             sizes[parameters][i + 1] \u003d sizes[parameters][i] + sizes[parameters - 1][i + 1];\n         }\n     }\n     return sizes;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Compile the sizes array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@param derivativeCompiler compiler for the derivative part\n@return sizes array\n",
+            "newValue": "Compile the sizes array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@return sizes array\n"
+          }
+        }
+      ]
+    },
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,13 @@\n+private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler, final DSCompiler derivativeCompiler) {\n+    final int[][] sizes \u003d new int[parameters + 1][order + 1];\n+    if (parameters \u003d\u003d 0) {\n+        Arrays.fill(sizes[0], 1);\n+    } else {\n+        System.arraycopy(valueCompiler.sizes, 0, sizes, 0, parameters);\n+        sizes[parameters][0] \u003d 1;\n+        for (int i \u003d 0; i \u003c order; ++i) {\n+            sizes[parameters][i + 1] \u003d sizes[parameters][i] + sizes[parameters - 1][i + 1];\n+        }\n+    }\n+    return sizes;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static int[][] compileSizes(final int parameters, final int order, final DSCompiler valueCompiler, final DSCompiler derivativeCompiler) {\n    final int[][] sizes \u003d new int[parameters + 1][order + 1];\n    if (parameters \u003d\u003d 0) {\n        Arrays.fill(sizes[0], 1);\n    } else {\n        System.arraycopy(valueCompiler.sizes, 0, sizes, 0, parameters);\n        sizes[parameters][0] \u003d 1;\n        for (int i \u003d 0; i \u003c order; ++i) {\n            sizes[parameters][i + 1] \u003d sizes[parameters][i] + sizes[parameters - 1][i + 1];\n        }\n    }\n    return sizes;\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 233,
+      "functionName": "compileSizes",
+      "functionAnnotation": "",
+      "functionDoc": "Compile the sizes array.\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@param derivativeCompiler compiler for the derivative part\n@return sizes array\n"
+    }
+  }
+}

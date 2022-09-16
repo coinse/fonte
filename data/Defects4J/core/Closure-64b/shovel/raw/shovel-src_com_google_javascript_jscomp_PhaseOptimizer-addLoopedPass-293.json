@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PhaseOptimizer.java",
+  "functionName": "addLoopedPass",
+  "functionId": "$addLoopedPass___factory-PassFactory",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PhaseOptimizer.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 293,
+  "functionEndLine": 300,
+  "numCommitsSeen": 10,
+  "timeTaken": 400,
+  "changeHistory": [
+    "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd": {
+      "type": "Ybodychange",
+      "commitMessage": "Add more unit tests for type checking.\n\nAdd phase optimization.\n\nFix a type inference bug.\n\nString.prototype.split may not return null.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@55 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/4/10, 12:18 PM",
+      "commitName": "77b7c78d4aeeb6471f2f668a06c0f61a68f95ccd",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "12/23/09, 9:33 AM",
+      "commitNameOld": "915752b8e4ffd312eea298fb749dddd0edc0db2e",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 12.11,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nvoid addLoopedPass(PassFactory factory) {\n    String name \u003d factory.getName();\n    Preconditions.checkArgument(!myNames.contains(name), \"Already a pass with name \u0027\" + name + \"\u0027 in this loop\");\n    myNames.add(factory.getName());\n    myPasses.add(new PassFactoryDelegate(compiler, factory));\n}",
+      "path": "src/com/google/javascript/jscomp/PhaseOptimizer.java",
+      "functionStartLine": 293,
+      "functionName": "addLoopedPass",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,7 @@\n @Override\n void addLoopedPass(PassFactory factory) {\n+    String name \u003d factory.getName();\n+    Preconditions.checkArgument(!myNames.contains(name), \"Already a pass with name \u0027\" + name + \"\u0027 in this loop\");\n+    myNames.add(factory.getName());\n     myPasses.add(new PassFactoryDelegate(compiler, factory));\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+void addLoopedPass(PassFactory factory) {\n+    myPasses.add(new PassFactoryDelegate(compiler, factory));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nvoid addLoopedPass(PassFactory factory) {\n    myPasses.add(new PassFactoryDelegate(compiler, factory));\n}",
+      "path": "src/com/google/javascript/jscomp/PhaseOptimizer.java",
+      "functionStartLine": 242,
+      "functionName": "addLoopedPass",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

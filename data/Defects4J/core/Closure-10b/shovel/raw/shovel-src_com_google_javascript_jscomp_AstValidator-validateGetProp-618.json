@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateGetProp",
+  "functionId": "validateGetProp___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 618,
+  "functionEndLine": 625,
+  "numCommitsSeen": 15,
+  "timeTaken": 1131,
+  "changeHistory": [
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+private void validateGetProp(Node n) {\n+    validateNodeType(Token.GETPROP, n);\n+    validateChildCount(n, 2);\n+    validateExpression(n.getFirstChild());\n+    Node prop \u003d n.getLastChild();\n+    validateNodeType(Token.STRING, prop);\n+    validateNonEmptyString(prop);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateGetProp(Node n) {\n    validateNodeType(Token.GETPROP, n);\n    validateChildCount(n, 2);\n    validateExpression(n.getFirstChild());\n    Node prop \u003d n.getLastChild();\n    validateNodeType(Token.STRING, prop);\n    validateNonEmptyString(prop);\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 598,
+      "functionName": "validateGetProp",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

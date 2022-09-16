@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "useSourceInfoFrom",
+  "functionId": "useSourceInfoFrom___other-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "Overwrite all the source information in this node with\nthat of {@code other}.\n",
+  "functionStartLine": 1774,
+  "functionEndLine": 1779,
+  "numCommitsSeen": 92,
+  "timeTaken": 3650,
+  "changeHistory": [
+    "5d1678d8a421e212375f4716be6131d7e4584e31"
+  ],
+  "changeHistoryShort": {
+    "5d1678d8a421e212375f4716be6131d7e4584e31": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5d1678d8a421e212375f4716be6131d7e4584e31": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPropose new API for sourceinfo copying\n\nR\u003djohnlenz\nDELTA\u003d58  (58 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2931\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1340 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/8/11, 4:02 PM",
+      "commitName": "5d1678d8a421e212375f4716be6131d7e4584e31",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+public Node useSourceInfoFrom(Node other) {\n+    putProp(ORIGINALNAME_PROP, other.getProp(ORIGINALNAME_PROP));\n+    putProp(STATIC_SOURCE_FILE, other.getProp(STATIC_SOURCE_FILE));\n+    sourcePosition \u003d other.sourcePosition;\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Node useSourceInfoFrom(Node other) {\n    putProp(ORIGINALNAME_PROP, other.getProp(ORIGINALNAME_PROP));\n    putProp(STATIC_SOURCE_FILE, other.getProp(STATIC_SOURCE_FILE));\n    sourcePosition \u003d other.sourcePosition;\n    return this;\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 2137,
+      "functionName": "useSourceInfoFrom",
+      "functionAnnotation": "",
+      "functionDoc": "Overwrite all the source information in this node with\nthat of {@code other}.\n"
+    }
+  }
+}

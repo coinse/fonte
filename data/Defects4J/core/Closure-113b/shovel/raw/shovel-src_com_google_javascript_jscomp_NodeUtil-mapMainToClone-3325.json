@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "mapMainToClone",
+  "functionId": "mapMainToClone___main-Node__clone-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Given an AST and its copy, map the root node of each scope of main to the\ncorresponding root node of clone\n",
+  "functionStartLine": 3325,
+  "functionEndLine": 3331,
+  "numCommitsSeen": 156,
+  "timeTaken": 1798,
+  "changeHistory": [
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0"
+  ],
+  "changeHistoryShort": {
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "437a9e47d1a371f9e6724210b16d11d75366c3a0": {
+      "type": "Yintroduced",
+      "commitMessage": "Sanity-check the timestamps on scope roots. (Uncovered a bug in the changed-functions traversal. See new setting of currentScope in PhaseOptimizer.)\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44316335\n",
+      "commitDate": "3/22/13, 5:01 PM",
+      "commitName": "437a9e47d1a371f9e6724210b16d11d75366c3a0",
+      "commitAuthor": "Ben Lickly",
+      "diff": "@@ -0,0 +1,7 @@\n+public static Map\u003cNode, Node\u003e mapMainToClone(Node main, Node clone) {\n+    Preconditions.checkState(main.isEquivalentTo(clone));\n+    Map\u003cNode, Node\u003e mtoc \u003d new HashMap\u003cNode, Node\u003e();\n+    mtoc.put(main, clone);\n+    mtocHelper(mtoc, main, clone);\n+    return mtoc;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Map\u003cNode, Node\u003e mapMainToClone(Node main, Node clone) {\n    Preconditions.checkState(main.isEquivalentTo(clone));\n    Map\u003cNode, Node\u003e mtoc \u003d new HashMap\u003cNode, Node\u003e();\n    mtoc.put(main, clone);\n    mtocHelper(mtoc, main, clone);\n    return mtoc;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3293,
+      "functionName": "mapMainToClone",
+      "functionAnnotation": "",
+      "functionDoc": "Given an AST and its copy, map the root node of each scope of main to the\ncorresponding root node of clone\n"
+    }
+  }
+}

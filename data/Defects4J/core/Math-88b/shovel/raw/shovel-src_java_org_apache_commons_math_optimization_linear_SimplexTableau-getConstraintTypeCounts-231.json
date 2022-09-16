@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexTableau.java",
+  "functionName": "getConstraintTypeCounts",
+  "functionId": "getConstraintTypeCounts___relationship-Relationship(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get a count of constraints corresponding to a specified relationship.\n\n@param relationship relationship to count\n@return number of constraint with the specified relationship\n",
+  "functionStartLine": 231,
+  "functionEndLine": 239,
+  "numCommitsSeen": 5,
+  "timeTaken": 491,
+  "changeHistory": [
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,9 @@\n+private int getConstraintTypeCounts(final Relationship relationship) {\n+    int count \u003d 0;\n+    for (final LinearConstraint constraint : constraints) {\n+        if (constraint.getRelationship() \u003d\u003d relationship) {\n+            ++count;\n+        }\n+    }\n+    return count;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private int getConstraintTypeCounts(final Relationship relationship) {\n    int count \u003d 0;\n    for (final LinearConstraint constraint : constraints) {\n        if (constraint.getRelationship() \u003d\u003d relationship) {\n            ++count;\n        }\n    }\n    return count;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 220,
+      "functionName": "getConstraintTypeCounts",
+      "functionAnnotation": "",
+      "functionDoc": "Get a count of constraints corresponding to a specified relationship.\n\n@param relationship relationship to count\n@return number of constraint with the specified relationship\n"
+    }
+  }
+}

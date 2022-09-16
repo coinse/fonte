@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "handleCandidateProvideDefinition",
+  "functionId": "handleCandidateProvideDefinition___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "Handles a candidate definition for a goog.provided name.\n",
+  "functionStartLine": 349,
+  "functionEndLine": 371,
+  "numCommitsSeen": 44,
+  "timeTaken": 2804,
+  "changeHistory": [
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b"
+  ],
+  "changeHistoryShort": {
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix a bunch of passes to preserve more type information.\n\nFix goog.provide/goog.require handling to work in the presence of modules.\n\nImprove a bunch of type annotations in gecko_dom.\n\nMake NameAnalyzer use the Graph package.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@95 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/8/10, 11:30 AM",
+      "commitName": "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,20 @@\n+private void handleCandidateProvideDefinition(NodeTraversal t, Node n, Node parent) {\n+    if (t.inGlobalScope()) {\n+        String name \u003d null;\n+        if (n.getType() \u003d\u003d Token.NAME \u0026\u0026 parent.getType() \u003d\u003d Token.VAR) {\n+            name \u003d n.getString();\n+        } else if (n.getType() \u003d\u003d Token.ASSIGN \u0026\u0026 parent.getType() \u003d\u003d Token.EXPR_RESULT) {\n+            name \u003d n.getFirstChild().getQualifiedName();\n+        }\n+        if (name !\u003d null) {\n+            if (parent.getBooleanProp(Node.IS_NAMESPACE)) {\n+                processProvideFromPreviousPass(t, name, parent);\n+            } else {\n+                ProvidedName pn \u003d providedNames.get(name);\n+                if (pn !\u003d null) {\n+                    pn.addDefinition(parent, t.getModule());\n+                }\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void handleCandidateProvideDefinition(NodeTraversal t, Node n, Node parent) {\n    if (t.inGlobalScope()) {\n        String name \u003d null;\n        if (n.getType() \u003d\u003d Token.NAME \u0026\u0026 parent.getType() \u003d\u003d Token.VAR) {\n            name \u003d n.getString();\n        } else if (n.getType() \u003d\u003d Token.ASSIGN \u0026\u0026 parent.getType() \u003d\u003d Token.EXPR_RESULT) {\n            name \u003d n.getFirstChild().getQualifiedName();\n        }\n        if (name !\u003d null) {\n            if (parent.getBooleanProp(Node.IS_NAMESPACE)) {\n                processProvideFromPreviousPass(t, name, parent);\n            } else {\n                ProvidedName pn \u003d providedNames.get(name);\n                if (pn !\u003d null) {\n                    pn.addDefinition(parent, t.getModule());\n                }\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 301,
+      "functionName": "handleCandidateProvideDefinition",
+      "functionAnnotation": "",
+      "functionDoc": "Handles a candidate definition for a goog.provided name.\n"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-61b",
+  "repositoryPath": "/tmp/Lang-61b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StrBuilder.java",
+  "functionName": "append",
+  "functionId": "append___str-String",
+  "sourceFilePath": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Appends a string to this string builder.\nAppending null will call {@link #appendNull()}.\n\n@param str the string to append\n@return this, to enable chaining\n",
+  "functionStartLine": 468,
+  "functionEndLine": 480,
+  "numCommitsSeen": 44,
+  "timeTaken": 2888,
+  "changeHistory": [
+    "f37a1950913feb0c2136224ab31fddfaca881896",
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b"
+  ],
+  "changeHistoryShort": {
+    "f37a1950913feb0c2136224ab31fddfaca881896": "Ydocchange",
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8": "Ybodychange",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f37a1950913feb0c2136224ab31fddfaca881896": {
+      "type": "Ydocchange",
+      "commitMessage": "Add append(StringBuffer,int,int) and append(StrBuilder,int,int)\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@230911 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/05, 3:03 PM",
+      "commitName": "f37a1950913feb0c2136224ab31fddfaca881896",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/05, 2:50 PM",
+      "commitNameOld": "e34df07747691c5fc25e4375a5974387bf38771c",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public StrBuilder append(String str) {\n    if (str \u003d\u003d null) {\n        return appendNull();\n    }\n    int strLen \u003d str.length();\n    if (strLen \u003e 0) {\n        int len \u003d length();\n        ensureCapacity(len + strLen);\n        str.getChars(0, strLen, buffer, len);\n        size +\u003d strLen;\n    }\n    return this;\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 377,
+      "functionName": "append",
+      "functionAnnotation": "",
+      "functionDoc": "Appends a string to this string builder.\nAppending null will call {@link #appendNull()}.\n\n@param str the string to append\n@return this, to enable chaining\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Appends a string to the string builder.\nAppending null will call {@link #appendNull()}.\n\n@param str the string to append\n@return this, to enable chaining\n",
+        "newValue": "Appends a string to this string builder.\nAppending null will call {@link #appendNull()}.\n\n@param str the string to append\n@return this, to enable chaining\n"
+      }
+    },
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8": {
+      "type": "Ybodychange",
+      "commitMessage": "Use the name \"buffer\", not \"buf\".\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@227240 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/3/05, 11:02 AM",
+      "commitName": "dc03d7c8f81fa7933a095e65860078c1e0c595b8",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "8/3/05, 11:00 AM",
+      "commitNameOld": "57696acf0979b0d3a6e69639c14acda8b01ded28",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public StrBuilder append(String str) {\n    if (str \u003d\u003d null) {\n        return appendNull();\n    }\n    int strLen \u003d str.length();\n    if (strLen \u003e 0) {\n        int len \u003d length();\n        ensureCapacity(len + strLen);\n        str.getChars(0, strLen, buffer, len);\n        size +\u003d strLen;\n    }\n    return this;\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 379,
+      "functionName": "append",
+      "functionAnnotation": "",
+      "functionDoc": "Appends a string to the string builder.\nAppending null will call {@link #appendNull()}.\n\n@param str the string to append\n@return this, to enable chaining\n",
+      "diff": "@@ -1,13 +1,13 @@\n public StrBuilder append(String str) {\n     if (str \u003d\u003d null) {\n         return appendNull();\n     }\n     int strLen \u003d str.length();\n     if (strLen \u003e 0) {\n         int len \u003d length();\n         ensureCapacity(len + strLen);\n-        str.getChars(0, strLen, buf, len);\n+        str.getChars(0, strLen, buffer, len);\n         size +\u003d strLen;\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": {
+      "type": "Yintroduced",
+      "commitMessage": "Add initial version of StrBuilder, currently without any tests\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137978 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/16/04, 8:09 AM",
+      "commitName": "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,13 @@\n+public StrBuilder append(String str) {\n+    if (str \u003d\u003d null) {\n+        return appendNull();\n+    }\n+    int strLen \u003d str.length();\n+    if (strLen \u003e 0) {\n+        int len \u003d length();\n+        ensureCapacity(len + strLen);\n+        str.getChars(0, strLen, buf, len);\n+        size +\u003d strLen;\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public StrBuilder append(String str) {\n    if (str \u003d\u003d null) {\n        return appendNull();\n    }\n    int strLen \u003d str.length();\n    if (strLen \u003e 0) {\n        int len \u003d length();\n        ensureCapacity(len + strLen);\n        str.getChars(0, strLen, buf, len);\n        size +\u003d strLen;\n    }\n    return this;\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 359,
+      "functionName": "append",
+      "functionAnnotation": "",
+      "functionDoc": "Appends a string to the string builder.\nAppending null will call {@link #appendNull()}.\n\n@param str the string to append\n@return this, to enable chaining\n"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrototypeObjectType.java",
+  "functionName": "setImplicitPrototype",
+  "functionId": "setImplicitPrototype___implicitPrototype-ObjectType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "functionAnnotation": "",
+  "functionDoc": "This should only be reset on the FunctionPrototypeType, only to fix an\nincorrectly established prototype chain due to the user having a mismatch\nin super class declaration, and only before properties on that type are\nprocessed.\n",
+  "functionStartLine": 411,
+  "functionEndLine": 414,
+  "numCommitsSeen": 20,
+  "timeTaken": 787,
+  "changeHistory": [
+    "12e777cea2b7a6e50792d6f07475a0c4bc4a6c72",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "12e777cea2b7a6e50792d6f07475a0c4bc4a6c72": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "12e777cea2b7a6e50792d6f07475a0c4bc4a6c72": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nFix a bug in prototype-resolution. The implicit prototype wouldn\u0027t\nget resolved correctly, because we were resolving the \"default\" slot\nfor the implicit prototypes. InstanceObjectType overrides this own\nslot with its own implementation, so we really need to use the\ngetter to get the correct slot.\nThis only comes up with very deep inheritance hierarchies (\u003e\u003d 5).\n\nR\u003djohnlenz\nDELTA\u003d33  (19 added, 4 deleted, 10 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d716029\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@508 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/25/10, 11:23 AM",
+      "commitName": "12e777cea2b7a6e50792d6f07475a0c4bc4a6c72",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nFix a bug in prototype-resolution. The implicit prototype wouldn\u0027t\nget resolved correctly, because we were resolving the \"default\" slot\nfor the implicit prototypes. InstanceObjectType overrides this own\nslot with its own implementation, so we really need to use the\ngetter to get the correct slot.\nThis only comes up with very deep inheritance hierarchies (\u003e\u003d 5).\n\nR\u003djohnlenz\nDELTA\u003d33  (19 added, 4 deleted, 10 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d716029\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@508 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/25/10, 11:23 AM",
+          "commitName": "12e777cea2b7a6e50792d6f07475a0c4bc4a6c72",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/13/10, 1:00 PM",
+          "commitNameOld": "831de24c490d14ef7dc99148cf2be39f6c67df92",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 72.93,
+          "commitsBetweenForRepo": 140,
+          "commitsBetweenForFile": 1,
+          "actualSource": "final void setImplicitPrototype(ObjectType implicitPrototype) {\n    checkState(!hasCachedValues());\n    this.implicitPrototypeFallback \u003d implicitPrototype;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 389,
+          "functionName": "setImplicitPrototype",
+          "functionAnnotation": "",
+          "functionDoc": "This should only be reset on the FunctionPrototypeType, only to fix an\nincorrectly established prototype chain due to the user having a mismatch\nin super class declaration, and only before properties on that type are\nprocessed.\n",
+          "diff": "@@ -1,4 +1,4 @@\n-void setImplicitPrototype(ObjectType implicitPrototype) {\n+final void setImplicitPrototype(ObjectType implicitPrototype) {\n     checkState(!hasCachedValues());\n-    this.implicitPrototype \u003d implicitPrototype;\n+    this.implicitPrototypeFallback \u003d implicitPrototype;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[]",
+            "newValue": "[final]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nFix a bug in prototype-resolution. The implicit prototype wouldn\u0027t\nget resolved correctly, because we were resolving the \"default\" slot\nfor the implicit prototypes. InstanceObjectType overrides this own\nslot with its own implementation, so we really need to use the\ngetter to get the correct slot.\nThis only comes up with very deep inheritance hierarchies (\u003e\u003d 5).\n\nR\u003djohnlenz\nDELTA\u003d33  (19 added, 4 deleted, 10 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d716029\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@508 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "10/25/10, 11:23 AM",
+          "commitName": "12e777cea2b7a6e50792d6f07475a0c4bc4a6c72",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/13/10, 1:00 PM",
+          "commitNameOld": "831de24c490d14ef7dc99148cf2be39f6c67df92",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 72.93,
+          "commitsBetweenForRepo": 140,
+          "commitsBetweenForFile": 1,
+          "actualSource": "final void setImplicitPrototype(ObjectType implicitPrototype) {\n    checkState(!hasCachedValues());\n    this.implicitPrototypeFallback \u003d implicitPrototype;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 389,
+          "functionName": "setImplicitPrototype",
+          "functionAnnotation": "",
+          "functionDoc": "This should only be reset on the FunctionPrototypeType, only to fix an\nincorrectly established prototype chain due to the user having a mismatch\nin super class declaration, and only before properties on that type are\nprocessed.\n",
+          "diff": "@@ -1,4 +1,4 @@\n-void setImplicitPrototype(ObjectType implicitPrototype) {\n+final void setImplicitPrototype(ObjectType implicitPrototype) {\n     checkState(!hasCachedValues());\n-    this.implicitPrototype \u003d implicitPrototype;\n+    this.implicitPrototypeFallback \u003d implicitPrototype;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+void setImplicitPrototype(ObjectType implicitPrototype) {\n+    checkState(!hasCachedValues());\n+    this.implicitPrototype \u003d implicitPrototype;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void setImplicitPrototype(ObjectType implicitPrototype) {\n    checkState(!hasCachedValues());\n    this.implicitPrototype \u003d implicitPrototype;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 340,
+      "functionName": "setImplicitPrototype",
+      "functionAnnotation": "",
+      "functionDoc": "This should only be reset on the FunctionPrototypeType, only to fix an\nincorrectly established prototype chain due to the user having a mismatch\nin super class declaration, and only before properties on that type are\nprocessed.\n"
+    }
+  }
+}

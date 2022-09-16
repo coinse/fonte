@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionInjector.java",
+  "functionName": "inliningLowersCost",
+  "functionId": "inliningLowersCost___fnModule-JSModule__fnNode-Node__refs-Collection__? extends Reference____namesToAlias-Set__String____isRemovable-boolean__referencesThis-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionInjector.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determine if inlining the function is likely to reduce the code size.\n\n@param namesToAlias\n",
+  "functionStartLine": 767,
+  "functionEndLine": 823,
+  "numCommitsSeen": 36,
+  "timeTaken": 1794,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,29 @@\n+boolean inliningLowersCost(JSModule fnModule, Node fnNode, Collection\u003c? extends Reference\u003e refs, Set\u003cString\u003e namesToAlias, boolean isRemovable, boolean referencesThis) {\n+    int referenceCount \u003d refs.size();\n+    if (referenceCount \u003d\u003d 0) {\n+        return true;\n+    }\n+    int referencesUsingBlockInlining \u003d 0;\n+    boolean checkModules \u003d isRemovable \u0026\u0026 fnModule !\u003d null;\n+    JSModuleGraph moduleGraph \u003d compiler.getModuleGraph();\n+    for (Reference ref : refs) {\n+        if (ref.mode \u003d\u003d InliningMode.BLOCK) {\n+            referencesUsingBlockInlining++;\n+        }\n+        if (checkModules \u0026\u0026 ref.module !\u003d null) {\n+            if (ref.module !\u003d fnModule \u0026\u0026 !moduleGraph.dependsOn(ref.module, fnModule)) {\n+                isRemovable \u003d false;\n+                checkModules \u003d false;\n+            }\n+        }\n+    }\n+    int referencesUsingDirectInlining \u003d referenceCount - referencesUsingBlockInlining;\n+    if (referenceCount \u003d\u003d 1 \u0026\u0026 isRemovable \u0026\u0026 referencesUsingDirectInlining \u003d\u003d 1) {\n+        return true;\n+    }\n+    int callCost \u003d estimateCallCost(fnNode, referencesThis);\n+    int overallCallCost \u003d callCost * referenceCount;\n+    int costDeltaDirect \u003d inlineCostDelta(fnNode, namesToAlias, InliningMode.DIRECT);\n+    int costDeltaBlock \u003d inlineCostDelta(fnNode, namesToAlias, InliningMode.BLOCK);\n+    return doesLowerCost(fnNode, overallCallCost, referencesUsingDirectInlining, costDeltaDirect, referencesUsingBlockInlining, costDeltaBlock, isRemovable);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean inliningLowersCost(JSModule fnModule, Node fnNode, Collection\u003c? extends Reference\u003e refs, Set\u003cString\u003e namesToAlias, boolean isRemovable, boolean referencesThis) {\n    int referenceCount \u003d refs.size();\n    if (referenceCount \u003d\u003d 0) {\n        return true;\n    }\n    int referencesUsingBlockInlining \u003d 0;\n    boolean checkModules \u003d isRemovable \u0026\u0026 fnModule !\u003d null;\n    JSModuleGraph moduleGraph \u003d compiler.getModuleGraph();\n    for (Reference ref : refs) {\n        if (ref.mode \u003d\u003d InliningMode.BLOCK) {\n            referencesUsingBlockInlining++;\n        }\n        if (checkModules \u0026\u0026 ref.module !\u003d null) {\n            if (ref.module !\u003d fnModule \u0026\u0026 !moduleGraph.dependsOn(ref.module, fnModule)) {\n                isRemovable \u003d false;\n                checkModules \u003d false;\n            }\n        }\n    }\n    int referencesUsingDirectInlining \u003d referenceCount - referencesUsingBlockInlining;\n    if (referenceCount \u003d\u003d 1 \u0026\u0026 isRemovable \u0026\u0026 referencesUsingDirectInlining \u003d\u003d 1) {\n        return true;\n    }\n    int callCost \u003d estimateCallCost(fnNode, referencesThis);\n    int overallCallCost \u003d callCost * referenceCount;\n    int costDeltaDirect \u003d inlineCostDelta(fnNode, namesToAlias, InliningMode.DIRECT);\n    int costDeltaBlock \u003d inlineCostDelta(fnNode, namesToAlias, InliningMode.BLOCK);\n    return doesLowerCost(fnNode, overallCallCost, referencesUsingDirectInlining, costDeltaDirect, referencesUsingBlockInlining, costDeltaBlock, isRemovable);\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionInjector.java",
+      "functionStartLine": 688,
+      "functionName": "inliningLowersCost",
+      "functionAnnotation": "",
+      "functionDoc": "Determine if inlining the function is likely to reduce the code size.\n\n@param namesToAlias\n"
+    }
+  }
+}

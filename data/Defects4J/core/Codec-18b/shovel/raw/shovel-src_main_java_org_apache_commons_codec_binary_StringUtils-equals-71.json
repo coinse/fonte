@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Codec-18b",
+  "repositoryPath": "/tmp/Codec-18b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtils.java",
+  "functionName": "equals",
+  "functionId": "equals___cs1-CharSequence(modifiers-final)__cs2-CharSequence(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/codec/binary/StringUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003e\nCompares two CharSequences, returning \u003ccode\u003etrue\u003c/code\u003e if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n\u003ccode\u003enull\u003c/code\u003es are handled without exceptions. Two \u003ccode\u003enull\u003c/code\u003e references are considered to be equal.\nThe comparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@param cs2 the second CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@return \u003ccode\u003etrue\u003c/code\u003e if the CharSequences are equal (case-sensitive), or both \u003ccode\u003enull\u003c/code\u003e\n@since 1.10\n",
+  "functionStartLine": 71,
+  "functionEndLine": 82,
+  "numCommitsSeen": 21,
+  "timeTaken": 809,
+  "changeHistory": [
+    "09a6f097f8a44f3161235327b872d1ac2f4d9ea4",
+    "7bf48eefb3dc9fa049f2f0411ebffdd46cea84c8",
+    "37ba197e62d6b60037d18afc33801e6221f1b8c6"
+  ],
+  "changeHistoryShort": {
+    "09a6f097f8a44f3161235327b872d1ac2f4d9ea4": "Ydocchange",
+    "7bf48eefb3dc9fa049f2f0411ebffdd46cea84c8": "Ydocchange",
+    "37ba197e62d6b60037d18afc33801e6221f1b8c6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "09a6f097f8a44f3161235327b872d1ac2f4d9ea4": {
+      "type": "Ydocchange",
+      "commitMessage": "Checkstyle: Line is longer than 120 characters.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/codec/trunk@1634432 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/26/14, 6:10 PM",
+      "commitName": "09a6f097f8a44f3161235327b872d1ac2f4d9ea4",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "8/22/14, 3:53 PM",
+      "commitNameOld": "7bf48eefb3dc9fa049f2f0411ebffdd46cea84c8",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 65.09,
+      "commitsBetweenForRepo": 25,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean equals(final CharSequence cs1, final CharSequence cs2) {\n    if (cs1 \u003d\u003d cs2) {\n        return true;\n    }\n    if (cs1 \u003d\u003d null || cs2 \u003d\u003d null) {\n        return false;\n    }\n    if (cs1 instanceof String \u0026\u0026 cs2 instanceof String) {\n        return cs1.equals(cs2);\n    }\n    return CharSequenceUtils.regionMatches(cs1, false, 0, cs2, 0, Math.max(cs1.length(), cs2.length()));\n}",
+      "path": "src/main/java/org/apache/commons/codec/binary/StringUtils.java",
+      "functionStartLine": 70,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003e\nCompares two CharSequences, returning \u003ccode\u003etrue\u003c/code\u003e if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n\u003ccode\u003enull\u003c/code\u003es are handled without exceptions. Two \u003ccode\u003enull\u003c/code\u003e references are considered to be equal.\nThe comparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@param cs2 the second CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@return \u003ccode\u003etrue\u003c/code\u003e if the CharSequences are equal (case-sensitive), or both \u003ccode\u003enull\u003c/code\u003e\n@since 1.10\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003e\nCompares two CharSequences, returning \u003ccode\u003etrue\u003c/code\u003e if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n\u003ccode\u003enull\u003c/code\u003es are handled without exceptions. Two \u003ccode\u003enull\u003c/code\u003e references are considered to be equal. The\ncomparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@param cs2 the second CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@return \u003ccode\u003etrue\u003c/code\u003e if the CharSequences are equal (case-sensitive), or both \u003ccode\u003enull\u003c/code\u003e\n@since 1.10\n",
+        "newValue": "\u003cp\u003e\nCompares two CharSequences, returning \u003ccode\u003etrue\u003c/code\u003e if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n\u003ccode\u003enull\u003c/code\u003es are handled without exceptions. Two \u003ccode\u003enull\u003c/code\u003e references are considered to be equal.\nThe comparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@param cs2 the second CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@return \u003ccode\u003etrue\u003c/code\u003e if the CharSequences are equal (case-sensitive), or both \u003ccode\u003enull\u003c/code\u003e\n@since 1.10\n"
+      }
+    },
+    "7bf48eefb3dc9fa049f2f0411ebffdd46cea84c8": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc 8.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/codec/trunk@1619948 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/14, 3:53 PM",
+      "commitName": "7bf48eefb3dc9fa049f2f0411ebffdd46cea84c8",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "4/10/14, 6:51 AM",
+      "commitNameOld": "37ba197e62d6b60037d18afc33801e6221f1b8c6",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 134.38,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean equals(final CharSequence cs1, final CharSequence cs2) {\n    if (cs1 \u003d\u003d cs2) {\n        return true;\n    }\n    if (cs1 \u003d\u003d null || cs2 \u003d\u003d null) {\n        return false;\n    }\n    if (cs1 instanceof String \u0026\u0026 cs2 instanceof String) {\n        return cs1.equals(cs2);\n    }\n    return CharSequenceUtils.regionMatches(cs1, false, 0, cs2, 0, Math.max(cs1.length(), cs2.length()));\n}",
+      "path": "src/main/java/org/apache/commons/codec/binary/StringUtils.java",
+      "functionStartLine": 70,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003e\nCompares two CharSequences, returning \u003ccode\u003etrue\u003c/code\u003e if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n\u003ccode\u003enull\u003c/code\u003es are handled without exceptions. Two \u003ccode\u003enull\u003c/code\u003e references are considered to be equal. The\ncomparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@param cs2 the second CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@return \u003ccode\u003etrue\u003c/code\u003e if the CharSequences are equal (case-sensitive), or both \u003ccode\u003enull\u003c/code\u003e\n@since 1.10\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003e\nCompares two CharSequences, returning {@code true} if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n{@code null}s are handled without exceptions. Two {@code null} references are considered to be equal. The\ncomparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be {@code null}\n@param cs2 the second CharSequence, may be {@code null}\n@return @code true} if the CharSequences are equal (case-sensitive), or both {@code null}\n@since 1.10\n",
+        "newValue": "\u003cp\u003e\nCompares two CharSequences, returning \u003ccode\u003etrue\u003c/code\u003e if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n\u003ccode\u003enull\u003c/code\u003es are handled without exceptions. Two \u003ccode\u003enull\u003c/code\u003e references are considered to be equal. The\ncomparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@param cs2 the second CharSequence, may be \u003ccode\u003enull\u003c/code\u003e\n@return \u003ccode\u003etrue\u003c/code\u003e if the CharSequences are equal (case-sensitive), or both \u003ccode\u003enull\u003c/code\u003e\n@since 1.10\n"
+      }
+    },
+    "37ba197e62d6b60037d18afc33801e6221f1b8c6": {
+      "type": "Yintroduced",
+      "commitMessage": "\u003caction dev\u003d\"ggregory\" type\u003d\"add\" issue\u003d\"CODEC-184\" due-to\u003d\"Cyrille Artho\"\u003eNullPointerException in DoubleMetaPhone.isDoubleMetaphoneEqual when using empty strings\u003c/action\u003e\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/codec/trunk@1586300 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/10/14, 6:51 AM",
+      "commitName": "37ba197e62d6b60037d18afc33801e6221f1b8c6",
+      "commitAuthor": "Gary D. Gregory",
+      "diff": "@@ -0,0 +1,12 @@\n+public static boolean equals(final CharSequence cs1, final CharSequence cs2) {\n+    if (cs1 \u003d\u003d cs2) {\n+        return true;\n+    }\n+    if (cs1 \u003d\u003d null || cs2 \u003d\u003d null) {\n+        return false;\n+    }\n+    if (cs1 instanceof String \u0026\u0026 cs2 instanceof String) {\n+        return cs1.equals(cs2);\n+    }\n+    return CharSequenceUtils.regionMatches(cs1, false, 0, cs2, 0, Math.max(cs1.length(), cs2.length()));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean equals(final CharSequence cs1, final CharSequence cs2) {\n    if (cs1 \u003d\u003d cs2) {\n        return true;\n    }\n    if (cs1 \u003d\u003d null || cs2 \u003d\u003d null) {\n        return false;\n    }\n    if (cs1 instanceof String \u0026\u0026 cs2 instanceof String) {\n        return cs1.equals(cs2);\n    }\n    return CharSequenceUtils.regionMatches(cs1, false, 0, cs2, 0, Math.max(cs1.length(), cs2.length()));\n}",
+      "path": "src/main/java/org/apache/commons/codec/binary/StringUtils.java",
+      "functionStartLine": 70,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003e\nCompares two CharSequences, returning {@code true} if they represent equal sequences of characters.\n\u003c/p\u003e\n\n\u003cp\u003e\n{@code null}s are handled without exceptions. Two {@code null} references are considered to be equal. The\ncomparison is case sensitive.\n\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n\u003cp\u003e\nCopied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n\u003c/p\u003e\n\n@see Object#equals(Object)\n@param cs1 the first CharSequence, may be {@code null}\n@param cs2 the second CharSequence, may be {@code null}\n@return @code true} if the CharSequences are equal (case-sensitive), or both {@code null}\n@since 1.10\n"
+    }
+  }
+}

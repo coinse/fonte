@@ -1,0 +1,174 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DiagnosticGroups.java",
+  "functionName": "setWarningLevel",
+  "functionId": "setWarningLevel___options-CompilerOptions__name-String__level-CheckLevel",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+  "functionAnnotation": "",
+  "functionDoc": "Adds warning levels by name.\n",
+  "functionStartLine": 204,
+  "functionEndLine": 209,
+  "numCommitsSeen": 58,
+  "timeTaken": 1737,
+  "changeHistory": [
+    "fcccf543e85a214f0948d1ac5cab3fa05363e845",
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+    "efd3c178e471df6a689c1a50fbd7c404e778bfaa"
+  ],
+  "changeHistoryShort": {
+    "fcccf543e85a214f0948d1ac5cab3fa05363e845": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "efd3c178e471df6a689c1a50fbd7c404e778bfaa": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fcccf543e85a214f0948d1ac5cab3fa05363e845": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+      "commitMessage": "\nCreate new command-line parsers so that jscomp_off, jscomp_warning\njscomp_error get interpreted in the correct order relative\nto one another.\nFixes issue 407\n\nR\u003dzhuyi,acleung\nDELTA\u003d239  (181 added, 33 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@973 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/6/11, 11:16 AM",
+      "commitName": "fcccf543e85a214f0948d1ac5cab3fa05363e845",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nCreate new command-line parsers so that jscomp_off, jscomp_warning\njscomp_error get interpreted in the correct order relative\nto one another.\nFixes issue 407\n\nR\u003dzhuyi,acleung\nDELTA\u003d239  (181 added, 33 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@973 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/6/11, 11:16 AM",
+          "commitName": "fcccf543e85a214f0948d1ac5cab3fa05363e845",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "4/4/11, 3:24 PM",
+          "commitNameOld": "1868857212ec30a6fe0e2a10396edbcad82927f2",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 1.83,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void setWarningLevel(CompilerOptions options, String name, CheckLevel level) {\n    DiagnosticGroup group \u003d forName(name);\n    Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n    options.setWarningLevel(group, level);\n}",
+          "path": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+          "functionStartLine": 185,
+          "functionName": "setWarningLevel",
+          "functionAnnotation": "",
+          "functionDoc": "Adds warning levels by name.\n",
+          "diff": "@@ -1,7 +1,5 @@\n-void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n-    for (String name : diagnosticGroups) {\n-        DiagnosticGroup group \u003d forName(name);\n-        Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n-        options.setWarningLevel(group, level);\n-    }\n+void setWarningLevel(CompilerOptions options, String name, CheckLevel level) {\n+    DiagnosticGroup group \u003d forName(name);\n+    Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n+    options.setWarningLevel(group, level);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "setWarningLevels",
+            "newValue": "setWarningLevel"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nCreate new command-line parsers so that jscomp_off, jscomp_warning\njscomp_error get interpreted in the correct order relative\nto one another.\nFixes issue 407\n\nR\u003dzhuyi,acleung\nDELTA\u003d239  (181 added, 33 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@973 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/6/11, 11:16 AM",
+          "commitName": "fcccf543e85a214f0948d1ac5cab3fa05363e845",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "4/4/11, 3:24 PM",
+          "commitNameOld": "1868857212ec30a6fe0e2a10396edbcad82927f2",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 1.83,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void setWarningLevel(CompilerOptions options, String name, CheckLevel level) {\n    DiagnosticGroup group \u003d forName(name);\n    Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n    options.setWarningLevel(group, level);\n}",
+          "path": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+          "functionStartLine": 185,
+          "functionName": "setWarningLevel",
+          "functionAnnotation": "",
+          "functionDoc": "Adds warning levels by name.\n",
+          "diff": "@@ -1,7 +1,5 @@\n-void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n-    for (String name : diagnosticGroups) {\n-        DiagnosticGroup group \u003d forName(name);\n-        Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n-        options.setWarningLevel(group, level);\n-    }\n+void setWarningLevel(CompilerOptions options, String name, CheckLevel level) {\n+    DiagnosticGroup group \u003d forName(name);\n+    Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n+    options.setWarningLevel(group, level);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[options-CompilerOptions, diagnosticGroups-List\u003cString\u003e, level-CheckLevel]",
+            "newValue": "[options-CompilerOptions, name-String, level-CheckLevel]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nCreate new command-line parsers so that jscomp_off, jscomp_warning\njscomp_error get interpreted in the correct order relative\nto one another.\nFixes issue 407\n\nR\u003dzhuyi,acleung\nDELTA\u003d239  (181 added, 33 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@973 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/6/11, 11:16 AM",
+          "commitName": "fcccf543e85a214f0948d1ac5cab3fa05363e845",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "4/4/11, 3:24 PM",
+          "commitNameOld": "1868857212ec30a6fe0e2a10396edbcad82927f2",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 1.83,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void setWarningLevel(CompilerOptions options, String name, CheckLevel level) {\n    DiagnosticGroup group \u003d forName(name);\n    Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n    options.setWarningLevel(group, level);\n}",
+          "path": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+          "functionStartLine": 185,
+          "functionName": "setWarningLevel",
+          "functionAnnotation": "",
+          "functionDoc": "Adds warning levels by name.\n",
+          "diff": "@@ -1,7 +1,5 @@\n-void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n-    for (String name : diagnosticGroups) {\n-        DiagnosticGroup group \u003d forName(name);\n-        Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n-        options.setWarningLevel(group, level);\n-    }\n+void setWarningLevel(CompilerOptions options, String name, CheckLevel level) {\n+    DiagnosticGroup group \u003d forName(name);\n+    Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n+    options.setWarningLevel(group, level);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "Add buttloads of tests.\n\nRewrite JSDoc inference to be more redundant, which should help it\nto be more robust.\n\nAssorted other fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@20 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/7/09, 1:53 PM",
+      "commitName": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Add buttloads of tests.\n\nRewrite JSDoc inference to be more redundant, which should help it\nto be more robust.\n\nAssorted other fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@20 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/7/09, 1:53 PM",
+          "commitName": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/19/09, 1:23 PM",
+          "commitNameOld": "6a6ea480bae01f40f9795218ac911bb7de18d34a",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 18.02,
+          "commitsBetweenForRepo": 7,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n    for (String name : diagnosticGroups) {\n        DiagnosticGroup group \u003d forName(name);\n        Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n        options.setWarningLevel(group, level);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+          "functionStartLine": 108,
+          "functionName": "setWarningLevels",
+          "functionAnnotation": "",
+          "functionDoc": "Adds warning levels by name.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-static void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n+void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n     for (String name : diagnosticGroups) {\n-        DiagnosticGroup group \u003d DiagnosticGroups.forName(name);\n+        DiagnosticGroup group \u003d forName(name);\n         Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n         options.setWarningLevel(group, level);\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[static]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Add buttloads of tests.\n\nRewrite JSDoc inference to be more redundant, which should help it\nto be more robust.\n\nAssorted other fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@20 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/7/09, 1:53 PM",
+          "commitName": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/19/09, 1:23 PM",
+          "commitNameOld": "6a6ea480bae01f40f9795218ac911bb7de18d34a",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 18.02,
+          "commitsBetweenForRepo": 7,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n    for (String name : diagnosticGroups) {\n        DiagnosticGroup group \u003d forName(name);\n        Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n        options.setWarningLevel(group, level);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+          "functionStartLine": 108,
+          "functionName": "setWarningLevels",
+          "functionAnnotation": "",
+          "functionDoc": "Adds warning levels by name.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-static void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n+void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n     for (String name : diagnosticGroups) {\n-        DiagnosticGroup group \u003d DiagnosticGroups.forName(name);\n+        DiagnosticGroup group \u003d forName(name);\n         Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n         options.setWarningLevel(group, level);\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "efd3c178e471df6a689c1a50fbd7c404e778bfaa": {
+      "type": "Yintroduced",
+      "commitMessage": "Better number printing.\nAdd flags for fine-grained warning controls.\nBetter type-declaration finding.\nAdded some missing externs.\nMarked externs that don\u0027t have side effects.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@10 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/13/09, 11:38 AM",
+      "commitName": "efd3c178e471df6a689c1a50fbd7c404e778bfaa",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+static void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n+    for (String name : diagnosticGroups) {\n+        DiagnosticGroup group \u003d DiagnosticGroups.forName(name);\n+        Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n+        options.setWarningLevel(group, level);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static void setWarningLevels(CompilerOptions options, List\u003cString\u003e diagnosticGroups, CheckLevel level) {\n    for (String name : diagnosticGroups) {\n        DiagnosticGroup group \u003d DiagnosticGroups.forName(name);\n        Preconditions.checkNotNull(group, \"No warning class for name: \" + name);\n        options.setWarningLevel(group, level);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+      "functionStartLine": 102,
+      "functionName": "setWarningLevels",
+      "functionAnnotation": "",
+      "functionDoc": "Adds warning levels by name.\n"
+    }
+  }
+}

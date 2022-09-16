@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-131b",
+  "repositoryPath": "/tmp/Closure-131b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "annotateCalls",
+  "functionId": "$annotateCalls___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "There are two types of calls we are interested in calls without explicit\n\"this\" values (what we are call \"free\" calls) and direct call to eval.\n",
+  "functionStartLine": 158,
+  "functionEndLine": 174,
+  "numCommitsSeen": 21,
+  "timeTaken": 1632,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/7/11, 3:28 PM",
+      "commitNameOld": "c8c81c6615908f82ae5e7b294643caa177688513",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.71,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void annotateCalls(Node n) {\n    Preconditions.checkState(n.isCall());\n    Node first \u003d n.getFirstChild();\n    if (!NodeUtil.isGet(first)) {\n        n.putBooleanProp(Node.FREE_CALL, true);\n    }\n    if (first.isName() \u0026\u0026 \"eval\".equals(first.getString())) {\n        first.putBooleanProp(Node.DIRECT_EVAL, true);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 164,
+      "functionName": "annotateCalls",
+      "functionAnnotation": "",
+      "functionDoc": "There are two types of calls we are interested in calls without explicit\n\"this\" values (what we are call \"free\" calls) and direct call to eval.\n",
+      "diff": "@@ -1,10 +1,10 @@\n private void annotateCalls(Node n) {\n-    Preconditions.checkState(n.getType() \u003d\u003d Token.CALL);\n+    Preconditions.checkState(n.isCall());\n     Node first \u003d n.getFirstChild();\n     if (!NodeUtil.isGet(first)) {\n         n.putBooleanProp(Node.FREE_CALL, true);\n     }\n-    if (first.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(first.getString())) {\n+    if (first.isName() \u0026\u0026 \"eval\".equals(first.getString())) {\n         first.putBooleanProp(Node.DIRECT_EVAL, true);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic \"free call\" annotation and support for issue 180.  Additional\ntesting is required to validate that new CALL nodes are not\ninappropriately introduced.\n\nAlso, refactored PrepareAst to make the different actions being taken\neasier to follow.\n\nR\u003dnicksantos\nDELTA\u003d215  (120 added, 18 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@282 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:34 PM",
+      "commitName": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private void annotateCalls(Node n) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.CALL);\n+    Node first \u003d n.getFirstChild();\n+    if (!NodeUtil.isGet(first)) {\n+        n.putBooleanProp(Node.FREE_CALL, true);\n+    }\n+    if (first.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(first.getString())) {\n+        first.putBooleanProp(Node.DIRECT_EVAL, true);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void annotateCalls(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.CALL);\n    Node first \u003d n.getFirstChild();\n    if (!NodeUtil.isGet(first)) {\n        n.putBooleanProp(Node.FREE_CALL, true);\n    }\n    if (first.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(first.getString())) {\n        first.putBooleanProp(Node.DIRECT_EVAL, true);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 166,
+      "functionName": "annotateCalls",
+      "functionAnnotation": "",
+      "functionDoc": "There are two types of calls we are interested in calls without explicit\n\"this\" values (what we are call \"free\" calls) and direct call to eval.\n"
+    }
+  }
+}

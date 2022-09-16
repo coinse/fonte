@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-121b",
+  "repositoryPath": "/tmp/Closure-121b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReferenceCollectingCallback.java",
+  "functionName": "isAssignedOnceInLifetime",
+  "functionId": "$isAssignedOnceInLifetime",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the variable is only assigned a value once for its\n    lifetime.\n",
+  "functionStartLine": 421,
+  "functionEndLine": 438,
+  "numCommitsSeen": 42,
+  "timeTaken": 2591,
+  "changeHistory": [
+    "d1df970451b5a18956448097b3afb43f3a82263d",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30"
+  ],
+  "changeHistoryShort": {
+    "d1df970451b5a18956448097b3afb43f3a82263d": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d1df970451b5a18956448097b3afb43f3a82263d": {
+      "type": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+      "commitMessage": "\n\nChange on 2010/06/09 by nicksantos\n\n        be clear that \"assigned once\" means \"assigned once in lifetime\"\n        fixes issue 174.\n\n        R\u003djohnlenz\n        DELTA\u003d125  (113 added, 0 deleted, 12 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d26002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@241 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/10/10, 1:12 PM",
+      "commitName": "d1df970451b5a18956448097b3afb43f3a82263d",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\n\nChange on 2010/06/09 by nicksantos\n\n        be clear that \"assigned once\" means \"assigned once in lifetime\"\n        fixes issue 174.\n\n        R\u003djohnlenz\n        DELTA\u003d125  (113 added, 0 deleted, 12 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d26002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@241 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/10/10, 1:12 PM",
+          "commitName": "d1df970451b5a18956448097b3afb43f3a82263d",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/23/10, 11:31 AM",
+          "commitNameOld": "ebb59a97610015bc41bda7f458dd1428a3a3e335",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 48.07,
+          "commitsBetweenForRepo": 33,
+          "commitsBetweenForFile": 1,
+          "actualSource": "boolean isAssignedOnceInLifetime() {\n    Reference ref \u003d getOneAndOnlyAssignment();\n    if (ref \u003d\u003d null) {\n        return false;\n    }\n    for (BasicBlock block \u003d ref.getBasicBlock(); block !\u003d null; block \u003d block.getParent()) {\n        if (block.isFunction) {\n            break;\n        } else if (block.isLoop) {\n            return false;\n        }\n    }\n    return true;\n}",
+          "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+          "functionStartLine": 354,
+          "functionName": "isAssignedOnceInLifetime",
+          "functionAnnotation": "",
+          "functionDoc": "\n@return Whether the variable is only assigned a value once for its\n    lifetime.\n",
+          "diff": "@@ -1,15 +1,14 @@\n-boolean isAssignedOnce() {\n-    boolean assigned \u003d false;\n-    int size \u003d references.size();\n-    for (int i \u003d 0; i \u003c size; i++) {\n-        Reference ref \u003d references.get(i);\n-        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n-            if (!assigned) {\n-                assigned \u003d true;\n-            } else {\n-                return false;\n-            }\n+boolean isAssignedOnceInLifetime() {\n+    Reference ref \u003d getOneAndOnlyAssignment();\n+    if (ref \u003d\u003d null) {\n+        return false;\n+    }\n+    for (BasicBlock block \u003d ref.getBasicBlock(); block !\u003d null; block \u003d block.getParent()) {\n+        if (block.isFunction) {\n+            break;\n+        } else if (block.isLoop) {\n+            return false;\n         }\n     }\n-    return assigned;\n+    return true;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "isAssignedOnce",
+            "newValue": "isAssignedOnceInLifetime"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\n\nChange on 2010/06/09 by nicksantos\n\n        be clear that \"assigned once\" means \"assigned once in lifetime\"\n        fixes issue 174.\n\n        R\u003djohnlenz\n        DELTA\u003d125  (113 added, 0 deleted, 12 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d26002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@241 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/10/10, 1:12 PM",
+          "commitName": "d1df970451b5a18956448097b3afb43f3a82263d",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/23/10, 11:31 AM",
+          "commitNameOld": "ebb59a97610015bc41bda7f458dd1428a3a3e335",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 48.07,
+          "commitsBetweenForRepo": 33,
+          "commitsBetweenForFile": 1,
+          "actualSource": "boolean isAssignedOnceInLifetime() {\n    Reference ref \u003d getOneAndOnlyAssignment();\n    if (ref \u003d\u003d null) {\n        return false;\n    }\n    for (BasicBlock block \u003d ref.getBasicBlock(); block !\u003d null; block \u003d block.getParent()) {\n        if (block.isFunction) {\n            break;\n        } else if (block.isLoop) {\n            return false;\n        }\n    }\n    return true;\n}",
+          "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+          "functionStartLine": 354,
+          "functionName": "isAssignedOnceInLifetime",
+          "functionAnnotation": "",
+          "functionDoc": "\n@return Whether the variable is only assigned a value once for its\n    lifetime.\n",
+          "diff": "@@ -1,15 +1,14 @@\n-boolean isAssignedOnce() {\n-    boolean assigned \u003d false;\n-    int size \u003d references.size();\n-    for (int i \u003d 0; i \u003c size; i++) {\n-        Reference ref \u003d references.get(i);\n-        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n-            if (!assigned) {\n-                assigned \u003d true;\n-            } else {\n-                return false;\n-            }\n+boolean isAssignedOnceInLifetime() {\n+    Reference ref \u003d getOneAndOnlyAssignment();\n+    if (ref \u003d\u003d null) {\n+        return false;\n+    }\n+    for (BasicBlock block \u003d ref.getBasicBlock(); block !\u003d null; block \u003d block.getParent()) {\n+        if (block.isFunction) {\n+            break;\n+        } else if (block.isLoop) {\n+            return false;\n         }\n     }\n-    return assigned;\n+    return true;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\n\nChange on 2010/06/09 by nicksantos\n\n        be clear that \"assigned once\" means \"assigned once in lifetime\"\n        fixes issue 174.\n\n        R\u003djohnlenz\n        DELTA\u003d125  (113 added, 0 deleted, 12 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d26002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@241 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/10/10, 1:12 PM",
+          "commitName": "d1df970451b5a18956448097b3afb43f3a82263d",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/23/10, 11:31 AM",
+          "commitNameOld": "ebb59a97610015bc41bda7f458dd1428a3a3e335",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 48.07,
+          "commitsBetweenForRepo": 33,
+          "commitsBetweenForFile": 1,
+          "actualSource": "boolean isAssignedOnceInLifetime() {\n    Reference ref \u003d getOneAndOnlyAssignment();\n    if (ref \u003d\u003d null) {\n        return false;\n    }\n    for (BasicBlock block \u003d ref.getBasicBlock(); block !\u003d null; block \u003d block.getParent()) {\n        if (block.isFunction) {\n            break;\n        } else if (block.isLoop) {\n            return false;\n        }\n    }\n    return true;\n}",
+          "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+          "functionStartLine": 354,
+          "functionName": "isAssignedOnceInLifetime",
+          "functionAnnotation": "",
+          "functionDoc": "\n@return Whether the variable is only assigned a value once for its\n    lifetime.\n",
+          "diff": "@@ -1,15 +1,14 @@\n-boolean isAssignedOnce() {\n-    boolean assigned \u003d false;\n-    int size \u003d references.size();\n-    for (int i \u003d 0; i \u003c size; i++) {\n-        Reference ref \u003d references.get(i);\n-        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n-            if (!assigned) {\n-                assigned \u003d true;\n-            } else {\n-                return false;\n-            }\n+boolean isAssignedOnceInLifetime() {\n+    Reference ref \u003d getOneAndOnlyAssignment();\n+    if (ref \u003d\u003d null) {\n+        return false;\n+    }\n+    for (BasicBlock block \u003d ref.getBasicBlock(); block !\u003d null; block \u003d block.getParent()) {\n+        if (block.isFunction) {\n+            break;\n+        } else if (block.isLoop) {\n+            return false;\n         }\n     }\n-    return assigned;\n+    return true;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "\n@return Whether the variable is only assigned a value once.\n",
+            "newValue": "\n@return Whether the variable is only assigned a value once for its\n    lifetime.\n"
+          }
+        }
+      ]
+    },
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/09, 11:16 AM",
+      "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,15 @@\n+boolean isAssignedOnce() {\n+    boolean assigned \u003d false;\n+    int size \u003d references.size();\n+    for (int i \u003d 0; i \u003c size; i++) {\n+        Reference ref \u003d references.get(i);\n+        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n+            if (!assigned) {\n+                assigned \u003d true;\n+            } else {\n+                return false;\n+            }\n+        }\n+    }\n+    return assigned;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean isAssignedOnce() {\n    boolean assigned \u003d false;\n    int size \u003d references.size();\n    for (int i \u003d 0; i \u003c size; i++) {\n        Reference ref \u003d references.get(i);\n        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n            if (!assigned) {\n                assigned \u003d true;\n            } else {\n                return false;\n            }\n        }\n    }\n    return assigned;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 338,
+      "functionName": "isAssignedOnce",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the variable is only assigned a value once.\n"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnionType.java",
+  "functionName": "toStringHelper",
+  "functionId": "toStringHelper___forAnnotations-boolean",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/UnionType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 404,
+  "functionEndLine": 420,
+  "numCommitsSeen": 52,
+  "timeTaken": 1722,
+  "changeHistory": [
+    "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b": "Ymultichange(Yrename,Yparameterchange,Ymodifierchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nFixes generateExports for enums\nFixes issue 310\n\nR\u003djohnlenz,jschorr\nDELTA\u003d226  (141 added, 6 deleted, 79 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4138\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1747 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/26/12, 1:04 PM",
+      "commitName": "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nFixes generateExports for enums\nFixes issue 310\n\nR\u003djohnlenz,jschorr\nDELTA\u003d226  (141 added, 6 deleted, 79 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4138\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1747 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/26/12, 1:04 PM",
+          "commitName": "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/12/11, 3:19 PM",
+          "commitNameOld": "583972a2c34266f7a35867b13749c3c368e02acf",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 105.95,
+          "commitsBetweenForRepo": 209,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nString toStringHelper(boolean forAnnotations) {\n    StringBuilder result \u003d new StringBuilder();\n    boolean firstAlternate \u003d true;\n    result.append(\"(\");\n    SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n    sorted.addAll(alternates);\n    for (JSType t : sorted) {\n        if (!firstAlternate) {\n            result.append(\"|\");\n        }\n        result.append(t.toStringHelper(forAnnotations));\n        firstAlternate \u003d false;\n    }\n    result.append(\")\");\n    return result.toString();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/UnionType.java",
+          "functionStartLine": 404,
+          "functionName": "toStringHelper",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,17 +1,17 @@\n @Override\n-public String toString() {\n+String toStringHelper(boolean forAnnotations) {\n     StringBuilder result \u003d new StringBuilder();\n     boolean firstAlternate \u003d true;\n     result.append(\"(\");\n     SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n     sorted.addAll(alternates);\n     for (JSType t : sorted) {\n         if (!firstAlternate) {\n             result.append(\"|\");\n         }\n-        result.append(t.toString());\n+        result.append(t.toStringHelper(forAnnotations));\n         firstAlternate \u003d false;\n     }\n     result.append(\")\");\n     return result.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "toString",
+            "newValue": "toStringHelper"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nFixes generateExports for enums\nFixes issue 310\n\nR\u003djohnlenz,jschorr\nDELTA\u003d226  (141 added, 6 deleted, 79 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4138\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1747 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/26/12, 1:04 PM",
+          "commitName": "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/12/11, 3:19 PM",
+          "commitNameOld": "583972a2c34266f7a35867b13749c3c368e02acf",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 105.95,
+          "commitsBetweenForRepo": 209,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nString toStringHelper(boolean forAnnotations) {\n    StringBuilder result \u003d new StringBuilder();\n    boolean firstAlternate \u003d true;\n    result.append(\"(\");\n    SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n    sorted.addAll(alternates);\n    for (JSType t : sorted) {\n        if (!firstAlternate) {\n            result.append(\"|\");\n        }\n        result.append(t.toStringHelper(forAnnotations));\n        firstAlternate \u003d false;\n    }\n    result.append(\")\");\n    return result.toString();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/UnionType.java",
+          "functionStartLine": 404,
+          "functionName": "toStringHelper",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,17 +1,17 @@\n @Override\n-public String toString() {\n+String toStringHelper(boolean forAnnotations) {\n     StringBuilder result \u003d new StringBuilder();\n     boolean firstAlternate \u003d true;\n     result.append(\"(\");\n     SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n     sorted.addAll(alternates);\n     for (JSType t : sorted) {\n         if (!firstAlternate) {\n             result.append(\"|\");\n         }\n-        result.append(t.toString());\n+        result.append(t.toStringHelper(forAnnotations));\n         firstAlternate \u003d false;\n     }\n     result.append(\")\");\n     return result.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[]",
+            "newValue": "[forAnnotations-boolean]"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nFixes generateExports for enums\nFixes issue 310\n\nR\u003djohnlenz,jschorr\nDELTA\u003d226  (141 added, 6 deleted, 79 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4138\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1747 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/26/12, 1:04 PM",
+          "commitName": "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/12/11, 3:19 PM",
+          "commitNameOld": "583972a2c34266f7a35867b13749c3c368e02acf",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 105.95,
+          "commitsBetweenForRepo": 209,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nString toStringHelper(boolean forAnnotations) {\n    StringBuilder result \u003d new StringBuilder();\n    boolean firstAlternate \u003d true;\n    result.append(\"(\");\n    SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n    sorted.addAll(alternates);\n    for (JSType t : sorted) {\n        if (!firstAlternate) {\n            result.append(\"|\");\n        }\n        result.append(t.toStringHelper(forAnnotations));\n        firstAlternate \u003d false;\n    }\n    result.append(\")\");\n    return result.toString();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/UnionType.java",
+          "functionStartLine": 404,
+          "functionName": "toStringHelper",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,17 +1,17 @@\n @Override\n-public String toString() {\n+String toStringHelper(boolean forAnnotations) {\n     StringBuilder result \u003d new StringBuilder();\n     boolean firstAlternate \u003d true;\n     result.append(\"(\");\n     SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n     sorted.addAll(alternates);\n     for (JSType t : sorted) {\n         if (!firstAlternate) {\n             result.append(\"|\");\n         }\n-        result.append(t.toString());\n+        result.append(t.toStringHelper(forAnnotations));\n         firstAlternate \u003d false;\n     }\n     result.append(\")\");\n     return result.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nFixes generateExports for enums\nFixes issue 310\n\nR\u003djohnlenz,jschorr\nDELTA\u003d226  (141 added, 6 deleted, 79 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4138\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1747 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/26/12, 1:04 PM",
+          "commitName": "342d12414cbf8e0cd19f6cab95b9bcd485c2f49b",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/12/11, 3:19 PM",
+          "commitNameOld": "583972a2c34266f7a35867b13749c3c368e02acf",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 105.95,
+          "commitsBetweenForRepo": 209,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nString toStringHelper(boolean forAnnotations) {\n    StringBuilder result \u003d new StringBuilder();\n    boolean firstAlternate \u003d true;\n    result.append(\"(\");\n    SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n    sorted.addAll(alternates);\n    for (JSType t : sorted) {\n        if (!firstAlternate) {\n            result.append(\"|\");\n        }\n        result.append(t.toStringHelper(forAnnotations));\n        firstAlternate \u003d false;\n    }\n    result.append(\")\");\n    return result.toString();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/UnionType.java",
+          "functionStartLine": 404,
+          "functionName": "toStringHelper",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,17 +1,17 @@\n @Override\n-public String toString() {\n+String toStringHelper(boolean forAnnotations) {\n     StringBuilder result \u003d new StringBuilder();\n     boolean firstAlternate \u003d true;\n     result.append(\"(\");\n     SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n     sorted.addAll(alternates);\n     for (JSType t : sorted) {\n         if (!firstAlternate) {\n             result.append(\"|\");\n         }\n-        result.append(t.toString());\n+        result.append(t.toStringHelper(forAnnotations));\n         firstAlternate \u003d false;\n     }\n     result.append(\")\");\n     return result.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,17 @@\n+@Override\n+public String toString() {\n+    StringBuilder result \u003d new StringBuilder();\n+    boolean firstAlternate \u003d true;\n+    result.append(\"(\");\n+    SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n+    sorted.addAll(alternates);\n+    for (JSType t : sorted) {\n+        if (!firstAlternate) {\n+            result.append(\"|\");\n+        }\n+        result.append(t.toString());\n+        firstAlternate \u003d false;\n+    }\n+    result.append(\")\");\n+    return result.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String toString() {\n    StringBuilder result \u003d new StringBuilder();\n    boolean firstAlternate \u003d true;\n    result.append(\"(\");\n    SortedSet\u003cJSType\u003e sorted \u003d new TreeSet\u003cJSType\u003e(ALPHA);\n    sorted.addAll(alternates);\n    for (JSType t : sorted) {\n        if (!firstAlternate) {\n            result.append(\"|\");\n        }\n        result.append(t.toString());\n        firstAlternate \u003d false;\n    }\n    result.append(\")\");\n    return result.toString();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionType.java",
+      "functionStartLine": 369,
+      "functionName": "toString",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

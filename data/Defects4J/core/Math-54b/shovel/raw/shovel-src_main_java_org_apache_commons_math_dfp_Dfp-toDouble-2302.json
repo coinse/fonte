@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-54b",
+  "repositoryPath": "/tmp/Math-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "toDouble",
+  "functionId": "toDouble",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Convert the instance into a double.\n\n@return a double approximating the instance\n@see #toSplitDouble()\n",
+  "functionStartLine": 2302,
+  "functionEndLine": 2383,
+  "numCommitsSeen": 4,
+  "timeTaken": 814,
+  "changeHistory": [
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,59 @@\n+public double toDouble() {\n+    if (isInfinite()) {\n+        if (lessThan(getZero())) {\n+            return Double.NEGATIVE_INFINITY;\n+        } else {\n+            return Double.POSITIVE_INFINITY;\n+        }\n+    }\n+    if (isNaN()) {\n+        return Double.NaN;\n+    }\n+    Dfp y \u003d this;\n+    boolean negate \u003d false;\n+    if (lessThan(getZero())) {\n+        y \u003d negate();\n+        negate \u003d true;\n+    }\n+    int exponent \u003d (int) (y.log10() * 3.32);\n+    if (exponent \u003c 0) {\n+        exponent--;\n+    }\n+    Dfp tempDfp \u003d DfpMath.pow(getTwo(), exponent);\n+    while (tempDfp.lessThan(y) || tempDfp.equals(y)) {\n+        tempDfp \u003d tempDfp.multiply(2);\n+        exponent++;\n+    }\n+    exponent--;\n+    y \u003d y.divide(DfpMath.pow(getTwo(), exponent));\n+    if (exponent \u003e -1023) {\n+        y \u003d y.subtract(getOne());\n+    }\n+    if (exponent \u003c -1074) {\n+        return 0;\n+    }\n+    if (exponent \u003e 1023) {\n+        return negate ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY;\n+    }\n+    y \u003d y.multiply(newInstance(4503599627370496l)).rint();\n+    String str \u003d y.toString();\n+    str \u003d str.substring(0, str.length() - 1);\n+    long mantissa \u003d Long.parseLong(str);\n+    if (mantissa \u003d\u003d 4503599627370496L) {\n+        mantissa \u003d 0;\n+        exponent++;\n+    }\n+    if (exponent \u003c\u003d -1023) {\n+        exponent--;\n+    }\n+    while (exponent \u003c -1023) {\n+        exponent++;\n+        mantissa \u003e\u003e\u003e\u003d 1;\n+    }\n+    long bits \u003d mantissa | ((exponent + 1023L) \u003c\u003c 52);\n+    double x \u003d Double.longBitsToDouble(bits);\n+    if (negate) {\n+        x \u003d -x;\n+    }\n+    return x;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public double toDouble() {\n    if (isInfinite()) {\n        if (lessThan(getZero())) {\n            return Double.NEGATIVE_INFINITY;\n        } else {\n            return Double.POSITIVE_INFINITY;\n        }\n    }\n    if (isNaN()) {\n        return Double.NaN;\n    }\n    Dfp y \u003d this;\n    boolean negate \u003d false;\n    if (lessThan(getZero())) {\n        y \u003d negate();\n        negate \u003d true;\n    }\n    int exponent \u003d (int) (y.log10() * 3.32);\n    if (exponent \u003c 0) {\n        exponent--;\n    }\n    Dfp tempDfp \u003d DfpMath.pow(getTwo(), exponent);\n    while (tempDfp.lessThan(y) || tempDfp.equals(y)) {\n        tempDfp \u003d tempDfp.multiply(2);\n        exponent++;\n    }\n    exponent--;\n    y \u003d y.divide(DfpMath.pow(getTwo(), exponent));\n    if (exponent \u003e -1023) {\n        y \u003d y.subtract(getOne());\n    }\n    if (exponent \u003c -1074) {\n        return 0;\n    }\n    if (exponent \u003e 1023) {\n        return negate ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY;\n    }\n    y \u003d y.multiply(newInstance(4503599627370496l)).rint();\n    String str \u003d y.toString();\n    str \u003d str.substring(0, str.length() - 1);\n    long mantissa \u003d Long.parseLong(str);\n    if (mantissa \u003d\u003d 4503599627370496L) {\n        mantissa \u003d 0;\n        exponent++;\n    }\n    if (exponent \u003c\u003d -1023) {\n        exponent--;\n    }\n    while (exponent \u003c -1023) {\n        exponent++;\n        mantissa \u003e\u003e\u003e\u003d 1;\n    }\n    long bits \u003d mantissa | ((exponent + 1023L) \u003c\u003c 52);\n    double x \u003d Double.longBitsToDouble(bits);\n    if (negate) {\n        x \u003d -x;\n    }\n    return x;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 2303,
+      "functionName": "toDouble",
+      "functionAnnotation": "",
+      "functionDoc": "Convert the instance into a double.\n\n@return a double approximating the instance\n@see #toSplitDouble()\n"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+![image](https://user-images.githubusercontent.com/41705526/49982508-ca65db80-ff11-11e8-9833-1775ddcc8871.png)
+
+Attribute.java Line 45, it should be:
+```java
+Validate.notEmpty(this.key);
+```
+rather than
+```java
+Validate.notEmpty(key);
+```
+
+This issue only happens when **key** is blank or empty, in reality this would rarely happen, but in the syntax context it is still an issue, so better fix this.

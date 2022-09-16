@@ -1,0 +1,177 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-7b",
+  "repositoryPath": "/tmp/Time-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BaseChronology.java",
+  "functionName": "getDateTimeMillis",
+  "functionId": "getDateTimeMillis___year-int__monthOfYear-int__dayOfMonth-int__hourOfDay-int__minuteOfHour-int__secondOfMinute-int__millisOfSecond-int",
+  "sourceFilePath": "src/main/java/org/joda/time/chrono/BaseChronology.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a datetime millisecond instant, formed from the given year,\nmonth, day, hour, minute, second, and millisecond values. The set of\ngiven values must refer to a valid datetime, or else an\nIllegalArgumentException is thrown.\n\u003cp\u003e\nThe default implementation calls upon separate DateTimeFields to\ndetermine the result. Subclasses are encouraged to provide a more\nefficient implementation.\n\n@param year year to use\n@param monthOfYear month to use\n@param dayOfMonth day of month to use\n@param hourOfDay hour to use\n@param minuteOfHour minute to use\n@param secondOfMinute second to use\n@param millisOfSecond millisecond to use\n@return millisecond instant from 1970-01-01T00:00:00Z\n",
+  "functionStartLine": 127,
+  "functionEndLine": 139,
+  "numCommitsSeen": 28,
+  "timeTaken": 5371,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "6bdd176eed470329a73d7ee08498183e579cea60",
+    "14dcaf0e3931855913d79d0fbe8d1e6f1421b7a7",
+    "0e07ac6b2cff63550d7df336355ca63cc05aa40b"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "6bdd176eed470329a73d7ee08498183e579cea60": "Yfilerename",
+    "14dcaf0e3931855913d79d0fbe8d1e6f1421b7a7": "Ymultichange(Ymovefromfile,Ydocchange)",
+    "0e07ac6b2cff63550d7df336355ca63cc05aa40b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, int secondOfMinute, int millisOfSecond) throws IllegalArgumentException {\n    long instant \u003d year().set(0, year);\n    instant \u003d monthOfYear().set(instant, monthOfYear);\n    instant \u003d dayOfMonth().set(instant, dayOfMonth);\n    instant \u003d hourOfDay().set(instant, hourOfDay);\n    instant \u003d minuteOfHour().set(instant, minuteOfHour);\n    instant \u003d secondOfMinute().set(instant, secondOfMinute);\n    return millisOfSecond().set(instant, millisOfSecond);\n}",
+      "path": "src/main/java/org/joda/time/chrono/BaseChronology.java",
+      "functionStartLine": 127,
+      "functionName": "getDateTimeMillis",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a datetime millisecond instant, formed from the given year,\nmonth, day, hour, minute, second, and millisecond values. The set of\ngiven values must refer to a valid datetime, or else an\nIllegalArgumentException is thrown.\n\u003cp\u003e\nThe default implementation calls upon separate DateTimeFields to\ndetermine the result. Subclasses are encouraged to provide a more\nefficient implementation.\n\n@param year year to use\n@param monthOfYear month to use\n@param dayOfMonth day of month to use\n@param hourOfDay hour to use\n@param minuteOfHour minute to use\n@param secondOfMinute second to use\n@param millisOfSecond millisecond to use\n@return millisecond instant from 1970-01-01T00:00:00Z\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/chrono/BaseChronology.java",
+        "newPath": "src/main/java/org/joda/time/chrono/BaseChronology.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, int secondOfMinute, int millisOfSecond) throws IllegalArgumentException {\n    long instant \u003d year().set(0, year);\n    instant \u003d monthOfYear().set(instant, monthOfYear);\n    instant \u003d dayOfMonth().set(instant, dayOfMonth);\n    instant \u003d hourOfDay().set(instant, hourOfDay);\n    instant \u003d minuteOfHour().set(instant, minuteOfHour);\n    instant \u003d secondOfMinute().set(instant, secondOfMinute);\n    return millisOfSecond().set(instant, millisOfSecond);\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/chrono/BaseChronology.java",
+      "functionStartLine": 127,
+      "functionName": "getDateTimeMillis",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a datetime millisecond instant, formed from the given year,\nmonth, day, hour, minute, second, and millisecond values. The set of\ngiven values must refer to a valid datetime, or else an\nIllegalArgumentException is thrown.\n\u003cp\u003e\nThe default implementation calls upon separate DateTimeFields to\ndetermine the result. Subclasses are encouraged to provide a more\nefficient implementation.\n\n@param year year to use\n@param monthOfYear month to use\n@param dayOfMonth day of month to use\n@param hourOfDay hour to use\n@param minuteOfHour minute to use\n@param secondOfMinute second to use\n@param millisOfSecond millisecond to use\n@return millisecond instant from 1970-01-01T00:00:00Z\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/chrono/BaseChronology.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/chrono/BaseChronology.java"
+      }
+    },
+    "6bdd176eed470329a73d7ee08498183e579cea60": {
+      "type": "Yfilerename",
+      "commitMessage": "Change Chronology to abstract class\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@432 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/22/04, 8:15 AM",
+      "commitName": "6bdd176eed470329a73d7ee08498183e579cea60",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/22/04, 7:44 AM",
+      "commitNameOld": "5f9b9b675631bda3568df0d47ca305126d426011",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.02,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, int secondOfMinute, int millisOfSecond) throws IllegalArgumentException {\n    long instant \u003d year().set(0, year);\n    instant \u003d monthOfYear().set(instant, monthOfYear);\n    instant \u003d dayOfMonth().set(instant, dayOfMonth);\n    instant \u003d hourOfDay().set(instant, hourOfDay);\n    instant \u003d minuteOfHour().set(instant, minuteOfHour);\n    instant \u003d secondOfMinute().set(instant, secondOfMinute);\n    return millisOfSecond().set(instant, millisOfSecond);\n}",
+      "path": "JodaTime/src/java/org/joda/time/chrono/BaseChronology.java",
+      "functionStartLine": 160,
+      "functionName": "getDateTimeMillis",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a datetime millisecond instant, formed from the given year,\nmonth, day, hour, minute, second, and millisecond values. The set of\ngiven values must refer to a valid datetime, or else an\nIllegalArgumentException is thrown.\n\u003cp\u003e\nThe default implementation calls upon separate DateTimeFields to\ndetermine the result. Subclasses are encouraged to provide a more\nefficient implementation.\n\n@param year year to use\n@param monthOfYear month to use\n@param dayOfMonth day of month to use\n@param hourOfDay hour to use\n@param minuteOfHour minute to use\n@param secondOfMinute second to use\n@param millisOfSecond millisecond to use\n@return millisecond instant from 1970-01-01T00:00:00Z\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/chrono/AbstractChronology.java",
+        "newPath": "JodaTime/src/java/org/joda/time/chrono/BaseChronology.java"
+      }
+    },
+    "14dcaf0e3931855913d79d0fbe8d1e6f1421b7a7": {
+      "type": "Ymultichange(Ymovefromfile,Ydocchange)",
+      "commitMessage": "Re-organized chronology package and created new field package.\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@125 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "1/27/04, 11:12 PM",
+      "commitName": "14dcaf0e3931855913d79d0fbe8d1e6f1421b7a7",
+      "commitAuthor": "Brian S O\u0027Neill",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Re-organized chronology package and created new field package.\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@125 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+          "commitDate": "1/27/04, 11:12 PM",
+          "commitName": "14dcaf0e3931855913d79d0fbe8d1e6f1421b7a7",
+          "commitAuthor": "Brian S O\u0027Neill",
+          "commitDateOld": "1/11/04, 9:39 AM",
+          "commitNameOld": "6f5522f58c1d2abdec37b5d22e5981716d4ec731",
+          "commitAuthorOld": "Brian S O\u0027Neill",
+          "daysBetweenCommits": 16.56,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, int secondOfMinute, int millisOfSecond) throws IllegalArgumentException {\n    long instant \u003d year().set(0, year);\n    instant \u003d monthOfYear().set(instant, monthOfYear);\n    instant \u003d dayOfMonth().set(instant, dayOfMonth);\n    instant \u003d hourOfDay().set(instant, hourOfDay);\n    instant \u003d minuteOfHour().set(instant, minuteOfHour);\n    instant \u003d secondOfMinute().set(instant, secondOfMinute);\n    return millisOfSecond().set(instant, millisOfSecond);\n}",
+          "path": "JodaTime/src/java/org/joda/time/chrono/AbstractChronology.java",
+          "functionStartLine": 262,
+          "functionName": "getDateTimeMillis",
+          "functionAnnotation": "",
+          "functionDoc": "Returns a datetime millisecond instant, formed from the given year,\nmonth, day, hour, minute, second, and millisecond values. The set of\ngiven values must refer to a valid datetime, or else an\nIllegalArgumentException is thrown.\n\u003cp\u003e\nThe default implementation calls upon separate DateTimeFields to\ndetermine the result. Subclasses are encouraged to provide a more\nefficient implementation.\n\n@param year year to use\n@param monthOfYear month to use\n@param dayOfMonth day of month to use\n@param hourOfDay hour to use\n@param minuteOfHour minute to use\n@param secondOfMinute second to use\n@param millisOfSecond millisecond to use\n@return millisecond instant from 1970-01-01T00:00:00Z\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldPath": "JodaTime/src/java/org/joda/time/chrono/LenientChronology.java",
+            "newPath": "JodaTime/src/java/org/joda/time/chrono/AbstractChronology.java",
+            "oldMethodName": "getDateTimeMillis",
+            "newMethodName": "getDateTimeMillis"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Re-organized chronology package and created new field package.\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@125 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+          "commitDate": "1/27/04, 11:12 PM",
+          "commitName": "14dcaf0e3931855913d79d0fbe8d1e6f1421b7a7",
+          "commitAuthor": "Brian S O\u0027Neill",
+          "commitDateOld": "1/11/04, 9:39 AM",
+          "commitNameOld": "6f5522f58c1d2abdec37b5d22e5981716d4ec731",
+          "commitAuthorOld": "Brian S O\u0027Neill",
+          "daysBetweenCommits": 16.56,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, int secondOfMinute, int millisOfSecond) throws IllegalArgumentException {\n    long instant \u003d year().set(0, year);\n    instant \u003d monthOfYear().set(instant, monthOfYear);\n    instant \u003d dayOfMonth().set(instant, dayOfMonth);\n    instant \u003d hourOfDay().set(instant, hourOfDay);\n    instant \u003d minuteOfHour().set(instant, minuteOfHour);\n    instant \u003d secondOfMinute().set(instant, secondOfMinute);\n    return millisOfSecond().set(instant, millisOfSecond);\n}",
+          "path": "JodaTime/src/java/org/joda/time/chrono/AbstractChronology.java",
+          "functionStartLine": 262,
+          "functionName": "getDateTimeMillis",
+          "functionAnnotation": "",
+          "functionDoc": "Returns a datetime millisecond instant, formed from the given year,\nmonth, day, hour, minute, second, and millisecond values. The set of\ngiven values must refer to a valid datetime, or else an\nIllegalArgumentException is thrown.\n\u003cp\u003e\nThe default implementation calls upon separate DateTimeFields to\ndetermine the result. Subclasses are encouraged to provide a more\nefficient implementation.\n\n@param year year to use\n@param monthOfYear month to use\n@param dayOfMonth day of month to use\n@param hourOfDay hour to use\n@param minuteOfHour minute to use\n@param secondOfMinute second to use\n@param millisOfSecond millisecond to use\n@return millisecond instant from 1970-01-01T00:00:00Z\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "Overridden to ensure lenient fields are used.\n",
+            "newValue": "Returns a datetime millisecond instant, formed from the given year,\nmonth, day, hour, minute, second, and millisecond values. The set of\ngiven values must refer to a valid datetime, or else an\nIllegalArgumentException is thrown.\n\u003cp\u003e\nThe default implementation calls upon separate DateTimeFields to\ndetermine the result. Subclasses are encouraged to provide a more\nefficient implementation.\n\n@param year year to use\n@param monthOfYear month to use\n@param dayOfMonth day of month to use\n@param hourOfDay hour to use\n@param minuteOfHour minute to use\n@param secondOfMinute second to use\n@param millisOfSecond millisecond to use\n@return millisecond instant from 1970-01-01T00:00:00Z\n"
+          }
+        }
+      ]
+    },
+    "0e07ac6b2cff63550d7df336355ca63cc05aa40b": {
+      "type": "Yintroduced",
+      "commitMessage": "Move from Joda CVS\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@10 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "12/18/03, 6:07 PM",
+      "commitName": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,9 @@\n+public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, int secondOfMinute, int millisOfSecond) throws IllegalArgumentException {\n+    long instant \u003d year().set(0, year);\n+    instant \u003d monthOfYear().set(instant, monthOfYear);\n+    instant \u003d dayOfMonth().set(instant, dayOfMonth);\n+    instant \u003d hourOfDay().set(instant, hourOfDay);\n+    instant \u003d minuteOfHour().set(instant, minuteOfHour);\n+    instant \u003d secondOfMinute().set(instant, secondOfMinute);\n+    return millisOfSecond().set(instant, millisOfSecond);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth, int hourOfDay, int minuteOfHour, int secondOfMinute, int millisOfSecond) throws IllegalArgumentException {\n    long instant \u003d year().set(0, year);\n    instant \u003d monthOfYear().set(instant, monthOfYear);\n    instant \u003d dayOfMonth().set(instant, dayOfMonth);\n    instant \u003d hourOfDay().set(instant, hourOfDay);\n    instant \u003d minuteOfHour().set(instant, minuteOfHour);\n    instant \u003d secondOfMinute().set(instant, secondOfMinute);\n    return millisOfSecond().set(instant, millisOfSecond);\n}",
+      "path": "JodaTime/src/java/org/joda/time/chrono/LenientChronology.java",
+      "functionStartLine": 172,
+      "functionName": "getDateTimeMillis",
+      "functionAnnotation": "",
+      "functionDoc": "Overridden to ensure lenient fields are used.\n"
+    }
+  }
+}

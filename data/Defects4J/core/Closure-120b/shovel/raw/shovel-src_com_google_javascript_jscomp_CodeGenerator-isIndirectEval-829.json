@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "isIndirectEval",
+  "functionId": "isIndirectEval___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the name is an indirect eval.\n",
+  "functionStartLine": 829,
+  "functionEndLine": 832,
+  "numCommitsSeen": 83,
+  "timeTaken": 4537,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/7/11, 2:21 PM",
+      "commitNameOld": "6641663fa9970c4d7bcdd96a6f31b83b18c3ee3d",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.76,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isIndirectEval(Node n) {\n    return n.isName() \u0026\u0026 \"eval\".equals(n.getString()) \u0026\u0026 !n.getBooleanProp(Node.DIRECT_EVAL);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 746,
+      "functionName": "isIndirectEval",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the name is an indirect eval.\n",
+      "diff": "@@ -1,3 +1,3 @@\n private boolean isIndirectEval(Node n) {\n-    return n.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(n.getString()) \u0026\u0026 !n.getBooleanProp(Node.DIRECT_EVAL);\n+    return n.isName() \u0026\u0026 \"eval\".equals(n.getString()) \u0026\u0026 !n.getBooleanProp(Node.DIRECT_EVAL);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic \"free call\" annotation and support for issue 180.  Additional\ntesting is required to validate that new CALL nodes are not\ninappropriately introduced.\n\nAlso, refactored PrepareAst to make the different actions being taken\neasier to follow.\n\nR\u003dnicksantos\nDELTA\u003d215  (120 added, 18 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@282 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:34 PM",
+      "commitName": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+private boolean isIndirectEval(Node n) {\n+    return n.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(n.getString()) \u0026\u0026 !n.getBooleanProp(Node.DIRECT_EVAL);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isIndirectEval(Node n) {\n    return n.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(n.getString()) \u0026\u0026 !n.getBooleanProp(Node.DIRECT_EVAL);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 653,
+      "functionName": "isIndirectEval",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the name is an indirect eval.\n"
+    }
+  }
+}

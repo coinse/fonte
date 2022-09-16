@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexSolver.java",
+  "functionName": "isOptimal",
+  "functionId": "isOptimal___tableau-SimplexTableau(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns whether the problem is at an optimal state.\n\n@param tableau simple tableau for the problem\n@return whether the model has been solved\n",
+  "functionStartLine": 145,
+  "functionEndLine": 155,
+  "numCommitsSeen": 4,
+  "timeTaken": 415,
+  "changeHistory": [
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5",
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5": "Ybodychange",
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5": {
+      "type": "Ybodychange",
+      "commitMessage": "added a threshold for comparisons in Simplex solver\nJira: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@763412 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/8/09, 2:41 PM",
+      "commitName": "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "4/5/09, 7:20 AM",
+      "commitNameOld": "9c8d2c79c1ef565337599849cd066ff63b8d5816",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 3.31,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean isOptimal(final SimplexTableau tableau) {\n    if (tableau.getNumArtificialVariables() \u003e 0) {\n        return false;\n    }\n    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n        if (MathUtils.compareTo(tableau.getEntry(0, i), 0, epsilon) \u003c 0) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 148,
+      "functionName": "isOptimal",
+      "functionAnnotation": "",
+      "functionDoc": "Returns whether the problem is at an optimal state.\n\n@param tableau simple tableau for the problem\n@return whether the model has been solved\n",
+      "diff": "@@ -1,11 +1,11 @@\n public boolean isOptimal(final SimplexTableau tableau) {\n     if (tableau.getNumArtificialVariables() \u003e 0) {\n         return false;\n     }\n     for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n-        if (tableau.getEntry(0, i) \u003c 0) {\n+        if (MathUtils.compareTo(tableau.getEntry(0, i), 0, epsilon) \u003c 0) {\n             return false;\n         }\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,11 @@\n+public boolean isOptimal(final SimplexTableau tableau) {\n+    if (tableau.getNumArtificialVariables() \u003e 0) {\n+        return false;\n+    }\n+    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n+        if (tableau.getEntry(0, i) \u003c 0) {\n+            return false;\n+        }\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean isOptimal(final SimplexTableau tableau) {\n    if (tableau.getNumArtificialVariables() \u003e 0) {\n        return false;\n    }\n    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n        if (tableau.getEntry(0, i) \u003c 0) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 148,
+      "functionName": "isOptimal",
+      "functionAnnotation": "",
+      "functionDoc": "Returns whether the problem is at an optimal state.\n\n@param tableau simple tableau for the problem\n@return whether the model has been solved\n"
+    }
+  }
+}

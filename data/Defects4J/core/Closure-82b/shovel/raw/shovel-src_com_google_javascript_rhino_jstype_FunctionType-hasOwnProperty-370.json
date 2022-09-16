@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionType.java",
+  "functionName": "hasOwnProperty",
+  "functionId": "hasOwnProperty___name-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 370,
+  "functionEndLine": 372,
+  "numCommitsSeen": 33,
+  "timeTaken": 2333,
+  "changeHistory": [
+    "d1f25380b5d74c5303533491e36ae4b33a50e2da"
+  ],
+  "changeHistoryShort": {
+    "d1f25380b5d74c5303533491e36ae4b33a50e2da": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d1f25380b5d74c5303533491e36ae4b33a50e2da": {
+      "type": "Yintroduced",
+      "commitMessage": "Type-checking fix when the prototype is assigned directly. Fixes issue 59.\n\nAlso, make sure that DevirtualizePrototypeMethods maintains type info.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@93 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/5/10, 10:31 AM",
+      "commitName": "d1f25380b5d74c5303533491e36ae4b33a50e2da",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public boolean hasOwnProperty(String name) {\n+    return super.hasOwnProperty(name) || \"prototype\".equals(name);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean hasOwnProperty(String name) {\n    return super.hasOwnProperty(name) || \"prototype\".equals(name);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 413,
+      "functionName": "hasOwnProperty",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

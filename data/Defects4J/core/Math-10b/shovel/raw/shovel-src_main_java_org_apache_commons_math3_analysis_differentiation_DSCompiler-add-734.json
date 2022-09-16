@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "add",
+  "functionId": "add___lhs-double[](modifiers-final)__lhsOffset-int(modifiers-final)__rhs-double[](modifiers-final)__rhsOffset-int(modifiers-final)__result-double[](modifiers-final)__resultOffset-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Perform addition of two derivative structures.\n\n@param lhs array holding left hand side of addition\n@param lhsOffset offset of the left hand side in its array\n@param rhs array right hand side of addition\n@param rhsOffset offset of the right hand side in its array\n@param result array where result must be stored (it may be\none of the input arrays)\n@param resultOffset offset of the result in its array\n",
+  "functionStartLine": 734,
+  "functionEndLine": 740,
+  "numCommitsSeen": 17,
+  "timeTaken": 2344,
+  "changeHistory": [
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,5 @@\n+public void add(final double[] lhs, final int lhsOffset, final double[] rhs, final int rhsOffset, final double[] result, final int resultOffset) {\n+    for (int i \u003d 0; i \u003c getSize(); ++i) {\n+        result[resultOffset + i] \u003d lhs[lhsOffset + i] + rhs[rhsOffset + i];\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void add(final double[] lhs, final int lhsOffset, final double[] rhs, final int rhsOffset, final double[] result, final int resultOffset) {\n    for (int i \u003d 0; i \u003c getSize(); ++i) {\n        result[resultOffset + i] \u003d lhs[lhsOffset + i] + rhs[rhsOffset + i];\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 723,
+      "functionName": "add",
+      "functionAnnotation": "",
+      "functionDoc": "Perform addition of two derivative structures.\n\n@param lhs array holding left hand side of addition\n@param lhsOffset offset of the left hand side in its array\n@param rhs array right hand side of addition\n@param rhsOffset offset of the right hand side in its array\n@param result array where result must be stored (it may be\none of the input arrays)\n@param resultOffset offset of the result in its array\n"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-6b",
+  "repositoryPath": "/tmp/JacksonCore-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonPointer.java",
+  "functionName": "compile",
+  "functionId": "compile___input-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Factory method that parses given input and construct matching pointer\ninstance, if it represents a valid JSON Pointer: if not, a\n{@link IllegalArgumentException} is thrown.\n\n@throws IllegalArgumentException Thrown if the input does not present a valid JSON Pointer\n  expression: currently the only such expression is one that does NOT start with\n  a slash (\u0027/\u0027).\n",
+  "functionStartLine": 88,
+  "functionEndLine": 99,
+  "numCommitsSeen": 10,
+  "timeTaken": 380,
+  "changeHistory": [
+    "32e4e9152823258764c91262d94d54989397c5b7",
+    "a12195ac3a14f30d1225d2248bf2532c95db08de",
+    "bb639974b0928a338b4bf60b17b1f612d619e0db"
+  ],
+  "changeHistoryShort": {
+    "32e4e9152823258764c91262d94d54989397c5b7": "Yformatchange",
+    "a12195ac3a14f30d1225d2248bf2532c95db08de": "Yrename",
+    "bb639974b0928a338b4bf60b17b1f612d619e0db": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "32e4e9152823258764c91262d94d54989397c5b7": {
+      "type": "Yformatchange",
+      "commitMessage": "More stylistic tweaks, moving to more compact format (sorry!)\n",
+      "commitDate": "1/26/14, 7:59 PM",
+      "commitName": "32e4e9152823258764c91262d94d54989397c5b7",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "10/8/13, 10:03 AM",
+      "commitNameOld": "911cca0254267decd90a4b6a9c0610549309a451",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 110.46,
+      "commitsBetweenForRepo": 51,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static JsonPointer compile(String input) throws IllegalArgumentException {\n    if ((input \u003d\u003d null) || input.length() \u003d\u003d 0) {\n        return EMPTY;\n    }\n    if (input.charAt(0) !\u003d \u0027/\u0027) {\n        throw new IllegalArgumentException(\"Invalid input: JSON Pointer expression must start with \u0027/\u0027: \" + \"\\\"\" + input + \"\\\"\");\n    }\n    return _parseTail(input);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+      "functionStartLine": 88,
+      "functionName": "compile",
+      "functionAnnotation": "",
+      "functionDoc": "Factory method that parses given input and construct matching pointer\ninstance, if it represents a valid JSON Pointer: if not, a\n{@link IllegalArgumentException} is thrown.\n\n@throws IllegalArgumentException Thrown if the input does not present a valid JSON Pointer\n  expression: currently the only such expression is one that does NOT start with\n  a slash (\u0027/\u0027).\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "a12195ac3a14f30d1225d2248bf2532c95db08de": {
+      "type": "Yrename",
+      "commitMessage": "...\n",
+      "commitDate": "9/2/13, 9:24 PM",
+      "commitName": "a12195ac3a14f30d1225d2248bf2532c95db08de",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "8/30/13, 9:45 PM",
+      "commitNameOld": "bb639974b0928a338b4bf60b17b1f612d619e0db",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.99,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static JsonPointer compile(String input) throws IllegalArgumentException {\n    if ((input \u003d\u003d null) || input.length() \u003d\u003d 0) {\n        return EMPTY;\n    }\n    if (input.charAt(0) !\u003d \u0027/\u0027) {\n        throw new IllegalArgumentException(\"Invalid input: JSON Pointer expression must start with \u0027/\u0027: \" + \"\\\"\" + input + \"\\\"\");\n    }\n    return _parseTail(input);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+      "functionStartLine": 89,
+      "functionName": "compile",
+      "functionAnnotation": "",
+      "functionDoc": "Factory method that parses given input and construct matching pointer\ninstance, if it represents a valid JSON Pointer: if not, a\n{@link IllegalArgumentException} is thrown.\n\n@throws IllegalArgumentException Thrown if the input does not present a valid JSON Pointer\n  expression: currently the only such expression is one that does NOT start with\n  a slash (\u0027/\u0027).\n",
+      "diff": "@@ -1,9 +1,9 @@\n-public static JsonPointer parse(String input) throws IllegalArgumentException {\n+public static JsonPointer compile(String input) throws IllegalArgumentException {\n     if ((input \u003d\u003d null) || input.length() \u003d\u003d 0) {\n         return EMPTY;\n     }\n     if (input.charAt(0) !\u003d \u0027/\u0027) {\n         throw new IllegalArgumentException(\"Invalid input: JSON Pointer expression must start with \u0027/\u0027: \" + \"\\\"\" + input + \"\\\"\");\n     }\n     return _parseTail(input);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "parse",
+        "newValue": "compile"
+      }
+    },
+    "bb639974b0928a338b4bf60b17b1f612d619e0db": {
+      "type": "Yintroduced",
+      "commitMessage": "Start adding basic JSON Pointer support\n",
+      "commitDate": "8/30/13, 9:45 PM",
+      "commitName": "bb639974b0928a338b4bf60b17b1f612d619e0db",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+public static JsonPointer parse(String input) throws IllegalArgumentException {\n+    if ((input \u003d\u003d null) || input.length() \u003d\u003d 0) {\n+        return EMPTY;\n+    }\n+    if (input.charAt(0) !\u003d \u0027/\u0027) {\n+        throw new IllegalArgumentException(\"Invalid input: JSON Pointer expression must start with \u0027/\u0027: \" + \"\\\"\" + input + \"\\\"\");\n+    }\n+    return _parseTail(input);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static JsonPointer parse(String input) throws IllegalArgumentException {\n    if ((input \u003d\u003d null) || input.length() \u003d\u003d 0) {\n        return EMPTY;\n    }\n    if (input.charAt(0) !\u003d \u0027/\u0027) {\n        throw new IllegalArgumentException(\"Invalid input: JSON Pointer expression must start with \u0027/\u0027: \" + \"\\\"\" + input + \"\\\"\");\n    }\n    return _parseTail(input);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+      "functionStartLine": 89,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Factory method that parses given input and construct matching pointer\ninstance, if it represents a valid JSON Pointer: if not, a\n{@link IllegalArgumentException} is thrown.\n\n@throws IllegalArgumentException Thrown if the input does not present a valid JSON Pointer\n  expression: currently the only such expression is one that does NOT start with\n  a slash (\u0027/\u0027).\n"
+    }
+  }
+}

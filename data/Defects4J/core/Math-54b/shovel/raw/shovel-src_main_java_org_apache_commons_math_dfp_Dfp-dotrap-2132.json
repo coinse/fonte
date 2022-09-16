@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-54b",
+  "repositoryPath": "/tmp/Math-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "dotrap",
+  "functionId": "dotrap___type-int__what-String__oper-Dfp__result-Dfp",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Raises a trap.  This does not set the corresponding flag however.\n\n@ @param type the trap type\n @param what - name of routine trap occurred in\n @param oper - input operator to function\n @param result - the result computed prior to the trap\n @return The suggested return value from the trap handler\n",
+  "functionStartLine": 2132,
+  "functionEndLine": 2189,
+  "numCommitsSeen": 4,
+  "timeTaken": 766,
+  "changeHistory": [
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,48 @@\n+public Dfp dotrap(int type, String what, Dfp oper, Dfp result) {\n+    Dfp def \u003d result;\n+    switch(type) {\n+        case DfpField.FLAG_INVALID:\n+            def \u003d newInstance(getZero());\n+            def.sign \u003d result.sign;\n+            def.nans \u003d QNAN;\n+            break;\n+        case DfpField.FLAG_DIV_ZERO:\n+            if (nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] !\u003d 0) {\n+                def \u003d newInstance(getZero());\n+                def.sign \u003d (byte) (sign * oper.sign);\n+                def.nans \u003d INFINITE;\n+            }\n+            if (nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] \u003d\u003d 0) {\n+                def \u003d newInstance(getZero());\n+                def.nans \u003d QNAN;\n+            }\n+            if (nans \u003d\u003d INFINITE || nans \u003d\u003d QNAN) {\n+                def \u003d newInstance(getZero());\n+                def.nans \u003d QNAN;\n+            }\n+            if (nans \u003d\u003d INFINITE || nans \u003d\u003d SNAN) {\n+                def \u003d newInstance(getZero());\n+                def.nans \u003d QNAN;\n+            }\n+            break;\n+        case DfpField.FLAG_UNDERFLOW:\n+            if ((result.exp + mant.length) \u003c MIN_EXP) {\n+                def \u003d newInstance(getZero());\n+                def.sign \u003d result.sign;\n+            } else {\n+                def \u003d newInstance(result);\n+            }\n+            result.exp \u003d result.exp + ERR_SCALE;\n+            break;\n+        case DfpField.FLAG_OVERFLOW:\n+            result.exp \u003d result.exp - ERR_SCALE;\n+            def \u003d newInstance(getZero());\n+            def.sign \u003d result.sign;\n+            def.nans \u003d INFINITE;\n+            break;\n+        default:\n+            def \u003d result;\n+            break;\n+    }\n+    return trap(type, what, oper, def, result);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Dfp dotrap(int type, String what, Dfp oper, Dfp result) {\n    Dfp def \u003d result;\n    switch(type) {\n        case DfpField.FLAG_INVALID:\n            def \u003d newInstance(getZero());\n            def.sign \u003d result.sign;\n            def.nans \u003d QNAN;\n            break;\n        case DfpField.FLAG_DIV_ZERO:\n            if (nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] !\u003d 0) {\n                def \u003d newInstance(getZero());\n                def.sign \u003d (byte) (sign * oper.sign);\n                def.nans \u003d INFINITE;\n            }\n            if (nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] \u003d\u003d 0) {\n                def \u003d newInstance(getZero());\n                def.nans \u003d QNAN;\n            }\n            if (nans \u003d\u003d INFINITE || nans \u003d\u003d QNAN) {\n                def \u003d newInstance(getZero());\n                def.nans \u003d QNAN;\n            }\n            if (nans \u003d\u003d INFINITE || nans \u003d\u003d SNAN) {\n                def \u003d newInstance(getZero());\n                def.nans \u003d QNAN;\n            }\n            break;\n        case DfpField.FLAG_UNDERFLOW:\n            if ((result.exp + mant.length) \u003c MIN_EXP) {\n                def \u003d newInstance(getZero());\n                def.sign \u003d result.sign;\n            } else {\n                def \u003d newInstance(result);\n            }\n            result.exp \u003d result.exp + ERR_SCALE;\n            break;\n        case DfpField.FLAG_OVERFLOW:\n            result.exp \u003d result.exp - ERR_SCALE;\n            def \u003d newInstance(getZero());\n            def.sign \u003d result.sign;\n            def.nans \u003d INFINITE;\n            break;\n        default:\n            def \u003d result;\n            break;\n    }\n    return trap(type, what, oper, def, result);\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 2133,
+      "functionName": "dotrap",
+      "functionAnnotation": "",
+      "functionDoc": "Raises a trap.  This does not set the corresponding flag however.\n\n@ @param type the trap type\n @param what - name of routine trap occurred in\n @param oper - input operator to function\n @param result - the result computed prior to the trap\n @return The suggested return value from the trap handler\n"
+    }
+  }
+}

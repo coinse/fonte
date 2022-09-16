@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RemoveUnusedVars.java",
+  "functionName": "maybeCreateAssign",
+  "functionId": "$maybeCreateAssign___assignNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+  "functionAnnotation": "",
+  "functionDoc": "If this is an assign to a variable or its property, return it.\nOtherwise, return null.\n",
+  "functionStartLine": 910,
+  "functionEndLine": 936,
+  "numCommitsSeen": 49,
+  "timeTaken": 1616,
+  "changeHistory": [
+    "46f8deb58b89694b0e09006915cbf5fa52669db3",
+    "747f2504d98e2d37c933ead6e40a0a1a1e36d6af",
+    "833cd72a268c1161194038faf0d98ec6b1f203eb"
+  ],
+  "changeHistoryShort": {
+    "46f8deb58b89694b0e09006915cbf5fa52669db3": "Ybodychange",
+    "747f2504d98e2d37c933ead6e40a0a1a1e36d6af": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "833cd72a268c1161194038faf0d98ec6b1f203eb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "46f8deb58b89694b0e09006915cbf5fa52669db3": {
+      "type": "Ybodychange",
+      "commitMessage": "\nMake RemoveUnusedVars a bit less aggressive.\n\nR\u003djohnlenz\nDELTA\u003d21  (16 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d174017\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@372 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/19/10, 9:40 AM",
+      "commitName": "46f8deb58b89694b0e09006915cbf5fa52669db3",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "8/19/10, 8:58 AM",
+      "commitNameOld": "4726b80a80f5172dc5dcb71ca3932dfbe7b4322e",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 0.03,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static Assign maybeCreateAssign(Node assignNode) {\n    Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n    boolean isPropAssign \u003d false;\n    Node current \u003d assignNode.getFirstChild();\n    if (NodeUtil.isGet(current)) {\n        current \u003d current.getFirstChild();\n        isPropAssign \u003d true;\n        if (current.getType() \u003d\u003d Token.GETPROP \u0026\u0026 current.getLastChild().getString().equals(\"prototype\")) {\n            current \u003d current.getFirstChild();\n        }\n    }\n    if (current.getType() \u003d\u003d Token.NAME) {\n        return new Assign(assignNode, current, isPropAssign);\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+      "functionStartLine": 536,
+      "functionName": "maybeCreateAssign",
+      "functionAnnotation": "",
+      "functionDoc": "If this is an assign to a variable or its property, return it.\nOtherwise, return null.\n",
+      "diff": "@@ -1,13 +1,16 @@\n static Assign maybeCreateAssign(Node assignNode) {\n     Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n     boolean isPropAssign \u003d false;\n     Node current \u003d assignNode.getFirstChild();\n-    while (NodeUtil.isGet(current)) {\n+    if (NodeUtil.isGet(current)) {\n         current \u003d current.getFirstChild();\n         isPropAssign \u003d true;\n+        if (current.getType() \u003d\u003d Token.GETPROP \u0026\u0026 current.getLastChild().getString().equals(\"prototype\")) {\n+            current \u003d current.getFirstChild();\n+        }\n     }\n     if (current.getType() \u003d\u003d Token.NAME) {\n         return new Assign(assignNode, current, isPropAssign);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "747f2504d98e2d37c933ead6e40a0a1a1e36d6af": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "\nChange on 2010/08/04 13:06:31 by nicksantos\n\n\tA new var-collection mechanism for RemoveUnusedVars.  In the\n\tnew mechanism, we only traverse a subtree for references if it\n\tmight have side-effects, or if its return value is used.  If\n\tits return value is stored in a variable, then we store a\n\tcontinuation, and execute the continuation iff that variable\n\tis referenced.\n\n\tThis is a more general formulation of RemoveUnusedVars\u0027s current\n\tstrategy (\"traverse a function iff it\u0027s referenced\").\n\n\tR\u003dacleung\n\tDELTA\u003d560  (326 added, 63 deleted, 171 changed)\n\nChange on 2010/08/04 13:09:34 by rjfioravanti\n\n\tCreating externs for CSSMatrix and WebKitCSSMatrix.\n\n\tBased on documentation from the following locations:\n\thttp://www.w3.org/TR/css3-3d-transforms/#cssmatrix-interface\n\thttp://developer.apple.com/safari/library/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/WebKitCSSMatrix/WebKitCSSMatrix.html#//apple_ref/javascript/instm/WebKitCSSMatrix/setMatrixValue\n\n\tR\u003dnicksantos\n\tDELTA\u003d193  (193 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d90012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@335 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/10, 5:48 PM",
+      "commitName": "747f2504d98e2d37c933ead6e40a0a1a1e36d6af",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nChange on 2010/08/04 13:06:31 by nicksantos\n\n\tA new var-collection mechanism for RemoveUnusedVars.  In the\n\tnew mechanism, we only traverse a subtree for references if it\n\tmight have side-effects, or if its return value is used.  If\n\tits return value is stored in a variable, then we store a\n\tcontinuation, and execute the continuation iff that variable\n\tis referenced.\n\n\tThis is a more general formulation of RemoveUnusedVars\u0027s current\n\tstrategy (\"traverse a function iff it\u0027s referenced\").\n\n\tR\u003dacleung\n\tDELTA\u003d560  (326 added, 63 deleted, 171 changed)\n\nChange on 2010/08/04 13:09:34 by rjfioravanti\n\n\tCreating externs for CSSMatrix and WebKitCSSMatrix.\n\n\tBased on documentation from the following locations:\n\thttp://www.w3.org/TR/css3-3d-transforms/#cssmatrix-interface\n\thttp://developer.apple.com/safari/library/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/WebKitCSSMatrix/WebKitCSSMatrix.html#//apple_ref/javascript/instm/WebKitCSSMatrix/setMatrixValue\n\n\tR\u003dnicksantos\n\tDELTA\u003d193  (193 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d90012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@335 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/10, 5:48 PM",
+          "commitName": "747f2504d98e2d37c933ead6e40a0a1a1e36d6af",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "7/23/10, 2:49 PM",
+          "commitNameOld": "f0362b1ab1ae1339e017b1d04f016980e3fa6cb6",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 12.12,
+          "commitsBetweenForRepo": 26,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Assign maybeCreateAssign(Node assignNode) {\n    Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n    boolean isPropAssign \u003d false;\n    Node current \u003d assignNode.getFirstChild();\n    while (NodeUtil.isGet(current)) {\n        current \u003d current.getFirstChild();\n        isPropAssign \u003d true;\n    }\n    if (current.getType() \u003d\u003d Token.NAME) {\n        return new Assign(assignNode, current, isPropAssign);\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+          "functionStartLine": 534,
+          "functionName": "maybeCreateAssign",
+          "functionAnnotation": "",
+          "functionDoc": "If this is an assign to a variable or its property, return it.\nOtherwise, return null.\n",
+          "diff": "@@ -1,15 +1,13 @@\n-static Assign maybeCreateAssign(Node name) {\n-    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n+static Assign maybeCreateAssign(Node assignNode) {\n+    Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n     boolean isPropAssign \u003d false;\n-    Node previous \u003d name;\n-    Node current \u003d name.getParent();\n-    while (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isGet(current)) {\n-        previous \u003d current;\n-        current \u003d current.getParent();\n+    Node current \u003d assignNode.getFirstChild();\n+    while (NodeUtil.isGet(current)) {\n+        current \u003d current.getFirstChild();\n         isPropAssign \u003d true;\n     }\n-    if (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isAssignmentOp(current)) {\n-        return new Assign(current, isPropAssign);\n+    if (current.getType() \u003d\u003d Token.NAME) {\n+        return new Assign(assignNode, current, isPropAssign);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[name-Node]",
+            "newValue": "[assignNode-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nChange on 2010/08/04 13:06:31 by nicksantos\n\n\tA new var-collection mechanism for RemoveUnusedVars.  In the\n\tnew mechanism, we only traverse a subtree for references if it\n\tmight have side-effects, or if its return value is used.  If\n\tits return value is stored in a variable, then we store a\n\tcontinuation, and execute the continuation iff that variable\n\tis referenced.\n\n\tThis is a more general formulation of RemoveUnusedVars\u0027s current\n\tstrategy (\"traverse a function iff it\u0027s referenced\").\n\n\tR\u003dacleung\n\tDELTA\u003d560  (326 added, 63 deleted, 171 changed)\n\nChange on 2010/08/04 13:09:34 by rjfioravanti\n\n\tCreating externs for CSSMatrix and WebKitCSSMatrix.\n\n\tBased on documentation from the following locations:\n\thttp://www.w3.org/TR/css3-3d-transforms/#cssmatrix-interface\n\thttp://developer.apple.com/safari/library/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/WebKitCSSMatrix/WebKitCSSMatrix.html#//apple_ref/javascript/instm/WebKitCSSMatrix/setMatrixValue\n\n\tR\u003dnicksantos\n\tDELTA\u003d193  (193 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d90012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@335 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/10, 5:48 PM",
+          "commitName": "747f2504d98e2d37c933ead6e40a0a1a1e36d6af",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "7/23/10, 2:49 PM",
+          "commitNameOld": "f0362b1ab1ae1339e017b1d04f016980e3fa6cb6",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 12.12,
+          "commitsBetweenForRepo": 26,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Assign maybeCreateAssign(Node assignNode) {\n    Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n    boolean isPropAssign \u003d false;\n    Node current \u003d assignNode.getFirstChild();\n    while (NodeUtil.isGet(current)) {\n        current \u003d current.getFirstChild();\n        isPropAssign \u003d true;\n    }\n    if (current.getType() \u003d\u003d Token.NAME) {\n        return new Assign(assignNode, current, isPropAssign);\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+          "functionStartLine": 534,
+          "functionName": "maybeCreateAssign",
+          "functionAnnotation": "",
+          "functionDoc": "If this is an assign to a variable or its property, return it.\nOtherwise, return null.\n",
+          "diff": "@@ -1,15 +1,13 @@\n-static Assign maybeCreateAssign(Node name) {\n-    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n+static Assign maybeCreateAssign(Node assignNode) {\n+    Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n     boolean isPropAssign \u003d false;\n-    Node previous \u003d name;\n-    Node current \u003d name.getParent();\n-    while (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isGet(current)) {\n-        previous \u003d current;\n-        current \u003d current.getParent();\n+    Node current \u003d assignNode.getFirstChild();\n+    while (NodeUtil.isGet(current)) {\n+        current \u003d current.getFirstChild();\n         isPropAssign \u003d true;\n     }\n-    if (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isAssignmentOp(current)) {\n-        return new Assign(current, isPropAssign);\n+    if (current.getType() \u003d\u003d Token.NAME) {\n+        return new Assign(assignNode, current, isPropAssign);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nChange on 2010/08/04 13:06:31 by nicksantos\n\n\tA new var-collection mechanism for RemoveUnusedVars.  In the\n\tnew mechanism, we only traverse a subtree for references if it\n\tmight have side-effects, or if its return value is used.  If\n\tits return value is stored in a variable, then we store a\n\tcontinuation, and execute the continuation iff that variable\n\tis referenced.\n\n\tThis is a more general formulation of RemoveUnusedVars\u0027s current\n\tstrategy (\"traverse a function iff it\u0027s referenced\").\n\n\tR\u003dacleung\n\tDELTA\u003d560  (326 added, 63 deleted, 171 changed)\n\nChange on 2010/08/04 13:09:34 by rjfioravanti\n\n\tCreating externs for CSSMatrix and WebKitCSSMatrix.\n\n\tBased on documentation from the following locations:\n\thttp://www.w3.org/TR/css3-3d-transforms/#cssmatrix-interface\n\thttp://developer.apple.com/safari/library/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/WebKitCSSMatrix/WebKitCSSMatrix.html#//apple_ref/javascript/instm/WebKitCSSMatrix/setMatrixValue\n\n\tR\u003dnicksantos\n\tDELTA\u003d193  (193 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d90012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@335 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/4/10, 5:48 PM",
+          "commitName": "747f2504d98e2d37c933ead6e40a0a1a1e36d6af",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "7/23/10, 2:49 PM",
+          "commitNameOld": "f0362b1ab1ae1339e017b1d04f016980e3fa6cb6",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 12.12,
+          "commitsBetweenForRepo": 26,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static Assign maybeCreateAssign(Node assignNode) {\n    Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n    boolean isPropAssign \u003d false;\n    Node current \u003d assignNode.getFirstChild();\n    while (NodeUtil.isGet(current)) {\n        current \u003d current.getFirstChild();\n        isPropAssign \u003d true;\n    }\n    if (current.getType() \u003d\u003d Token.NAME) {\n        return new Assign(assignNode, current, isPropAssign);\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+          "functionStartLine": 534,
+          "functionName": "maybeCreateAssign",
+          "functionAnnotation": "",
+          "functionDoc": "If this is an assign to a variable or its property, return it.\nOtherwise, return null.\n",
+          "diff": "@@ -1,15 +1,13 @@\n-static Assign maybeCreateAssign(Node name) {\n-    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n+static Assign maybeCreateAssign(Node assignNode) {\n+    Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));\n     boolean isPropAssign \u003d false;\n-    Node previous \u003d name;\n-    Node current \u003d name.getParent();\n-    while (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isGet(current)) {\n-        previous \u003d current;\n-        current \u003d current.getParent();\n+    Node current \u003d assignNode.getFirstChild();\n+    while (NodeUtil.isGet(current)) {\n+        current \u003d current.getFirstChild();\n         isPropAssign \u003d true;\n     }\n-    if (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isAssignmentOp(current)) {\n-        return new Assign(current, isPropAssign);\n+    if (current.getType() \u003d\u003d Token.NAME) {\n+        return new Assign(assignNode, current, isPropAssign);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "If this is an assign to the given name, return that name.\nOtherwise, return null.\n",
+            "newValue": "If this is an assign to a variable or its property, return it.\nOtherwise, return null.\n"
+          }
+        }
+      ]
+    },
+    "833cd72a268c1161194038faf0d98ec6b1f203eb": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMake RemoveUnusedVars a lot smarter about dead assigns.\nGranted, it\u0027s still nowhere near as smart as the real dead-assignment\npass, so maybe it\u0027d be better to say that this makes the pass\nless dumb.\n\nR\u003dacleung\nDELTA\u003d251  (222 added, 15 deleted, 14 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@281 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:02 PM",
+      "commitName": "833cd72a268c1161194038faf0d98ec6b1f203eb",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,15 @@\n+static Assign maybeCreateAssign(Node name) {\n+    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n+    boolean isPropAssign \u003d false;\n+    Node previous \u003d name;\n+    Node current \u003d name.getParent();\n+    while (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isGet(current)) {\n+        previous \u003d current;\n+        current \u003d current.getParent();\n+        isPropAssign \u003d true;\n+    }\n+    if (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isAssignmentOp(current)) {\n+        return new Assign(current, isPropAssign);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Assign maybeCreateAssign(Node name) {\n    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n    boolean isPropAssign \u003d false;\n    Node previous \u003d name;\n    Node current \u003d name.getParent();\n    while (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isGet(current)) {\n        previous \u003d current;\n        current \u003d current.getParent();\n        isPropAssign \u003d true;\n    }\n    if (previous \u003d\u003d current.getFirstChild() \u0026\u0026 NodeUtil.isAssignmentOp(current)) {\n        return new Assign(current, isPropAssign);\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+      "functionStartLine": 370,
+      "functionName": "maybeCreateAssign",
+      "functionAnnotation": "",
+      "functionDoc": "If this is an assign to the given name, return that name.\nOtherwise, return null.\n"
+    }
+  }
+}

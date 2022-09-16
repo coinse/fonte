@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-61b",
+  "repositoryPath": "/tmp/Closure-61b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateStatement",
+  "functionId": "validateStatement___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 91,
+  "functionEndLine": 151,
+  "numCommitsSeen": 7,
+  "timeTaken": 805,
+  "changeHistory": [
+    "591db202990a8db33126db73b09b6867c9233c13",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1"
+  ],
+  "changeHistoryShort": {
+    "591db202990a8db33126db73b09b6867c9233c13": "Ybodychange",
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "591db202990a8db33126db73b09b6867c9233c13": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd support for a DEBUGGER statement in the validator. Add a basic unit\ntest.\n\nR\u003dacleung\nDELTA\u003d148  (145 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1369\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@997 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/12/11, 10:43 AM",
+      "commitName": "591db202990a8db33126db73b09b6867c9233c13",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "4/11/11, 4:01 PM",
+      "commitNameOld": "f5bf89311e441f2c074f5f998881454cbeda804b",
+      "commitAuthorOld": "jtarrio@google.com",
+      "daysBetweenCommits": 0.78,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void validateStatement(Node n) {\n    switch(n.getType()) {\n        case Token.LABEL:\n            validateLabel(n);\n            return;\n        case Token.BLOCK:\n            validateBlock(n);\n            return;\n        case Token.FUNCTION:\n            validateFunctionStatement(n);\n            return;\n        case Token.WITH:\n            validateWith(n);\n            return;\n        case Token.FOR:\n            validateFor(n);\n            return;\n        case Token.WHILE:\n            validateWhile(n);\n            return;\n        case Token.DO:\n            validateDo(n);\n            return;\n        case Token.SWITCH:\n            validateSwitch(n);\n            return;\n        case Token.IF:\n            validateIf(n);\n            return;\n        case Token.VAR:\n            validateVar(n);\n            return;\n        case Token.EXPR_RESULT:\n            validateExprStmt(n);\n            return;\n        case Token.RETURN:\n            validateReturn(n);\n            return;\n        case Token.THROW:\n            validateThrow(n);\n            return;\n        case Token.TRY:\n            validateTry(n);\n            return;\n        case Token.BREAK:\n            validateBreak(n);\n            return;\n        case Token.CONTINUE:\n            validateContinue(n);\n            return;\n        case Token.EMPTY:\n            validateChildless(n);\n            return;\n        case Token.DEBUGGER:\n            validateChildless(n);\n            return;\n        default:\n            violation(\"Expected statement but was \" + Node.tokenToName(n.getType()) + \".\", n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 90,
+      "functionName": "validateStatement",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,56 +1,60 @@\n public void validateStatement(Node n) {\n     switch(n.getType()) {\n         case Token.LABEL:\n             validateLabel(n);\n             return;\n         case Token.BLOCK:\n             validateBlock(n);\n             return;\n         case Token.FUNCTION:\n             validateFunctionStatement(n);\n             return;\n         case Token.WITH:\n             validateWith(n);\n             return;\n         case Token.FOR:\n             validateFor(n);\n             return;\n         case Token.WHILE:\n             validateWhile(n);\n             return;\n         case Token.DO:\n             validateDo(n);\n             return;\n         case Token.SWITCH:\n             validateSwitch(n);\n             return;\n         case Token.IF:\n             validateIf(n);\n             return;\n         case Token.VAR:\n             validateVar(n);\n             return;\n         case Token.EXPR_RESULT:\n             validateExprStmt(n);\n             return;\n         case Token.RETURN:\n             validateReturn(n);\n             return;\n         case Token.THROW:\n             validateThrow(n);\n             return;\n         case Token.TRY:\n             validateTry(n);\n             return;\n         case Token.BREAK:\n             validateBreak(n);\n             return;\n         case Token.CONTINUE:\n             validateContinue(n);\n             return;\n         case Token.EMPTY:\n+            validateChildless(n);\n+            return;\n+        case Token.DEBUGGER:\n+            validateChildless(n);\n             return;\n         default:\n             violation(\"Expected statement but was \" + Node.tokenToName(n.getType()) + \".\", n);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce an ast validator.\n\nR\u003dacleung\nDELTA\u003d823  (823 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1314\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/11/11, 9:52 AM",
+      "commitName": "7dfe089019805bd9a62ce26c1993b3c86d1aa3d1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,56 @@\n+public void validateStatement(Node n) {\n+    switch(n.getType()) {\n+        case Token.LABEL:\n+            validateLabel(n);\n+            return;\n+        case Token.BLOCK:\n+            validateBlock(n);\n+            return;\n+        case Token.FUNCTION:\n+            validateFunctionStatement(n);\n+            return;\n+        case Token.WITH:\n+            validateWith(n);\n+            return;\n+        case Token.FOR:\n+            validateFor(n);\n+            return;\n+        case Token.WHILE:\n+            validateWhile(n);\n+            return;\n+        case Token.DO:\n+            validateDo(n);\n+            return;\n+        case Token.SWITCH:\n+            validateSwitch(n);\n+            return;\n+        case Token.IF:\n+            validateIf(n);\n+            return;\n+        case Token.VAR:\n+            validateVar(n);\n+            return;\n+        case Token.EXPR_RESULT:\n+            validateExprStmt(n);\n+            return;\n+        case Token.RETURN:\n+            validateReturn(n);\n+            return;\n+        case Token.THROW:\n+            validateThrow(n);\n+            return;\n+        case Token.TRY:\n+            validateTry(n);\n+            return;\n+        case Token.BREAK:\n+            validateBreak(n);\n+            return;\n+        case Token.CONTINUE:\n+            validateContinue(n);\n+            return;\n+        case Token.EMPTY:\n+            return;\n+        default:\n+            violation(\"Expected statement but was \" + Node.tokenToName(n.getType()) + \".\", n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void validateStatement(Node n) {\n    switch(n.getType()) {\n        case Token.LABEL:\n            validateLabel(n);\n            return;\n        case Token.BLOCK:\n            validateBlock(n);\n            return;\n        case Token.FUNCTION:\n            validateFunctionStatement(n);\n            return;\n        case Token.WITH:\n            validateWith(n);\n            return;\n        case Token.FOR:\n            validateFor(n);\n            return;\n        case Token.WHILE:\n            validateWhile(n);\n            return;\n        case Token.DO:\n            validateDo(n);\n            return;\n        case Token.SWITCH:\n            validateSwitch(n);\n            return;\n        case Token.IF:\n            validateIf(n);\n            return;\n        case Token.VAR:\n            validateVar(n);\n            return;\n        case Token.EXPR_RESULT:\n            validateExprStmt(n);\n            return;\n        case Token.RETURN:\n            validateReturn(n);\n            return;\n        case Token.THROW:\n            validateThrow(n);\n            return;\n        case Token.TRY:\n            validateTry(n);\n            return;\n        case Token.BREAK:\n            validateBreak(n);\n            return;\n        case Token.CONTINUE:\n            validateContinue(n);\n            return;\n        case Token.EMPTY:\n            return;\n        default:\n            violation(\"Expected statement but was \" + Node.tokenToName(n.getType()) + \".\", n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 90,
+      "functionName": "validateStatement",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

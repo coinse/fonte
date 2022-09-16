@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "getOutputCharset",
+  "functionId": "getOutputCharset",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Query the flag for the output charset.\n\nLet the outputCharset be the same as the input charset... except if\nwe\u0027re reading in UTF-8 by default.  By tradition, we\u0027ve always\noutput ASCII to avoid various hiccups with different browsers,\nproxies and firewalls.\n\n@return Name of the charset to use when writing outputs. Guaranteed to\n   be a supported charset.\n@throws FlagUsageException if flag is not a valid Charset name.\n",
+  "functionStartLine": 820,
+  "functionEndLine": 829,
+  "numCommitsSeen": 51,
+  "timeTaken": 2494,
+  "changeHistory": [
+    "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e"
+  ],
+  "changeHistoryShort": {
+    "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nClean up the command-line runner api, which uncovered a bunch\nof bugs in Options serialization.\nSet the output charset to US-ASCII by default, but let the user\nset it to UTF-8.\nFixes Issue 205\n\nR\u003dbowdidge\nDELTA\u003d107  (69 added, 17 deleted, 21 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d87017\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@344 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/5/10, 7:38 PM",
+      "commitName": "053636cbd1a8fb97e55b4f82bc4b5bee8beaf47e",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private String getOutputCharset() throws FlagUsageException {\n+    if (!config.charset.isEmpty()) {\n+        if (!Charset.isSupported(config.charset)) {\n+            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n+        }\n+        return config.charset;\n+    }\n+    return \"US-ASCII\";\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String getOutputCharset() throws FlagUsageException {\n    if (!config.charset.isEmpty()) {\n        if (!Charset.isSupported(config.charset)) {\n            throw new FlagUsageException(config.charset + \" is not a valid charset name.\");\n        }\n        return config.charset;\n    }\n    return \"US-ASCII\";\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 689,
+      "functionName": "getOutputCharset",
+      "functionAnnotation": "",
+      "functionDoc": "Query the flag for the output charset.\n\nLet the outputCharset be the same as the input charset... except if\nwe\u0027re reading in UTF-8 by default.  By tradition, we\u0027ve always\noutput ASCII to avoid various hiccups with different browsers,\nproxies and firewalls.\n\n@return Name of the charset to use when writing outputs. Guaranteed to\n   be a supported charset.\n@throws FlagUsageException if flag is not a valid Charset name.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RenameProperties.java",
+  "functionName": "getPropertyMap",
+  "functionId": "getPropertyMap",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RenameProperties.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the property renaming map (the \"answer key\").\n\n@return A mapping from original names to new names\n",
+  "functionStartLine": 355,
+  "functionEndLine": 363,
+  "numCommitsSeen": 18,
+  "timeTaken": 729,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+VariableMap getPropertyMap() {\n+    Map\u003cString, String\u003e map \u003d new HashMap\u003cString, String\u003e();\n+    for (Property p : propertyMap.values()) {\n+        if (p.newName !\u003d null) {\n+            map.put(p.oldName, p.newName);\n+        }\n+    }\n+    return new VariableMap(map);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "VariableMap getPropertyMap() {\n    Map\u003cString, String\u003e map \u003d new HashMap\u003cString, String\u003e();\n    for (Property p : propertyMap.values()) {\n        if (p.newName !\u003d null) {\n            map.put(p.oldName, p.newName);\n        }\n    }\n    return new VariableMap(map);\n}",
+      "path": "src/com/google/javascript/jscomp/RenameProperties.java",
+      "functionStartLine": 277,
+      "functionName": "getPropertyMap",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the property renaming map (the \"answer key\").\n\n@return A mapping from original names to new names\n"
+    }
+  }
+}

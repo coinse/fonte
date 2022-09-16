@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Compress-26b",
+  "repositoryPath": "/tmp/Compress-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IOUtils.java",
+  "functionName": "skip",
+  "functionId": "skip___input-InputStream__numToSkip-long",
+  "sourceFilePath": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Skips the given number of bytes by repeatedly invoking skip on\nthe given input stream if necessary.\n\n\u003cp\u003eThis method will only skip less than the requested number of\nbytes if the end of the input stream has been reached.\u003c/p\u003e\n\n@param input stream to skip bytes in\n@param numToSkip the number of bytes to skip\n@return the number of bytes actually skipped\n@throws IOException\n",
+  "functionStartLine": 87,
+  "functionEndLine": 97,
+  "numCommitsSeen": 13,
+  "timeTaken": 749,
+  "changeHistory": [
+    "8a2f04c551c6da91e95e20d6a9e95d9468755d32",
+    "a671a703fe86b69adb8c61495a915065c186362d"
+  ],
+  "changeHistoryShort": {
+    "8a2f04c551c6da91e95e20d6a9e95d9468755d32": "Ybodychange",
+    "a671a703fe86b69adb8c61495a915065c186362d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8a2f04c551c6da91e95e20d6a9e95d9468755d32": {
+      "type": "Ybodychange",
+      "commitMessage": "Remove some unnecessary parentheses.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@1552740 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/20/13, 9:11 AM",
+      "commitName": "8a2f04c551c6da91e95e20d6a9e95d9468755d32",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "10/20/13, 9:40 PM",
+      "commitNameOld": "e6a6666ea0f3f19f3c3d5c10a29a05abf0e080b0",
+      "commitAuthorOld": "Stefan Bodewig",
+      "daysBetweenCommits": 60.52,
+      "commitsBetweenForRepo": 96,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static long skip(InputStream input, long numToSkip) throws IOException {\n    long available \u003d numToSkip;\n    while (numToSkip \u003e 0) {\n        long skipped \u003d input.skip(numToSkip);\n        if (skipped \u003d\u003d 0) {\n            break;\n        }\n        numToSkip -\u003d skipped;\n    }\n    return available - numToSkip;\n}",
+      "path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+      "functionStartLine": 86,
+      "functionName": "skip",
+      "functionAnnotation": "",
+      "functionDoc": "Skips the given number of bytes by repeatedly invoking skip on\nthe given input stream if necessary.\n\n\u003cp\u003eThis method will only skip less than the requested number of\nbytes if the end of the input stream has been reached.\u003c/p\u003e\n\n@param input stream to skip bytes in\n@param numToSkip the number of bytes to skip\n@return the number of bytes actually skipped\n@throws IOException\n",
+      "diff": "@@ -1,11 +1,11 @@\n public static long skip(InputStream input, long numToSkip) throws IOException {\n     long available \u003d numToSkip;\n     while (numToSkip \u003e 0) {\n         long skipped \u003d input.skip(numToSkip);\n         if (skipped \u003d\u003d 0) {\n             break;\n         }\n         numToSkip -\u003d skipped;\n     }\n-    return (available - numToSkip);\n+    return available - numToSkip;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a671a703fe86b69adb8c61495a915065c186362d": {
+      "type": "Yintroduced",
+      "commitMessage": "COMPRESS-234 read/skip performance improvements to TarArchiveInputStream - patch by BELUGA BEHR\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@1511843 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/13, 8:57 AM",
+      "commitName": "a671a703fe86b69adb8c61495a915065c186362d",
+      "commitAuthor": "Stefan Bodewig",
+      "diff": "@@ -0,0 +1,11 @@\n+public static long skip(InputStream input, long numToSkip) throws IOException {\n+    long available \u003d numToSkip;\n+    while (numToSkip \u003e 0) {\n+        long skipped \u003d input.skip(numToSkip);\n+        if (skipped \u003d\u003d 0) {\n+            break;\n+        }\n+        numToSkip -\u003d skipped;\n+    }\n+    return (available - numToSkip);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static long skip(InputStream input, long numToSkip) throws IOException {\n    long available \u003d numToSkip;\n    while (numToSkip \u003e 0) {\n        long skipped \u003d input.skip(numToSkip);\n        if (skipped \u003d\u003d 0) {\n            break;\n        }\n        numToSkip -\u003d skipped;\n    }\n    return (available - numToSkip);\n}",
+      "path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+      "functionStartLine": 86,
+      "functionName": "skip",
+      "functionAnnotation": "",
+      "functionDoc": "Skips the given number of bytes by repeatedly invoking skip on\nthe given input stream if necessary.\n\n\u003cp\u003eThis method will only skip less than the requested number of\nbytes if the end of the input stream has been reached.\u003c/p\u003e\n\n@param input stream to skip bytes in\n@param numToSkip the number of bytes to skip\n@return the number of bytes actually skipped\n@throws IOException\n"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+As of version 20110119 of the closure compiler, the following code produces an error when it's compiled with advanced compilation enabled:
+
+    function x() { return delete a; }
+
+
+The exact output of the compiler:
+
+
+java.lang.RuntimeException: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+Unexpected expression nodeDELPROP 1 [sourcename: stdin]
+ parent:RETURN 1 [sourcename: stdin]
+  Node(RETURN): stdin:1:15
+function x() { return delete a; }
+  Parent(BLOCK): stdin:1:13
+function x() { return delete a; }
+
+	at com.google.javascript.jscomp.Compiler.runCallable(Unknown Source)
+	at com.google.javascript.jscomp.Compiler.runInCompilerThread(Unknown Source)
+	at com.google.javascript.jscomp.Compiler.compile(Unknown Source)
+	at com.google.javascript.jscomp.Compiler.compile(Unknown Source)
+	at com.google.javascript.jscomp.AbstractCommandLineRunner.doRun(Unknown Source)
+	at com.google.javascript.jscomp.AbstractCommandLineRunner.run(Unknown Source)
+	at com.google.javascript.jscomp.CommandLineRunner.main(Unknown Source)
+Caused by: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+Unexpected expression nodeDELPROP 1 [sourcename: stdin]
+ parent:RETURN 1 [sourcename: stdin]
+  Node(RETURN): stdin:1:15
+function x() { return delete a; }
+  Parent(BLOCK): stdin:1:13
+function x() { return delete a; }
+
+	at com.google.javascript.jscomp.NodeUtil.evaluatesToLocalValue(Unknown Source)
+	at com.google.javascript.jscomp.NodeUtil.evaluatesToLocalValue(Unknown Source)
+	at com.google.javascript.jscomp.PureFunctionIdentifier$FunctionAnalyzer.visit(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverseBranch(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverseBranch(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverseFunction(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverseBranch(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverseBranch(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverseBranch(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverse(Unknown Source)
+	at com.google.javascript.jscomp.NodeTraversal.traverse(Unknown Source)
+	at com.google.javascript.jscomp.PureFunctionIdentifier.process(Unknown Source)
+	at com.google.javascript.jscomp.PureFunctionIdentifier$Driver.process(Unknown Source)
+	at com.google.javascript.jscomp.PhaseOptimizer$PassFactoryDelegate.processInternal(Unknown Source)
+	at com.google.javascript.jscomp.PhaseOptimizer$NamedPass.process(Unknown Source)
+	at com.google.javascript.jscomp.PhaseOptimizer.process(Unknown Source)
+	at com.google.javascript.jscomp.Compiler.optimize(Unknown Source)
+	at com.google.javascript.jscomp.Compiler.compileInternal(Unknown Source)
+	at com.google.javascript.jscomp.Compiler.access$000(Unknown Source)
+	at com.google.javascript.jscomp.Compiler$1.call(Unknown Source)
+	at com.google.javascript.jscomp.Compiler$1.call(Unknown Source)
+	at com.google.javascript.jscomp.Compiler$2.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:680)
+Caused by: java.lang.IllegalStateException: Unexpected expression nodeDELPROP 1 [sourcename: stdin]
+ parent:RETURN 1 [sourcename: stdin]
+	... 23 more

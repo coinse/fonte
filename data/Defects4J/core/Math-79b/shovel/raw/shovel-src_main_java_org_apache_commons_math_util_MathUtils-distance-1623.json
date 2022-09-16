@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-79b",
+  "repositoryPath": "/tmp/Math-79b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MathUtils.java",
+  "functionName": "distance",
+  "functionId": "distance___p1-int[]__p2-int[]",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/MathUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Calculates the L\u003csub\u003e2\u003c/sub\u003e (Euclidean) distance between two points.\n\n@param p1 the first point\n@param p2 the second point\n@return the L\u003csub\u003e2\u003c/sub\u003e distance between the two points\n",
+  "functionStartLine": 1623,
+  "functionEndLine": 1630,
+  "numCommitsSeen": 76,
+  "timeTaken": 1670,
+  "changeHistory": [
+    "e837f7cf8601e0cd68bd946a650f4937e4d44ff6",
+    "d6a438e931412713e99624cf9ed74470f1040184",
+    "dfd9f0676b690fe8c0928316b656ffb87d44cd31"
+  ],
+  "changeHistoryShort": {
+    "e837f7cf8601e0cd68bd946a650f4937e4d44ff6": "Ymodifierchange",
+    "d6a438e931412713e99624cf9ed74470f1040184": "Yfilerename",
+    "dfd9f0676b690fe8c0928316b656ffb87d44cd31": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e837f7cf8601e0cd68bd946a650f4937e4d44ff6": {
+      "type": "Ymodifierchange",
+      "commitMessage": "tighten rules for public/private/abstract/final/... modifiers\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@811786 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/6/09, 2:36 AM",
+      "commitName": "e837f7cf8601e0cd68bd946a650f4937e4d44ff6",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "9/5/09, 10:36 AM",
+      "commitNameOld": "26dac5a0e7fc9c6be9571b3e71a15d8502480d96",
+      "commitAuthorOld": "Phil Steitz",
+      "daysBetweenCommits": 0.67,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static double distance(int[] p1, int[] p2) {\n    int sum \u003d 0;\n    for (int i \u003d 0; i \u003c p1.length; i++) {\n        final int dp \u003d p1[i] - p2[i];\n        sum +\u003d dp * dp;\n    }\n    return Math.sqrt(sum);\n}",
+      "path": "src/main/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 1614,
+      "functionName": "distance",
+      "functionAnnotation": "",
+      "functionDoc": "Calculates the L\u003csub\u003e2\u003c/sub\u003e (Euclidean) distance between two points.\n\n@param p1 the first point\n@param p2 the second point\n@return the L\u003csub\u003e2\u003c/sub\u003e distance between the two points\n",
+      "diff": "@@ -1,8 +1,8 @@\n-public static final double distance(int[] p1, int[] p2) {\n+public static double distance(int[] p1, int[] p2) {\n     int sum \u003d 0;\n     for (int i \u003d 0; i \u003c p1.length; i++) {\n         final int dp \u003d p1[i] - p2[i];\n         sum +\u003d dp * dp;\n     }\n     return Math.sqrt(sum);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[public, static, final]",
+        "newValue": "[public, static]"
+      }
+    },
+    "d6a438e931412713e99624cf9ed74470f1040184": {
+      "type": "Yfilerename",
+      "commitMessage": "moved main java directory for compliance with maven standard directory layout\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@799870 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/09, 7:30 AM",
+      "commitName": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/09, 7:23 AM",
+      "commitNameOld": "2ad5ef61630be627f46ae1c266cf796f044bd4a8",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static final double distance(int[] p1, int[] p2) {\n    int sum \u003d 0;\n    for (int i \u003d 0; i \u003c p1.length; i++) {\n        final int dp \u003d p1[i] - p2[i];\n        sum +\u003d dp * dp;\n    }\n    return Math.sqrt(sum);\n}",
+      "path": "src/main/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 1558,
+      "functionName": "distance",
+      "functionAnnotation": "",
+      "functionDoc": "Calculates the L\u003csub\u003e2\u003c/sub\u003e (Euclidean) distance between two points.\n\n@param p1 the first point\n@param p2 the second point\n@return the L\u003csub\u003e2\u003c/sub\u003e distance between the two points\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/math/util/MathUtils.java",
+        "newPath": "src/main/java/org/apache/commons/math/util/MathUtils.java"
+      }
+    },
+    "dfd9f0676b690fe8c0928316b656ffb87d44cd31": {
+      "type": "Yintroduced",
+      "commitMessage": "Added distance1, distance and distanceInf utility methods for double and int arrays in MathUtils\nJIRA: MATH-265\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@770798 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/1/09, 12:29 PM",
+      "commitName": "dfd9f0676b690fe8c0928316b656ffb87d44cd31",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,8 @@\n+public static final double distance(int[] p1, int[] p2) {\n+    int sum \u003d 0;\n+    for (int i \u003d 0; i \u003c p1.length; i++) {\n+        final int dp \u003d p1[i] - p2[i];\n+        sum +\u003d dp * dp;\n+    }\n+    return Math.sqrt(sum);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static final double distance(int[] p1, int[] p2) {\n    int sum \u003d 0;\n    for (int i \u003d 0; i \u003c p1.length; i++) {\n        final int dp \u003d p1[i] - p2[i];\n        sum +\u003d dp * dp;\n    }\n    return Math.sqrt(sum);\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 1539,
+      "functionName": "distance",
+      "functionAnnotation": "",
+      "functionDoc": "Calculates the L\u003csub\u003e2\u003c/sub\u003e (Euclidean) distance between two points.\n\n@param p1 the first point\n@param p2 the second point\n@return the L\u003csub\u003e2\u003c/sub\u003e distance between the two points\n"
+    }
+  }
+}

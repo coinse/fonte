@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeRemoveDeadCode.java",
+  "functionName": "tryFoldAssignment",
+  "functionId": "tryFoldAssignment___subtree-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java",
+  "functionAnnotation": "",
+  "functionDoc": "Try removing identity assignments\n\n@return the replacement node, if changed, or the original if not\n",
+  "functionStartLine": 117,
+  "functionEndLine": 130,
+  "numCommitsSeen": 25,
+  "timeTaken": 1125,
+  "changeHistory": [
+    "a455a437d82e4945330499cb7925fc767a4db046"
+  ],
+  "changeHistoryShort": {
+    "a455a437d82e4945330499cb7925fc767a4db046": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a455a437d82e4945330499cb7925fc767a4db046": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFold identity assignments\n\nR\u003dnicksantos\nDELTA\u003d30  (30 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d163\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@648 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/20/10, 10:42 AM",
+      "commitName": "a455a437d82e4945330499cb7925fc767a4db046",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private Node tryFoldAssignment(Node subtree) {\n+    Preconditions.checkState(subtree.getType() \u003d\u003d Token.ASSIGN);\n+    Node left \u003d subtree.getFirstChild();\n+    Node right \u003d subtree.getLastChild();\n+    if (left.getType() \u003d\u003d Token.NAME \u0026\u0026 right.getType() \u003d\u003d Token.NAME \u0026\u0026 left.getString().equals(right.getString())) {\n+        subtree.getParent().replaceChild(subtree, right.detachFromParent());\n+        reportCodeChange();\n+        return right;\n+    }\n+    return subtree;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node tryFoldAssignment(Node subtree) {\n    Preconditions.checkState(subtree.getType() \u003d\u003d Token.ASSIGN);\n    Node left \u003d subtree.getFirstChild();\n    Node right \u003d subtree.getLastChild();\n    if (left.getType() \u003d\u003d Token.NAME \u0026\u0026 right.getType() \u003d\u003d Token.NAME \u0026\u0026 left.getString().equals(right.getString())) {\n        subtree.getParent().replaceChild(subtree, right.detachFromParent());\n        reportCodeChange();\n        return right;\n    }\n    return subtree;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java",
+      "functionStartLine": 78,
+      "functionName": "tryFoldAssignment",
+      "functionAnnotation": "",
+      "functionDoc": "Try removing identity assignments\n\n@return the replacement node, if changed, or the original if not\n"
+    }
+  }
+}

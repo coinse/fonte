@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ControlFlowAnalysis.java",
+  "functionName": "visit",
+  "functionId": "visit___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 295,
+  "functionEndLine": 355,
+  "numCommitsSeen": 23,
+  "timeTaken": 1613,
+  "changeHistory": [
+    "5524adbda991632656059566b69cc2771ba42b7d",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "5524adbda991632656059566b69cc2771ba42b7d": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5524adbda991632656059566b69cc2771ba42b7d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRename a couple of AST nodes:\nDEFAULT becomes DEFAULT_CASE\nLP becomes PARAM_LIST\nGET becomes GETTER_DEF\nSET becomes SETTER_DEF\n\nR\u003dnicksantos\nDELTA\u003d215  (40 added, 5 deleted, 170 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3695\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1590 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/11, 4:42 PM",
+      "commitName": "5524adbda991632656059566b69cc2771ba42b7d",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/10/11, 8:36 AM",
+      "commitNameOld": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 1.34,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void visit(NodeTraversal t, Node n, Node parent) {\n    switch(n.getType()) {\n        case Token.IF:\n            handleIf(n);\n            return;\n        case Token.WHILE:\n            handleWhile(n);\n            return;\n        case Token.DO:\n            handleDo(n);\n            return;\n        case Token.FOR:\n            handleFor(n);\n            return;\n        case Token.SWITCH:\n            handleSwitch(n);\n            return;\n        case Token.CASE:\n            handleCase(n);\n            return;\n        case Token.DEFAULT_CASE:\n            handleDefault(n);\n            return;\n        case Token.BLOCK:\n        case Token.SCRIPT:\n            handleStmtList(n);\n            return;\n        case Token.FUNCTION:\n            handleFunction(n);\n            return;\n        case Token.EXPR_RESULT:\n            handleExpr(n);\n            return;\n        case Token.THROW:\n            handleThrow(n);\n            return;\n        case Token.TRY:\n            handleTry(n);\n            return;\n        case Token.CATCH:\n            handleCatch(n);\n            return;\n        case Token.BREAK:\n            handleBreak(n);\n            return;\n        case Token.CONTINUE:\n            handleContinue(n);\n            return;\n        case Token.RETURN:\n            handleReturn(n);\n            return;\n        case Token.WITH:\n            handleWith(n);\n            return;\n        case Token.LABEL:\n            return;\n        default:\n            handleStmt(n);\n            return;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+      "functionStartLine": 295,
+      "functionName": "visit",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,62 +1,62 @@\n @Override\n public void visit(NodeTraversal t, Node n, Node parent) {\n     switch(n.getType()) {\n         case Token.IF:\n             handleIf(n);\n             return;\n         case Token.WHILE:\n             handleWhile(n);\n             return;\n         case Token.DO:\n             handleDo(n);\n             return;\n         case Token.FOR:\n             handleFor(n);\n             return;\n         case Token.SWITCH:\n             handleSwitch(n);\n             return;\n         case Token.CASE:\n             handleCase(n);\n             return;\n-        case Token.DEFAULT:\n+        case Token.DEFAULT_CASE:\n             handleDefault(n);\n             return;\n         case Token.BLOCK:\n         case Token.SCRIPT:\n             handleStmtList(n);\n             return;\n         case Token.FUNCTION:\n             handleFunction(n);\n             return;\n         case Token.EXPR_RESULT:\n             handleExpr(n);\n             return;\n         case Token.THROW:\n             handleThrow(n);\n             return;\n         case Token.TRY:\n             handleTry(n);\n             return;\n         case Token.CATCH:\n             handleCatch(n);\n             return;\n         case Token.BREAK:\n             handleBreak(n);\n             return;\n         case Token.CONTINUE:\n             handleContinue(n);\n             return;\n         case Token.RETURN:\n             handleReturn(n);\n             return;\n         case Token.WITH:\n             handleWith(n);\n             return;\n         case Token.LABEL:\n             return;\n         default:\n             handleStmt(n);\n             return;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,62 @@\n+@Override\n+public void visit(NodeTraversal t, Node n, Node parent) {\n+    switch(n.getType()) {\n+        case Token.IF:\n+            handleIf(n);\n+            return;\n+        case Token.WHILE:\n+            handleWhile(n);\n+            return;\n+        case Token.DO:\n+            handleDo(n);\n+            return;\n+        case Token.FOR:\n+            handleFor(n);\n+            return;\n+        case Token.SWITCH:\n+            handleSwitch(n);\n+            return;\n+        case Token.CASE:\n+            handleCase(n);\n+            return;\n+        case Token.DEFAULT:\n+            handleDefault(n);\n+            return;\n+        case Token.BLOCK:\n+        case Token.SCRIPT:\n+            handleStmtList(n);\n+            return;\n+        case Token.FUNCTION:\n+            handleFunction(n);\n+            return;\n+        case Token.EXPR_RESULT:\n+            handleExpr(n);\n+            return;\n+        case Token.THROW:\n+            handleThrow(n);\n+            return;\n+        case Token.TRY:\n+            handleTry(n);\n+            return;\n+        case Token.CATCH:\n+            handleCatch(n);\n+            return;\n+        case Token.BREAK:\n+            handleBreak(n);\n+            return;\n+        case Token.CONTINUE:\n+            handleContinue(n);\n+            return;\n+        case Token.RETURN:\n+            handleReturn(n);\n+            return;\n+        case Token.WITH:\n+            handleWith(n);\n+            return;\n+        case Token.LABEL:\n+            return;\n+        default:\n+            handleStmt(n);\n+            return;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void visit(NodeTraversal t, Node n, Node parent) {\n    switch(n.getType()) {\n        case Token.IF:\n            handleIf(n);\n            return;\n        case Token.WHILE:\n            handleWhile(n);\n            return;\n        case Token.DO:\n            handleDo(n);\n            return;\n        case Token.FOR:\n            handleFor(n);\n            return;\n        case Token.SWITCH:\n            handleSwitch(n);\n            return;\n        case Token.CASE:\n            handleCase(n);\n            return;\n        case Token.DEFAULT:\n            handleDefault(n);\n            return;\n        case Token.BLOCK:\n        case Token.SCRIPT:\n            handleStmtList(n);\n            return;\n        case Token.FUNCTION:\n            handleFunction(n);\n            return;\n        case Token.EXPR_RESULT:\n            handleExpr(n);\n            return;\n        case Token.THROW:\n            handleThrow(n);\n            return;\n        case Token.TRY:\n            handleTry(n);\n            return;\n        case Token.CATCH:\n            handleCatch(n);\n            return;\n        case Token.BREAK:\n            handleBreak(n);\n            return;\n        case Token.CONTINUE:\n            handleContinue(n);\n            return;\n        case Token.RETURN:\n            handleReturn(n);\n            return;\n        case Token.WITH:\n            handleWith(n);\n            return;\n        case Token.LABEL:\n            return;\n        default:\n            handleStmt(n);\n            return;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+      "functionStartLine": 292,
+      "functionName": "visit",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

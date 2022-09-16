@@ -1,0 +1,5 @@
+Some html entities (such as sup1, sup2) are not unescaped correctly by Entities.unescape because they contain digits.
+
+The problem is the pattern Entities.unescapePattern. I changed it to '&(#(x|X)?([0-9a-fA-F]+)|[0-9a-zA-Z]+);?', and it worked fine for me. But there might be side effects ...
+
+You can see my changes here : https://github.com/clementdenis/jsoup/commit/d65387cb6763c4e6e9896917ce02ea623e30b04e

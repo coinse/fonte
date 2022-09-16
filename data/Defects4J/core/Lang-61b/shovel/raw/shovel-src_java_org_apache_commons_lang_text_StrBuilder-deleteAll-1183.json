@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-61b",
+  "repositoryPath": "/tmp/Lang-61b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StrBuilder.java",
+  "functionName": "deleteAll",
+  "functionId": "deleteAll___str-String",
+  "sourceFilePath": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Deletes the string wherever it occurs in the builder.\n\n@param str the string to delete, null causes no action\n@return this, to enable chaining\n",
+  "functionStartLine": 1183,
+  "functionEndLine": 1193,
+  "numCommitsSeen": 69,
+  "timeTaken": 2730,
+  "changeHistory": [
+    "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b"
+  ],
+  "changeHistoryShort": {
+    "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d": "Ymultichange(Yrename,Ybodychange)",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d": {
+      "type": "Ymultichange(Yrename,Ybodychange)",
+      "commitMessage": "Add StrMatcher and update StrBuilder and test cases to use it, plus fix other bugs\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232652 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/14/05, 2:45 PM",
+      "commitName": "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+      "commitAuthor": "Stephen Colebourne",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Add StrMatcher and update StrBuilder and test cases to use it, plus fix other bugs\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232652 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/14/05, 2:45 PM",
+          "commitName": "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/10/05, 2:22 PM",
+          "commitNameOld": "72b0971a40eb02851b88c1de5c4ae8052a38cbbe",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 4.02,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public StrBuilder deleteAll(String str) {\n    int len \u003d (str \u003d\u003d null ? 0 : str.length());\n    if (len \u003e 0) {\n        int index \u003d indexOf(str, 0);\n        while (index \u003e\u003d 0) {\n            deleteImpl(index, index + len, len);\n            index \u003d indexOf(str, index);\n        }\n    }\n    return this;\n}",
+          "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+          "functionStartLine": 1126,
+          "functionName": "deleteAll",
+          "functionAnnotation": "",
+          "functionDoc": "Deletes the string wherever it occurs in the builder.\n\n@param str the string to delete, null causes no action\n@return this, to enable chaining\n",
+          "diff": "@@ -1,11 +1,11 @@\n-public StrBuilder delete(String str) {\n+public StrBuilder deleteAll(String str) {\n     int len \u003d (str \u003d\u003d null ? 0 : str.length());\n     if (len \u003e 0) {\n         int index \u003d indexOf(str, 0);\n         while (index \u003e\u003d 0) {\n-            delete(index, index + len);\n+            deleteImpl(index, index + len, len);\n             index \u003d indexOf(str, index);\n         }\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "delete",
+            "newValue": "deleteAll"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Add StrMatcher and update StrBuilder and test cases to use it, plus fix other bugs\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232652 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/14/05, 2:45 PM",
+          "commitName": "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/10/05, 2:22 PM",
+          "commitNameOld": "72b0971a40eb02851b88c1de5c4ae8052a38cbbe",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 4.02,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public StrBuilder deleteAll(String str) {\n    int len \u003d (str \u003d\u003d null ? 0 : str.length());\n    if (len \u003e 0) {\n        int index \u003d indexOf(str, 0);\n        while (index \u003e\u003d 0) {\n            deleteImpl(index, index + len, len);\n            index \u003d indexOf(str, index);\n        }\n    }\n    return this;\n}",
+          "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+          "functionStartLine": 1126,
+          "functionName": "deleteAll",
+          "functionAnnotation": "",
+          "functionDoc": "Deletes the string wherever it occurs in the builder.\n\n@param str the string to delete, null causes no action\n@return this, to enable chaining\n",
+          "diff": "@@ -1,11 +1,11 @@\n-public StrBuilder delete(String str) {\n+public StrBuilder deleteAll(String str) {\n     int len \u003d (str \u003d\u003d null ? 0 : str.length());\n     if (len \u003e 0) {\n         int index \u003d indexOf(str, 0);\n         while (index \u003e\u003d 0) {\n-            delete(index, index + len);\n+            deleteImpl(index, index + len, len);\n             index \u003d indexOf(str, index);\n         }\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": {
+      "type": "Yintroduced",
+      "commitMessage": "Add initial version of StrBuilder, currently without any tests\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137978 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/16/04, 8:09 AM",
+      "commitName": "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,11 @@\n+public StrBuilder delete(String str) {\n+    int len \u003d (str \u003d\u003d null ? 0 : str.length());\n+    if (len \u003e 0) {\n+        int index \u003d indexOf(str, 0);\n+        while (index \u003e\u003d 0) {\n+            delete(index, index + len);\n+            index \u003d indexOf(str, index);\n+        }\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public StrBuilder delete(String str) {\n    int len \u003d (str \u003d\u003d null ? 0 : str.length());\n    if (len \u003e 0) {\n        int index \u003d indexOf(str, 0);\n        while (index \u003e\u003d 0) {\n            delete(index, index + len);\n            index \u003d indexOf(str, index);\n        }\n    }\n    return this;\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 930,
+      "functionName": "delete",
+      "functionAnnotation": "",
+      "functionDoc": "Deletes the string wherever it occurs in the builder.\n\n@param str the string to delete, null causes no action\n@return this, to enable chaining\n"
+    }
+  }
+}

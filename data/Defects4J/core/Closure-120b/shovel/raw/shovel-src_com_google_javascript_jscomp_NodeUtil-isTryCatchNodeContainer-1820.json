@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isTryCatchNodeContainer",
+  "functionId": "isTryCatchNodeContainer___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Whether the node is a CATCH container BLOCK.\n",
+  "functionStartLine": 1820,
+  "functionEndLine": 1824,
+  "numCommitsSeen": 155,
+  "timeTaken": 10245,
+  "changeHistory": [
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+    "c1971584101865a747d5d1e25ef0c0193135957f"
+  ],
+  "changeHistoryShort": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": "Ybodychange",
+    "c1971584101865a747d5d1e25ef0c0193135957f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/9/11, 12:32 PM",
+      "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 10:08 AM",
+      "commitNameOld": "ca41f5d443aad22b11b2b6d514fdf20101f33276",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean isTryCatchNodeContainer(Node n) {\n    Node parent \u003d n.getParent();\n    return parent.isTry() \u0026\u0026 parent.getFirstChild().getNext() \u003d\u003d n;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1794,
+      "functionName": "isTryCatchNodeContainer",
+      "functionAnnotation": "",
+      "functionDoc": "Whether the node is a CATCH container BLOCK.\n",
+      "diff": "@@ -1,4 +1,4 @@\n static boolean isTryCatchNodeContainer(Node n) {\n     Node parent \u003d n.getParent();\n-    return parent.getType() \u003d\u003d Token.TRY \u0026\u0026 parent.getFirstChild().getNext() \u003d\u003d n;\n+    return parent.isTry() \u0026\u0026 parent.getFirstChild().getNext() \u003d\u003d n;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "c1971584101865a747d5d1e25ef0c0193135957f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nUpdate NodeUtil.removeChild to only safe handle try/catch/finally nodes. Update UnreachableCodeElminination to reflect the changes and removed\npeephole removal of unneeded TRY/FINALLY statements as that is now handled by\nthe PeepholeRemoveDeadCode pass.\n\nR\u003dnicksantos\nDELTA\u003d154  (88 added, 33 deleted, 33 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d219\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@670 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/6/11, 5:19 PM",
+      "commitName": "c1971584101865a747d5d1e25ef0c0193135957f",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+static boolean isTryCatchNodeContainer(Node n) {\n+    Node parent \u003d n.getParent();\n+    return parent.getType() \u003d\u003d Token.TRY \u0026\u0026 parent.getFirstChild().getNext() \u003d\u003d n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isTryCatchNodeContainer(Node n) {\n    Node parent \u003d n.getParent();\n    return parent.getType() \u003d\u003d Token.TRY \u0026\u0026 parent.getFirstChild().getNext() \u003d\u003d n;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1374,
+      "functionName": "isTryCatchNodeContainer",
+      "functionAnnotation": "",
+      "functionDoc": "Whether the node is a CATCH container BLOCK.\n"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InferJSDocInfo.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 73,
+  "functionEndLine": 82,
+  "numCommitsSeen": 10,
+  "timeTaken": 416,
+  "changeHistory": [
+    "8777edb959dfea307495e667c2c01834adabb906",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "8777edb959dfea307495e667c2c01834adabb906": "Yannotationchange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8777edb959dfea307495e667c2c01834adabb906": {
+      "type": "Yannotationchange",
+      "commitMessage": "\nmaking inferJsDocInfo hot-swappable plus minor cleanup of tests\n\nR\u003dacleung,davidplass\nDELTA\u003d43  (31 added, 4 deleted, 8 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2194\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/6/11, 8:05 AM",
+      "commitName": "8777edb959dfea307495e667c2c01834adabb906",
+      "commitAuthor": "bashir@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 54.83,
+      "commitsBetweenForRepo": 155,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    if (externs !\u003d null) {\n        inExterns \u003d true;\n        NodeTraversal.traverse(compiler, externs, this);\n    }\n    if (root !\u003d null) {\n        inExterns \u003d false;\n        NodeTraversal.traverse(compiler, root, this);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+      "functionStartLine": 73,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,11 @@\n+@Override\n public void process(Node externs, Node root) {\n     if (externs !\u003d null) {\n         inExterns \u003d true;\n         NodeTraversal.traverse(compiler, externs, this);\n     }\n     if (root !\u003d null) {\n         inExterns \u003d false;\n         NodeTraversal.traverse(compiler, root, this);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+public void process(Node externs, Node root) {\n+    if (externs !\u003d null) {\n+        inExterns \u003d true;\n+        NodeTraversal.traverse(compiler, externs, this);\n+    }\n+    if (root !\u003d null) {\n+        inExterns \u003d false;\n+        NodeTraversal.traverse(compiler, root, this);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void process(Node externs, Node root) {\n    if (externs !\u003d null) {\n        inExterns \u003d true;\n        NodeTraversal.traverse(compiler, externs, this);\n    }\n    if (root !\u003d null) {\n        inExterns \u003d false;\n        NodeTraversal.traverse(compiler, root, this);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+      "functionStartLine": 42,
+      "functionName": "process",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getRValueOfLValue",
+  "functionId": "getRValueOfLValue___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the r-value of a node returned by getBestLValue.\n",
+  "functionStartLine": 3090,
+  "functionEndLine": 3101,
+  "numCommitsSeen": 144,
+  "timeTaken": 2866,
+  "changeHistory": [
+    "cfc1f8b5095e9784f26f61eca8086008fb775014"
+  ],
+  "changeHistoryShort": {
+    "cfc1f8b5095e9784f26f61eca8086008fb775014": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cfc1f8b5095e9784f26f61eca8086008fb775014": {
+      "type": "Yintroduced",
+      "commitMessage": "\nSlightly better global property checks.\n\nR\u003djohnlenz\nDELTA\u003d125  (71 added, 21 deleted, 33 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2046 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/14/12, 7:47 AM",
+      "commitName": "cfc1f8b5095e9784f26f61eca8086008fb775014",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,12 @@\n+static Node getRValueOfLValue(Node n) {\n+    Node parent \u003d n.getParent();\n+    switch(parent.getType()) {\n+        case Token.ASSIGN:\n+            return n.getNext();\n+        case Token.VAR:\n+            return n.getFirstChild();\n+        case Token.FUNCTION:\n+            return parent;\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Node getRValueOfLValue(Node n) {\n    Node parent \u003d n.getParent();\n    switch(parent.getType()) {\n        case Token.ASSIGN:\n            return n.getNext();\n        case Token.VAR:\n            return n.getFirstChild();\n        case Token.FUNCTION:\n            return parent;\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3062,
+      "functionName": "getRValueOfLValue",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the r-value of a node returned by getBestLValue.\n"
+    }
+  }
+}

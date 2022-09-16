@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReferenceCollectingCallback.java",
+  "functionName": "isInitializingAssignmentAt",
+  "functionId": "$isInitializingAssignmentAt___index-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@param index The index into the references array to look for an\ninitialized assignment reference. That is, an assignment immediately\nfollow a variable declaration that itself does not initialize the\nvariable.\n",
+  "functionStartLine": 374,
+  "functionEndLine": 386,
+  "numCommitsSeen": 35,
+  "timeTaken": 2610,
+  "changeHistory": [
+    "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5",
+    "bca9abb0e3062d373fe52c0e8340337588c05708",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30"
+  ],
+  "changeHistoryShort": {
+    "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5": "Yformatchange",
+    "bca9abb0e3062d373fe52c0e8340337588c05708": "Ydocchange",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5": {
+      "type": "Yformatchange",
+      "commitMessage": "Remove lint warnings\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44164469\n",
+      "commitDate": "3/20/13, 9:48 AM",
+      "commitName": "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5",
+      "commitAuthor": "Ben Lickly",
+      "commitDateOld": "1/10/13, 4:31 PM",
+      "commitNameOld": "9bf6d8db973a4691ad1551bdcbc559a86ba60532",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 68.68,
+      "commitsBetweenForRepo": 149,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isInitializingAssignmentAt(int index) {\n    if (index \u003c references.size() \u0026\u0026 index \u003e 0) {\n        Reference maybeDecl \u003d references.get(index - 1);\n        if (maybeDecl.isVarDeclaration()) {\n            Preconditions.checkState(!maybeDecl.isInitializingDeclaration());\n            Reference maybeInit \u003d references.get(index);\n            if (maybeInit.isSimpleAssignmentToName()) {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 374,
+      "functionName": "isInitializingAssignmentAt",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param index The index into the references array to look for an\ninitialized assignment reference. That is, an assignment immediately\nfollow a variable declaration that itself does not initialize the\nvariable.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "bca9abb0e3062d373fe52c0e8340337588c05708": {
+      "type": "Ydocchange",
+      "commitMessage": "Make sure that InlineVariables can inline variables that are never defined.\n\nCreate a function-inlining blacklist.\n\nSome minor type inference fixes.\n\nStart re-architecting type resolution to happen differently.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@77 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/26/10, 1:59 PM",
+      "commitName": "bca9abb0e3062d373fe52c0e8340337588c05708",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "12/15/09, 1:52 PM",
+      "commitNameOld": "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 42.0,
+      "commitsBetweenForRepo": 31,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isInitializingAssignmentAt(int index) {\n    if (index \u003c references.size() \u0026\u0026 index \u003e 0) {\n        Reference maybeDecl \u003d references.get(index - 1);\n        if (maybeDecl.isVarDeclaration()) {\n            Preconditions.checkState(!maybeDecl.isInitializingDeclaration());\n            Reference maybeInit \u003d references.get(index);\n            if (maybeInit.isSimpleAssignmentToName()) {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 292,
+      "functionName": "isInitializingAssignmentAt",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param index The index into the references array to look for an\ninitialized assignment reference. That is, an assignment immediately\nfollow a variable declaration that itself does not initialize the\nvariable.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\n@param index The index into the references array to look for an \ninitialized assignment reference. That is, an assignment immediately\nfollow a variable declaration that itself does not initialize the\nvariable.\n",
+        "newValue": "\n@param index The index into the references array to look for an\ninitialized assignment reference. That is, an assignment immediately\nfollow a variable declaration that itself does not initialize the\nvariable.\n"
+      }
+    },
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/09, 11:16 AM",
+      "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,13 @@\n+private boolean isInitializingAssignmentAt(int index) {\n+    if (index \u003c references.size() \u0026\u0026 index \u003e 0) {\n+        Reference maybeDecl \u003d references.get(index - 1);\n+        if (maybeDecl.isVarDeclaration()) {\n+            Preconditions.checkState(!maybeDecl.isInitializingDeclaration());\n+            Reference maybeInit \u003d references.get(index);\n+            if (maybeInit.isSimpleAssignmentToName()) {\n+                return true;\n+            }\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isInitializingAssignmentAt(int index) {\n    if (index \u003c references.size() \u0026\u0026 index \u003e 0) {\n        Reference maybeDecl \u003d references.get(index - 1);\n        if (maybeDecl.isVarDeclaration()) {\n            Preconditions.checkState(!maybeDecl.isInitializingDeclaration());\n            Reference maybeInit \u003d references.get(index);\n            if (maybeInit.isSimpleAssignmentToName()) {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 292,
+      "functionName": "isInitializingAssignmentAt",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param index The index into the references array to look for an \ninitialized assignment reference. That is, an assignment immediately\nfollow a variable declaration that itself does not initialize the\nvariable.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "verifyIsLast",
+  "functionId": "verifyIsLast___t-NodeTraversal__methodName-Node__arg-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the argument checked out okay\n",
+  "functionStartLine": 805,
+  "functionEndLine": 813,
+  "numCommitsSeen": 62,
+  "timeTaken": 1677,
+  "changeHistory": [
+    "cf8d2a915893d370e3f883c185dec7ef3b3015e8"
+  ],
+  "changeHistoryShort": {
+    "cf8d2a915893d370e3f883c185dec7ef3b3015e8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cf8d2a915893d370e3f883c185dec7ef3b3015e8": {
+      "type": "Yintroduced",
+      "commitMessage": "Add compiler support for goog.define\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d43915701\n",
+      "commitDate": "3/14/13, 1:18 PM",
+      "commitName": "cf8d2a915893d370e3f883c185dec7ef3b3015e8",
+      "commitAuthor": "Ben Lickly",
+      "diff": "@@ -0,0 +1,7 @@\n+private boolean verifyIsLast(NodeTraversal t, Node methodName, Node arg) {\n+    if (arg.getNext() !\u003d null) {\n+        compiler.report(t.makeError(methodName, TOO_MANY_ARGUMENTS_ERROR, methodName.getQualifiedName()));\n+        return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean verifyIsLast(NodeTraversal t, Node methodName, Node arg) {\n    if (arg.getNext() !\u003d null) {\n        compiler.report(t.makeError(methodName, TOO_MANY_ARGUMENTS_ERROR, methodName.getQualifiedName()));\n        return false;\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 804,
+      "functionName": "verifyIsLast",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the argument checked out okay\n"
+    }
+  }
+}

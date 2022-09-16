@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrototypeObjectType.java",
+  "functionName": "hasReferenceName",
+  "functionId": "hasReferenceName",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 312,
+  "functionEndLine": 314,
+  "numCommitsSeen": 53,
+  "timeTaken": 1863,
+  "changeHistory": [
+    "5fa514bee8f76534232e4653eaf16cd416e08012",
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "5fa514bee8f76534232e4653eaf16cd416e08012": "Ybodychange",
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": "Yrename",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5fa514bee8f76534232e4653eaf16cd416e08012": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange how Function prototypes are represented in the type\nsystem.  This fixes lots of bugs when an anonymous object is\nthe prototype, and will make life a lot easier for IDEs.\n\nR\u003djohnlenz\nDELTA\u003d370  (129 added, 177 deleted, 64 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3135\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1389 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/25/11, 8:10 AM",
+      "commitName": "5fa514bee8f76534232e4653eaf16cd416e08012",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "8/24/11, 11:59 AM",
+      "commitNameOld": "1edd85b8ff34378fa038bab27455da2895521774",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 0.84,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean hasReferenceName() {\n    return className !\u003d null || ownerFunction !\u003d null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 437,
+      "functionName": "hasReferenceName",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n public boolean hasReferenceName() {\n-    return className !\u003d null;\n+    return className !\u003d null || ownerFunction !\u003d null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": {
+      "type": "Yrename",
+      "commitMessage": "Add a mechanism for inlining local vars, and turn it on by default.\nWarnings for \"ambiguous\" function definitions.\nRefactoring and renaming of some method names.\nUse \"\u003d\" optionality annotation in externs.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@15 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/25/09, 6:53 AM",
+      "commitName": "3bee5d740c96572faea4b9fb8b632e0e07b13cbb",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "11/3/09, 3:51 PM",
+      "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 21.63,
+      "commitsBetweenForRepo": 13,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean hasReferenceName() {\n    return className !\u003d null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 355,
+      "functionName": "hasReferenceName",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n-public boolean hasName() {\n+public boolean hasReferenceName() {\n     return className !\u003d null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "hasName",
+        "newValue": "hasReferenceName"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public boolean hasName() {\n+    return className !\u003d null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean hasName() {\n    return className !\u003d null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 355,
+      "functionName": "hasName",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

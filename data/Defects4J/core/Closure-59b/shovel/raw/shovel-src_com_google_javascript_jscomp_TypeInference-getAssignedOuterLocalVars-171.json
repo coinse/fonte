@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "getAssignedOuterLocalVars",
+  "functionId": "getAssignedOuterLocalVars",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Local variables assigned in this scope, but which are declared in\n    a scope outside of it. Hashed by the scope they\u0027re declared in.\n",
+  "functionStartLine": 171,
+  "functionEndLine": 173,
+  "numCommitsSeen": 50,
+  "timeTaken": 3408,
+  "changeHistory": [
+    "f78e933dbc678936ed5fcf453ab3c80b87d1e59d"
+  ],
+  "changeHistoryShort": {
+    "f78e933dbc678936ed5fcf453ab3c80b87d1e59d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f78e933dbc678936ed5fcf453ab3c80b87d1e59d": {
+      "type": "Yintroduced",
+      "commitMessage": "Don\u0027t do local type inference on local vars that are assigned in inner\nscopes, because it\u0027s pretty close to impossible to do it right.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@84 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/1/10, 4:09 PM",
+      "commitName": "f78e933dbc678936ed5fcf453ab3c80b87d1e59d",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,3 @@\n+Multimap\u003cScope, Var\u003e getAssignedOuterLocalVars() {\n+    return assignedOuterLocalVars;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Multimap\u003cScope, Var\u003e getAssignedOuterLocalVars() {\n    return assignedOuterLocalVars;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 158,
+      "functionName": "getAssignedOuterLocalVars",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Local variables assigned in this scope, but which are declared in\n    a scope outside of it. Hashed by the scope they\u0027re declared in.\n"
+    }
+  }
+}

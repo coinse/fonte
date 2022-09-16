@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-50b",
+  "repositoryPath": "/tmp/Math-50b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BaseAbstractUnivariateRealSolver.java",
+  "functionName": "computeObjectiveValue",
+  "functionId": "computeObjectiveValue___point-double",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/analysis/solvers/BaseAbstractUnivariateRealSolver.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+  "functionStartLine": 151,
+  "functionEndLine": 155,
+  "numCommitsSeen": 7,
+  "timeTaken": 1575,
+  "changeHistory": [
+    "610666ed70bf875174f9b71bd96ec75937b7238e",
+    "74ff198bd249a56d1349b963bd265f8899743b9b"
+  ],
+  "changeHistoryShort": {
+    "610666ed70bf875174f9b71bd96ec75937b7238e": "Yexceptionschange",
+    "74ff198bd249a56d1349b963bd265f8899743b9b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "610666ed70bf875174f9b71bd96ec75937b7238e": {
+      "type": "Yexceptionschange",
+      "commitMessage": "document some exceptions that may be thrown by derived classes\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1152268 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/29/11, 8:35 AM",
+      "commitName": "610666ed70bf875174f9b71bd96ec75937b7238e",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "7/10/11, 4:01 AM",
+      "commitNameOld": "fc55e2950090b84be6125cb4b6296364d97d5500",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 19.19,
+      "commitsBetweenForRepo": 72,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected double computeObjectiveValue(double point) throws TooManyEvaluationsException {\n    incrementEvaluationCount();\n    return function.value(point);\n}",
+      "path": "src/main/java/org/apache/commons/math/analysis/solvers/BaseAbstractUnivariateRealSolver.java",
+      "functionStartLine": 151,
+      "functionName": "computeObjectiveValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n",
+      "diff": "@@ -1,4 +1,4 @@\n-protected double computeObjectiveValue(double point) {\n+protected double computeObjectiveValue(double point) throws TooManyEvaluationsException {\n     incrementEvaluationCount();\n     return function.value(point);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[]",
+        "newValue": "[TooManyEvaluationsException]"
+      }
+    },
+    "74ff198bd249a56d1349b963bd265f8899743b9b": {
+      "type": "Yintroduced",
+      "commitMessage": "MATH-439\nRefactored the \"solvers\" package. Implementations refer to number of\nevaluation of the objective function (instead of the number of iterations).\nNew interfaces and base classes.\n\"NewtonSolver\" fits in the design without resorting to a cast.\nCreated class \"MullerSolver2\" to contain the code of the method named \"solve2\"\nin class \"MullerSolver\".\nRemoved \"UnivariateRealSolverFactory\" and \"UnivariateRealSolverFactoryImpl\".\nDefault solver in \"UnivariateRealSolverUtils\" is explicitely instantiated.\n\"AbstractContinuousDistribution\": Type of exception thrown changed in\n\"UnivariateRealSolverUtils\".\nFactored out duplicate code (in \"GaussNewtonOptimizerTest\" and\n\"LevenbergMarquardtOptimizerTest\"): class \"Circle\" is now called\n\"CircleVectorial\". Also factored out the \"Circle\" class from\n\"NonLinearConjugateGradientOptimizerTest\": class is named \"CircleScalar\".\nCreated \"SecantSolverTest\", moving there all the tests for the class\n\"SecantSolver\" that were located in class \"BrentSolverTest\".\nCreated new interface and base class for polynomial functions solvers\n(\"LaguerreSolver\") so that the function type is now checked at compile time.\nRemoved deprecated exceptions (MATH-441).\nJavadoc clean-up.\nLowered tolerance values in some unit tests.\nTests upgraded to Junit 4 (MATH-423).\n\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1039083 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/25/10, 8:22 AM",
+      "commitName": "74ff198bd249a56d1349b963bd265f8899743b9b",
+      "commitAuthor": "Gilles Sadowski",
+      "diff": "@@ -0,0 +1,4 @@\n+protected double computeObjectiveValue(double point) {\n+    incrementEvaluationCount();\n+    return function.value(point);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected double computeObjectiveValue(double point) {\n    incrementEvaluationCount();\n    return function.value(point);\n}",
+      "path": "src/main/java/org/apache/commons/math/analysis/solvers/BaseAbstractUnivariateRealSolver.java",
+      "functionStartLine": 156,
+      "functionName": "computeObjectiveValue",
+      "functionAnnotation": "",
+      "functionDoc": "Compute the objective function value.\n\n@param point Point at which the objective function must be evaluated.\n@return the objective function value at specified point.\n@throws TooManyEvaluationsException if the maximal number of evaluations\nis exceeded.\n"
+    }
+  }
+}

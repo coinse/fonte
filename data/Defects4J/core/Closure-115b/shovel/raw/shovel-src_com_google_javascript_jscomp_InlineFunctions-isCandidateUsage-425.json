@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InlineFunctions.java",
+  "functionName": "isCandidateUsage",
+  "functionId": "isCandidateUsage___name-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InlineFunctions.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the name is used in a way that might be a candidate\n  for inlining.\n",
+  "functionStartLine": 425,
+  "functionEndLine": 459,
+  "numCommitsSeen": 43,
+  "timeTaken": 1601,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "a4f32ed8acef2880288fe9559f8c60fba444bbe3"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "a4f32ed8acef2880288fe9559f8c60fba444bbe3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "8/22/11, 5:34 PM",
+      "commitNameOld": "de20cf30dfdf0f885c9b97dfb75f8425df0280b9",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 79.67,
+      "commitsBetweenForRepo": 187,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean isCandidateUsage(Node name) {\n    Node parent \u003d name.getParent();\n    Preconditions.checkState(name.isName());\n    if (parent.isVar() || parent.isFunction()) {\n        return true;\n    }\n    if (parent.isCall() \u0026\u0026 parent.getFirstChild() \u003d\u003d name) {\n        return true;\n    }\n    if (NodeUtil.isGet(parent) \u0026\u0026 name \u003d\u003d parent.getFirstChild() \u0026\u0026 name.getNext().isString() \u0026\u0026 name.getNext().getString().equals(\"call\")) {\n        Node gramps \u003d name.getAncestor(2);\n        if (gramps.isCall() \u0026\u0026 gramps.getFirstChild() \u003d\u003d parent) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/InlineFunctions.java",
+      "functionStartLine": 427,
+      "functionName": "isCandidateUsage",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the name is used in a way that might be a candidate\n  for inlining.\n",
+      "diff": "@@ -1,17 +1,17 @@\n static boolean isCandidateUsage(Node name) {\n     Node parent \u003d name.getParent();\n-    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n-    if (parent.getType() \u003d\u003d Token.VAR || parent.getType() \u003d\u003d Token.FUNCTION) {\n+    Preconditions.checkState(name.isName());\n+    if (parent.isVar() || parent.isFunction()) {\n         return true;\n     }\n-    if (parent.getType() \u003d\u003d Token.CALL \u0026\u0026 parent.getFirstChild() \u003d\u003d name) {\n+    if (parent.isCall() \u0026\u0026 parent.getFirstChild() \u003d\u003d name) {\n         return true;\n     }\n-    if (NodeUtil.isGet(parent) \u0026\u0026 name \u003d\u003d parent.getFirstChild() \u0026\u0026 name.getNext().getType() \u003d\u003d Token.STRING \u0026\u0026 name.getNext().getString().equals(\"call\")) {\n+    if (NodeUtil.isGet(parent) \u0026\u0026 name \u003d\u003d parent.getFirstChild() \u0026\u0026 name.getNext().isString() \u0026\u0026 name.getNext().getString().equals(\"call\")) {\n         Node gramps \u003d name.getAncestor(2);\n-        if (gramps.getType() \u003d\u003d Token.CALL \u0026\u0026 gramps.getFirstChild() \u003d\u003d parent) {\n+        if (gramps.isCall() \u0026\u0026 gramps.getFirstChild() \u003d\u003d parent) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a4f32ed8acef2880288fe9559f8c60fba444bbe3": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix mismatch between the definition of candidate references used when\ninitially gathering references and when checking for inlining conflicts.\nFixes issue 423\n\nR\u003dnicksantos\nDELTA\u003d100  (66 added, 29 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1486\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1011 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/14/11, 10:48 AM",
+      "commitName": "a4f32ed8acef2880288fe9559f8c60fba444bbe3",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+static boolean isCandidateUsage(Node name) {\n+    Node parent \u003d name.getParent();\n+    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n+    if (parent.getType() \u003d\u003d Token.VAR || parent.getType() \u003d\u003d Token.FUNCTION) {\n+        return true;\n+    }\n+    if (parent.getType() \u003d\u003d Token.CALL \u0026\u0026 parent.getFirstChild() \u003d\u003d name) {\n+        return true;\n+    }\n+    if (NodeUtil.isGet(parent) \u0026\u0026 name \u003d\u003d parent.getFirstChild() \u0026\u0026 name.getNext().getType() \u003d\u003d Token.STRING \u0026\u0026 name.getNext().getString().equals(\"call\")) {\n+        Node gramps \u003d name.getAncestor(2);\n+        if (gramps.getType() \u003d\u003d Token.CALL \u0026\u0026 gramps.getFirstChild() \u003d\u003d parent) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isCandidateUsage(Node name) {\n    Node parent \u003d name.getParent();\n    Preconditions.checkState(name.getType() \u003d\u003d Token.NAME);\n    if (parent.getType() \u003d\u003d Token.VAR || parent.getType() \u003d\u003d Token.FUNCTION) {\n        return true;\n    }\n    if (parent.getType() \u003d\u003d Token.CALL \u0026\u0026 parent.getFirstChild() \u003d\u003d name) {\n        return true;\n    }\n    if (NodeUtil.isGet(parent) \u0026\u0026 name \u003d\u003d parent.getFirstChild() \u0026\u0026 name.getNext().getType() \u003d\u003d Token.STRING \u0026\u0026 name.getNext().getString().equals(\"call\")) {\n        Node gramps \u003d name.getAncestor(2);\n        if (gramps.getType() \u003d\u003d Token.CALL \u0026\u0026 gramps.getFirstChild() \u003d\u003d parent) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/InlineFunctions.java",
+      "functionStartLine": 418,
+      "functionName": "isCandidateUsage",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the name is used in a way that might be a candidate\n  for inlining.\n"
+    }
+  }
+}

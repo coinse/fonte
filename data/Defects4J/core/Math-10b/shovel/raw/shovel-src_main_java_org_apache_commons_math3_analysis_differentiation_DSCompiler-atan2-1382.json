@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "atan2",
+  "functionId": "atan2___y-double[](modifiers-final)__yOffset-int(modifiers-final)__x-double[](modifiers-final)__xOffset-int(modifiers-final)__result-double[](modifiers-final)__resultOffset-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute two arguments arc tangent of a derivative structure.\n\n@param y array holding the first operand\n@param yOffset offset of the first operand in its array\n@param x array holding the second operand\n@param xOffset offset of the second operand in its array\n@param result array where result must be stored (for\ntwo arguments arc tangent the result array \u003cem\u003ecannot\u003c/em\u003e\nbe the input array)\n@param resultOffset offset of the result in its array\n",
+  "functionStartLine": 1382,
+  "functionEndLine": 1418,
+  "numCommitsSeen": 17,
+  "timeTaken": 2600,
+  "changeHistory": [
+    "67dffec4e7adc482215df440e716525ffce5c1c5",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "67dffec4e7adc482215df440e716525ffce5c1c5": "Ybodychange",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "67dffec4e7adc482215df440e716525ffce5c1c5": {
+      "type": "Ybodychange",
+      "commitMessage": "Added support for atan2 in DSCompiler.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1372414 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/13/12, 6:06 AM",
+      "commitName": "67dffec4e7adc482215df440e716525ffce5c1c5",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/10/12, 11:58 AM",
+      "commitNameOld": "a87ba1f7c8b0b4cb5dd4d26083c578f3ef6bf861",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 2.76,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void atan2(final double[] y, final int yOffset, final double[] x, final int xOffset, final double[] result, final int resultOffset) {\n    double[] tmp1 \u003d new double[getSize()];\n    multiply(x, xOffset, x, xOffset, tmp1, 0);\n    double[] tmp2 \u003d new double[getSize()];\n    multiply(y, yOffset, y, yOffset, tmp2, 0);\n    add(tmp1, 0, tmp2, 0, tmp2, 0);\n    rootN(tmp2, 0, 2, tmp1, 0);\n    if (x[xOffset] \u003e\u003d 0) {\n        add(tmp1, 0, x, xOffset, tmp2, 0);\n        divide(y, yOffset, tmp2, 0, tmp1, 0);\n        atan(tmp1, 0, tmp2, 0);\n        for (int i \u003d 0; i \u003c tmp2.length; ++i) {\n            result[resultOffset + i] \u003d 2 * tmp2[i];\n        }\n    } else {\n        subtract(tmp1, 0, x, xOffset, tmp2, 0);\n        divide(y, yOffset, tmp2, 0, tmp1, 0);\n        atan(tmp1, 0, tmp2, 0);\n        result[resultOffset] \u003d ((tmp2[0] \u003c\u003d 0) ? -FastMath.PI : FastMath.PI) - 2 * tmp2[0];\n        for (int i \u003d 1; i \u003c tmp2.length; ++i) {\n            result[resultOffset + i] \u003d -2 * tmp2[i];\n        }\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 1285,
+      "functionName": "atan2",
+      "functionAnnotation": "",
+      "functionDoc": "Compute two arguments arc tangent of a derivative structure.\n\n@param y array holding the first operand\n@param yOffset offset of the first operand in its array\n@param x array holding the second operand\n@param xOffset offset of the second operand in its array\n@param result array where result must be stored (for\ntwo arguments arc tangent the result array \u003cem\u003ecannot\u003c/em\u003e\nbe the input array)\n@param resultOffset offset of the result in its array\n",
+      "diff": "@@ -1,10 +1,24 @@\n public void atan2(final double[] y, final int yOffset, final double[] x, final int xOffset, final double[] result, final int resultOffset) {\n-    final double y0 \u003d y[yOffset];\n-    final double x0 \u003d x[xOffset];\n-    result[resultOffset] \u003d FastMath.atan2(y0, x0);\n-    if (order \u003e 0) {\n-        for (int i \u003d 1; i \u003c\u003d order; ++i) {\n-            result[resultOffset + i] \u003d Double.NaN;\n+    double[] tmp1 \u003d new double[getSize()];\n+    multiply(x, xOffset, x, xOffset, tmp1, 0);\n+    double[] tmp2 \u003d new double[getSize()];\n+    multiply(y, yOffset, y, yOffset, tmp2, 0);\n+    add(tmp1, 0, tmp2, 0, tmp2, 0);\n+    rootN(tmp2, 0, 2, tmp1, 0);\n+    if (x[xOffset] \u003e\u003d 0) {\n+        add(tmp1, 0, x, xOffset, tmp2, 0);\n+        divide(y, yOffset, tmp2, 0, tmp1, 0);\n+        atan(tmp1, 0, tmp2, 0);\n+        for (int i \u003d 0; i \u003c tmp2.length; ++i) {\n+            result[resultOffset + i] \u003d 2 * tmp2[i];\n+        }\n+    } else {\n+        subtract(tmp1, 0, x, xOffset, tmp2, 0);\n+        divide(y, yOffset, tmp2, 0, tmp1, 0);\n+        atan(tmp1, 0, tmp2, 0);\n+        result[resultOffset] \u003d ((tmp2[0] \u003c\u003d 0) ? -FastMath.PI : FastMath.PI) - 2 * tmp2[0];\n+        for (int i \u003d 1; i \u003c tmp2.length; ++i) {\n+            result[resultOffset + i] \u003d -2 * tmp2[i];\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,10 @@\n+public void atan2(final double[] y, final int yOffset, final double[] x, final int xOffset, final double[] result, final int resultOffset) {\n+    final double y0 \u003d y[yOffset];\n+    final double x0 \u003d x[xOffset];\n+    result[resultOffset] \u003d FastMath.atan2(y0, x0);\n+    if (order \u003e 0) {\n+        for (int i \u003d 1; i \u003c\u003d order; ++i) {\n+            result[resultOffset + i] \u003d Double.NaN;\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void atan2(final double[] y, final int yOffset, final double[] x, final int xOffset, final double[] result, final int resultOffset) {\n    final double y0 \u003d y[yOffset];\n    final double x0 \u003d x[xOffset];\n    result[resultOffset] \u003d FastMath.atan2(y0, x0);\n    if (order \u003e 0) {\n        for (int i \u003d 1; i \u003c\u003d order; ++i) {\n            result[resultOffset + i] \u003d Double.NaN;\n        }\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 1178,
+      "functionName": "atan2",
+      "functionAnnotation": "",
+      "functionDoc": "Compute two arguments arc tangent of a derivative structure.\n\n@param y array holding the first operand\n@param yOffset offset of the first operand in its array\n@param x array holding the second operand\n@param xOffset offset of the second operand in its array\n@param result array where result must be stored (for\ntwo arguments arc tangent the result array \u003cem\u003ecannot\u003c/em\u003e\nbe the input array)\n@param resultOffset offset of the result in its array\n"
+    }
+  }
+}

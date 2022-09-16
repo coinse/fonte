@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "transformNameAsString",
+  "functionId": "transformNameAsString___node-Name",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 265,
+  "functionEndLine": 273,
+  "numCommitsSeen": 41,
+  "timeTaken": 1243,
+  "changeHistory": [
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719"
+  ],
+  "changeHistoryShort": {
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719": {
+      "type": "Yintroduced",
+      "commitMessage": "\nEnable keywords as property names for ECMASCRIPT5\n\nR\u003dacleung\nDELTA\u003d106  (91 added, 1 deleted, 14 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d884\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@892 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/15/11, 3:57 PM",
+      "commitName": "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private Node transformNameAsString(Name node) {\n+    JSDocInfo jsDocInfo \u003d handleJsDoc(node);\n+    Node irNode \u003d transformDispatcher.processName(node, true);\n+    if (jsDocInfo !\u003d null) {\n+        irNode.setJSDocInfo(jsDocInfo);\n+    }\n+    setSourceInfo(irNode, node);\n+    return irNode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node transformNameAsString(Name node) {\n    JSDocInfo jsDocInfo \u003d handleJsDoc(node);\n    Node irNode \u003d transformDispatcher.processName(node, true);\n    if (jsDocInfo !\u003d null) {\n        irNode.setJSDocInfo(jsDocInfo);\n    }\n    setSourceInfo(irNode, node);\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 245,
+      "functionName": "transformNameAsString",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrototypeObjectType.java",
+  "functionName": "getCtorExtendedInterfaces",
+  "functionId": "getCtorExtendedInterfaces",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 533,
+  "functionEndLine": 537,
+  "numCommitsSeen": 58,
+  "timeTaken": 5513,
+  "changeHistory": [
+    "5fa514bee8f76534232e4653eaf16cd416e08012",
+    "c438dfd06013f82daa648d23b864842ff1881695"
+  ],
+  "changeHistoryShort": {
+    "5fa514bee8f76534232e4653eaf16cd416e08012": "Ymultichange(Ymovefromfile,Ybodychange)",
+    "c438dfd06013f82daa648d23b864842ff1881695": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5fa514bee8f76534232e4653eaf16cd416e08012": {
+      "type": "Ymultichange(Ymovefromfile,Ybodychange)",
+      "commitMessage": "\nChange how Function prototypes are represented in the type\nsystem.  This fixes lots of bugs when an anonymous object is\nthe prototype, and will make life a lot easier for IDEs.\n\nR\u003djohnlenz\nDELTA\u003d370  (129 added, 177 deleted, 64 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3135\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1389 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/25/11, 8:10 AM",
+      "commitName": "5fa514bee8f76534232e4653eaf16cd416e08012",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "\nChange how Function prototypes are represented in the type\nsystem.  This fixes lots of bugs when an anonymous object is\nthe prototype, and will make life a lot easier for IDEs.\n\nR\u003djohnlenz\nDELTA\u003d370  (129 added, 177 deleted, 64 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3135\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1389 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/25/11, 8:10 AM",
+          "commitName": "5fa514bee8f76534232e4653eaf16cd416e08012",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/24/11, 6:00 PM",
+          "commitNameOld": "e8f11e384840cea7ab2fed3a691b893fd16fe4c7",
+          "commitAuthorOld": "acleung@google.com",
+          "daysBetweenCommits": 0.59,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n    return isFunctionPrototypeType() ? getOwnerFunction().getExtendedInterfaces() : ImmutableList.\u003cObjectType\u003eof();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 607,
+          "functionName": "getCtorExtendedInterfaces",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,4 @@\n @Override\n public Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n-    if (getOwnerFunction() !\u003d null) {\n-        return getOwnerFunction().getExtendedInterfaces();\n-    } else {\n-        return ImmutableSet.of();\n-    }\n+    return isFunctionPrototypeType() ? getOwnerFunction().getExtendedInterfaces() : ImmutableList.\u003cObjectType\u003eof();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/com/google/javascript/rhino/jstype/FunctionPrototypeType.java",
+            "newPath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+            "oldMethodName": "getCtorExtendedInterfaces",
+            "newMethodName": "getCtorExtendedInterfaces"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nChange how Function prototypes are represented in the type\nsystem.  This fixes lots of bugs when an anonymous object is\nthe prototype, and will make life a lot easier for IDEs.\n\nR\u003djohnlenz\nDELTA\u003d370  (129 added, 177 deleted, 64 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3135\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1389 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/25/11, 8:10 AM",
+          "commitName": "5fa514bee8f76534232e4653eaf16cd416e08012",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/24/11, 6:00 PM",
+          "commitNameOld": "e8f11e384840cea7ab2fed3a691b893fd16fe4c7",
+          "commitAuthorOld": "acleung@google.com",
+          "daysBetweenCommits": 0.59,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n    return isFunctionPrototypeType() ? getOwnerFunction().getExtendedInterfaces() : ImmutableList.\u003cObjectType\u003eof();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 607,
+          "functionName": "getCtorExtendedInterfaces",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,4 @@\n @Override\n public Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n-    if (getOwnerFunction() !\u003d null) {\n-        return getOwnerFunction().getExtendedInterfaces();\n-    } else {\n-        return ImmutableSet.of();\n-    }\n+    return isFunctionPrototypeType() ? getOwnerFunction().getExtendedInterfaces() : ImmutableList.\u003cObjectType\u003eof();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "c438dfd06013f82daa648d23b864842ff1881695": {
+      "type": "Yintroduced",
+      "commitMessage": "\nImplement multiple extends for interfaces\n\nR\u003dnicksantos\nDELTA\u003d711  (635 added, 41 deleted, 35 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1917\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1105 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 12:57 PM",
+      "commitName": "c438dfd06013f82daa648d23b864842ff1881695",
+      "commitAuthor": "zhuyi@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n+    if (getOwnerFunction() !\u003d null) {\n+        return getOwnerFunction().getExtendedInterfaces();\n+    } else {\n+        return ImmutableSet.of();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n    if (getOwnerFunction() !\u003d null) {\n        return getOwnerFunction().getExtendedInterfaces();\n    } else {\n        return ImmutableSet.of();\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionPrototypeType.java",
+      "functionStartLine": 95,
+      "functionName": "getCtorExtendedInterfaces",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

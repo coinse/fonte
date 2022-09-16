@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NamedType.java",
+  "functionName": "setValidator",
+  "functionId": "setValidator___validator-Predicate__JSType__",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/NamedType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 373,
+  "functionEndLine": 383,
+  "numCommitsSeen": 39,
+  "timeTaken": 2161,
+  "changeHistory": [
+    "5a3b4cb6b7e816aacd0ffd4c71e23da949fe360d"
+  ],
+  "changeHistoryShort": {
+    "5a3b4cb6b7e816aacd0ffd4c71e23da949fe360d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5a3b4cb6b7e816aacd0ffd4c71e23da949fe360d": {
+      "type": "Yintroduced",
+      "commitMessage": "\nimprove validation for types that are resolved later.\n\nR\u003djohnlenz\nDELTA\u003d192  (166 added, 1 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d337976\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@486 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/13/10, 2:23 PM",
+      "commitName": "5a3b4cb6b7e816aacd0ffd4c71e23da949fe360d",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public boolean setValidator(Predicate\u003cJSType\u003e validator) {\n+    if (this.isResolved()) {\n+        return super.setValidator(validator);\n+    } else {\n+        this.validator \u003d validator;\n+        return true;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean setValidator(Predicate\u003cJSType\u003e validator) {\n    if (this.isResolved()) {\n        return super.setValidator(validator);\n    } else {\n        this.validator \u003d validator;\n        return true;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/NamedType.java",
+      "functionStartLine": 359,
+      "functionName": "setValidator",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

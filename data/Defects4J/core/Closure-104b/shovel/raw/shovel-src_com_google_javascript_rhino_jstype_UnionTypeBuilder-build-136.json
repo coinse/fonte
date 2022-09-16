@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-104b",
+  "repositoryPath": "/tmp/Closure-104b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnionTypeBuilder.java",
+  "functionName": "build",
+  "functionId": "build",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates a union.\n\n@return A UnionType if it has two or more alternates, the\n   only alternate if it has one and otherwise {@code NO_TYPE}.\n",
+  "functionStartLine": 136,
+  "functionEndLine": 163,
+  "numCommitsSeen": 1,
+  "timeTaken": 86,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,28 @@\n+JSType build() {\n+    if (result \u003d\u003d null) {\n+        if (isAllType) {\n+            result \u003d registry.getNativeType(ALL_TYPE);\n+        } else if (isNativeUnknownType) {\n+            if (areAllUnknownsChecked) {\n+                result \u003d registry.getNativeType(CHECKED_UNKNOWN_TYPE);\n+            } else {\n+                result \u003d registry.getNativeType(UNKNOWN_TYPE);\n+            }\n+        } else {\n+            Set\u003cJSType\u003e alternateSet \u003d Sets.newUnmodifiableHashSet(alternates);\n+            int size \u003d alternateSet.size();\n+            if (size \u003e MAX_UNION_SIZE) {\n+                result \u003d registry.getNativeType(UNKNOWN_TYPE);\n+            } else {\n+                if (size \u003e 1) {\n+                    result \u003d new UnionType(registry, alternateSet);\n+                } else if (size \u003d\u003d 1) {\n+                    result \u003d alternates.iterator().next();\n+                } else {\n+                    result \u003d registry.getNativeType(NO_TYPE);\n+                }\n+            }\n+        }\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "JSType build() {\n    if (result \u003d\u003d null) {\n        if (isAllType) {\n            result \u003d registry.getNativeType(ALL_TYPE);\n        } else if (isNativeUnknownType) {\n            if (areAllUnknownsChecked) {\n                result \u003d registry.getNativeType(CHECKED_UNKNOWN_TYPE);\n            } else {\n                result \u003d registry.getNativeType(UNKNOWN_TYPE);\n            }\n        } else {\n            Set\u003cJSType\u003e alternateSet \u003d Sets.newUnmodifiableHashSet(alternates);\n            int size \u003d alternateSet.size();\n            if (size \u003e MAX_UNION_SIZE) {\n                result \u003d registry.getNativeType(UNKNOWN_TYPE);\n            } else {\n                if (size \u003e 1) {\n                    result \u003d new UnionType(registry, alternateSet);\n                } else if (size \u003d\u003d 1) {\n                    result \u003d alternates.iterator().next();\n                } else {\n                    result \u003d registry.getNativeType(NO_TYPE);\n                }\n            }\n        }\n    }\n    return result;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+      "functionStartLine": 136,
+      "functionName": "build",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a union.\n\n@return A UnionType if it has two or more alternates, the\n   only alternate if it has one and otherwise {@code NO_TYPE}.\n"
+    }
+  }
+}

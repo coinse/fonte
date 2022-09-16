@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-21b",
+  "repositoryPath": "/tmp/Closure-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CheckSideEffects.java",
+  "functionName": "protectSideEffects",
+  "functionId": "protectSideEffects",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CheckSideEffects.java",
+  "functionAnnotation": "",
+  "functionDoc": "Protect side-effect free nodes by making them parameters\nto a extern function call.  This call will be removed\nafter all the optimizations passes have run.\n",
+  "functionStartLine": 173,
+  "functionEndLine": 186,
+  "numCommitsSeen": 20,
+  "timeTaken": 1647,
+  "changeHistory": [
+    "ff9dc85e994c34448130ee5bb38f801ab2f6ba16"
+  ],
+  "changeHistoryShort": {
+    "ff9dc85e994c34448130ee5bb38f801ab2f6ba16": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ff9dc85e994c34448130ee5bb38f801ab2f6ba16": {
+      "type": "Yintroduced",
+      "commitMessage": "\nProtect appearently side-effect free code from removal.\nFixes issue 64\nFixes issue 398\n\nR\u003dnicksantos\nDELTA\u003d256  (218 added, 11 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4091\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1725 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/13/12, 2:07 PM",
+      "commitName": "ff9dc85e994c34448130ee5bb38f801ab2f6ba16",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private void protectSideEffects() {\n+    if (!problemNodes.isEmpty()) {\n+        addExtern();\n+        for (Node n : problemNodes) {\n+            Node name \u003d IR.name(PROTECTOR_FN).srcref(n);\n+            name.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n+            Node replacement \u003d IR.call(name).srcref(n);\n+            replacement.putBooleanProp(Node.FREE_CALL, true);\n+            n.getParent().replaceChild(n, replacement);\n+            replacement.addChildToBack(n);\n+        }\n+        compiler.reportCodeChange();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void protectSideEffects() {\n    if (!problemNodes.isEmpty()) {\n        addExtern();\n        for (Node n : problemNodes) {\n            Node name \u003d IR.name(PROTECTOR_FN).srcref(n);\n            name.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n            Node replacement \u003d IR.call(name).srcref(n);\n            replacement.putBooleanProp(Node.FREE_CALL, true);\n            n.getParent().replaceChild(n, replacement);\n            replacement.addChildToBack(n);\n        }\n        compiler.reportCodeChange();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/CheckSideEffects.java",
+      "functionStartLine": 173,
+      "functionName": "protectSideEffects",
+      "functionAnnotation": "",
+      "functionDoc": "Protect side-effect free nodes by making them parameters\nto a extern function call.  This call will be removed\nafter all the optimizations passes have run.\n"
+    }
+  }
+}

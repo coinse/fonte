@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "toMaybeFunctionType",
+  "functionId": "toMaybeFunctionType___type-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Null-safe version of toMaybeFunctionType().\n",
+  "functionStartLine": 289,
+  "functionEndLine": 291,
+  "numCommitsSeen": 62,
+  "timeTaken": 2899,
+  "changeHistory": [
+    "bd9c7b620384fe5a98772729001ed56304459bc6"
+  ],
+  "changeHistoryShort": {
+    "bd9c7b620384fe5a98772729001ed56304459bc6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bd9c7b620384fe5a98772729001ed56304459bc6": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd toMaybeFunctionType/toMaybeEnumElementType.\ntry #2. the bugs in jstestc were fixed. this cl is exactly\nthe same as the original\n\nR\u003djohnlenz\nDELTA\u003d317  (79 added, 47 deleted, 191 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3078\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1367 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/18/11, 3:46 PM",
+      "commitName": "bd9c7b620384fe5a98772729001ed56304459bc6",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+public static FunctionType toMaybeFunctionType(JSType type) {\n+    return type \u003d\u003d null ? null : type.toMaybeFunctionType();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static FunctionType toMaybeFunctionType(JSType type) {\n    return type \u003d\u003d null ? null : type.toMaybeFunctionType();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 282,
+      "functionName": "toMaybeFunctionType",
+      "functionAnnotation": "",
+      "functionDoc": "Null-safe version of toMaybeFunctionType().\n"
+    }
+  }
+}

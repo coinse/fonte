@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Mockito-8b",
+  "repositoryPath": "/tmp/Mockito-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GenericMetadataSupport.java",
+  "functionName": "getActualTypeArgumentFor",
+  "functionId": "getActualTypeArgumentFor___typeParameter-TypeVariable",
+  "sourceFilePath": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 181,
+  "functionEndLine": 189,
+  "numCommitsSeen": 15,
+  "timeTaken": 885,
+  "changeHistory": [
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436"
+  ],
+  "changeHistoryShort": {
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99": "Yfilerename",
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "55bfac6da735fbda1711e4a5ba53dd324ffa0f99": {
+      "type": "Yfilerename",
+      "commitMessage": "Renamed MockitoGenericMetadata to GenericMetadataSupport\n\n--HG--\nbranch : issue230\nrename : src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java \u003d\u003e src/org/mockito/internal/util/reflection/GenericMetadataSupport.java\nrename : test/org/mockito/internal/util/reflection/MockitoGenericMetadataTest.java \u003d\u003e test/org/mockito/internal/util/reflection/GenericMetadataSupportTest.java\n",
+      "commitDate": "8/1/12, 8:12 AM",
+      "commitName": "55bfac6da735fbda1711e4a5ba53dd324ffa0f99",
+      "commitAuthor": "Brice Dutheil",
+      "commitDateOld": "8/1/12, 8:07 AM",
+      "commitNameOld": "6e97858d79d08b455cb3690b811120965ee1975a",
+      "commitAuthorOld": "Brice Dutheil",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected Type getActualTypeArgumentFor(TypeVariable typeParameter) {\n    Type type \u003d this.contextualActualTypeParameters.get(typeParameter);\n    if (type instanceof TypeVariable) {\n        TypeVariable typeVariable \u003d (TypeVariable) type;\n        return getActualTypeArgumentFor(typeVariable);\n    }\n    return type;\n}",
+      "path": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+      "functionStartLine": 174,
+      "functionName": "getActualTypeArgumentFor",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+        "newPath": "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java"
+      }
+    },
+    "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436": {
+      "type": "Yintroduced",
+      "commitMessage": "Trying a Top-Down approach instead of the Bottom-Up approach to better solve this generic mess (tests are broken here)(missing files)\n\n--HG--\nbranch : issue230\n",
+      "commitDate": "7/24/12, 3:26 AM",
+      "commitName": "6eaf9a247dcfb68b88fec1f2a28808f2bfc19436",
+      "commitAuthor": "Brice Dutheil",
+      "diff": "@@ -0,0 +1,8 @@\n+protected Type getActualTypeArgumentFor(TypeVariable typeParameter) {\n+    Type type \u003d this.contextualActualTypeParameters.get(typeParameter);\n+    if (type instanceof TypeVariable) {\n+        TypeVariable typeVariable \u003d (TypeVariable) type;\n+        return getActualTypeArgumentFor(typeVariable);\n+    }\n+    return type;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Type getActualTypeArgumentFor(TypeVariable typeParameter) {\n    Type type \u003d this.contextualActualTypeParameters.get(typeParameter);\n    if (type instanceof TypeVariable) {\n        TypeVariable typeVariable \u003d (TypeVariable) type;\n        return getActualTypeArgumentFor(typeVariable);\n    }\n    return type;\n}",
+      "path": "src/org/mockito/internal/util/reflection/MockitoGenericMetadata.java",
+      "functionStartLine": 78,
+      "functionName": "getActualTypeArgumentFor",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

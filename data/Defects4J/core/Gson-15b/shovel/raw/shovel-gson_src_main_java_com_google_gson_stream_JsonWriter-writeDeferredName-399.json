@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-15b",
+  "repositoryPath": "/tmp/Gson-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonWriter.java",
+  "functionName": "writeDeferredName",
+  "functionId": "writeDeferredName",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 399,
+  "functionEndLine": 405,
+  "numCommitsSeen": 17,
+  "timeTaken": 669,
+  "changeHistory": [
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075"
+  ],
+  "changeHistoryShort": {
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075": {
+      "type": "Yintroduced",
+      "commitMessage": "Adopt JsonElementWriter in GSON.\nAdd setSerializeNulls() to JsonWriter, so nulls can be skipped from serialization. This does not yet impact JsonElementWriter.\n\nOne change in behavior: if the only value is skipped, we now emit \"null\" rather than \"\".\n",
+      "commitDate": "9/30/11, 12:08 AM",
+      "commitName": "bb7f0b6bb01b0e98e32229cb528772a66a9d6075",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,7 @@\n+private void writeDeferredName() throws IOException {\n+    if (deferredName !\u003d null) {\n+        beforeName();\n+        string(deferredName);\n+        deferredName \u003d null;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void writeDeferredName() throws IOException {\n    if (deferredName !\u003d null) {\n        beforeName();\n        string(deferredName);\n        deferredName \u003d null;\n    }\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 344,
+      "functionName": "writeDeferredName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

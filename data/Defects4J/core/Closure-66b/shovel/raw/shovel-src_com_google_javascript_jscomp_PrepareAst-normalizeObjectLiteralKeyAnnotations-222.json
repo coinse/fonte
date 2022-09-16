@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "normalizeObjectLiteralKeyAnnotations",
+  "functionId": "$normalizeObjectLiteralKeyAnnotations___objlit-Node__key-Node__value-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "In the AST that Rhino gives us, it needs to make a distinction\nbetween jsdoc on the object literal node and jsdoc on the object literal\nvalue. For example,\n\u003cpre\u003e\nvar x \u003d {\n  / JSDOC /\n  a: \u0027b\u0027,\n  c: / JSDOC / \u0027d\u0027\n};\n\u003c/pre\u003e\n\nBut in few narrow cases (in particular, function literals), it\u0027s\na lot easier for us if the doc is attached to the value.\n",
+  "functionStartLine": 222,
+  "functionEndLine": 229,
+  "numCommitsSeen": 31,
+  "timeTaken": 1411,
+  "changeHistory": [
+    "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a",
+    "f93cdf97ea803c4702023daf1326dc45172de611",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8"
+  ],
+  "changeHistoryShort": {
+    "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a": "Yrename",
+    "f93cdf97ea803c4702023daf1326dc45172de611": "Ymultichange(Yparameterchange,Ybodychange)",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a": {
+      "type": "Yrename",
+      "commitMessage": "\nClean up constant annotations so that all constant annotations\nare added during the normalize() phase.\nThis was really confusing to me, because certain kinds\nof constant annotations would work pre-normalize, and certain kinds\nwould work post-normalize.\n\nR\u003djohnlenz\nDELTA\u003d204  (114 added, 75 deleted, 15 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1188239\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@551 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/12/10, 2:28 PM",
+      "commitName": "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/11/10, 9:42 PM",
+      "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 0.7,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void normalizeObjectLiteralKeyAnnotations(Node objlit, Node key, Node value) {\n    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n    if (key.getJSDocInfo() !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.FUNCTION) {\n        value.setJSDocInfo(key.getJSDocInfo());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 222,
+      "functionName": "normalizeObjectLiteralKeyAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": "In the AST that Rhino gives us, it needs to make a distinction\nbetween jsdoc on the object literal node and jsdoc on the object literal\nvalue. For example,\n\u003cpre\u003e\nvar x \u003d {\n  / JSDOC /\n  a: \u0027b\u0027,\n  c: / JSDOC / \u0027d\u0027\n};\n\u003c/pre\u003e\n\nBut in few narrow cases (in particular, function literals), it\u0027s\na lot easier for us if the doc is attached to the value.\n",
+      "diff": "@@ -1,6 +1,6 @@\n-private void normalizeObjectLitJsDocs(Node objlit, Node key, Node value) {\n+private void normalizeObjectLiteralKeyAnnotations(Node objlit, Node key, Node value) {\n     Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n     if (key.getJSDocInfo() !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.FUNCTION) {\n         value.setJSDocInfo(key.getJSDocInfo());\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "normalizeObjectLitJsDocs",
+        "newValue": "normalizeObjectLiteralKeyAnnotations"
+      }
+    },
+    "f93cdf97ea803c4702023daf1326dc45172de611": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/14/10, 4:04 PM",
+      "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "9/14/10, 4:04 PM",
+          "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "8/5/10, 7:31 PM",
+          "commitNameOld": "52547e61d187e102f21e5545c24e8d232fefe92f",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 39.86,
+          "commitsBetweenForRepo": 83,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void normalizeObjectLitJsDocs(Node objlit, Node key, Node value) {\n    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n    if (key.getJSDocInfo() !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.FUNCTION) {\n        value.setJSDocInfo(key.getJSDocInfo());\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+          "functionStartLine": 230,
+          "functionName": "normalizeObjectLitJsDocs",
+          "functionAnnotation": "",
+          "functionDoc": "In the AST that Rhino gives us, it needs to make a distinction\nbetween jsdoc on the object literal node and jsdoc on the object literal\nvalue. For example,\n\u003cpre\u003e\nvar x \u003d {\n  / JSDOC /\n  a: \u0027b\u0027,\n  c: / JSDOC / \u0027d\u0027\n};\n\u003c/pre\u003e\n\nBut in few narrow cases (in particular, function literals), it\u0027s\na lot easier for us if the doc is attached to the value.\n",
+          "diff": "@@ -1,9 +1,6 @@\n-private void normalizeObjectLitJsDocs(Node n) {\n-    Preconditions.checkState(n.getType() \u003d\u003d Token.OBJECTLIT);\n-    for (Node key \u003d n.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n-        Node value \u003d key.getNext();\n-        if (key.getJSDocInfo() !\u003d null \u0026\u0026 key.getNext().getType() \u003d\u003d Token.FUNCTION) {\n-            value.setJSDocInfo(key.getJSDocInfo());\n-        }\n+private void normalizeObjectLitJsDocs(Node objlit, Node key, Node value) {\n+    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n+    if (key.getJSDocInfo() !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.FUNCTION) {\n+        value.setJSDocInfo(key.getJSDocInfo());\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[n-Node]",
+            "newValue": "[objlit-Node, key-Node, value-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "9/14/10, 4:04 PM",
+          "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "8/5/10, 7:31 PM",
+          "commitNameOld": "52547e61d187e102f21e5545c24e8d232fefe92f",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 39.86,
+          "commitsBetweenForRepo": 83,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void normalizeObjectLitJsDocs(Node objlit, Node key, Node value) {\n    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n    if (key.getJSDocInfo() !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.FUNCTION) {\n        value.setJSDocInfo(key.getJSDocInfo());\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+          "functionStartLine": 230,
+          "functionName": "normalizeObjectLitJsDocs",
+          "functionAnnotation": "",
+          "functionDoc": "In the AST that Rhino gives us, it needs to make a distinction\nbetween jsdoc on the object literal node and jsdoc on the object literal\nvalue. For example,\n\u003cpre\u003e\nvar x \u003d {\n  / JSDOC /\n  a: \u0027b\u0027,\n  c: / JSDOC / \u0027d\u0027\n};\n\u003c/pre\u003e\n\nBut in few narrow cases (in particular, function literals), it\u0027s\na lot easier for us if the doc is attached to the value.\n",
+          "diff": "@@ -1,9 +1,6 @@\n-private void normalizeObjectLitJsDocs(Node n) {\n-    Preconditions.checkState(n.getType() \u003d\u003d Token.OBJECTLIT);\n-    for (Node key \u003d n.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n-        Node value \u003d key.getNext();\n-        if (key.getJSDocInfo() !\u003d null \u0026\u0026 key.getNext().getType() \u003d\u003d Token.FUNCTION) {\n-            value.setJSDocInfo(key.getJSDocInfo());\n-        }\n+private void normalizeObjectLitJsDocs(Node objlit, Node key, Node value) {\n+    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n+    if (key.getJSDocInfo() !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.FUNCTION) {\n+        value.setJSDocInfo(key.getJSDocInfo());\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic \"free call\" annotation and support for issue 180.  Additional\ntesting is required to validate that new CALL nodes are not\ninappropriately introduced.\n\nAlso, refactored PrepareAst to make the different actions being taken\neasier to follow.\n\nR\u003dnicksantos\nDELTA\u003d215  (120 added, 18 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@282 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:34 PM",
+      "commitName": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private void normalizeObjectLitJsDocs(Node n) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.OBJECTLIT);\n+    for (Node key \u003d n.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n+        Node value \u003d key.getNext();\n+        if (key.getJSDocInfo() !\u003d null \u0026\u0026 key.getNext().getType() \u003d\u003d Token.FUNCTION) {\n+            value.setJSDocInfo(key.getJSDocInfo());\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void normalizeObjectLitJsDocs(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.OBJECTLIT);\n    for (Node key \u003d n.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n        Node value \u003d key.getNext();\n        if (key.getJSDocInfo() !\u003d null \u0026\u0026 key.getNext().getType() \u003d\u003d Token.FUNCTION) {\n            value.setJSDocInfo(key.getJSDocInfo());\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 213,
+      "functionName": "normalizeObjectLitJsDocs",
+      "functionAnnotation": "",
+      "functionDoc": "In the AST that Rhino gives us, it needs to make a distinction\nbetween jsdoc on the object literal node and jsdoc on the object literal\nvalue. For example,\n\u003cpre\u003e\nvar x \u003d {\n  / JSDOC /\n  a: \u0027b\u0027,\n  c: / JSDOC / \u0027d\u0027\n};\n\u003c/pre\u003e\n\nBut in few narrow cases (in particular, function literals), it\u0027s\na lot easier for us if the doc is attached to the value.\n"
+    }
+  }
+}

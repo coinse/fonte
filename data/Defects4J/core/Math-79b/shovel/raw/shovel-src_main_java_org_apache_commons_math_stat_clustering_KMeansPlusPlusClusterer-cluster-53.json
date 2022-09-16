@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-79b",
+  "repositoryPath": "/tmp/Math-79b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "KMeansPlusPlusClusterer.java",
+  "functionName": "cluster",
+  "functionId": "cluster___points-Collection__T__(modifiers-final)__k-int(modifiers-final)__maxIterations-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Runs the K-means++ clustering algorithm.\n\n@param points the points to cluster\n@param k the number of clusters to split the data into\n@param maxIterations the maximum number of iterations to run the algorithm\n    for.  If negative, no maximum will be used\n@return a list of clusters containing the points\n",
+  "functionStartLine": 53,
+  "functionEndLine": 78,
+  "numCommitsSeen": 4,
+  "timeTaken": 481,
+  "changeHistory": [
+    "26dac5a0e7fc9c6be9571b3e71a15d8502480d96",
+    "d6a438e931412713e99624cf9ed74470f1040184",
+    "189717fd10f468e2d0a40bc94369fca5b3d1ec41"
+  ],
+  "changeHistoryShort": {
+    "26dac5a0e7fc9c6be9571b3e71a15d8502480d96": "Yformatchange",
+    "d6a438e931412713e99624cf9ed74470f1040184": "Yfilerename",
+    "189717fd10f468e2d0a40bc94369fca5b3d1ec41": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "26dac5a0e7fc9c6be9571b3e71a15d8502480d96": {
+      "type": "Yformatchange",
+      "commitMessage": "Removed trailing spaces.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@811685 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/5/09, 10:36 AM",
+      "commitName": "26dac5a0e7fc9c6be9571b3e71a15d8502480d96",
+      "commitAuthor": "Phil Steitz",
+      "commitDateOld": "8/1/09, 7:30 AM",
+      "commitNameOld": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 35.13,
+      "commitsBetweenForRepo": 44,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public List\u003cCluster\u003cT\u003e\u003e cluster(final Collection\u003cT\u003e points, final int k, final int maxIterations) {\n    List\u003cCluster\u003cT\u003e\u003e clusters \u003d chooseInitialCenters(points, k, random);\n    assignPointsToClusters(clusters, points);\n    final int max \u003d (maxIterations \u003c 0) ? Integer.MAX_VALUE : maxIterations;\n    for (int count \u003d 0; count \u003c max; count++) {\n        boolean clusteringChanged \u003d false;\n        List\u003cCluster\u003cT\u003e\u003e newClusters \u003d new ArrayList\u003cCluster\u003cT\u003e\u003e();\n        for (final Cluster\u003cT\u003e cluster : clusters) {\n            final T newCenter \u003d cluster.getCenter().centroidOf(cluster.getPoints());\n            if (!newCenter.equals(cluster.getCenter())) {\n                clusteringChanged \u003d true;\n            }\n            newClusters.add(new Cluster\u003cT\u003e(newCenter));\n        }\n        if (!clusteringChanged) {\n            return clusters;\n        }\n        assignPointsToClusters(newClusters, points);\n        clusters \u003d newClusters;\n    }\n    return clusters;\n}",
+      "path": "src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java",
+      "functionStartLine": 53,
+      "functionName": "cluster",
+      "functionAnnotation": "",
+      "functionDoc": "Runs the K-means++ clustering algorithm.\n\n@param points the points to cluster\n@param k the number of clusters to split the data into\n@param maxIterations the maximum number of iterations to run the algorithm\n    for.  If negative, no maximum will be used\n@return a list of clusters containing the points\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "d6a438e931412713e99624cf9ed74470f1040184": {
+      "type": "Yfilerename",
+      "commitMessage": "moved main java directory for compliance with maven standard directory layout\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@799870 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/1/09, 7:30 AM",
+      "commitName": "d6a438e931412713e99624cf9ed74470f1040184",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/1/09, 7:23 AM",
+      "commitNameOld": "2ad5ef61630be627f46ae1c266cf796f044bd4a8",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public List\u003cCluster\u003cT\u003e\u003e cluster(final Collection\u003cT\u003e points, final int k, final int maxIterations) {\n    List\u003cCluster\u003cT\u003e\u003e clusters \u003d chooseInitialCenters(points, k, random);\n    assignPointsToClusters(clusters, points);\n    final int max \u003d (maxIterations \u003c 0) ? Integer.MAX_VALUE : maxIterations;\n    for (int count \u003d 0; count \u003c max; count++) {\n        boolean clusteringChanged \u003d false;\n        List\u003cCluster\u003cT\u003e\u003e newClusters \u003d new ArrayList\u003cCluster\u003cT\u003e\u003e();\n        for (final Cluster\u003cT\u003e cluster : clusters) {\n            final T newCenter \u003d cluster.getCenter().centroidOf(cluster.getPoints());\n            if (!newCenter.equals(cluster.getCenter())) {\n                clusteringChanged \u003d true;\n            }\n            newClusters.add(new Cluster\u003cT\u003e(newCenter));\n        }\n        if (!clusteringChanged) {\n            return clusters;\n        }\n        assignPointsToClusters(newClusters, points);\n        clusters \u003d newClusters;\n    }\n    return clusters;\n}",
+      "path": "src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java",
+      "functionStartLine": 53,
+      "functionName": "cluster",
+      "functionAnnotation": "",
+      "functionDoc": "Runs the K-means++ clustering algorithm.\n\n@param points the points to cluster\n@param k the number of clusters to split the data into\n@param maxIterations the maximum number of iterations to run the algorithm\n    for.  If negative, no maximum will be used\n@return a list of clusters containing the points\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java",
+        "newPath": "src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java"
+      }
+    },
+    "189717fd10f468e2d0a40bc94369fca5b3d1ec41": {
+      "type": "Yintroduced",
+      "commitMessage": "added a clustering package with an implementation of k-means++\nJIRA: MATH-266\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@770979 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/2/09, 12:34 PM",
+      "commitName": "189717fd10f468e2d0a40bc94369fca5b3d1ec41",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,22 @@\n+public List\u003cCluster\u003cT\u003e\u003e cluster(final Collection\u003cT\u003e points, final int k, final int maxIterations) {\n+    List\u003cCluster\u003cT\u003e\u003e clusters \u003d chooseInitialCenters(points, k, random);\n+    assignPointsToClusters(clusters, points);\n+    final int max \u003d (maxIterations \u003c 0) ? Integer.MAX_VALUE : maxIterations;\n+    for (int count \u003d 0; count \u003c max; count++) {\n+        boolean clusteringChanged \u003d false;\n+        List\u003cCluster\u003cT\u003e\u003e newClusters \u003d new ArrayList\u003cCluster\u003cT\u003e\u003e();\n+        for (final Cluster\u003cT\u003e cluster : clusters) {\n+            final T newCenter \u003d cluster.getCenter().centroidOf(cluster.getPoints());\n+            if (!newCenter.equals(cluster.getCenter())) {\n+                clusteringChanged \u003d true;\n+            }\n+            newClusters.add(new Cluster\u003cT\u003e(newCenter));\n+        }\n+        if (!clusteringChanged) {\n+            return clusters;\n+        }\n+        assignPointsToClusters(newClusters, points);\n+        clusters \u003d newClusters;\n+    }\n+    return clusters;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public List\u003cCluster\u003cT\u003e\u003e cluster(final Collection\u003cT\u003e points, final int k, final int maxIterations) {\n    List\u003cCluster\u003cT\u003e\u003e clusters \u003d chooseInitialCenters(points, k, random);\n    assignPointsToClusters(clusters, points);\n    final int max \u003d (maxIterations \u003c 0) ? Integer.MAX_VALUE : maxIterations;\n    for (int count \u003d 0; count \u003c max; count++) {\n        boolean clusteringChanged \u003d false;\n        List\u003cCluster\u003cT\u003e\u003e newClusters \u003d new ArrayList\u003cCluster\u003cT\u003e\u003e();\n        for (final Cluster\u003cT\u003e cluster : clusters) {\n            final T newCenter \u003d cluster.getCenter().centroidOf(cluster.getPoints());\n            if (!newCenter.equals(cluster.getCenter())) {\n                clusteringChanged \u003d true;\n            }\n            newClusters.add(new Cluster\u003cT\u003e(newCenter));\n        }\n        if (!clusteringChanged) {\n            return clusters;\n        }\n        assignPointsToClusters(newClusters, points);\n        clusters \u003d newClusters;\n    }\n    return clusters;\n}",
+      "path": "src/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java",
+      "functionStartLine": 52,
+      "functionName": "cluster",
+      "functionAnnotation": "",
+      "functionDoc": "Runs the K-means++ clustering algorithm.\n\n@param points the points to cluster\n@param k the number of clusters to split the data into\n@param maxIterations the maximum number of iterations to run the algorithm\n    for.  If negative, no maximum will be used\n@return a list of clusters containing the points\n"
+    }
+  }
+}

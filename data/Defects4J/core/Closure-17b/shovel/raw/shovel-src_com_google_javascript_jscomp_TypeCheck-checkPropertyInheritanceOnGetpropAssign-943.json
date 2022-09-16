@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeCheck.java",
+  "functionName": "checkPropertyInheritanceOnGetpropAssign",
+  "functionId": "checkPropertyInheritanceOnGetpropAssign___t-NodeTraversal__assign-Node__object-Node__property-String__info-JSDocInfo__propertyType-JSType",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 943,
+  "functionEndLine": 972,
+  "numCommitsSeen": 80,
+  "timeTaken": 1412,
+  "changeHistory": [
+    "8caec1a47007acc8b827aa273c065ce698468b27"
+  ],
+  "changeHistoryShort": {
+    "8caec1a47007acc8b827aa273c065ce698468b27": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8caec1a47007acc8b827aa273c065ce698468b27": {
+      "type": "Yintroduced",
+      "commitMessage": "\nEmit more reasonable warnings about bad overrides\n\nTested:\nyes\n\nR\u003djohnlenz\nDELTA\u003d230  (127 added, 86 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4955\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2024 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/6/12, 8:42 AM",
+      "commitName": "8caec1a47007acc8b827aa273c065ce698468b27",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,15 @@\n+private void checkPropertyInheritanceOnGetpropAssign(NodeTraversal t, Node assign, Node object, String property, JSDocInfo info, JSType propertyType) {\n+    if (object.isGetProp()) {\n+        Node object2 \u003d object.getFirstChild();\n+        String property2 \u003d NodeUtil.getStringValue(object.getLastChild());\n+        if (\"prototype\".equals(property2)) {\n+            JSType jsType \u003d getJSType(object2);\n+            if (jsType.isFunctionType()) {\n+                FunctionType functionType \u003d jsType.toMaybeFunctionType();\n+                if (functionType.isConstructor() || functionType.isInterface()) {\n+                    checkDeclaredPropertyInheritance(t, assign, functionType, property, info, propertyType);\n+                }\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void checkPropertyInheritanceOnGetpropAssign(NodeTraversal t, Node assign, Node object, String property, JSDocInfo info, JSType propertyType) {\n    if (object.isGetProp()) {\n        Node object2 \u003d object.getFirstChild();\n        String property2 \u003d NodeUtil.getStringValue(object.getLastChild());\n        if (\"prototype\".equals(property2)) {\n            JSType jsType \u003d getJSType(object2);\n            if (jsType.isFunctionType()) {\n                FunctionType functionType \u003d jsType.toMaybeFunctionType();\n                if (functionType.isConstructor() || functionType.isInterface()) {\n                    checkDeclaredPropertyInheritance(t, assign, functionType, property, info, propertyType);\n                }\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 943,
+      "functionName": "checkPropertyInheritanceOnGetpropAssign",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

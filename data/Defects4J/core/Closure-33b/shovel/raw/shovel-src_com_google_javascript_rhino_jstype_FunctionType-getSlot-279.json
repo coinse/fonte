@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionType.java",
+  "functionName": "getSlot",
+  "functionId": "getSlot___name-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 279,
+  "functionEndLine": 287,
+  "numCommitsSeen": 68,
+  "timeTaken": 1600,
+  "changeHistory": [
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+    "1aaaaa9fe982beb4cd34edb0f7452a3c6da199d9"
+  ],
+  "changeHistoryShort": {
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021": "Yreturntypechange",
+    "1aaaaa9fe982beb4cd34edb0f7452a3c6da199d9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021": {
+      "type": "Yreturntypechange",
+      "commitMessage": "\nMake sure that a function and its prototype are declared in the same place\n\nR\u003djohnlenz\nDELTA\u003d56  (30 added, 2 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3693\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1588 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/11, 9:54 AM",
+      "commitName": "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/8/11, 12:25 PM",
+      "commitNameOld": "9d8201624c22636577d47a40aa03de44363b695b",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.9,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Property getSlot(String name) {\n    if (\"prototype\".equals(name)) {\n        getPrototype();\n        return prototypeSlot;\n    } else {\n        return super.getSlot(name);\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 279,
+      "functionName": "getSlot",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n @Override\n-public StaticSlot\u003cJSType\u003e getSlot(String name) {\n+public Property getSlot(String name) {\n     if (\"prototype\".equals(name)) {\n         getPrototype();\n         return prototypeSlot;\n     } else {\n         return super.getSlot(name);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "StaticSlot\u003cJSType\u003e",
+        "newValue": "Property"
+      }
+    },
+    "1aaaaa9fe982beb4cd34edb0f7452a3c6da199d9": {
+      "type": "Yintroduced",
+      "commitMessage": "\nSimplify how the prototype prop is stored\n\nR\u003djohnlenz\nDELTA\u003d157  (87 added, 53 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3082\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1371 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/22/11, 11:38 AM",
+      "commitName": "1aaaaa9fe982beb4cd34edb0f7452a3c6da199d9",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public StaticSlot\u003cJSType\u003e getSlot(String name) {\n+    if (\"prototype\".equals(name)) {\n+        getPrototype();\n+        return prototypeSlot;\n+    } else {\n+        return super.getSlot(name);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic StaticSlot\u003cJSType\u003e getSlot(String name) {\n    if (\"prototype\".equals(name)) {\n        getPrototype();\n        return prototypeSlot;\n    } else {\n        return super.getSlot(name);\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 275,
+      "functionName": "getSlot",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

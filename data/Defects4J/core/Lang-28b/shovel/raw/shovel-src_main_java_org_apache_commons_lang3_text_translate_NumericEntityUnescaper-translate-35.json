@@ -1,0 +1,116 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-28b",
+  "repositoryPath": "/tmp/Lang-28b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NumericEntityUnescaper.java",
+  "functionName": "translate",
+  "functionId": "translate___input-CharSequence__index-int__out-Writer",
+  "sourceFilePath": "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "@inheritDoc}\n",
+  "functionStartLine": 35,
+  "functionEndLine": 68,
+  "numCommitsSeen": 6,
+  "timeTaken": 1003,
+  "changeHistory": [
+    "b1686009b5494119575d43525b0829162ab79853",
+    "586080851f6bca4d7aa84a7d307203ad8222407e",
+    "7095a99a76b433513f1b741c0e91d9648ea98ad1",
+    "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1"
+  ],
+  "changeHistoryShort": {
+    "b1686009b5494119575d43525b0829162ab79853": "Yfilerename",
+    "586080851f6bca4d7aa84a7d307203ad8222407e": "Yfilerename",
+    "7095a99a76b433513f1b741c0e91d9648ea98ad1": "Yannotationchange",
+    "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b1686009b5494119575d43525b0829162ab79853": {
+      "type": "Yfilerename",
+      "commitMessage": "Move main source to src/main/java\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@895322 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/2/10, 6:11 PM",
+      "commitName": "b1686009b5494119575d43525b0829162ab79853",
+      "commitAuthor": "Paul C. Benedict Jr",
+      "commitDateOld": "1/2/10, 6:09 PM",
+      "commitNameOld": "1f725a97e73edd27301e889408832b34a3d69e63",
+      "commitAuthorOld": "Paul C. Benedict Jr",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic int translate(CharSequence input, int index, Writer out) throws IOException {\n    if (input.charAt(index) \u003d\u003d \u0027\u0026\u0027 \u0026\u0026 input.charAt(index + 1) \u003d\u003d \u0027#\u0027) {\n        int start \u003d index + 2;\n        boolean isHex \u003d false;\n        char firstChar \u003d input.charAt(start);\n        if (firstChar \u003d\u003d \u0027x\u0027 || firstChar \u003d\u003d \u0027X\u0027) {\n            start++;\n            isHex \u003d true;\n        }\n        int end \u003d start;\n        while (input.charAt(end) !\u003d \u0027;\u0027) {\n            end++;\n        }\n        int entityValue;\n        try {\n            if (isHex) {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 16);\n            } else {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 10);\n            }\n        } catch (NumberFormatException nfe) {\n            return 0;\n        }\n        out.write(entityValue);\n        return 2 + (end - start) + (isHex ? 1 : 0) + 1;\n    }\n    return 0;\n}",
+      "path": "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+      "functionStartLine": 35,
+      "functionName": "translate",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+        "newPath": "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java"
+      }
+    },
+    "586080851f6bca4d7aa84a7d307203ad8222407e": {
+      "type": "Yfilerename",
+      "commitMessage": "Changing directory name from lang to lang3. Build will fail (probably) until Java code is changed in subsequent commit. LANG-563\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@889202 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/10/09, 3:33 AM",
+      "commitName": "586080851f6bca4d7aa84a7d307203ad8222407e",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "12/10/09, 3:31 AM",
+      "commitNameOld": "da479d635f66c1f82a1f858591cfb1b9941457ae",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic int translate(CharSequence input, int index, Writer out) throws IOException {\n    if (input.charAt(index) \u003d\u003d \u0027\u0026\u0027 \u0026\u0026 input.charAt(index + 1) \u003d\u003d \u0027#\u0027) {\n        int start \u003d index + 2;\n        boolean isHex \u003d false;\n        char firstChar \u003d input.charAt(start);\n        if (firstChar \u003d\u003d \u0027x\u0027 || firstChar \u003d\u003d \u0027X\u0027) {\n            start++;\n            isHex \u003d true;\n        }\n        int end \u003d start;\n        while (input.charAt(end) !\u003d \u0027;\u0027) {\n            end++;\n        }\n        int entityValue;\n        try {\n            if (isHex) {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 16);\n            } else {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 10);\n            }\n        } catch (NumberFormatException nfe) {\n            return 0;\n        }\n        out.write(entityValue);\n        return 2 + (end - start) + (isHex ? 1 : 0) + 1;\n    }\n    return 0;\n}",
+      "path": "src/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+      "functionStartLine": 35,
+      "functionName": "translate",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/lang/text/translate/NumericEntityUnescaper.java",
+        "newPath": "src/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java"
+      }
+    },
+    "7095a99a76b433513f1b741c0e91d9648ea98ad1": {
+      "type": "Yannotationchange",
+      "commitMessage": "Add missing @Override markers\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@826421 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/18/09, 5:21 AM",
+      "commitName": "7095a99a76b433513f1b741c0e91d9648ea98ad1",
+      "commitAuthor": "Sebastian Bazley",
+      "commitDateOld": "6/22/09, 11:15 PM",
+      "commitNameOld": "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 117.25,
+      "commitsBetweenForRepo": 86,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic int translate(CharSequence input, int index, Writer out) throws IOException {\n    if (input.charAt(index) \u003d\u003d \u0027\u0026\u0027 \u0026\u0026 input.charAt(index + 1) \u003d\u003d \u0027#\u0027) {\n        int start \u003d index + 2;\n        boolean isHex \u003d false;\n        char firstChar \u003d input.charAt(start);\n        if (firstChar \u003d\u003d \u0027x\u0027 || firstChar \u003d\u003d \u0027X\u0027) {\n            start++;\n            isHex \u003d true;\n        }\n        int end \u003d start;\n        while (input.charAt(end) !\u003d \u0027;\u0027) {\n            end++;\n        }\n        int entityValue;\n        try {\n            if (isHex) {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 16);\n            } else {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 10);\n            }\n        } catch (NumberFormatException nfe) {\n            return 0;\n        }\n        out.write(entityValue);\n        return 2 + (end - start) + (isHex ? 1 : 0) + 1;\n    }\n    return 0;\n}",
+      "path": "src/java/org/apache/commons/lang/text/translate/NumericEntityUnescaper.java",
+      "functionStartLine": 33,
+      "functionName": "translate",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "@@ -1,28 +1,29 @@\n+@Override\n public int translate(CharSequence input, int index, Writer out) throws IOException {\n     if (input.charAt(index) \u003d\u003d \u0027\u0026\u0027 \u0026\u0026 input.charAt(index + 1) \u003d\u003d \u0027#\u0027) {\n         int start \u003d index + 2;\n         boolean isHex \u003d false;\n         char firstChar \u003d input.charAt(start);\n         if (firstChar \u003d\u003d \u0027x\u0027 || firstChar \u003d\u003d \u0027X\u0027) {\n             start++;\n             isHex \u003d true;\n         }\n         int end \u003d start;\n         while (input.charAt(end) !\u003d \u0027;\u0027) {\n             end++;\n         }\n         int entityValue;\n         try {\n             if (isHex) {\n                 entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 16);\n             } else {\n                 entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 10);\n             }\n         } catch (NumberFormatException nfe) {\n             return 0;\n         }\n         out.write(entityValue);\n         return 2 + (end - start) + (isHex ? 1 : 0) + 1;\n     }\n     return 0;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1": {
+      "type": "Yintroduced",
+      "commitMessage": "Committing a rewrite of StringEscapeUtils guts - LANG-505. Entities.java can now go away. Most of the code is in the new text.translate package. More work is needed, including what to actually define as \u0027ESCAPE_XML\u0027 etc, but it\u0027s now easy for someone to look at the source to EscapeUtils and UnescapeUtils and put their own ESCAPE_XML variable together, and with lots of reuse value. \n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@787560 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/22/09, 11:15 PM",
+      "commitName": "a2447673d9ca590a3ed967e7a30b1f9cd18e78d1",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,28 @@\n+public int translate(CharSequence input, int index, Writer out) throws IOException {\n+    if (input.charAt(index) \u003d\u003d \u0027\u0026\u0027 \u0026\u0026 input.charAt(index + 1) \u003d\u003d \u0027#\u0027) {\n+        int start \u003d index + 2;\n+        boolean isHex \u003d false;\n+        char firstChar \u003d input.charAt(start);\n+        if (firstChar \u003d\u003d \u0027x\u0027 || firstChar \u003d\u003d \u0027X\u0027) {\n+            start++;\n+            isHex \u003d true;\n+        }\n+        int end \u003d start;\n+        while (input.charAt(end) !\u003d \u0027;\u0027) {\n+            end++;\n+        }\n+        int entityValue;\n+        try {\n+            if (isHex) {\n+                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 16);\n+            } else {\n+                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 10);\n+            }\n+        } catch (NumberFormatException nfe) {\n+            return 0;\n+        }\n+        out.write(entityValue);\n+        return 2 + (end - start) + (isHex ? 1 : 0) + 1;\n+    }\n+    return 0;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public int translate(CharSequence input, int index, Writer out) throws IOException {\n    if (input.charAt(index) \u003d\u003d \u0027\u0026\u0027 \u0026\u0026 input.charAt(index + 1) \u003d\u003d \u0027#\u0027) {\n        int start \u003d index + 2;\n        boolean isHex \u003d false;\n        char firstChar \u003d input.charAt(start);\n        if (firstChar \u003d\u003d \u0027x\u0027 || firstChar \u003d\u003d \u0027X\u0027) {\n            start++;\n            isHex \u003d true;\n        }\n        int end \u003d start;\n        while (input.charAt(end) !\u003d \u0027;\u0027) {\n            end++;\n        }\n        int entityValue;\n        try {\n            if (isHex) {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 16);\n            } else {\n                entityValue \u003d Integer.parseInt(input.subSequence(start, end).toString(), 10);\n            }\n        } catch (NumberFormatException nfe) {\n            return 0;\n        }\n        out.write(entityValue);\n        return 2 + (end - start) + (isHex ? 1 : 0) + 1;\n    }\n    return 0;\n}",
+      "path": "src/java/org/apache/commons/lang/text/translate/NumericEntityUnescaper.java",
+      "functionStartLine": 32,
+      "functionName": "translate",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n"
+    }
+  }
+}

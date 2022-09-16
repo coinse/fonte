@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "getGreatestSubtype",
+  "functionId": "getGreatestSubtype___that-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the greatest subtype of {@code this} and {@code that}.\nThe greatest subtype is the meet (\u0026#8743;) or infimum of both types in the\ntype lattice.\u003cp\u003e\nExamples\n\u003cul\u003e\n\u003cli\u003e{@code Number \u0026#8743; Any} \u003d {@code Any}\u003c/li\u003e\n\u003cli\u003e{@code number \u0026#8743; Object} \u003d {@code Any}\u003c/li\u003e\n\u003cli\u003e{@code Number \u0026#8743; Object} \u003d {@code Number}\u003c/li\u003e\n\u003c/ul\u003e\n\n@return @code this \u0026#8744; that}\n",
+  "functionStartLine": 617,
+  "functionEndLine": 623,
+  "numCommitsSeen": 30,
+  "timeTaken": 1084,
+  "changeHistory": [
+    "043a352c2e85815a90a1926d112902d924bab6c1",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "043a352c2e85815a90a1926d112902d924bab6c1": "Yformatchange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "043a352c2e85815a90a1926d112902d924bab6c1": {
+      "type": "Yformatchange",
+      "commitMessage": "\nWhen we can\u0027t find a forward-declared type,\nthat type should resolve to an empty type.\nThis ensures that if someone tries to pass a param or return\nvalue to it, they get a type warning.\nTry #3\n!!!\n\nR\u003djohnlenz\nDELTA\u003d534  (451 added, 37 deleted, 46 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d362\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@731 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/26/11, 8:30 AM",
+      "commitName": "043a352c2e85815a90a1926d112902d924bab6c1",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "1/20/11, 7:44 PM",
+      "commitNameOld": "2bc4e294e28b2cd78e92feafa497261d524bae23",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 5.53,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JSType getGreatestSubtype(JSType that) {\n    if (that.isRecordType()) {\n        return that.getGreatestSubtype(this);\n    }\n    return getGreatestSubtype(this, that);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 617,
+      "functionName": "getGreatestSubtype",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the greatest subtype of {@code this} and {@code that}.\nThe greatest subtype is the meet (\u0026#8743;) or infimum of both types in the\ntype lattice.\u003cp\u003e\nExamples\n\u003cul\u003e\n\u003cli\u003e{@code Number \u0026#8743; Any} \u003d {@code Any}\u003c/li\u003e\n\u003cli\u003e{@code number \u0026#8743; Object} \u003d {@code Any}\u003c/li\u003e\n\u003cli\u003e{@code Number \u0026#8743; Object} \u003d {@code Number}\u003c/li\u003e\n\u003c/ul\u003e\n\n@return @code this \u0026#8744; that}\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,6 @@\n+public JSType getGreatestSubtype(JSType that) {\n+    if (that.isRecordType()) {\n+        return that.getGreatestSubtype(this);\n+    }\n+    return getGreatestSubtype(this, that);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JSType getGreatestSubtype(JSType that) {\n    if (that.isRecordType()) {\n        return that.getGreatestSubtype(this);\n    }\n    return getGreatestSubtype(this, that);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 559,
+      "functionName": "getGreatestSubtype",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the greatest subtype of {@code this} and {@code that}.\nThe greatest subtype is the meet (\u0026#8743;) or infimum of both types in the\ntype lattice.\u003cp\u003e\nExamples\n\u003cul\u003e\n\u003cli\u003e{@code Number \u0026#8743; Any} \u003d {@code Any}\u003c/li\u003e\n\u003cli\u003e{@code number \u0026#8743; Object} \u003d {@code Any}\u003c/li\u003e\n\u003cli\u003e{@code Number \u0026#8743; Object} \u003d {@code Number}\u003c/li\u003e\n\u003c/ul\u003e\n\n@return @code this \u0026#8744; that}\n"
+    }
+  }
+}

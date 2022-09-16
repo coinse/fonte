@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrototypeObjectType.java",
+  "functionName": "getSlot",
+  "functionId": "getSlot___name-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 128,
+  "functionEndLine": 146,
+  "numCommitsSeen": 42,
+  "timeTaken": 1532,
+  "changeHistory": [
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+    "8dc67305aec856292735bb821fe41e7f9032e7e1"
+  ],
+  "changeHistoryShort": {
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "8dc67305aec856292735bb821fe41e7f9032e7e1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "400a87f52b5d1ffc28bb85ed302aefaea5c28021": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "\nMake sure that a function and its prototype are declared in the same place\n\nR\u003djohnlenz\nDELTA\u003d56  (30 added, 2 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3693\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1588 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/11, 9:54 AM",
+      "commitName": "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "\nMake sure that a function and its prototype are declared in the same place\n\nR\u003djohnlenz\nDELTA\u003d56  (30 added, 2 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3693\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1588 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/11/11, 9:54 AM",
+          "commitName": "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/8/11, 12:25 PM",
+          "commitNameOld": "9d8201624c22636577d47a40aa03de44363b695b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 2.9,
+          "commitsBetweenForRepo": 17,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Property getSlot(String name) {\n    if (properties.containsKey(name)) {\n        return properties.get(name);\n    }\n    ObjectType implicitPrototype \u003d getImplicitPrototype();\n    if (implicitPrototype !\u003d null) {\n        Property prop \u003d implicitPrototype.getSlot(name);\n        if (prop !\u003d null) {\n            return prop;\n        }\n    }\n    for (ObjectType interfaceType : getCtorExtendedInterfaces()) {\n        Property prop \u003d interfaceType.getSlot(name);\n        if (prop !\u003d null) {\n            return prop;\n        }\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 128,
+          "functionName": "getSlot",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,20 +1,20 @@\n @Override\n-public StaticSlot\u003cJSType\u003e getSlot(String name) {\n+public Property getSlot(String name) {\n     if (properties.containsKey(name)) {\n         return properties.get(name);\n     }\n     ObjectType implicitPrototype \u003d getImplicitPrototype();\n     if (implicitPrototype !\u003d null) {\n-        StaticSlot\u003cJSType\u003e prop \u003d implicitPrototype.getSlot(name);\n+        Property prop \u003d implicitPrototype.getSlot(name);\n         if (prop !\u003d null) {\n             return prop;\n         }\n     }\n     for (ObjectType interfaceType : getCtorExtendedInterfaces()) {\n-        StaticSlot\u003cJSType\u003e prop \u003d interfaceType.getSlot(name);\n+        Property prop \u003d interfaceType.getSlot(name);\n         if (prop !\u003d null) {\n             return prop;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "StaticSlot\u003cJSType\u003e",
+            "newValue": "Property"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nMake sure that a function and its prototype are declared in the same place\n\nR\u003djohnlenz\nDELTA\u003d56  (30 added, 2 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3693\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1588 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/11/11, 9:54 AM",
+          "commitName": "400a87f52b5d1ffc28bb85ed302aefaea5c28021",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/8/11, 12:25 PM",
+          "commitNameOld": "9d8201624c22636577d47a40aa03de44363b695b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 2.9,
+          "commitsBetweenForRepo": 17,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Property getSlot(String name) {\n    if (properties.containsKey(name)) {\n        return properties.get(name);\n    }\n    ObjectType implicitPrototype \u003d getImplicitPrototype();\n    if (implicitPrototype !\u003d null) {\n        Property prop \u003d implicitPrototype.getSlot(name);\n        if (prop !\u003d null) {\n            return prop;\n        }\n    }\n    for (ObjectType interfaceType : getCtorExtendedInterfaces()) {\n        Property prop \u003d interfaceType.getSlot(name);\n        if (prop !\u003d null) {\n            return prop;\n        }\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 128,
+          "functionName": "getSlot",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,20 +1,20 @@\n @Override\n-public StaticSlot\u003cJSType\u003e getSlot(String name) {\n+public Property getSlot(String name) {\n     if (properties.containsKey(name)) {\n         return properties.get(name);\n     }\n     ObjectType implicitPrototype \u003d getImplicitPrototype();\n     if (implicitPrototype !\u003d null) {\n-        StaticSlot\u003cJSType\u003e prop \u003d implicitPrototype.getSlot(name);\n+        Property prop \u003d implicitPrototype.getSlot(name);\n         if (prop !\u003d null) {\n             return prop;\n         }\n     }\n     for (ObjectType interfaceType : getCtorExtendedInterfaces()) {\n-        StaticSlot\u003cJSType\u003e prop \u003d interfaceType.getSlot(name);\n+        Property prop \u003d interfaceType.getSlot(name);\n         if (prop !\u003d null) {\n             return prop;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "8dc67305aec856292735bb821fe41e7f9032e7e1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMake ObjectType implement StaticScope.\nThis is part of a long-term plan to write a general\nsymbol table with a unified API across many different types\nof data structures.\nI accidentally fixed a bug in interfaces when doing this, so added tests for the bugs i fixed.\n\nR\u003dacleung\nDELTA\u003d177  (101 added, 49 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2282\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1182 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/15/11, 1:20 PM",
+      "commitName": "8dc67305aec856292735bb821fe41e7f9032e7e1",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,20 @@\n+@Override\n+public StaticSlot\u003cJSType\u003e getSlot(String name) {\n+    if (properties.containsKey(name)) {\n+        return properties.get(name);\n+    }\n+    ObjectType implicitPrototype \u003d getImplicitPrototype();\n+    if (implicitPrototype !\u003d null) {\n+        StaticSlot\u003cJSType\u003e prop \u003d implicitPrototype.getSlot(name);\n+        if (prop !\u003d null) {\n+            return prop;\n+        }\n+    }\n+    for (ObjectType interfaceType : getCtorExtendedInterfaces()) {\n+        StaticSlot\u003cJSType\u003e prop \u003d interfaceType.getSlot(name);\n+        if (prop !\u003d null) {\n+            return prop;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic StaticSlot\u003cJSType\u003e getSlot(String name) {\n    if (properties.containsKey(name)) {\n        return properties.get(name);\n    }\n    ObjectType implicitPrototype \u003d getImplicitPrototype();\n    if (implicitPrototype !\u003d null) {\n        StaticSlot\u003cJSType\u003e prop \u003d implicitPrototype.getSlot(name);\n        if (prop !\u003d null) {\n            return prop;\n        }\n    }\n    for (ObjectType interfaceType : getCtorExtendedInterfaces()) {\n        StaticSlot\u003cJSType\u003e prop \u003d interfaceType.getSlot(name);\n        if (prop !\u003d null) {\n            return prop;\n        }\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 123,
+      "functionName": "getSlot",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

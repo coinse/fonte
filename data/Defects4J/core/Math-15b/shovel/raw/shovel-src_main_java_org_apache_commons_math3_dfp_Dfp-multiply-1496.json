@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-15b",
+  "repositoryPath": "/tmp/Math-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "multiply",
+  "functionId": "multiply___x-Dfp(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Multiply this by x.\n\n@param x multiplicand\n@return product of this and x\n",
+  "functionStartLine": 1496,
+  "functionEndLine": 1596,
+  "numCommitsSeen": 13,
+  "timeTaken": 12671,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Dfp multiply(final Dfp x) {\n    if (field.getRadixDigits() !\u003d x.field.getRadixDigits()) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        final Dfp result \u003d newInstance(getZero());\n        result.nans \u003d QNAN;\n        return dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);\n    }\n    Dfp result \u003d newInstance(getZero());\n    if (nans !\u003d FINITE || x.nans !\u003d FINITE) {\n        if (isNaN()) {\n            return this;\n        }\n        if (x.isNaN()) {\n            return x;\n        }\n        if (nans \u003d\u003d INFINITE \u0026\u0026 x.nans \u003d\u003d FINITE \u0026\u0026 x.mant[mant.length - 1] !\u003d 0) {\n            result \u003d newInstance(this);\n            result.sign \u003d (byte) (sign * x.sign);\n            return result;\n        }\n        if (x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] !\u003d 0) {\n            result \u003d newInstance(x);\n            result.sign \u003d (byte) (sign * x.sign);\n            return result;\n        }\n        if (x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d INFINITE) {\n            result \u003d newInstance(this);\n            result.sign \u003d (byte) (sign * x.sign);\n            return result;\n        }\n        if ((x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] \u003d\u003d 0) || (nans \u003d\u003d INFINITE \u0026\u0026 x.nans \u003d\u003d FINITE \u0026\u0026 x.mant[mant.length - 1] \u003d\u003d 0)) {\n            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n            result \u003d newInstance(getZero());\n            result.nans \u003d QNAN;\n            result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);\n            return result;\n        }\n    }\n    int[] product \u003d new int[mant.length * 2];\n    for (int i \u003d 0; i \u003c mant.length; i++) {\n        int rh \u003d 0;\n        for (int j \u003d 0; j \u003c mant.length; j++) {\n            int r \u003d mant[i] * x.mant[j];\n            r \u003d r + product[i + j] + rh;\n            rh \u003d r / RADIX;\n            product[i + j] \u003d r - rh * RADIX;\n        }\n        product[i + mant.length] \u003d rh;\n    }\n    int md \u003d mant.length * 2 - 1;\n    for (int i \u003d mant.length * 2 - 1; i \u003e\u003d 0; i--) {\n        if (product[i] !\u003d 0) {\n            md \u003d i;\n            break;\n        }\n    }\n    for (int i \u003d 0; i \u003c mant.length; i++) {\n        result.mant[mant.length - i - 1] \u003d product[md - i];\n    }\n    result.exp \u003d exp + x.exp + md - 2 * mant.length + 1;\n    result.sign \u003d (byte) ((sign \u003d\u003d x.sign) ? 1 : -1);\n    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n        result.exp \u003d 0;\n    }\n    final int excp;\n    if (md \u003e (mant.length - 1)) {\n        excp \u003d result.round(product[md - mant.length]);\n    } else {\n        excp \u003d result.round(0);\n    }\n    if (excp !\u003d 0) {\n        result \u003d dotrap(excp, MULTIPLY_TRAP, x, result);\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+      "functionStartLine": 1496,
+      "functionName": "multiply",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply this by x.\n\n@param x multiplicand\n@return product of this and x\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+        "newPath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+        "oldMethodName": "multiply",
+        "newMethodName": "multiply"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,75 @@\n+public Dfp multiply(final Dfp x) {\n+    if (field.getRadixDigits() !\u003d x.field.getRadixDigits()) {\n+        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+        final Dfp result \u003d newInstance(getZero());\n+        result.nans \u003d QNAN;\n+        return dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);\n+    }\n+    Dfp result \u003d newInstance(getZero());\n+    if (nans !\u003d FINITE || x.nans !\u003d FINITE) {\n+        if (isNaN()) {\n+            return this;\n+        }\n+        if (x.isNaN()) {\n+            return x;\n+        }\n+        if (nans \u003d\u003d INFINITE \u0026\u0026 x.nans \u003d\u003d FINITE \u0026\u0026 x.mant[mant.length - 1] !\u003d 0) {\n+            result \u003d newInstance(this);\n+            result.sign \u003d (byte) (sign * x.sign);\n+            return result;\n+        }\n+        if (x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] !\u003d 0) {\n+            result \u003d newInstance(x);\n+            result.sign \u003d (byte) (sign * x.sign);\n+            return result;\n+        }\n+        if (x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d INFINITE) {\n+            result \u003d newInstance(this);\n+            result.sign \u003d (byte) (sign * x.sign);\n+            return result;\n+        }\n+        if ((x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] \u003d\u003d 0) || (nans \u003d\u003d INFINITE \u0026\u0026 x.nans \u003d\u003d FINITE \u0026\u0026 x.mant[mant.length - 1] \u003d\u003d 0)) {\n+            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+            result \u003d newInstance(getZero());\n+            result.nans \u003d QNAN;\n+            result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);\n+            return result;\n+        }\n+    }\n+    int[] product \u003d new int[mant.length * 2];\n+    for (int i \u003d 0; i \u003c mant.length; i++) {\n+        int rh \u003d 0;\n+        for (int j \u003d 0; j \u003c mant.length; j++) {\n+            int r \u003d mant[i] * x.mant[j];\n+            r \u003d r + product[i + j] + rh;\n+            rh \u003d r / RADIX;\n+            product[i + j] \u003d r - rh * RADIX;\n+        }\n+        product[i + mant.length] \u003d rh;\n+    }\n+    int md \u003d mant.length * 2 - 1;\n+    for (int i \u003d mant.length * 2 - 1; i \u003e\u003d 0; i--) {\n+        if (product[i] !\u003d 0) {\n+            md \u003d i;\n+            break;\n+        }\n+    }\n+    for (int i \u003d 0; i \u003c mant.length; i++) {\n+        result.mant[mant.length - i - 1] \u003d product[md - i];\n+    }\n+    result.exp \u003d exp + x.exp + md - 2 * mant.length + 1;\n+    result.sign \u003d (byte) ((sign \u003d\u003d x.sign) ? 1 : -1);\n+    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n+        result.exp \u003d 0;\n+    }\n+    final int excp;\n+    if (md \u003e (mant.length - 1)) {\n+        excp \u003d result.round(product[md - mant.length]);\n+    } else {\n+        excp \u003d result.round(0);\n+    }\n+    if (excp !\u003d 0) {\n+        result \u003d dotrap(excp, MULTIPLY_TRAP, x, result);\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Dfp multiply(final Dfp x) {\n    if (field.getRadixDigits() !\u003d x.field.getRadixDigits()) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        final Dfp result \u003d newInstance(getZero());\n        result.nans \u003d QNAN;\n        return dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);\n    }\n    Dfp result \u003d newInstance(getZero());\n    if (nans !\u003d FINITE || x.nans !\u003d FINITE) {\n        if (isNaN()) {\n            return this;\n        }\n        if (x.isNaN()) {\n            return x;\n        }\n        if (nans \u003d\u003d INFINITE \u0026\u0026 x.nans \u003d\u003d FINITE \u0026\u0026 x.mant[mant.length - 1] !\u003d 0) {\n            result \u003d newInstance(this);\n            result.sign \u003d (byte) (sign * x.sign);\n            return result;\n        }\n        if (x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] !\u003d 0) {\n            result \u003d newInstance(x);\n            result.sign \u003d (byte) (sign * x.sign);\n            return result;\n        }\n        if (x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d INFINITE) {\n            result \u003d newInstance(this);\n            result.sign \u003d (byte) (sign * x.sign);\n            return result;\n        }\n        if ((x.nans \u003d\u003d INFINITE \u0026\u0026 nans \u003d\u003d FINITE \u0026\u0026 mant[mant.length - 1] \u003d\u003d 0) || (nans \u003d\u003d INFINITE \u0026\u0026 x.nans \u003d\u003d FINITE \u0026\u0026 x.mant[mant.length - 1] \u003d\u003d 0)) {\n            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n            result \u003d newInstance(getZero());\n            result.nans \u003d QNAN;\n            result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);\n            return result;\n        }\n    }\n    int[] product \u003d new int[mant.length * 2];\n    for (int i \u003d 0; i \u003c mant.length; i++) {\n        int rh \u003d 0;\n        for (int j \u003d 0; j \u003c mant.length; j++) {\n            int r \u003d mant[i] * x.mant[j];\n            r \u003d r + product[i + j] + rh;\n            rh \u003d r / RADIX;\n            product[i + j] \u003d r - rh * RADIX;\n        }\n        product[i + mant.length] \u003d rh;\n    }\n    int md \u003d mant.length * 2 - 1;\n    for (int i \u003d mant.length * 2 - 1; i \u003e\u003d 0; i--) {\n        if (product[i] !\u003d 0) {\n            md \u003d i;\n            break;\n        }\n    }\n    for (int i \u003d 0; i \u003c mant.length; i++) {\n        result.mant[mant.length - i - 1] \u003d product[md - i];\n    }\n    result.exp \u003d exp + x.exp + md - 2 * mant.length + 1;\n    result.sign \u003d (byte) ((sign \u003d\u003d x.sign) ? 1 : -1);\n    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n        result.exp \u003d 0;\n    }\n    final int excp;\n    if (md \u003e (mant.length - 1)) {\n        excp \u003d result.round(product[md - mant.length]);\n    } else {\n        excp \u003d result.round(0);\n    }\n    if (excp !\u003d 0) {\n        result \u003d dotrap(excp, MULTIPLY_TRAP, x, result);\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 1409,
+      "functionName": "multiply",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply this by x.\n\n@param x multiplicand\n@return product of this and x\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NamedType.java",
+  "functionName": "lookupViaProperties",
+  "functionId": "lookupViaProperties___t-ErrorReporter__enclosing-StaticScope__JSType__",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/NamedType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Resolves a type by looking up its first component in the scope, and\nsubsequent components as properties. The scope must have been fully\nparsed and a symbol table constructed.\n\n@return The type of the symbol, or null if the type could not be found.\n",
+  "functionStartLine": 266,
+  "functionEndLine": 300,
+  "numCommitsSeen": 39,
+  "timeTaken": 1811,
+  "changeHistory": [
+    "b2a304dd9ec2ab9fe4ddf88d07f80cba26cc266d"
+  ],
+  "changeHistoryShort": {
+    "b2a304dd9ec2ab9fe4ddf88d07f80cba26cc266d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b2a304dd9ec2ab9fe4ddf88d07f80cba26cc266d": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDo some clean up on how we resolve type names.\n\nR\u003djohnlenz\nDELTA\u003d103  (73 added, 19 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d60002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@305 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/22/10, 12:06 PM",
+      "commitName": "b2a304dd9ec2ab9fe4ddf88d07f80cba26cc266d",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,29 @@\n+private JSType lookupViaProperties(ErrorReporter t, StaticScope\u003cJSType\u003e enclosing) {\n+    String[] componentNames \u003d reference.split(\"\\\\.\", -1);\n+    if (componentNames[0].length() \u003d\u003d 0) {\n+        return null;\n+    }\n+    StaticSlot\u003cJSType\u003e slot \u003d enclosing.getSlot(componentNames[0]);\n+    if (slot \u003d\u003d null) {\n+        return null;\n+    }\n+    JSType slotType \u003d slot.getType();\n+    if (slotType \u003d\u003d null || slotType.isAllType() || slotType.isNoType()) {\n+        return null;\n+    }\n+    JSType value \u003d getTypedefType(t, slot, componentNames[0]);\n+    if (value \u003d\u003d null) {\n+        return null;\n+    }\n+    for (int i \u003d 1; i \u003c componentNames.length; i++) {\n+        ObjectType parentClass \u003d ObjectType.cast(value);\n+        if (parentClass \u003d\u003d null) {\n+            return null;\n+        }\n+        if (componentNames[i].length() \u003d\u003d 0) {\n+            return null;\n+        }\n+        value \u003d parentClass.getPropertyType(componentNames[i]);\n+    }\n+    return value;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JSType lookupViaProperties(ErrorReporter t, StaticScope\u003cJSType\u003e enclosing) {\n    String[] componentNames \u003d reference.split(\"\\\\.\", -1);\n    if (componentNames[0].length() \u003d\u003d 0) {\n        return null;\n    }\n    StaticSlot\u003cJSType\u003e slot \u003d enclosing.getSlot(componentNames[0]);\n    if (slot \u003d\u003d null) {\n        return null;\n    }\n    JSType slotType \u003d slot.getType();\n    if (slotType \u003d\u003d null || slotType.isAllType() || slotType.isNoType()) {\n        return null;\n    }\n    JSType value \u003d getTypedefType(t, slot, componentNames[0]);\n    if (value \u003d\u003d null) {\n        return null;\n    }\n    for (int i \u003d 1; i \u003c componentNames.length; i++) {\n        ObjectType parentClass \u003d ObjectType.cast(value);\n        if (parentClass \u003d\u003d null) {\n            return null;\n        }\n        if (componentNames[i].length() \u003d\u003d 0) {\n            return null;\n        }\n        value \u003d parentClass.getPropertyType(componentNames[i]);\n    }\n    return value;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/NamedType.java",
+      "functionStartLine": 251,
+      "functionName": "lookupViaProperties",
+      "functionAnnotation": "",
+      "functionDoc": "Resolves a type by looking up its first component in the scope, and\nsubsequent components as properties. The scope must have been fully\nparsed and a symbol table constructed.\n\n@return The type of the symbol, or null if the type could not be found.\n"
+    }
+  }
+}

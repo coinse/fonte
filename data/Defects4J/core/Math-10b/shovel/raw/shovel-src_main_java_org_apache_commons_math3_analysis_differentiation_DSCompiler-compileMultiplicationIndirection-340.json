@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "compileMultiplicationIndirection",
+  "functionId": "compileMultiplicationIndirection___parameters-int(modifiers-final)__order-int(modifiers-final)__valueCompiler-DSCompiler(modifiers-final)__derivativeCompiler-DSCompiler(modifiers-final)__lowerIndirection-int[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compile the multiplication indirection array.\n\u003cp\u003e\nThis indirection array contains the indices of all pairs of elements\ninvolved when computing a multiplication. This allows a straightforward\nloop-based multiplication (see {@link #multiply(double[], int, double[], int, double[], int)}).\n\u003c/p\u003e\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@param derivativeCompiler compiler for the derivative part\n@param lowerIndirection lower derivatives indirection array\n@return multiplication indirection array\n",
+  "functionStartLine": 340,
+  "functionEndLine": 388,
+  "numCommitsSeen": 17,
+  "timeTaken": 2269,
+  "changeHistory": [
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,33 @@\n+private static int[][][] compileMultiplicationIndirection(final int parameters, final int order, final DSCompiler valueCompiler, final DSCompiler derivativeCompiler, final int[] lowerIndirection) {\n+    if ((parameters \u003d\u003d 0) || (order \u003d\u003d 0)) {\n+        return new int[][][] { { { 1, 0, 0 } } };\n+    }\n+    final int vSize \u003d valueCompiler.multIndirection.length;\n+    final int dSize \u003d derivativeCompiler.multIndirection.length;\n+    final int[][][] multIndirection \u003d new int[vSize + dSize][][];\n+    System.arraycopy(valueCompiler.multIndirection, 0, multIndirection, 0, vSize);\n+    for (int i \u003d 0; i \u003c dSize; ++i) {\n+        final int[][] dRow \u003d derivativeCompiler.multIndirection[i];\n+        List\u003cint[]\u003e row \u003d new ArrayList\u003cint[]\u003e();\n+        for (int j \u003d 0; j \u003c dRow.length; ++j) {\n+            row.add(new int[] { dRow[j][0], lowerIndirection[dRow[j][1]], vSize + dRow[j][2] });\n+            row.add(new int[] { dRow[j][0], vSize + dRow[j][1], lowerIndirection[dRow[j][2]] });\n+        }\n+        final List\u003cint[]\u003e combined \u003d new ArrayList\u003cint[]\u003e(row.size());\n+        for (int j \u003d 0; j \u003c row.size(); ++j) {\n+            final int[] termJ \u003d row.get(j);\n+            if (termJ[0] \u003e 0) {\n+                for (int k \u003d j + 1; k \u003c row.size(); ++k) {\n+                    final int[] termK \u003d row.get(k);\n+                    if (termJ[1] \u003d\u003d termK[1] \u0026\u0026 termJ[2] \u003d\u003d termK[2]) {\n+                        termJ[0] +\u003d termK[0];\n+                        termK[0] \u003d 0;\n+                    }\n+                }\n+                combined.add(termJ);\n+            }\n+        }\n+        multIndirection[vSize + i] \u003d combined.toArray(new int[combined.size()][]);\n+    }\n+    return multIndirection;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static int[][][] compileMultiplicationIndirection(final int parameters, final int order, final DSCompiler valueCompiler, final DSCompiler derivativeCompiler, final int[] lowerIndirection) {\n    if ((parameters \u003d\u003d 0) || (order \u003d\u003d 0)) {\n        return new int[][][] { { { 1, 0, 0 } } };\n    }\n    final int vSize \u003d valueCompiler.multIndirection.length;\n    final int dSize \u003d derivativeCompiler.multIndirection.length;\n    final int[][][] multIndirection \u003d new int[vSize + dSize][][];\n    System.arraycopy(valueCompiler.multIndirection, 0, multIndirection, 0, vSize);\n    for (int i \u003d 0; i \u003c dSize; ++i) {\n        final int[][] dRow \u003d derivativeCompiler.multIndirection[i];\n        List\u003cint[]\u003e row \u003d new ArrayList\u003cint[]\u003e();\n        for (int j \u003d 0; j \u003c dRow.length; ++j) {\n            row.add(new int[] { dRow[j][0], lowerIndirection[dRow[j][1]], vSize + dRow[j][2] });\n            row.add(new int[] { dRow[j][0], vSize + dRow[j][1], lowerIndirection[dRow[j][2]] });\n        }\n        final List\u003cint[]\u003e combined \u003d new ArrayList\u003cint[]\u003e(row.size());\n        for (int j \u003d 0; j \u003c row.size(); ++j) {\n            final int[] termJ \u003d row.get(j);\n            if (termJ[0] \u003e 0) {\n                for (int k \u003d j + 1; k \u003c row.size(); ++k) {\n                    final int[] termK \u003d row.get(k);\n                    if (termJ[1] \u003d\u003d termK[1] \u0026\u0026 termJ[2] \u003d\u003d termK[2]) {\n                        termJ[0] +\u003d termK[0];\n                        termK[0] \u003d 0;\n                    }\n                }\n                combined.add(termJ);\n            }\n        }\n        multIndirection[vSize + i] \u003d combined.toArray(new int[combined.size()][]);\n    }\n    return multIndirection;\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 341,
+      "functionName": "compileMultiplicationIndirection",
+      "functionAnnotation": "",
+      "functionDoc": "Compile the multiplication indirection array.\n\u003cp\u003e\nThis indirection array contains the indices of all pairs of elements\ninvolved when computing a multiplication. This allows a straightforward\nloop-based multiplication (see {@link #multiply(double[], int, double[], int, double[], int)}).\n\u003c/p\u003e\n\n@param parameters number of free parameters\n@param order derivation order\n@param valueCompiler compiler for the value part\n@param derivativeCompiler compiler for the derivative part\n@param lowerIndirection lower derivatives indirection array\n@return multiplication indirection array\n"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "pow",
+  "functionId": "pow___d-double__e-int",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Raise a double to an int power.\n\n@param d Number to raise.\n@param e Exponent.\n@return d\u003csup\u003ee\u003c/sup\u003e\n@since 3.1\n",
+  "functionStartLine": 1611,
+  "functionEndLine": 1668,
+  "numCommitsSeen": 15,
+  "timeTaken": 2488,
+  "changeHistory": [
+    "abe9cb84292c5469f8e43afff555287ffb800f53",
+    "b68b4d60830123c285b22ee5fa35c13fabc04d13",
+    "f3d763ac36d16faa666c999f4506e83356025a9c"
+  ],
+  "changeHistoryShort": {
+    "abe9cb84292c5469f8e43afff555287ffb800f53": "Ydocchange",
+    "b68b4d60830123c285b22ee5fa35c13fabc04d13": "Ybodychange",
+    "f3d763ac36d16faa666c999f4506e83356025a9c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "abe9cb84292c5469f8e43afff555287ffb800f53": {
+      "type": "Ydocchange",
+      "commitMessage": "Added missing @since tags.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1422313 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/15/12, 10:53 AM",
+      "commitName": "abe9cb84292c5469f8e43afff555287ffb800f53",
+      "commitAuthor": "Phil Steitz",
+      "commitDateOld": "12/13/12, 5:07 AM",
+      "commitNameOld": "4f5a775568f6bc3622331a970134149784ca29f7",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 2.24,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static double pow(double d, int e) {\n    if (e \u003d\u003d 0) {\n        return 1.0;\n    } else if (e \u003c 0) {\n        e \u003d -e;\n        d \u003d 1.0 / d;\n    }\n    final int splitFactor \u003d 0x8000001;\n    final double cd \u003d splitFactor * d;\n    final double d1High \u003d cd - (cd - d);\n    final double d1Low \u003d d - d1High;\n    double resultHigh \u003d 1;\n    double resultLow \u003d 0;\n    double d2p \u003d d;\n    double d2pHigh \u003d d1High;\n    double d2pLow \u003d d1Low;\n    while (e !\u003d 0) {\n        if ((e \u0026 0x1) !\u003d 0) {\n            final double tmpHigh \u003d resultHigh * d2p;\n            final double cRH \u003d splitFactor * resultHigh;\n            final double rHH \u003d cRH - (cRH - resultHigh);\n            final double rHL \u003d resultHigh - rHH;\n            final double tmpLow \u003d rHL * d2pLow - (((tmpHigh - rHH * d2pHigh) - rHL * d2pHigh) - rHH * d2pLow);\n            resultHigh \u003d tmpHigh;\n            resultLow \u003d resultLow * d2p + tmpLow;\n        }\n        final double tmpHigh \u003d d2pHigh * d2p;\n        final double cD2pH \u003d splitFactor * d2pHigh;\n        final double d2pHH \u003d cD2pH - (cD2pH - d2pHigh);\n        final double d2pHL \u003d d2pHigh - d2pHH;\n        final double tmpLow \u003d d2pHL * d2pLow - (((tmpHigh - d2pHH * d2pHigh) - d2pHL * d2pHigh) - d2pHH * d2pLow);\n        final double cTmpH \u003d splitFactor * tmpHigh;\n        d2pHigh \u003d cTmpH - (cTmpH - tmpHigh);\n        d2pLow \u003d d2pLow * d2p + tmpLow + (tmpHigh - d2pHigh);\n        d2p \u003d d2pHigh + d2pLow;\n        e \u003d e \u003e\u003e 1;\n    }\n    return resultHigh + resultLow;\n}",
+      "path": "src/main/java/org/apache/commons/math3/util/FastMath.java",
+      "functionStartLine": 1611,
+      "functionName": "pow",
+      "functionAnnotation": "",
+      "functionDoc": "Raise a double to an int power.\n\n@param d Number to raise.\n@param e Exponent.\n@return d\u003csup\u003ee\u003c/sup\u003e\n@since 3.1\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Raise a double to an int power.\n\n@param d Number to raise.\n@param e Exponent.\n@return d\u003csup\u003ee\u003c/sup\u003e\n",
+        "newValue": "Raise a double to an int power.\n\n@param d Number to raise.\n@param e Exponent.\n@return d\u003csup\u003ee\u003c/sup\u003e\n@since 3.1\n"
+      }
+    },
+    "b68b4d60830123c285b22ee5fa35c13fabc04d13": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed accuracy issues in FastMath.pow(double, int).\n\nThe fixed version is slightly slower, but still much faster than\nFastMath.pow(double, double). Some random testing showed that the\naccuracy is now always better than 0.5ulp, even for large exponent.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1371670 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/10/12, 4:54 AM",
+      "commitName": "b68b4d60830123c285b22ee5fa35c13fabc04d13",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/9/12, 1:07 AM",
+      "commitNameOld": "f3d763ac36d16faa666c999f4506e83356025a9c",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 1.16,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static double pow(double d, int e) {\n    if (e \u003d\u003d 0) {\n        return 1.0;\n    } else if (e \u003c 0) {\n        e \u003d -e;\n        d \u003d 1.0 / d;\n    }\n    final int splitFactor \u003d 0x8000001;\n    final double cd \u003d splitFactor * d;\n    final double d1High \u003d cd - (cd - d);\n    final double d1Low \u003d d - d1High;\n    double resultHigh \u003d 1;\n    double resultLow \u003d 0;\n    double d2p \u003d d;\n    double d2pHigh \u003d d1High;\n    double d2pLow \u003d d1Low;\n    while (e !\u003d 0) {\n        if ((e \u0026 0x1) !\u003d 0) {\n            final double tmpHigh \u003d resultHigh * d2p;\n            final double cRH \u003d splitFactor * resultHigh;\n            final double rHH \u003d cRH - (cRH - resultHigh);\n            final double rHL \u003d resultHigh - rHH;\n            final double tmpLow \u003d rHL * d2pLow - (((tmpHigh - rHH * d2pHigh) - rHL * d2pHigh) - rHH * d2pLow);\n            resultHigh \u003d tmpHigh;\n            resultLow \u003d resultLow * d2p + tmpLow;\n        }\n        final double tmpHigh \u003d d2pHigh * d2p;\n        final double cD2pH \u003d splitFactor * d2pHigh;\n        final double d2pHH \u003d cD2pH - (cD2pH - d2pHigh);\n        final double d2pHL \u003d d2pHigh - d2pHH;\n        final double tmpLow \u003d d2pHL * d2pLow - (((tmpHigh - d2pHH * d2pHigh) - d2pHL * d2pHigh) - d2pHH * d2pLow);\n        final double cTmpH \u003d splitFactor * tmpHigh;\n        d2pHigh \u003d cTmpH - (cTmpH - tmpHigh);\n        d2pLow \u003d d2pLow * d2p + tmpLow + (tmpHigh - d2pHigh);\n        d2p \u003d d2pHigh + d2pLow;\n        e \u003d e \u003e\u003e 1;\n    }\n    return resultHigh + resultLow;\n}",
+      "path": "src/main/java/org/apache/commons/math3/util/FastMath.java",
+      "functionStartLine": 1591,
+      "functionName": "pow",
+      "functionAnnotation": "",
+      "functionDoc": "Raise a double to an int power.\n\n@param d Number to raise.\n@param e Exponent.\n@return d\u003csup\u003ee\u003c/sup\u003e\n",
+      "diff": "@@ -1,18 +1,39 @@\n public static double pow(double d, int e) {\n     if (e \u003d\u003d 0) {\n         return 1.0;\n     } else if (e \u003c 0) {\n         e \u003d -e;\n         d \u003d 1.0 / d;\n     }\n-    double result \u003d 1;\n+    final int splitFactor \u003d 0x8000001;\n+    final double cd \u003d splitFactor * d;\n+    final double d1High \u003d cd - (cd - d);\n+    final double d1Low \u003d d - d1High;\n+    double resultHigh \u003d 1;\n+    double resultLow \u003d 0;\n     double d2p \u003d d;\n+    double d2pHigh \u003d d1High;\n+    double d2pLow \u003d d1Low;\n     while (e !\u003d 0) {\n         if ((e \u0026 0x1) !\u003d 0) {\n-            result *\u003d d2p;\n+            final double tmpHigh \u003d resultHigh * d2p;\n+            final double cRH \u003d splitFactor * resultHigh;\n+            final double rHH \u003d cRH - (cRH - resultHigh);\n+            final double rHL \u003d resultHigh - rHH;\n+            final double tmpLow \u003d rHL * d2pLow - (((tmpHigh - rHH * d2pHigh) - rHL * d2pHigh) - rHH * d2pLow);\n+            resultHigh \u003d tmpHigh;\n+            resultLow \u003d resultLow * d2p + tmpLow;\n         }\n-        d2p *\u003d d2p;\n+        final double tmpHigh \u003d d2pHigh * d2p;\n+        final double cD2pH \u003d splitFactor * d2pHigh;\n+        final double d2pHH \u003d cD2pH - (cD2pH - d2pHigh);\n+        final double d2pHL \u003d d2pHigh - d2pHH;\n+        final double tmpLow \u003d d2pHL * d2pLow - (((tmpHigh - d2pHH * d2pHigh) - d2pHL * d2pHigh) - d2pHH * d2pLow);\n+        final double cTmpH \u003d splitFactor * tmpHigh;\n+        d2pHigh \u003d cTmpH - (cTmpH - tmpHigh);\n+        d2pLow \u003d d2pLow * d2p + tmpLow + (tmpHigh - d2pHigh);\n+        d2p \u003d d2pHigh + d2pLow;\n         e \u003d e \u003e\u003e 1;\n     }\n-    return result;\n+    return resultHigh + resultLow;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f3d763ac36d16faa666c999f4506e83356025a9c": {
+      "type": "Yintroduced",
+      "commitMessage": "added a function to raise a double to an int power\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1371082 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/9/12, 1:07 AM",
+      "commitName": "f3d763ac36d16faa666c999f4506e83356025a9c",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,18 @@\n+public static double pow(double d, int e) {\n+    if (e \u003d\u003d 0) {\n+        return 1.0;\n+    } else if (e \u003c 0) {\n+        e \u003d -e;\n+        d \u003d 1.0 / d;\n+    }\n+    double result \u003d 1;\n+    double d2p \u003d d;\n+    while (e !\u003d 0) {\n+        if ((e \u0026 0x1) !\u003d 0) {\n+            result *\u003d d2p;\n+        }\n+        d2p *\u003d d2p;\n+        e \u003d e \u003e\u003e 1;\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static double pow(double d, int e) {\n    if (e \u003d\u003d 0) {\n        return 1.0;\n    } else if (e \u003c 0) {\n        e \u003d -e;\n        d \u003d 1.0 / d;\n    }\n    double result \u003d 1;\n    double d2p \u003d d;\n    while (e !\u003d 0) {\n        if ((e \u0026 0x1) !\u003d 0) {\n            result *\u003d d2p;\n        }\n        d2p *\u003d d2p;\n        e \u003d e \u003e\u003e 1;\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math3/util/FastMath.java",
+      "functionStartLine": 1591,
+      "functionName": "pow",
+      "functionAnnotation": "",
+      "functionDoc": "Raise a double to an int power.\n\n@param d Number to raise.\n@param e Exponent.\n@return d\u003csup\u003ee\u003c/sup\u003e\n"
+    }
+  }
+}

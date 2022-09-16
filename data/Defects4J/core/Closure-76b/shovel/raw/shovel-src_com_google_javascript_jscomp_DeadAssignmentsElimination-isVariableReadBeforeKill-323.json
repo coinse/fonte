@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-76b",
+  "repositoryPath": "/tmp/Closure-76b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeadAssignmentsElimination.java",
+  "functionName": "isVariableReadBeforeKill",
+  "functionId": "isVariableReadBeforeKill___n-Node__variable-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+  "functionAnnotation": "",
+  "functionDoc": "Give an expression and a variable. It returns READ, if the first\nreference of that variable is a read. It returns KILL, if the first\nreference of that variable is an assignment. It returns MAY_LIVE otherwise.\n",
+  "functionStartLine": 323,
+  "functionEndLine": 353,
+  "numCommitsSeen": 31,
+  "timeTaken": 1908,
+  "changeHistory": [
+    "6a17da87f9e132bdc147b33223826da040c77a6b",
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a"
+  ],
+  "changeHistoryShort": {
+    "6a17da87f9e132bdc147b33223826da040c77a6b": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6a17da87f9e132bdc147b33223826da040c77a6b": {
+      "type": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+      "commitMessage": "\nFix checks for variable reads in expressions with assignments.\nFixes issue 297.\n\nR\u003dnicksantos\nDELTA\u003d123  (113 added, 3 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d132\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@629 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/14/10, 11:51 AM",
+      "commitName": "6a17da87f9e132bdc147b33223826da040c77a6b",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nFix checks for variable reads in expressions with assignments.\nFixes issue 297.\n\nR\u003dnicksantos\nDELTA\u003d123  (113 added, 3 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d132\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@629 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/14/10, 11:51 AM",
+          "commitName": "6a17da87f9e132bdc147b33223826da040c77a6b",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/11/10, 9:42 PM",
+          "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 32.59,
+          "commitsBetweenForRepo": 82,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private VariableLiveness isVariableReadBeforeKill(Node n, String variable) {\n    if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n        if (NodeUtil.isLhs(n, n.getParent())) {\n            Preconditions.checkState(n.getParent().getType() \u003d\u003d Token.ASSIGN);\n            Node rhs \u003d n.getNext();\n            VariableLiveness state \u003d isVariableReadBeforeKill(rhs, variable);\n            if (state \u003d\u003d VariableLiveness.READ) {\n                return state;\n            }\n            return VariableLiveness.KILL;\n        } else {\n            return VariableLiveness.READ;\n        }\n    }\n    for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n            VariableLiveness state \u003d isVariableReadBeforeKill(child, variable);\n            if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n                return state;\n            }\n        }\n    }\n    return VariableLiveness.MAYBE_LIVE;\n}",
+          "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+          "functionStartLine": 323,
+          "functionName": "isVariableReadBeforeKill",
+          "functionAnnotation": "",
+          "functionDoc": "Give an expression and a variable. It returns READ, if the first\nreference of that variable is a read. It returns KILL, if the first\nreference of that variable is an assignment. It returns MAY_LIVE otherwise.\n",
+          "diff": "@@ -1,18 +1,24 @@\n-private VariableLiveness readVariableBeforeKilling(Node n, String variable) {\n+private VariableLiveness isVariableReadBeforeKill(Node n, String variable) {\n     if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n         if (NodeUtil.isLhs(n, n.getParent())) {\n+            Preconditions.checkState(n.getParent().getType() \u003d\u003d Token.ASSIGN);\n+            Node rhs \u003d n.getNext();\n+            VariableLiveness state \u003d isVariableReadBeforeKill(rhs, variable);\n+            if (state \u003d\u003d VariableLiveness.READ) {\n+                return state;\n+            }\n             return VariableLiveness.KILL;\n         } else {\n             return VariableLiveness.READ;\n         }\n     }\n     for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n         if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n-            VariableLiveness state \u003d readVariableBeforeKilling(child, variable);\n+            VariableLiveness state \u003d isVariableReadBeforeKill(child, variable);\n             if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n                 return state;\n             }\n         }\n     }\n     return VariableLiveness.MAYBE_LIVE;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "readVariableBeforeKilling",
+            "newValue": "isVariableReadBeforeKill"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nFix checks for variable reads in expressions with assignments.\nFixes issue 297.\n\nR\u003dnicksantos\nDELTA\u003d123  (113 added, 3 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d132\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@629 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/14/10, 11:51 AM",
+          "commitName": "6a17da87f9e132bdc147b33223826da040c77a6b",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/11/10, 9:42 PM",
+          "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 32.59,
+          "commitsBetweenForRepo": 82,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private VariableLiveness isVariableReadBeforeKill(Node n, String variable) {\n    if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n        if (NodeUtil.isLhs(n, n.getParent())) {\n            Preconditions.checkState(n.getParent().getType() \u003d\u003d Token.ASSIGN);\n            Node rhs \u003d n.getNext();\n            VariableLiveness state \u003d isVariableReadBeforeKill(rhs, variable);\n            if (state \u003d\u003d VariableLiveness.READ) {\n                return state;\n            }\n            return VariableLiveness.KILL;\n        } else {\n            return VariableLiveness.READ;\n        }\n    }\n    for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n            VariableLiveness state \u003d isVariableReadBeforeKill(child, variable);\n            if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n                return state;\n            }\n        }\n    }\n    return VariableLiveness.MAYBE_LIVE;\n}",
+          "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+          "functionStartLine": 323,
+          "functionName": "isVariableReadBeforeKill",
+          "functionAnnotation": "",
+          "functionDoc": "Give an expression and a variable. It returns READ, if the first\nreference of that variable is a read. It returns KILL, if the first\nreference of that variable is an assignment. It returns MAY_LIVE otherwise.\n",
+          "diff": "@@ -1,18 +1,24 @@\n-private VariableLiveness readVariableBeforeKilling(Node n, String variable) {\n+private VariableLiveness isVariableReadBeforeKill(Node n, String variable) {\n     if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n         if (NodeUtil.isLhs(n, n.getParent())) {\n+            Preconditions.checkState(n.getParent().getType() \u003d\u003d Token.ASSIGN);\n+            Node rhs \u003d n.getNext();\n+            VariableLiveness state \u003d isVariableReadBeforeKill(rhs, variable);\n+            if (state \u003d\u003d VariableLiveness.READ) {\n+                return state;\n+            }\n             return VariableLiveness.KILL;\n         } else {\n             return VariableLiveness.READ;\n         }\n     }\n     for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n         if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n-            VariableLiveness state \u003d readVariableBeforeKilling(child, variable);\n+            VariableLiveness state \u003d isVariableReadBeforeKill(child, variable);\n             if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n                 return state;\n             }\n         }\n     }\n     return VariableLiveness.MAYBE_LIVE;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nFix checks for variable reads in expressions with assignments.\nFixes issue 297.\n\nR\u003dnicksantos\nDELTA\u003d123  (113 added, 3 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d132\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@629 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/14/10, 11:51 AM",
+          "commitName": "6a17da87f9e132bdc147b33223826da040c77a6b",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/11/10, 9:42 PM",
+          "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 32.59,
+          "commitsBetweenForRepo": 82,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private VariableLiveness isVariableReadBeforeKill(Node n, String variable) {\n    if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n        if (NodeUtil.isLhs(n, n.getParent())) {\n            Preconditions.checkState(n.getParent().getType() \u003d\u003d Token.ASSIGN);\n            Node rhs \u003d n.getNext();\n            VariableLiveness state \u003d isVariableReadBeforeKill(rhs, variable);\n            if (state \u003d\u003d VariableLiveness.READ) {\n                return state;\n            }\n            return VariableLiveness.KILL;\n        } else {\n            return VariableLiveness.READ;\n        }\n    }\n    for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n            VariableLiveness state \u003d isVariableReadBeforeKill(child, variable);\n            if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n                return state;\n            }\n        }\n    }\n    return VariableLiveness.MAYBE_LIVE;\n}",
+          "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+          "functionStartLine": 323,
+          "functionName": "isVariableReadBeforeKill",
+          "functionAnnotation": "",
+          "functionDoc": "Give an expression and a variable. It returns READ, if the first\nreference of that variable is a read. It returns KILL, if the first\nreference of that variable is an assignment. It returns MAY_LIVE otherwise.\n",
+          "diff": "@@ -1,18 +1,24 @@\n-private VariableLiveness readVariableBeforeKilling(Node n, String variable) {\n+private VariableLiveness isVariableReadBeforeKill(Node n, String variable) {\n     if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n         if (NodeUtil.isLhs(n, n.getParent())) {\n+            Preconditions.checkState(n.getParent().getType() \u003d\u003d Token.ASSIGN);\n+            Node rhs \u003d n.getNext();\n+            VariableLiveness state \u003d isVariableReadBeforeKill(rhs, variable);\n+            if (state \u003d\u003d VariableLiveness.READ) {\n+                return state;\n+            }\n             return VariableLiveness.KILL;\n         } else {\n             return VariableLiveness.READ;\n         }\n     }\n     for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n         if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n-            VariableLiveness state \u003d readVariableBeforeKilling(child, variable);\n+            VariableLiveness state \u003d isVariableReadBeforeKill(child, variable);\n             if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n                 return state;\n             }\n         }\n     }\n     return VariableLiveness.MAYBE_LIVE;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Give an expression and a variable. It returns READ, if the right-most\nreference of that variable is a read. It returns KILL, if the right-most\nreference of that variable is an assignment. It returns MAY_LIVE otherwise.\n\nThis need to be a pre-order traversal so we cannot use the normal node\ntraversals.\n",
+            "newValue": "Give an expression and a variable. It returns READ, if the first\nreference of that variable is a read. It returns KILL, if the first\nreference of that variable is an assignment. It returns MAY_LIVE otherwise.\n"
+          }
+        }
+      ]
+    },
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": {
+      "type": "Yintroduced",
+      "commitMessage": "Never rename a variable named \"$super\", because the Prototype library\nuses this to do magic.\n\nBetter dead assignment elimination.\n\nEmit an error if you declare a parameter twice.\n\nDon\u0027t do anonymous function collapsing by default.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@12 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/17/09, 4:21 PM",
+      "commitName": "fe64e87cccd2c38524c0b36c49beb4c988d1453a",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,18 @@\n+private VariableLiveness readVariableBeforeKilling(Node n, String variable) {\n+    if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n+        if (NodeUtil.isLhs(n, n.getParent())) {\n+            return VariableLiveness.KILL;\n+        } else {\n+            return VariableLiveness.READ;\n+        }\n+    }\n+    for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n+        if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n+            VariableLiveness state \u003d readVariableBeforeKilling(child, variable);\n+            if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n+                return state;\n+            }\n+        }\n+    }\n+    return VariableLiveness.MAYBE_LIVE;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private VariableLiveness readVariableBeforeKilling(Node n, String variable) {\n    if (NodeUtil.isName(n) \u0026\u0026 variable.equals(n.getString())) {\n        if (NodeUtil.isLhs(n, n.getParent())) {\n            return VariableLiveness.KILL;\n        } else {\n            return VariableLiveness.READ;\n        }\n    }\n    for (Node child \u003d n.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {\n            VariableLiveness state \u003d readVariableBeforeKilling(child, variable);\n            if (state !\u003d VariableLiveness.MAYBE_LIVE) {\n                return state;\n            }\n        }\n    }\n    return VariableLiveness.MAYBE_LIVE;\n}",
+      "path": "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+      "functionStartLine": 277,
+      "functionName": "readVariableBeforeKilling",
+      "functionAnnotation": "",
+      "functionDoc": "Give an expression and a variable. It returns READ, if the right-most\nreference of that variable is a read. It returns KILL, if the right-most\nreference of that variable is an assignment. It returns MAY_LIVE otherwise.\n\nThis need to be a pre-order traversal so we cannot use the normal node\ntraversals.\n"
+    }
+  }
+}

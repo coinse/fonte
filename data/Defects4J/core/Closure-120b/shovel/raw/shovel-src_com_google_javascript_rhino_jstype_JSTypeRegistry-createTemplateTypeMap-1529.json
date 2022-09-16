@@ -1,0 +1,222 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "createTemplateTypeMap",
+  "functionId": "createTemplateTypeMap___templateKeys-ImmutableList__TemplateType____templateValues-ImmutableList__JSType__",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+  "functionStartLine": 1529,
+  "functionEndLine": 1540,
+  "numCommitsSeen": 224,
+  "timeTaken": 4121,
+  "changeHistory": [
+    "bd60dbdf9330efe540c20f4d6910442b6f6e1f10",
+    "2065172121162371081ca134f05d0da599ca0ba4",
+    "177d001a30c568037141e555d84f9bd28d3d2d86"
+  ],
+  "changeHistoryShort": {
+    "bd60dbdf9330efe540c20f4d6910442b6f6e1f10": "Ymultichange(Yparameterchange,Ybodychange)",
+    "2065172121162371081ca134f05d0da599ca0ba4": "Ymultichange(Yrename,Yparameterchange,Yreturntypechange,Ybodychange,Ydocchange)",
+    "177d001a30c568037141e555d84f9bd28d3d2d86": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bd60dbdf9330efe540c20f4d6910442b6f6e1f10": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "In preparation for resolving class type parameters, use TemplateTypes not Strings as keys in the TemplateTypeMap.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d43074510\n",
+      "commitDate": "2/26/13, 4:59 PM",
+      "commitName": "bd60dbdf9330efe540c20f4d6910442b6f6e1f10",
+      "commitAuthor": "Ben Lickly",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "In preparation for resolving class type parameters, use TemplateTypes not Strings as keys in the TemplateTypeMap.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d43074510\n",
+          "commitDate": "2/26/13, 4:59 PM",
+          "commitName": "bd60dbdf9330efe540c20f4d6910442b6f6e1f10",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "2/4/13, 1:10 PM",
+          "commitNameOld": "44ebf6062655dc55d0569c80ce7806100435fba0",
+          "commitAuthorOld": "izaakr@google.com",
+          "daysBetweenCommits": 22.16,
+          "commitsBetweenForRepo": 60,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cTemplateType\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cTemplateType\u003eof() : templateKeys;\n    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1511,
+          "functionName": "createTemplateTypeMap",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n-    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n+public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cTemplateType\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n+    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cTemplateType\u003eof() : templateKeys;\n     templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n     return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[templateKeys-ImmutableList\u003cString\u003e, templateValues-ImmutableList\u003cJSType\u003e]",
+            "newValue": "[templateKeys-ImmutableList\u003cTemplateType\u003e, templateValues-ImmutableList\u003cJSType\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "In preparation for resolving class type parameters, use TemplateTypes not Strings as keys in the TemplateTypeMap.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d43074510\n",
+          "commitDate": "2/26/13, 4:59 PM",
+          "commitName": "bd60dbdf9330efe540c20f4d6910442b6f6e1f10",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "2/4/13, 1:10 PM",
+          "commitNameOld": "44ebf6062655dc55d0569c80ce7806100435fba0",
+          "commitAuthorOld": "izaakr@google.com",
+          "daysBetweenCommits": 22.16,
+          "commitsBetweenForRepo": 60,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cTemplateType\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cTemplateType\u003eof() : templateKeys;\n    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1511,
+          "functionName": "createTemplateTypeMap",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n-    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n+public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cTemplateType\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n+    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cTemplateType\u003eof() : templateKeys;\n     templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n     return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "2065172121162371081ca134f05d0da599ca0ba4": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Yreturntypechange,Ybodychange,Ydocchange)",
+      "commitMessage": "\nAdds a TemplateTypeMap, which encapsulates a mapping between template keys (String) and their values (JSType). Hooks into all relevant JSTypes except TemplatizedType.\n\nR\u003ddimvar,nicksantos,johnlenz\nDELTA\u003d487 (242 added, 197 deleted, 48 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6208\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2493 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/29/13, 11:03 AM",
+      "commitName": "2065172121162371081ca134f05d0da599ca0ba4",
+      "commitAuthor": "izaakr@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nAdds a TemplateTypeMap, which encapsulates a mapping between template keys (String) and their values (JSType). Hooks into all relevant JSTypes except TemplatizedType.\n\nR\u003ddimvar,nicksantos,johnlenz\nDELTA\u003d487 (242 added, 197 deleted, 48 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6208\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2493 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/29/13, 11:03 AM",
+          "commitName": "2065172121162371081ca134f05d0da599ca0ba4",
+          "commitAuthor": "izaakr@google.com",
+          "commitDateOld": "1/23/13, 5:45 PM",
+          "commitNameOld": "4cac8c1e896e04418f57f9a6208311444aa3d5f3",
+          "commitAuthorOld": "izaakr@google.com",
+          "daysBetweenCommits": 5.72,
+          "commitsBetweenForRepo": 7,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1449,
+          "functionName": "createTemplateTypeMap",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+          "diff": "@@ -1,8 +1,5 @@\n-public JSType createTemplatizedType(JSType baseType, ImmutableList\u003cJSType\u003e templatizedTypes) {\n-    if (baseType instanceof InstanceObjectType) {\n-        ObjectType baseObjType \u003d baseType.toObjectType();\n-        return new InstanceObjectType(this, baseObjType.getConstructor(), baseObjType.isNativeObjectType(), templatizedTypes);\n-    } else {\n-        throw new IllegalArgumentException(\"Only instance object types can be templatized\");\n-    }\n+public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n+    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n+    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n+    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "createTemplatizedType",
+            "newValue": "createTemplateTypeMap"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAdds a TemplateTypeMap, which encapsulates a mapping between template keys (String) and their values (JSType). Hooks into all relevant JSTypes except TemplatizedType.\n\nR\u003ddimvar,nicksantos,johnlenz\nDELTA\u003d487 (242 added, 197 deleted, 48 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6208\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2493 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/29/13, 11:03 AM",
+          "commitName": "2065172121162371081ca134f05d0da599ca0ba4",
+          "commitAuthor": "izaakr@google.com",
+          "commitDateOld": "1/23/13, 5:45 PM",
+          "commitNameOld": "4cac8c1e896e04418f57f9a6208311444aa3d5f3",
+          "commitAuthorOld": "izaakr@google.com",
+          "daysBetweenCommits": 5.72,
+          "commitsBetweenForRepo": 7,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1449,
+          "functionName": "createTemplateTypeMap",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+          "diff": "@@ -1,8 +1,5 @@\n-public JSType createTemplatizedType(JSType baseType, ImmutableList\u003cJSType\u003e templatizedTypes) {\n-    if (baseType instanceof InstanceObjectType) {\n-        ObjectType baseObjType \u003d baseType.toObjectType();\n-        return new InstanceObjectType(this, baseObjType.getConstructor(), baseObjType.isNativeObjectType(), templatizedTypes);\n-    } else {\n-        throw new IllegalArgumentException(\"Only instance object types can be templatized\");\n-    }\n+public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n+    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n+    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n+    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[baseType-JSType, templatizedTypes-ImmutableList\u003cJSType\u003e]",
+            "newValue": "[templateKeys-ImmutableList\u003cString\u003e, templateValues-ImmutableList\u003cJSType\u003e]"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "\nAdds a TemplateTypeMap, which encapsulates a mapping between template keys (String) and their values (JSType). Hooks into all relevant JSTypes except TemplatizedType.\n\nR\u003ddimvar,nicksantos,johnlenz\nDELTA\u003d487 (242 added, 197 deleted, 48 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6208\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2493 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/29/13, 11:03 AM",
+          "commitName": "2065172121162371081ca134f05d0da599ca0ba4",
+          "commitAuthor": "izaakr@google.com",
+          "commitDateOld": "1/23/13, 5:45 PM",
+          "commitNameOld": "4cac8c1e896e04418f57f9a6208311444aa3d5f3",
+          "commitAuthorOld": "izaakr@google.com",
+          "daysBetweenCommits": 5.72,
+          "commitsBetweenForRepo": 7,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1449,
+          "functionName": "createTemplateTypeMap",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+          "diff": "@@ -1,8 +1,5 @@\n-public JSType createTemplatizedType(JSType baseType, ImmutableList\u003cJSType\u003e templatizedTypes) {\n-    if (baseType instanceof InstanceObjectType) {\n-        ObjectType baseObjType \u003d baseType.toObjectType();\n-        return new InstanceObjectType(this, baseObjType.getConstructor(), baseObjType.isNativeObjectType(), templatizedTypes);\n-    } else {\n-        throw new IllegalArgumentException(\"Only instance object types can be templatized\");\n-    }\n+public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n+    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n+    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n+    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "JSType",
+            "newValue": "TemplateTypeMap"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAdds a TemplateTypeMap, which encapsulates a mapping between template keys (String) and their values (JSType). Hooks into all relevant JSTypes except TemplatizedType.\n\nR\u003ddimvar,nicksantos,johnlenz\nDELTA\u003d487 (242 added, 197 deleted, 48 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6208\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2493 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/29/13, 11:03 AM",
+          "commitName": "2065172121162371081ca134f05d0da599ca0ba4",
+          "commitAuthor": "izaakr@google.com",
+          "commitDateOld": "1/23/13, 5:45 PM",
+          "commitNameOld": "4cac8c1e896e04418f57f9a6208311444aa3d5f3",
+          "commitAuthorOld": "izaakr@google.com",
+          "daysBetweenCommits": 5.72,
+          "commitsBetweenForRepo": 7,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1449,
+          "functionName": "createTemplateTypeMap",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+          "diff": "@@ -1,8 +1,5 @@\n-public JSType createTemplatizedType(JSType baseType, ImmutableList\u003cJSType\u003e templatizedTypes) {\n-    if (baseType instanceof InstanceObjectType) {\n-        ObjectType baseObjType \u003d baseType.toObjectType();\n-        return new InstanceObjectType(this, baseObjType.getConstructor(), baseObjType.isNativeObjectType(), templatizedTypes);\n-    } else {\n-        throw new IllegalArgumentException(\"Only instance object types can be templatized\");\n-    }\n+public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n+    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n+    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n+    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nAdds a TemplateTypeMap, which encapsulates a mapping between template keys (String) and their values (JSType). Hooks into all relevant JSTypes except TemplatizedType.\n\nR\u003ddimvar,nicksantos,johnlenz\nDELTA\u003d487 (242 added, 197 deleted, 48 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6208\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2493 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/29/13, 11:03 AM",
+          "commitName": "2065172121162371081ca134f05d0da599ca0ba4",
+          "commitAuthor": "izaakr@google.com",
+          "commitDateOld": "1/23/13, 5:45 PM",
+          "commitNameOld": "4cac8c1e896e04418f57f9a6208311444aa3d5f3",
+          "commitAuthorOld": "izaakr@google.com",
+          "daysBetweenCommits": 5.72,
+          "commitsBetweenForRepo": 7,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+          "functionStartLine": 1449,
+          "functionName": "createTemplateTypeMap",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n",
+          "diff": "@@ -1,8 +1,5 @@\n-public JSType createTemplatizedType(JSType baseType, ImmutableList\u003cJSType\u003e templatizedTypes) {\n-    if (baseType instanceof InstanceObjectType) {\n-        ObjectType baseObjType \u003d baseType.toObjectType();\n-        return new InstanceObjectType(this, baseObjType.getConstructor(), baseObjType.isNativeObjectType(), templatizedTypes);\n-    } else {\n-        throw new IllegalArgumentException(\"Only instance object types can be templatized\");\n-    }\n+public TemplateTypeMap createTemplateTypeMap(ImmutableList\u003cString\u003e templateKeys, ImmutableList\u003cJSType\u003e templateValues) {\n+    templateKeys \u003d templateKeys \u003d\u003d null ? ImmutableList.\u003cString\u003eof() : templateKeys;\n+    templateValues \u003d templateValues \u003d\u003d null ? ImmutableList.\u003cJSType\u003eof() : templateValues;\n+    return (templateKeys.isEmpty() \u0026\u0026 templateValues.isEmpty()) ? emptyTemplateTypeMap : new TemplateTypeMap(this, templateKeys, templateValues);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Creates a templatized instance of the specified type.\n\n@param baseType the type to be templatized.\n@param templatizedTypes a list of the template JSTypes. Will be matched by\n    list order to the template keys specified in the constructor function.\n",
+            "newValue": "Creates a template type map from the specified list of template keys and\ntemplate value types.\n"
+          }
+        }
+      ]
+    },
+    "177d001a30c568037141e555d84f9bd28d3d2d86": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdds basic support for template keys and templatized types to the base JSType. Array and Object will be converted to this templatized type system.\n\nR\u003ddimvar,nicksantos\nDELTA\u003d324  (225 added, 17 deleted, 82 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5698\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2278 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/24/12, 2:07 PM",
+      "commitName": "177d001a30c568037141e555d84f9bd28d3d2d86",
+      "commitAuthor": "izaakr@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+public JSType createTemplatizedType(JSType baseType, ImmutableList\u003cJSType\u003e templatizedTypes) {\n+    if (baseType instanceof InstanceObjectType) {\n+        ObjectType baseObjType \u003d baseType.toObjectType();\n+        return new InstanceObjectType(this, baseObjType.getConstructor(), baseObjType.isNativeObjectType(), templatizedTypes);\n+    } else {\n+        throw new IllegalArgumentException(\"Only instance object types can be templatized\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JSType createTemplatizedType(JSType baseType, ImmutableList\u003cJSType\u003e templatizedTypes) {\n    if (baseType instanceof InstanceObjectType) {\n        ObjectType baseObjType \u003d baseType.toObjectType();\n        return new InstanceObjectType(this, baseObjType.getConstructor(), baseObjType.isNativeObjectType(), templatizedTypes);\n    } else {\n        throw new IllegalArgumentException(\"Only instance object types can be templatized\");\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 1452,
+      "functionName": "createTemplatizedType",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a templatized instance of the specified type.\n\n@param baseType the type to be templatized.\n@param templatizedTypes a list of the template JSTypes. Will be matched by\n    list order to the template keys specified in the constructor function.\n"
+    }
+  }
+}

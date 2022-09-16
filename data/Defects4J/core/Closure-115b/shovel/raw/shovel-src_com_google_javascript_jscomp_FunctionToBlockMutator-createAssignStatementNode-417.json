@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionToBlockMutator.java",
+  "functionName": "createAssignStatementNode",
+  "functionId": "createAssignStatementNode___name-String__expression-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a valid statement Node containing an assignment to name of the\ngiven expression.\n",
+  "functionStartLine": 417,
+  "functionEndLine": 423,
+  "numCommitsSeen": 26,
+  "timeTaken": 1164,
+  "changeHistory": [
+    "9dfbc803407e714f9744555a1c9e7c4230f1816d",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "9dfbc803407e714f9744555a1c9e7c4230f1816d": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9dfbc803407e714f9744555a1c9e7c4230f1816d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nUse the new IR interface where possible.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3799\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1641 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/22/11, 2:28 PM",
+      "commitName": "9dfbc803407e714f9744555a1c9e7c4230f1816d",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/14/11, 6:13 PM",
+      "commitNameOld": "39f629a8cfaab37da55288010640d7e516000b1f",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 7.84,
+      "commitsBetweenForRepo": 31,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static Node createAssignStatementNode(String name, Node expression) {\n    Node nameNode \u003d IR.name(name);\n    Node assign \u003d IR.assign(nameNode, expression);\n    return NodeUtil.newExpr(assign);\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+      "functionStartLine": 416,
+      "functionName": "createAssignStatementNode",
+      "functionAnnotation": "",
+      "functionDoc": "Create a valid statement Node containing an assignment to name of the\ngiven expression.\n",
+      "diff": "@@ -1,5 +1,5 @@\n private static Node createAssignStatementNode(String name, Node expression) {\n-    Node nameNode \u003d Node.newString(Token.NAME, name);\n-    Node assign \u003d new Node(Token.ASSIGN, nameNode, expression);\n+    Node nameNode \u003d IR.name(name);\n+    Node assign \u003d IR.assign(nameNode, expression);\n     return NodeUtil.newExpr(assign);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,5 @@\n+private static Node createAssignStatementNode(String name, Node expression) {\n+    Node nameNode \u003d Node.newString(Token.NAME, name);\n+    Node assign \u003d new Node(Token.ASSIGN, nameNode, expression);\n+    return NodeUtil.newExpr(assign);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Node createAssignStatementNode(String name, Node expression) {\n    Node nameNode \u003d Node.newString(Token.NAME, name);\n    Node assign \u003d new Node(Token.ASSIGN, nameNode, expression);\n    return NodeUtil.newExpr(assign);\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+      "functionStartLine": 329,
+      "functionName": "createAssignStatementNode",
+      "functionAnnotation": "",
+      "functionDoc": "Create a valid statement Node containing an assignment to name of the\ngiven expression.\n"
+    }
+  }
+}

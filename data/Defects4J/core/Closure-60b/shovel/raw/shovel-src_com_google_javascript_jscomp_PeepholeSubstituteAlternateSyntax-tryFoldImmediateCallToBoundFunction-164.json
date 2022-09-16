@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeSubstituteAlternateSyntax.java",
+  "functionName": "tryFoldImmediateCallToBoundFunction",
+  "functionId": "tryFoldImmediateCallToBoundFunction___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 164,
+  "functionEndLine": 193,
+  "numCommitsSeen": 39,
+  "timeTaken": 799,
+  "changeHistory": [
+    "26dfe37d9ace5bf791ff4ab8cec7bf1e2eb1b3f5"
+  ],
+  "changeHistoryShort": {
+    "26dfe37d9ace5bf791ff4ab8cec7bf1e2eb1b3f5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "26dfe37d9ace5bf791ff4ab8cec7bf1e2eb1b3f5": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nFix bind/call folding by taking care to maintain the FREE_CALL\nattribute.\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\nThis breaks gmail\n\n\n... description truncated by g4 rollback ...\n\nR\u003dmoedinger\nDELTA\u003d151  (150 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2406\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1209 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/24/11, 10:58 AM",
+      "commitName": "26dfe37d9ace5bf791ff4ab8cec7bf1e2eb1b3f5",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,21 @@\n+private Node tryFoldImmediateCallToBoundFunction(Node n) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.CALL);\n+    Node callTarget \u003d n.getFirstChild();\n+    Bind bind \u003d getCodingConvention().describeFunctionBind(callTarget);\n+    if (bind !\u003d null) {\n+        bind.target.detachFromParent();\n+        n.replaceChild(callTarget, bind.target);\n+        callTarget \u003d bind.target;\n+        addParameterAfter(bind.parameters, callTarget);\n+        if (bind.thisValue !\u003d null \u0026\u0026 !NodeUtil.isUndefined(bind.thisValue)) {\n+            Node newCallTarget \u003d new Node(Token.GETPROP, callTarget.cloneTree(), Node.newString(\"call\").copyInformationFrom(callTarget));\n+            n.replaceChild(callTarget, newCallTarget);\n+            n.addChildAfter(bind.thisValue.cloneTree(), newCallTarget);\n+            n.putBooleanProp(Node.FREE_CALL, false);\n+        } else {\n+            n.putBooleanProp(Node.FREE_CALL, true);\n+        }\n+        reportCodeChange();\n+    }\n+    return n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node tryFoldImmediateCallToBoundFunction(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.CALL);\n    Node callTarget \u003d n.getFirstChild();\n    Bind bind \u003d getCodingConvention().describeFunctionBind(callTarget);\n    if (bind !\u003d null) {\n        bind.target.detachFromParent();\n        n.replaceChild(callTarget, bind.target);\n        callTarget \u003d bind.target;\n        addParameterAfter(bind.parameters, callTarget);\n        if (bind.thisValue !\u003d null \u0026\u0026 !NodeUtil.isUndefined(bind.thisValue)) {\n            Node newCallTarget \u003d new Node(Token.GETPROP, callTarget.cloneTree(), Node.newString(\"call\").copyInformationFrom(callTarget));\n            n.replaceChild(callTarget, newCallTarget);\n            n.addChildAfter(bind.thisValue.cloneTree(), newCallTarget);\n            n.putBooleanProp(Node.FREE_CALL, false);\n        } else {\n            n.putBooleanProp(Node.FREE_CALL, true);\n        }\n        reportCodeChange();\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+      "functionStartLine": 164,
+      "functionName": "tryFoldImmediateCallToBoundFunction",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

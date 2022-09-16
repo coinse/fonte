@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "createSourceInputs",
+  "functionId": "createSourceInputs___files-List__String__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates js source code inputs from a list of files.\n",
+  "functionStartLine": 445,
+  "functionEndLine": 458,
+  "numCommitsSeen": 91,
+  "timeTaken": 4825,
+  "changeHistory": [
+    "887038f8ecbd740944b4b9e1333837cef7f9e2cf",
+    "61b5204064333144810c184d38b4dc78f947bd62",
+    "848ace840362a1f5558bec065cb40548ff66587a",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "887038f8ecbd740944b4b9e1333837cef7f9e2cf": "Yreturntypechange",
+    "61b5204064333144810c184d38b4dc78f947bd62": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "848ace840362a1f5558bec065cb40548ff66587a": "Yfilerename",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "887038f8ecbd740944b4b9e1333837cef7f9e2cf": {
+      "type": "Yreturntypechange",
+      "commitMessage": "\nSourceFile is OK\n\nR\u003djohnlenz\nDELTA\u003d436  (107 added, 104 deleted, 225 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4320\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1810 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/5/12, 9:43 AM",
+      "commitName": "887038f8ecbd740944b4b9e1333837cef7f9e2cf",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "3/2/12, 4:56 PM",
+      "commitNameOld": "2b9783b245aabca1c10e61be30506e9d477111f9",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.7,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private List\u003cSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n    if (isInTestMode()) {\n        return inputsSupplierForTesting.get();\n    }\n    if (files.isEmpty()) {\n        files \u003d Collections.singletonList(\"-\");\n    }\n    try {\n        return createInputs(files, true);\n    } catch (FlagUsageException e) {\n        throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 428,
+      "functionName": "createSourceInputs",
+      "functionAnnotation": "",
+      "functionDoc": "Creates js source code inputs from a list of files.\n",
+      "diff": "@@ -1,13 +1,13 @@\n-private List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n+private List\u003cSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n     if (isInTestMode()) {\n         return inputsSupplierForTesting.get();\n     }\n     if (files.isEmpty()) {\n         files \u003d Collections.singletonList(\"-\");\n     }\n     try {\n         return createInputs(files, true);\n     } catch (FlagUsageException e) {\n         throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "List\u003cJSSourceFile\u003e",
+        "newValue": "List\u003cSourceFile\u003e"
+      }
+    },
+    "61b5204064333144810c184d38b4dc78f947bd62": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nCreate a much better integration test for CommandLineRunner.\n\nR\u003dacleung\nDELTA\u003d188  (118 added, 33 deleted, 37 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d181025\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@375 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/20/10, 4:46 PM",
+      "commitName": "61b5204064333144810c184d38b4dc78f947bd62",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nCreate a much better integration test for CommandLineRunner.\n\nR\u003dacleung\nDELTA\u003d188  (118 added, 33 deleted, 37 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d181025\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@375 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/20/10, 4:46 PM",
+          "commitName": "61b5204064333144810c184d38b4dc78f947bd62",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/19/10, 6:17 PM",
+          "commitNameOld": "e859f6f557d0ac39f3bf45949691b2a0e150a2e4",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.94,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n    if (isInTestMode()) {\n        return inputsSupplierForTesting.get();\n    }\n    if (files.isEmpty()) {\n        files \u003d Collections.singletonList(\"-\");\n    }\n    try {\n        return createInputs(files, true);\n    } catch (FlagUsageException e) {\n        throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 322,
+          "functionName": "createSourceInputs",
+          "functionAnnotation": "",
+          "functionDoc": "Creates js source code inputs from a list of files.\n",
+          "diff": "@@ -1,10 +1,13 @@\n-private static List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n+private List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n+    if (isInTestMode()) {\n+        return inputsSupplierForTesting.get();\n+    }\n     if (files.isEmpty()) {\n         files \u003d Collections.singletonList(\"-\");\n     }\n     try {\n         return createInputs(files, true);\n     } catch (FlagUsageException e) {\n         throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private, static]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nCreate a much better integration test for CommandLineRunner.\n\nR\u003dacleung\nDELTA\u003d188  (118 added, 33 deleted, 37 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d181025\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@375 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/20/10, 4:46 PM",
+          "commitName": "61b5204064333144810c184d38b4dc78f947bd62",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "8/19/10, 6:17 PM",
+          "commitNameOld": "e859f6f557d0ac39f3bf45949691b2a0e150a2e4",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.94,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n    if (isInTestMode()) {\n        return inputsSupplierForTesting.get();\n    }\n    if (files.isEmpty()) {\n        files \u003d Collections.singletonList(\"-\");\n    }\n    try {\n        return createInputs(files, true);\n    } catch (FlagUsageException e) {\n        throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 322,
+          "functionName": "createSourceInputs",
+          "functionAnnotation": "",
+          "functionDoc": "Creates js source code inputs from a list of files.\n",
+          "diff": "@@ -1,10 +1,13 @@\n-private static List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n+private List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n+    if (isInTestMode()) {\n+        return inputsSupplierForTesting.get();\n+    }\n     if (files.isEmpty()) {\n         files \u003d Collections.singletonList(\"-\");\n     }\n     try {\n         return createInputs(files, true);\n     } catch (FlagUsageException e) {\n         throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "848ace840362a1f5558bec065cb40548ff66587a": {
+      "type": "Yfilerename",
+      "commitMessage": "Rename CompilerRunner -\u003e CommandLineRunner.\nI\u0027ll also do this for JSCompilerRunner, but it will be a much\nbigger change. (Nick)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@119 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/26/10, 6:04 PM",
+      "commitName": "848ace840362a1f5558bec065cb40548ff66587a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "2/26/10, 3:45 PM",
+      "commitNameOld": "50c1b3d39ff5b17c956a2235f97f7b5da05ab6f0",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n    if (files.isEmpty()) {\n        files \u003d Collections.singletonList(\"-\");\n    }\n    try {\n        return createInputs(files, true);\n    } catch (FlagUsageException e) {\n        throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 406,
+      "functionName": "createSourceInputs",
+      "functionAnnotation": "",
+      "functionDoc": "Creates js source code inputs from a list of files.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/com/google/javascript/jscomp/AbstractCompilerRunner.java",
+        "newPath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private static List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n+    if (files.isEmpty()) {\n+        files \u003d Collections.singletonList(\"-\");\n+    }\n+    try {\n+        return createInputs(files, true);\n+    } catch (FlagUsageException e) {\n+        throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static List\u003cJSSourceFile\u003e createSourceInputs(List\u003cString\u003e files) throws FlagUsageException, IOException {\n    if (files.isEmpty()) {\n        files \u003d Collections.singletonList(\"-\");\n    }\n    try {\n        return createInputs(files, true);\n    } catch (FlagUsageException e) {\n        throw new FlagUsageException(\"Bad --js flag. \" + e.getMessage());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCompilerRunner.java",
+      "functionStartLine": 289,
+      "functionName": "createSourceInputs",
+      "functionAnnotation": "",
+      "functionDoc": "Creates js source code inputs from a list of files.\n"
+    }
+  }
+}

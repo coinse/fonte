@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "visitObjectLiteral",
+  "functionId": "$visitObjectLiteral___objlit-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 162,
+  "functionEndLine": 169,
+  "numCommitsSeen": 8,
+  "timeTaken": 365,
+  "changeHistory": [
+    "f93cdf97ea803c4702023daf1326dc45172de611"
+  ],
+  "changeHistoryShort": {
+    "f93cdf97ea803c4702023daf1326dc45172de611": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f93cdf97ea803c4702023daf1326dc45172de611": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/14/10, 4:04 PM",
+      "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private void visitObjectLiteral(Node objlit) {\n+    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n+    for (Node key \u003d objlit.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n+        Node value \u003d key.getNext();\n+        visitObjectLiteralKey(objlit, key, value);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void visitObjectLiteral(Node objlit) {\n    Preconditions.checkState(objlit.getType() \u003d\u003d Token.OBJECTLIT);\n    for (Node key \u003d objlit.getFirstChild(); key !\u003d null; key \u003d key.getNext().getNext()) {\n        Node value \u003d key.getNext();\n        visitObjectLiteralKey(objlit, key, value);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 162,
+      "functionName": "visitObjectLiteral",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeFoldConstants.java",
+  "functionName": "tryConvertToNumber",
+  "functionId": "tryConvertToNumber___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 224,
+  "functionEndLine": 266,
+  "numCommitsSeen": 40,
+  "timeTaken": 1586,
+  "changeHistory": [
+    "bb877849306e221202b283f9b8eb3873d7bdc9ae"
+  ],
+  "changeHistoryShort": {
+    "bb877849306e221202b283f9b8eb3873d7bdc9ae": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bb877849306e221202b283f9b8eb3873d7bdc9ae": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMore constant folding tweaks.\n- Remove extraneous unary \"+\"\n- Convert number to integer for BIT ops (not shift)\n- reduce literals in numberic contexts\n\nR\u003dnicksantos\nDELTA\u003d275  (225 added, 30 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d319\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@712 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/19/11, 3:22 PM",
+      "commitName": "bb877849306e221202b283f9b8eb3873d7bdc9ae",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,38 @@\n+private void tryConvertToNumber(Node n) {\n+    switch(n.getType()) {\n+        case Token.NUMBER:\n+            return;\n+        case Token.AND:\n+        case Token.OR:\n+        case Token.COMMA:\n+            tryConvertToNumber(n.getLastChild());\n+            return;\n+        case Token.HOOK:\n+            tryConvertToNumber(n.getChildAtIndex(1));\n+            tryConvertToNumber(n.getLastChild());\n+            return;\n+        case Token.NAME:\n+            if (!NodeUtil.isUndefined(n)) {\n+                return;\n+            }\n+            break;\n+    }\n+    Double result \u003d NodeUtil.getNumberValue(n);\n+    if (result \u003d\u003d null) {\n+        return;\n+    }\n+    double value \u003d result;\n+    Node replacement;\n+    if (Double.isNaN(value)) {\n+        replacement \u003d Node.newString(Token.NAME, \"NaN\");\n+    } else if (value \u003d\u003d Double.POSITIVE_INFINITY) {\n+        replacement \u003d Node.newString(Token.NAME, \"Infinity\");\n+    } else if (value \u003d\u003d Double.NEGATIVE_INFINITY) {\n+        replacement \u003d new Node(Token.NEG, Node.newString(Token.NAME, \"Infinity\"));\n+        replacement.copyInformationFromForTree(n);\n+    } else {\n+        replacement \u003d Node.newNumber(value);\n+    }\n+    n.getParent().replaceChild(n, replacement);\n+    reportCodeChange();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void tryConvertToNumber(Node n) {\n    switch(n.getType()) {\n        case Token.NUMBER:\n            return;\n        case Token.AND:\n        case Token.OR:\n        case Token.COMMA:\n            tryConvertToNumber(n.getLastChild());\n            return;\n        case Token.HOOK:\n            tryConvertToNumber(n.getChildAtIndex(1));\n            tryConvertToNumber(n.getLastChild());\n            return;\n        case Token.NAME:\n            if (!NodeUtil.isUndefined(n)) {\n                return;\n            }\n            break;\n    }\n    Double result \u003d NodeUtil.getNumberValue(n);\n    if (result \u003d\u003d null) {\n        return;\n    }\n    double value \u003d result;\n    Node replacement;\n    if (Double.isNaN(value)) {\n        replacement \u003d Node.newString(Token.NAME, \"NaN\");\n    } else if (value \u003d\u003d Double.POSITIVE_INFINITY) {\n        replacement \u003d Node.newString(Token.NAME, \"Infinity\");\n    } else if (value \u003d\u003d Double.NEGATIVE_INFINITY) {\n        replacement \u003d new Node(Token.NEG, Node.newString(Token.NAME, \"Infinity\"));\n        replacement.copyInformationFromForTree(n);\n    } else {\n        replacement \u003d Node.newNumber(value);\n    }\n    n.getParent().replaceChild(n, replacement);\n    reportCodeChange();\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 210,
+      "functionName": "tryConvertToNumber",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-4b",
+  "repositoryPath": "/tmp/JacksonCore-4b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextBuffer.java",
+  "functionName": "getCurrentSegment",
+  "functionId": "getCurrentSegment",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 508,
+  "functionEndLine": 526,
+  "numCommitsSeen": 10,
+  "timeTaken": 658,
+  "changeHistory": [
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+    "f15531c04f87f9e4e4724772426603a909eabe2c"
+  ],
+  "changeHistoryShort": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": "Ybodychange",
+    "f15531c04f87f9e4e4724772426603a909eabe2c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": {
+      "type": "Ybodychange",
+      "commitMessage": "minor addition to TextBuffer\n",
+      "commitDate": "1/19/14, 7:28 PM",
+      "commitName": "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/13/13, 9:15 PM",
+      "commitNameOld": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 36.93,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public char[] getCurrentSegment() {\n    if (_inputStart \u003e\u003d 0) {\n        unshare(1);\n    } else {\n        char[] curr \u003d _currentSegment;\n        if (curr \u003d\u003d null) {\n            _currentSegment \u003d buf(0);\n        } else if (_currentSize \u003e\u003d curr.length) {\n            expand(1);\n        }\n    }\n    return _currentSegment;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 508,
+      "functionName": "getCurrentSegment",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,13 @@\n public char[] getCurrentSegment() {\n     if (_inputStart \u003e\u003d 0) {\n         unshare(1);\n     } else {\n         char[] curr \u003d _currentSegment;\n         if (curr \u003d\u003d null) {\n-            _currentSegment \u003d findBuffer(0);\n+            _currentSegment \u003d buf(0);\n         } else if (_currentSize \u003e\u003d curr.length) {\n             expand(1);\n         }\n     }\n     return _currentSegment;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f15531c04f87f9e4e4724772426603a909eabe2c": {
+      "type": "Yintroduced",
+      "commitMessage": "Check in actual sources, moved to the new package, cleaned up a bit\n",
+      "commitDate": "12/22/11, 11:00 PM",
+      "commitName": "f15531c04f87f9e4e4724772426603a909eabe2c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+public char[] getCurrentSegment() {\n+    if (_inputStart \u003e\u003d 0) {\n+        unshare(1);\n+    } else {\n+        char[] curr \u003d _currentSegment;\n+        if (curr \u003d\u003d null) {\n+            _currentSegment \u003d findBuffer(0);\n+        } else if (_currentSize \u003e\u003d curr.length) {\n+            expand(1);\n+        }\n+    }\n+    return _currentSegment;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public char[] getCurrentSegment() {\n    if (_inputStart \u003e\u003d 0) {\n        unshare(1);\n    } else {\n        char[] curr \u003d _currentSegment;\n        if (curr \u003d\u003d null) {\n            _currentSegment \u003d findBuffer(0);\n        } else if (_currentSize \u003e\u003d curr.length) {\n            expand(1);\n        }\n    }\n    return _currentSegment;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 512,
+      "functionName": "getCurrentSegment",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

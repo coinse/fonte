@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-21b",
+  "repositoryPath": "/tmp/Lang-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DateUtils.java",
+  "functionName": "isSameLocalTime",
+  "functionId": "isSameLocalTime___cal1-Calendar__cal2-Calendar",
+  "sourceFilePath": "src/main/java/org/apache/commons/lang3/time/DateUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eChecks if two calendar objects represent the same local time.\u003c/p\u003e\n\n\u003cp\u003eThis method compares the values of the fields of the two objects.\nIn addition, both calendars must be the same of the same type.\u003c/p\u003e\n\n@param cal1 the first calendar, not altered, not null\n@param cal2 the second calendar, not altered, not null\n@return true if they represent the same millisecond instant\n@throws IllegalArgumentException if either date is \u003ccode\u003enull\u003c/code\u003e\n@since 2.1\n",
+  "functionStartLine": 258,
+  "functionEndLine": 270,
+  "numCommitsSeen": 77,
+  "timeTaken": 2669,
+  "changeHistory": [
+    "b1686009b5494119575d43525b0829162ab79853",
+    "586080851f6bca4d7aa84a7d307203ad8222407e",
+    "2a41c12c95bb41f7b07a270927b27f3bc5098621"
+  ],
+  "changeHistoryShort": {
+    "b1686009b5494119575d43525b0829162ab79853": "Yfilerename",
+    "586080851f6bca4d7aa84a7d307203ad8222407e": "Yfilerename",
+    "2a41c12c95bb41f7b07a270927b27f3bc5098621": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b1686009b5494119575d43525b0829162ab79853": {
+      "type": "Yfilerename",
+      "commitMessage": "Move main source to src/main/java\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@895322 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/2/10, 6:11 PM",
+      "commitName": "b1686009b5494119575d43525b0829162ab79853",
+      "commitAuthor": "Paul C. Benedict Jr",
+      "commitDateOld": "1/2/10, 6:09 PM",
+      "commitNameOld": "1f725a97e73edd27301e889408832b34a3d69e63",
+      "commitAuthorOld": "Paul C. Benedict Jr",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean isSameLocalTime(Calendar cal1, Calendar cal2) {\n    if (cal1 \u003d\u003d null || cal2 \u003d\u003d null) {\n        throw new IllegalArgumentException(\"The date must not be null\");\n    }\n    return (cal1.get(Calendar.MILLISECOND) \u003d\u003d cal2.get(Calendar.MILLISECOND) \u0026\u0026 cal1.get(Calendar.SECOND) \u003d\u003d cal2.get(Calendar.SECOND) \u0026\u0026 cal1.get(Calendar.MINUTE) \u003d\u003d cal2.get(Calendar.MINUTE) \u0026\u0026 cal1.get(Calendar.HOUR) \u003d\u003d cal2.get(Calendar.HOUR) \u0026\u0026 cal1.get(Calendar.DAY_OF_YEAR) \u003d\u003d cal2.get(Calendar.DAY_OF_YEAR) \u0026\u0026 cal1.get(Calendar.YEAR) \u003d\u003d cal2.get(Calendar.YEAR) \u0026\u0026 cal1.get(Calendar.ERA) \u003d\u003d cal2.get(Calendar.ERA) \u0026\u0026 cal1.getClass() \u003d\u003d cal2.getClass());\n}",
+      "path": "src/main/java/org/apache/commons/lang3/time/DateUtils.java",
+      "functionStartLine": 257,
+      "functionName": "isSameLocalTime",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eChecks if two calendar objects represent the same local time.\u003c/p\u003e\n\n\u003cp\u003eThis method compares the values of the fields of the two objects.\nIn addition, both calendars must be the same of the same type.\u003c/p\u003e\n\n@param cal1 the first calendar, not altered, not null\n@param cal2 the second calendar, not altered, not null\n@return true if they represent the same millisecond instant\n@throws IllegalArgumentException if either date is \u003ccode\u003enull\u003c/code\u003e\n@since 2.1\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/lang3/time/DateUtils.java",
+        "newPath": "src/main/java/org/apache/commons/lang3/time/DateUtils.java"
+      }
+    },
+    "586080851f6bca4d7aa84a7d307203ad8222407e": {
+      "type": "Yfilerename",
+      "commitMessage": "Changing directory name from lang to lang3. Build will fail (probably) until Java code is changed in subsequent commit. LANG-563\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@889202 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/10/09, 3:33 AM",
+      "commitName": "586080851f6bca4d7aa84a7d307203ad8222407e",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "12/10/09, 3:31 AM",
+      "commitNameOld": "da479d635f66c1f82a1f858591cfb1b9941457ae",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean isSameLocalTime(Calendar cal1, Calendar cal2) {\n    if (cal1 \u003d\u003d null || cal2 \u003d\u003d null) {\n        throw new IllegalArgumentException(\"The date must not be null\");\n    }\n    return (cal1.get(Calendar.MILLISECOND) \u003d\u003d cal2.get(Calendar.MILLISECOND) \u0026\u0026 cal1.get(Calendar.SECOND) \u003d\u003d cal2.get(Calendar.SECOND) \u0026\u0026 cal1.get(Calendar.MINUTE) \u003d\u003d cal2.get(Calendar.MINUTE) \u0026\u0026 cal1.get(Calendar.HOUR) \u003d\u003d cal2.get(Calendar.HOUR) \u0026\u0026 cal1.get(Calendar.DAY_OF_YEAR) \u003d\u003d cal2.get(Calendar.DAY_OF_YEAR) \u0026\u0026 cal1.get(Calendar.YEAR) \u003d\u003d cal2.get(Calendar.YEAR) \u0026\u0026 cal1.get(Calendar.ERA) \u003d\u003d cal2.get(Calendar.ERA) \u0026\u0026 cal1.getClass() \u003d\u003d cal2.getClass());\n}",
+      "path": "src/java/org/apache/commons/lang3/time/DateUtils.java",
+      "functionStartLine": 257,
+      "functionName": "isSameLocalTime",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eChecks if two calendar objects represent the same local time.\u003c/p\u003e\n\n\u003cp\u003eThis method compares the values of the fields of the two objects.\nIn addition, both calendars must be the same of the same type.\u003c/p\u003e\n\n@param cal1 the first calendar, not altered, not null\n@param cal2 the second calendar, not altered, not null\n@return true if they represent the same millisecond instant\n@throws IllegalArgumentException if either date is \u003ccode\u003enull\u003c/code\u003e\n@since 2.1\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/lang/time/DateUtils.java",
+        "newPath": "src/java/org/apache/commons/lang3/time/DateUtils.java"
+      }
+    },
+    "2a41c12c95bb41f7b07a270927b27f3bc5098621": {
+      "type": "Yintroduced",
+      "commitMessage": "Add methods to compare dates and calendars in different ways\nbased on bug 26922\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137982 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/16/04, 10:08 AM",
+      "commitName": "2a41c12c95bb41f7b07a270927b27f3bc5098621",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,6 @@\n+public static boolean isSameLocalTime(Calendar cal1, Calendar cal2) {\n+    if (cal1 \u003d\u003d null || cal2 \u003d\u003d null) {\n+        throw new IllegalArgumentException(\"The date must not be null\");\n+    }\n+    return (cal1.get(Calendar.MILLISECOND) \u003d\u003d cal2.get(Calendar.MILLISECOND) \u0026\u0026 cal1.get(Calendar.SECOND) \u003d\u003d cal2.get(Calendar.SECOND) \u0026\u0026 cal1.get(Calendar.MINUTE) \u003d\u003d cal2.get(Calendar.MINUTE) \u0026\u0026 cal1.get(Calendar.HOUR) \u003d\u003d cal2.get(Calendar.HOUR) \u0026\u0026 cal1.get(Calendar.DAY_OF_YEAR) \u003d\u003d cal2.get(Calendar.DAY_OF_YEAR) \u0026\u0026 cal1.get(Calendar.YEAR) \u003d\u003d cal2.get(Calendar.YEAR) \u0026\u0026 cal1.get(Calendar.ERA) \u003d\u003d cal2.get(Calendar.ERA) \u0026\u0026 cal1.getClass() \u003d\u003d cal2.getClass());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean isSameLocalTime(Calendar cal1, Calendar cal2) {\n    if (cal1 \u003d\u003d null || cal2 \u003d\u003d null) {\n        throw new IllegalArgumentException(\"The date must not be null\");\n    }\n    return (cal1.get(Calendar.MILLISECOND) \u003d\u003d cal2.get(Calendar.MILLISECOND) \u0026\u0026 cal1.get(Calendar.SECOND) \u003d\u003d cal2.get(Calendar.SECOND) \u0026\u0026 cal1.get(Calendar.MINUTE) \u003d\u003d cal2.get(Calendar.MINUTE) \u0026\u0026 cal1.get(Calendar.HOUR) \u003d\u003d cal2.get(Calendar.HOUR) \u0026\u0026 cal1.get(Calendar.DAY_OF_YEAR) \u003d\u003d cal2.get(Calendar.DAY_OF_YEAR) \u0026\u0026 cal1.get(Calendar.YEAR) \u003d\u003d cal2.get(Calendar.YEAR) \u0026\u0026 cal1.get(Calendar.ERA) \u003d\u003d cal2.get(Calendar.ERA) \u0026\u0026 cal1.getClass() \u003d\u003d cal2.getClass());\n}",
+      "path": "src/java/org/apache/commons/lang/time/DateUtils.java",
+      "functionStartLine": 217,
+      "functionName": "isSameLocalTime",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eChecks if two calendar objects represent the same local time.\u003c/p\u003e\n\n\u003cp\u003eThis method compares the values of the fields of the two objects.\nIn addition, both calendars must be the same of the same type.\u003c/p\u003e\n\n@param cal1 the first calendar, not altered, not null\n@param cal2 the second calendar, not altered, not null\n@return true if they represent the same millisecond instant\n@throws IllegalArgumentException if either date is \u003ccode\u003enull\u003c/code\u003e\n@since 2.1\n"
+    }
+  }
+}

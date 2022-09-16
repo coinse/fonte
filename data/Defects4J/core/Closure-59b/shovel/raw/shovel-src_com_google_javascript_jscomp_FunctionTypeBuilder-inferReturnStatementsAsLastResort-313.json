@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionTypeBuilder.java",
+  "functionName": "inferReturnStatementsAsLastResort",
+  "functionId": "inferReturnStatementsAsLastResort___functionBlock-Node(annotations-@Nullable)",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "If we haven\u0027t found a return value yet, try to look at the \"return\"\nstatements in the function.\n",
+  "functionStartLine": 313,
+  "functionEndLine": 343,
+  "numCommitsSeen": 42,
+  "timeTaken": 2834,
+  "changeHistory": [
+    "063290b4d9e449ef7a2c566f18d89227c6f0a5f6",
+    "b8fb1c4377809503625087f13c1ade664ce9b7e2",
+    "465282f1ca28a208b06c47b55fd292d4631c55da"
+  ],
+  "changeHistoryShort": {
+    "063290b4d9e449ef7a2c566f18d89227c6f0a5f6": "Ybodychange",
+    "b8fb1c4377809503625087f13c1ade664ce9b7e2": "Yrename",
+    "465282f1ca28a208b06c47b55fd292d4631c55da": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "063290b4d9e449ef7a2c566f18d89227c6f0a5f6": {
+      "type": "Ybodychange",
+      "commitMessage": "\nInfer return types of functions with only THROW statements.\n\nR\u003djohnlenz\nDELTA\u003d3  (0 added, 1 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d419\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@745 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/1/11, 12:30 PM",
+      "commitName": "063290b4d9e449ef7a2c566f18d89227c6f0a5f6",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "1/31/11, 8:08 AM",
+      "commitNameOld": "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 1.18,
+      "commitsBetweenForRepo": 6,
+      "commitsBetweenForFile": 1,
+      "actualSource": "FunctionTypeBuilder inferReturnStatementsAsLastResort(@Nullable Node functionBlock) {\n    if (functionBlock \u003d\u003d null || compiler.getInput(sourceName).isExtern()) {\n        return this;\n    }\n    Preconditions.checkArgument(functionBlock.getType() \u003d\u003d Token.BLOCK);\n    if (returnType \u003d\u003d null) {\n        boolean hasNonEmptyReturns \u003d false;\n        List\u003cNode\u003e worklist \u003d Lists.newArrayList(functionBlock);\n        while (!worklist.isEmpty()) {\n            Node current \u003d worklist.remove(worklist.size() - 1);\n            int cType \u003d current.getType();\n            if (cType \u003d\u003d Token.RETURN \u0026\u0026 current.getFirstChild() !\u003d null) {\n                hasNonEmptyReturns \u003d true;\n                break;\n            } else if (NodeUtil.isStatementBlock(current) || NodeUtil.isControlStructure(current)) {\n                for (Node child \u003d current.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n                    worklist.add(child);\n                }\n            }\n        }\n        if (!hasNonEmptyReturns) {\n            returnType \u003d typeRegistry.getNativeType(VOID_TYPE);\n            returnTypeInferred \u003d true;\n        }\n    }\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+      "functionStartLine": 311,
+      "functionName": "inferReturnStatementsAsLastResort",
+      "functionAnnotation": "",
+      "functionDoc": "If we haven\u0027t found a return value yet, try to look at the \"return\"\nstatements in the function.\n",
+      "diff": "@@ -1,27 +1,27 @@\n FunctionTypeBuilder inferReturnStatementsAsLastResort(@Nullable Node functionBlock) {\n     if (functionBlock \u003d\u003d null || compiler.getInput(sourceName).isExtern()) {\n         return this;\n     }\n     Preconditions.checkArgument(functionBlock.getType() \u003d\u003d Token.BLOCK);\n     if (returnType \u003d\u003d null) {\n         boolean hasNonEmptyReturns \u003d false;\n         List\u003cNode\u003e worklist \u003d Lists.newArrayList(functionBlock);\n         while (!worklist.isEmpty()) {\n             Node current \u003d worklist.remove(worklist.size() - 1);\n             int cType \u003d current.getType();\n-            if (cType \u003d\u003d Token.RETURN \u0026\u0026 current.getFirstChild() !\u003d null || cType \u003d\u003d Token.THROW) {\n+            if (cType \u003d\u003d Token.RETURN \u0026\u0026 current.getFirstChild() !\u003d null) {\n                 hasNonEmptyReturns \u003d true;\n                 break;\n             } else if (NodeUtil.isStatementBlock(current) || NodeUtil.isControlStructure(current)) {\n                 for (Node child \u003d current.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n                     worklist.add(child);\n                 }\n             }\n         }\n         if (!hasNonEmptyReturns) {\n             returnType \u003d typeRegistry.getNativeType(VOID_TYPE);\n             returnTypeInferred \u003d true;\n         }\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "b8fb1c4377809503625087f13c1ade664ce9b7e2": {
+      "type": "Yrename",
+      "commitMessage": "\nChange on 2010/06/29 13:33:11 by nicksantos\n\n\tBe more aggressive about pulling param/return types off the overridden\n\tmethod.\n\n\tR\u003djohnlenz\n\tDELTA\u003d198  (149 added, 21 deleted, 28 changed)\n\nChange on 2010/06/30 05:24:10 by nthomas\n\n\tAdd ontouch{cancel,end,move,start} attribute declarations per the Safari Reference Library:\n\thttp://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html\n\n\tR\u003dacleung\n\tDELTA\u003d28  (28 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d47001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@259 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/30/10, 3:28 PM",
+      "commitName": "b8fb1c4377809503625087f13c1ade664ce9b7e2",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "6/22/10, 5:19 PM",
+      "commitNameOld": "465282f1ca28a208b06c47b55fd292d4631c55da",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 7.92,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "FunctionTypeBuilder inferReturnStatementsAsLastResort(@Nullable Node functionBlock) {\n    if (functionBlock \u003d\u003d null || compiler.getInput(sourceName).isExtern()) {\n        return this;\n    }\n    Preconditions.checkArgument(functionBlock.getType() \u003d\u003d Token.BLOCK);\n    if (returnType \u003d\u003d null) {\n        boolean hasNonEmptyReturns \u003d false;\n        List\u003cNode\u003e worklist \u003d Lists.newArrayList(functionBlock);\n        while (!worklist.isEmpty()) {\n            Node current \u003d worklist.remove(worklist.size() - 1);\n            int cType \u003d current.getType();\n            if (cType \u003d\u003d Token.RETURN \u0026\u0026 current.getFirstChild() !\u003d null || cType \u003d\u003d Token.THROW) {\n                hasNonEmptyReturns \u003d true;\n                break;\n            } else if (NodeUtil.isStatementBlock(current) || NodeUtil.isControlStructure(current)) {\n                for (Node child \u003d current.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n                    worklist.add(child);\n                }\n            }\n        }\n        if (!hasNonEmptyReturns) {\n            returnType \u003d typeRegistry.getNativeType(VOID_TYPE);\n            returnTypeInferred \u003d true;\n        }\n    }\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+      "functionStartLine": 233,
+      "functionName": "inferReturnStatementsAsLastResort",
+      "functionAnnotation": "",
+      "functionDoc": "If we haven\u0027t found a return value yet, try to look at the \"return\"\nstatements in the function.\n",
+      "diff": "@@ -1,27 +1,27 @@\n-FunctionTypeBuilder inferReturnStatements(@Nullable Node functionBlock) {\n+FunctionTypeBuilder inferReturnStatementsAsLastResort(@Nullable Node functionBlock) {\n     if (functionBlock \u003d\u003d null || compiler.getInput(sourceName).isExtern()) {\n         return this;\n     }\n     Preconditions.checkArgument(functionBlock.getType() \u003d\u003d Token.BLOCK);\n     if (returnType \u003d\u003d null) {\n         boolean hasNonEmptyReturns \u003d false;\n         List\u003cNode\u003e worklist \u003d Lists.newArrayList(functionBlock);\n         while (!worklist.isEmpty()) {\n             Node current \u003d worklist.remove(worklist.size() - 1);\n             int cType \u003d current.getType();\n             if (cType \u003d\u003d Token.RETURN \u0026\u0026 current.getFirstChild() !\u003d null || cType \u003d\u003d Token.THROW) {\n                 hasNonEmptyReturns \u003d true;\n                 break;\n             } else if (NodeUtil.isStatementBlock(current) || NodeUtil.isControlStructure(current)) {\n                 for (Node child \u003d current.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n                     worklist.add(child);\n                 }\n             }\n         }\n         if (!hasNonEmptyReturns) {\n             returnType \u003d typeRegistry.getNativeType(VOID_TYPE);\n             returnTypeInferred \u003d true;\n         }\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "inferReturnStatements",
+        "newValue": "inferReturnStatementsAsLastResort"
+      }
+    },
+    "465282f1ca28a208b06c47b55fd292d4631c55da": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/06/22 by nicksantos\n\n        Inferred return types. \n        Fixes issue 143.\n        I eventually decided that it was wrong for the subtype\u0027s method\n        to affect the supertype\u0027s method, since this will make incremental\n        compilation a lot harder in the long run.\n\n        R\u003dmoedinger\n        DELTA\u003d481  (313 added, 38 deleted, 130 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d34007\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@249 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/22/10, 5:19 PM",
+      "commitName": "465282f1ca28a208b06c47b55fd292d4631c55da",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,27 @@\n+FunctionTypeBuilder inferReturnStatements(@Nullable Node functionBlock) {\n+    if (functionBlock \u003d\u003d null || compiler.getInput(sourceName).isExtern()) {\n+        return this;\n+    }\n+    Preconditions.checkArgument(functionBlock.getType() \u003d\u003d Token.BLOCK);\n+    if (returnType \u003d\u003d null) {\n+        boolean hasNonEmptyReturns \u003d false;\n+        List\u003cNode\u003e worklist \u003d Lists.newArrayList(functionBlock);\n+        while (!worklist.isEmpty()) {\n+            Node current \u003d worklist.remove(worklist.size() - 1);\n+            int cType \u003d current.getType();\n+            if (cType \u003d\u003d Token.RETURN \u0026\u0026 current.getFirstChild() !\u003d null || cType \u003d\u003d Token.THROW) {\n+                hasNonEmptyReturns \u003d true;\n+                break;\n+            } else if (NodeUtil.isStatementBlock(current) || NodeUtil.isControlStructure(current)) {\n+                for (Node child \u003d current.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n+                    worklist.add(child);\n+                }\n+            }\n+        }\n+        if (!hasNonEmptyReturns) {\n+            returnType \u003d typeRegistry.getNativeType(VOID_TYPE);\n+            returnTypeInferred \u003d true;\n+        }\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "FunctionTypeBuilder inferReturnStatements(@Nullable Node functionBlock) {\n    if (functionBlock \u003d\u003d null || compiler.getInput(sourceName).isExtern()) {\n        return this;\n    }\n    Preconditions.checkArgument(functionBlock.getType() \u003d\u003d Token.BLOCK);\n    if (returnType \u003d\u003d null) {\n        boolean hasNonEmptyReturns \u003d false;\n        List\u003cNode\u003e worklist \u003d Lists.newArrayList(functionBlock);\n        while (!worklist.isEmpty()) {\n            Node current \u003d worklist.remove(worklist.size() - 1);\n            int cType \u003d current.getType();\n            if (cType \u003d\u003d Token.RETURN \u0026\u0026 current.getFirstChild() !\u003d null || cType \u003d\u003d Token.THROW) {\n                hasNonEmptyReturns \u003d true;\n                break;\n            } else if (NodeUtil.isStatementBlock(current) || NodeUtil.isControlStructure(current)) {\n                for (Node child \u003d current.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n                    worklist.add(child);\n                }\n            }\n        }\n        if (!hasNonEmptyReturns) {\n            returnType \u003d typeRegistry.getNativeType(VOID_TYPE);\n            returnTypeInferred \u003d true;\n        }\n    }\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+      "functionStartLine": 214,
+      "functionName": "inferReturnStatements",
+      "functionAnnotation": "",
+      "functionDoc": "If we haven\u0027t found a return value yet, try to look at the \"return\"\nstatements in the function.\n"
+    }
+  }
+}

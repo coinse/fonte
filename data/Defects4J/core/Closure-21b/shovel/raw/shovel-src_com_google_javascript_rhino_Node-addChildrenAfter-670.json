@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-21b",
+  "repositoryPath": "/tmp/Closure-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "addChildrenAfter",
+  "functionId": "addChildrenAfter___children-Node__node-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "Add all children after \u0027node\u0027.\n",
+  "functionStartLine": 670,
+  "functionEndLine": 694,
+  "numCommitsSeen": 77,
+  "timeTaken": 1340,
+  "changeHistory": [
+    "45780d8a222f8da8106c18afee3c975933af195c"
+  ],
+  "changeHistoryShort": {
+    "45780d8a222f8da8106c18afee3c975933af195c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "45780d8a222f8da8106c18afee3c975933af195c": {
+      "type": "Yintroduced",
+      "commitMessage": "\ncreate a generic mechanism for injecting compile-time libraries\n\nR\u003djohnlenz\nDELTA\u003d194  (136 added, 36 deleted, 22 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4338\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1820 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/8/12, 8:16 PM",
+      "commitName": "45780d8a222f8da8106c18afee3c975933af195c",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,23 @@\n+public void addChildrenAfter(Node children, Node node) {\n+    Preconditions.checkArgument(node \u003d\u003d null || node.parent \u003d\u003d this);\n+    for (Node child \u003d children; child !\u003d null; child \u003d child.next) {\n+        Preconditions.checkArgument(child.parent \u003d\u003d null);\n+        child.parent \u003d this;\n+    }\n+    Node lastSibling \u003d children.getLastSibling();\n+    if (node !\u003d null) {\n+        Node oldNext \u003d node.next;\n+        node.next \u003d children;\n+        lastSibling.next \u003d oldNext;\n+        if (node \u003d\u003d last) {\n+            last \u003d lastSibling;\n+        }\n+    } else {\n+        if (first !\u003d null) {\n+            lastSibling.next \u003d first;\n+        } else {\n+            last \u003d lastSibling;\n+        }\n+        first \u003d children;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void addChildrenAfter(Node children, Node node) {\n    Preconditions.checkArgument(node \u003d\u003d null || node.parent \u003d\u003d this);\n    for (Node child \u003d children; child !\u003d null; child \u003d child.next) {\n        Preconditions.checkArgument(child.parent \u003d\u003d null);\n        child.parent \u003d this;\n    }\n    Node lastSibling \u003d children.getLastSibling();\n    if (node !\u003d null) {\n        Node oldNext \u003d node.next;\n        node.next \u003d children;\n        lastSibling.next \u003d oldNext;\n        if (node \u003d\u003d last) {\n            last \u003d lastSibling;\n        }\n    } else {\n        if (first !\u003d null) {\n            lastSibling.next \u003d first;\n        } else {\n            last \u003d lastSibling;\n        }\n        first \u003d children;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 669,
+      "functionName": "addChildrenAfter",
+      "functionAnnotation": "",
+      "functionDoc": "Add all children after \u0027node\u0027.\n"
+    }
+  }
+}

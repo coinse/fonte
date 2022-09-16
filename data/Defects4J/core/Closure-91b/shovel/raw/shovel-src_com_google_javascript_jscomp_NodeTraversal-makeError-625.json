@@ -1,0 +1,192 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeTraversal.java",
+  "functionName": "makeError",
+  "functionId": "makeError___n-Node__level-CheckLevel__type-DiagnosticType__arguments-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeTraversal.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+  "functionStartLine": 625,
+  "functionEndLine": 629,
+  "numCommitsSeen": 12,
+  "timeTaken": 1872,
+  "changeHistory": [
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Ydocchange,Yrename,Yparameterchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Ydocchange,Yrename,Yparameterchange)",
+      "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/29/10, 7:04 AM",
+      "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/29/10, 7:04 AM",
+          "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/26/10, 3:22 PM",
+          "commitNameOld": "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.65,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+          "functionStartLine": 636,
+          "functionName": "makeError",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n-    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n+public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n+    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/com/google/javascript/jscomp/JSError.java",
+            "newPath": "src/com/google/javascript/jscomp/NodeTraversal.java",
+            "oldMethodName": "make",
+            "newMethodName": "makeError"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/29/10, 7:04 AM",
+          "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/26/10, 3:22 PM",
+          "commitNameOld": "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.65,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+          "functionStartLine": 636,
+          "functionName": "makeError",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n-    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n+public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n+    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public, static]",
+            "newValue": "[public]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/29/10, 7:04 AM",
+          "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/26/10, 3:22 PM",
+          "commitNameOld": "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.65,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+          "functionStartLine": 636,
+          "functionName": "makeError",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n-    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n+public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n+    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/29/10, 7:04 AM",
+          "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/26/10, 3:22 PM",
+          "commitNameOld": "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.65,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+          "functionStartLine": 636,
+          "functionName": "makeError",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n-    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n+public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n+    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Creates a JSError during NodeTraversal.\n\n@param t Determines source file name containing current script\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+            "newValue": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n"
+          }
+        },
+        {
+          "type": "Yrename",
+          "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/29/10, 7:04 AM",
+          "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/26/10, 3:22 PM",
+          "commitNameOld": "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.65,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+          "functionStartLine": 636,
+          "functionName": "makeError",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n-    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n+public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n+    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "make",
+            "newValue": "makeError"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/29/10, 7:04 AM",
+          "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/26/10, 3:22 PM",
+          "commitNameOld": "be7c3f2f02e3eb2ad0153ebdff8b8d4fbafa8567",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.65,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeTraversal.java",
+          "functionStartLine": 636,
+          "functionName": "makeError",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n-    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n+public JSError makeError(Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n+    return JSError.make(getSourceName(), n.getLineno(), n.getCharno(), level, type, arguments);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[t-NodeTraversal, n-Node, level-CheckLevel, type-DiagnosticType, arguments-String]",
+            "newValue": "[n-Node, level-CheckLevel, type-DiagnosticType, arguments-String]"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,3 @@\n+public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n+    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static JSError make(NodeTraversal t, Node n, CheckLevel level, DiagnosticType type, String... arguments) {\n    return new JSError(t.getSourceName(), n.getLineno(), n.getCharno(), type, level, arguments);\n}",
+      "path": "src/com/google/javascript/jscomp/JSError.java",
+      "functionStartLine": 137,
+      "functionName": "make",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a JSError during NodeTraversal.\n\n@param t Determines source file name containing current script\n@param n Determines the line and char position within the source file name\n@param type The DiagnosticType\n@param arguments Arguments to be incorporated into the message\n"
+    }
+  }
+}

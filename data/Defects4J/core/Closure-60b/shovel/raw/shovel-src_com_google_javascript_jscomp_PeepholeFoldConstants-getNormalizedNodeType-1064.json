@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeFoldConstants.java",
+  "functionName": "getNormalizedNodeType",
+  "functionId": "getNormalizedNodeType___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Translate NOT expressions into TRUE or FALSE when possible.\n",
+  "functionStartLine": 1064,
+  "functionEndLine": 1076,
+  "numCommitsSeen": 48,
+  "timeTaken": 1306,
+  "changeHistory": [
+    "03fee32a06ccf8257b2da67b9034270be38805ae"
+  ],
+  "changeHistoryShort": {
+    "03fee32a06ccf8257b2da67b9034270be38805ae": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "03fee32a06ccf8257b2da67b9034270be38805ae": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix more regressions caused by TRUE/FALSE denormalization.\nFixes issue 413\n\nR\u003dacleung\nDELTA\u003d55  (46 added, 1 deleted, 8 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1308\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@982 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/8/11, 12:27 PM",
+      "commitName": "03fee32a06ccf8257b2da67b9034270be38805ae",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,13 @@\n+private int getNormalizedNodeType(Node n) {\n+    int type \u003d n.getType();\n+    if (type \u003d\u003d Token.NOT) {\n+        TernaryValue value \u003d NodeUtil.getPureBooleanValue(n);\n+        switch(value) {\n+            case TRUE:\n+                return Token.TRUE;\n+            case FALSE:\n+                return Token.FALSE;\n+        }\n+    }\n+    return type;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private int getNormalizedNodeType(Node n) {\n    int type \u003d n.getType();\n    if (type \u003d\u003d Token.NOT) {\n        TernaryValue value \u003d NodeUtil.getPureBooleanValue(n);\n        switch(value) {\n            case TRUE:\n                return Token.TRUE;\n            case FALSE:\n                return Token.FALSE;\n        }\n    }\n    return type;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 1074,
+      "functionName": "getNormalizedNodeType",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Translate NOT expressions into TRUE or FALSE when possible.\n"
+    }
+  }
+}

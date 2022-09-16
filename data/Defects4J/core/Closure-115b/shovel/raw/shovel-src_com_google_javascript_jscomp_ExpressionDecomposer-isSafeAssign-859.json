@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ExpressionDecomposer.java",
+  "functionName": "isSafeAssign",
+  "functionId": "isSafeAssign___n-Node__seenSideEffects-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+  "functionAnnotation": "",
+  "functionDoc": "It is always safe to inline \"foo()\" for expressions such as\n   \"a \u003d b \u003d c \u003d foo();\"\nAs the assignment is unaffected by side effect of \"foo()\"\nand the names assigned-to can not influence the state before\nthe call to foo.\n\nIt is also safe in cases like where the object is constant:\n   CONST_NAME.a \u003d foo()\n   CONST_NAME[CONST_VALUE] \u003d foo();\n\nThis is not true of more complex LHS values, such as\n    a.x \u003d foo();\n    next().x \u003d foo();\nin these cases the checks below are necessary.\n\n@param seenSideEffects If true, check to see if node-tree maybe affected by\nside-effects, otherwise if the tree has side-effects. @see\nisExpressionTreeUnsafe\n@return Whether the assignment is safe from side-effects.\n",
+  "functionStartLine": 859,
+  "functionEndLine": 873,
+  "numCommitsSeen": 25,
+  "timeTaken": 2603,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "3ce4716848eb71b6e78a4545a2cc0c27e74a29b3",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "3ce4716848eb71b6e78a4545a2cc0c27e74a29b3": "Ymultichange(Ydocchange,Yformatchange)",
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 1:51 PM",
+      "commitNameOld": "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.78,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isSafeAssign(Node n, boolean seenSideEffects) {\n    if (n.isAssign()) {\n        Node lhs \u003d n.getFirstChild();\n        switch(lhs.getType()) {\n            case Token.NAME:\n                return true;\n            case Token.GETPROP:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects);\n            case Token.GETELEM:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects) \u0026\u0026 !isExpressionTreeUnsafe(lhs.getLastChild(), seenSideEffects);\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+      "functionStartLine": 844,
+      "functionName": "isSafeAssign",
+      "functionAnnotation": "",
+      "functionDoc": "It is always safe to inline \"foo()\" for expressions such as\n   \"a \u003d b \u003d c \u003d foo();\"\nAs the assignment is unaffected by side effect of \"foo()\"\nand the names assigned-to can not influence the state before\nthe call to foo.\n\nIt is also safe in cases like where the object is constant:\n   CONST_NAME.a \u003d foo()\n   CONST_NAME[CONST_VALUE] \u003d foo();\n\nThis is not true of more complex LHS values, such as\n    a.x \u003d foo();\n    next().x \u003d foo();\nin these cases the checks below are necessary.\n\n@param seenSideEffects If true, check to see if node-tree maybe affected by\nside-effects, otherwise if the tree has side-effects. @see\nisExpressionTreeUnsafe\n@return Whether the assignment is safe from side-effects.\n",
+      "diff": "@@ -1,14 +1,14 @@\n private boolean isSafeAssign(Node n, boolean seenSideEffects) {\n-    if (n.getType() \u003d\u003d Token.ASSIGN) {\n+    if (n.isAssign()) {\n         Node lhs \u003d n.getFirstChild();\n         switch(lhs.getType()) {\n             case Token.NAME:\n                 return true;\n             case Token.GETPROP:\n                 return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects);\n             case Token.GETELEM:\n                 return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects) \u0026\u0026 !isExpressionTreeUnsafe(lhs.getLastChild(), seenSideEffects);\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "3ce4716848eb71b6e78a4545a2cc0c27e74a29b3": {
+      "type": "Ymultichange(Ydocchange,Yformatchange)",
+      "commitMessage": "Tweak to allow chained initialization:\nnew Node(Token.EXPR_RESULT, a).copyInformationFrom(a); (John)\nR\u003dalan\nDELTA\u003d10  (6 added, 0 deleted, 4 changed)\n\n\nTeach PureFunctionnIdentifier about (f || g)() calls (antonio)\nFixes issue 116\nR\u003djohn\nDELTA\u003d105  (84 added, 0 deleted, 21 changed)\n\nFix decomposition issue \nAnonymous function declaration can not be side-effected and are\nside-effect free. (John)\nR\u003dalan\nDELTA\u003d115  (101 added, 8 deleted, 6 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@154 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/25/10, 8:58 AM",
+      "commitName": "3ce4716848eb71b6e78a4545a2cc0c27e74a29b3",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Tweak to allow chained initialization:\nnew Node(Token.EXPR_RESULT, a).copyInformationFrom(a); (John)\nR\u003dalan\nDELTA\u003d10  (6 added, 0 deleted, 4 changed)\n\n\nTeach PureFunctionnIdentifier about (f || g)() calls (antonio)\nFixes issue 116\nR\u003djohn\nDELTA\u003d105  (84 added, 0 deleted, 21 changed)\n\nFix decomposition issue \nAnonymous function declaration can not be side-effected and are\nside-effect free. (John)\nR\u003dalan\nDELTA\u003d115  (101 added, 8 deleted, 6 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@154 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/25/10, 8:58 AM",
+          "commitName": "3ce4716848eb71b6e78a4545a2cc0c27e74a29b3",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/11/10, 9:31 PM",
+          "commitNameOld": "7bfdbd9164601af44d17edd51be829fde2cc51aa",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 13.44,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isSafeAssign(Node n, boolean seenSideEffects) {\n    if (n.getType() \u003d\u003d Token.ASSIGN) {\n        Node lhs \u003d n.getFirstChild();\n        switch(lhs.getType()) {\n            case Token.NAME:\n                return true;\n            case Token.GETPROP:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects);\n            case Token.GETELEM:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects) \u0026\u0026 !isExpressionTreeUnsafe(lhs.getLastChild(), seenSideEffects);\n        }\n    }\n    return false;\n}",
+          "path": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+          "functionStartLine": 779,
+          "functionName": "isSafeAssign",
+          "functionAnnotation": "",
+          "functionDoc": "It is always safe to inline \"foo()\" for expressions such as\n   \"a \u003d b \u003d c \u003d foo();\"\nAs the assignment is unaffected by side effect of \"foo()\"\nand the names assigned-to can not influence the state before\nthe call to foo.\n\nIt is also safe in cases like where the object is constant:\n   CONST_NAME.a \u003d foo()\n   CONST_NAME[CONST_VALUE] \u003d foo();\n\nThis is not true of more complex LHS values, such as\n    a.x \u003d foo();\n    next().x \u003d foo();\nin these cases the checks below are necessary.\n\n@param seenSideEffects If true, check to see if node-tree maybe affected by\nside-effects, otherwise if the tree has side-effects. @see\nisExpressionTreeUnsafe\n@return Whether the assignment is safe from side-effects.\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "It is always safe to inline \"foo()\" for expressions such as\n   \"a \u003d b \u003d c \u003d foo();\"\nAs the assignment is unaffected by side effect of \"foo()\"\nand the names assigned-to can not influence the state before\nthe call to foo.\n\nIt is also safe in cases like where the object is constant:\n   CONST_NAME.a \u003d foo()\n   CONST_NAME[CONST_VALUE] \u003d foo(); \n\nThis is not true of more complex LHS values, such as\n    a.x \u003d foo();\n    next().x \u003d foo();\nin these cases the checks below are necessary.\n\n@param seenSideEffects If true, check to see if node-tree maybe affected by\nside-effects, otherwise if the tree has side-effects. @see \nisExpressionTreeUnsafe\n@return Whether the assignment is safe from side-effects.\n",
+            "newValue": "It is always safe to inline \"foo()\" for expressions such as\n   \"a \u003d b \u003d c \u003d foo();\"\nAs the assignment is unaffected by side effect of \"foo()\"\nand the names assigned-to can not influence the state before\nthe call to foo.\n\nIt is also safe in cases like where the object is constant:\n   CONST_NAME.a \u003d foo()\n   CONST_NAME[CONST_VALUE] \u003d foo();\n\nThis is not true of more complex LHS values, such as\n    a.x \u003d foo();\n    next().x \u003d foo();\nin these cases the checks below are necessary.\n\n@param seenSideEffects If true, check to see if node-tree maybe affected by\nside-effects, otherwise if the tree has side-effects. @see\nisExpressionTreeUnsafe\n@return Whether the assignment is safe from side-effects.\n"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "Tweak to allow chained initialization:\nnew Node(Token.EXPR_RESULT, a).copyInformationFrom(a); (John)\nR\u003dalan\nDELTA\u003d10  (6 added, 0 deleted, 4 changed)\n\n\nTeach PureFunctionnIdentifier about (f || g)() calls (antonio)\nFixes issue 116\nR\u003djohn\nDELTA\u003d105  (84 added, 0 deleted, 21 changed)\n\nFix decomposition issue \nAnonymous function declaration can not be side-effected and are\nside-effect free. (John)\nR\u003dalan\nDELTA\u003d115  (101 added, 8 deleted, 6 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@154 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/25/10, 8:58 AM",
+          "commitName": "3ce4716848eb71b6e78a4545a2cc0c27e74a29b3",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/11/10, 9:31 PM",
+          "commitNameOld": "7bfdbd9164601af44d17edd51be829fde2cc51aa",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 13.44,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isSafeAssign(Node n, boolean seenSideEffects) {\n    if (n.getType() \u003d\u003d Token.ASSIGN) {\n        Node lhs \u003d n.getFirstChild();\n        switch(lhs.getType()) {\n            case Token.NAME:\n                return true;\n            case Token.GETPROP:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects);\n            case Token.GETELEM:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects) \u0026\u0026 !isExpressionTreeUnsafe(lhs.getLastChild(), seenSideEffects);\n        }\n    }\n    return false;\n}",
+          "path": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+          "functionStartLine": 779,
+          "functionName": "isSafeAssign",
+          "functionAnnotation": "",
+          "functionDoc": "It is always safe to inline \"foo()\" for expressions such as\n   \"a \u003d b \u003d c \u003d foo();\"\nAs the assignment is unaffected by side effect of \"foo()\"\nand the names assigned-to can not influence the state before\nthe call to foo.\n\nIt is also safe in cases like where the object is constant:\n   CONST_NAME.a \u003d foo()\n   CONST_NAME[CONST_VALUE] \u003d foo();\n\nThis is not true of more complex LHS values, such as\n    a.x \u003d foo();\n    next().x \u003d foo();\nin these cases the checks below are necessary.\n\n@param seenSideEffects If true, check to see if node-tree maybe affected by\nside-effects, otherwise if the tree has side-effects. @see\nisExpressionTreeUnsafe\n@return Whether the assignment is safe from side-effects.\n",
+          "diff": "",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/09, 11:16 AM",
+      "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private boolean isSafeAssign(Node n, boolean seenSideEffects) {\n+    if (n.getType() \u003d\u003d Token.ASSIGN) {\n+        Node lhs \u003d n.getFirstChild();\n+        switch(lhs.getType()) {\n+            case Token.NAME:\n+                return true;\n+            case Token.GETPROP:\n+                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects);\n+            case Token.GETELEM:\n+                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects) \u0026\u0026 !isExpressionTreeUnsafe(lhs.getLastChild(), seenSideEffects);\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isSafeAssign(Node n, boolean seenSideEffects) {\n    if (n.getType() \u003d\u003d Token.ASSIGN) {\n        Node lhs \u003d n.getFirstChild();\n        switch(lhs.getType()) {\n            case Token.NAME:\n                return true;\n            case Token.GETPROP:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects);\n            case Token.GETELEM:\n                return !isExpressionTreeUnsafe(lhs.getFirstChild(), seenSideEffects) \u0026\u0026 !isExpressionTreeUnsafe(lhs.getLastChild(), seenSideEffects);\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+      "functionStartLine": 758,
+      "functionName": "isSafeAssign",
+      "functionAnnotation": "",
+      "functionDoc": "It is always safe to inline \"foo()\" for expressions such as\n   \"a \u003d b \u003d c \u003d foo();\"\nAs the assignment is unaffected by side effect of \"foo()\"\nand the names assigned-to can not influence the state before\nthe call to foo.\n\nIt is also safe in cases like where the object is constant:\n   CONST_NAME.a \u003d foo()\n   CONST_NAME[CONST_VALUE] \u003d foo(); \n\nThis is not true of more complex LHS values, such as\n    a.x \u003d foo();\n    next().x \u003d foo();\nin these cases the checks below are necessary.\n\n@param seenSideEffects If true, check to see if node-tree maybe affected by\nside-effects, otherwise if the tree has side-effects. @see \nisExpressionTreeUnsafe\n@return Whether the assignment is safe from side-effects.\n"
+    }
+  }
+}

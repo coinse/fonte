@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ControlFlowAnalysis.java",
+  "functionName": "handleExpr",
+  "functionId": "handleExpr___node-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 534,
+  "functionEndLine": 537,
+  "numCommitsSeen": 23,
+  "timeTaken": 1391,
+  "changeHistory": [
+    "0a39688562637465944df3c29ae0c1259cc0a4dc",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "0a39688562637465944df3c29ae0c1259cc0a4dc": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0a39688562637465944df3c29ae0c1259cc0a4dc": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRemoves useless unconditional jumps\n\nR\u003djohnlenz\nDELTA\u003d179  (96 added, 33 deleted, 50 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d88010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@337 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/10, 5:53 PM",
+      "commitName": "0a39688562637465944df3c29ae0c1259cc0a4dc",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "2/22/10, 5:07 PM",
+      "commitNameOld": "2f5cb1622371de540fe20dcbe0411651ec89f952",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 162.99,
+      "commitsBetweenForRepo": 207,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void handleExpr(Node node) {\n    createEdge(node, Branch.UNCOND, computeFollowNode(node, this));\n    connectToPossibleExceptionHandler(node, node);\n}",
+      "path": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+      "functionStartLine": 531,
+      "functionName": "handleExpr",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n private void handleExpr(Node node) {\n-    createEdge(node, Branch.UNCOND, computeFollowNode(node));\n+    createEdge(node, Branch.UNCOND, computeFollowNode(node, this));\n     connectToPossibleExceptionHandler(node, node);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+private void handleExpr(Node node) {\n+    createEdge(node, Branch.UNCOND, computeFollowNode(node));\n+    connectToPossibleExceptionHandler(node, node);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void handleExpr(Node node) {\n    createEdge(node, Branch.UNCOND, computeFollowNode(node));\n    connectToPossibleExceptionHandler(node, node);\n}",
+      "path": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+      "functionStartLine": 532,
+      "functionName": "handleExpr",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RenameProperties.java",
+  "functionName": "enterScope",
+  "functionId": "$enterScope___t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RenameProperties.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 531,
+  "functionEndLine": 535,
+  "numCommitsSeen": 18,
+  "timeTaken": 559,
+  "changeHistory": [
+    "e13c794216c0a0e2affd53039a7d715086bc135e"
+  ],
+  "changeHistoryShort": {
+    "e13c794216c0a0e2affd53039a7d715086bc135e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e13c794216c0a0e2affd53039a7d715086bc135e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nThe old algorithm takes 49324ms to finish in gmail. Now it takes 1281 ms.\nIt used to take around 300-600ms without affinity.\n\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nRuns too slow.\n\n*** Original change description ***\n\nRenameProperties with affinity informations.\n\nR\u003dnicksantos\nDELTA\u003d174  (152 added, 6 deleted, 16 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1009\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@933 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/23/11, 12:40 PM",
+      "commitName": "e13c794216c0a0e2affd53039a7d715086bc135e",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+@Override\n+public void enterScope(NodeTraversal t) {\n+    if (!t.inGlobalScope() \u0026\u0026 t.getScope().getParent().isGlobal()) {\n+        currentHighAffinityProperties \u003d Sets.newHashSet();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void enterScope(NodeTraversal t) {\n    if (!t.inGlobalScope() \u0026\u0026 t.getScope().getParent().isGlobal()) {\n        currentHighAffinityProperties \u003d Sets.newHashSet();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/RenameProperties.java",
+      "functionStartLine": 525,
+      "functionName": "enterScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

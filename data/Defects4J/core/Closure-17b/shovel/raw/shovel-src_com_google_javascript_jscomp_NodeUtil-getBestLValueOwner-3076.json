@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getBestLValueOwner",
+  "functionId": "getBestLValueOwner___lValue-Node(annotations-@Nullable)",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the owner of the given l-value node.\n",
+  "functionStartLine": 3076,
+  "functionEndLine": 3087,
+  "numCommitsSeen": 130,
+  "timeTaken": 4220,
+  "changeHistory": [
+    "a2dd1662d90524a12a99a9fa7d4308568938d963"
+  ],
+  "changeHistoryShort": {
+    "a2dd1662d90524a12a99a9fa7d4308568938d963": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2dd1662d90524a12a99a9fa7d4308568938d963": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDo much better at \"this\" inference.\n\n\nTested:\nyes\n\nR\u003dacleung\nDELTA\u003d119  (64 added, 37 deleted, 18 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3171\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1399 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/31/11, 8:11 AM",
+      "commitName": "a2dd1662d90524a12a99a9fa7d4308568938d963",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+static Node getBestLValueOwner(@Nullable Node lValue) {\n+    if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n+        return null;\n+    }\n+    if (isObjectLitKey(lValue, lValue.getParent())) {\n+        return getBestLValue(lValue.getParent());\n+    } else if (isGet(lValue)) {\n+        return lValue.getFirstChild();\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Node getBestLValueOwner(@Nullable Node lValue) {\n    if (lValue \u003d\u003d null || lValue.getParent() \u003d\u003d null) {\n        return null;\n    }\n    if (isObjectLitKey(lValue, lValue.getParent())) {\n        return getBestLValue(lValue.getParent());\n    } else if (isGet(lValue)) {\n        return lValue.getFirstChild();\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 3155,
+      "functionName": "getBestLValueOwner",
+      "functionAnnotation": "",
+      "functionDoc": "Get the owner of the given l-value node.\n"
+    }
+  }
+}

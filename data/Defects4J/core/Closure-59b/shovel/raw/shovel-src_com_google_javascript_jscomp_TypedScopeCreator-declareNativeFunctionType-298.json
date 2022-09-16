@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "declareNativeFunctionType",
+  "functionId": "declareNativeFunctionType___scope-Scope__tId-JSTypeNative",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 298,
+  "functionEndLine": 303,
+  "numCommitsSeen": 59,
+  "timeTaken": 4177,
+  "changeHistory": [
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3bee5d740c96572faea4b9fb8b632e0e07b13cbb": {
+      "type": "Ybodychange",
+      "commitMessage": "Add a mechanism for inlining local vars, and turn it on by default.\nWarnings for \"ambiguous\" function definitions.\nRefactoring and renaming of some method names.\nUse \"\u003d\" optionality annotation in externs.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@15 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/25/09, 6:53 AM",
+      "commitName": "3bee5d740c96572faea4b9fb8b632e0e07b13cbb",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "11/13/09, 11:38 AM",
+      "commitNameOld": "efd3c178e471df6a689c1a50fbd7c404e778bfaa",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 11.8,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void declareNativeFunctionType(Scope scope, JSTypeNative tId) {\n    FunctionType t \u003d typeRegistry.getNativeFunctionType(tId);\n    declareNativeType(scope, t.getInstanceType().getReferenceName(), t);\n    declareNativeType(scope, t.getPrototype().getReferenceName(), t.getPrototype());\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 196,
+      "functionName": "declareNativeFunctionType",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n private void declareNativeFunctionType(Scope scope, JSTypeNative tId) {\n     FunctionType t \u003d typeRegistry.getNativeFunctionType(tId);\n-    declareNativeType(scope, t.getInstanceType().getName(), t);\n-    declareNativeType(scope, t.getPrototype().getName(), t.getPrototype());\n+    declareNativeType(scope, t.getInstanceType().getReferenceName(), t);\n+    declareNativeType(scope, t.getPrototype().getReferenceName(), t.getPrototype());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,5 @@\n+private void declareNativeFunctionType(Scope scope, JSTypeNative tId) {\n+    FunctionType t \u003d typeRegistry.getNativeFunctionType(tId);\n+    declareNativeType(scope, t.getInstanceType().getName(), t);\n+    declareNativeType(scope, t.getPrototype().getName(), t.getPrototype());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void declareNativeFunctionType(Scope scope, JSTypeNative tId) {\n    FunctionType t \u003d typeRegistry.getNativeFunctionType(tId);\n    declareNativeType(scope, t.getInstanceType().getName(), t);\n    declareNativeType(scope, t.getPrototype().getName(), t.getPrototype());\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 195,
+      "functionName": "declareNativeFunctionType",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

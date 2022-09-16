@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionTypeBuilder.java",
+  "functionName": "mayHaveSingleThrow",
+  "functionId": "$mayHaveSingleThrow",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 873,
+  "functionEndLine": 876,
+  "numCommitsSeen": 59,
+  "timeTaken": 1751,
+  "changeHistory": [
+    "c26da905cc06126658ba25f037d77d9ce6c02b45"
+  ],
+  "changeHistoryShort": {
+    "c26da905cc06126658ba25f037d77d9ce6c02b45": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c26da905cc06126658ba25f037d77d9ce6c02b45": {
+      "type": "Yintroduced",
+      "commitMessage": "\nback off a little bit on function return type inference\n\nR\u003dacleung\nDELTA\u003d42  (37 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4480\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1867 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/12, 2:38 PM",
+      "commitName": "c26da905cc06126658ba25f037d77d9ce6c02b45",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public boolean mayHaveSingleThrow() {\n+    Node block \u003d n.getLastChild();\n+    return block.hasOneChild() \u0026\u0026 block.getFirstChild().isThrow();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean mayHaveSingleThrow() {\n    Node block \u003d n.getLastChild();\n    return block.hasOneChild() \u0026\u0026 block.getFirstChild().isThrow();\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+      "functionStartLine": 869,
+      "functionName": "mayHaveSingleThrow",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

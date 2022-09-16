@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-45b",
+  "repositoryPath": "/tmp/Lang-45b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtils.java",
+  "functionName": "indexOf",
+  "functionId": "indexOf___str-String__searchStr-String__startPos-int",
+  "sourceFilePath": "src/java/org/apache/commons/lang/StringUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\nStringUtils.indexOf(\"abc\", \"\", 9)        \u003d 3\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n@since 2.0\n",
+  "functionStartLine": 850,
+  "functionEndLine": 859,
+  "numCommitsSeen": 193,
+  "timeTaken": 11686,
+  "changeHistory": [
+    "3814b58ddc878ad45f72196ee018e3103c1af37e",
+    "f8560117a7955d701cac509f784eb396e4343b7f",
+    "704f45e9346848b19560b08ed62b896dd4d0df44",
+    "251a47618ed658d9ffb9c8522248b76ee345a98c"
+  ],
+  "changeHistoryShort": {
+    "3814b58ddc878ad45f72196ee018e3103c1af37e": "Ydocchange",
+    "f8560117a7955d701cac509f784eb396e4343b7f": "Ymultichange(Ybodychange,Ydocchange)",
+    "704f45e9346848b19560b08ed62b896dd4d0df44": "Ydocchange",
+    "251a47618ed658d9ffb9c8522248b76ee345a98c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3814b58ddc878ad45f72196ee018e3103c1af37e": {
+      "type": "Ydocchange",
+      "commitMessage": "Add @since 2.0 tags based on http://www.apache.org/~bayard/commons-lang-2.0/Commons-Lang-1.0.1-to-2.0/missingSinces.txt\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137642 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/20/03, 10:57 PM",
+      "commitName": "3814b58ddc878ad45f72196ee018e3103c1af37e",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "8/18/03, 5:11 PM",
+      "commitNameOld": "6bf80e9dc5ed08cff53506722e88190a1085e430",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 2.24,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static int indexOf(String str, String searchStr, int startPos) {\n    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n        return -1;\n    }\n    if (searchStr.length() \u003d\u003d 0 \u0026\u0026 startPos \u003e\u003d str.length()) {\n        return str.length();\n    }\n    return str.indexOf(searchStr, startPos);\n}",
+      "path": "src/java/org/apache/commons/lang/StringUtils.java",
+      "functionStartLine": 844,
+      "functionName": "indexOf",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\nStringUtils.indexOf(\"abc\", \"\", 9)        \u003d 3\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n@since 2.0\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\nStringUtils.indexOf(\"abc\", \"\", 9)        \u003d 3\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n",
+        "newValue": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\nStringUtils.indexOf(\"abc\", \"\", 9)        \u003d 3\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n@since 2.0\n"
+      }
+    },
+    "f8560117a7955d701cac509f784eb396e4343b7f": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Handle JDK1.2/JDK1.3 bug in String.indexOf\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137512 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/26/03, 7:34 AM",
+      "commitName": "f8560117a7955d701cac509f784eb396e4343b7f",
+      "commitAuthor": "Stephen Colebourne",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Handle JDK1.2/JDK1.3 bug in String.indexOf\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137512 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/26/03, 7:34 AM",
+          "commitName": "f8560117a7955d701cac509f784eb396e4343b7f",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "7/25/03, 3:22 PM",
+          "commitNameOld": "72a9e555b758ab86c814286041fb51e0d6c9b620",
+          "commitAuthorOld": "Stephen Colebourne",
+          "daysBetweenCommits": 0.68,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int indexOf(String str, String searchStr, int startPos) {\n    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n        return -1;\n    }\n    if (searchStr.length() \u003d\u003d 0 \u0026\u0026 startPos \u003e\u003d str.length()) {\n        return str.length();\n    }\n    return str.indexOf(searchStr, startPos);\n}",
+          "path": "src/java/org/apache/commons/lang/StringUtils.java",
+          "functionStartLine": 834,
+          "functionName": "indexOf",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\nStringUtils.indexOf(\"abc\", \"\", 9)        \u003d 3\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n",
+          "diff": "@@ -1,6 +1,9 @@\n public static int indexOf(String str, String searchStr, int startPos) {\n     if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n         return -1;\n     }\n+    if (searchStr.length() \u003d\u003d 0 \u0026\u0026 startPos \u003e\u003d str.length()) {\n+        return str.length();\n+    }\n     return str.indexOf(searchStr, startPos);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Handle JDK1.2/JDK1.3 bug in String.indexOf\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137512 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/26/03, 7:34 AM",
+          "commitName": "f8560117a7955d701cac509f784eb396e4343b7f",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "7/25/03, 3:22 PM",
+          "commitNameOld": "72a9e555b758ab86c814286041fb51e0d6c9b620",
+          "commitAuthorOld": "Stephen Colebourne",
+          "daysBetweenCommits": 0.68,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int indexOf(String str, String searchStr, int startPos) {\n    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n        return -1;\n    }\n    if (searchStr.length() \u003d\u003d 0 \u0026\u0026 startPos \u003e\u003d str.length()) {\n        return str.length();\n    }\n    return str.indexOf(searchStr, startPos);\n}",
+          "path": "src/java/org/apache/commons/lang/StringUtils.java",
+          "functionStartLine": 834,
+          "functionName": "indexOf",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\nStringUtils.indexOf(\"abc\", \"\", 9)        \u003d 3\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n",
+          "diff": "@@ -1,6 +1,9 @@\n public static int indexOf(String str, String searchStr, int startPos) {\n     if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n         return -1;\n     }\n+    if (searchStr.length() \u003d\u003d 0 \u0026\u0026 startPos \u003e\u003d str.length()) {\n+        return str.length();\n+    }\n     return str.indexOf(searchStr, startPos);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n",
+            "newValue": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\nStringUtils.indexOf(\"abc\", \"\", 9)        \u003d 3\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n"
+          }
+        }
+      ]
+    },
+    "704f45e9346848b19560b08ed62b896dd4d0df44": {
+      "type": "Ydocchange",
+      "commitMessage": "Update Javadoc and tests\nbug 21750, from Phil Steitz\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137479 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/20/03, 4:57 PM",
+      "commitName": "704f45e9346848b19560b08ed62b896dd4d0df44",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "7/20/03, 8:41 AM",
+      "commitNameOld": "3910597ef632ef74ece00f5a754120cb92e5471b",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.34,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static int indexOf(String str, String searchStr, int startPos) {\n    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n        return -1;\n    }\n    return str.indexOf(searchStr, startPos);\n}",
+      "path": "src/java/org/apache/commons/lang/StringUtils.java",
+      "functionStartLine": 827,
+      "functionName": "indexOf",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, null, 0)       \u003d -1\nStringUtils.indexOf(null, null, -1)      \u003d -1\nStringUtils.indexOf(\"\", null, 0)         \u003d -1\nStringUtils.indexOf(\"\", null, -1)        \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n",
+        "newValue": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}.\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, *, *)          \u003d -1\nStringUtils.indexOf(*, null, *)          \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"\", 2)   \u003d 2\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n"
+      }
+    },
+    "251a47618ed658d9ffb9c8522248b76ee345a98c": {
+      "type": "Yintroduced",
+      "commitMessage": "Add new methods for null-safe indexOf/lastIndexOf\nAdd new methods for contains\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137461 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/19/03, 4:29 PM",
+      "commitName": "251a47618ed658d9ffb9c8522248b76ee345a98c",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,6 @@\n+public static int indexOf(String str, String searchStr, int startPos) {\n+    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n+        return -1;\n+    }\n+    return str.indexOf(searchStr, startPos);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static int indexOf(String str, String searchStr, int startPos) {\n    if (str \u003d\u003d null || searchStr \u003d\u003d null) {\n        return -1;\n    }\n    return str.indexOf(searchStr, startPos);\n}",
+      "path": "src/java/org/apache/commons/lang/StringUtils.java",
+      "functionStartLine": 582,
+      "functionName": "indexOf",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eFinds the first index within a String, handling \u003ccode\u003enull\u003c/code\u003e.\nThis method uses {@link String#indexOf(String, int)}\u003c/p\u003e\n\n\u003cp\u003eA \u003ccode\u003enull\u003c/code\u003e String will return \u003ccode\u003e-1\u003c/code\u003e.\nA negative start position is treated as zero.\nAn empty (\"\") search String always matches.\nA start position greater than the string length only matches\nan empty search String.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.indexOf(null, null, 0)       \u003d -1\nStringUtils.indexOf(null, null, -1)      \u003d -1\nStringUtils.indexOf(\"\", null, 0)         \u003d -1\nStringUtils.indexOf(\"\", null, -1)        \u003d -1\nStringUtils.indexOf(\"\", \"\", 0)           \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"a\", 0)  \u003d 0\nStringUtils.indexOf(\"aabaabaa\", \"b\", 0)  \u003d 2\nStringUtils.indexOf(\"aabaabaa\", \"ab\", 0) \u003d 1\nStringUtils.indexOf(\"aabaabaa\", \"b\", 3)  \u003d 5\nStringUtils.indexOf(\"aabaabaa\", \"b\", 9)  \u003d -1\nStringUtils.indexOf(\"aabaabaa\", \"b\", -1) \u003d 2\n\u003c/pre\u003e\n\n@param str the String to check, may be null\n@param searchStr the String to find, may be null\n@param startPos the start position, negative treated as zero\n@return the first index of the search String,\n -1 if no match or \u003ccode\u003enull\u003c/code\u003e string input\n"
+    }
+  }
+}

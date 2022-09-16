@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnionTypeBuilder.java",
+  "functionName": "getAlternateListCopy",
+  "functionId": "getAlternateListCopy",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 326,
+  "functionEndLine": 328,
+  "numCommitsSeen": 28,
+  "timeTaken": 2717,
+  "changeHistory": [
+    "c9855bee34deaee86909d3786db294a1341e496a",
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143"
+  ],
+  "changeHistoryShort": {
+    "c9855bee34deaee86909d3786db294a1341e496a": "Ybodychange",
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c9855bee34deaee86909d3786db294a1341e496a": {
+      "type": "Ybodychange",
+      "commitMessage": "\nremove a TODO, now that it\u0027s satisfied\n\nR\u003dacleung\nDELTA\u003d14  (0 added, 14 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2759\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1292 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/26/11, 3:36 PM",
+      "commitName": "c9855bee34deaee86909d3786db294a1341e496a",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 105.14,
+      "commitsBetweenForRepo": 280,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Collection\u003cJSType\u003e getAlternateListCopy() {\n    return ImmutableList.copyOf(alternates);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+      "functionStartLine": 199,
+      "functionName": "getAlternateListCopy",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,3 @@\n private Collection\u003cJSType\u003e getAlternateListCopy() {\n-    Collections.sort(alternates, typeSorter);\n     return ImmutableList.copyOf(alternates);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/06/17 by nicksantos\n\n        don\u0027t use Sets to build union types.\n\n        R\u003djohnlenz\n        DELTA\u003d76  (52 added, 6 deleted, 18 changed)\n\nChange on 2010/06/17 by nicksantos\n\n        fix a couple bugs in goog.scope processing\n\n        R\u003drobbyw\n        DELTA\u003d54  (42 added, 11 deleted, 1 changed)\n\n\nChange on 2010/06/17 by acleung\n\n        Disables function argument check with @notypecheck is on for the whole file.\n\n        R\u003djohnlenz\n        DELTA\u003d8  (5 added, 1 deleted, 2 changed)\n\nChange on 2010/06/17 by dcc\n\n        Fix NPE in ExportExternsPass with --check_types\u003dfalse.\n\n        R\u003dacleung\n        DELTA\u003d72  (66 added, 4 deleted, 2 changed)\n\nChange on 2010/06/17 by johnlenz\n\n        Change stub method parameters to allow sanity checks to pass with\n        CrossModuleMethodMotion.\n\n        R\u003dnicksantos\n        DELTA\u003d7  (3 added, 0 deleted, 4 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Modify AliasKeywords so passes the sanity checks: don\u0027t create coding\n        convention constants without annotation them so that the tests pass\n        when the sanity checks are on.\n\n        R\u003dnicksantos\n        DELTA\u003d18  (5 added, 0 deleted, 13 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Fix source maps when run with sanity checks.\n\n        R\u003dnicksantos\n        DELTA\u003d10  (7 added, 0 deleted, 3 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Changes to PrepareAst to make it valid to run during SanityChecks.\n\n        R\u003dnicksantos\n        DELTA\u003d18  (5 added, 0 deleted, 13 changed)\n\nChange on 2010/06/18 by nicksantos\n\n        fix constant annotations in CollapseProperties.\n\n        R\u003djohnlenz\n        DELTA\u003d61  (49 added, 1 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d30002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@246 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/18/10, 5:18 PM",
+      "commitName": "e829dafb9b3365bda6b6bb80f5fa97783752d143",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,4 @@\n+private Collection\u003cJSType\u003e getAlternateListCopy() {\n+    Collections.sort(alternates, typeSorter);\n+    return ImmutableList.copyOf(alternates);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Collection\u003cJSType\u003e getAlternateListCopy() {\n    Collections.sort(alternates, typeSorter);\n    return ImmutableList.copyOf(alternates);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+      "functionStartLine": 184,
+      "functionName": "getAlternateListCopy",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

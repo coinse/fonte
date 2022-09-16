@@ -1,0 +1,26 @@
+Some javascript toolkits (dojo, base, etc.) have a special way of declaring (what java calls) classes, for example in dojo:
+
+dojo.declare(&quot;MyClass&quot;, [superClass1, superClass2], { 
+    foo: function(){ ... } 
+    bar: function(){ ... } 
+}); 
+
+JSDoc (or at least JSDoc toolkit) supports this via annotations: 
+
+/** 
+ * @name MyClass 
+ * @class 
+ * @extends superClass1 
+ * @extends superClass2 
+ */ 
+dojo.declare(&quot;MyClass&quot;, [superClass1, superClass2], /** @lends 
+MyClass.prototype */ { 
+    foo: function(){ ... } 
+    bar: function(){ ... } 
+}); 
+
+The @lends keyword in particular is useful since it tells JSDoc that foo and bar are part of MyClass's prototype.   But closure compiler isn't picking up on that, thus I get a bunch of errors about &quot;dangerous use of this&quot; inside of foo() and bar(). 
+
+So, can @lends support be added to the closure compiler?
+
+The workaround is to use @this on every method, but not sure if that is sufficient to make advanced mode compilation work correctly.

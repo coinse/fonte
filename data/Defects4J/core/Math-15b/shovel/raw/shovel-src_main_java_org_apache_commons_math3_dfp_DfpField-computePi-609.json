@@ -1,0 +1,122 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-15b",
+  "repositoryPath": "/tmp/Math-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DfpField.java",
+  "functionName": "computePi",
+  "functionId": "computePi___one-Dfp(modifiers-final)__two-Dfp(modifiers-final)__three-Dfp(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/dfp/DfpField.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute \u0026pi; using Jonathan and Peter Borwein quartic formula.\n\n@param one constant with value 1 at desired precision\n@param two constant with value 2 at desired precision\n@param three constant with value 3 at desired precision\n@return \u0026pi;\n",
+  "functionStartLine": 609,
+  "functionEndLine": 644,
+  "numCommitsSeen": 8,
+  "timeTaken": 11394,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "e9877e5b89b4393a29ed50f6d5273ccd10d8db1c",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "e9877e5b89b4393a29ed50f6d5273ccd10d8db1c": "Ymultichange(Ybodychange,Ydocchange)",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static Dfp computePi(final Dfp one, final Dfp two, final Dfp three) {\n    Dfp sqrt2 \u003d two.sqrt();\n    Dfp yk \u003d sqrt2.subtract(one);\n    Dfp four \u003d two.add(two);\n    Dfp two2kp3 \u003d two;\n    Dfp ak \u003d two.multiply(three.subtract(two.multiply(sqrt2)));\n    for (int i \u003d 1; i \u003c 20; i++) {\n        final Dfp ykM1 \u003d yk;\n        final Dfp y2 \u003d yk.multiply(yk);\n        final Dfp oneMinusY4 \u003d one.subtract(y2.multiply(y2));\n        final Dfp s \u003d oneMinusY4.sqrt().sqrt();\n        yk \u003d one.subtract(s).divide(one.add(s));\n        two2kp3 \u003d two2kp3.multiply(four);\n        final Dfp p \u003d one.add(yk);\n        final Dfp p2 \u003d p.multiply(p);\n        ak \u003d ak.multiply(p2.multiply(p2)).subtract(two2kp3.multiply(yk).multiply(one.add(yk).add(yk.multiply(yk))));\n        if (yk.equals(ykM1)) {\n            break;\n        }\n    }\n    return one.divide(ak);\n}",
+      "path": "src/main/java/org/apache/commons/math3/dfp/DfpField.java",
+      "functionStartLine": 607,
+      "functionName": "computePi",
+      "functionAnnotation": "",
+      "functionDoc": "Compute \u0026pi; using Jonathan and Peter Borwein quartic formula.\n\n@param one constant with value 1 at desired precision\n@param two constant with value 2 at desired precision\n@param three constant with value 3 at desired precision\n@return \u0026pi;\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/dfp/DfpField.java",
+        "newPath": "src/main/java/org/apache/commons/math3/dfp/DfpField.java",
+        "oldMethodName": "computePi",
+        "newMethodName": "computePi"
+      }
+    },
+    "e9877e5b89b4393a29ed50f6d5273ccd10d8db1c": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Use Jonathan and Peter Borwein quartic formula to compute PI,\nit is MUCH faster than the previous one especially for large\nnumbers of digits and allows quicker loading of the class.\nIt was tested to compute about 10000 decimal digits, just for the fun\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@995989 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/10/10, 2:29 PM",
+      "commitName": "e9877e5b89b4393a29ed50f6d5273ccd10d8db1c",
+      "commitAuthor": "Luc Maisonobe",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Use Jonathan and Peter Borwein quartic formula to compute PI,\nit is MUCH faster than the previous one especially for large\nnumbers of digits and allows quicker loading of the class.\nIt was tested to compute about 10000 decimal digits, just for the fun\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@995989 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "9/10/10, 2:29 PM",
+          "commitName": "e9877e5b89b4393a29ed50f6d5273ccd10d8db1c",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "9/10/10, 2:28 PM",
+          "commitNameOld": "c2659d3f89c4527e86f1121e0135d92c0ee29e34",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static Dfp computePi(final Dfp one, final Dfp two, final Dfp three) {\n    Dfp sqrt2 \u003d two.sqrt();\n    Dfp yk \u003d sqrt2.subtract(one);\n    Dfp four \u003d two.add(two);\n    Dfp two2kp3 \u003d two;\n    Dfp ak \u003d two.multiply(three.subtract(two.multiply(sqrt2)));\n    for (int i \u003d 1; i \u003c 20; i++) {\n        final Dfp ykM1 \u003d yk;\n        final Dfp y2 \u003d yk.multiply(yk);\n        final Dfp oneMinusY4 \u003d one.subtract(y2.multiply(y2));\n        final Dfp s \u003d oneMinusY4.sqrt().sqrt();\n        yk \u003d one.subtract(s).divide(one.add(s));\n        two2kp3 \u003d two2kp3.multiply(four);\n        final Dfp p \u003d one.add(yk);\n        final Dfp p2 \u003d p.multiply(p);\n        ak \u003d ak.multiply(p2.multiply(p2)).subtract(two2kp3.multiply(yk).multiply(one.add(yk).add(yk.multiply(yk))));\n        if (yk.equals(ykM1)) {\n            break;\n        }\n    }\n    return one.divide(ak);\n}",
+          "path": "src/main/java/org/apache/commons/math/dfp/DfpField.java",
+          "functionStartLine": 601,
+          "functionName": "computePi",
+          "functionAnnotation": "",
+          "functionDoc": "Compute \u0026pi; using Jonathan and Peter Borwein quartic formula.\n\n@param one constant with value 1 at desired precision\n@param two constant with value 2 at desired precision\n@param three constant with value 3 at desired precision\n@return \u0026pi;\n",
+          "diff": "@@ -1,22 +1,22 @@\n private static Dfp computePi(final Dfp one, final Dfp two, final Dfp three) {\n-    Dfp x \u003d three;\n-    x \u003d x.sqrt();\n-    x \u003d one.divide(x);\n-    Dfp denom \u003d one;\n-    Dfp py \u003d new Dfp(x);\n-    Dfp y \u003d new Dfp(x);\n-    for (int i \u003d 1; i \u003c 10000; i++) {\n-        x \u003d x.divide(three);\n-        denom \u003d denom.add(two);\n-        if ((i \u0026 1) !\u003d 0) {\n-            y \u003d y.subtract(x.divide(denom));\n-        } else {\n-            y \u003d y.add(x.divide(denom));\n-        }\n-        if (y.equals(py)) {\n+    Dfp sqrt2 \u003d two.sqrt();\n+    Dfp yk \u003d sqrt2.subtract(one);\n+    Dfp four \u003d two.add(two);\n+    Dfp two2kp3 \u003d two;\n+    Dfp ak \u003d two.multiply(three.subtract(two.multiply(sqrt2)));\n+    for (int i \u003d 1; i \u003c 20; i++) {\n+        final Dfp ykM1 \u003d yk;\n+        final Dfp y2 \u003d yk.multiply(yk);\n+        final Dfp oneMinusY4 \u003d one.subtract(y2.multiply(y2));\n+        final Dfp s \u003d oneMinusY4.sqrt().sqrt();\n+        yk \u003d one.subtract(s).divide(one.add(s));\n+        two2kp3 \u003d two2kp3.multiply(four);\n+        final Dfp p \u003d one.add(yk);\n+        final Dfp p2 \u003d p.multiply(p);\n+        ak \u003d ak.multiply(p2.multiply(p2)).subtract(two2kp3.multiply(yk).multiply(one.add(yk).add(yk.multiply(yk))));\n+        if (yk.equals(ykM1)) {\n             break;\n         }\n-        py \u003d new Dfp(y);\n     }\n-    return y.multiply(new Dfp(one.getField(), 6));\n+    return one.divide(ak);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Use Jonathan and Peter Borwein quartic formula to compute PI,\nit is MUCH faster than the previous one especially for large\nnumbers of digits and allows quicker loading of the class.\nIt was tested to compute about 10000 decimal digits, just for the fun\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@995989 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "9/10/10, 2:29 PM",
+          "commitName": "e9877e5b89b4393a29ed50f6d5273ccd10d8db1c",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "9/10/10, 2:28 PM",
+          "commitNameOld": "c2659d3f89c4527e86f1121e0135d92c0ee29e34",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static Dfp computePi(final Dfp one, final Dfp two, final Dfp three) {\n    Dfp sqrt2 \u003d two.sqrt();\n    Dfp yk \u003d sqrt2.subtract(one);\n    Dfp four \u003d two.add(two);\n    Dfp two2kp3 \u003d two;\n    Dfp ak \u003d two.multiply(three.subtract(two.multiply(sqrt2)));\n    for (int i \u003d 1; i \u003c 20; i++) {\n        final Dfp ykM1 \u003d yk;\n        final Dfp y2 \u003d yk.multiply(yk);\n        final Dfp oneMinusY4 \u003d one.subtract(y2.multiply(y2));\n        final Dfp s \u003d oneMinusY4.sqrt().sqrt();\n        yk \u003d one.subtract(s).divide(one.add(s));\n        two2kp3 \u003d two2kp3.multiply(four);\n        final Dfp p \u003d one.add(yk);\n        final Dfp p2 \u003d p.multiply(p);\n        ak \u003d ak.multiply(p2.multiply(p2)).subtract(two2kp3.multiply(yk).multiply(one.add(yk).add(yk.multiply(yk))));\n        if (yk.equals(ykM1)) {\n            break;\n        }\n    }\n    return one.divide(ak);\n}",
+          "path": "src/main/java/org/apache/commons/math/dfp/DfpField.java",
+          "functionStartLine": 601,
+          "functionName": "computePi",
+          "functionAnnotation": "",
+          "functionDoc": "Compute \u0026pi; using Jonathan and Peter Borwein quartic formula.\n\n@param one constant with value 1 at desired precision\n@param two constant with value 2 at desired precision\n@param three constant with value 3 at desired precision\n@return \u0026pi;\n",
+          "diff": "@@ -1,22 +1,22 @@\n private static Dfp computePi(final Dfp one, final Dfp two, final Dfp three) {\n-    Dfp x \u003d three;\n-    x \u003d x.sqrt();\n-    x \u003d one.divide(x);\n-    Dfp denom \u003d one;\n-    Dfp py \u003d new Dfp(x);\n-    Dfp y \u003d new Dfp(x);\n-    for (int i \u003d 1; i \u003c 10000; i++) {\n-        x \u003d x.divide(three);\n-        denom \u003d denom.add(two);\n-        if ((i \u0026 1) !\u003d 0) {\n-            y \u003d y.subtract(x.divide(denom));\n-        } else {\n-            y \u003d y.add(x.divide(denom));\n-        }\n-        if (y.equals(py)) {\n+    Dfp sqrt2 \u003d two.sqrt();\n+    Dfp yk \u003d sqrt2.subtract(one);\n+    Dfp four \u003d two.add(two);\n+    Dfp two2kp3 \u003d two;\n+    Dfp ak \u003d two.multiply(three.subtract(two.multiply(sqrt2)));\n+    for (int i \u003d 1; i \u003c 20; i++) {\n+        final Dfp ykM1 \u003d yk;\n+        final Dfp y2 \u003d yk.multiply(yk);\n+        final Dfp oneMinusY4 \u003d one.subtract(y2.multiply(y2));\n+        final Dfp s \u003d oneMinusY4.sqrt().sqrt();\n+        yk \u003d one.subtract(s).divide(one.add(s));\n+        two2kp3 \u003d two2kp3.multiply(four);\n+        final Dfp p \u003d one.add(yk);\n+        final Dfp p2 \u003d p.multiply(p);\n+        ak \u003d ak.multiply(p2.multiply(p2)).subtract(two2kp3.multiply(yk).multiply(one.add(yk).add(yk.multiply(yk))));\n+        if (yk.equals(ykM1)) {\n             break;\n         }\n-        py \u003d new Dfp(y);\n     }\n-    return y.multiply(new Dfp(one.getField(), 6));\n+    return one.divide(ak);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Compute \u0026pi; by atan(1/\u0026radic;(3)) \u003d \u0026pi;/6.\n\n@param one constant with value 1 at desired precision\n@param two constant with value 2 at desired precision\n@param three constant with value 3 at desired precision\n@return \u0026pi;\n",
+            "newValue": "Compute \u0026pi; using Jonathan and Peter Borwein quartic formula.\n\n@param one constant with value 1 at desired precision\n@param two constant with value 2 at desired precision\n@param three constant with value 3 at desired precision\n@return \u0026pi;\n"
+          }
+        }
+      ]
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,22 @@\n+private static Dfp computePi(final Dfp one, final Dfp two, final Dfp three) {\n+    Dfp x \u003d three;\n+    x \u003d x.sqrt();\n+    x \u003d one.divide(x);\n+    Dfp denom \u003d one;\n+    Dfp py \u003d new Dfp(x);\n+    Dfp y \u003d new Dfp(x);\n+    for (int i \u003d 1; i \u003c 10000; i++) {\n+        x \u003d x.divide(three);\n+        denom \u003d denom.add(two);\n+        if ((i \u0026 1) !\u003d 0) {\n+            y \u003d y.subtract(x.divide(denom));\n+        } else {\n+            y \u003d y.add(x.divide(denom));\n+        }\n+        if (y.equals(py)) {\n+            break;\n+        }\n+        py \u003d new Dfp(y);\n+    }\n+    return y.multiply(new Dfp(one.getField(), 6));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Dfp computePi(final Dfp one, final Dfp two, final Dfp three) {\n    Dfp x \u003d three;\n    x \u003d x.sqrt();\n    x \u003d one.divide(x);\n    Dfp denom \u003d one;\n    Dfp py \u003d new Dfp(x);\n    Dfp y \u003d new Dfp(x);\n    for (int i \u003d 1; i \u003c 10000; i++) {\n        x \u003d x.divide(three);\n        denom \u003d denom.add(two);\n        if ((i \u0026 1) !\u003d 0) {\n            y \u003d y.subtract(x.divide(denom));\n        } else {\n            y \u003d y.add(x.divide(denom));\n        }\n        if (y.equals(py)) {\n            break;\n        }\n        py \u003d new Dfp(y);\n    }\n    return y.multiply(new Dfp(one.getField(), 6));\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/DfpField.java",
+      "functionStartLine": 601,
+      "functionName": "computePi",
+      "functionAnnotation": "",
+      "functionDoc": "Compute \u0026pi; by atan(1/\u0026radic;(3)) \u003d \u0026pi;/6.\n\n@param one constant with value 1 at desired precision\n@param two constant with value 2 at desired precision\n@param three constant with value 3 at desired precision\n@return \u0026pi;\n"
+    }
+  }
+}

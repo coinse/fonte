@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "OptimizeCalls.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/OptimizeCalls.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 52,
+  "functionEndLine": 60,
+  "numCommitsSeen": 7,
+  "timeTaken": 757,
+  "changeHistory": [
+    "73f98ee988dad825ba8320bf4d8df0413fde531c",
+    "c61dccaace9a74483f45d578121b8faee04b0f57"
+  ],
+  "changeHistoryShort": {
+    "73f98ee988dad825ba8320bf4d8df0413fde531c": "Ybodychange",
+    "c61dccaace9a74483f45d578121b8faee04b0f57": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "73f98ee988dad825ba8320bf4d8df0413fde531c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nLay the groundwork for the my next call optimization.\n\nR\u003dacleung\nDELTA\u003d428  (267 added, 117 deleted, 44 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@570 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/29/10, 10:09 AM",
+      "commitName": "73f98ee988dad825ba8320bf4d8df0413fde531c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/12/10, 12:00 PM",
+      "commitNameOld": "7a0bb06d85735d901894cce2aff99251bcf67484",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 16.92,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    if (passes.size() \u003e 0) {\n        SimpleDefinitionFinder defFinder \u003d new SimpleDefinitionFinder(compiler);\n        defFinder.process(externs, root);\n        for (CallGraphCompilerPass pass : passes) {\n            pass.process(externs, root, defFinder);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/OptimizeCalls.java",
+      "functionStartLine": 52,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,10 @@\n @Override\n public void process(Node externs, Node root) {\n     if (passes.size() \u003e 0) {\n         SimpleDefinitionFinder defFinder \u003d new SimpleDefinitionFinder(compiler);\n         defFinder.process(externs, root);\n         for (CallGraphCompilerPass pass : passes) {\n-            pass.process(defFinder);\n+            pass.process(externs, root, defFinder);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "c61dccaace9a74483f45d578121b8faee04b0f57": {
+      "type": "Yintroduced",
+      "commitMessage": "\nOptimize unused return values\n\nR\u003dacleung\nDELTA\u003d574  (566 added, 0 deleted, 8 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1169980\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@537 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/9/10, 4:38 PM",
+      "commitName": "c61dccaace9a74483f45d578121b8faee04b0f57",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+public void process(Node externs, Node root) {\n+    if (passes.size() \u003e 0) {\n+        SimpleDefinitionFinder defFinder \u003d new SimpleDefinitionFinder(compiler);\n+        defFinder.process(externs, root);\n+        for (CallGraphCompilerPass pass : passes) {\n+            pass.process(defFinder);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    if (passes.size() \u003e 0) {\n        SimpleDefinitionFinder defFinder \u003d new SimpleDefinitionFinder(compiler);\n        defFinder.process(externs, root);\n        for (CallGraphCompilerPass pass : passes) {\n            pass.process(defFinder);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/OptimizeCalls.java",
+      "functionStartLine": 52,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

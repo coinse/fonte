@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RenameProperties.java",
+  "functionName": "exitScope",
+  "functionId": "$exitScope___t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RenameProperties.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 538,
+  "functionEndLine": 558,
+  "numCommitsSeen": 18,
+  "timeTaken": 695,
+  "changeHistory": [
+    "8703ffc3c1e71d42a8a41932055a875bf428bf8d",
+    "e13c794216c0a0e2affd53039a7d715086bc135e"
+  ],
+  "changeHistoryShort": {
+    "8703ffc3c1e71d42a8a41932055a875bf428bf8d": "Ybodychange",
+    "e13c794216c0a0e2affd53039a7d715086bc135e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8703ffc3c1e71d42a8a41932055a875bf428bf8d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFlag for property affinity.\n\nR\u003djohnlenz\nDELTA\u003d68  (56 added, 1 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1139\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@952 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/30/11, 7:59 AM",
+      "commitName": "8703ffc3c1e71d42a8a41932055a875bf428bf8d",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "3/23/11, 12:40 PM",
+      "commitNameOld": "e13c794216c0a0e2affd53039a7d715086bc135e",
+      "commitAuthorOld": "acleung@google.com",
+      "daysBetweenCommits": 6.81,
+      "commitsBetweenForRepo": 19,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void exitScope(NodeTraversal t) {\n    if (affinityGraph \u003d\u003d null) {\n        return;\n    }\n    if (!t.inGlobalScope() \u0026\u0026 t.getScope().getParent().isGlobal()) {\n        for (Property p1 : currentHighAffinityProperties) {\n            for (Property p2 : currentHighAffinityProperties) {\n                if (p1.oldName.compareTo(p2.oldName) \u003c 0) {\n                    GraphEdge\u003cProperty, PropertyAffinity\u003e edge \u003d affinityGraph.getFirstEdge(p1, p2);\n                    if (edge \u003d\u003d null) {\n                        affinityGraph.connect(p1, new PropertyAffinity(1), p2);\n                    } else {\n                        edge.getValue().increase();\n                    }\n                }\n            }\n        }\n        currentHighAffinityProperties \u003d null;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/RenameProperties.java",
+      "functionStartLine": 544,
+      "functionName": "exitScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,18 +1,21 @@\n @Override\n public void exitScope(NodeTraversal t) {\n+    if (affinityGraph \u003d\u003d null) {\n+        return;\n+    }\n     if (!t.inGlobalScope() \u0026\u0026 t.getScope().getParent().isGlobal()) {\n         for (Property p1 : currentHighAffinityProperties) {\n             for (Property p2 : currentHighAffinityProperties) {\n                 if (p1.oldName.compareTo(p2.oldName) \u003c 0) {\n                     GraphEdge\u003cProperty, PropertyAffinity\u003e edge \u003d affinityGraph.getFirstEdge(p1, p2);\n                     if (edge \u003d\u003d null) {\n                         affinityGraph.connect(p1, new PropertyAffinity(1), p2);\n                     } else {\n                         edge.getValue().increase();\n                     }\n                 }\n             }\n         }\n         currentHighAffinityProperties \u003d null;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e13c794216c0a0e2affd53039a7d715086bc135e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nThe old algorithm takes 49324ms to finish in gmail. Now it takes 1281 ms.\nIt used to take around 300-600ms without affinity.\n\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nRuns too slow.\n\n*** Original change description ***\n\nRenameProperties with affinity informations.\n\nR\u003dnicksantos\nDELTA\u003d174  (152 added, 6 deleted, 16 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1009\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@933 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/23/11, 12:40 PM",
+      "commitName": "e13c794216c0a0e2affd53039a7d715086bc135e",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,18 @@\n+@Override\n+public void exitScope(NodeTraversal t) {\n+    if (!t.inGlobalScope() \u0026\u0026 t.getScope().getParent().isGlobal()) {\n+        for (Property p1 : currentHighAffinityProperties) {\n+            for (Property p2 : currentHighAffinityProperties) {\n+                if (p1.oldName.compareTo(p2.oldName) \u003c 0) {\n+                    GraphEdge\u003cProperty, PropertyAffinity\u003e edge \u003d affinityGraph.getFirstEdge(p1, p2);\n+                    if (edge \u003d\u003d null) {\n+                        affinityGraph.connect(p1, new PropertyAffinity(1), p2);\n+                    } else {\n+                        edge.getValue().increase();\n+                    }\n+                }\n+            }\n+        }\n+        currentHighAffinityProperties \u003d null;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void exitScope(NodeTraversal t) {\n    if (!t.inGlobalScope() \u0026\u0026 t.getScope().getParent().isGlobal()) {\n        for (Property p1 : currentHighAffinityProperties) {\n            for (Property p2 : currentHighAffinityProperties) {\n                if (p1.oldName.compareTo(p2.oldName) \u003c 0) {\n                    GraphEdge\u003cProperty, PropertyAffinity\u003e edge \u003d affinityGraph.getFirstEdge(p1, p2);\n                    if (edge \u003d\u003d null) {\n                        affinityGraph.connect(p1, new PropertyAffinity(1), p2);\n                    } else {\n                        edge.getValue().increase();\n                    }\n                }\n            }\n        }\n        currentHighAffinityProperties \u003d null;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/RenameProperties.java",
+      "functionStartLine": 532,
+      "functionName": "exitScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

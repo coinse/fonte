@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Codec-3b",
+  "repositoryPath": "/tmp/Codec-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DoubleMetaphone.java",
+  "functionName": "contains",
+  "functionId": "contains___value-String__start-int__length-int__criteria-String[]",
+  "sourceFilePath": "src/java/org/apache/commons/codec/language/DoubleMetaphone.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines whether \u003ccode\u003evalue\u003c/code\u003e contains any of the criteria \n     starting\nat index \u003ccode\u003estart\u003c/code\u003e and matching up to length \u003ccode\u003elength\u003c/code\u003e\n",
+  "functionStartLine": 1009,
+  "functionEndLine": 1023,
+  "numCommitsSeen": 32,
+  "timeTaken": 2190,
+  "changeHistory": [
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1"
+  ],
+  "changeHistoryShort": {
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1": {
+      "type": "Yintroduced",
+      "commitMessage": "Removed characters which were breaking GUMP build.  Need to replace character literals with Unicode codes\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/codec/trunk@130155 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/18/03, 10:46 AM",
+      "commitName": "f0ff6ed771ce1a795ec84897254ceb008f0e98a1",
+      "commitAuthor": "Timothy O\u0027Brien",
+      "diff": "@@ -0,0 +1,13 @@\n+protected static boolean contains(String value, int start, int length, String[] criteria) {\n+    boolean result \u003d false;\n+    if (start \u003e\u003d 0 \u0026\u0026 start + length \u003c\u003d value.length()) {\n+        String target \u003d value.substring(start, start + length);\n+        for (int i \u003d 0; i \u003c criteria.length; i++) {\n+            if (target.equals(criteria[i])) {\n+                result \u003d true;\n+                break;\n+            }\n+        }\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected static boolean contains(String value, int start, int length, String[] criteria) {\n    boolean result \u003d false;\n    if (start \u003e\u003d 0 \u0026\u0026 start + length \u003c\u003d value.length()) {\n        String target \u003d value.substring(start, start + length);\n        for (int i \u003d 0; i \u003c criteria.length; i++) {\n            if (target.equals(criteria[i])) {\n                result \u003d true;\n                break;\n            }\n        }\n    }\n    return result;\n}",
+      "path": "src/java/org/apache/commons/codec/language/DoubleMetaphone.java",
+      "functionStartLine": 1016,
+      "functionName": "contains",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether \u003ccode\u003evalue\u003c/code\u003e contains any of the criteria \n     starting\nat index \u003ccode\u003estart\u003c/code\u003e and matching up to length \u003ccode\u003elength\u003c/code\u003e\n"
+    }
+  }
+}

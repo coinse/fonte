@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "createAnonymousObjectType",
+  "functionId": "createAnonymousObjectType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create an anonymous object type.\n",
+  "functionStartLine": 1270,
+  "functionEndLine": 1275,
+  "numCommitsSeen": 40,
+  "timeTaken": 2826,
+  "changeHistory": [
+    "a2f9d4f043be0fac4d868061fbc5d088ed31823b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "a2f9d4f043be0fac4d868061fbc5d088ed31823b": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2f9d4f043be0fac4d868061fbc5d088ed31823b": {
+      "type": "Ybodychange",
+      "commitMessage": "Make debugging function inlining issues a little bit easier. (John)\nR\u003dalan\nDELTA\u003d3  (2 added, 0 deleted, 1 changed)\n\nPretty-print anonymous object types, so that it\u0027s easier to see\nwhat\u0027s in them. (Nick)\nR\u003dalan\n\nAdd externs for new methods of HTML5 History class. (Naoki)\nR\u003dalan\nDELTA\u003d19  (19 added, 0 deleted, 0 changed)\n\n\nHandle classes that have been renamed by the normalizer pass by reading the NAME\nfrom the AST instead of just using the reference name. (Andrew)\nR\u003dnada\nDELTA\u003d50  (33 added, 1 deleted, 16 changed)\n\nFix runtime type check to check the global this object instead of window since not all javascript will have a DOM. (Andrew)\nR\u003dnada\nDELTA\u003d21  (19 added, 0 deleted, 2 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003drvhacw\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@166 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/1/10, 8:34 AM",
+      "commitName": "a2f9d4f043be0fac4d868061fbc5d088ed31823b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "12/15/09, 1:52 PM",
+      "commitNameOld": "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 106.74,
+      "commitsBetweenForRepo": 116,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public ObjectType createAnonymousObjectType() {\n    PrototypeObjectType type \u003d new PrototypeObjectType(this, null, null);\n    type.setPrettyPrint(true);\n    return type;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 1061,
+      "functionName": "createAnonymousObjectType",
+      "functionAnnotation": "",
+      "functionDoc": "Create an anonymous object type.\n",
+      "diff": "@@ -1,3 +1,5 @@\n public ObjectType createAnonymousObjectType() {\n-    return createObjectType(null, null, null);\n+    PrototypeObjectType type \u003d new PrototypeObjectType(this, null, null);\n+    type.setPrettyPrint(true);\n+    return type;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,3 @@\n+public ObjectType createAnonymousObjectType() {\n+    return createObjectType(null, null, null);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public ObjectType createAnonymousObjectType() {\n    return createObjectType(null, null, null);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 1061,
+      "functionName": "createAnonymousObjectType",
+      "functionAnnotation": "",
+      "functionDoc": "Create an anonymous object type.\n"
+    }
+  }
+}

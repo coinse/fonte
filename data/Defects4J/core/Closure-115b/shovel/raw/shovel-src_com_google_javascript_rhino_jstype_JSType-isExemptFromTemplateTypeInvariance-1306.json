@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "isExemptFromTemplateTypeInvariance",
+  "functionId": "isExemptFromTemplateTypeInvariance___type-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines if the specified type is exempt from standard invariant\ntemplatized typing rules.\n",
+  "functionStartLine": 1306,
+  "functionEndLine": 1311,
+  "numCommitsSeen": 91,
+  "timeTaken": 2614,
+  "changeHistory": [
+    "44ebf6062655dc55d0569c80ce7806100435fba0"
+  ],
+  "changeHistoryShort": {
+    "44ebf6062655dc55d0569c80ce7806100435fba0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "44ebf6062655dc55d0569c80ce7806100435fba0": {
+      "type": "Yintroduced",
+      "commitMessage": "\nExtends TemplatizedType to handle any number of template types, and removes IndexedType. Converts Array and Object to the new generic templatized type system.\n\nR\u003ddimvar,nicksantos,johnlenz,tylerg\nDELTA\u003d544 (273 added, 143 deleted, 128 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6255\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2504 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/4/13, 1:10 PM",
+      "commitName": "44ebf6062655dc55d0569c80ce7806100435fba0",
+      "commitAuthor": "izaakr@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+static boolean isExemptFromTemplateTypeInvariance(JSType type) {\n+    ObjectType objType \u003d type.toObjectType();\n+    return objType \u003d\u003d null || \"Array\".equals(objType.getReferenceName()) || \"Object\".equals(objType.getReferenceName());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isExemptFromTemplateTypeInvariance(JSType type) {\n    ObjectType objType \u003d type.toObjectType();\n    return objType \u003d\u003d null || \"Array\".equals(objType.getReferenceName()) || \"Object\".equals(objType.getReferenceName());\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 1301,
+      "functionName": "isExemptFromTemplateTypeInvariance",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if the specified type is exempt from standard invariant\ntemplatized typing rules.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ParserRunner.java",
+  "functionName": "initResourceConfig",
+  "functionId": "initResourceConfig",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 76,
+  "functionEndLine": 84,
+  "numCommitsSeen": 20,
+  "timeTaken": 2155,
+  "changeHistory": [
+    "475548341c38755063c8475379745ba31caffe41"
+  ],
+  "changeHistoryShort": {
+    "475548341c38755063c8475379745ba31caffe41": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "475548341c38755063c8475379745ba31caffe41": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/06 by nick\n\n        Automatic source sorting--now with modules!\n\n        R\u003dalan\n        DELTA\u003d194  (176 added, 7 deleted, 11 changed)\n\nChange on 2010/05/06 by nick\n\n        Identify unknown @suppress parameters.\n\n        R\u003dalan\n        DELTA\u003d109  (83 added, 12 deleted, 14 changed)\n\nChange on 2010/05/06 by alan\n\n        Enable flow sensitive inlining in open source world.\n\n        R\u003dnick\n        DELTA\u003d2  (2 added, 0 deleted, 0 changed)\n\nChange on 2010/05/06 by alan\n\n        Factor out JoinOp\n\n        R\u003dnick\n        DELTA\u003d137  (77 added, 54 deleted, 6 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dewwtfu\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@204 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/7/10, 2:59 PM",
+      "commitName": "475548341c38755063c8475379745ba31caffe41",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,8 @@\n+private static synchronized void initResourceConfig() {\n+    if (annotationNames !\u003d null) {\n+        return;\n+    }\n+    ResourceBundle config \u003d ResourceBundle.getBundle(configResource);\n+    annotationNames \u003d extractList(config.getString(\"jsdoc.annotations\"));\n+    suppressionNames \u003d extractList(config.getString(\"jsdoc.suppressions\"));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static synchronized void initResourceConfig() {\n    if (annotationNames !\u003d null) {\n        return;\n    }\n    ResourceBundle config \u003d ResourceBundle.getBundle(configResource);\n    annotationNames \u003d extractList(config.getString(\"jsdoc.annotations\"));\n    suppressionNames \u003d extractList(config.getString(\"jsdoc.suppressions\"));\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+      "functionStartLine": 52,
+      "functionName": "initResourceConfig",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "defineObjectLiteral",
+  "functionId": "$defineObjectLiteral___t-NodeTraversal__objectLit-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 561,
+  "functionEndLine": 608,
+  "numCommitsSeen": 135,
+  "timeTaken": 3856,
+  "changeHistory": [
+    "a2153e7405e09c8fa413a01874c949b8b2bcd32b",
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+    "f3d83b7eb7b1e4afbb24ae57e1a57adadbcead42",
+    "1bd8d2f0f4f3edcc11aa441f50223967a98bf85d"
+  ],
+  "changeHistoryShort": {
+    "a2153e7405e09c8fa413a01874c949b8b2bcd32b": "Ybodychange",
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": "Ymultichange(Yrename,Ybodychange)",
+    "f3d83b7eb7b1e4afbb24ae57e1a57adadbcead42": "Ymultichange(Yparameterchange,Ybodychange)",
+    "1bd8d2f0f4f3edcc11aa441f50223967a98bf85d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2153e7405e09c8fa413a01874c949b8b2bcd32b": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nDon\u0027t infer enum properties twice\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\ncausing some problems for enums with @const members\n\n*** Original change description ***\n\nIf a variable is declared @const, and we know the type of its\nvalue, then we can just use that as the type.\n\nR\u003djohnlenz\nDELTA\u003d94  (69 added, 7 deleted, 18 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d696\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@833 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/1/11, 7:50 AM",
+      "commitName": "a2153e7405e09c8fa413a01874c949b8b2bcd32b",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "2/28/11, 3:43 PM",
+      "commitNameOld": "1d806d5becb1be384050f49ffadbb57b7523db35",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 0.67,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void defineObjectLiteral(NodeTraversal t, Node objectLit) {\n    JSType type \u003d null;\n    JSDocInfo info \u003d objectLit.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n        String lendsName \u003d info.getLendsName();\n        Var lendsVar \u003d scope.getVar(lendsName);\n        if (lendsVar \u003d\u003d null) {\n            compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n        } else {\n            type \u003d lendsVar.getType();\n            if (type \u003d\u003d null) {\n                type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n            }\n            if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n                type \u003d null;\n            } else {\n                objectLit.setJSType(type);\n            }\n        }\n    }\n    info \u003d getBestJSDocInfo(objectLit);\n    Node lValue \u003d getBestLValue(objectLit);\n    String lValueName \u003d getBestLValueName(lValue);\n    boolean createdEnumType \u003d false;\n    if (info !\u003d null \u0026\u0026 info.hasEnumParameterType()) {\n        type \u003d createEnumTypeFromNodes(objectLit, lValueName, info, lValue);\n        createdEnumType \u003d true;\n    }\n    if (type \u003d\u003d null) {\n        type \u003d typeRegistry.createAnonymousObjectType();\n    }\n    setDeferredType(objectLit, type);\n    if (!createdEnumType) {\n        processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 517,
+      "functionName": "defineObjectLiteral",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,33 +1,37 @@\n private void defineObjectLiteral(NodeTraversal t, Node objectLit) {\n     JSType type \u003d null;\n     JSDocInfo info \u003d objectLit.getJSDocInfo();\n     if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n         String lendsName \u003d info.getLendsName();\n         Var lendsVar \u003d scope.getVar(lendsName);\n         if (lendsVar \u003d\u003d null) {\n             compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n         } else {\n             type \u003d lendsVar.getType();\n             if (type \u003d\u003d null) {\n                 type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n             }\n             if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                 compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n                 type \u003d null;\n             } else {\n                 objectLit.setJSType(type);\n             }\n         }\n     }\n     info \u003d getBestJSDocInfo(objectLit);\n     Node lValue \u003d getBestLValue(objectLit);\n     String lValueName \u003d getBestLValueName(lValue);\n+    boolean createdEnumType \u003d false;\n     if (info !\u003d null \u0026\u0026 info.hasEnumParameterType()) {\n         type \u003d createEnumTypeFromNodes(objectLit, lValueName, info, lValue);\n+        createdEnumType \u003d true;\n     }\n     if (type \u003d\u003d null) {\n         type \u003d typeRegistry.createAnonymousObjectType();\n     }\n     setDeferredType(objectLit, type);\n-    processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n+    if (!createdEnumType) {\n+        processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "2ea78e73e6ace693e18d535560606dfd49c3f9bc": {
+      "type": "Ymultichange(Yrename,Ybodychange)",
+      "commitMessage": "\nClean up type discovery by refactoring to the following algorithm.\n1) When we see a function literal, create the authoritative\ntype for it.\n2) When we see an object literal, create the authoritative\ntype for it.\n3) When we declare a symbol, check to see if it\u0027s assigned to\nan object or function literal, and use that type if it\nmake sense to do so. Otherwise, fall back on the JSDoc info.\nThis should make it a lot easier to give accurate types to object\nliteral properties.\nI didn\u0027t intend to create any functional changes in this CL,\nbut some minor ones were inevitable.\n\nR\u003djohnlenz\nDELTA\u003d618  (320 added, 249 deleted, 49 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d392\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@739 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/31/11, 8:08 AM",
+      "commitName": "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nClean up type discovery by refactoring to the following algorithm.\n1) When we see a function literal, create the authoritative\ntype for it.\n2) When we see an object literal, create the authoritative\ntype for it.\n3) When we declare a symbol, check to see if it\u0027s assigned to\nan object or function literal, and use that type if it\nmake sense to do so. Otherwise, fall back on the JSDoc info.\nThis should make it a lot easier to give accurate types to object\nliteral properties.\nI didn\u0027t intend to create any functional changes in this CL,\nbut some minor ones were inevitable.\n\nR\u003djohnlenz\nDELTA\u003d618  (320 added, 249 deleted, 49 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d392\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@739 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/31/11, 8:08 AM",
+          "commitName": "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "1/27/11, 10:33 AM",
+          "commitNameOld": "70f817ae4f80ac11dd2dfe97babf5896c690fb48",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 3.9,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void defineObjectLiteral(NodeTraversal t, Node objectLit) {\n    JSType type \u003d null;\n    JSDocInfo info \u003d objectLit.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n        String lendsName \u003d info.getLendsName();\n        Var lendsVar \u003d scope.getVar(lendsName);\n        if (lendsVar \u003d\u003d null) {\n            compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n        } else {\n            type \u003d lendsVar.getType();\n            if (type \u003d\u003d null) {\n                type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n            }\n            if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n                type \u003d null;\n            } else {\n                objectLit.setJSType(type);\n            }\n        }\n    }\n    info \u003d getBestJSDocInfo(objectLit);\n    Node lValue \u003d getBestLValue(objectLit);\n    String lValueName \u003d getBestLValueName(lValue);\n    if (info !\u003d null \u0026\u0026 info.hasEnumParameterType()) {\n        type \u003d createEnumTypeFromNodes(objectLit, lValueName, info, lValue);\n    }\n    if (type \u003d\u003d null) {\n        type \u003d typeRegistry.createAnonymousObjectType();\n    }\n    setDeferredType(objectLit, type);\n    processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n}",
+          "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+          "functionStartLine": 517,
+          "functionName": "defineObjectLiteral",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,24 +1,33 @@\n-private void processObjectLit(NodeTraversal t, Node objectLit) {\n+private void defineObjectLiteral(NodeTraversal t, Node objectLit) {\n+    JSType type \u003d null;\n     JSDocInfo info \u003d objectLit.getJSDocInfo();\n     if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n         String lendsName \u003d info.getLendsName();\n         Var lendsVar \u003d scope.getVar(lendsName);\n         if (lendsVar \u003d\u003d null) {\n             compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n         } else {\n-            JSType type \u003d lendsVar.getType();\n+            type \u003d lendsVar.getType();\n             if (type \u003d\u003d null) {\n                 type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n             }\n             if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                 compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n+                type \u003d null;\n             } else {\n                 objectLit.setJSType(type);\n             }\n         }\n     }\n-    if (objectLit.getJSType() \u003d\u003d null) {\n-        objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n+    info \u003d getBestJSDocInfo(objectLit);\n+    Node lValue \u003d getBestLValue(objectLit);\n+    String lValueName \u003d getBestLValueName(lValue);\n+    if (info !\u003d null \u0026\u0026 info.hasEnumParameterType()) {\n+        type \u003d createEnumTypeFromNodes(objectLit, lValueName, info, lValue);\n     }\n+    if (type \u003d\u003d null) {\n+        type \u003d typeRegistry.createAnonymousObjectType();\n+    }\n+    setDeferredType(objectLit, type);\n     processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "processObjectLit",
+            "newValue": "defineObjectLiteral"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nClean up type discovery by refactoring to the following algorithm.\n1) When we see a function literal, create the authoritative\ntype for it.\n2) When we see an object literal, create the authoritative\ntype for it.\n3) When we declare a symbol, check to see if it\u0027s assigned to\nan object or function literal, and use that type if it\nmake sense to do so. Otherwise, fall back on the JSDoc info.\nThis should make it a lot easier to give accurate types to object\nliteral properties.\nI didn\u0027t intend to create any functional changes in this CL,\nbut some minor ones were inevitable.\n\nR\u003djohnlenz\nDELTA\u003d618  (320 added, 249 deleted, 49 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d392\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@739 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/31/11, 8:08 AM",
+          "commitName": "2ea78e73e6ace693e18d535560606dfd49c3f9bc",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "1/27/11, 10:33 AM",
+          "commitNameOld": "70f817ae4f80ac11dd2dfe97babf5896c690fb48",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 3.9,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void defineObjectLiteral(NodeTraversal t, Node objectLit) {\n    JSType type \u003d null;\n    JSDocInfo info \u003d objectLit.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n        String lendsName \u003d info.getLendsName();\n        Var lendsVar \u003d scope.getVar(lendsName);\n        if (lendsVar \u003d\u003d null) {\n            compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n        } else {\n            type \u003d lendsVar.getType();\n            if (type \u003d\u003d null) {\n                type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n            }\n            if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n                type \u003d null;\n            } else {\n                objectLit.setJSType(type);\n            }\n        }\n    }\n    info \u003d getBestJSDocInfo(objectLit);\n    Node lValue \u003d getBestLValue(objectLit);\n    String lValueName \u003d getBestLValueName(lValue);\n    if (info !\u003d null \u0026\u0026 info.hasEnumParameterType()) {\n        type \u003d createEnumTypeFromNodes(objectLit, lValueName, info, lValue);\n    }\n    if (type \u003d\u003d null) {\n        type \u003d typeRegistry.createAnonymousObjectType();\n    }\n    setDeferredType(objectLit, type);\n    processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n}",
+          "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+          "functionStartLine": 517,
+          "functionName": "defineObjectLiteral",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,24 +1,33 @@\n-private void processObjectLit(NodeTraversal t, Node objectLit) {\n+private void defineObjectLiteral(NodeTraversal t, Node objectLit) {\n+    JSType type \u003d null;\n     JSDocInfo info \u003d objectLit.getJSDocInfo();\n     if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n         String lendsName \u003d info.getLendsName();\n         Var lendsVar \u003d scope.getVar(lendsName);\n         if (lendsVar \u003d\u003d null) {\n             compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n         } else {\n-            JSType type \u003d lendsVar.getType();\n+            type \u003d lendsVar.getType();\n             if (type \u003d\u003d null) {\n                 type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n             }\n             if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                 compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n+                type \u003d null;\n             } else {\n                 objectLit.setJSType(type);\n             }\n         }\n     }\n-    if (objectLit.getJSType() \u003d\u003d null) {\n-        objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n+    info \u003d getBestJSDocInfo(objectLit);\n+    Node lValue \u003d getBestLValue(objectLit);\n+    String lValueName \u003d getBestLValueName(lValue);\n+    if (info !\u003d null \u0026\u0026 info.hasEnumParameterType()) {\n+        type \u003d createEnumTypeFromNodes(objectLit, lValueName, info, lValue);\n     }\n+    if (type \u003d\u003d null) {\n+        type \u003d typeRegistry.createAnonymousObjectType();\n+    }\n+    setDeferredType(objectLit, type);\n     processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f3d83b7eb7b1e4afbb24ae57e1a57adadbcead42": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nRudimentary handling of declared properties of object literals.\n\nR\u003djohnlenz\nDELTA\u003d101  (95 added, 0 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d331\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@725 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/21/11, 10:57 AM",
+      "commitName": "f3d83b7eb7b1e4afbb24ae57e1a57adadbcead42",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nRudimentary handling of declared properties of object literals.\n\nR\u003djohnlenz\nDELTA\u003d101  (95 added, 0 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d331\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@725 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/21/11, 10:57 AM",
+          "commitName": "f3d83b7eb7b1e4afbb24ae57e1a57adadbcead42",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "1/7/11, 9:19 AM",
+          "commitNameOld": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+          "commitAuthorOld": "bashir@google.com",
+          "daysBetweenCommits": 14.07,
+          "commitsBetweenForRepo": 45,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void processObjectLit(NodeTraversal t, Node objectLit) {\n    JSDocInfo info \u003d objectLit.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n        String lendsName \u003d info.getLendsName();\n        Var lendsVar \u003d scope.getVar(lendsName);\n        if (lendsVar \u003d\u003d null) {\n            compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n        } else {\n            JSType type \u003d lendsVar.getType();\n            if (type \u003d\u003d null) {\n                type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n            }\n            if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n            } else {\n                objectLit.setJSType(type);\n            }\n        }\n    }\n    if (objectLit.getJSType() \u003d\u003d null) {\n        objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n    }\n    processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n}",
+          "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+          "functionStartLine": 520,
+          "functionName": "processObjectLit",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,23 +1,24 @@\n-private void processObjectLit(Node objectLit) {\n+private void processObjectLit(NodeTraversal t, Node objectLit) {\n     JSDocInfo info \u003d objectLit.getJSDocInfo();\n     if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n         String lendsName \u003d info.getLendsName();\n         Var lendsVar \u003d scope.getVar(lendsName);\n         if (lendsVar \u003d\u003d null) {\n             compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n         } else {\n             JSType type \u003d lendsVar.getType();\n             if (type \u003d\u003d null) {\n                 type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n             }\n             if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                 compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n             } else {\n                 objectLit.setJSType(type);\n             }\n         }\n     }\n     if (objectLit.getJSType() \u003d\u003d null) {\n         objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n     }\n+    processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[objectLit-Node]",
+            "newValue": "[t-NodeTraversal, objectLit-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nRudimentary handling of declared properties of object literals.\n\nR\u003djohnlenz\nDELTA\u003d101  (95 added, 0 deleted, 6 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d331\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@725 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/21/11, 10:57 AM",
+          "commitName": "f3d83b7eb7b1e4afbb24ae57e1a57adadbcead42",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "1/7/11, 9:19 AM",
+          "commitNameOld": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+          "commitAuthorOld": "bashir@google.com",
+          "daysBetweenCommits": 14.07,
+          "commitsBetweenForRepo": 45,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void processObjectLit(NodeTraversal t, Node objectLit) {\n    JSDocInfo info \u003d objectLit.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n        String lendsName \u003d info.getLendsName();\n        Var lendsVar \u003d scope.getVar(lendsName);\n        if (lendsVar \u003d\u003d null) {\n            compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n        } else {\n            JSType type \u003d lendsVar.getType();\n            if (type \u003d\u003d null) {\n                type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n            }\n            if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n            } else {\n                objectLit.setJSType(type);\n            }\n        }\n    }\n    if (objectLit.getJSType() \u003d\u003d null) {\n        objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n    }\n    processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n}",
+          "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+          "functionStartLine": 520,
+          "functionName": "processObjectLit",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,23 +1,24 @@\n-private void processObjectLit(Node objectLit) {\n+private void processObjectLit(NodeTraversal t, Node objectLit) {\n     JSDocInfo info \u003d objectLit.getJSDocInfo();\n     if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n         String lendsName \u003d info.getLendsName();\n         Var lendsVar \u003d scope.getVar(lendsName);\n         if (lendsVar \u003d\u003d null) {\n             compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n         } else {\n             JSType type \u003d lendsVar.getType();\n             if (type \u003d\u003d null) {\n                 type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n             }\n             if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                 compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n             } else {\n                 objectLit.setJSType(type);\n             }\n         }\n     }\n     if (objectLit.getJSType() \u003d\u003d null) {\n         objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n     }\n+    processObjectLitProperties(t, objectLit, ObjectType.cast(objectLit.getJSType()));\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "1bd8d2f0f4f3edcc11aa441f50223967a98bf85d": {
+      "type": "Yintroduced",
+      "commitMessage": "\ntype-check the @lends annotation\n\nR\u003dacleung\nDELTA\u003d207  (163 added, 42 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d751020\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@512 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/26/10, 8:07 AM",
+      "commitName": "1bd8d2f0f4f3edcc11aa441f50223967a98bf85d",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,23 @@\n+private void processObjectLit(Node objectLit) {\n+    JSDocInfo info \u003d objectLit.getJSDocInfo();\n+    if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n+        String lendsName \u003d info.getLendsName();\n+        Var lendsVar \u003d scope.getVar(lendsName);\n+        if (lendsVar \u003d\u003d null) {\n+            compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n+        } else {\n+            JSType type \u003d lendsVar.getType();\n+            if (type \u003d\u003d null) {\n+                type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n+            }\n+            if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n+                compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n+            } else {\n+                objectLit.setJSType(type);\n+            }\n+        }\n+    }\n+    if (objectLit.getJSType() \u003d\u003d null) {\n+        objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void processObjectLit(Node objectLit) {\n    JSDocInfo info \u003d objectLit.getJSDocInfo();\n    if (info !\u003d null \u0026\u0026 info.getLendsName() !\u003d null) {\n        String lendsName \u003d info.getLendsName();\n        Var lendsVar \u003d scope.getVar(lendsName);\n        if (lendsVar \u003d\u003d null) {\n            compiler.report(JSError.make(sourceName, objectLit, UNKNOWN_LENDS, lendsName));\n        } else {\n            JSType type \u003d lendsVar.getType();\n            if (type \u003d\u003d null) {\n                type \u003d typeRegistry.getNativeType(UNKNOWN_TYPE);\n            }\n            if (!type.isSubtype(typeRegistry.getNativeType(OBJECT_TYPE))) {\n                compiler.report(JSError.make(sourceName, objectLit, LENDS_ON_NON_OBJECT, lendsName, type.toString()));\n            } else {\n                objectLit.setJSType(type);\n            }\n        }\n    }\n    if (objectLit.getJSType() \u003d\u003d null) {\n        objectLit.setJSType(typeRegistry.createAnonymousObjectType());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 489,
+      "functionName": "processObjectLit",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

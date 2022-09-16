@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "identifyNameNode",
+  "functionId": "$identifyNameNode___nameNode-Node__valueNode-Node__info-JSDocInfo",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 315,
+  "functionEndLine": 331,
+  "numCommitsSeen": 42,
+  "timeTaken": 1986,
+  "changeHistory": [
+    "3698fee71e3671171c587f932795a8ab8e852cd8"
+  ],
+  "changeHistoryShort": {
+    "3698fee71e3671171c587f932795a8ab8e852cd8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3698fee71e3671171c587f932795a8ab8e852cd8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nwhen deciding whether named types are nullable, let enums and\ntypedefs share the same hacky logic.\n\nR\u003djohnlenz\nDELTA\u003d83  (57 added, 0 deleted, 26 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d804008\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@520 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/28/10, 8:31 AM",
+      "commitName": "3698fee71e3671171c587f932795a8ab8e852cd8",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private void identifyNameNode(Node nameNode, Node valueNode, JSDocInfo info) {\n+    if (nameNode.isQualifiedName()) {\n+        if (info !\u003d null) {\n+            if (info.hasEnumParameterType()) {\n+                registry.identifyNonNullableName(nameNode.getQualifiedName());\n+            } else if (info.hasTypedefType()) {\n+                registry.identifyNonNullableName(nameNode.getQualifiedName());\n+            }\n+        }\n+        if (valueNode !\u003d null \u0026\u0026 LEGACY_TYPEDEF.equals(valueNode.getQualifiedName())) {\n+            registry.identifyNonNullableName(nameNode.getQualifiedName());\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void identifyNameNode(Node nameNode, Node valueNode, JSDocInfo info) {\n    if (nameNode.isQualifiedName()) {\n        if (info !\u003d null) {\n            if (info.hasEnumParameterType()) {\n                registry.identifyNonNullableName(nameNode.getQualifiedName());\n            } else if (info.hasTypedefType()) {\n                registry.identifyNonNullableName(nameNode.getQualifiedName());\n            }\n        }\n        if (valueNode !\u003d null \u0026\u0026 LEGACY_TYPEDEF.equals(valueNode.getQualifiedName())) {\n            registry.identifyNonNullableName(nameNode.getQualifiedName());\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 305,
+      "functionName": "identifyNameNode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-103b",
+  "repositoryPath": "/tmp/Math-103b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MathException.java",
+  "functionName": "translate",
+  "functionId": "translate___s-String__locale-Locale",
+  "sourceFilePath": "src/java/org/apache/commons/math/MathException.java",
+  "functionAnnotation": "",
+  "functionDoc": "Translate a string to a given locale.\n\n@param s string to translate\n@param locale locale into which to translate the string\n@return translated string or original string\nfor unsupported locales or unknown strings\n",
+  "functionStartLine": 81,
+  "functionEndLine": 102,
+  "numCommitsSeen": 26,
+  "timeTaken": 395,
+  "changeHistory": [
+    "7c455709e5985ff3e3c5b0ff79e2dd31a4bb7d9d",
+    "84f1ef1d4578d2a8be6972e7172b308277911faa"
+  ],
+  "changeHistoryShort": {
+    "7c455709e5985ff3e3c5b0ff79e2dd31a4bb7d9d": "Ybodychange",
+    "84f1ef1d4578d2a8be6972e7172b308277911faa": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7c455709e5985ff3e3c5b0ff79e2dd31a4bb7d9d": {
+      "type": "Ybodychange",
+      "commitMessage": "allow using locales with different variants\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@507253 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/13/07, 2:06 PM",
+      "commitName": "7c455709e5985ff3e3c5b0ff79e2dd31a4bb7d9d",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "2/12/07, 10:54 AM",
+      "commitNameOld": "84f1ef1d4578d2a8be6972e7172b308277911faa",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 1.13,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static String translate(String s, Locale locale) {\n    try {\n        if ((cachedResources \u003d\u003d null) || (!cachedResources.getLocale().equals(locale))) {\n            cachedResources \u003d ResourceBundle.getBundle(\"org.apache.commons.math.MessagesResources\", locale);\n        }\n        if (cachedResources.getLocale().getLanguage().equals(locale.getLanguage())) {\n            return cachedResources.getString(s);\n        }\n    } catch (MissingResourceException mre) {\n    }\n    return s;\n}",
+      "path": "src/java/org/apache/commons/math/MathException.java",
+      "functionStartLine": 81,
+      "functionName": "translate",
+      "functionAnnotation": "",
+      "functionDoc": "Translate a string to a given locale.\n\n@param s string to translate\n@param locale locale into which to translate the string\n@return translated string or original string\nfor unsupported locales or unknown strings\n",
+      "diff": "@@ -1,12 +1,12 @@\n private static String translate(String s, Locale locale) {\n     try {\n         if ((cachedResources \u003d\u003d null) || (!cachedResources.getLocale().equals(locale))) {\n             cachedResources \u003d ResourceBundle.getBundle(\"org.apache.commons.math.MessagesResources\", locale);\n         }\n-        if (cachedResources.getLocale().equals(locale)) {\n+        if (cachedResources.getLocale().getLanguage().equals(locale.getLanguage())) {\n             return cachedResources.getString(s);\n         }\n     } catch (MissingResourceException mre) {\n     }\n     return s;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "84f1ef1d4578d2a8be6972e7172b308277911faa": {
+      "type": "Yintroduced",
+      "commitMessage": "- refactored top level of Exception hierarchy,\n- added getPatern(), getArguments() and getMessage(Locale)\n  (names chosen for consistency with java.text.MessageFormat)\n- deprecated some raw constructors as the top level exception are too\n  coarse grained and intended only as base classes for easier to use classes\n- added several constructors for use by more fine grained derived classes\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@506576 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/12/07, 10:54 AM",
+      "commitName": "84f1ef1d4578d2a8be6972e7172b308277911faa",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,12 @@\n+private static String translate(String s, Locale locale) {\n+    try {\n+        if ((cachedResources \u003d\u003d null) || (!cachedResources.getLocale().equals(locale))) {\n+            cachedResources \u003d ResourceBundle.getBundle(\"org.apache.commons.math.MessagesResources\", locale);\n+        }\n+        if (cachedResources.getLocale().equals(locale)) {\n+            return cachedResources.getString(s);\n+        }\n+    } catch (MissingResourceException mre) {\n+    }\n+    return s;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static String translate(String s, Locale locale) {\n    try {\n        if ((cachedResources \u003d\u003d null) || (!cachedResources.getLocale().equals(locale))) {\n            cachedResources \u003d ResourceBundle.getBundle(\"org.apache.commons.math.MessagesResources\", locale);\n        }\n        if (cachedResources.getLocale().equals(locale)) {\n            return cachedResources.getString(s);\n        }\n    } catch (MissingResourceException mre) {\n    }\n    return s;\n}",
+      "path": "src/java/org/apache/commons/math/MathException.java",
+      "functionStartLine": 81,
+      "functionName": "translate",
+      "functionAnnotation": "",
+      "functionDoc": "Translate a string to a given locale.\n\n@param s string to translate\n@param locale locale into which to translate the string\n@return translated string or original string\nfor unsupported locales or unknown strings\n"
+    }
+  }
+}

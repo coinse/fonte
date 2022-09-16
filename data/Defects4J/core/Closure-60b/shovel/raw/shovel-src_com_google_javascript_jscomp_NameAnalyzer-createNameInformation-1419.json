@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NameAnalyzer.java",
+  "functionName": "createNameInformation",
+  "functionId": "createNameInformation___name-String__scope-Scope__rootNameNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates name information for a particular qualified name that occurs in a\nparticular scope.\n\n@param name A qualified name (e.g. \"x\" or \"a.b.c\")\n@param scope The scope in which {@code name} occurs\n@param rootNameNode The NAME node for the first token of {@code name}\n@return The name information, or null if the name is irrelevant to this\n    pass\n",
+  "functionStartLine": 1419,
+  "functionEndLine": 1446,
+  "numCommitsSeen": 28,
+  "timeTaken": 2265,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+private NameInformation createNameInformation(String name, Scope scope, Node rootNameNode) {\n+    String rootName \u003d rootNameNode.getString();\n+    Var v \u003d scope.getVar(rootName);\n+    boolean isExtern \u003d (v \u003d\u003d null \u0026\u0026 externalNames.contains(rootName));\n+    boolean isGlobalRef \u003d (v !\u003d null \u0026\u0026 v.isGlobal()) || isExtern || rootName.equals(WINDOW);\n+    if (!isGlobalRef) {\n+        return null;\n+    }\n+    NameInformation nameInfo \u003d new NameInformation();\n+    int idx \u003d name.indexOf(PROTOTYPE_SUBSTRING);\n+    if (idx !\u003d -1) {\n+        nameInfo.isPrototype \u003d true;\n+        nameInfo.prototypeClass \u003d name.substring(0, idx);\n+        nameInfo.prototypeProperty \u003d name.substring(idx + PROTOTYPE_SUBSTRING_LEN);\n+    }\n+    nameInfo.name \u003d name;\n+    nameInfo.isExternallyReferenceable \u003d isExtern || isExternallyReferenceable(scope, name);\n+    return nameInfo;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private NameInformation createNameInformation(String name, Scope scope, Node rootNameNode) {\n    String rootName \u003d rootNameNode.getString();\n    Var v \u003d scope.getVar(rootName);\n    boolean isExtern \u003d (v \u003d\u003d null \u0026\u0026 externalNames.contains(rootName));\n    boolean isGlobalRef \u003d (v !\u003d null \u0026\u0026 v.isGlobal()) || isExtern || rootName.equals(WINDOW);\n    if (!isGlobalRef) {\n        return null;\n    }\n    NameInformation nameInfo \u003d new NameInformation();\n    int idx \u003d name.indexOf(PROTOTYPE_SUBSTRING);\n    if (idx !\u003d -1) {\n        nameInfo.isPrototype \u003d true;\n        nameInfo.prototypeClass \u003d name.substring(0, idx);\n        nameInfo.prototypeProperty \u003d name.substring(idx + PROTOTYPE_SUBSTRING_LEN);\n    }\n    nameInfo.name \u003d name;\n    nameInfo.isExternallyReferenceable \u003d isExtern || isExternallyReferenceable(scope, name);\n    return nameInfo;\n}",
+      "path": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+      "functionStartLine": 1199,
+      "functionName": "createNameInformation",
+      "functionAnnotation": "",
+      "functionDoc": "Creates name information for a particular qualified name that occurs in a\nparticular scope.\n\n@param name A qualified name (e.g. \"x\" or \"a.b.c\")\n@param scope The scope in which {@code name} occurs\n@param rootNameNode The NAME node for the first token of {@code name}\n@return The name information, or null if the name is irrelevant to this\n    pass\n"
+    }
+  }
+}

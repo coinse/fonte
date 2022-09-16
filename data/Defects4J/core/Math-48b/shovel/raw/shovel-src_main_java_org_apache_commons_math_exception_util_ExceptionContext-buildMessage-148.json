@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-48b",
+  "repositoryPath": "/tmp/Math-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ExceptionContext.java",
+  "functionName": "buildMessage",
+  "functionId": "buildMessage___locale-Locale__separator-String",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/exception/util/ExceptionContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "Builds a message string.\n\n@param locale Locale in which the message should be translated.\n@param separator Message separator.\n@return a localized message string.\n",
+  "functionStartLine": 148,
+  "functionEndLine": 166,
+  "numCommitsSeen": 3,
+  "timeTaken": 237,
+  "changeHistory": [
+    "804309e5c5726ad22b0c74dfccdb1ed318f0a108"
+  ],
+  "changeHistoryShort": {
+    "804309e5c5726ad22b0c74dfccdb1ed318f0a108": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "804309e5c5726ad22b0c74dfccdb1ed318f0a108": {
+      "type": "Yintroduced",
+      "commitMessage": "MATH-566\nCreated \"ExceptionContext\" class.\nMade \"MathIllegalArgumentException\" inherit from the Java standard\n\"IllegalArgumentException\".\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1099771 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/5/11, 5:37 AM",
+      "commitName": "804309e5c5726ad22b0c74dfccdb1ed318f0a108",
+      "commitAuthor": "Gilles Sadowski",
+      "diff": "@@ -0,0 +1,15 @@\n+private String buildMessage(Locale locale, String separator) {\n+    final StringBuilder sb \u003d new StringBuilder();\n+    int count \u003d 0;\n+    final int len \u003d msgPatterns.size();\n+    for (int i \u003d 0; i \u003c len; i++) {\n+        final Localizable pat \u003d msgPatterns.get(i);\n+        final Object[] args \u003d msgArguments.get(i);\n+        final MessageFormat fmt \u003d new MessageFormat(pat.getLocalizedString(locale), locale);\n+        sb.append(fmt.format(args));\n+        if (++count \u003c len) {\n+            sb.append(separator);\n+        }\n+    }\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String buildMessage(Locale locale, String separator) {\n    final StringBuilder sb \u003d new StringBuilder();\n    int count \u003d 0;\n    final int len \u003d msgPatterns.size();\n    for (int i \u003d 0; i \u003c len; i++) {\n        final Localizable pat \u003d msgPatterns.get(i);\n        final Object[] args \u003d msgArguments.get(i);\n        final MessageFormat fmt \u003d new MessageFormat(pat.getLocalizedString(locale), locale);\n        sb.append(fmt.format(args));\n        if (++count \u003c len) {\n            sb.append(separator);\n        }\n    }\n    return sb.toString();\n}",
+      "path": "src/main/java/org/apache/commons/math/exception/util/ExceptionContext.java",
+      "functionStartLine": 148,
+      "functionName": "buildMessage",
+      "functionAnnotation": "",
+      "functionDoc": "Builds a message string.\n\n@param locale Locale in which the message should be translated.\n@param separator Message separator.\n@return a localized message string.\n"
+    }
+  }
+}

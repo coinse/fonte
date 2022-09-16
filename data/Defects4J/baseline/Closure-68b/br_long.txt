@@ -1,0 +1,27 @@
+<b>What steps will reproduce the problem?</b>
+1.  test.js:
+
+    /**
+     * @type function
+     */
+    var callback;
+
+2. java -jar compiler.jar --js test.js 
+
+<b>What is the expected output? What do you see instead?</b>
+
+Warning reported is:
+
+test.js:3: WARNING - Parse error. Unexpected end of file
+ */
+  ^
+
+Expected to see the actual warning (e.g., &quot;expected '('&quot;, for the *previous* line)
+
+<b>What version of the product are you using? On what operating system?</b>
+
+compiler-20110502
+
+<b>Please provide any additional information below.</b>
+
+Simply adding &quot;()&quot; to it (&quot;@type function()&quot;) removes the warning, but it would be much more effective if it could communicate that properly.

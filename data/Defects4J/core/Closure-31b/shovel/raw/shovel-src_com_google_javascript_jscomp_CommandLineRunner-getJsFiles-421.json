@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CommandLineRunner.java",
+  "functionName": "getJsFiles",
+  "functionId": "$getJsFiles",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Users may specify JS inputs via the legacy {@code --js} option, as well\nas via additional arguments to the Closure Compiler. For example, it is\nconvenient to leverage the additional arguments feature when using the\nClosure Compiler in combination with {@code find} and {@code xargs}:\n\u003cpre\u003e\nfind MY_JS_SRC_DIR -name \u0027*.js\u0027 \\\n    | xargs java -jar compiler.jar --manage_closure_dependencies\n\u003c/pre\u003e\nThe {@code find} command will produce a list of \u0027*.js\u0027 source files in\nthe {@code MY_JS_SRC_DIR} directory while {@code xargs} will convert them\nto a single, space-delimited set of arguments that are appended to the\n{@code java} command to run the Compiler.\n\u003cp\u003e\nNote that it is important to use the\n{@code --manage_closure_dependencies} option in this case because the\norder produced by {@code find} is unlikely to be sorted correctly with\nrespect to {@code goog.provide()} and {@code goog.requires()}.\n",
+  "functionStartLine": 421,
+  "functionEndLine": 427,
+  "numCommitsSeen": 56,
+  "timeTaken": 643,
+  "changeHistory": [
+    "ecfbb807619a7fdfa2b73eba396a86b32c478215"
+  ],
+  "changeHistoryShort": {
+    "ecfbb807619a7fdfa2b73eba396a86b32c478215": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ecfbb807619a7fdfa2b73eba396a86b32c478215": {
+      "type": "Yintroduced",
+      "commitMessage": "\nthe command-line Closure Compiler can now take a vararg number of inputs in addition to those specified by a --js argument.\n\nR\u003dnicksantos,pupius,nnaze\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3369\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1471 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/29/11, 3:38 PM",
+      "commitName": "ecfbb807619a7fdfa2b73eba396a86b32c478215",
+      "commitAuthor": "bolinfest@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+List\u003cString\u003e getJsFiles() {\n+    List\u003cString\u003e allJsInputs \u003d Lists.newArrayListWithCapacity(js.size() + arguments.size());\n+    allJsInputs.addAll(js);\n+    allJsInputs.addAll(arguments);\n+    return allJsInputs;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "List\u003cString\u003e getJsFiles() {\n    List\u003cString\u003e allJsInputs \u003d Lists.newArrayListWithCapacity(js.size() + arguments.size());\n    allJsInputs.addAll(js);\n    allJsInputs.addAll(arguments);\n    return allJsInputs;\n}",
+      "path": "src/com/google/javascript/jscomp/CommandLineRunner.java",
+      "functionStartLine": 388,
+      "functionName": "getJsFiles",
+      "functionAnnotation": "",
+      "functionDoc": "Users may specify JS inputs via the legacy {@code --js} option, as well\nas via additional arguments to the Closure Compiler. For example, it is\nconvenient to leverage the additional arguments feature when using the\nClosure Compiler in combination with {@code find} and {@code xargs}:\n\u003cpre\u003e\nfind MY_JS_SRC_DIR -name \u0027*.js\u0027 \\\n    | xargs java -jar compiler.jar --manage_closure_dependencies\n\u003c/pre\u003e\nThe {@code find} command will produce a list of \u0027*.js\u0027 source files in\nthe {@code MY_JS_SRC_DIR} directory while {@code xargs} will convert them\nto a single, space-delimited set of arguments that are appended to the\n{@code java} command to run the Compiler.\n\u003cp\u003e\nNote that it is important to use the\n{@code --manage_closure_dependencies} option in this case because the\norder produced by {@code find} is unlikely to be sorted correctly with\nrespect to {@code goog.provide()} and {@code goog.requires()}.\n"
+    }
+  }
+}

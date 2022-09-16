@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-85b",
+  "repositoryPath": "/tmp/Closure-85b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnreachableCodeElimination.java",
+  "functionName": "tryRemoveUnconditionalBranching",
+  "functionId": "tryRemoveUnconditionalBranching___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/UnreachableCodeElimination.java",
+  "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+  "functionDoc": "Tries to remove n if an unconditional branch node (break, continue or\nreturn) if the target of n is the same as the the follow of n. That is, if\nwe remove n, the control flow remains the same. Also if n targets to\nanother unconditional branch, this function will recursively try to remove\nthe target branch as well. The reason why we want to cascade this removal\nis because we only run this pass once. If we have code such as\n\nbreak -\u003e break -\u003e break\n\nwhere all 3 break\u0027s are useless. The order of removal matters. When we\nfirst look at the first break, we see that it branches to the 2nd break.\nHowever, if we remove the last break, the 2nd break becomes useless and\nfinally the first break becomes useless as well.\n\n@return The target of this jump. If the target is also useless jump,\n    the target of that useless jump recursively.\n",
+  "functionStartLine": 131,
+  "functionEndLine": 200,
+  "numCommitsSeen": 13,
+  "timeTaken": 517,
+  "changeHistory": [
+    "c1971584101865a747d5d1e25ef0c0193135957f",
+    "2581851be3b2202bd48d4c76889b020f4cecebf6"
+  ],
+  "changeHistoryShort": {
+    "c1971584101865a747d5d1e25ef0c0193135957f": "Yformatchange",
+    "2581851be3b2202bd48d4c76889b020f4cecebf6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c1971584101865a747d5d1e25ef0c0193135957f": {
+      "type": "Yformatchange",
+      "commitMessage": "\nUpdate NodeUtil.removeChild to only safe handle try/catch/finally nodes. Update UnreachableCodeElminination to reflect the changes and removed\npeephole removal of unneeded TRY/FINALLY statements as that is now handled by\nthe PeepholeRemoveDeadCode pass.\n\nR\u003dnicksantos\nDELTA\u003d154  (88 added, 33 deleted, 33 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d219\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@670 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/6/11, 5:19 PM",
+      "commitName": "c1971584101865a747d5d1e25ef0c0193135957f",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "12/3/10, 2:10 PM",
+      "commitNameOld": "3c5a6f6a1b87c655c5eb3ed0ebcfce886ab6a614",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 34.13,
+      "commitsBetweenForRepo": 75,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"fallthrough\")\nprivate Node tryRemoveUnconditionalBranching(Node n) {\n    if (n \u003d\u003d null) {\n        return n;\n    }\n    DiGraphNode\u003cNode, Branch\u003e gNode \u003d curCfg.getDirectedGraphNode(n);\n    if (gNode \u003d\u003d null) {\n        return n;\n    }\n    if (n.getParent() \u003d\u003d null) {\n        List\u003cDiGraphEdge\u003cNode, Branch\u003e\u003e outEdges \u003d gNode.getOutEdges();\n        if (outEdges.size() \u003d\u003d 1) {\n            return tryRemoveUnconditionalBranching(outEdges.get(0).getDestination().getValue());\n        }\n    }\n    switch(n.getType()) {\n        case Token.BLOCK:\n            if (n.hasChildren()) {\n                Node first \u003d n.getFirstChild();\n                return tryRemoveUnconditionalBranching(first);\n            } else {\n                return tryRemoveUnconditionalBranching(ControlFlowAnalysis.computeFollowNode(n));\n            }\n        case Token.RETURN:\n            if (n.hasChildren()) {\n                break;\n            }\n        case Token.BREAK:\n        case Token.CONTINUE:\n            List\u003cDiGraphEdge\u003cNode, Branch\u003e\u003e outEdges \u003d gNode.getOutEdges();\n            if (outEdges.size() \u003d\u003d 1 \u0026\u0026 (n.getNext() \u003d\u003d null || n.getNext().getType() \u003d\u003d Token.FUNCTION)) {\n                Preconditions.checkState(outEdges.get(0).getValue() \u003d\u003d Branch.UNCOND);\n                Node fallThrough \u003d tryRemoveUnconditionalBranching(ControlFlowAnalysis.computeFollowNode(n));\n                Node nextCfgNode \u003d outEdges.get(0).getDestination().getValue();\n                if (nextCfgNode \u003d\u003d fallThrough) {\n                    removeDeadExprStatementSafely(n);\n                    return fallThrough;\n                }\n            }\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/UnreachableCodeElimination.java",
+      "functionStartLine": 131,
+      "functionName": "tryRemoveUnconditionalBranching",
+      "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+      "functionDoc": "Tries to remove n if an unconditional branch node (break, continue or\nreturn) if the target of n is the same as the the follow of n. That is, if\nwe remove n, the control flow remains the same. Also if n targets to\nanother unconditional branch, this function will recursively try to remove\nthe target branch as well. The reason why we want to cascade this removal\nis because we only run this pass once. If we have code such as\n\nbreak -\u003e break -\u003e break\n\nwhere all 3 break\u0027s are useless. The order of removal matters. When we\nfirst look at the first break, we see that it branches to the 2nd break.\nHowever, if we remove the last break, the 2nd break becomes useless and\nfinally the first break becomes useless as well.\n\n@return The target of this jump. If the target is also useless jump,\n    the target of that useless jump recursively.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "2581851be3b2202bd48d4c76889b020f4cecebf6": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRemove more unconditional jumps.\n\nR\u003djohnlenz\nDELTA\u003d94  (74 added, 4 deleted, 16 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d85018\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@342 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/5/10, 6:06 PM",
+      "commitName": "2581851be3b2202bd48d4c76889b020f4cecebf6",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,42 @@\n+@SuppressWarnings(\"fallthrough\")\n+private Node tryRemoveUnconditionalBranching(Node n) {\n+    if (n \u003d\u003d null) {\n+        return n;\n+    }\n+    DiGraphNode\u003cNode, Branch\u003e gNode \u003d curCfg.getDirectedGraphNode(n);\n+    if (gNode \u003d\u003d null) {\n+        return n;\n+    }\n+    if (n.getParent() \u003d\u003d null) {\n+        List\u003cDiGraphEdge\u003cNode, Branch\u003e\u003e outEdges \u003d gNode.getOutEdges();\n+        if (outEdges.size() \u003d\u003d 1) {\n+            return tryRemoveUnconditionalBranching(outEdges.get(0).getDestination().getValue());\n+        }\n+    }\n+    switch(n.getType()) {\n+        case Token.BLOCK:\n+            if (n.hasChildren()) {\n+                Node first \u003d n.getFirstChild();\n+                return tryRemoveUnconditionalBranching(first);\n+            } else {\n+                return tryRemoveUnconditionalBranching(ControlFlowAnalysis.computeFollowNode(n));\n+            }\n+        case Token.RETURN:\n+            if (n.hasChildren()) {\n+                break;\n+            }\n+        case Token.BREAK:\n+        case Token.CONTINUE:\n+            List\u003cDiGraphEdge\u003cNode, Branch\u003e\u003e outEdges \u003d gNode.getOutEdges();\n+            if (outEdges.size() \u003d\u003d 1 \u0026\u0026 (n.getNext() \u003d\u003d null || n.getNext().getType() \u003d\u003d Token.FUNCTION)) {\n+                Preconditions.checkState(outEdges.get(0).getValue() \u003d\u003d Branch.UNCOND);\n+                Node fallThrough \u003d tryRemoveUnconditionalBranching(ControlFlowAnalysis.computeFollowNode(n));\n+                Node nextCfgNode \u003d outEdges.get(0).getDestination().getValue();\n+                if (nextCfgNode \u003d\u003d fallThrough) {\n+                    removeDeadExprStatementSafely(n);\n+                    return fallThrough;\n+                }\n+            }\n+    }\n+    return n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"fallthrough\")\nprivate Node tryRemoveUnconditionalBranching(Node n) {\n    if (n \u003d\u003d null) {\n        return n;\n    }\n    DiGraphNode\u003cNode, Branch\u003e gNode \u003d curCfg.getDirectedGraphNode(n);\n    if (gNode \u003d\u003d null) {\n        return n;\n    }\n    if (n.getParent() \u003d\u003d null) {\n        List\u003cDiGraphEdge\u003cNode, Branch\u003e\u003e outEdges \u003d gNode.getOutEdges();\n        if (outEdges.size() \u003d\u003d 1) {\n            return tryRemoveUnconditionalBranching(outEdges.get(0).getDestination().getValue());\n        }\n    }\n    switch(n.getType()) {\n        case Token.BLOCK:\n            if (n.hasChildren()) {\n                Node first \u003d n.getFirstChild();\n                return tryRemoveUnconditionalBranching(first);\n            } else {\n                return tryRemoveUnconditionalBranching(ControlFlowAnalysis.computeFollowNode(n));\n            }\n        case Token.RETURN:\n            if (n.hasChildren()) {\n                break;\n            }\n        case Token.BREAK:\n        case Token.CONTINUE:\n            List\u003cDiGraphEdge\u003cNode, Branch\u003e\u003e outEdges \u003d gNode.getOutEdges();\n            if (outEdges.size() \u003d\u003d 1 \u0026\u0026 (n.getNext() \u003d\u003d null || n.getNext().getType() \u003d\u003d Token.FUNCTION)) {\n                Preconditions.checkState(outEdges.get(0).getValue() \u003d\u003d Branch.UNCOND);\n                Node fallThrough \u003d tryRemoveUnconditionalBranching(ControlFlowAnalysis.computeFollowNode(n));\n                Node nextCfgNode \u003d outEdges.get(0).getDestination().getValue();\n                if (nextCfgNode \u003d\u003d fallThrough) {\n                    removeDeadExprStatementSafely(n);\n                    return fallThrough;\n                }\n            }\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/UnreachableCodeElimination.java",
+      "functionStartLine": 147,
+      "functionName": "tryRemoveUnconditionalBranching",
+      "functionAnnotation": "@SuppressWarnings(\"fallthrough\")",
+      "functionDoc": "Tries to remove n if an unconditional branch node (break, continue or\nreturn) if the target of n is the same as the the follow of n. That is, if\nwe remove n, the control flow remains the same. Also if n targets to\nanother unconditional branch, this function will recursively try to remove\nthe target branch as well. The reason why we want to cascade this removal\nis because we only run this pass once. If we have code such as\n\nbreak -\u003e break -\u003e break\n\nwhere all 3 break\u0027s are useless. The order of removal matters. When we\nfirst look at the first break, we see that it branches to the 2nd break.\nHowever, if we remove the last break, the 2nd break becomes useless and\nfinally the first break becomes useless as well.\n\n@return The target of this jump. If the target is also useless jump,\n    the target of that useless jump recursively.\n"
+    }
+  }
+}

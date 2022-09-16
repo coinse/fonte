@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "trimJsWhiteSpace",
+  "functionId": "trimJsWhiteSpace___s-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 377,
+  "functionEndLine": 389,
+  "numCommitsSeen": 136,
+  "timeTaken": 8162,
+  "changeHistory": [
+    "c6cc58a9bc617483366141386e047b085b4e83ff",
+    "20c504ecbbdea3908bde81709df5a3765d1e385e"
+  ],
+  "changeHistoryShort": {
+    "c6cc58a9bc617483366141386e047b085b4e83ff": "Ybodychange",
+    "20c504ecbbdea3908bde81709df5a3765d1e385e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c6cc58a9bc617483366141386e047b085b4e83ff": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix \"string-to-number\" conversions in the presense of verical tabs.\nFixes issue 395.\n\nR\u003dnicksantos\nDELTA\u003d20  (14 added, 1 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1246\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@963 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 10:02 AM",
+      "commitName": "c6cc58a9bc617483366141386e047b085b4e83ff",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "3/25/11, 4:27 PM",
+      "commitNameOld": "86a7d25f3cc1177f35dc6480260fb807912c03fa",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 9.73,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static String trimJsWhiteSpace(String s) {\n    int start \u003d 0;\n    int end \u003d s.length();\n    while (end \u003e 0 \u0026\u0026 isStrWhiteSpaceChar(s.charAt(end - 1)) \u003d\u003d TernaryValue.TRUE) {\n        end--;\n    }\n    while (start \u003c end \u0026\u0026 isStrWhiteSpaceChar(s.charAt(start)) \u003d\u003d TernaryValue.TRUE) {\n        start++;\n    }\n    return s.substring(start, end);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 358,
+      "functionName": "trimJsWhiteSpace",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n static String trimJsWhiteSpace(String s) {\n     int start \u003d 0;\n     int end \u003d s.length();\n-    while (end \u003e 0 \u0026\u0026 isStrWhiteSpaceChar(s.charAt(end - 1))) {\n+    while (end \u003e 0 \u0026\u0026 isStrWhiteSpaceChar(s.charAt(end - 1)) \u003d\u003d TernaryValue.TRUE) {\n         end--;\n     }\n-    while (start \u003c end \u0026\u0026 isStrWhiteSpaceChar(s.charAt(start))) {\n+    while (start \u003c end \u0026\u0026 isStrWhiteSpaceChar(s.charAt(start)) \u003d\u003d TernaryValue.TRUE) {\n         start++;\n     }\n     return s.substring(start, end);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "20c504ecbbdea3908bde81709df5a3765d1e385e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPatch up NodeUtil.getNumberValue to handle strings values like\n\" 12 \" and \"baz\".\n\nR\u003dnicksantos\nDELTA\u003d123  (109 added, 2 deleted, 12 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d260\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@690 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/12/11, 2:57 PM",
+      "commitName": "20c504ecbbdea3908bde81709df5a3765d1e385e",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+static String trimJsWhiteSpace(String s) {\n+    int start \u003d 0;\n+    int end \u003d s.length();\n+    while (end \u003e 0 \u0026\u0026 isStrWhiteSpaceChar(s.charAt(end - 1))) {\n+        end--;\n+    }\n+    while (start \u003c end \u0026\u0026 isStrWhiteSpaceChar(s.charAt(start))) {\n+        start++;\n+    }\n+    return s.substring(start, end);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static String trimJsWhiteSpace(String s) {\n    int start \u003d 0;\n    int end \u003d s.length();\n    while (end \u003e 0 \u0026\u0026 isStrWhiteSpaceChar(s.charAt(end - 1))) {\n        end--;\n    }\n    while (start \u003c end \u0026\u0026 isStrWhiteSpaceChar(s.charAt(start))) {\n        start++;\n    }\n    return s.substring(start, end);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 275,
+      "functionName": "trimJsWhiteSpace",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

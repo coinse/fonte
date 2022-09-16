@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IR.java",
+  "functionName": "mayBeStatement",
+  "functionId": "mayBeStatement___n-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/IR.java",
+  "functionAnnotation": "",
+  "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n",
+  "functionStartLine": 466,
+  "functionEndLine": 496,
+  "numCommitsSeen": 3,
+  "timeTaken": 310,
+  "changeHistory": [
+    "2f28243f97f468e92316a2c7ea209c857689ab43"
+  ],
+  "changeHistoryShort": {
+    "2f28243f97f468e92316a2c7ea209c857689ab43": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2f28243f97f468e92316a2c7ea209c857689ab43": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRFC: An AST builder helper class.  This class has two goals:\n1) have a simpler method of building the AST for those new to the\ncompiler.\n2) create a more readable AST construction. Rather than something like:\nNode fn \u003d new Node(Token.FUNCTION, Node.newString(Token.NAME, \"fn\"),\nnew Node(Token.PARAM_LIST, new Node(Token.NAME, \"a\"), new\nNode(Token.NAME, \"b\")),new Node(Token.BLOCK));\nyou would have:\nNode fn \u003d function(name(\"fn\"), paramList(name(\"a\"),name(\"b\")),\nblock());\n\nThe intent is that the the referencing class will have a \"import static\nAst.*\".\n\nR\u003dnicksantos\nDELTA\u003d560  (560 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3726\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1602 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/15/11, 6:18 PM",
+      "commitName": "2f28243f97f468e92316a2c7ea209c857689ab43",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,27 @@\n+private static boolean mayBeStatement(Node n) {\n+    switch(n.getType()) {\n+        case Token.EMPTY:\n+        case Token.FUNCTION:\n+            return true;\n+        case Token.BLOCK:\n+        case Token.BREAK:\n+        case Token.CONST:\n+        case Token.CONTINUE:\n+        case Token.DEBUGGER:\n+        case Token.DO:\n+        case Token.EXPR_RESULT:\n+        case Token.FOR:\n+        case Token.IF:\n+        case Token.LABEL:\n+        case Token.RETURN:\n+        case Token.SWITCH:\n+        case Token.THROW:\n+        case Token.TRY:\n+        case Token.VAR:\n+        case Token.WHILE:\n+        case Token.WITH:\n+            return true;\n+        default:\n+            return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean mayBeStatement(Node n) {\n    switch(n.getType()) {\n        case Token.EMPTY:\n        case Token.FUNCTION:\n            return true;\n        case Token.BLOCK:\n        case Token.BREAK:\n        case Token.CONST:\n        case Token.CONTINUE:\n        case Token.DEBUGGER:\n        case Token.DO:\n        case Token.EXPR_RESULT:\n        case Token.FOR:\n        case Token.IF:\n        case Token.LABEL:\n        case Token.RETURN:\n        case Token.SWITCH:\n        case Token.THROW:\n        case Token.TRY:\n        case Token.VAR:\n        case Token.WHILE:\n        case Token.WITH:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/IR.java",
+      "functionStartLine": 451,
+      "functionName": "mayBeStatement",
+      "functionAnnotation": "",
+      "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-73b",
+  "repositoryPath": "/tmp/Closure-73b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "setSourceInfo",
+  "functionId": "setSourceInfo___irNode-Node__node-AstNode",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 296,
+  "functionEndLine": 313,
+  "numCommitsSeen": 40,
+  "timeTaken": 1088,
+  "changeHistory": [
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719"
+  ],
+  "changeHistoryShort": {
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719": {
+      "type": "Yintroduced",
+      "commitMessage": "\nEnable keywords as property names for ECMASCRIPT5\n\nR\u003dacleung\nDELTA\u003d106  (91 added, 1 deleted, 14 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d884\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@892 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/15/11, 3:57 PM",
+      "commitName": "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,13 @@\n+private void setSourceInfo(Node irNode, AstNode node) {\n+    if (irNode.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 irNode.getFirstChild().getLineno() !\u003d -1) {\n+        irNode.setLineno(irNode.getFirstChild().getLineno());\n+        irNode.setCharno(irNode.getFirstChild().getCharno());\n+    } else {\n+        if (irNode.getLineno() \u003d\u003d -1) {\n+            int lineno \u003d node.getLineno();\n+            irNode.setLineno(lineno);\n+            int charno \u003d position2charno(node.getAbsolutePosition());\n+            irNode.setCharno(charno);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void setSourceInfo(Node irNode, AstNode node) {\n    if (irNode.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 irNode.getFirstChild().getLineno() !\u003d -1) {\n        irNode.setLineno(irNode.getFirstChild().getLineno());\n        irNode.setCharno(irNode.getFirstChild().getCharno());\n    } else {\n        if (irNode.getLineno() \u003d\u003d -1) {\n            int lineno \u003d node.getLineno();\n            irNode.setLineno(lineno);\n            int charno \u003d position2charno(node.getAbsolutePosition());\n            irNode.setCharno(charno);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 255,
+      "functionName": "setSourceInfo",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

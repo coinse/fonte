@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-8b",
+  "repositoryPath": "/tmp/Closure-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionType.java",
+  "functionName": "setPrototypeNoCheck",
+  "functionId": "setPrototypeNoCheck___prototype-ObjectType__propertyNode-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Set the prototype without doing any sanity checks.\n",
+  "functionStartLine": 448,
+  "functionEndLine": 483,
+  "numCommitsSeen": 82,
+  "timeTaken": 786,
+  "changeHistory": [
+    "4a77f08d4f57f1dab960c3464baa9bcb3326c6a4"
+  ],
+  "changeHistoryShort": {
+    "4a77f08d4f57f1dab960c3464baa9bcb3326c6a4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4a77f08d4f57f1dab960c3464baa9bcb3326c6a4": {
+      "type": "Yintroduced",
+      "commitMessage": "\nProper handling of structural constructors\n\nR\u003djohnlenz\nDELTA\u003d161  (138 added, 20 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4936\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2017 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/4/12, 9:43 AM",
+      "commitName": "4a77f08d4f57f1dab960c3464baa9bcb3326c6a4",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,26 @@\n+private boolean setPrototypeNoCheck(ObjectType prototype, Node propertyNode) {\n+    ObjectType oldPrototype \u003d prototypeSlot \u003d\u003d null ? null : (ObjectType) prototypeSlot.getType();\n+    boolean replacedPrototype \u003d oldPrototype !\u003d null;\n+    this.prototypeSlot \u003d new Property(\"prototype\", prototype, true, propertyNode \u003d\u003d null ? source : propertyNode);\n+    prototype.setOwnerFunction(this);\n+    if (oldPrototype !\u003d null) {\n+        oldPrototype.setOwnerFunction(null);\n+    }\n+    if (isConstructor() || isInterface()) {\n+        FunctionType superClass \u003d getSuperClassConstructor();\n+        if (superClass !\u003d null) {\n+            superClass.addSubType(this);\n+        }\n+        if (isInterface()) {\n+            for (ObjectType interfaceType : getExtendedInterfaces()) {\n+                if (interfaceType.getConstructor() !\u003d null) {\n+                    interfaceType.getConstructor().addSubType(this);\n+                }\n+            }\n+        }\n+    }\n+    if (replacedPrototype) {\n+        clearCachedValues();\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean setPrototypeNoCheck(ObjectType prototype, Node propertyNode) {\n    ObjectType oldPrototype \u003d prototypeSlot \u003d\u003d null ? null : (ObjectType) prototypeSlot.getType();\n    boolean replacedPrototype \u003d oldPrototype !\u003d null;\n    this.prototypeSlot \u003d new Property(\"prototype\", prototype, true, propertyNode \u003d\u003d null ? source : propertyNode);\n    prototype.setOwnerFunction(this);\n    if (oldPrototype !\u003d null) {\n        oldPrototype.setOwnerFunction(null);\n    }\n    if (isConstructor() || isInterface()) {\n        FunctionType superClass \u003d getSuperClassConstructor();\n        if (superClass !\u003d null) {\n            superClass.addSubType(this);\n        }\n        if (isInterface()) {\n            for (ObjectType interfaceType : getExtendedInterfaces()) {\n                if (interfaceType.getConstructor() !\u003d null) {\n                    interfaceType.getConstructor().addSubType(this);\n                }\n            }\n        }\n    }\n    if (replacedPrototype) {\n        clearCachedValues();\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionType.java",
+      "functionStartLine": 390,
+      "functionName": "setPrototypeNoCheck",
+      "functionAnnotation": "",
+      "functionDoc": "Set the prototype without doing any sanity checks.\n"
+    }
+  }
+}

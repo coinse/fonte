@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-17b",
+  "repositoryPath": "/tmp/Math-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "multiply",
+  "functionId": "multiply___x-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Multiply this by a single digit 0\u0026lt;\u003dx\u0026lt;radix.\nThere are speed advantages in this special case\n\n@param x multiplicand\n@return product of this and x\n",
+  "functionStartLine": 1603,
+  "functionEndLine": 1659,
+  "numCommitsSeen": 12,
+  "timeTaken": 12299,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Dfp multiply(final int x) {\n    Dfp result \u003d newInstance(this);\n    if (nans !\u003d FINITE) {\n        if (isNaN()) {\n            return this;\n        }\n        if (nans \u003d\u003d INFINITE \u0026\u0026 x !\u003d 0) {\n            result \u003d newInstance(this);\n            return result;\n        }\n        if (nans \u003d\u003d INFINITE \u0026\u0026 x \u003d\u003d 0) {\n            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n            result \u003d newInstance(getZero());\n            result.nans \u003d QNAN;\n            result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, newInstance(getZero()), result);\n            return result;\n        }\n    }\n    if (x \u003c 0 || x \u003e\u003d RADIX) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        result \u003d newInstance(getZero());\n        result.nans \u003d QNAN;\n        result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, result, result);\n        return result;\n    }\n    int rh \u003d 0;\n    for (int i \u003d 0; i \u003c mant.length; i++) {\n        final int r \u003d mant[i] * x + rh;\n        rh \u003d r / RADIX;\n        result.mant[i] \u003d r - rh * RADIX;\n    }\n    int lostdigit \u003d 0;\n    if (rh !\u003d 0) {\n        lostdigit \u003d result.mant[0];\n        result.shiftRight();\n        result.mant[mant.length - 1] \u003d rh;\n    }\n    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n        result.exp \u003d 0;\n    }\n    final int excp \u003d result.round(lostdigit);\n    if (excp !\u003d 0) {\n        result \u003d dotrap(excp, MULTIPLY_TRAP, result, result);\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+      "functionStartLine": 1603,
+      "functionName": "multiply",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply this by a single digit 0\u0026lt;\u003dx\u0026lt;radix.\nThere are speed advantages in this special case\n\n@param x multiplicand\n@return product of this and x\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+        "newPath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+        "oldMethodName": "multiply",
+        "newMethodName": "multiply"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,46 @@\n+public Dfp multiply(final int x) {\n+    Dfp result \u003d newInstance(this);\n+    if (nans !\u003d FINITE) {\n+        if (isNaN()) {\n+            return this;\n+        }\n+        if (nans \u003d\u003d INFINITE \u0026\u0026 x !\u003d 0) {\n+            result \u003d newInstance(this);\n+            return result;\n+        }\n+        if (nans \u003d\u003d INFINITE \u0026\u0026 x \u003d\u003d 0) {\n+            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+            result \u003d newInstance(getZero());\n+            result.nans \u003d QNAN;\n+            result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, newInstance(getZero()), result);\n+            return result;\n+        }\n+    }\n+    if (x \u003c 0 || x \u003e\u003d RADIX) {\n+        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+        result \u003d newInstance(getZero());\n+        result.nans \u003d QNAN;\n+        result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, result, result);\n+        return result;\n+    }\n+    int rh \u003d 0;\n+    for (int i \u003d 0; i \u003c mant.length; i++) {\n+        final int r \u003d mant[i] * x + rh;\n+        rh \u003d r / RADIX;\n+        result.mant[i] \u003d r - rh * RADIX;\n+    }\n+    int lostdigit \u003d 0;\n+    if (rh !\u003d 0) {\n+        lostdigit \u003d result.mant[0];\n+        result.shiftRight();\n+        result.mant[mant.length - 1] \u003d rh;\n+    }\n+    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n+        result.exp \u003d 0;\n+    }\n+    final int excp \u003d result.round(lostdigit);\n+    if (excp !\u003d 0) {\n+        result \u003d dotrap(excp, MULTIPLY_TRAP, result, result);\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Dfp multiply(final int x) {\n    Dfp result \u003d newInstance(this);\n    if (nans !\u003d FINITE) {\n        if (isNaN()) {\n            return this;\n        }\n        if (nans \u003d\u003d INFINITE \u0026\u0026 x !\u003d 0) {\n            result \u003d newInstance(this);\n            return result;\n        }\n        if (nans \u003d\u003d INFINITE \u0026\u0026 x \u003d\u003d 0) {\n            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n            result \u003d newInstance(getZero());\n            result.nans \u003d QNAN;\n            result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, newInstance(getZero()), result);\n            return result;\n        }\n    }\n    if (x \u003c 0 || x \u003e\u003d RADIX) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        result \u003d newInstance(getZero());\n        result.nans \u003d QNAN;\n        result \u003d dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, result, result);\n        return result;\n    }\n    int rh \u003d 0;\n    for (int i \u003d 0; i \u003c mant.length; i++) {\n        final int r \u003d mant[i] * x + rh;\n        rh \u003d r / RADIX;\n        result.mant[i] \u003d r - rh * RADIX;\n    }\n    int lostdigit \u003d 0;\n    if (rh !\u003d 0) {\n        lostdigit \u003d result.mant[0];\n        result.shiftRight();\n        result.mant[mant.length - 1] \u003d rh;\n    }\n    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n        result.exp \u003d 0;\n    }\n    final int excp \u003d result.round(lostdigit);\n    if (excp !\u003d 0) {\n        result \u003d dotrap(excp, MULTIPLY_TRAP, result, result);\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 1516,
+      "functionName": "multiply",
+      "functionAnnotation": "",
+      "functionDoc": "Multiply this by a single digit 0\u0026lt;\u003dx\u0026lt;radix.\nThere are speed advantages in this special case\n\n@param x multiplicand\n@return product of this and x\n"
+    }
+  }
+}

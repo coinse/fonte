@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "transformNameAsString",
+  "functionId": "transformNameAsString___node-Name",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 409,
+  "functionEndLine": 417,
+  "numCommitsSeen": 90,
+  "timeTaken": 4721,
+  "changeHistory": [
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719"
+  ],
+  "changeHistoryShort": {
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": "Ybodychange",
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6": {
+      "type": "Ybodychange",
+      "commitMessage": "\nPart 3, source name/input id split:\nChange the construction of JSDocInfo to allow the determination of\nthe source type (extern or not) without requiring the source to be looked\nup by name.\n\nR\u003dnicksantos\nDELTA\u003d99  (51 added, 21 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2898\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1327 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/11, 9:23 AM",
+      "commitName": "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "7/28/11, 4:19 PM",
+      "commitNameOld": "76abdf11394c0e7515ae63335676ea3657badb45",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 6.71,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node transformNameAsString(Name node) {\n    Node irNode \u003d transformDispatcher.processName(node, true);\n    JSDocInfo jsDocInfo \u003d handleJsDoc(node, irNode);\n    if (jsDocInfo !\u003d null) {\n        irNode.setJSDocInfo(jsDocInfo);\n    }\n    setSourceInfo(irNode, node);\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 273,
+      "functionName": "transformNameAsString",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n private Node transformNameAsString(Name node) {\n-    JSDocInfo jsDocInfo \u003d handleJsDoc(node);\n     Node irNode \u003d transformDispatcher.processName(node, true);\n+    JSDocInfo jsDocInfo \u003d handleJsDoc(node, irNode);\n     if (jsDocInfo !\u003d null) {\n         irNode.setJSDocInfo(jsDocInfo);\n     }\n     setSourceInfo(irNode, node);\n     return irNode;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719": {
+      "type": "Yintroduced",
+      "commitMessage": "\nEnable keywords as property names for ECMASCRIPT5\n\nR\u003dacleung\nDELTA\u003d106  (91 added, 1 deleted, 14 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d884\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@892 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/15/11, 3:57 PM",
+      "commitName": "e4d80a3331cf7a9c1b7bdc9e2082d330381c3719",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private Node transformNameAsString(Name node) {\n+    JSDocInfo jsDocInfo \u003d handleJsDoc(node);\n+    Node irNode \u003d transformDispatcher.processName(node, true);\n+    if (jsDocInfo !\u003d null) {\n+        irNode.setJSDocInfo(jsDocInfo);\n+    }\n+    setSourceInfo(irNode, node);\n+    return irNode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node transformNameAsString(Name node) {\n    JSDocInfo jsDocInfo \u003d handleJsDoc(node);\n    Node irNode \u003d transformDispatcher.processName(node, true);\n    if (jsDocInfo !\u003d null) {\n        irNode.setJSDocInfo(jsDocInfo);\n    }\n    setSourceInfo(irNode, node);\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 245,
+      "functionName": "transformNameAsString",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

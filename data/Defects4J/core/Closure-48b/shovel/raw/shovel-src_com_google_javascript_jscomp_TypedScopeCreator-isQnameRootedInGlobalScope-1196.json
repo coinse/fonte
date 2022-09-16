@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypedScopeCreator.java",
+  "functionName": "isQnameRootedInGlobalScope",
+  "functionId": "$isQnameRootedInGlobalScope___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Check if the given node is a property of a name in the global scope.\n",
+  "functionStartLine": 1196,
+  "functionEndLine": 1205,
+  "numCommitsSeen": 83,
+  "timeTaken": 5555,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "f6607996d6d3bd6820ce3848d147991b27600a12"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "f6607996d6d3bd6820ce3848d147991b27600a12": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 2:45 PM",
+      "commitNameOld": "103bd46736cbbbabe6ad27ab11da10d6dbb1a8e5",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 0.74,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isQnameRootedInGlobalScope(Node n) {\n    Node root \u003d NodeUtil.getRootOfQualifiedName(n);\n    if (root.isName()) {\n        Var var \u003d scope.getVar(root.getString());\n        if (var !\u003d null) {\n            return var.isGlobal();\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 1195,
+      "functionName": "isQnameRootedInGlobalScope",
+      "functionAnnotation": "",
+      "functionDoc": "Check if the given node is a property of a name in the global scope.\n",
+      "diff": "@@ -1,10 +1,10 @@\n private boolean isQnameRootedInGlobalScope(Node n) {\n     Node root \u003d NodeUtil.getRootOfQualifiedName(n);\n-    if (root.getType() \u003d\u003d Token.NAME) {\n+    if (root.isName()) {\n         Var var \u003d scope.getVar(root.getString());\n         if (var !\u003d null) {\n             return var.isGlobal();\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f6607996d6d3bd6820ce3848d147991b27600a12": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIf a property is defined on a global name, but in a local scope,\ndeclare that property in the global scope.\nthis goes most of the way towards fixing issue 66.\n\nR\u003djohnlenz\nDELTA\u003d84  (78 added, 1 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d219633\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@429 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/15/10, 7:50 AM",
+      "commitName": "f6607996d6d3bd6820ce3848d147991b27600a12",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private boolean isQnameRootedInGlobalScope(Node n) {\n+    Node root \u003d NodeUtil.getRootOfQualifiedName(n);\n+    if (root.getType() \u003d\u003d Token.NAME) {\n+        Var var \u003d scope.getVar(root.getString());\n+        if (var !\u003d null) {\n+            return var.isGlobal();\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isQnameRootedInGlobalScope(Node n) {\n    Node root \u003d NodeUtil.getRootOfQualifiedName(n);\n    if (root.getType() \u003d\u003d Token.NAME) {\n        Var var \u003d scope.getVar(root.getString());\n        if (var !\u003d null) {\n            return var.isGlobal();\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+      "functionStartLine": 957,
+      "functionName": "isQnameRootedInGlobalScope",
+      "functionAnnotation": "",
+      "functionDoc": "Check if the given node is a property of a name in the global scope.\n"
+    }
+  }
+}

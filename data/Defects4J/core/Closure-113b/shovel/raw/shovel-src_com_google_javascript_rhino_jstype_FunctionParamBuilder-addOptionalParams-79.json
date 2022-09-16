@@ -1,0 +1,116 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionParamBuilder.java",
+  "functionName": "addOptionalParams",
+  "functionId": "addOptionalParams___types-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionParamBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefine-able.\n@return False if this is called after var args are added.\n",
+  "functionStartLine": 79,
+  "functionEndLine": 88,
+  "numCommitsSeen": 10,
+  "timeTaken": 640,
+  "changeHistory": [
+    "59aac0b247db74ec7047132f368953935edd81b8",
+    "465b84d337b9ac732b6890fae3c4deea46bc0fb4",
+    "6c7c28651eac368f7ff4180abff580114fd0113d",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "59aac0b247db74ec7047132f368953935edd81b8": "Ydocchange",
+    "465b84d337b9ac732b6890fae3c4deea46bc0fb4": "Ydocchange",
+    "6c7c28651eac368f7ff4180abff580114fd0113d": "Ydocchange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "59aac0b247db74ec7047132f368953935edd81b8": {
+      "type": "Ydocchange",
+      "commitMessage": "\n\nMore typos and stuff, fixing bad merge\nFixes issue 734\n\nR\u003dnicksantos\nDELTA\u003d125  (0 added, 0 deleted, 125 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4852\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1992 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/23/12, 9:49 AM",
+      "commitName": "59aac0b247db74ec7047132f368953935edd81b8",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "5/22/12, 5:42 PM",
+      "commitNameOld": "465b84d337b9ac732b6890fae3c4deea46bc0fb4",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 0.67,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean addOptionalParams(JSType... types) {\n    if (hasVarArgs()) {\n        return false;\n    }\n    for (JSType type : types) {\n        newParameter(registry.createOptionalType(type)).setOptionalArg(true);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionParamBuilder.java",
+      "functionStartLine": 79,
+      "functionName": "addOptionalParams",
+      "functionAnnotation": "",
+      "functionDoc": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefine-able.\n@return False if this is called after var args are added.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefineable.\n@return False if this is called after var args are added.\n",
+        "newValue": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefine-able.\n@return False if this is called after var args are added.\n"
+      }
+    },
+    "465b84d337b9ac732b6890fae3c4deea46bc0fb4": {
+      "type": "Ydocchange",
+      "commitMessage": "\nAutomated g4 rollback\n\n*** Reason for rollback ***\n\nbreaks docs\n\n*** Original change description ***\n\nMore typos and stuff.\nFixes issue 734\n\nDELTA\u003d136  (0 added, 0 deleted, 136 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4846\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1990 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/22/12, 5:42 PM",
+      "commitName": "465b84d337b9ac732b6890fae3c4deea46bc0fb4",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/22/12, 4:00 PM",
+      "commitNameOld": "6c7c28651eac368f7ff4180abff580114fd0113d",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean addOptionalParams(JSType... types) {\n    if (hasVarArgs()) {\n        return false;\n    }\n    for (JSType type : types) {\n        newParameter(registry.createOptionalType(type)).setOptionalArg(true);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionParamBuilder.java",
+      "functionStartLine": 79,
+      "functionName": "addOptionalParams",
+      "functionAnnotation": "",
+      "functionDoc": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefineable.\n@return False if this is called after var args are added.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefine-able.\n@return False if this is called after var args are added.\n",
+        "newValue": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefineable.\n@return False if this is called after var args are added.\n"
+      }
+    },
+    "6c7c28651eac368f7ff4180abff580114fd0113d": {
+      "type": "Ydocchange",
+      "commitMessage": "\nMore typos and stuff.\nFixes issue 734\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4844\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1988 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/22/12, 4:00 PM",
+      "commitName": "6c7c28651eac368f7ff4180abff580114fd0113d",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "2/14/12, 8:12 AM",
+      "commitNameOld": "7607c67e6094775757ae2fa50793a6b99dd28a89",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 98.28,
+      "commitsBetweenForRepo": 183,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean addOptionalParams(JSType... types) {\n    if (hasVarArgs()) {\n        return false;\n    }\n    for (JSType type : types) {\n        newParameter(registry.createOptionalType(type)).setOptionalArg(true);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionParamBuilder.java",
+      "functionStartLine": 79,
+      "functionName": "addOptionalParams",
+      "functionAnnotation": "",
+      "functionDoc": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefine-able.\n@return False if this is called after var args are added.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefineable.\n@return False if this is called after var args are added.\n",
+        "newValue": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefine-able.\n@return False if this is called after var args are added.\n"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean addOptionalParams(JSType... types) {\n+    if (hasVarArgs()) {\n+        return false;\n+    }\n+    for (JSType type : types) {\n+        newParameter(registry.createOptionalType(type)).setOptionalArg(true);\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean addOptionalParams(JSType... types) {\n    if (hasVarArgs()) {\n        return false;\n    }\n    for (JSType type : types) {\n        newParameter(registry.createOptionalType(type)).setOptionalArg(true);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionParamBuilder.java",
+      "functionStartLine": 79,
+      "functionName": "addOptionalParams",
+      "functionAnnotation": "",
+      "functionDoc": "Add optional parameters of the given type to the end of the param list.\n\n@param types Types for each optional parameter. The builder will make them\n    undefineable.\n@return False if this is called after var args are added.\n"
+    }
+  }
+}

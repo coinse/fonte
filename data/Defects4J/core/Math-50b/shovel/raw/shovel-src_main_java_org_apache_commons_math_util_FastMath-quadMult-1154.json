@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-50b",
+  "repositoryPath": "/tmp/Math-50b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "quadMult",
+  "functionId": "quadMult___a-double[](modifiers-final)__b-double[](modifiers-final)__result-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute (a[0] + a[1]) * (b[0] + b[1]) in extended precision.\n\n@param a first term of the multiplication\n@param b second term of the multiplication\n@param result placeholder where to put the result\n",
+  "functionStartLine": 1154,
+  "functionEndLine": 1201,
+  "numCommitsSeen": 50,
+  "timeTaken": 20596,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,36 @@\n+private static void quadMult(final double[] a, final double[] b, final double[] result) {\n+    final double[] xs \u003d new double[2];\n+    final double[] ys \u003d new double[2];\n+    final double[] zs \u003d new double[2];\n+    split(a[0], xs);\n+    split(b[0], ys);\n+    splitMult(xs, ys, zs);\n+    result[0] \u003d zs[0];\n+    result[1] \u003d zs[1];\n+    split(b[1], ys);\n+    splitMult(xs, ys, zs);\n+    double tmp \u003d result[0] + zs[0];\n+    result[1] \u003d result[1] - (tmp - result[0] - zs[0]);\n+    result[0] \u003d tmp;\n+    tmp \u003d result[0] + zs[1];\n+    result[1] \u003d result[1] - (tmp - result[0] - zs[1]);\n+    result[0] \u003d tmp;\n+    split(a[1], xs);\n+    split(b[0], ys);\n+    splitMult(xs, ys, zs);\n+    tmp \u003d result[0] + zs[0];\n+    result[1] \u003d result[1] - (tmp - result[0] - zs[0]);\n+    result[0] \u003d tmp;\n+    tmp \u003d result[0] + zs[1];\n+    result[1] \u003d result[1] - (tmp - result[0] - zs[1]);\n+    result[0] \u003d tmp;\n+    split(a[1], xs);\n+    split(b[1], ys);\n+    splitMult(xs, ys, zs);\n+    tmp \u003d result[0] + zs[0];\n+    result[1] \u003d result[1] - (tmp - result[0] - zs[0]);\n+    result[0] \u003d tmp;\n+    tmp \u003d result[0] + zs[1];\n+    result[1] \u003d result[1] - (tmp - result[0] - zs[1]);\n+    result[0] \u003d tmp;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void quadMult(final double[] a, final double[] b, final double[] result) {\n    final double[] xs \u003d new double[2];\n    final double[] ys \u003d new double[2];\n    final double[] zs \u003d new double[2];\n    split(a[0], xs);\n    split(b[0], ys);\n    splitMult(xs, ys, zs);\n    result[0] \u003d zs[0];\n    result[1] \u003d zs[1];\n    split(b[1], ys);\n    splitMult(xs, ys, zs);\n    double tmp \u003d result[0] + zs[0];\n    result[1] \u003d result[1] - (tmp - result[0] - zs[0]);\n    result[0] \u003d tmp;\n    tmp \u003d result[0] + zs[1];\n    result[1] \u003d result[1] - (tmp - result[0] - zs[1]);\n    result[0] \u003d tmp;\n    split(a[1], xs);\n    split(b[0], ys);\n    splitMult(xs, ys, zs);\n    tmp \u003d result[0] + zs[0];\n    result[1] \u003d result[1] - (tmp - result[0] - zs[0]);\n    result[0] \u003d tmp;\n    tmp \u003d result[0] + zs[1];\n    result[1] \u003d result[1] - (tmp - result[0] - zs[1]);\n    result[0] \u003d tmp;\n    split(a[1], xs);\n    split(b[1], ys);\n    splitMult(xs, ys, zs);\n    tmp \u003d result[0] + zs[0];\n    result[1] \u003d result[1] - (tmp - result[0] - zs[0]);\n    result[0] \u003d tmp;\n    tmp \u003d result[0] + zs[1];\n    result[1] \u003d result[1] - (tmp - result[0] - zs[1]);\n    result[0] \u003d tmp;\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 831,
+      "functionName": "quadMult",
+      "functionAnnotation": "",
+      "functionDoc": "Compute (a[0] + a[1]) * (b[0] + b[1]) in extended precision.\n\n@param a first term of the multiplication\n@param b second term of the multiplication\n@param result placeholder where to put the result\n"
+    }
+  }
+}

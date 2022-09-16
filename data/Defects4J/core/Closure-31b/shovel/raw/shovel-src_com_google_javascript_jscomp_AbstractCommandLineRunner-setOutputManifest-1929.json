@@ -1,0 +1,176 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "setOutputManifest",
+  "functionId": "$setOutputManifest___outputManifests-List__String__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Sets whether to print output manifest files.\nFilter out empty file names.\n",
+  "functionStartLine": 1929,
+  "functionEndLine": 1938,
+  "numCommitsSeen": 121,
+  "timeTaken": 4408,
+  "changeHistory": [
+    "1787218d0d069393fc25bf7fb8db2ad019aa1491",
+    "ab9dfefc6f8799aa4e8f69d4e4e52d055152b25a",
+    "48cccf202b6cd853409e169d98918462f91301a8",
+    "260f0ffc9243ef15bd17e324c9cf7e2dfac9cc6a"
+  ],
+  "changeHistoryShort": {
+    "1787218d0d069393fc25bf7fb8db2ad019aa1491": "Ymultichange(Ybodychange,Ydocchange)",
+    "ab9dfefc6f8799aa4e8f69d4e4e52d055152b25a": "Ydocchange",
+    "48cccf202b6cd853409e169d98918462f91301a8": "Ymultichange(Yparameterchange,Ybodychange)",
+    "260f0ffc9243ef15bd17e324c9cf7e2dfac9cc6a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1787218d0d069393fc25bf7fb8db2ad019aa1491": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "\nWhen there\u0027s no output_manifest files are specified in the commandline, output_manifest filename is set as empty string \"\". It should be filtered out when being passed to the Compiler. Otherwise unexpected exceptions would be thrown, resulted by the change in CL 22845327.\n\nFixes Issue 529.\n\nR\u003djohnlenz\nDELTA\u003d27  (24 added, 2 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2968\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1346 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/10/11, 12:40 PM",
+      "commitName": "1787218d0d069393fc25bf7fb8db2ad019aa1491",
+      "commitAuthor": "zhuyi@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nWhen there\u0027s no output_manifest files are specified in the commandline, output_manifest filename is set as empty string \"\". It should be filtered out when being passed to the Compiler. Otherwise unexpected exceptions would be thrown, resulted by the change in CL 22845327.\n\nFixes Issue 529.\n\nR\u003djohnlenz\nDELTA\u003d27  (24 added, 2 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2968\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1346 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/10/11, 12:40 PM",
+          "commitName": "1787218d0d069393fc25bf7fb8db2ad019aa1491",
+          "commitAuthor": "zhuyi@google.com",
+          "commitDateOld": "8/8/11, 9:01 AM",
+          "commitNameOld": "ca55343949989b17c845f76cbc9df3030f0f4b70",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 2.15,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n    this.outputManifests \u003d Lists.newArrayList();\n    for (String manifestName : outputManifests) {\n        if (!manifestName.isEmpty()) {\n            this.outputManifests.add(manifestName);\n        }\n    }\n    this.outputManifests \u003d ImmutableList.copyOf(this.outputManifests);\n    return this;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1694,
+          "functionName": "setOutputManifest",
+          "functionAnnotation": "",
+          "functionDoc": "Sets whether to print output manifest files.\nFilter out empty file names.\n",
+          "diff": "@@ -1,4 +1,10 @@\n CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n-    this.outputManifests \u003d outputManifests;\n+    this.outputManifests \u003d Lists.newArrayList();\n+    for (String manifestName : outputManifests) {\n+        if (!manifestName.isEmpty()) {\n+            this.outputManifests.add(manifestName);\n+        }\n+    }\n+    this.outputManifests \u003d ImmutableList.copyOf(this.outputManifests);\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nWhen there\u0027s no output_manifest files are specified in the commandline, output_manifest filename is set as empty string \"\". It should be filtered out when being passed to the Compiler. Otherwise unexpected exceptions would be thrown, resulted by the change in CL 22845327.\n\nFixes Issue 529.\n\nR\u003djohnlenz\nDELTA\u003d27  (24 added, 2 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2968\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1346 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "8/10/11, 12:40 PM",
+          "commitName": "1787218d0d069393fc25bf7fb8db2ad019aa1491",
+          "commitAuthor": "zhuyi@google.com",
+          "commitDateOld": "8/8/11, 9:01 AM",
+          "commitNameOld": "ca55343949989b17c845f76cbc9df3030f0f4b70",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 2.15,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n    this.outputManifests \u003d Lists.newArrayList();\n    for (String manifestName : outputManifests) {\n        if (!manifestName.isEmpty()) {\n            this.outputManifests.add(manifestName);\n        }\n    }\n    this.outputManifests \u003d ImmutableList.copyOf(this.outputManifests);\n    return this;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1694,
+          "functionName": "setOutputManifest",
+          "functionAnnotation": "",
+          "functionDoc": "Sets whether to print output manifest files.\nFilter out empty file names.\n",
+          "diff": "@@ -1,4 +1,10 @@\n CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n-    this.outputManifests \u003d outputManifests;\n+    this.outputManifests \u003d Lists.newArrayList();\n+    for (String manifestName : outputManifests) {\n+        if (!manifestName.isEmpty()) {\n+            this.outputManifests.add(manifestName);\n+        }\n+    }\n+    this.outputManifests \u003d ImmutableList.copyOf(this.outputManifests);\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Sets whether to print output manifest files.\n",
+            "newValue": "Sets whether to print output manifest files.\nFilter out empty file names.\n"
+          }
+        }
+      ]
+    },
+    "ab9dfefc6f8799aa4e8f69d4e4e52d055152b25a": {
+      "type": "Ydocchange",
+      "commitMessage": "\nCreate -output_bundle flag for JSCompiler to generate bundle files\n\nR\u003dnicksantos\nDELTA\u003d223  (156 added, 7 deleted, 60 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2369\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1198 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/21/11, 3:09 PM",
+      "commitName": "ab9dfefc6f8799aa4e8f69d4e4e52d055152b25a",
+      "commitAuthor": "zhuyi@google.com",
+      "commitDateOld": "6/14/11, 10:53 AM",
+      "commitNameOld": "48cccf202b6cd853409e169d98918462f91301a8",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 7.18,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n    this.outputManifests \u003d outputManifests;\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 1662,
+      "functionName": "setOutputManifest",
+      "functionAnnotation": "",
+      "functionDoc": "Sets whether to print output manifest files.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Sets whether to print an output manifest file.\n",
+        "newValue": "Sets whether to print output manifest files.\n"
+      }
+    },
+    "48cccf202b6cd853409e169d98918462f91301a8": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nAllow multiple output_manifest flags, for backwards compatibility\n\nR\u003dzhuyi\nDELTA\u003d54  (21 added, 13 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2278\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1177 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/14/11, 10:53 AM",
+      "commitName": "48cccf202b6cd853409e169d98918462f91301a8",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAllow multiple output_manifest flags, for backwards compatibility\n\nR\u003dzhuyi\nDELTA\u003d54  (21 added, 13 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2278\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1177 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/14/11, 10:53 AM",
+          "commitName": "48cccf202b6cd853409e169d98918462f91301a8",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "6/13/11, 11:04 AM",
+          "commitNameOld": "1a400824eb5299485e84d40698d811c4e284511e",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.99,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n    this.outputManifests \u003d outputManifests;\n    return this;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1630,
+          "functionName": "setOutputManifest",
+          "functionAnnotation": "",
+          "functionDoc": "Sets whether to print an output manifest file.\n",
+          "diff": "@@ -1,4 +1,4 @@\n-CommandLineConfig setOutputManifest(String outputManifest) {\n-    this.outputManifest \u003d outputManifest;\n+CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n+    this.outputManifests \u003d outputManifests;\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[outputManifest-String]",
+            "newValue": "[outputManifests-List\u003cString\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAllow multiple output_manifest flags, for backwards compatibility\n\nR\u003dzhuyi\nDELTA\u003d54  (21 added, 13 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2278\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1177 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/14/11, 10:53 AM",
+          "commitName": "48cccf202b6cd853409e169d98918462f91301a8",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "6/13/11, 11:04 AM",
+          "commitNameOld": "1a400824eb5299485e84d40698d811c4e284511e",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 0.99,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n    this.outputManifests \u003d outputManifests;\n    return this;\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1630,
+          "functionName": "setOutputManifest",
+          "functionAnnotation": "",
+          "functionDoc": "Sets whether to print an output manifest file.\n",
+          "diff": "@@ -1,4 +1,4 @@\n-CommandLineConfig setOutputManifest(String outputManifest) {\n-    this.outputManifest \u003d outputManifest;\n+CommandLineConfig setOutputManifest(List\u003cString\u003e outputManifests) {\n+    this.outputManifests \u003d outputManifests;\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "260f0ffc9243ef15bd17e324c9cf7e2dfac9cc6a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/13 by nick\n\n        add an --output_manifest flag.\n\n        R\u003djoey\n        DELTA\u003d112  (107 added, 0 deleted, 5 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@210 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/13/10, 5:34 PM",
+      "commitName": "260f0ffc9243ef15bd17e324c9cf7e2dfac9cc6a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,4 @@\n+CommandLineConfig setOutputManifest(String outputManifest) {\n+    this.outputManifest \u003d outputManifest;\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "CommandLineConfig setOutputManifest(String outputManifest) {\n    this.outputManifest \u003d outputManifest;\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 1349,
+      "functionName": "setOutputManifest",
+      "functionAnnotation": "",
+      "functionDoc": "Sets whether to print an output manifest file.\n"
+    }
+  }
+}

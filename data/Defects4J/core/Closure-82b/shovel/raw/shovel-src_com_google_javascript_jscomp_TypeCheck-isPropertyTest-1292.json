@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeCheck.java",
+  "functionName": "isPropertyTest",
+  "functionId": "isPropertyTest___getProp-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines whether this node is testing for the existence of a property.\nIf true, we will not emit warnings about a missing property.\n\n@param getProp The GETPROP being tested.\n",
+  "functionStartLine": 1292,
+  "functionEndLine": 1318,
+  "numCommitsSeen": 32,
+  "timeTaken": 2741,
+  "changeHistory": [
+    "d885b40bed151a624cd5d16a00eaff7e3f3cea35",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "d885b40bed151a624cd5d16a00eaff7e3f3cea35": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d885b40bed151a624cd5d16a00eaff7e3f3cea35": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRecognizes !a.foo || ... is a property test.\n\nR\u003dnicksantos\nDELTA\u003d10  (10 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d89004\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@330 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/10, 12:50 PM",
+      "commitName": "d885b40bed151a624cd5d16a00eaff7e3f3cea35",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "7/27/10, 6:42 PM",
+      "commitNameOld": "83f6917e503ec7b32570af9e986ad749042d9dcf",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 7.76,
+      "commitsBetweenForRepo": 15,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isPropertyTest(Node getProp) {\n    Node parent \u003d getProp.getParent();\n    switch(parent.getType()) {\n        case Token.CALL:\n            return parent.getFirstChild() !\u003d getProp \u0026\u0026 compiler.getCodingConvention().isPropertyTestFunction(parent);\n        case Token.IF:\n        case Token.WHILE:\n        case Token.DO:\n        case Token.FOR:\n            return NodeUtil.getConditionExpression(parent) \u003d\u003d getProp;\n        case Token.INSTANCEOF:\n        case Token.TYPEOF:\n            return true;\n        case Token.AND:\n        case Token.HOOK:\n            return parent.getFirstChild() \u003d\u003d getProp;\n        case Token.NOT:\n            return parent.getParent().getType() \u003d\u003d Token.OR \u0026\u0026 parent.getParent().getFirstChild() \u003d\u003d parent;\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 1200,
+      "functionName": "isPropertyTest",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether this node is testing for the existence of a property.\nIf true, we will not emit warnings about a missing property.\n\n@param getProp The GETPROP being tested.\n",
+      "diff": "@@ -1,19 +1,21 @@\n private boolean isPropertyTest(Node getProp) {\n     Node parent \u003d getProp.getParent();\n     switch(parent.getType()) {\n         case Token.CALL:\n             return parent.getFirstChild() !\u003d getProp \u0026\u0026 compiler.getCodingConvention().isPropertyTestFunction(parent);\n         case Token.IF:\n         case Token.WHILE:\n         case Token.DO:\n         case Token.FOR:\n             return NodeUtil.getConditionExpression(parent) \u003d\u003d getProp;\n         case Token.INSTANCEOF:\n         case Token.TYPEOF:\n             return true;\n         case Token.AND:\n         case Token.HOOK:\n             return parent.getFirstChild() \u003d\u003d getProp;\n+        case Token.NOT:\n+            return parent.getParent().getType() \u003d\u003d Token.OR \u0026\u0026 parent.getParent().getFirstChild() \u003d\u003d parent;\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+private boolean isPropertyTest(Node getProp) {\n+    Node parent \u003d getProp.getParent();\n+    switch(parent.getType()) {\n+        case Token.CALL:\n+            return parent.getFirstChild() !\u003d getProp \u0026\u0026 compiler.getCodingConvention().isPropertyTestFunction(parent);\n+        case Token.IF:\n+        case Token.WHILE:\n+        case Token.DO:\n+        case Token.FOR:\n+            return NodeUtil.getConditionExpression(parent) \u003d\u003d getProp;\n+        case Token.INSTANCEOF:\n+        case Token.TYPEOF:\n+            return true;\n+        case Token.AND:\n+        case Token.HOOK:\n+            return parent.getFirstChild() \u003d\u003d getProp;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isPropertyTest(Node getProp) {\n    Node parent \u003d getProp.getParent();\n    switch(parent.getType()) {\n        case Token.CALL:\n            return parent.getFirstChild() !\u003d getProp \u0026\u0026 compiler.getCodingConvention().isPropertyTestFunction(parent);\n        case Token.IF:\n        case Token.WHILE:\n        case Token.DO:\n        case Token.FOR:\n            return NodeUtil.getConditionExpression(parent) \u003d\u003d getProp;\n        case Token.INSTANCEOF:\n        case Token.TYPEOF:\n            return true;\n        case Token.AND:\n        case Token.HOOK:\n            return parent.getFirstChild() \u003d\u003d getProp;\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 1177,
+      "functionName": "isPropertyTest",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether this node is testing for the existence of a property.\nIf true, we will not emit warnings about a missing property.\n\n@param getProp The GETPROP being tested.\n"
+    }
+  }
+}

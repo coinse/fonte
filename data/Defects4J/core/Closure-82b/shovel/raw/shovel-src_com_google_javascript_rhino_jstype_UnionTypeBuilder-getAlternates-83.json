@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnionTypeBuilder.java",
+  "functionName": "getAlternates",
+  "functionId": "getAlternates",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 83,
+  "functionEndLine": 89,
+  "numCommitsSeen": 10,
+  "timeTaken": 2956,
+  "changeHistory": [
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45"
+  ],
+  "changeHistoryShort": {
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": {
+      "type": "Yintroduced",
+      "commitMessage": "\nremove all uses of Sets of types.\nequality can change over time, so this is not safe.\nThis means we need to be much more explicit in how\nwe collapse type duplicates in unions and in type tightening\n\nR\u003djohnlenz\nDELTA\u003d319  (210 added, 52 deleted, 57 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d121\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@623 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/13/10, 8:10 AM",
+      "commitName": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+Iterable\u003cJSType\u003e getAlternates() {\n+    JSType specialCaseType \u003d reduceAlternatesWithoutUnion();\n+    if (specialCaseType !\u003d null) {\n+        return ImmutableList.of(specialCaseType);\n+    }\n+    return alternates;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Iterable\u003cJSType\u003e getAlternates() {\n    JSType specialCaseType \u003d reduceAlternatesWithoutUnion();\n    if (specialCaseType !\u003d null) {\n        return ImmutableList.of(specialCaseType);\n    }\n    return alternates;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java",
+      "functionStartLine": 83,
+      "functionName": "getAlternates",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

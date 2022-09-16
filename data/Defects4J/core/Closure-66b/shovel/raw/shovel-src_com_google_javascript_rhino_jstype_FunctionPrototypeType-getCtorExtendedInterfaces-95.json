@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionPrototypeType.java",
+  "functionName": "getCtorExtendedInterfaces",
+  "functionId": "getCtorExtendedInterfaces",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/FunctionPrototypeType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 95,
+  "functionEndLine": 101,
+  "numCommitsSeen": 12,
+  "timeTaken": 3168,
+  "changeHistory": [
+    "c438dfd06013f82daa648d23b864842ff1881695"
+  ],
+  "changeHistoryShort": {
+    "c438dfd06013f82daa648d23b864842ff1881695": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c438dfd06013f82daa648d23b864842ff1881695": {
+      "type": "Yintroduced",
+      "commitMessage": "\nImplement multiple extends for interfaces\n\nR\u003dnicksantos\nDELTA\u003d711  (635 added, 41 deleted, 35 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1917\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1105 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 12:57 PM",
+      "commitName": "c438dfd06013f82daa648d23b864842ff1881695",
+      "commitAuthor": "zhuyi@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n+    if (getOwnerFunction() !\u003d null) {\n+        return getOwnerFunction().getExtendedInterfaces();\n+    } else {\n+        return ImmutableSet.of();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Iterable\u003cObjectType\u003e getCtorExtendedInterfaces() {\n    if (getOwnerFunction() !\u003d null) {\n        return getOwnerFunction().getExtendedInterfaces();\n    } else {\n        return ImmutableSet.of();\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/FunctionPrototypeType.java",
+      "functionStartLine": 95,
+      "functionName": "getCtorExtendedInterfaces",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

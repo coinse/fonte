@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-106b",
+  "repositoryPath": "/tmp/Math-106b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FractionFormat.java",
+  "functionName": "parseNextCharacter",
+  "functionId": "parseNextCharacter___source-String__pos-ParsePosition",
+  "sourceFilePath": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses \u003ccode\u003esource\u003c/code\u003e until a non-whitespace character is found.\n\n@param source the string to parse\n@param pos input/ouput parsing parameter.\n@return the first non-whitespace character.\n",
+  "functionStartLine": 369,
+  "functionEndLine": 387,
+  "numCommitsSeen": 7,
+  "timeTaken": 403,
+  "changeHistory": [
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6"
+  ],
+  "changeHistoryShort": {
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": {
+      "type": "Yintroduced",
+      "commitMessage": "added fraction class and fraction formatting classes.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@151479 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/4/05, 9:49 PM",
+      "commitName": "41598b038509e9cdb7f6dbeefdb2a2876d2708a6",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,16 @@\n+protected static char parseNextCharacter(String source, ParsePosition pos) {\n+    int index \u003d pos.getIndex();\n+    int n \u003d source.length();\n+    char ret \u003d 0;\n+    if (index \u003c n) {\n+        char c;\n+        do {\n+            c \u003d source.charAt(index++);\n+        } while (Character.isWhitespace(c) \u0026\u0026 index \u003c n);\n+        pos.setIndex(index);\n+        if (index \u003c n) {\n+            ret \u003d c;\n+        }\n+    }\n+    return ret;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected static char parseNextCharacter(String source, ParsePosition pos) {\n    int index \u003d pos.getIndex();\n    int n \u003d source.length();\n    char ret \u003d 0;\n    if (index \u003c n) {\n        char c;\n        do {\n            c \u003d source.charAt(index++);\n        } while (Character.isWhitespace(c) \u0026\u0026 index \u003c n);\n        pos.setIndex(index);\n        if (index \u003c n) {\n            ret \u003d c;\n        }\n    }\n    return ret;\n}",
+      "path": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+      "functionStartLine": 367,
+      "functionName": "parseNextCharacter",
+      "functionAnnotation": "",
+      "functionDoc": "Parses \u003ccode\u003esource\u003c/code\u003e until a non-whitespace character is found.\n\n@param source the string to parse\n@param pos input/ouput parsing parameter.\n@return the first non-whitespace character.\n"
+    }
+  }
+}

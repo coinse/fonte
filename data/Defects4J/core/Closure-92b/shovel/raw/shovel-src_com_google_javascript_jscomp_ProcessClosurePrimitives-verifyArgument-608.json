@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "verifyArgument",
+  "functionId": "verifyArgument___t-NodeTraversal__methodName-Node__arg-Node__desiredType-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "Verifies that a method call has exactly one argument, and that it is of the\ndesired type. Reports a compile error if it doesn\u0027t.\n\n@return Whether the argument checked out okay\n",
+  "functionStartLine": 608,
+  "functionEndLine": 625,
+  "numCommitsSeen": 23,
+  "timeTaken": 1319,
+  "changeHistory": [
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4": {
+      "type": "Ybodychange",
+      "commitMessage": "Remove circular dependency between error-reporting and the rest\nof the compiler. (Nick)\nR\u003dalan\nDELTA\u003d152  (27 added, 28 deleted, 97 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@159 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/29/10, 7:04 AM",
+      "commitName": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "2/26/10, 3:45 PM",
+      "commitNameOld": "50c1b3d39ff5b17c956a2235f97f7b5da05ab6f0",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 30.6,
+      "commitsBetweenForRepo": 41,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean verifyArgument(NodeTraversal t, Node methodName, Node arg, int desiredType) {\n    DiagnosticType diagnostic \u003d null;\n    if (arg \u003d\u003d null) {\n        diagnostic \u003d NULL_ARGUMENT_ERROR;\n    } else if (arg.getType() !\u003d desiredType) {\n        diagnostic \u003d INVALID_ARGUMENT_ERROR;\n    } else if (arg.getNext() !\u003d null) {\n        diagnostic \u003d TOO_MANY_ARGUMENTS_ERROR;\n    }\n    if (diagnostic !\u003d null) {\n        compiler.report(t.makeError(methodName, diagnostic, methodName.getQualifiedName()));\n        return false;\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 610,
+      "functionName": "verifyArgument",
+      "functionAnnotation": "",
+      "functionDoc": "Verifies that a method call has exactly one argument, and that it is of the\ndesired type. Reports a compile error if it doesn\u0027t.\n\n@return Whether the argument checked out okay\n",
+      "diff": "@@ -1,15 +1,15 @@\n private boolean verifyArgument(NodeTraversal t, Node methodName, Node arg, int desiredType) {\n     DiagnosticType diagnostic \u003d null;\n     if (arg \u003d\u003d null) {\n         diagnostic \u003d NULL_ARGUMENT_ERROR;\n     } else if (arg.getType() !\u003d desiredType) {\n         diagnostic \u003d INVALID_ARGUMENT_ERROR;\n     } else if (arg.getNext() !\u003d null) {\n         diagnostic \u003d TOO_MANY_ARGUMENTS_ERROR;\n     }\n     if (diagnostic !\u003d null) {\n-        compiler.report(JSError.make(t, methodName, diagnostic, methodName.getQualifiedName()));\n+        compiler.report(t.makeError(methodName, diagnostic, methodName.getQualifiedName()));\n         return false;\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,15 @@\n+private boolean verifyArgument(NodeTraversal t, Node methodName, Node arg, int desiredType) {\n+    DiagnosticType diagnostic \u003d null;\n+    if (arg \u003d\u003d null) {\n+        diagnostic \u003d NULL_ARGUMENT_ERROR;\n+    } else if (arg.getType() !\u003d desiredType) {\n+        diagnostic \u003d INVALID_ARGUMENT_ERROR;\n+    } else if (arg.getNext() !\u003d null) {\n+        diagnostic \u003d TOO_MANY_ARGUMENTS_ERROR;\n+    }\n+    if (diagnostic !\u003d null) {\n+        compiler.report(JSError.make(t, methodName, diagnostic, methodName.getQualifiedName()));\n+        return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean verifyArgument(NodeTraversal t, Node methodName, Node arg, int desiredType) {\n    DiagnosticType diagnostic \u003d null;\n    if (arg \u003d\u003d null) {\n        diagnostic \u003d NULL_ARGUMENT_ERROR;\n    } else if (arg.getType() !\u003d desiredType) {\n        diagnostic \u003d INVALID_ARGUMENT_ERROR;\n    } else if (arg.getNext() !\u003d null) {\n        diagnostic \u003d TOO_MANY_ARGUMENTS_ERROR;\n    }\n    if (diagnostic !\u003d null) {\n        compiler.report(JSError.make(t, methodName, diagnostic, methodName.getQualifiedName()));\n        return false;\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 446,
+      "functionName": "verifyArgument",
+      "functionAnnotation": "",
+      "functionDoc": "Verifies that a method call has exactly one argument, and that it is of the\ndesired type. Reports a compile error if it doesn\u0027t.\n\n@return Whether the argument checked out okay\n"
+    }
+  }
+}

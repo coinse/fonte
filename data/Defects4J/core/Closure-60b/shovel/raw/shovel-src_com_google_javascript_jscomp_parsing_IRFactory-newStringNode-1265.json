@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "newStringNode",
+  "functionId": "newStringNode___value-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1265,
+  "functionEndLine": 1267,
+  "numCommitsSeen": 42,
+  "timeTaken": 3655,
+  "changeHistory": [
+    "35d56dd1fadec0ed50797d222de4e05f78bbf1c9"
+  ],
+  "changeHistoryShort": {
+    "35d56dd1fadec0ed50797d222de4e05f78bbf1c9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "35d56dd1fadec0ed50797d222de4e05f78bbf1c9": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/07/02 17:44:46 by nicksantos\n\n        fix RAI when comparing two types that are always equal.\n        Fixes issue 172\n\n        R\u003dacleung\n        DELTA\u003d20  (19 added, 0 deleted, 1 changed)\n\nChange on 2010/07/03 08:52:08 by johnlenz\n\n        Prefer the use of the unsyncronized StringBuilder over StringBuffer. This is just a code style change, this are no uses that should have any performance impact.\n\n        R\u003dacleung\n        DELTA\u003d30  (0 added, 2 deleted, 28 changed)\n\nChange on 2010/07/07 11:56:02 by johnlenz\n\n        Reduce the memory cost of generating source maps by reducing the number\n        of property structure objects that are created.  We do this by taking\n        advantage of the fact the property list objects are immutable and can be\n        shared between Nodes.  The source file prop is then shared between\n        every Node in the AST for a given source file, reducing the the number\n        of property nodes used to store this information from O(ast-nodes) to\n        O(source-files).\n\n        R\u003dbowdidge\n        DELTA\u003d122  (68 added, 1 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d49002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@265 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/7/10, 3:14 PM",
+      "commitName": "35d56dd1fadec0ed50797d222de4e05f78bbf1c9",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,3 @@\n+private Node newStringNode(String value) {\n+    return Node.newString(value).clonePropsFrom(templateNode);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node newStringNode(String value) {\n    return Node.newString(value).clonePropsFrom(templateNode);\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 1220,
+      "functionName": "newStringNode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionTypeBuilder.java",
+  "functionName": "getScopeDeclaredIn",
+  "functionId": "getScopeDeclaredIn",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "The scope that we should declare this function in, if it needs\nto be declared in a scope. Notice that TypedScopeCreator takes\ncare of most scope-declaring.\n",
+  "functionStartLine": 732,
+  "functionEndLine": 742,
+  "numCommitsSeen": 59,
+  "timeTaken": 2353,
+  "changeHistory": [
+    "e7ad2425c384dcb18a34bec8e147a91c658d5118"
+  ],
+  "changeHistoryShort": {
+    "e7ad2425c384dcb18a34bec8e147a91c658d5118": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e7ad2425c384dcb18a34bec8e147a91c658d5118": {
+      "type": "Yintroduced",
+      "commitMessage": "\nBe a bit better about constructors defined in local scopes on\nglobal objects.\n\nR\u003djohnlenz\nDELTA\u003d74  (72 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d29\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@579 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/30/10, 5:12 PM",
+      "commitName": "e7ad2425c384dcb18a34bec8e147a91c658d5118",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private Scope getScopeDeclaredIn() {\n+    int dotIndex \u003d fnName.indexOf(\".\");\n+    if (dotIndex !\u003d -1) {\n+        String rootVarName \u003d fnName.substring(0, dotIndex);\n+        Var rootVar \u003d scope.getVar(rootVarName);\n+        if (rootVar !\u003d null) {\n+            return rootVar.getScope();\n+        }\n+    }\n+    return scope;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Scope getScopeDeclaredIn() {\n    int dotIndex \u003d fnName.indexOf(\".\");\n    if (dotIndex !\u003d -1) {\n        String rootVarName \u003d fnName.substring(0, dotIndex);\n        Var rootVar \u003d scope.getVar(rootVarName);\n        if (rootVar !\u003d null) {\n            return rootVar.getScope();\n        }\n    }\n    return scope;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+      "functionStartLine": 734,
+      "functionName": "getScopeDeclaredIn",
+      "functionAnnotation": "",
+      "functionDoc": "The scope that we should declare this function in, if it needs\nto be declared in a scope. Notice that TypedScopeCreator takes\ncare of most scope-declaring.\n"
+    }
+  }
+}

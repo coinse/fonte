@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "isNamespacePlaceholder",
+  "functionId": "isNamespacePlaceholder___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the node is namespace placeholder.\n",
+  "functionStartLine": 881,
+  "functionEndLine": 898,
+  "numCommitsSeen": 23,
+  "timeTaken": 1465,
+  "changeHistory": [
+    "a3ed6caf81e25d0cff2f84ba7f7dd80dab9e8086"
+  ],
+  "changeHistoryShort": {
+    "a3ed6caf81e25d0cff2f84ba7f7dd80dab9e8086": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a3ed6caf81e25d0cff2f84ba7f7dd80dab9e8086": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix an edge case in goog.provide handling.\n\nAlso, add a type annotation to the dom apis.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@63 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/12/10, 1:53 PM",
+      "commitName": "a3ed6caf81e25d0cff2f84ba7f7dd80dab9e8086",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,14 @@\n+private static boolean isNamespacePlaceholder(Node n) {\n+    if (!n.getBooleanProp(Node.IS_NAMESPACE)) {\n+        return false;\n+    }\n+    Node value \u003d null;\n+    if (n.getType() \u003d\u003d Token.EXPR_RESULT) {\n+        Node assign \u003d n.getFirstChild();\n+        value \u003d assign.getLastChild();\n+    } else if (n.getType() \u003d\u003d Token.VAR) {\n+        Node name \u003d n.getFirstChild();\n+        value \u003d name.getFirstChild();\n+    }\n+    return value !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.OBJECTLIT \u0026\u0026 !value.hasChildren();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean isNamespacePlaceholder(Node n) {\n    if (!n.getBooleanProp(Node.IS_NAMESPACE)) {\n        return false;\n    }\n    Node value \u003d null;\n    if (n.getType() \u003d\u003d Token.EXPR_RESULT) {\n        Node assign \u003d n.getFirstChild();\n        value \u003d assign.getLastChild();\n    } else if (n.getType() \u003d\u003d Token.VAR) {\n        Node name \u003d n.getFirstChild();\n        value \u003d name.getFirstChild();\n    }\n    return value !\u003d null \u0026\u0026 value.getType() \u003d\u003d Token.OBJECTLIT \u0026\u0026 !value.hasChildren();\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 769,
+      "functionName": "isNamespacePlaceholder",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the node is namespace placeholder.\n"
+    }
+  }
+}

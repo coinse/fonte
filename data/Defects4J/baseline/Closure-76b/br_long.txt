@@ -1,0 +1,46 @@
+<b>What steps will reproduce the problem?</b>
+
+1. See attachment.
+2. Run original.
+3. Run compiled.
+
+
+<b>What is the expected output? What do you see instead?</b>
+
+* Both should return &quot;true&quot;
+* Original does return &quot;true&quot;
+* Compiled returns &quot;undefined&quot;
+
+
+<b>What version of the product are you using? On what operating system?</b>
+
+Closure Compiler (http://code.google.com/closure/compiler)
+Version: 706
+Built on: 2011/01/19 19:53
+
+Mac OS X 10.6
+
+<b>Please provide any additional information below.</b>
+
+In the attached reduction if the &quot;echo&quot; functions aren't used then the entire body of the function is compiled away, they are there to demonstrate that the first assignment in the condition is removed.
+
+
+Original:
+
+function reduction()
+{
+    var a, b;
+    if (echo(b = true) || echo(b = false))
+        a = b;
+    else
+        a = null;
+    return a;
+}
+
+
+Compiled:
+
+function reduction() {
+    var a;
+    return echo(true) || echo(a = false) ? a: null
+}

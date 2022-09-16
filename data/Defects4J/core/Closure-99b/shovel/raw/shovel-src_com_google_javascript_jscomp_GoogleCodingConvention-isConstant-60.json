@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-99b",
+  "repositoryPath": "/tmp/Closure-99b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GoogleCodingConvention.java",
+  "functionName": "isConstant",
+  "functionId": "isConstant___name-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GoogleCodingConvention.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "@inheritDoc}\n\n\u003cp\u003eThis enforces the Google const name convention, that the first character\nafter the last $ must be an upper-case letter and all subsequent letters\nmust be upper case. The name must be at least 2 characters long.\n\n\u003cp\u003eExamples:\n\u003cpre\u003e\n     aaa          Not constant - lower-case letters in the name\n     A            Not constant - too short\n     goog$A       Constant - letters after the $ are upper-case.\n     AA17         Constant - digits can appear after the first letter\n     goog$7A      Not constant - first character after the $ must be\n                  upper case.\n     $A           Constant - doesn\u0027t have to be anything in front of the $\n\u003c/pre\u003e\n",
+  "functionStartLine": 60,
+  "functionEndLine": 81,
+  "numCommitsSeen": 4,
+  "timeTaken": 129,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,17 @@\n+@Override\n+public boolean isConstant(String name) {\n+    if (name.length() \u003c\u003d 1) {\n+        return false;\n+    }\n+    int pos \u003d name.lastIndexOf(\u0027$\u0027);\n+    if (pos \u003e\u003d 0) {\n+        name \u003d name.substring(pos + 1);\n+        if (name.length() \u003d\u003d 0) {\n+            return false;\n+        }\n+    }\n+    if (!Character.isUpperCase(name.charAt(0))) {\n+        return false;\n+    }\n+    return name.toUpperCase().equals(name);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean isConstant(String name) {\n    if (name.length() \u003c\u003d 1) {\n        return false;\n    }\n    int pos \u003d name.lastIndexOf(\u0027$\u0027);\n    if (pos \u003e\u003d 0) {\n        name \u003d name.substring(pos + 1);\n        if (name.length() \u003d\u003d 0) {\n            return false;\n        }\n    }\n    if (!Character.isUpperCase(name.charAt(0))) {\n        return false;\n    }\n    return name.toUpperCase().equals(name);\n}",
+      "path": "src/com/google/javascript/jscomp/GoogleCodingConvention.java",
+      "functionStartLine": 60,
+      "functionName": "isConstant",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n\n\u003cp\u003eThis enforces the Google const name convention, that the first character\nafter the last $ must be an upper-case letter and all subsequent letters\nmust be upper case. The name must be at least 2 characters long.\n\n\u003cp\u003eExamples:\n\u003cpre\u003e\n     aaa          Not constant - lower-case letters in the name\n     A            Not constant - too short\n     goog$A       Constant - letters after the $ are upper-case.\n     AA17         Constant - digits can appear after the first letter\n     goog$7A      Not constant - first character after the $ must be\n                  upper case.\n     $A           Constant - doesn\u0027t have to be anything in front of the $\n\u003c/pre\u003e\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MustBeReachingVariableDef.java",
+  "functionName": "dependsOnOuterScopeVars",
+  "functionId": "dependsOnOuterScopeVars___name-String__useNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 423,
+  "functionEndLine": 434,
+  "numCommitsSeen": 21,
+  "timeTaken": 1763,
+  "changeHistory": [
+    "9147da9979fb00599efd700fa5e0cccfa93d25a5"
+  ],
+  "changeHistoryShort": {
+    "9147da9979fb00599efd700fa5e0cccfa93d25a5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9147da9979fb00599efd700fa5e0cccfa93d25a5": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/04/29 by alan\n\n        Don\u0027t inline a variable that has dependence on outer scoped variables.\n\n        R\u003dnick\n        DELTA\u003d44  (41 added, 0 deleted, 3 changed)\n\nChange on 2010/04/29 by nick\n\n        Remove some dead code.\n\n        R\u003dalan\n        DELTA\u003d113  (0 added, 113 deleted, 0 changed)\n\nChange on 2010/04/30 by andrew\n\n        -Fix up a copy/paste error in a comment.\n\n        R\u003djohn\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\nChange on 2010/04/30 by nick\n\n        Prune sources that are not required when --manage_closure_dependencies\n        is on.\n\n        R\u003dalan\n        DELTA\u003d45  (22 added, 0 deleted, 23 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dlwqqkv\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@201 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/3/10, 7:03 AM",
+      "commitName": "9147da9979fb00599efd700fa5e0cccfa93d25a5",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,12 @@\n+boolean dependsOnOuterScopeVars(String name, Node useNode) {\n+    Preconditions.checkArgument(getCfg().hasNode(useNode));\n+    GraphNode\u003cNode, Branch\u003e n \u003d getCfg().getNode(useNode);\n+    FlowState\u003cMustDef\u003e state \u003d n.getAnnotation();\n+    Definition def \u003d state.getIn().reachingDef.get(jsScope.getVar(name));\n+    for (Var s : def.depends) {\n+        if (s.scope !\u003d jsScope) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean dependsOnOuterScopeVars(String name, Node useNode) {\n    Preconditions.checkArgument(getCfg().hasNode(useNode));\n    GraphNode\u003cNode, Branch\u003e n \u003d getCfg().getNode(useNode);\n    FlowState\u003cMustDef\u003e state \u003d n.getAnnotation();\n    Definition def \u003d state.getIn().reachingDef.get(jsScope.getVar(name));\n    for (Var s : def.depends) {\n        if (s.scope !\u003d jsScope) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+      "functionStartLine": 377,
+      "functionName": "dependsOnOuterScopeVars",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

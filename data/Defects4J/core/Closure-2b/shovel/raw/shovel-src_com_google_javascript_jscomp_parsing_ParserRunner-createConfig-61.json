@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ParserRunner.java",
+  "functionName": "createConfig",
+  "functionId": "createConfig___isIdeMode-boolean__languageMode-LanguageMode__acceptConstKeyword-boolean__extraAnnotationNames-Set__String__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 61,
+  "functionEndLine": 75,
+  "numCommitsSeen": 27,
+  "timeTaken": 973,
+  "changeHistory": [
+    "b3f276d6736aee24a5a847ba87a44ffdf078221d"
+  ],
+  "changeHistoryShort": {
+    "b3f276d6736aee24a5a847ba87a44ffdf078221d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b3f276d6736aee24a5a847ba87a44ffdf078221d": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPatch for specifying additional annotation names\ncontributed by klaus\nFixes Issue 514.\n\nR\u003dnicksantos\nDELTA\u003d40  (36 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2640\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1272 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/19/11, 4:09 PM",
+      "commitName": "b3f276d6736aee24a5a847ba87a44ffdf078221d",
+      "commitAuthor": "zhuyi@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+public static Config createConfig(boolean isIdeMode, LanguageMode languageMode, boolean acceptConstKeyword, Set\u003cString\u003e extraAnnotationNames) {\n+    initResourceConfig();\n+    Set\u003cString\u003e effectiveAnnotationNames;\n+    if (extraAnnotationNames \u003d\u003d null) {\n+        effectiveAnnotationNames \u003d annotationNames;\n+    } else {\n+        effectiveAnnotationNames \u003d new HashSet\u003cString\u003e(annotationNames);\n+        effectiveAnnotationNames.addAll(extraAnnotationNames);\n+    }\n+    return new Config(effectiveAnnotationNames, suppressionNames, isIdeMode, languageMode, acceptConstKeyword);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Config createConfig(boolean isIdeMode, LanguageMode languageMode, boolean acceptConstKeyword, Set\u003cString\u003e extraAnnotationNames) {\n    initResourceConfig();\n    Set\u003cString\u003e effectiveAnnotationNames;\n    if (extraAnnotationNames \u003d\u003d null) {\n        effectiveAnnotationNames \u003d annotationNames;\n    } else {\n        effectiveAnnotationNames \u003d new HashSet\u003cString\u003e(annotationNames);\n        effectiveAnnotationNames.addAll(extraAnnotationNames);\n    }\n    return new Config(effectiveAnnotationNames, suppressionNames, isIdeMode, languageMode, acceptConstKeyword);\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+      "functionStartLine": 60,
+      "functionName": "createConfig",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

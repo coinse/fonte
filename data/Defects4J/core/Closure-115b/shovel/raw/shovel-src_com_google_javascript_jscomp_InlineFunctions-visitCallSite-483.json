@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InlineFunctions.java",
+  "functionName": "visitCallSite",
+  "functionId": "$visitCallSite___t-NodeTraversal__callNode-Node__parent-Node__fs-FunctionState",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InlineFunctions.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 483,
+  "functionEndLine": 486,
+  "numCommitsSeen": 43,
+  "timeTaken": 2108,
+  "changeHistory": [
+    "76abdf11394c0e7515ae63335676ea3657badb45",
+    "44e59948342527c9d8ffc6f2b01d86af72aaef54",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "76abdf11394c0e7515ae63335676ea3657badb45": "Yannotationchange",
+    "44e59948342527c9d8ffc6f2b01d86af72aaef54": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "76abdf11394c0e7515ae63335676ea3657badb45": {
+      "type": "Yannotationchange",
+      "commitMessage": "\nMake our build warnings free.\n\nR\u003dacleung\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2830\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1301 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/28/11, 4:19 PM",
+      "commitName": "76abdf11394c0e7515ae63335676ea3657badb45",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "6/16/11, 5:29 PM",
+      "commitNameOld": "cc4ec1a70e6fa02bda751582c3902b3c19f85bbb",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 41.95,
+      "commitsBetweenForRepo": 106,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void visitCallSite(NodeTraversal t, Node callNode, Node parent, FunctionState fs) {\n    Preconditions.checkState(fs.hasExistingFunctionDefinition());\n    if (fs.canInline()) {\n        Reference ref \u003d fs.getReference(callNode);\n        if (ref !\u003d null) {\n            if (specializationState !\u003d null) {\n                Node containingFunction \u003d getContainingFunction(t);\n                if (containingFunction !\u003d null) {\n                    specializationState.reportSpecializedFunction(containingFunction);\n                }\n            }\n            inlineFunction(t, callNode, fs, ref.mode);\n            ref.inlined \u003d true;\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InlineFunctions.java",
+      "functionStartLine": 601,
+      "functionName": "visitCallSite",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,16 +1,17 @@\n+@Override\n public void visitCallSite(NodeTraversal t, Node callNode, Node parent, FunctionState fs) {\n     Preconditions.checkState(fs.hasExistingFunctionDefinition());\n     if (fs.canInline()) {\n         Reference ref \u003d fs.getReference(callNode);\n         if (ref !\u003d null) {\n             if (specializationState !\u003d null) {\n                 Node containingFunction \u003d getContainingFunction(t);\n                 if (containingFunction !\u003d null) {\n                     specializationState.reportSpecializedFunction(containingFunction);\n                 }\n             }\n             inlineFunction(t, callNode, fs, ref.mode);\n             ref.inlined \u003d true;\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "44e59948342527c9d8ffc6f2b01d86af72aaef54": {
+      "type": "Ybodychange",
+      "commitMessage": "\nExperimental initial module specialization.\n\nThis optimization replaces functions in the initial module with specialized\nversions that are only safe in the initial module.\nThe original, general, versions of the functions are \"fixed up\" in later\nmodules.\nThis optimization can shrink the initial module significantly but the fixup code\nin later modules increases overall code size.\n\nSee SpecializeModule.java for more details.\n\nThis change modifies three existing passes: DevirtualizePrototyMethods, InlineFunctions, and\nRemoveUnusedPrototypeProperties, to be specialization-aware.\nWhen running under specialization, these modules now ask before modifying or\nremoving a function and report\nwhat functions they have modified or removed.\n\nFiles meriting extra scrutiny:\n- DevirtualizePrototypeMethods.java\n- RemoveUnusedPrototypeProperties.java\n- InlineFunctions.java\n- DefaultPassConfig.java\n\nR\u003dacleung\nDELTA\u003d1820  (1810 added, 0 deleted, 10 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d103003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@353 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/12/10, 11:58 AM",
+      "commitName": "44e59948342527c9d8ffc6f2b01d86af72aaef54",
+      "commitAuthor": "dcc@google.com",
+      "commitDateOld": "8/12/10, 6:02 PM",
+      "commitNameOld": "15acafb00636f99295b394145b9b60a5e624ddfa",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": -0.25,
+      "commitsBetweenForRepo": 0,
+      "commitsBetweenForFile": 0,
+      "actualSource": "public void visitCallSite(NodeTraversal t, Node callNode, Node parent, FunctionState fs) {\n    Preconditions.checkState(fs.hasExistingFunctionDefinition());\n    if (fs.canInline()) {\n        Reference ref \u003d fs.getReference(callNode);\n        if (ref !\u003d null) {\n            if (specializationState !\u003d null) {\n                Node containingFunction \u003d getContainingFunction(t);\n                if (containingFunction !\u003d null) {\n                    specializationState.reportSpecializedFunction(containingFunction);\n                }\n            }\n            inlineFunction(t, callNode, fs, ref.mode);\n            ref.inlined \u003d true;\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InlineFunctions.java",
+      "functionStartLine": 567,
+      "functionName": "visitCallSite",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,16 @@\n public void visitCallSite(NodeTraversal t, Node callNode, Node parent, FunctionState fs) {\n     Preconditions.checkState(fs.hasExistingFunctionDefinition());\n     if (fs.canInline()) {\n         Reference ref \u003d fs.getReference(callNode);\n         if (ref !\u003d null) {\n+            if (specializationState !\u003d null) {\n+                Node containingFunction \u003d getContainingFunction(t);\n+                if (containingFunction !\u003d null) {\n+                    specializationState.reportSpecializedFunction(containingFunction);\n+                }\n+            }\n             inlineFunction(t, callNode, fs, ref.mode);\n             ref.inlined \u003d true;\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+public void visitCallSite(NodeTraversal t, Node callNode, Node parent, FunctionState fs) {\n+    Preconditions.checkState(fs.hasExistingFunctionDefinition());\n+    if (fs.canInline()) {\n+        Reference ref \u003d fs.getReference(callNode);\n+        if (ref !\u003d null) {\n+            inlineFunction(t, callNode, fs, ref.mode);\n+            ref.inlined \u003d true;\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void visitCallSite(NodeTraversal t, Node callNode, Node parent, FunctionState fs) {\n    Preconditions.checkState(fs.hasExistingFunctionDefinition());\n    if (fs.canInline()) {\n        Reference ref \u003d fs.getReference(callNode);\n        if (ref !\u003d null) {\n            inlineFunction(t, callNode, fs, ref.mode);\n            ref.inlined \u003d true;\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InlineFunctions.java",
+      "functionStartLine": 496,
+      "functionName": "visitCallSite",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

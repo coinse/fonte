@@ -1,0 +1,150 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RecordType.java",
+  "functionName": "defineProperty",
+  "functionId": "defineProperty___propertyName-String__type-JSType__inferred-boolean__propertyNode-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/RecordType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 126,
+  "functionEndLine": 138,
+  "numCommitsSeen": 47,
+  "timeTaken": 1063,
+  "changeHistory": [
+    "03ce555bcedcf98d99de1b4f8a6238ba75ee6850",
+    "6bbac115c9a7928a7053b2da3a78df9569df8570",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "03ce555bcedcf98d99de1b4f8a6238ba75ee6850": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6bbac115c9a7928a7053b2da3a78df9569df8570": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "03ce555bcedcf98d99de1b4f8a6238ba75ee6850": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nSimplify the type system a bit by pulling extern info off the nodes\n\nR\u003djohnlenz\nDELTA\u003d171  (4 added, 42 deleted, 125 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2500\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1242 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/1/11, 2:00 PM",
+      "commitName": "03ce555bcedcf98d99de1b4f8a6238ba75ee6850",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nSimplify the type system a bit by pulling extern info off the nodes\n\nR\u003djohnlenz\nDELTA\u003d171  (4 added, 42 deleted, 125 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2500\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1242 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "7/1/11, 2:00 PM",
+          "commitName": "03ce555bcedcf98d99de1b4f8a6238ba75ee6850",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "5/20/11, 4:00 PM",
+          "commitNameOld": "dd549b157b4c4f94e1de8a5e16678eedd9a99894",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 41.92,
+          "commitsBetweenForRepo": 114,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nboolean defineProperty(String propertyName, JSType type, boolean inferred, Node propertyNode) {\n    if (isFrozen) {\n        return false;\n    }\n    if (!inferred) {\n        properties.put(propertyName, type);\n    }\n    return super.defineProperty(propertyName, type, inferred, propertyNode);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/RecordType.java",
+          "functionStartLine": 121,
+          "functionName": "defineProperty",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n @Override\n-boolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns, Node propertyNode) {\n+boolean defineProperty(String propertyName, JSType type, boolean inferred, Node propertyNode) {\n     if (isFrozen) {\n         return false;\n     }\n     if (!inferred) {\n         properties.put(propertyName, type);\n     }\n-    return super.defineProperty(propertyName, type, inferred, inExterns, propertyNode);\n+    return super.defineProperty(propertyName, type, inferred, propertyNode);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[propertyName-String, type-JSType, inferred-boolean, inExterns-boolean, propertyNode-Node]",
+            "newValue": "[propertyName-String, type-JSType, inferred-boolean, propertyNode-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nSimplify the type system a bit by pulling extern info off the nodes\n\nR\u003djohnlenz\nDELTA\u003d171  (4 added, 42 deleted, 125 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2500\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1242 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "7/1/11, 2:00 PM",
+          "commitName": "03ce555bcedcf98d99de1b4f8a6238ba75ee6850",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "5/20/11, 4:00 PM",
+          "commitNameOld": "dd549b157b4c4f94e1de8a5e16678eedd9a99894",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 41.92,
+          "commitsBetweenForRepo": 114,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nboolean defineProperty(String propertyName, JSType type, boolean inferred, Node propertyNode) {\n    if (isFrozen) {\n        return false;\n    }\n    if (!inferred) {\n        properties.put(propertyName, type);\n    }\n    return super.defineProperty(propertyName, type, inferred, propertyNode);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/RecordType.java",
+          "functionStartLine": 121,
+          "functionName": "defineProperty",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n @Override\n-boolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns, Node propertyNode) {\n+boolean defineProperty(String propertyName, JSType type, boolean inferred, Node propertyNode) {\n     if (isFrozen) {\n         return false;\n     }\n     if (!inferred) {\n         properties.put(propertyName, type);\n     }\n-    return super.defineProperty(propertyName, type, inferred, inExterns, propertyNode);\n+    return super.defineProperty(propertyName, type, inferred, propertyNode);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6bbac115c9a7928a7053b2da3a78df9569df8570": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/7/11, 9:19 AM",
+      "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+      "commitAuthor": "bashir@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/7/11, 9:19 AM",
+          "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "12/13/10, 8:10 AM",
+          "commitNameOld": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 25.05,
+          "commitsBetweenForRepo": 50,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nboolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns, Node propertyNode) {\n    if (isFrozen) {\n        return false;\n    }\n    if (!inferred) {\n        properties.put(propertyName, type);\n    }\n    return super.defineProperty(propertyName, type, inferred, inExterns, propertyNode);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/RecordType.java",
+          "functionStartLine": 121,
+          "functionName": "defineProperty",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n @Override\n-boolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns) {\n+boolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns, Node propertyNode) {\n     if (isFrozen) {\n         return false;\n     }\n     if (!inferred) {\n         properties.put(propertyName, type);\n     }\n-    return super.defineProperty(propertyName, type, inferred, inExterns);\n+    return super.defineProperty(propertyName, type, inferred, inExterns, propertyNode);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[propertyName-String, type-JSType, inferred-boolean, inExterns-boolean]",
+            "newValue": "[propertyName-String, type-JSType, inferred-boolean, inExterns-boolean, propertyNode-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/7/11, 9:19 AM",
+          "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "12/13/10, 8:10 AM",
+          "commitNameOld": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 25.05,
+          "commitsBetweenForRepo": 50,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\nboolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns, Node propertyNode) {\n    if (isFrozen) {\n        return false;\n    }\n    if (!inferred) {\n        properties.put(propertyName, type);\n    }\n    return super.defineProperty(propertyName, type, inferred, inExterns, propertyNode);\n}",
+          "path": "src/com/google/javascript/rhino/jstype/RecordType.java",
+          "functionStartLine": 121,
+          "functionName": "defineProperty",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n @Override\n-boolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns) {\n+boolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns, Node propertyNode) {\n     if (isFrozen) {\n         return false;\n     }\n     if (!inferred) {\n         properties.put(propertyName, type);\n     }\n-    return super.defineProperty(propertyName, type, inferred, inExterns);\n+    return super.defineProperty(propertyName, type, inferred, inExterns, propertyNode);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+boolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns) {\n+    if (isFrozen) {\n+        return false;\n+    }\n+    if (!inferred) {\n+        properties.put(propertyName, type);\n+    }\n+    return super.defineProperty(propertyName, type, inferred, inExterns);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nboolean defineProperty(String propertyName, JSType type, boolean inferred, boolean inExterns) {\n    if (isFrozen) {\n        return false;\n    }\n    if (!inferred) {\n        properties.put(propertyName, type);\n    }\n    return super.defineProperty(propertyName, type, inferred, inExterns);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/RecordType.java",
+      "functionStartLine": 99,
+      "functionName": "defineProperty",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

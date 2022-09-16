@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NamedType.java",
+  "functionName": "finishPropertyContinuations",
+  "functionId": "finishPropertyContinuations",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/NamedType.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 133,
+  "functionEndLine": 143,
+  "numCommitsSeen": 39,
+  "timeTaken": 1885,
+  "changeHistory": [
+    "164dbb3842f3028ccdf89cdbe678d161518e9f05"
+  ],
+  "changeHistoryShort": {
+    "164dbb3842f3028ccdf89cdbe678d161518e9f05": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "164dbb3842f3028ccdf89cdbe678d161518e9f05": {
+      "type": "Yintroduced",
+      "commitMessage": "\nHandle properties that are declared before\nthe type resolves\n\nR\u003djohnlenz\nDELTA\u003d368  (254 added, 97 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d778\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@855 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/7/11, 10:45 AM",
+      "commitName": "164dbb3842f3028ccdf89cdbe678d161518e9f05",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+private void finishPropertyContinuations() {\n+    ObjectType referencedObjType \u003d getReferencedObjTypeInternal();\n+    if (referencedObjType !\u003d null \u0026\u0026 !referencedObjType.isUnknownType()) {\n+        if (propertyContinuations !\u003d null) {\n+            for (PropertyContinuation c : propertyContinuations) {\n+                c.commit(this);\n+            }\n+        }\n+    }\n+    propertyContinuations \u003d null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void finishPropertyContinuations() {\n    ObjectType referencedObjType \u003d getReferencedObjTypeInternal();\n    if (referencedObjType !\u003d null \u0026\u0026 !referencedObjType.isUnknownType()) {\n        if (propertyContinuations !\u003d null) {\n            for (PropertyContinuation c : propertyContinuations) {\n                c.commit(this);\n            }\n        }\n    }\n    propertyContinuations \u003d null;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/NamedType.java",
+      "functionStartLine": 150,
+      "functionName": "finishPropertyContinuations",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

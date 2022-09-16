@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-87b",
+  "repositoryPath": "/tmp/Math-87b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MathUtils.java",
+  "functionName": "equals",
+  "functionId": "equals___x-double__y-double__eps-double",
+  "sourceFilePath": "src/java/org/apache/commons/math/util/MathUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\u003cp\u003e\nTwo NaNs are considered equals, as are two infinities with same sign.\n\u003c/p\u003e\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n",
+  "functionStartLine": 410,
+  "functionEndLine": 412,
+  "numCommitsSeen": 66,
+  "timeTaken": 1493,
+  "changeHistory": [
+    "7ff6d072ece0452874aa2ceeb94eba7305e02cf0",
+    "6eec202b7d66dbeb4e2c2b4fa4214b359134ea2f",
+    "924b6d76a2d44baf858c3aee46ab1439c9641959"
+  ],
+  "changeHistoryShort": {
+    "7ff6d072ece0452874aa2ceeb94eba7305e02cf0": "Ydocchange",
+    "6eec202b7d66dbeb4e2c2b4fa4214b359134ea2f": "Ymultichange(Ybodychange,Ydocchange)",
+    "924b6d76a2d44baf858c3aee46ab1439c9641959": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7ff6d072ece0452874aa2ceeb94eba7305e02cf0": {
+      "type": "Ydocchange",
+      "commitMessage": "fixed wrong word in javadoc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@746583 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/21/09, 12:21 PM",
+      "commitName": "7ff6d072ece0452874aa2ceeb94eba7305e02cf0",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "2/21/09, 12:16 PM",
+      "commitNameOld": "6eec202b7d66dbeb4e2c2b4fa4214b359134ea2f",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean equals(double x, double y, double eps) {\n    return equals(x, y) || (Math.abs(y - x) \u003c\u003d eps);\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 385,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\u003cp\u003e\nTwo NaNs are considered equals, as are two infinities with same sign.\n\u003c/p\u003e\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\u003cp\u003e\nTwo NaNs are considered equals, as are two infinities with same size.\n\u003c/p\u003e\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n",
+        "newValue": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\u003cp\u003e\nTwo NaNs are considered equals, as are two infinities with same sign.\n\u003c/p\u003e\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n"
+      }
+    },
+    "6eec202b7d66dbeb4e2c2b4fa4214b359134ea2f": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "handle NaN and infinities correctly in the MathUtils.equals method with tolerance\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@746582 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/21/09, 12:16 PM",
+      "commitName": "6eec202b7d66dbeb4e2c2b4fa4214b359134ea2f",
+      "commitAuthor": "Luc Maisonobe",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "handle NaN and infinities correctly in the MathUtils.equals method with tolerance\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@746582 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "2/21/09, 12:16 PM",
+          "commitName": "6eec202b7d66dbeb4e2c2b4fa4214b359134ea2f",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "2/21/09, 12:01 PM",
+          "commitNameOld": "7f88773d6c3c96c0a2fd24c3e50d1eb80daca11d",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static boolean equals(double x, double y, double eps) {\n    return equals(x, y) || (Math.abs(y - x) \u003c\u003d eps);\n}",
+          "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+          "functionStartLine": 385,
+          "functionName": "equals",
+          "functionAnnotation": "",
+          "functionDoc": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\u003cp\u003e\nTwo NaNs are considered equals, as are two infinities with same size.\n\u003c/p\u003e\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n",
+          "diff": "@@ -1,3 +1,3 @@\n public static boolean equals(double x, double y, double eps) {\n-    return x \u003d\u003d y || (x \u003c y \u0026\u0026 (x + eps) \u003e\u003d y) || (x \u003e y \u0026\u0026 x \u003c\u003d (y + eps));\n+    return equals(x, y) || (Math.abs(y - x) \u003c\u003d eps);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "handle NaN and infinities correctly in the MathUtils.equals method with tolerance\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@746582 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "2/21/09, 12:16 PM",
+          "commitName": "6eec202b7d66dbeb4e2c2b4fa4214b359134ea2f",
+          "commitAuthor": "Luc Maisonobe",
+          "commitDateOld": "2/21/09, 12:01 PM",
+          "commitNameOld": "7f88773d6c3c96c0a2fd24c3e50d1eb80daca11d",
+          "commitAuthorOld": "Luc Maisonobe",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static boolean equals(double x, double y, double eps) {\n    return equals(x, y) || (Math.abs(y - x) \u003c\u003d eps);\n}",
+          "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+          "functionStartLine": 385,
+          "functionName": "equals",
+          "functionAnnotation": "",
+          "functionDoc": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\u003cp\u003e\nTwo NaNs are considered equals, as are two infinities with same size.\n\u003c/p\u003e\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n",
+          "diff": "@@ -1,3 +1,3 @@\n public static boolean equals(double x, double y, double eps) {\n-    return x \u003d\u003d y || (x \u003c y \u0026\u0026 (x + eps) \u003e\u003d y) || (x \u003e y \u0026\u0026 x \u003c\u003d (y + eps));\n+    return equals(x, y) || (Math.abs(y - x) \u003c\u003d eps);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n",
+            "newValue": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\u003cp\u003e\nTwo NaNs are considered equals, as are two infinities with same size.\n\u003c/p\u003e\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n"
+          }
+        }
+      ]
+    },
+    "924b6d76a2d44baf858c3aee46ab1439c9641959": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a MathUtils method to check equality given some error bounds\nJIRA: MATH-247\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@746506 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/21/09, 5:36 AM",
+      "commitName": "924b6d76a2d44baf858c3aee46ab1439c9641959",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,3 @@\n+public static boolean equals(double x, double y, double eps) {\n+    return x \u003d\u003d y || (x \u003c y \u0026\u0026 (x + eps) \u003e\u003d y) || (x \u003e y \u0026\u0026 x \u003c\u003d (y + eps));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean equals(double x, double y, double eps) {\n    return x \u003d\u003d y || (x \u003c y \u0026\u0026 (x + eps) \u003e\u003d y) || (x \u003e y \u0026\u0026 x \u003c\u003d (y + eps));\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 380,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "Returns true iff both arguments are equal or within the range of allowed\nerror (inclusive).\n\n@param x first value\n@param y second value\n@param eps the amount of absolute error to allow\n@return true if the values are equal or within range of each other\n"
+    }
+  }
+}

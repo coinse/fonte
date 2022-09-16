@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-65b",
+  "repositoryPath": "/tmp/Closure-65b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "addJsString",
+  "functionId": "addJsString___s-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n",
+  "functionStartLine": 947,
+  "functionEndLine": 954,
+  "numCommitsSeen": 52,
+  "timeTaken": 578,
+  "changeHistory": [
+    "f78951b324be6cb453ebbefcb30ab83328282590"
+  ],
+  "changeHistoryShort": {
+    "f78951b324be6cb453ebbefcb30ab83328282590": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f78951b324be6cb453ebbefcb30ab83328282590": {
+      "type": "Yintroduced",
+      "commitMessage": "\nspeed up code generation by about 10%\n\nR\u003djohnlenz\nDELTA\u003d29  (26 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1914\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1102 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 8:40 AM",
+      "commitName": "f78951b324be6cb453ebbefcb30ab83328282590",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+void addJsString(String s) {\n+    String cached \u003d ESCAPED_JS_STRINGS.get(s);\n+    if (cached \u003d\u003d null) {\n+        cached \u003d jsString(s);\n+        ESCAPED_JS_STRINGS.put(s, cached);\n+    }\n+    add(cached);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void addJsString(String s) {\n    String cached \u003d ESCAPED_JS_STRINGS.get(s);\n    if (cached \u003d\u003d null) {\n        cached \u003d jsString(s);\n        ESCAPED_JS_STRINGS.put(s, cached);\n    }\n    add(cached);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 947,
+      "functionName": "addJsString",
+      "functionAnnotation": "",
+      "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n"
+    }
+  }
+}

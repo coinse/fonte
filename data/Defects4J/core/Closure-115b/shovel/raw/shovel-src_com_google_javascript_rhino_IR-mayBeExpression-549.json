@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IR.java",
+  "functionName": "mayBeExpression",
+  "functionId": "mayBeExpression___n-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/IR.java",
+  "functionAnnotation": "",
+  "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n",
+  "functionStartLine": 549,
+  "functionEndLine": 622,
+  "numCommitsSeen": 7,
+  "timeTaken": 658,
+  "changeHistory": [
+    "88f6521cba9dbd4cbca379e61bf943329cf01ba7",
+    "2f28243f97f468e92316a2c7ea209c857689ab43"
+  ],
+  "changeHistoryShort": {
+    "88f6521cba9dbd4cbca379e61bf943329cf01ba7": "Ybodychange",
+    "2f28243f97f468e92316a2c7ea209c857689ab43": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "88f6521cba9dbd4cbca379e61bf943329cf01ba7": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix CAST nodes in the IR helper\n\nR\u003djohnlenz\nDELTA\u003d17 (17 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d6143\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2467 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/15/13, 2:54 PM",
+      "commitName": "88f6521cba9dbd4cbca379e61bf943329cf01ba7",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/24/12, 10:34 AM",
+      "commitNameOld": "d91c13290dc5aa0f35876eaf5aa6f536b0814233",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 236.22,
+      "commitsBetweenForRepo": 439,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static boolean mayBeExpression(Node n) {\n    switch(n.getType()) {\n        case Token.FUNCTION:\n            return true;\n        case Token.ADD:\n        case Token.AND:\n        case Token.ARRAYLIT:\n        case Token.ASSIGN:\n        case Token.ASSIGN_BITOR:\n        case Token.ASSIGN_BITXOR:\n        case Token.ASSIGN_BITAND:\n        case Token.ASSIGN_LSH:\n        case Token.ASSIGN_RSH:\n        case Token.ASSIGN_URSH:\n        case Token.ASSIGN_ADD:\n        case Token.ASSIGN_SUB:\n        case Token.ASSIGN_MUL:\n        case Token.ASSIGN_DIV:\n        case Token.ASSIGN_MOD:\n        case Token.BITAND:\n        case Token.BITOR:\n        case Token.BITNOT:\n        case Token.BITXOR:\n        case Token.CALL:\n        case Token.CAST:\n        case Token.COMMA:\n        case Token.DEC:\n        case Token.DELPROP:\n        case Token.DIV:\n        case Token.EQ:\n        case Token.FALSE:\n        case Token.GE:\n        case Token.GETPROP:\n        case Token.GETELEM:\n        case Token.GT:\n        case Token.HOOK:\n        case Token.IN:\n        case Token.INC:\n        case Token.INSTANCEOF:\n        case Token.LE:\n        case Token.LSH:\n        case Token.LT:\n        case Token.MOD:\n        case Token.MUL:\n        case Token.NAME:\n        case Token.NE:\n        case Token.NEG:\n        case Token.NEW:\n        case Token.NOT:\n        case Token.NUMBER:\n        case Token.NULL:\n        case Token.OBJECTLIT:\n        case Token.OR:\n        case Token.POS:\n        case Token.REGEXP:\n        case Token.RSH:\n        case Token.SHEQ:\n        case Token.SHNE:\n        case Token.STRING:\n        case Token.SUB:\n        case Token.THIS:\n        case Token.TYPEOF:\n        case Token.TRUE:\n        case Token.URSH:\n        case Token.VOID:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/IR.java",
+      "functionStartLine": 549,
+      "functionName": "mayBeExpression",
+      "functionAnnotation": "",
+      "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n",
+      "diff": "@@ -1,69 +1,70 @@\n private static boolean mayBeExpression(Node n) {\n     switch(n.getType()) {\n         case Token.FUNCTION:\n             return true;\n         case Token.ADD:\n         case Token.AND:\n         case Token.ARRAYLIT:\n         case Token.ASSIGN:\n         case Token.ASSIGN_BITOR:\n         case Token.ASSIGN_BITXOR:\n         case Token.ASSIGN_BITAND:\n         case Token.ASSIGN_LSH:\n         case Token.ASSIGN_RSH:\n         case Token.ASSIGN_URSH:\n         case Token.ASSIGN_ADD:\n         case Token.ASSIGN_SUB:\n         case Token.ASSIGN_MUL:\n         case Token.ASSIGN_DIV:\n         case Token.ASSIGN_MOD:\n         case Token.BITAND:\n         case Token.BITOR:\n         case Token.BITNOT:\n         case Token.BITXOR:\n         case Token.CALL:\n+        case Token.CAST:\n         case Token.COMMA:\n         case Token.DEC:\n         case Token.DELPROP:\n         case Token.DIV:\n         case Token.EQ:\n         case Token.FALSE:\n         case Token.GE:\n         case Token.GETPROP:\n         case Token.GETELEM:\n         case Token.GT:\n         case Token.HOOK:\n         case Token.IN:\n         case Token.INC:\n         case Token.INSTANCEOF:\n         case Token.LE:\n         case Token.LSH:\n         case Token.LT:\n         case Token.MOD:\n         case Token.MUL:\n         case Token.NAME:\n         case Token.NE:\n         case Token.NEG:\n         case Token.NEW:\n         case Token.NOT:\n         case Token.NUMBER:\n         case Token.NULL:\n         case Token.OBJECTLIT:\n         case Token.OR:\n         case Token.POS:\n         case Token.REGEXP:\n         case Token.RSH:\n         case Token.SHEQ:\n         case Token.SHNE:\n         case Token.STRING:\n         case Token.SUB:\n         case Token.THIS:\n         case Token.TYPEOF:\n         case Token.TRUE:\n         case Token.URSH:\n         case Token.VOID:\n             return true;\n         default:\n             return false;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "2f28243f97f468e92316a2c7ea209c857689ab43": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRFC: An AST builder helper class.  This class has two goals:\n1) have a simpler method of building the AST for those new to the\ncompiler.\n2) create a more readable AST construction. Rather than something like:\nNode fn \u003d new Node(Token.FUNCTION, Node.newString(Token.NAME, \"fn\"),\nnew Node(Token.PARAM_LIST, new Node(Token.NAME, \"a\"), new\nNode(Token.NAME, \"b\")),new Node(Token.BLOCK));\nyou would have:\nNode fn \u003d function(name(\"fn\"), paramList(name(\"a\"),name(\"b\")),\nblock());\n\nThe intent is that the the referencing class will have a \"import static\nAst.*\".\n\nR\u003dnicksantos\nDELTA\u003d560  (560 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3726\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1602 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/15/11, 6:18 PM",
+      "commitName": "2f28243f97f468e92316a2c7ea209c857689ab43",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,69 @@\n+private static boolean mayBeExpression(Node n) {\n+    switch(n.getType()) {\n+        case Token.FUNCTION:\n+            return true;\n+        case Token.ADD:\n+        case Token.AND:\n+        case Token.ARRAYLIT:\n+        case Token.ASSIGN:\n+        case Token.ASSIGN_BITOR:\n+        case Token.ASSIGN_BITXOR:\n+        case Token.ASSIGN_BITAND:\n+        case Token.ASSIGN_LSH:\n+        case Token.ASSIGN_RSH:\n+        case Token.ASSIGN_URSH:\n+        case Token.ASSIGN_ADD:\n+        case Token.ASSIGN_SUB:\n+        case Token.ASSIGN_MUL:\n+        case Token.ASSIGN_DIV:\n+        case Token.ASSIGN_MOD:\n+        case Token.BITAND:\n+        case Token.BITOR:\n+        case Token.BITNOT:\n+        case Token.BITXOR:\n+        case Token.CALL:\n+        case Token.COMMA:\n+        case Token.DEC:\n+        case Token.DELPROP:\n+        case Token.DIV:\n+        case Token.EQ:\n+        case Token.FALSE:\n+        case Token.GE:\n+        case Token.GETPROP:\n+        case Token.GETELEM:\n+        case Token.GT:\n+        case Token.HOOK:\n+        case Token.IN:\n+        case Token.INC:\n+        case Token.INSTANCEOF:\n+        case Token.LE:\n+        case Token.LSH:\n+        case Token.LT:\n+        case Token.MOD:\n+        case Token.MUL:\n+        case Token.NAME:\n+        case Token.NE:\n+        case Token.NEG:\n+        case Token.NEW:\n+        case Token.NOT:\n+        case Token.NUMBER:\n+        case Token.NULL:\n+        case Token.OBJECTLIT:\n+        case Token.OR:\n+        case Token.POS:\n+        case Token.REGEXP:\n+        case Token.RSH:\n+        case Token.SHEQ:\n+        case Token.SHNE:\n+        case Token.STRING:\n+        case Token.SUB:\n+        case Token.THIS:\n+        case Token.TYPEOF:\n+        case Token.TRUE:\n+        case Token.URSH:\n+        case Token.VOID:\n+            return true;\n+        default:\n+            return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean mayBeExpression(Node n) {\n    switch(n.getType()) {\n        case Token.FUNCTION:\n            return true;\n        case Token.ADD:\n        case Token.AND:\n        case Token.ARRAYLIT:\n        case Token.ASSIGN:\n        case Token.ASSIGN_BITOR:\n        case Token.ASSIGN_BITXOR:\n        case Token.ASSIGN_BITAND:\n        case Token.ASSIGN_LSH:\n        case Token.ASSIGN_RSH:\n        case Token.ASSIGN_URSH:\n        case Token.ASSIGN_ADD:\n        case Token.ASSIGN_SUB:\n        case Token.ASSIGN_MUL:\n        case Token.ASSIGN_DIV:\n        case Token.ASSIGN_MOD:\n        case Token.BITAND:\n        case Token.BITOR:\n        case Token.BITNOT:\n        case Token.BITXOR:\n        case Token.CALL:\n        case Token.COMMA:\n        case Token.DEC:\n        case Token.DELPROP:\n        case Token.DIV:\n        case Token.EQ:\n        case Token.FALSE:\n        case Token.GE:\n        case Token.GETPROP:\n        case Token.GETELEM:\n        case Token.GT:\n        case Token.HOOK:\n        case Token.IN:\n        case Token.INC:\n        case Token.INSTANCEOF:\n        case Token.LE:\n        case Token.LSH:\n        case Token.LT:\n        case Token.MOD:\n        case Token.MUL:\n        case Token.NAME:\n        case Token.NE:\n        case Token.NEG:\n        case Token.NEW:\n        case Token.NOT:\n        case Token.NUMBER:\n        case Token.NULL:\n        case Token.OBJECTLIT:\n        case Token.OR:\n        case Token.POS:\n        case Token.REGEXP:\n        case Token.RSH:\n        case Token.SHEQ:\n        case Token.SHNE:\n        case Token.STRING:\n        case Token.SUB:\n        case Token.THIS:\n        case Token.TYPEOF:\n        case Token.TRUE:\n        case Token.URSH:\n        case Token.VOID:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/IR.java",
+      "functionStartLine": 487,
+      "functionName": "mayBeExpression",
+      "functionAnnotation": "",
+      "functionDoc": "It isn\u0027t possible to always determine if a detached node is a expression,\nso make a best guess.\n"
+    }
+  }
+}

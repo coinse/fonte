@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-101b",
+  "repositoryPath": "/tmp/Math-101b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ComplexFormat.java",
+  "functionName": "parse",
+  "functionId": "parse___source-String__pos-ParsePosition",
+  "sourceFilePath": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses a string to produce a {@link Complex} object.\n\n@param source the string to parse\n@param pos input/ouput parsing parameter.\n@return the parsed {@link Complex} object.\n",
+  "functionStartLine": 320,
+  "functionEndLine": 388,
+  "numCommitsSeen": 15,
+  "timeTaken": 493,
+  "changeHistory": [
+    "322706393973a99fc70f0cbd8cadee38bae3aa94"
+  ],
+  "changeHistoryShort": {
+    "322706393973a99fc70f0cbd8cadee38bae3aa94": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "322706393973a99fc70f0cbd8cadee38bae3aa94": {
+      "type": "Yintroduced",
+      "commitMessage": "PR: 29000\nMade ComplexFormat extend java.text.Format providing complex object formatting and parsing.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141256 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/1/04, 6:47 AM",
+      "commitName": "322706393973a99fc70f0cbd8cadee38bae3aa94",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,42 @@\n+public Complex parse(String source, ParsePosition pos) {\n+    int initialIndex \u003d pos.getIndex();\n+    parseAndIgnoreWhitespace(source, pos);\n+    Number re \u003d parseNumber(source, getRealFormat(), pos);\n+    if (re \u003d\u003d null) {\n+        pos.setIndex(initialIndex);\n+        return null;\n+    }\n+    int startIndex \u003d pos.getIndex();\n+    char c \u003d parseNextCharacter(source, pos);\n+    int sign \u003d 0;\n+    switch(c) {\n+        case 0:\n+            return new Complex(re.doubleValue(), 0.0);\n+        case \u0027-\u0027:\n+            sign \u003d -1;\n+            break;\n+        case \u0027+\u0027:\n+            sign \u003d 1;\n+            break;\n+        default:\n+            pos.setIndex(initialIndex);\n+            pos.setErrorIndex(startIndex);\n+            return null;\n+    }\n+    parseAndIgnoreWhitespace(source, pos);\n+    Number im \u003d parseNumber(source, getRealFormat(), pos);\n+    if (im \u003d\u003d null) {\n+        pos.setIndex(initialIndex);\n+        return null;\n+    }\n+    int n \u003d getImaginaryCharacter().length();\n+    startIndex \u003d pos.getIndex();\n+    int endIndex \u003d startIndex + n;\n+    if (source.substring(startIndex, endIndex).compareTo(getImaginaryCharacter()) !\u003d 0) {\n+        pos.setIndex(initialIndex);\n+        pos.setErrorIndex(startIndex);\n+        return null;\n+    }\n+    pos.setIndex(endIndex);\n+    return new Complex(re.doubleValue(), im.doubleValue() * sign);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Complex parse(String source, ParsePosition pos) {\n    int initialIndex \u003d pos.getIndex();\n    parseAndIgnoreWhitespace(source, pos);\n    Number re \u003d parseNumber(source, getRealFormat(), pos);\n    if (re \u003d\u003d null) {\n        pos.setIndex(initialIndex);\n        return null;\n    }\n    int startIndex \u003d pos.getIndex();\n    char c \u003d parseNextCharacter(source, pos);\n    int sign \u003d 0;\n    switch(c) {\n        case 0:\n            return new Complex(re.doubleValue(), 0.0);\n        case \u0027-\u0027:\n            sign \u003d -1;\n            break;\n        case \u0027+\u0027:\n            sign \u003d 1;\n            break;\n        default:\n            pos.setIndex(initialIndex);\n            pos.setErrorIndex(startIndex);\n            return null;\n    }\n    parseAndIgnoreWhitespace(source, pos);\n    Number im \u003d parseNumber(source, getRealFormat(), pos);\n    if (im \u003d\u003d null) {\n        pos.setIndex(initialIndex);\n        return null;\n    }\n    int n \u003d getImaginaryCharacter().length();\n    startIndex \u003d pos.getIndex();\n    int endIndex \u003d startIndex + n;\n    if (source.substring(startIndex, endIndex).compareTo(getImaginaryCharacter()) !\u003d 0) {\n        pos.setIndex(initialIndex);\n        pos.setErrorIndex(startIndex);\n        return null;\n    }\n    pos.setIndex(endIndex);\n    return new Complex(re.doubleValue(), im.doubleValue() * sign);\n}",
+      "path": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+      "functionStartLine": 280,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Parses a string to produce a {@link Complex} object.\n\n@param source the string to parse\n@param pos input/ouput parsing parameter.\n@return the parsed {@link Complex} object.\n"
+    }
+  }
+}

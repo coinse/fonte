@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CheckMissingReturn.java",
+  "functionName": "explicitReturnExpected",
+  "functionId": "explicitReturnExpected___scope-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CheckMissingReturn.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines if the given scope should explicitly return. All functions\nwith non-void or non-unknown return types must have explicit returns.\n\n@return If a return type is expected, returns it. Otherwise returns null.\n",
+  "functionStartLine": 149,
+  "functionEndLine": 171,
+  "numCommitsSeen": 12,
+  "timeTaken": 396,
+  "changeHistory": [
+    "dff6e0114f19c20aeb63393d67aa0880ff5745b5",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "dff6e0114f19c20aeb63393d67aa0880ff5745b5": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "dff6e0114f19c20aeb63393d67aa0880ff5745b5": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+      "commitMessage": "\nChange on 2010/06/25 by johnlenz\n\n\tPreserve blocks around problematic labelled statements.\n\tFixes issue 190\n\n\tR\u003dnicksantos\n\tDELTA\u003d95  (86 added, 2 deleted, 7 changed)\n\nChange on 2010/06/25 by nicksantos\n\n\tmore descriptive error messaging for CheckReturns.\n\n\n\tR\u003dacleung\n\tDELTA\u003d59  (21 added, 2 deleted, 36 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d42001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@255 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/25/10, 4:56 PM",
+      "commitName": "dff6e0114f19c20aeb63393d67aa0880ff5745b5",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "\nChange on 2010/06/25 by johnlenz\n\n\tPreserve blocks around problematic labelled statements.\n\tFixes issue 190\n\n\tR\u003dnicksantos\n\tDELTA\u003d95  (86 added, 2 deleted, 7 changed)\n\nChange on 2010/06/25 by nicksantos\n\n\tmore descriptive error messaging for CheckReturns.\n\n\n\tR\u003dacleung\n\tDELTA\u003d59  (21 added, 2 deleted, 36 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d42001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@255 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/25/10, 4:56 PM",
+          "commitName": "dff6e0114f19c20aeb63393d67aa0880ff5745b5",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "6/16/10, 12:33 PM",
+          "commitNameOld": "e33e925eea3a8e4de958864e531e1adc4da62e18",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 9.18,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSType explicitReturnExpected(Node scope) {\n    JSType scopeType \u003d scope.getJSType();\n    if (!(scopeType instanceof FunctionType)) {\n        return null;\n    }\n    if (isEmptyFunction(scope)) {\n        return null;\n    }\n    JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n    if (returnType \u003d\u003d null) {\n        return null;\n    }\n    if (!isVoidOrUnknown(returnType)) {\n        return returnType;\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/CheckMissingReturn.java",
+          "functionStartLine": 150,
+          "functionName": "explicitReturnExpected",
+          "functionAnnotation": "",
+          "functionDoc": "Determines if the given scope should explicitly return. All functions\nwith non-void or non-unknown return types must have explicit returns.\n\n@return If a return type is expected, returns it. Otherwise returns null.\n",
+          "diff": "@@ -1,14 +1,17 @@\n-private boolean explicitReturnExpected(Node scope) {\n+private JSType explicitReturnExpected(Node scope) {\n     JSType scopeType \u003d scope.getJSType();\n     if (!(scopeType instanceof FunctionType)) {\n-        return false;\n+        return null;\n     }\n     if (isEmptyFunction(scope)) {\n-        return false;\n+        return null;\n     }\n     JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n     if (returnType \u003d\u003d null) {\n-        return false;\n+        return null;\n     }\n-    return !isVoidOrUnknown(returnType);\n+    if (!isVoidOrUnknown(returnType)) {\n+        return returnType;\n+    }\n+    return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "boolean",
+            "newValue": "JSType"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nChange on 2010/06/25 by johnlenz\n\n\tPreserve blocks around problematic labelled statements.\n\tFixes issue 190\n\n\tR\u003dnicksantos\n\tDELTA\u003d95  (86 added, 2 deleted, 7 changed)\n\nChange on 2010/06/25 by nicksantos\n\n\tmore descriptive error messaging for CheckReturns.\n\n\n\tR\u003dacleung\n\tDELTA\u003d59  (21 added, 2 deleted, 36 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d42001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@255 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/25/10, 4:56 PM",
+          "commitName": "dff6e0114f19c20aeb63393d67aa0880ff5745b5",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "6/16/10, 12:33 PM",
+          "commitNameOld": "e33e925eea3a8e4de958864e531e1adc4da62e18",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 9.18,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSType explicitReturnExpected(Node scope) {\n    JSType scopeType \u003d scope.getJSType();\n    if (!(scopeType instanceof FunctionType)) {\n        return null;\n    }\n    if (isEmptyFunction(scope)) {\n        return null;\n    }\n    JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n    if (returnType \u003d\u003d null) {\n        return null;\n    }\n    if (!isVoidOrUnknown(returnType)) {\n        return returnType;\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/CheckMissingReturn.java",
+          "functionStartLine": 150,
+          "functionName": "explicitReturnExpected",
+          "functionAnnotation": "",
+          "functionDoc": "Determines if the given scope should explicitly return. All functions\nwith non-void or non-unknown return types must have explicit returns.\n\n@return If a return type is expected, returns it. Otherwise returns null.\n",
+          "diff": "@@ -1,14 +1,17 @@\n-private boolean explicitReturnExpected(Node scope) {\n+private JSType explicitReturnExpected(Node scope) {\n     JSType scopeType \u003d scope.getJSType();\n     if (!(scopeType instanceof FunctionType)) {\n-        return false;\n+        return null;\n     }\n     if (isEmptyFunction(scope)) {\n-        return false;\n+        return null;\n     }\n     JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n     if (returnType \u003d\u003d null) {\n-        return false;\n+        return null;\n     }\n-    return !isVoidOrUnknown(returnType);\n+    if (!isVoidOrUnknown(returnType)) {\n+        return returnType;\n+    }\n+    return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nChange on 2010/06/25 by johnlenz\n\n\tPreserve blocks around problematic labelled statements.\n\tFixes issue 190\n\n\tR\u003dnicksantos\n\tDELTA\u003d95  (86 added, 2 deleted, 7 changed)\n\nChange on 2010/06/25 by nicksantos\n\n\tmore descriptive error messaging for CheckReturns.\n\n\n\tR\u003dacleung\n\tDELTA\u003d59  (21 added, 2 deleted, 36 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d42001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@255 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/25/10, 4:56 PM",
+          "commitName": "dff6e0114f19c20aeb63393d67aa0880ff5745b5",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "6/16/10, 12:33 PM",
+          "commitNameOld": "e33e925eea3a8e4de958864e531e1adc4da62e18",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 9.18,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JSType explicitReturnExpected(Node scope) {\n    JSType scopeType \u003d scope.getJSType();\n    if (!(scopeType instanceof FunctionType)) {\n        return null;\n    }\n    if (isEmptyFunction(scope)) {\n        return null;\n    }\n    JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n    if (returnType \u003d\u003d null) {\n        return null;\n    }\n    if (!isVoidOrUnknown(returnType)) {\n        return returnType;\n    }\n    return null;\n}",
+          "path": "src/com/google/javascript/jscomp/CheckMissingReturn.java",
+          "functionStartLine": 150,
+          "functionName": "explicitReturnExpected",
+          "functionAnnotation": "",
+          "functionDoc": "Determines if the given scope should explicitly return. All functions\nwith non-void or non-unknown return types must have explicit returns.\n\n@return If a return type is expected, returns it. Otherwise returns null.\n",
+          "diff": "@@ -1,14 +1,17 @@\n-private boolean explicitReturnExpected(Node scope) {\n+private JSType explicitReturnExpected(Node scope) {\n     JSType scopeType \u003d scope.getJSType();\n     if (!(scopeType instanceof FunctionType)) {\n-        return false;\n+        return null;\n     }\n     if (isEmptyFunction(scope)) {\n-        return false;\n+        return null;\n     }\n     JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n     if (returnType \u003d\u003d null) {\n-        return false;\n+        return null;\n     }\n-    return !isVoidOrUnknown(returnType);\n+    if (!isVoidOrUnknown(returnType)) {\n+        return returnType;\n+    }\n+    return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Determines if the given scope should explicitly return. All functions\nwith non-void or non-unknown return types must have explicit returns.\n",
+            "newValue": "Determines if the given scope should explicitly return. All functions\nwith non-void or non-unknown return types must have explicit returns.\n\n@return If a return type is expected, returns it. Otherwise returns null.\n"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private boolean explicitReturnExpected(Node scope) {\n+    JSType scopeType \u003d scope.getJSType();\n+    if (!(scopeType instanceof FunctionType)) {\n+        return false;\n+    }\n+    if (isEmptyFunction(scope)) {\n+        return false;\n+    }\n+    JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n+    if (returnType \u003d\u003d null) {\n+        return false;\n+    }\n+    return !isVoidOrUnknown(returnType);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean explicitReturnExpected(Node scope) {\n    JSType scopeType \u003d scope.getJSType();\n    if (!(scopeType instanceof FunctionType)) {\n        return false;\n    }\n    if (isEmptyFunction(scope)) {\n        return false;\n    }\n    JSType returnType \u003d ((FunctionType) scopeType).getReturnType();\n    if (returnType \u003d\u003d null) {\n        return false;\n    }\n    return !isVoidOrUnknown(returnType);\n}",
+      "path": "src/com/google/javascript/jscomp/CheckMissingReturn.java",
+      "functionStartLine": 144,
+      "functionName": "explicitReturnExpected",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if the given scope should explicitly return. All functions\nwith non-void or non-unknown return types must have explicit returns.\n"
+    }
+  }
+}

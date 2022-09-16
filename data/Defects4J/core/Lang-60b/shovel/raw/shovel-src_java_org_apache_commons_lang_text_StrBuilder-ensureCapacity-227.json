@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-60b",
+  "repositoryPath": "/tmp/Lang-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StrBuilder.java",
+  "functionName": "ensureCapacity",
+  "functionId": "ensureCapacity___capacity-int",
+  "sourceFilePath": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n@return this, to enable chaining\n",
+  "functionStartLine": 227,
+  "functionEndLine": 234,
+  "numCommitsSeen": 45,
+  "timeTaken": 2756,
+  "changeHistory": [
+    "bfedc322198338d37a4a31cd57739bdbf8d556cf",
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b"
+  ],
+  "changeHistoryShort": {
+    "bfedc322198338d37a4a31cd57739bdbf8d556cf": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8": "Ybodychange",
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bfedc322198338d37a4a31cd57739bdbf8d556cf": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+      "commitMessage": "Increase the number of methods that can chain\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232656 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/14/05, 2:55 PM",
+      "commitName": "bfedc322198338d37a4a31cd57739bdbf8d556cf",
+      "commitAuthor": "Stephen Colebourne",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Increase the number of methods that can chain\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232656 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/14/05, 2:55 PM",
+          "commitName": "bfedc322198338d37a4a31cd57739bdbf8d556cf",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/14/05, 2:45 PM",
+          "commitNameOld": "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+          "commitAuthorOld": "Stephen Colebourne",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public StrBuilder ensureCapacity(int capacity) {\n    if (capacity \u003e buffer.length) {\n        char[] old \u003d buffer;\n        buffer \u003d new char[capacity];\n        System.arraycopy(old, 0, buffer, 0, size);\n    }\n    return this;\n}",
+          "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+          "functionStartLine": 190,
+          "functionName": "ensureCapacity",
+          "functionAnnotation": "",
+          "functionDoc": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n@return this, to enable chaining\n",
+          "diff": "@@ -1,7 +1,8 @@\n-public void ensureCapacity(int capacity) {\n+public StrBuilder ensureCapacity(int capacity) {\n     if (capacity \u003e buffer.length) {\n         char[] old \u003d buffer;\n         buffer \u003d new char[capacity];\n         System.arraycopy(old, 0, buffer, 0, size);\n     }\n+    return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "void",
+            "newValue": "StrBuilder"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Increase the number of methods that can chain\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232656 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/14/05, 2:55 PM",
+          "commitName": "bfedc322198338d37a4a31cd57739bdbf8d556cf",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/14/05, 2:45 PM",
+          "commitNameOld": "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+          "commitAuthorOld": "Stephen Colebourne",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public StrBuilder ensureCapacity(int capacity) {\n    if (capacity \u003e buffer.length) {\n        char[] old \u003d buffer;\n        buffer \u003d new char[capacity];\n        System.arraycopy(old, 0, buffer, 0, size);\n    }\n    return this;\n}",
+          "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+          "functionStartLine": 190,
+          "functionName": "ensureCapacity",
+          "functionAnnotation": "",
+          "functionDoc": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n@return this, to enable chaining\n",
+          "diff": "@@ -1,7 +1,8 @@\n-public void ensureCapacity(int capacity) {\n+public StrBuilder ensureCapacity(int capacity) {\n     if (capacity \u003e buffer.length) {\n         char[] old \u003d buffer;\n         buffer \u003d new char[capacity];\n         System.arraycopy(old, 0, buffer, 0, size);\n     }\n+    return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Increase the number of methods that can chain\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@232656 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/14/05, 2:55 PM",
+          "commitName": "bfedc322198338d37a4a31cd57739bdbf8d556cf",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/14/05, 2:45 PM",
+          "commitNameOld": "1e095ef79a0fc10f365cbfaf71f96545d9b2fb0d",
+          "commitAuthorOld": "Stephen Colebourne",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public StrBuilder ensureCapacity(int capacity) {\n    if (capacity \u003e buffer.length) {\n        char[] old \u003d buffer;\n        buffer \u003d new char[capacity];\n        System.arraycopy(old, 0, buffer, 0, size);\n    }\n    return this;\n}",
+          "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+          "functionStartLine": 190,
+          "functionName": "ensureCapacity",
+          "functionAnnotation": "",
+          "functionDoc": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n@return this, to enable chaining\n",
+          "diff": "@@ -1,7 +1,8 @@\n-public void ensureCapacity(int capacity) {\n+public StrBuilder ensureCapacity(int capacity) {\n     if (capacity \u003e buffer.length) {\n         char[] old \u003d buffer;\n         buffer \u003d new char[capacity];\n         System.arraycopy(old, 0, buffer, 0, size);\n     }\n+    return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n",
+            "newValue": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n@return this, to enable chaining\n"
+          }
+        }
+      ]
+    },
+    "dc03d7c8f81fa7933a095e65860078c1e0c595b8": {
+      "type": "Ybodychange",
+      "commitMessage": "Use the name \"buffer\", not \"buf\".\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@227240 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/3/05, 11:02 AM",
+      "commitName": "dc03d7c8f81fa7933a095e65860078c1e0c595b8",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "8/3/05, 11:00 AM",
+      "commitNameOld": "57696acf0979b0d3a6e69639c14acda8b01ded28",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void ensureCapacity(int capacity) {\n    if (capacity \u003e buffer.length) {\n        char[] old \u003d buffer;\n        buffer \u003d new char[capacity];\n        System.arraycopy(old, 0, buffer, 0, size);\n    }\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 184,
+      "functionName": "ensureCapacity",
+      "functionAnnotation": "",
+      "functionDoc": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n",
+      "diff": "@@ -1,7 +1,7 @@\n public void ensureCapacity(int capacity) {\n-    if (capacity \u003e buf.length) {\n-        char[] old \u003d buf;\n-        buf \u003d new char[capacity];\n-        System.arraycopy(old, 0, buf, 0, size);\n+    if (capacity \u003e buffer.length) {\n+        char[] old \u003d buffer;\n+        buffer \u003d new char[capacity];\n+        System.arraycopy(old, 0, buffer, 0, size);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b": {
+      "type": "Yintroduced",
+      "commitMessage": "Add initial version of StrBuilder, currently without any tests\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137978 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/16/04, 8:09 AM",
+      "commitName": "e5bd9a5654ff829b091a5a6c4f8ed6180c3d359b",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,7 @@\n+public void ensureCapacity(int capacity) {\n+    if (capacity \u003e buf.length) {\n+        char[] old \u003d buf;\n+        buf \u003d new char[capacity];\n+        System.arraycopy(old, 0, buf, 0, size);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void ensureCapacity(int capacity) {\n    if (capacity \u003e buf.length) {\n        char[] old \u003d buf;\n        buf \u003d new char[capacity];\n        System.arraycopy(old, 0, buf, 0, size);\n    }\n}",
+      "path": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+      "functionStartLine": 177,
+      "functionName": "ensureCapacity",
+      "functionAnnotation": "",
+      "functionDoc": "Checks the capacity and ensures that it is at least the size specified.\n\n@param capacity the capacity to ensure\n"
+    }
+  }
+}

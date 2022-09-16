@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InferJSDocInfo.java",
+  "functionName": "attachJSDocInfoToNominalTypeOrShape",
+  "functionId": "attachJSDocInfoToNominalTypeOrShape___objType-ObjectType__docInfo-JSDocInfo__qName-String(annotations-@Nullable)",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+  "functionAnnotation": "",
+  "functionDoc": "Handle cases #1 and #3 in the class doc.\n",
+  "functionStartLine": 200,
+  "functionEndLine": 222,
+  "numCommitsSeen": 10,
+  "timeTaken": 1738,
+  "changeHistory": [
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f"
+  ],
+  "changeHistoryShort": {
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "845f5ff65858fd0d1829f3d2f16f758725e8028f": {
+      "type": "Yintroduced",
+      "commitMessage": "Add buttloads of tests.\n\nRewrite JSDoc inference to be more redundant, which should help it\nto be more robust.\n\nAssorted other fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@20 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/7/09, 1:53 PM",
+      "commitName": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+private void attachJSDocInfoToNominalTypeOrShape(ObjectType objType, JSDocInfo docInfo, @Nullable String qName) {\n+    if (objType.isConstructor() || objType.isEnumType() || objType.isInterface()) {\n+        if (objType.hasReferenceName() \u0026\u0026 objType.getReferenceName().equals(qName)) {\n+            objType.setJSDocInfo(docInfo);\n+            if (objType.isConstructor() || objType.isInterface()) {\n+                ((FunctionType) objType).getInstanceType().setJSDocInfo(docInfo);\n+            } else if (objType instanceof EnumType) {\n+                ((EnumType) objType).getElementsType().setJSDocInfo(docInfo);\n+            }\n+        }\n+    } else if (!objType.isNativeObjectType() \u0026\u0026 objType.isFunctionType()) {\n+        objType.setJSDocInfo(docInfo);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void attachJSDocInfoToNominalTypeOrShape(ObjectType objType, JSDocInfo docInfo, @Nullable String qName) {\n    if (objType.isConstructor() || objType.isEnumType() || objType.isInterface()) {\n        if (objType.hasReferenceName() \u0026\u0026 objType.getReferenceName().equals(qName)) {\n            objType.setJSDocInfo(docInfo);\n            if (objType.isConstructor() || objType.isInterface()) {\n                ((FunctionType) objType).getInstanceType().setJSDocInfo(docInfo);\n            } else if (objType instanceof EnumType) {\n                ((EnumType) objType).getElementsType().setJSDocInfo(docInfo);\n            }\n        }\n    } else if (!objType.isNativeObjectType() \u0026\u0026 objType.isFunctionType()) {\n        objType.setJSDocInfo(docInfo);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+      "functionStartLine": 191,
+      "functionName": "attachJSDocInfoToNominalTypeOrShape",
+      "functionAnnotation": "",
+      "functionDoc": "Handle cases #1 and #3 in the class doc.\n"
+    }
+  }
+}

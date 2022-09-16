@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClosureOptimizePrimitives.java",
+  "functionName": "visit",
+  "functionId": "$visit___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ClosureOptimizePrimitives.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 45,
+  "functionEndLine": 53,
+  "numCommitsSeen": 3,
+  "timeTaken": 712,
+  "changeHistory": [
+    "a28ca5764c6836f267b011d95fd00d0ec9a6adbe"
+  ],
+  "changeHistoryShort": {
+    "a28ca5764c6836f267b011d95fd00d0ec9a6adbe": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a28ca5764c6836f267b011d95fd00d0ec9a6adbe": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAttempt #2 - This time with all strings marked as quoted.\n-Convert goog.object.create() calls into object literals when possible.\n\nR\u003dnicksantos\nDELTA\u003d199  (199 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1632\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1041 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/27/11, 9:59 AM",
+      "commitName": "a28ca5764c6836f267b011d95fd00d0ec9a6adbe",
+      "commitAuthor": "agrieve@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public void visit(NodeTraversal t, Node n, Node parent) {\n+    if (n.getType() \u003d\u003d Token.CALL) {\n+        String fnName \u003d n.getFirstChild().getQualifiedName();\n+        if (\"goog$object$create\".equals(fnName) || \"goog.object.create\".equals(fnName)) {\n+            callNodes.add(n);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void visit(NodeTraversal t, Node n, Node parent) {\n    if (n.getType() \u003d\u003d Token.CALL) {\n        String fnName \u003d n.getFirstChild().getQualifiedName();\n        if (\"goog$object$create\".equals(fnName) || \"goog.object.create\".equals(fnName)) {\n            callNodes.add(n);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ClosureOptimizePrimitives.java",
+      "functionStartLine": 45,
+      "functionName": "visit",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

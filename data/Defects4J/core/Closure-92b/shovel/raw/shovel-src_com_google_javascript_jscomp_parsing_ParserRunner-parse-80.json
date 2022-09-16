@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ParserRunner.java",
+  "functionName": "parse",
+  "functionId": "parse___sourceName-String__sourceString-String__config-Config__errorReporter-ErrorReporter__logger-Logger",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses the JavaScript text given by a reader.\n\n@param sourceName The filename.\n@param sourceString Source code from the file.\n@param errorReporter An error.\n@param logger A logger.\n@return The AST of the given text.\n@throws IOException\n",
+  "functionStartLine": 80,
+  "functionEndLine": 114,
+  "numCommitsSeen": 7,
+  "timeTaken": 705,
+  "changeHistory": [
+    "295c978bfbf070d28214b27239cd26aaea58b6d4",
+    "b8c52bf5e76948ee8d561fa55a36cc6c9f5d0c68",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "295c978bfbf070d28214b27239cd26aaea58b6d4": "Ydocchange",
+    "b8c52bf5e76948ee8d561fa55a36cc6c9f5d0c68": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "295c978bfbf070d28214b27239cd26aaea58b6d4": {
+      "type": "Ydocchange",
+      "commitMessage": "Minor cleanup. (John)\nR\u003drobert\nDELTA\u003d5  (1 added, 4 deleted, 0 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@140 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/17/10, 1:06 PM",
+      "commitName": "295c978bfbf070d28214b27239cd26aaea58b6d4",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "2/12/10, 11:40 AM",
+      "commitNameOld": "b8c52bf5e76948ee8d561fa55a36cc6c9f5d0c68",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 33.02,
+      "commitsBetweenForRepo": 36,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Node parse(String sourceName, String sourceString, Config config, ErrorReporter errorReporter, Logger logger) throws IOException {\n    Context cx \u003d Context.enter();\n    cx.setErrorReporter(errorReporter);\n    cx.setLanguageVersion(Context.VERSION_1_5);\n    CompilerEnvirons compilerEnv \u003d new CompilerEnvirons();\n    compilerEnv.initFromContext(cx);\n    compilerEnv.setRecordingComments(true);\n    compilerEnv.setRecordingLocalJsDocComments(true);\n    compilerEnv.setWarnTrailingComma(true);\n    if (config.isIdeMode) {\n        compilerEnv.setReservedKeywordAsIdentifier(true);\n        compilerEnv.setAllowMemberExprAsFunctionName(true);\n    }\n    Parser p \u003d new Parser(compilerEnv, errorReporter);\n    AstRoot astRoot \u003d null;\n    try {\n        astRoot \u003d p.parse(sourceString, sourceName, 1);\n    } catch (EvaluatorException e) {\n        logger.info(\"Error parsing \" + sourceName + \": \" + e.getMessage());\n    } finally {\n        Context.exit();\n    }\n    Node root \u003d null;\n    if (astRoot !\u003d null) {\n        root \u003d IRFactory.transformTree(astRoot, sourceString, config, errorReporter);\n        root.setIsSyntheticBlock(true);\n    }\n    return root;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+      "functionStartLine": 84,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Parses the JavaScript text given by a reader.\n\n@param sourceName The filename.\n@param sourceString Source code from the file.\n@param errorReporter An error.\n@param logger A logger.\n@return The AST of the given text.\n@throws IOException\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Parses the JavaScript text given by a reader.\n\n@param sourceName The filename.\n@param sourceString Source code from the file.\n@param isIdeMode Whether in IDE mode, which affects the environment.\n@param typeRegistry The type registry.\n@param errorReporter An error.\n@param logger A logger.\n@return The AST of the given text.\n@throws IOException\n",
+        "newValue": "Parses the JavaScript text given by a reader.\n\n@param sourceName The filename.\n@param sourceString Source code from the file.\n@param errorReporter An error.\n@param logger A logger.\n@return The AST of the given text.\n@throws IOException\n"
+      }
+    },
+    "b8c52bf5e76948ee8d561fa55a36cc6c9f5d0c68": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Fix a null pointer exception in FunctionType.\n\nFix a bug in @export generation.\n\nRemove references to StringUtil.\n\nOnly create one ParserConfig per compilation process.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@104 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/12/10, 11:40 AM",
+      "commitName": "b8c52bf5e76948ee8d561fa55a36cc6c9f5d0c68",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fix a null pointer exception in FunctionType.\n\nFix a bug in @export generation.\n\nRemove references to StringUtil.\n\nOnly create one ParserConfig per compilation process.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@104 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "2/12/10, 11:40 AM",
+          "commitName": "b8c52bf5e76948ee8d561fa55a36cc6c9f5d0c68",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "11/3/09, 3:51 PM",
+          "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 100.83,
+          "commitsBetweenForRepo": 77,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Node parse(String sourceName, String sourceString, Config config, ErrorReporter errorReporter, Logger logger) throws IOException {\n    Context cx \u003d Context.enter();\n    cx.setErrorReporter(errorReporter);\n    cx.setLanguageVersion(Context.VERSION_1_5);\n    CompilerEnvirons compilerEnv \u003d new CompilerEnvirons();\n    compilerEnv.initFromContext(cx);\n    compilerEnv.setRecordingComments(true);\n    compilerEnv.setRecordingLocalJsDocComments(true);\n    compilerEnv.setWarnTrailingComma(true);\n    if (config.isIdeMode) {\n        compilerEnv.setReservedKeywordAsIdentifier(true);\n        compilerEnv.setAllowMemberExprAsFunctionName(true);\n    }\n    Parser p \u003d new Parser(compilerEnv, errorReporter);\n    AstRoot astRoot \u003d null;\n    try {\n        astRoot \u003d p.parse(sourceString, sourceName, 1);\n    } catch (EvaluatorException e) {\n        logger.info(\"Error parsing \" + sourceName + \": \" + e.getMessage());\n    } finally {\n        Context.exit();\n    }\n    Node root \u003d null;\n    if (astRoot !\u003d null) {\n        root \u003d IRFactory.transformTree(astRoot, sourceString, config, errorReporter);\n        root.setIsSyntheticBlock(true);\n    }\n    return root;\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+          "functionStartLine": 86,
+          "functionName": "parse",
+          "functionAnnotation": "",
+          "functionDoc": "Parses the JavaScript text given by a reader.\n\n@param sourceName The filename.\n@param sourceString Source code from the file.\n@param isIdeMode Whether in IDE mode, which affects the environment.\n@param typeRegistry The type registry.\n@param errorReporter An error.\n@param logger A logger.\n@return The AST of the given text.\n@throws IOException\n",
+          "diff": "@@ -1,31 +1,29 @@\n-public static Node parse(String sourceName, String sourceString, boolean isIdeMode, JSTypeRegistry typeRegistry, ErrorReporter errorReporter, Logger logger) throws IOException {\n-    initAnnotationNames();\n+public static Node parse(String sourceName, String sourceString, Config config, ErrorReporter errorReporter, Logger logger) throws IOException {\n     Context cx \u003d Context.enter();\n     cx.setErrorReporter(errorReporter);\n     cx.setLanguageVersion(Context.VERSION_1_5);\n     CompilerEnvirons compilerEnv \u003d new CompilerEnvirons();\n     compilerEnv.initFromContext(cx);\n     compilerEnv.setRecordingComments(true);\n     compilerEnv.setRecordingLocalJsDocComments(true);\n     compilerEnv.setWarnTrailingComma(true);\n-    if (isIdeMode) {\n+    if (config.isIdeMode) {\n         compilerEnv.setReservedKeywordAsIdentifier(true);\n         compilerEnv.setAllowMemberExprAsFunctionName(true);\n     }\n     Parser p \u003d new Parser(compilerEnv, errorReporter);\n     AstRoot astRoot \u003d null;\n     try {\n         astRoot \u003d p.parse(sourceString, sourceName, 1);\n     } catch (EvaluatorException e) {\n         logger.info(\"Error parsing \" + sourceName + \": \" + e.getMessage());\n     } finally {\n         Context.exit();\n     }\n     Node root \u003d null;\n     if (astRoot !\u003d null) {\n-        Config config \u003d new Config(typeRegistry, annotationNames, isIdeMode);\n         root \u003d IRFactory.transformTree(astRoot, sourceString, config, errorReporter);\n         root.setIsSyntheticBlock(true);\n     }\n     return root;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[sourceName-String, sourceString-String, isIdeMode-boolean, typeRegistry-JSTypeRegistry, errorReporter-ErrorReporter, logger-Logger]",
+            "newValue": "[sourceName-String, sourceString-String, config-Config, errorReporter-ErrorReporter, logger-Logger]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fix a null pointer exception in FunctionType.\n\nFix a bug in @export generation.\n\nRemove references to StringUtil.\n\nOnly create one ParserConfig per compilation process.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@104 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "2/12/10, 11:40 AM",
+          "commitName": "b8c52bf5e76948ee8d561fa55a36cc6c9f5d0c68",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "11/3/09, 3:51 PM",
+          "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 100.83,
+          "commitsBetweenForRepo": 77,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Node parse(String sourceName, String sourceString, Config config, ErrorReporter errorReporter, Logger logger) throws IOException {\n    Context cx \u003d Context.enter();\n    cx.setErrorReporter(errorReporter);\n    cx.setLanguageVersion(Context.VERSION_1_5);\n    CompilerEnvirons compilerEnv \u003d new CompilerEnvirons();\n    compilerEnv.initFromContext(cx);\n    compilerEnv.setRecordingComments(true);\n    compilerEnv.setRecordingLocalJsDocComments(true);\n    compilerEnv.setWarnTrailingComma(true);\n    if (config.isIdeMode) {\n        compilerEnv.setReservedKeywordAsIdentifier(true);\n        compilerEnv.setAllowMemberExprAsFunctionName(true);\n    }\n    Parser p \u003d new Parser(compilerEnv, errorReporter);\n    AstRoot astRoot \u003d null;\n    try {\n        astRoot \u003d p.parse(sourceString, sourceName, 1);\n    } catch (EvaluatorException e) {\n        logger.info(\"Error parsing \" + sourceName + \": \" + e.getMessage());\n    } finally {\n        Context.exit();\n    }\n    Node root \u003d null;\n    if (astRoot !\u003d null) {\n        root \u003d IRFactory.transformTree(astRoot, sourceString, config, errorReporter);\n        root.setIsSyntheticBlock(true);\n    }\n    return root;\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+          "functionStartLine": 86,
+          "functionName": "parse",
+          "functionAnnotation": "",
+          "functionDoc": "Parses the JavaScript text given by a reader.\n\n@param sourceName The filename.\n@param sourceString Source code from the file.\n@param isIdeMode Whether in IDE mode, which affects the environment.\n@param typeRegistry The type registry.\n@param errorReporter An error.\n@param logger A logger.\n@return The AST of the given text.\n@throws IOException\n",
+          "diff": "@@ -1,31 +1,29 @@\n-public static Node parse(String sourceName, String sourceString, boolean isIdeMode, JSTypeRegistry typeRegistry, ErrorReporter errorReporter, Logger logger) throws IOException {\n-    initAnnotationNames();\n+public static Node parse(String sourceName, String sourceString, Config config, ErrorReporter errorReporter, Logger logger) throws IOException {\n     Context cx \u003d Context.enter();\n     cx.setErrorReporter(errorReporter);\n     cx.setLanguageVersion(Context.VERSION_1_5);\n     CompilerEnvirons compilerEnv \u003d new CompilerEnvirons();\n     compilerEnv.initFromContext(cx);\n     compilerEnv.setRecordingComments(true);\n     compilerEnv.setRecordingLocalJsDocComments(true);\n     compilerEnv.setWarnTrailingComma(true);\n-    if (isIdeMode) {\n+    if (config.isIdeMode) {\n         compilerEnv.setReservedKeywordAsIdentifier(true);\n         compilerEnv.setAllowMemberExprAsFunctionName(true);\n     }\n     Parser p \u003d new Parser(compilerEnv, errorReporter);\n     AstRoot astRoot \u003d null;\n     try {\n         astRoot \u003d p.parse(sourceString, sourceName, 1);\n     } catch (EvaluatorException e) {\n         logger.info(\"Error parsing \" + sourceName + \": \" + e.getMessage());\n     } finally {\n         Context.exit();\n     }\n     Node root \u003d null;\n     if (astRoot !\u003d null) {\n-        Config config \u003d new Config(typeRegistry, annotationNames, isIdeMode);\n         root \u003d IRFactory.transformTree(astRoot, sourceString, config, errorReporter);\n         root.setIsSyntheticBlock(true);\n     }\n     return root;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,31 @@\n+public static Node parse(String sourceName, String sourceString, boolean isIdeMode, JSTypeRegistry typeRegistry, ErrorReporter errorReporter, Logger logger) throws IOException {\n+    initAnnotationNames();\n+    Context cx \u003d Context.enter();\n+    cx.setErrorReporter(errorReporter);\n+    cx.setLanguageVersion(Context.VERSION_1_5);\n+    CompilerEnvirons compilerEnv \u003d new CompilerEnvirons();\n+    compilerEnv.initFromContext(cx);\n+    compilerEnv.setRecordingComments(true);\n+    compilerEnv.setRecordingLocalJsDocComments(true);\n+    compilerEnv.setWarnTrailingComma(true);\n+    if (isIdeMode) {\n+        compilerEnv.setReservedKeywordAsIdentifier(true);\n+        compilerEnv.setAllowMemberExprAsFunctionName(true);\n+    }\n+    Parser p \u003d new Parser(compilerEnv, errorReporter);\n+    AstRoot astRoot \u003d null;\n+    try {\n+        astRoot \u003d p.parse(sourceString, sourceName, 1);\n+    } catch (EvaluatorException e) {\n+        logger.info(\"Error parsing \" + sourceName + \": \" + e.getMessage());\n+    } finally {\n+        Context.exit();\n+    }\n+    Node root \u003d null;\n+    if (astRoot !\u003d null) {\n+        Config config \u003d new Config(typeRegistry, annotationNames, isIdeMode);\n+        root \u003d IRFactory.transformTree(astRoot, sourceString, config, errorReporter);\n+        root.setIsSyntheticBlock(true);\n+    }\n+    return root;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Node parse(String sourceName, String sourceString, boolean isIdeMode, JSTypeRegistry typeRegistry, ErrorReporter errorReporter, Logger logger) throws IOException {\n    initAnnotationNames();\n    Context cx \u003d Context.enter();\n    cx.setErrorReporter(errorReporter);\n    cx.setLanguageVersion(Context.VERSION_1_5);\n    CompilerEnvirons compilerEnv \u003d new CompilerEnvirons();\n    compilerEnv.initFromContext(cx);\n    compilerEnv.setRecordingComments(true);\n    compilerEnv.setRecordingLocalJsDocComments(true);\n    compilerEnv.setWarnTrailingComma(true);\n    if (isIdeMode) {\n        compilerEnv.setReservedKeywordAsIdentifier(true);\n        compilerEnv.setAllowMemberExprAsFunctionName(true);\n    }\n    Parser p \u003d new Parser(compilerEnv, errorReporter);\n    AstRoot astRoot \u003d null;\n    try {\n        astRoot \u003d p.parse(sourceString, sourceName, 1);\n    } catch (EvaluatorException e) {\n        logger.info(\"Error parsing \" + sourceName + \": \" + e.getMessage());\n    } finally {\n        Context.exit();\n    }\n    Node root \u003d null;\n    if (astRoot !\u003d null) {\n        Config config \u003d new Config(typeRegistry, annotationNames, isIdeMode);\n        root \u003d IRFactory.transformTree(astRoot, sourceString, config, errorReporter);\n        root.setIsSyntheticBlock(true);\n    }\n    return root;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+      "functionStartLine": 80,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Parses the JavaScript text given by a reader.\n\n@param sourceName The filename.\n@param sourceString Source code from the file.\n@param isIdeMode Whether in IDE mode, which affects the environment.\n@param typeRegistry The type registry.\n@param errorReporter An error.\n@param logger A logger.\n@return The AST of the given text.\n@throws IOException\n"
+    }
+  }
+}

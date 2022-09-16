@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-106b",
+  "repositoryPath": "/tmp/Math-106b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProperFractionFormat.java",
+  "functionName": "parse",
+  "functionId": "parse___source-String__pos-ParsePosition",
+  "sourceFilePath": "src/java/org/apache/commons/math/fraction/ProperFractionFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses a string to produce a {@link Fraction} object.  This method\nexpects the string to be formatted as a proper fraction.\n\n@param source the string to parse\n@param pos input/ouput parsing parameter.\n@return the parsed {@link Fraction} object.\n",
+  "functionStartLine": 121,
+  "functionEndLine": 193,
+  "numCommitsSeen": 4,
+  "timeTaken": 345,
+  "changeHistory": [
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6"
+  ],
+  "changeHistoryShort": {
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": {
+      "type": "Yintroduced",
+      "commitMessage": "added fraction class and fraction formatting classes.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@151479 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/4/05, 9:49 PM",
+      "commitName": "41598b038509e9cdb7f6dbeefdb2a2876d2708a6",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,41 @@\n+public Fraction parse(String source, ParsePosition pos) {\n+    Fraction ret \u003d super.parse(source, pos);\n+    if (ret !\u003d null) {\n+        return ret;\n+    }\n+    int initialIndex \u003d pos.getIndex();\n+    parseAndIgnoreWhitespace(source, pos);\n+    Number whole \u003d getWholeFormat().parse(source, pos);\n+    if (whole \u003d\u003d null) {\n+        pos.setIndex(initialIndex);\n+        return null;\n+    }\n+    parseAndIgnoreWhitespace(source, pos);\n+    Number num \u003d getNumeratorFormat().parse(source, pos);\n+    if (num \u003d\u003d null) {\n+        pos.setIndex(initialIndex);\n+        return null;\n+    }\n+    int startIndex \u003d pos.getIndex();\n+    char c \u003d parseNextCharacter(source, pos);\n+    switch(c) {\n+        case 0:\n+            return new Fraction(num.intValue(), 1);\n+        case \u0027/\u0027:\n+            break;\n+        default:\n+            pos.setIndex(initialIndex);\n+            pos.setErrorIndex(startIndex);\n+            return null;\n+    }\n+    parseAndIgnoreWhitespace(source, pos);\n+    Number den \u003d getDenominatorFormat().parse(source, pos);\n+    if (den \u003d\u003d null) {\n+        pos.setIndex(initialIndex);\n+        return null;\n+    }\n+    int w \u003d whole.intValue();\n+    int n \u003d num.intValue();\n+    int d \u003d den.intValue();\n+    return new Fraction(((Math.abs(w) * d) + n) * MathUtils.sign(w), d);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Fraction parse(String source, ParsePosition pos) {\n    Fraction ret \u003d super.parse(source, pos);\n    if (ret !\u003d null) {\n        return ret;\n    }\n    int initialIndex \u003d pos.getIndex();\n    parseAndIgnoreWhitespace(source, pos);\n    Number whole \u003d getWholeFormat().parse(source, pos);\n    if (whole \u003d\u003d null) {\n        pos.setIndex(initialIndex);\n        return null;\n    }\n    parseAndIgnoreWhitespace(source, pos);\n    Number num \u003d getNumeratorFormat().parse(source, pos);\n    if (num \u003d\u003d null) {\n        pos.setIndex(initialIndex);\n        return null;\n    }\n    int startIndex \u003d pos.getIndex();\n    char c \u003d parseNextCharacter(source, pos);\n    switch(c) {\n        case 0:\n            return new Fraction(num.intValue(), 1);\n        case \u0027/\u0027:\n            break;\n        default:\n            pos.setIndex(initialIndex);\n            pos.setErrorIndex(startIndex);\n            return null;\n    }\n    parseAndIgnoreWhitespace(source, pos);\n    Number den \u003d getDenominatorFormat().parse(source, pos);\n    if (den \u003d\u003d null) {\n        pos.setIndex(initialIndex);\n        return null;\n    }\n    int w \u003d whole.intValue();\n    int n \u003d num.intValue();\n    int d \u003d den.intValue();\n    return new Fraction(((Math.abs(w) * d) + n) * MathUtils.sign(w), d);\n}",
+      "path": "src/java/org/apache/commons/math/fraction/ProperFractionFormat.java",
+      "functionStartLine": 121,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Parses a string to produce a {@link Fraction} object.  This method\nexpects the string to be formatted as a proper fraction.\n\n@param source the string to parse\n@param pos input/ouput parsing parameter.\n@return the parsed {@link Fraction} object.\n"
+    }
+  }
+}

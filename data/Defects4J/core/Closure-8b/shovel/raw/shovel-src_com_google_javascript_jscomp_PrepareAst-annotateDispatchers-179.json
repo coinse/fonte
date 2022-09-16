@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-8b",
+  "repositoryPath": "/tmp/Closure-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "annotateDispatchers",
+  "functionId": "$annotateDispatchers___n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "Translate dispatcher info into the property expected node.\n",
+  "functionStartLine": 179,
+  "functionEndLine": 188,
+  "numCommitsSeen": 21,
+  "timeTaken": 1418,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/7/11, 3:28 PM",
+      "commitNameOld": "c8c81c6615908f82ae5e7b294643caa177688513",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.71,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void annotateDispatchers(Node n, Node parent) {\n    Preconditions.checkState(n.isFunction());\n    if (parent.getJSDocInfo() !\u003d null \u0026\u0026 parent.getJSDocInfo().isJavaDispatch()) {\n        if (parent.isAssign()) {\n            Preconditions.checkState(parent.getLastChild() \u003d\u003d n);\n            n.putBooleanProp(Node.IS_DISPATCHER, true);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 185,
+      "functionName": "annotateDispatchers",
+      "functionAnnotation": "",
+      "functionDoc": "Translate dispatcher info into the property expected node.\n",
+      "diff": "@@ -1,9 +1,9 @@\n private void annotateDispatchers(Node n, Node parent) {\n-    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n+    Preconditions.checkState(n.isFunction());\n     if (parent.getJSDocInfo() !\u003d null \u0026\u0026 parent.getJSDocInfo().isJavaDispatch()) {\n-        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n+        if (parent.isAssign()) {\n             Preconditions.checkState(parent.getLastChild() \u003d\u003d n);\n             n.putBooleanProp(Node.IS_DISPATCHER, true);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic \"free call\" annotation and support for issue 180.  Additional\ntesting is required to validate that new CALL nodes are not\ninappropriately introduced.\n\nAlso, refactored PrepareAst to make the different actions being taken\neasier to follow.\n\nR\u003dnicksantos\nDELTA\u003d215  (120 added, 18 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@282 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:34 PM",
+      "commitName": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private void annotateDispatchers(Node n, Node parent) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n+    if (parent.getJSDocInfo() !\u003d null \u0026\u0026 parent.getJSDocInfo().isJavaDispatch()) {\n+        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n+            Preconditions.checkState(parent.getLastChild() \u003d\u003d n);\n+            n.putBooleanProp(Node.IS_DISPATCHER, true);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void annotateDispatchers(Node n, Node parent) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    if (parent.getJSDocInfo() !\u003d null \u0026\u0026 parent.getJSDocInfo().isJavaDispatch()) {\n        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n            Preconditions.checkState(parent.getLastChild() \u003d\u003d n);\n            n.putBooleanProp(Node.IS_DISPATCHER, true);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 187,
+      "functionName": "annotateDispatchers",
+      "functionAnnotation": "",
+      "functionDoc": "Translate dispatcher info into the property expected node.\n"
+    }
+  }
+}

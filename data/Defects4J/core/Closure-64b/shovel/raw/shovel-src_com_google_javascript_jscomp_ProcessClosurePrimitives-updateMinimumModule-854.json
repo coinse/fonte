@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "updateMinimumModule",
+  "functionId": "$updateMinimumModule___newModule-JSModule",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 854,
+  "functionEndLine": 866,
+  "numCommitsSeen": 44,
+  "timeTaken": 2866,
+  "changeHistory": [
+    "279196b617c5de1ade21110979b6b13d8eda6342",
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b"
+  ],
+  "changeHistoryShort": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": "Ybodychange",
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/04 by nick\n\n        Pipe everything through the module code path.\n        This teases out a bunch of edge-case bugs that worked in the non-module\n        code path, but not the module code path (and vice-versa)\n\n        R\u003dalan\n        DELTA\u003d136  (67 added, 19 deleted, 50 changed)\n\nChange on 2010/05/04 by nick\n\n        fiddle with the check_global_this_level decision tree\n        This should be off by default if collapse_properties is off,\n        and on by default if collapse_properties is on.\n\n        R\u003dalan\n        DELTA\u003d47  (32 added, 4 deleted, 11 changed)\n\nChange on 2010/05/04 by andrew\n\n        -Infer that arguments to goog.asserts.assert() are non-nullable after the\n        call.\n        -Infer the types of arguments to goog.asserts.assert{String,Number,...} after\n        the call.\n\n        Tested:\n          -Added new unit tests.\n\n        R\u003dnick\n        DELTA\u003d277  (266 added, 4 deleted, 7 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqdhuno\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@203 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/5/10, 4:36 PM",
+      "commitName": "279196b617c5de1ade21110979b6b13d8eda6342",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/23/10, 11:31 AM",
+      "commitNameOld": "ebb59a97610015bc41bda7f458dd1428a3a3e335",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 12.21,
+      "commitsBetweenForRepo": 6,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void updateMinimumModule(JSModule newModule) {\n    if (minimumModule \u003d\u003d null) {\n        minimumModule \u003d newModule;\n    } else if (moduleGraph !\u003d null) {\n        minimumModule \u003d moduleGraph.getDeepestCommonDependencyInclusive(minimumModule, newModule);\n    } else {\n        Preconditions.checkState(newModule \u003d\u003d minimumModule, \"Missing module graph\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 723,
+      "functionName": "updateMinimumModule",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n private void updateMinimumModule(JSModule newModule) {\n-    if (moduleGraph !\u003d null) {\n-        if (minimumModule \u003d\u003d null) {\n-            minimumModule \u003d newModule;\n-        } else {\n-            minimumModule \u003d moduleGraph.getDeepestCommonDependencyInclusive(minimumModule, newModule);\n-        }\n+    if (minimumModule \u003d\u003d null) {\n+        minimumModule \u003d newModule;\n+    } else if (moduleGraph !\u003d null) {\n+        minimumModule \u003d moduleGraph.getDeepestCommonDependencyInclusive(minimumModule, newModule);\n+    } else {\n+        Preconditions.checkState(newModule \u003d\u003d minimumModule, \"Missing module graph\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix a bunch of passes to preserve more type information.\n\nFix goog.provide/goog.require handling to work in the presence of modules.\n\nImprove a bunch of type annotations in gecko_dom.\n\nMake NameAnalyzer use the Graph package.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@95 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/8/10, 11:30 AM",
+      "commitName": "45f2bdf91ad3c2f2ac901c72efe9e26148b08d2b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,9 @@\n+private void updateMinimumModule(JSModule newModule) {\n+    if (moduleGraph !\u003d null) {\n+        if (minimumModule \u003d\u003d null) {\n+            minimumModule \u003d newModule;\n+        } else {\n+            minimumModule \u003d moduleGraph.getDeepestCommonDependencyInclusive(minimumModule, newModule);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void updateMinimumModule(JSModule newModule) {\n    if (moduleGraph !\u003d null) {\n        if (minimumModule \u003d\u003d null) {\n            minimumModule \u003d newModule;\n        } else {\n            minimumModule \u003d moduleGraph.getDeepestCommonDependencyInclusive(minimumModule, newModule);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 727,
+      "functionName": "updateMinimumModule",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

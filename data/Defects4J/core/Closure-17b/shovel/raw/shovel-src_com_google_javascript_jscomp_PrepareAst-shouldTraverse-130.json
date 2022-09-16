@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "shouldTraverse",
+  "functionId": "$shouldTraverse___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 130,
+  "functionEndLine": 135,
+  "numCommitsSeen": 20,
+  "timeTaken": 1036,
+  "changeHistory": [
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+    "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a"
+  ],
+  "changeHistoryShort": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": "Ybodychange",
+    "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ec324a9bb23eb78c76f537f4c4170ba88d542f1c": {
+      "type": "Ybodychange",
+      "commitMessage": "\nReplace the bulk of the Node.getType() \u003d\u003d Token.XXX calls with\nNode.isXXX calls.\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3677\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1582 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/11, 8:36 AM",
+      "commitName": "ec324a9bb23eb78c76f537f4c4170ba88d542f1c",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/7/11, 3:28 PM",
+      "commitNameOld": "c8c81c6615908f82ae5e7b294643caa177688513",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.71,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n    if (n.isObjectLit()) {\n        normalizeObjectLiteralAnnotations(n);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 130,
+      "functionName": "shouldTraverse",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,7 @@\n @Override\n public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n-    if (n.getType() \u003d\u003d Token.OBJECTLIT) {\n+    if (n.isObjectLit()) {\n         normalizeObjectLiteralAnnotations(n);\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nClean up constant annotations so that all constant annotations\nare added during the normalize() phase.\nThis was really confusing to me, because certain kinds\nof constant annotations would work pre-normalize, and certain kinds\nwould work post-normalize.\n\nR\u003djohnlenz\nDELTA\u003d204  (114 added, 75 deleted, 15 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1188239\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@551 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/12/10, 2:28 PM",
+      "commitName": "24b7eb9a4a8850f2d0988eb81245b4b9a977d53a",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n+    if (n.getType() \u003d\u003d Token.OBJECTLIT) {\n+        normalizeObjectLiteralAnnotations(n);\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n    if (n.getType() \u003d\u003d Token.OBJECTLIT) {\n        normalizeObjectLiteralAnnotations(n);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 141,
+      "functionName": "shouldTraverse",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-99b",
+  "repositoryPath": "/tmp/Closure-99b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "initOptions",
+  "functionId": "initOptions___options-CompilerOptions",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Initialize the compiler options. Only necessary if you\u0027re not doing\na normal compile() job.\n",
+  "functionStartLine": 212,
+  "functionEndLine": 225,
+  "numCommitsSeen": 32,
+  "timeTaken": 1930,
+  "changeHistory": [
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+    "6f2539acd3c37bd7f0d031b43364f75a5cd6d5f7"
+  ],
+  "changeHistoryShort": {
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": "Ybodychange",
+    "6f2539acd3c37bd7f0d031b43364f75a5cd6d5f7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": {
+      "type": "Ybodychange",
+      "commitMessage": "fix silly 2004-era naming conventions (Nick)\nR\u003djohn\nDELTA\u003d134  (0 added, 0 deleted, 134 changed)\n\nInsert a place holder file for any empty modules. (Alan)\nR\u003dnick\nDELTA\u003d53  (46 added, 6 deleted, 1 changed)\n\nMaps API extern update.\n(Contributed by Chad Killingsworth)\nFixes issue 121\nDELTA\u003d86  (48 added, 16 deleted, 22 changed)\n\n\nGoogle Loader API externs.\n(Contributed by Chad Killingsworth)\nFixes issue 126\nDELTA\u003d54  (54 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@149 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/10, 10:51 PM",
+      "commitName": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/22/10, 3:55 PM",
+      "commitNameOld": "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.29,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void initOptions(CompilerOptions options) {\n    this.options \u003d options;\n    if (errorManager \u003d\u003d null) {\n        if (outStream \u003d\u003d null) {\n            setErrorManager(new LoggerErrorManager(createMessageFormatter(), logger));\n        } else {\n            PrintStreamErrorManager printer \u003d new PrintStreamErrorManager(createMessageFormatter(), outStream);\n            printer.setSummaryDetailLevel(options.summaryDetailLevel);\n            setErrorManager(printer);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 220,
+      "functionName": "initOptions",
+      "functionAnnotation": "",
+      "functionDoc": "Initialize the compiler options. Only necessary if you\u0027re not doing\na normal compile() job.\n",
+      "diff": "@@ -1,12 +1,12 @@\n public void initOptions(CompilerOptions options) {\n-    options_ \u003d options;\n+    this.options \u003d options;\n     if (errorManager \u003d\u003d null) {\n         if (outStream \u003d\u003d null) {\n-            setErrorManager(new LoggerErrorManager(createMessageFormatter(), logger_));\n+            setErrorManager(new LoggerErrorManager(createMessageFormatter(), logger));\n         } else {\n             PrintStreamErrorManager printer \u003d new PrintStreamErrorManager(createMessageFormatter(), outStream);\n-            printer.setSummaryDetailLevel(options_.summaryDetailLevel);\n+            printer.setSummaryDetailLevel(options.summaryDetailLevel);\n             setErrorManager(printer);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6f2539acd3c37bd7f0d031b43364f75a5cd6d5f7": {
+      "type": "Yintroduced",
+      "commitMessage": "fix some code that was initializing options from flags twice.\n(and thus re-parsing the js messages bundles)\nas it turns out, there are a lot of ways to not initialize options. (Nick)\nR\u003djohn\nDELTA\u003d99  (72 added, 24 deleted, 3 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@147 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/10, 10:41 AM",
+      "commitName": "6f2539acd3c37bd7f0d031b43364f75a5cd6d5f7",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,12 @@\n+public void initOptions(CompilerOptions options) {\n+    options_ \u003d options;\n+    if (errorManager \u003d\u003d null) {\n+        if (outStream \u003d\u003d null) {\n+            setErrorManager(new LoggerErrorManager(createMessageFormatter(), logger_));\n+        } else {\n+            PrintStreamErrorManager printer \u003d new PrintStreamErrorManager(createMessageFormatter(), outStream);\n+            printer.setSummaryDetailLevel(options_.summaryDetailLevel);\n+            setErrorManager(printer);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void initOptions(CompilerOptions options) {\n    options_ \u003d options;\n    if (errorManager \u003d\u003d null) {\n        if (outStream \u003d\u003d null) {\n            setErrorManager(new LoggerErrorManager(createMessageFormatter(), logger_));\n        } else {\n            PrintStreamErrorManager printer \u003d new PrintStreamErrorManager(createMessageFormatter(), outStream);\n            printer.setSummaryDetailLevel(options_.summaryDetailLevel);\n            setErrorManager(printer);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 220,
+      "functionName": "initOptions",
+      "functionAnnotation": "",
+      "functionDoc": "Initialize the compiler options. Only necessary if you\u0027re not doing\na normal compile() job.\n"
+    }
+  }
+}

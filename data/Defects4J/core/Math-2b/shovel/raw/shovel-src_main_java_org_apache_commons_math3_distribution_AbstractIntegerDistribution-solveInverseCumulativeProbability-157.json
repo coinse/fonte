@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-2b",
+  "repositoryPath": "/tmp/Math-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractIntegerDistribution.java",
+  "functionName": "solveInverseCumulativeProbability",
+  "functionId": "solveInverseCumulativeProbability___p-double(modifiers-final)__lower-int__upper-int",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/distribution/AbstractIntegerDistribution.java",
+  "functionAnnotation": "",
+  "functionDoc": "This is a utility function used by {@link\n#inverseCumulativeProbability(double)}. It assumes {@code 0 \u003c p \u003c 1} and\nthat the inverse cumulative probability lies in the bracket {@code\n(lower, upper]}. The implementation does simple bisection to find the\nsmallest {@code p}-quantile \u003ccode\u003einf{x in Z | P(X\u003c\u003dx) \u003e\u003d p}\u003c/code\u003e.\n\n@param p the cumulative probability\n@param lower a value satisfying {@code cumulativeProbability(lower) \u003c p}\n@param upper a value satisfying {@code p \u003c\u003d cumulativeProbability(upper)}\n@return the smallest {@code p}-quantile of this distribution\n",
+  "functionStartLine": 157,
+  "functionEndLine": 177,
+  "numCommitsSeen": 30,
+  "timeTaken": 12068,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "711d6b94a120d413e9d8bd21bb26ec7d0aeecc39"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "711d6b94a120d413e9d8bd21bb26ec7d0aeecc39": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected int solveInverseCumulativeProbability(final double p, int lower, int upper) {\n    while (lower + 1 \u003c upper) {\n        int xm \u003d (lower + upper) / 2;\n        if (xm \u003c lower || xm \u003e upper) {\n            xm \u003d lower + (upper - lower) / 2;\n        }\n        double pm \u003d checkedCumulativeProbability(xm);\n        if (pm \u003e\u003d p) {\n            upper \u003d xm;\n        } else {\n            lower \u003d xm;\n        }\n    }\n    return upper;\n}",
+      "path": "src/main/java/org/apache/commons/math3/distribution/AbstractIntegerDistribution.java",
+      "functionStartLine": 131,
+      "functionName": "solveInverseCumulativeProbability",
+      "functionAnnotation": "",
+      "functionDoc": "This is a utility function used by {@link\n#inverseCumulativeProbability(double)}. It assumes {@code 0 \u003c p \u003c 1} and\nthat the inverse cumulative probability lies in the bracket {@code\n(lower, upper]}. The implementation does simple bisection to find the\nsmallest {@code p}-quantile \u003ccode\u003einf{x in Z | P(X\u003c\u003dx) \u003e\u003d p}\u003c/code\u003e.\n\n@param p the cumulative probability\n@param lower a value satisfying {@code cumulativeProbability(lower) \u003c p}\n@param upper a value satisfying {@code p \u003c\u003d cumulativeProbability(upper)}\n@return the smallest {@code p}-quantile of this distribution\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/distribution/AbstractIntegerDistribution.java",
+        "newPath": "src/main/java/org/apache/commons/math3/distribution/AbstractIntegerDistribution.java",
+        "oldMethodName": "solveInverseCumulativeProbability",
+        "newMethodName": "solveInverseCumulativeProbability"
+      }
+    },
+    "711d6b94a120d413e9d8bd21bb26ec7d0aeecc39": {
+      "type": "Yintroduced",
+      "commitMessage": "Modifications to the hierarchy of distributions, according to MATH-692. Patch contributed by Christian Winter.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1226041 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/30/11, 9:18 PM",
+      "commitName": "711d6b94a120d413e9d8bd21bb26ec7d0aeecc39",
+      "commitAuthor": "Sebastien Brisard",
+      "diff": "@@ -0,0 +1,15 @@\n+protected int solveInverseCumulativeProbability(final double p, int lower, int upper) {\n+    while (lower + 1 \u003c upper) {\n+        int xm \u003d (lower + upper) / 2;\n+        if (xm \u003c lower || xm \u003e upper) {\n+            xm \u003d lower + (upper - lower) / 2;\n+        }\n+        double pm \u003d checkedCumulativeProbability(xm);\n+        if (pm \u003e\u003d p) {\n+            upper \u003d xm;\n+        } else {\n+            lower \u003d xm;\n+        }\n+    }\n+    return upper;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected int solveInverseCumulativeProbability(final double p, int lower, int upper) {\n    while (lower + 1 \u003c upper) {\n        int xm \u003d (lower + upper) / 2;\n        if (xm \u003c lower || xm \u003e upper) {\n            xm \u003d lower + (upper - lower) / 2;\n        }\n        double pm \u003d checkedCumulativeProbability(xm);\n        if (pm \u003e\u003d p) {\n            upper \u003d xm;\n        } else {\n            lower \u003d xm;\n        }\n    }\n    return upper;\n}",
+      "path": "src/main/java/org/apache/commons/math/distribution/AbstractIntegerDistribution.java",
+      "functionStartLine": 131,
+      "functionName": "solveInverseCumulativeProbability",
+      "functionAnnotation": "",
+      "functionDoc": "This is a utility function used by {@link\n#inverseCumulativeProbability(double)}. It assumes {@code 0 \u003c p \u003c 1} and\nthat the inverse cumulative probability lies in the bracket {@code\n(lower, upper]}. The implementation does simple bisection to find the\nsmallest {@code p}-quantile \u003ccode\u003einf{x in Z | P(X\u003c\u003dx) \u003e\u003d p}\u003c/code\u003e.\n\n@param p the cumulative probability\n@param lower a value satisfying {@code cumulativeProbability(lower) \u003c p}\n@param upper a value satisfying {@code p \u003c\u003d cumulativeProbability(upper)}\n@return the smallest {@code p}-quantile of this distribution\n"
+    }
+  }
+}

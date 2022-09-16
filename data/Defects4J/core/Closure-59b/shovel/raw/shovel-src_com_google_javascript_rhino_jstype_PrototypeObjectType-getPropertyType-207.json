@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrototypeObjectType.java",
+  "functionName": "getPropertyType",
+  "functionId": "getPropertyType___property-String",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 207,
+  "functionEndLine": 213,
+  "numCommitsSeen": 42,
+  "timeTaken": 1048,
+  "changeHistory": [
+    "8dc67305aec856292735bb821fe41e7f9032e7e1",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "8dc67305aec856292735bb821fe41e7f9032e7e1": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8dc67305aec856292735bb821fe41e7f9032e7e1": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nMake ObjectType implement StaticScope.\nThis is part of a long-term plan to write a general\nsymbol table with a unified API across many different types\nof data structures.\nI accidentally fixed a bug in interfaces when doing this, so added tests for the bugs i fixed.\n\nR\u003dacleung\nDELTA\u003d177  (101 added, 49 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2282\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1182 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/15/11, 1:20 PM",
+      "commitName": "8dc67305aec856292735bb821fe41e7f9032e7e1",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nMake ObjectType implement StaticScope.\nThis is part of a long-term plan to write a general\nsymbol table with a unified API across many different types\nof data structures.\nI accidentally fixed a bug in interfaces when doing this, so added tests for the bugs i fixed.\n\nR\u003dacleung\nDELTA\u003d177  (101 added, 49 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2282\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1182 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/15/11, 1:20 PM",
+          "commitName": "8dc67305aec856292735bb821fe41e7f9032e7e1",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "5/16/11, 12:57 PM",
+          "commitNameOld": "c438dfd06013f82daa648d23b864842ff1881695",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 30.02,
+          "commitsBetweenForRepo": 75,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic JSType getPropertyType(String property) {\n    StaticSlot\u003cJSType\u003e slot \u003d getSlot(property);\n    if (slot \u003d\u003d null) {\n        return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n    }\n    return slot.getType();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 207,
+          "functionName": "getPropertyType",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,8 @@\n @Override\n-public JSType getPropertyType(String propertyName) {\n-    Property p \u003d properties.get(propertyName);\n-    if (p !\u003d null) {\n-        return p.type;\n+public JSType getPropertyType(String property) {\n+    StaticSlot\u003cJSType\u003e slot \u003d getSlot(property);\n+    if (slot \u003d\u003d null) {\n+        return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n     }\n-    ObjectType implicitPrototype \u003d getImplicitPrototype();\n-    if (implicitPrototype !\u003d null) {\n-        return implicitPrototype.getPropertyType(propertyName);\n-    }\n-    return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n+    return slot.getType();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[propertyName-String]",
+            "newValue": "[property-String]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nMake ObjectType implement StaticScope.\nThis is part of a long-term plan to write a general\nsymbol table with a unified API across many different types\nof data structures.\nI accidentally fixed a bug in interfaces when doing this, so added tests for the bugs i fixed.\n\nR\u003dacleung\nDELTA\u003d177  (101 added, 49 deleted, 27 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2282\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1182 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/15/11, 1:20 PM",
+          "commitName": "8dc67305aec856292735bb821fe41e7f9032e7e1",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "5/16/11, 12:57 PM",
+          "commitNameOld": "c438dfd06013f82daa648d23b864842ff1881695",
+          "commitAuthorOld": "zhuyi@google.com",
+          "daysBetweenCommits": 30.02,
+          "commitsBetweenForRepo": 75,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic JSType getPropertyType(String property) {\n    StaticSlot\u003cJSType\u003e slot \u003d getSlot(property);\n    if (slot \u003d\u003d null) {\n        return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n    }\n    return slot.getType();\n}",
+          "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+          "functionStartLine": 207,
+          "functionName": "getPropertyType",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,8 @@\n @Override\n-public JSType getPropertyType(String propertyName) {\n-    Property p \u003d properties.get(propertyName);\n-    if (p !\u003d null) {\n-        return p.type;\n+public JSType getPropertyType(String property) {\n+    StaticSlot\u003cJSType\u003e slot \u003d getSlot(property);\n+    if (slot \u003d\u003d null) {\n+        return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n     }\n-    ObjectType implicitPrototype \u003d getImplicitPrototype();\n-    if (implicitPrototype !\u003d null) {\n-        return implicitPrototype.getPropertyType(propertyName);\n-    }\n-    return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n+    return slot.getType();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+@Override\n+public JSType getPropertyType(String propertyName) {\n+    Property p \u003d properties.get(propertyName);\n+    if (p !\u003d null) {\n+        return p.type;\n+    }\n+    ObjectType implicitPrototype \u003d getImplicitPrototype();\n+    if (implicitPrototype !\u003d null) {\n+        return implicitPrototype.getPropertyType(propertyName);\n+    }\n+    return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JSType getPropertyType(String propertyName) {\n    Property p \u003d properties.get(propertyName);\n    if (p !\u003d null) {\n        return p.type;\n    }\n    ObjectType implicitPrototype \u003d getImplicitPrototype();\n    if (implicitPrototype !\u003d null) {\n        return implicitPrototype.getPropertyType(propertyName);\n    }\n    return getNativeType(JSTypeNative.UNKNOWN_TYPE);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 192,
+      "functionName": "getPropertyType",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

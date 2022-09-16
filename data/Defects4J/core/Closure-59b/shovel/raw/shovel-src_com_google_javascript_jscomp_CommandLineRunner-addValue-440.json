@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CommandLineRunner.java",
+  "functionName": "addValue",
+  "functionId": "$addValue___value-Object",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CommandLineRunner.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 440,
+  "functionEndLine": 443,
+  "numCommitsSeen": 44,
+  "timeTaken": 887,
+  "changeHistory": [
+    "fcccf543e85a214f0948d1ac5cab3fa05363e845"
+  ],
+  "changeHistoryShort": {
+    "fcccf543e85a214f0948d1ac5cab3fa05363e845": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fcccf543e85a214f0948d1ac5cab3fa05363e845": {
+      "type": "Yintroduced",
+      "commitMessage": "\nCreate new command-line parsers so that jscomp_off, jscomp_warning\njscomp_error get interpreted in the correct order relative\nto one another.\nFixes issue 407\n\nR\u003dzhuyi,acleung\nDELTA\u003d239  (181 added, 33 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@973 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/6/11, 11:16 AM",
+      "commitName": "fcccf543e85a214f0948d1ac5cab3fa05363e845",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public void addValue(Object value) throws CmdLineException {\n+    proxy.addValue((String) value);\n+    warningGuardSpec.add(level, (String) value);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void addValue(Object value) throws CmdLineException {\n    proxy.addValue((String) value);\n    warningGuardSpec.add(level, (String) value);\n}",
+      "path": "src/com/google/javascript/jscomp/CommandLineRunner.java",
+      "functionStartLine": 436,
+      "functionName": "addValue",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

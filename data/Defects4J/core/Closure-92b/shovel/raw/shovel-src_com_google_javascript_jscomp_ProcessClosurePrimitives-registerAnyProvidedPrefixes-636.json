@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "registerAnyProvidedPrefixes",
+  "functionId": "registerAnyProvidedPrefixes___ns-String__node-Node__module-JSModule",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "Registers ProvidedNames for prefix namespaces if they haven\u0027t\nalready been defined. The prefix namespaces must be registered in\norder from shortest to longest.\n\n@param ns The namespace whose prefixes may need to be provided.\n@param node The EXPR of the provide call.\n@param module The current module.\n",
+  "functionStartLine": 636,
+  "functionEndLine": 651,
+  "numCommitsSeen": 23,
+  "timeTaken": 1386,
+  "changeHistory": [
+    "1046b0c09e2371f8924f72331d42db5b554c4a32"
+  ],
+  "changeHistoryShort": {
+    "1046b0c09e2371f8924f72331d42db5b554c4a32": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1046b0c09e2371f8924f72331d42db5b554c4a32": {
+      "type": "Yintroduced",
+      "commitMessage": "Rewrite ProcessClosurePrimitives to have a distinct indexing and mutation step.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@94 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/5/10, 11:27 AM",
+      "commitName": "1046b0c09e2371f8924f72331d42db5b554c4a32",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,12 @@\n+private void registerAnyProvidedPrefixes(String ns, Node node, JSModule module) {\n+    int pos \u003d ns.indexOf(\u0027.\u0027);\n+    while (pos !\u003d -1) {\n+        String prefixNs \u003d ns.substring(0, pos);\n+        pos \u003d ns.indexOf(\u0027.\u0027, pos + 1);\n+        if (providedNames.containsKey(prefixNs)) {\n+            providedNames.get(prefixNs).addProvide(node, module, false);\n+        } else {\n+            providedNames.put(prefixNs, new ProvidedName(prefixNs, node, module, false));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void registerAnyProvidedPrefixes(String ns, Node node, JSModule module) {\n    int pos \u003d ns.indexOf(\u0027.\u0027);\n    while (pos !\u003d -1) {\n        String prefixNs \u003d ns.substring(0, pos);\n        pos \u003d ns.indexOf(\u0027.\u0027, pos + 1);\n        if (providedNames.containsKey(prefixNs)) {\n            providedNames.get(prefixNs).addProvide(node, module, false);\n        } else {\n            providedNames.put(prefixNs, new ProvidedName(prefixNs, node, module, false));\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 621,
+      "functionName": "registerAnyProvidedPrefixes",
+      "functionAnnotation": "",
+      "functionDoc": "Registers ProvidedNames for prefix namespaces if they haven\u0027t\nalready been defined. The prefix namespaces must be registered in\norder from shortest to longest.\n\n@param ns The namespace whose prefixes may need to be provided.\n@param node The EXPR of the provide call.\n@param module The current module.\n"
+    }
+  }
+}

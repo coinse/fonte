@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "isAllowedProp",
+  "functionId": "$isAllowedProp___identifier-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 928,
+  "functionEndLine": 933,
+  "numCommitsSeen": 90,
+  "timeTaken": 1823,
+  "changeHistory": [
+    "8e80f7108073f1ecd04a9a5ff26c2876617a0b9a"
+  ],
+  "changeHistoryShort": {
+    "8e80f7108073f1ecd04a9a5ff26c2876617a0b9a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8e80f7108073f1ecd04a9a5ff26c2876617a0b9a": {
+      "type": "Yintroduced",
+      "commitMessage": "This does three things:\n1) It makes using es3 keywords and reserved words non fatal by default, it rewrites it to be a quoted property access.\n2) It improves the error message displayed when a property like this is seen.\n3) It introduces an ES3 diagnostic group that can be used to make these warnings errors again.\n\nFixes issue 1030\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d48372507\n",
+      "commitDate": "6/21/13, 4:44 PM",
+      "commitName": "8e80f7108073f1ecd04a9a5ff26c2876617a0b9a",
+      "commitAuthor": "Ben Lickly",
+      "diff": "@@ -0,0 +1,6 @@\n+private boolean isAllowedProp(String identifier) {\n+    if (config.languageMode \u003d\u003d LanguageMode.ECMASCRIPT3) {\n+        return !TokenStream.isKeyword(identifier);\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isAllowedProp(String identifier) {\n    if (config.languageMode \u003d\u003d LanguageMode.ECMASCRIPT3) {\n        return !TokenStream.isKeyword(identifier);\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 927,
+      "functionName": "isAllowedProp",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

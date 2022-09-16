@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "enableTestMode",
+  "functionId": "enableTestMode___externsSupplier-Supplier__List__JSSourceFile______inputsSupplier-Supplier__List__JSSourceFile______modulesSupplier-Supplier__List__JSModule______exitCodeReceiver-Function__Integer,Boolean__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "@VisibleForTesting",
+  "functionDoc": "Put the command line runner into test mode. In test mode,\nall outputs will be blackholed.\n\n@param externsSupplier A provider for externs.\n@param inputsSupplier A provider for source inputs.\n@param modulesSupplier A provider for modules. Only one of inputsSupplier\n    and modulesSupplier may be non-null.\n@param exitCodeReceiver A receiver for the status code that would\n    have been passed to System.exit in non-test mode.\n",
+  "functionStartLine": 134,
+  "functionEndLine": 146,
+  "numCommitsSeen": 73,
+  "timeTaken": 1972,
+  "changeHistory": [
+    "e152ec001d2c6a9bbd6e0d9443552371d11e461f",
+    "61b5204064333144810c184d38b4dc78f947bd62"
+  ],
+  "changeHistoryShort": {
+    "e152ec001d2c6a9bbd6e0d9443552371d11e461f": "Yparameterchange",
+    "61b5204064333144810c184d38b4dc78f947bd62": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e152ec001d2c6a9bbd6e0d9443552371d11e461f": {
+      "type": "Yparameterchange",
+      "commitMessage": "\nMake guava not google_common\n\nR\u003dacleung\nDELTA\u003d87  (34 added, 19 deleted, 34 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d196209\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@392 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/27/10, 3:52 PM",
+      "commitName": "e152ec001d2c6a9bbd6e0d9443552371d11e461f",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "8/25/10, 2:00 PM",
+      "commitNameOld": "64857ce3eaa6d9ab630a509ec16cb2bc6360633b",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.08,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@VisibleForTesting\nvoid enableTestMode(Supplier\u003cList\u003cJSSourceFile\u003e\u003e externsSupplier, Supplier\u003cList\u003cJSSourceFile\u003e\u003e inputsSupplier, Supplier\u003cList\u003cJSModule\u003e\u003e modulesSupplier, Function\u003cInteger, Boolean\u003e exitCodeReceiver) {\n    Preconditions.checkArgument(inputsSupplier \u003d\u003d null ^ modulesSupplier \u003d\u003d null);\n    testMode \u003d true;\n    this.externsSupplierForTesting \u003d externsSupplier;\n    this.inputsSupplierForTesting \u003d inputsSupplier;\n    this.modulesSupplierForTesting \u003d modulesSupplier;\n    this.exitCodeReceiverForTesting \u003d exitCodeReceiver;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 127,
+      "functionName": "enableTestMode",
+      "functionAnnotation": "@VisibleForTesting",
+      "functionDoc": "Put the command line runner into test mode. In test mode,\nall outputs will be blackholed.\n\n@param externsSupplier A provider for externs.\n@param inputsSupplier A provider for source inputs.\n@param modulesSupplier A provider for modules. Only one of inputsSupplier\n    and modulesSupplier may be non-null.\n@param exitCodeReceiver A receiver for the status code that would\n    have been passed to System.exit in non-test mode.\n",
+      "diff": "@@ -1,9 +1,9 @@\n @VisibleForTesting\n-void enableTestMode(Supplier\u003cList\u003cJSSourceFile\u003e\u003e externsSupplier, Supplier\u003cList\u003cJSSourceFile\u003e\u003e inputsSupplier, Supplier\u003cList\u003cJSModule\u003e\u003e modulesSupplier, Receiver\u003cInteger\u003e exitCodeReceiver) {\n+void enableTestMode(Supplier\u003cList\u003cJSSourceFile\u003e\u003e externsSupplier, Supplier\u003cList\u003cJSSourceFile\u003e\u003e inputsSupplier, Supplier\u003cList\u003cJSModule\u003e\u003e modulesSupplier, Function\u003cInteger, Boolean\u003e exitCodeReceiver) {\n     Preconditions.checkArgument(inputsSupplier \u003d\u003d null ^ modulesSupplier \u003d\u003d null);\n     testMode \u003d true;\n     this.externsSupplierForTesting \u003d externsSupplier;\n     this.inputsSupplierForTesting \u003d inputsSupplier;\n     this.modulesSupplierForTesting \u003d modulesSupplier;\n     this.exitCodeReceiverForTesting \u003d exitCodeReceiver;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[externsSupplier-Supplier\u003cList\u003cJSSourceFile\u003e\u003e, inputsSupplier-Supplier\u003cList\u003cJSSourceFile\u003e\u003e, modulesSupplier-Supplier\u003cList\u003cJSModule\u003e\u003e, exitCodeReceiver-Receiver\u003cInteger\u003e]",
+        "newValue": "[externsSupplier-Supplier\u003cList\u003cJSSourceFile\u003e\u003e, inputsSupplier-Supplier\u003cList\u003cJSSourceFile\u003e\u003e, modulesSupplier-Supplier\u003cList\u003cJSModule\u003e\u003e, exitCodeReceiver-Function\u003cInteger,Boolean\u003e]"
+      }
+    },
+    "61b5204064333144810c184d38b4dc78f947bd62": {
+      "type": "Yintroduced",
+      "commitMessage": "\nCreate a much better integration test for CommandLineRunner.\n\nR\u003dacleung\nDELTA\u003d188  (118 added, 33 deleted, 37 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d181025\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@375 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/20/10, 4:46 PM",
+      "commitName": "61b5204064333144810c184d38b4dc78f947bd62",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+@VisibleForTesting\n+void enableTestMode(Supplier\u003cList\u003cJSSourceFile\u003e\u003e externsSupplier, Supplier\u003cList\u003cJSSourceFile\u003e\u003e inputsSupplier, Supplier\u003cList\u003cJSModule\u003e\u003e modulesSupplier, Receiver\u003cInteger\u003e exitCodeReceiver) {\n+    Preconditions.checkArgument(inputsSupplier \u003d\u003d null ^ modulesSupplier \u003d\u003d null);\n+    testMode \u003d true;\n+    this.externsSupplierForTesting \u003d externsSupplier;\n+    this.inputsSupplierForTesting \u003d inputsSupplier;\n+    this.modulesSupplierForTesting \u003d modulesSupplier;\n+    this.exitCodeReceiverForTesting \u003d exitCodeReceiver;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@VisibleForTesting\nvoid enableTestMode(Supplier\u003cList\u003cJSSourceFile\u003e\u003e externsSupplier, Supplier\u003cList\u003cJSSourceFile\u003e\u003e inputsSupplier, Supplier\u003cList\u003cJSModule\u003e\u003e modulesSupplier, Receiver\u003cInteger\u003e exitCodeReceiver) {\n    Preconditions.checkArgument(inputsSupplier \u003d\u003d null ^ modulesSupplier \u003d\u003d null);\n    testMode \u003d true;\n    this.externsSupplierForTesting \u003d externsSupplier;\n    this.inputsSupplierForTesting \u003d inputsSupplier;\n    this.modulesSupplierForTesting \u003d modulesSupplier;\n    this.exitCodeReceiverForTesting \u003d exitCodeReceiver;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 127,
+      "functionName": "enableTestMode",
+      "functionAnnotation": "@VisibleForTesting",
+      "functionDoc": "Put the command line runner into test mode. In test mode,\nall outputs will be blackholed.\n\n@param externsSupplier A provider for externs.\n@param inputsSupplier A provider for source inputs.\n@param modulesSupplier A provider for modules. Only one of inputsSupplier\n    and modulesSupplier may be non-null.\n@param exitCodeReceiver A receiver for the status code that would\n    have been passed to System.exit in non-test mode.\n"
+    }
+  }
+}

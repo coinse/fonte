@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GlobalNamespace.java",
+  "functionName": "addRefInternal",
+  "functionId": "$addRefInternal___ref-Ref",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GlobalNamespace.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 955,
+  "functionEndLine": 960,
+  "numCommitsSeen": 22,
+  "timeTaken": 1402,
+  "changeHistory": [
+    "8be3896c7639f91d83ac220531cc5cbdc5a029d4",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "8be3896c7639f91d83ac220531cc5cbdc5a029d4": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8be3896c7639f91d83ac220531cc5cbdc5a029d4": {
+      "type": "Ybodychange",
+      "commitMessage": "\nClean up global namespacing a bit, to make way for additional\nchecks.\nI\u0027m not quite sure if the change w/r/t \u0027declaration\u0027 and \u0027refs\u0027\nis an improvement or not--i think it will allow us to get rid\nof special cases down the line, but am not sure.\n\nR\u003dacleung\nDELTA\u003d117  (40 added, 9 deleted, 68 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1542\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1031 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/25/11, 9:07 AM",
+      "commitName": "8be3896c7639f91d83ac220531cc5cbdc5a029d4",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 12.87,
+      "commitsBetweenForRepo": 31,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void addRefInternal(Ref ref) {\n    if (refs \u003d\u003d null) {\n        refs \u003d Lists.newArrayList();\n    }\n    refs.add(ref);\n}",
+      "path": "src/com/google/javascript/jscomp/GlobalNamespace.java",
+      "functionStartLine": 890,
+      "functionName": "addRefInternal",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n void addRefInternal(Ref ref) {\n     if (refs \u003d\u003d null) {\n-        refs \u003d new LinkedList\u003cRef\u003e();\n+        refs \u003d Lists.newArrayList();\n     }\n     refs.add(ref);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,6 @@\n+void addRefInternal(Ref ref) {\n+    if (refs \u003d\u003d null) {\n+        refs \u003d new LinkedList\u003cRef\u003e();\n+    }\n+    refs.add(ref);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void addRefInternal(Ref ref) {\n    if (refs \u003d\u003d null) {\n        refs \u003d new LinkedList\u003cRef\u003e();\n    }\n    refs.add(ref);\n}",
+      "path": "src/com/google/javascript/jscomp/GlobalNamespace.java",
+      "functionStartLine": 871,
+      "functionName": "addRefInternal",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-131b",
+  "repositoryPath": "/tmp/Closure-131b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "appendHexJavaScriptRepresentation",
+  "functionId": "appendHexJavaScriptRepresentation___codePoint-int__out-Appendable",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a JavaScript representation of the character in a hex escaped\nformat.\n\n@param codePoint The code point to append.\n@param out The buffer to which the hex representation should be appended.\n",
+  "functionStartLine": 1268,
+  "functionEndLine": 1286,
+  "numCommitsSeen": 78,
+  "timeTaken": 5225,
+  "changeHistory": [
+    "70a5626922ea7e8c98747e22b6986638ba38fadc",
+    "6fcb0080b198186d44552a5996ed81c3aa4a04f8"
+  ],
+  "changeHistoryShort": {
+    "70a5626922ea7e8c98747e22b6986638ba38fadc": "Ymultichange(Ybodychange,Ydocchange)",
+    "6fcb0080b198186d44552a5996ed81c3aa4a04f8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "70a5626922ea7e8c98747e22b6986638ba38fadc": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "\nFix various typos, spelling and grammar errors.\nFixes issue 734. \nContributed by Robert Gust Bardon\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4827\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1979 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/18/12, 11:09 AM",
+      "commitName": "70a5626922ea7e8c98747e22b6986638ba38fadc",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nFix various typos, spelling and grammar errors.\nFixes issue 734. \nContributed by Robert Gust Bardon\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4827\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1979 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/18/12, 11:09 AM",
+          "commitName": "70a5626922ea7e8c98747e22b6986638ba38fadc",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/14/12, 11:02 AM",
+          "commitNameOld": "59dbb7a28680caad08ddb1658123fe0cbb1ae689",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 4.0,
+          "commitsBetweenForRepo": 10,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static void appendHexJavaScriptRepresentation(int codePoint, Appendable out) throws IOException {\n    if (Character.isSupplementaryCodePoint(codePoint)) {\n        char[] surrogates \u003d Character.toChars(codePoint);\n        appendHexJavaScriptRepresentation(surrogates[0], out);\n        appendHexJavaScriptRepresentation(surrogates[1], out);\n        return;\n    }\n    out.append(\"\\\\u\").append(HEX_CHARS[(codePoint \u003e\u003e\u003e 12) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 8) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 4) \u0026 0xf]).append(HEX_CHARS[codePoint \u0026 0xf]);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 1219,
+          "functionName": "appendHexJavaScriptRepresentation",
+          "functionAnnotation": "",
+          "functionDoc": "Returns a JavaScript representation of the character in a hex escaped\nformat.\n\n@param codePoint The code point to append.\n@param out The buffer to which the hex representation should be appended.\n",
+          "diff": "",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nFix various typos, spelling and grammar errors.\nFixes issue 734. \nContributed by Robert Gust Bardon\n\nR\u003dnicksantos\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4827\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1979 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/18/12, 11:09 AM",
+          "commitName": "70a5626922ea7e8c98747e22b6986638ba38fadc",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/14/12, 11:02 AM",
+          "commitNameOld": "59dbb7a28680caad08ddb1658123fe0cbb1ae689",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 4.0,
+          "commitsBetweenForRepo": 10,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static void appendHexJavaScriptRepresentation(int codePoint, Appendable out) throws IOException {\n    if (Character.isSupplementaryCodePoint(codePoint)) {\n        char[] surrogates \u003d Character.toChars(codePoint);\n        appendHexJavaScriptRepresentation(surrogates[0], out);\n        appendHexJavaScriptRepresentation(surrogates[1], out);\n        return;\n    }\n    out.append(\"\\\\u\").append(HEX_CHARS[(codePoint \u003e\u003e\u003e 12) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 8) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 4) \u0026 0xf]).append(HEX_CHARS[codePoint \u0026 0xf]);\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 1219,
+          "functionName": "appendHexJavaScriptRepresentation",
+          "functionAnnotation": "",
+          "functionDoc": "Returns a JavaScript representation of the character in a hex escaped\nformat.\n\n@param codePoint The code point to append.\n@param out The buffer to which the hex representation should be appended.\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "Returns a javascript representation of the character in a hex escaped\nformat.\n\n@param codePoint The codepoint to append.\n@param out The buffer to which the hex representation should be appended.\n",
+            "newValue": "Returns a JavaScript representation of the character in a hex escaped\nformat.\n\n@param codePoint The code point to append.\n@param out The buffer to which the hex representation should be appended.\n"
+          }
+        }
+      ]
+    },
+    "6fcb0080b198186d44552a5996ed81c3aa4a04f8": {
+      "type": "Yintroduced",
+      "commitMessage": "inline a method from common libraries.\n\nAdd some debugging tools for AmbiguateProperties.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@57 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/5/10, 7:44 PM",
+      "commitName": "6fcb0080b198186d44552a5996ed81c3aa4a04f8",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private static void appendHexJavaScriptRepresentation(int codePoint, Appendable out) throws IOException {\n+    if (Character.isSupplementaryCodePoint(codePoint)) {\n+        char[] surrogates \u003d Character.toChars(codePoint);\n+        appendHexJavaScriptRepresentation(surrogates[0], out);\n+        appendHexJavaScriptRepresentation(surrogates[1], out);\n+        return;\n+    }\n+    out.append(\"\\\\u\").append(HEX_CHARS[(codePoint \u003e\u003e\u003e 12) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 8) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 4) \u0026 0xf]).append(HEX_CHARS[codePoint \u0026 0xf]);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void appendHexJavaScriptRepresentation(int codePoint, Appendable out) throws IOException {\n    if (Character.isSupplementaryCodePoint(codePoint)) {\n        char[] surrogates \u003d Character.toChars(codePoint);\n        appendHexJavaScriptRepresentation(surrogates[0], out);\n        appendHexJavaScriptRepresentation(surrogates[1], out);\n        return;\n    }\n    out.append(\"\\\\u\").append(HEX_CHARS[(codePoint \u003e\u003e\u003e 12) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 8) \u0026 0xf]).append(HEX_CHARS[(codePoint \u003e\u003e\u003e 4) \u0026 0xf]).append(HEX_CHARS[codePoint \u0026 0xf]);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 975,
+      "functionName": "appendHexJavaScriptRepresentation",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a javascript representation of the character in a hex escaped\nformat.\n\n@param codePoint The codepoint to append.\n@param out The buffer to which the hex representation should be appended.\n"
+    }
+  }
+}

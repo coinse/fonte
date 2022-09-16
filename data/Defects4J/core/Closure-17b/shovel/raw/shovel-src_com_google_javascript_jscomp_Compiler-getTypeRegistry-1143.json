@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "getTypeRegistry",
+  "functionId": "getTypeRegistry",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 1143,
+  "functionEndLine": 1148,
+  "numCommitsSeen": 148,
+  "timeTaken": 9823,
+  "changeHistory": [
+    "de13c3313c05f4449c50c560324389d6905a214d",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "de13c3313c05f4449c50c560324389d6905a214d": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "de13c3313c05f4449c50c560324389d6905a214d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/04/13 by john\n\n        Experimental option: Flag to change named object references from \"Object|null\" to \"Object|null|undefined\".\n\n        R\u003dalan,nick\n        DELTA\u003d7144  (7131 added, 5 deleted, 8 changed)\n\nChange on 2010/04/13 by nicksantos\n\n        get rid of some backdoor gmail apis.\n\n        R\u003djohn\n        DELTA\u003d44  (0 added, 33 deleted, 11 changed)\n\nChange on 2010/04/13 by nicksantos\n\n        fix TypeCheckTest to parse externs files properly.\n        i still need to merge the TypeCheckTest-forking cl into this one.\n\n        R\u003djohn\n        DELTA\u003d42  (12 added, 0 deleted, 30 changed)\n\nChange on 2010/04/13 by john\n\n        Enable expression decomposition for function inlining by default.\n\n        R\u003dnick\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\nChange on 2010/04/13 by john\n\n        Move ReplaceCssNames to allow type checking of goog.getCssName.\n\n        R\u003dmark\n        DELTA\u003d39  (35 added, 4 deleted, 0 changed)\n\nChange on 2010/04/13 by john\n\n        Maintain source and type information during ReplaceCssNames.\n\n        R\u003dmark\n        DELTA\u003d31  (30 added, 0 deleted, 1 changed)\n\nChange on 2010/04/13 by nick\n\n        fix up type information on event listener functions.\n\n        R\u003dalan\n        DELTA\u003d2  (0 added, 0 deleted, 2 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dwescxy\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@182 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/13/10, 2:39 PM",
+      "commitName": "de13c3313c05f4449c50c560324389d6905a214d",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/9/10, 7:21 AM",
+      "commitNameOld": "74a817bbf5256d671036356c58096f612535e4a2",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 4.3,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic JSTypeRegistry getTypeRegistry() {\n    if (typeRegistry \u003d\u003d null) {\n        typeRegistry \u003d new JSTypeRegistry(oldErrorReporter, options.looseTypes);\n    }\n    return typeRegistry;\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 973,
+      "functionName": "getTypeRegistry",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,7 @@\n @Override\n public JSTypeRegistry getTypeRegistry() {\n     if (typeRegistry \u003d\u003d null) {\n-        typeRegistry \u003d new JSTypeRegistry(oldErrorReporter);\n+        typeRegistry \u003d new JSTypeRegistry(oldErrorReporter, options.looseTypes);\n     }\n     return typeRegistry;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public JSTypeRegistry getTypeRegistry() {\n+    if (typeRegistry \u003d\u003d null) {\n+        typeRegistry \u003d new JSTypeRegistry(oldErrorReporter);\n+    }\n+    return typeRegistry;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JSTypeRegistry getTypeRegistry() {\n    if (typeRegistry \u003d\u003d null) {\n        typeRegistry \u003d new JSTypeRegistry(oldErrorReporter);\n    }\n    return typeRegistry;\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 924,
+      "functionName": "getTypeRegistry",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

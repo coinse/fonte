@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodePrinter.java",
+  "functionName": "setPreferLineBreakAtEndOfFile",
+  "functionId": "$setPreferLineBreakAtEndOfFile___lineBreakAtEnd-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodePrinter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Sets whether line breaking is preferred at end of file. This is useful\nif JS serving code needs a place to insert code, such as script tags,\nwithout interfering with source maps.\n\n@param lineBreakAtEnd If true, prefer line breaking at end of file.\n",
+  "functionStartLine": 592,
+  "functionEndLine": 595,
+  "numCommitsSeen": 29,
+  "timeTaken": 1197,
+  "changeHistory": [
+    "04ba01ff0c7a9a9c64205303a9dcca346da501a5"
+  ],
+  "changeHistoryShort": {
+    "04ba01ff0c7a9a9c64205303a9dcca346da501a5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "04ba01ff0c7a9a9c64205303a9dcca346da501a5": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd support for prefer line break at end of file. This allows us to insert code\nbetween files without affecting the source maps or deobfuscation.\n\nThis solution shifts an existing line break if it is near eof, which may result\nin a line longer than the normal line length advisory limit. The only\nalternative to that is to miss many eofs, which can impact the ability to place\ninterstitial code, or to place a break at the end of every file, which leads to\na hugely excessive number of breaks.\n\nWe could probably do better if we tracked line length across file boundaries\nwhich we currently do not.\n\nR\u003dacleung,johnlenz\nDELTA\u003d149  (128 added, 0 deleted, 21 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4172\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1762 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/6/12, 4:13 PM",
+      "commitName": "04ba01ff0c7a9a9c64205303a9dcca346da501a5",
+      "commitAuthor": "mwr@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+Builder setPreferLineBreakAtEndOfFile(boolean lineBreakAtEnd) {\n+    this.preferLineBreakAtEndOfFile \u003d lineBreakAtEnd;\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Builder setPreferLineBreakAtEndOfFile(boolean lineBreakAtEnd) {\n    this.preferLineBreakAtEndOfFile \u003d lineBreakAtEnd;\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/CodePrinter.java",
+      "functionStartLine": 593,
+      "functionName": "setPreferLineBreakAtEndOfFile",
+      "functionAnnotation": "",
+      "functionDoc": "Sets whether line breaking is preferred at end of file. This is useful\nif JS serving code needs a place to insert code, such as script tags,\nwithout interfering with source maps.\n\n@param lineBreakAtEnd If true, prefer line breaking at end of file.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "streamToOutputWriter",
+  "functionId": "streamToOutputWriter___stream-OutputStream",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a writer.\n",
+  "functionStartLine": 940,
+  "functionEndLine": 949,
+  "numCommitsSeen": 48,
+  "timeTaken": 1631,
+  "changeHistory": [
+    "4cede4f156740b7ce93d92d824066e9a42257541"
+  ],
+  "changeHistoryShort": {
+    "4cede4f156740b7ce93d92d824066e9a42257541": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4cede4f156740b7ce93d92d824066e9a42257541": {
+      "type": "Yintroduced",
+      "commitMessage": "\nUnify output encoding for real this time\nFixes issue 224.\n\nRevision created by MOE tool push_codebase.\n\nR\u003djohnlenz\nDELTA\u003d39  (5 added, 5 deleted, 29 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d196345\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@394 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/30/10, 4:16 PM",
+      "commitName": "4cede4f156740b7ce93d92d824066e9a42257541",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,7 @@\n+private Writer streamToOutputWriter(OutputStream stream) throws IOException {\n+    if (outputCharset \u003d\u003d null) {\n+        return new BufferedWriter(new OutputStreamWriter(stream));\n+    } else {\n+        return new BufferedWriter(new OutputStreamWriter(stream, outputCharset));\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Writer streamToOutputWriter(OutputStream stream) throws IOException {\n    if (outputCharset \u003d\u003d null) {\n        return new BufferedWriter(new OutputStreamWriter(stream));\n    } else {\n        return new BufferedWriter(new OutputStreamWriter(stream, outputCharset));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 848,
+      "functionName": "streamToOutputWriter",
+      "functionAnnotation": "",
+      "functionDoc": "Create a writer.\n"
+    }
+  }
+}

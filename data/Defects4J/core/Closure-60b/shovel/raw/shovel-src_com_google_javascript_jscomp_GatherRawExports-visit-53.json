@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GatherRawExports.java",
+  "functionName": "visit",
+  "functionId": "visit___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GatherRawExports.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 53,
+  "functionEndLine": 64,
+  "numCommitsSeen": 9,
+  "timeTaken": 2215,
+  "changeHistory": [
+    "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42"
+  ],
+  "changeHistoryShort": {
+    "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42": {
+      "type": "Yintroduced",
+      "commitMessage": "Add a pass for collecting symbols exported like window[\u0027x\u0027] \u003d ...\n\nFix for issue #70.\n\nAssorted minor bug fixes.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@31 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/11/09, 3:29 PM",
+      "commitName": "168bc14ff5e9e664863c3b1146f2a5b7a30ffb42",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public void visit(NodeTraversal t, Node n, Node parent) {\n+    Node sibling \u003d n.getNext();\n+    if (sibling !\u003d null \u0026\u0026 sibling.getType() \u003d\u003d Token.STRING \u0026\u0026 NodeUtil.isGet(parent)) {\n+        if (isGlobalThisObject(t, n)) {\n+            exportedVariables.add(sibling.getString());\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void visit(NodeTraversal t, Node n, Node parent) {\n    Node sibling \u003d n.getNext();\n    if (sibling !\u003d null \u0026\u0026 sibling.getType() \u003d\u003d Token.STRING \u0026\u0026 NodeUtil.isGet(parent)) {\n        if (isGlobalThisObject(t, n)) {\n            exportedVariables.add(sibling.getString());\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/GatherRawExports.java",
+      "functionStartLine": 53,
+      "functionName": "visit",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

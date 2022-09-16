@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NameGenerator.java",
+  "functionName": "checkPrefix",
+  "functionId": "checkPrefix___prefix-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NameGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Validates a name prefix.\n",
+  "functionStartLine": 90,
+  "functionEndLine": 105,
+  "numCommitsSeen": 10,
+  "timeTaken": 288,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+private void checkPrefix(String prefix) {\n+    if (prefix.length() \u003e 0) {\n+        if (!contains(firstChars, prefix.charAt(0))) {\n+            throw new IllegalArgumentException(\"prefix must start with one of: \" + Arrays.toString(firstChars));\n+        }\n+        for (int pos \u003d 1; pos \u003c prefix.length(); ++pos) {\n+            if (!contains(nonFirstChars, prefix.charAt(pos))) {\n+                throw new IllegalArgumentException(\"prefix has invalid characters, \" + \"must be one of: \" + Arrays.toString(nonFirstChars));\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void checkPrefix(String prefix) {\n    if (prefix.length() \u003e 0) {\n        if (!contains(firstChars, prefix.charAt(0))) {\n            throw new IllegalArgumentException(\"prefix must start with one of: \" + Arrays.toString(firstChars));\n        }\n        for (int pos \u003d 1; pos \u003c prefix.length(); ++pos) {\n            if (!contains(nonFirstChars, prefix.charAt(pos))) {\n                throw new IllegalArgumentException(\"prefix has invalid characters, \" + \"must be one of: \" + Arrays.toString(nonFirstChars));\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NameGenerator.java",
+      "functionStartLine": 91,
+      "functionName": "checkPrefix",
+      "functionAnnotation": "",
+      "functionDoc": "Validates a name prefix.\n"
+    }
+  }
+}

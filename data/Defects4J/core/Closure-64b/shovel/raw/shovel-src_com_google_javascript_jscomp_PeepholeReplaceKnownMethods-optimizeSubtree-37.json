@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeReplaceKnownMethods.java",
+  "functionName": "optimizeSubtree",
+  "functionId": "optimizeSubtree___subtree-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 37,
+  "functionEndLine": 42,
+  "numCommitsSeen": 1,
+  "timeTaken": 907,
+  "changeHistory": [
+    "3fc66a99d98015dc798215a666f6b5ad268028c2"
+  ],
+  "changeHistoryShort": {
+    "3fc66a99d98015dc798215a666f6b5ad268028c2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3fc66a99d98015dc798215a666f6b5ad268028c2": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRefactor out of replace known methods.\n\nR\u003dzhuyi\nDELTA\u003d1555  (825 added, 729 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2281\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1180 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/14/11, 5:29 PM",
+      "commitName": "3fc66a99d98015dc798215a666f6b5ad268028c2",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+Node optimizeSubtree(Node subtree) {\n+    if (NodeUtil.isCall(subtree)) {\n+        return tryFoldKnownMethods(subtree);\n+    }\n+    return subtree;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nNode optimizeSubtree(Node subtree) {\n    if (NodeUtil.isCall(subtree)) {\n        return tryFoldKnownMethods(subtree);\n    }\n    return subtree;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java",
+      "functionStartLine": 37,
+      "functionName": "optimizeSubtree",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

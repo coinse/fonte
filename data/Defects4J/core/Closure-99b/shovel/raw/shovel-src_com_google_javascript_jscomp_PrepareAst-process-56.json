@@ -1,0 +1,119 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-99b",
+  "repositoryPath": "/tmp/Closure-99b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 56,
+  "functionEndLine": 68,
+  "numCommitsSeen": 7,
+  "timeTaken": 748,
+  "changeHistory": [
+    "458118289064379bc22acfc7fd991686a4b062f1",
+    "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "458118289064379bc22acfc7fd991686a4b062f1": "Ybodychange",
+    "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044": "Ymultichange(Ymovefromfile,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "458118289064379bc22acfc7fd991686a4b062f1": {
+      "type": "Ybodychange",
+      "commitMessage": "Move NodeTypeNormalizations into the IRFactory. (John)\nR\u003drobert\nDELTA\u003d42  (22 added, 7 deleted, 13 changed)\n\nCreate the DependencyInfo interface.\nMake CompilerInput an implementation of DependencyInfo.\nOpen source it. (Nick)\nR\u003dandrew\nDELTA\u003d279  (185 added, 65 deleted, 29 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@157 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/26/10, 11:52 AM",
+      "commitName": "458118289064379bc22acfc7fd991686a4b062f1",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/23/10, 2:27 PM",
+      "commitNameOld": "2dc356a34ace77d20b27fa90fb6467d303bd09a8",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 2.89,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    if (assertOnChange) {\n        normalizeNodeTypes(root);\n    }\n    if (externs !\u003d null) {\n        NodeTraversal.traverse(compiler, externs, new PrepareAnnotations(compiler));\n    }\n    if (root !\u003d null) {\n        NodeTraversal.traverse(compiler, root, new PrepareAnnotations(compiler));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 56,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,12 @@\n @Override\n public void process(Node externs, Node root) {\n-    normalizeNodeTypes(root);\n+    if (assertOnChange) {\n+        normalizeNodeTypes(root);\n+    }\n     if (externs !\u003d null) {\n         NodeTraversal.traverse(compiler, externs, new PrepareAnnotations(compiler));\n     }\n     if (root !\u003d null) {\n         NodeTraversal.traverse(compiler, root, new PrepareAnnotations(compiler));\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044": {
+      "type": "Ymultichange(Ymovefromfile,Ybodychange)",
+      "commitMessage": "Merge NodeTypeNormalizer and CodingConventionAnnotator into\na single pass. (Nick)\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@116 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/24/10, 8:37 PM",
+      "commitName": "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Merge NodeTypeNormalizer and CodingConventionAnnotator into\na single pass. (Nick)\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@116 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "2/24/10, 8:37 PM",
+          "commitName": "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "2/24/10, 4:14 PM",
+          "commitNameOld": "4922461babcc37fb037d2a6db3fcb33fe4127a60",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 0.18,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    normalizeNodeTypes(root);\n    if (externs !\u003d null) {\n        NodeTraversal.traverse(compiler, externs, new PrepareAnnotations(compiler));\n    }\n    if (root !\u003d null) {\n        NodeTraversal.traverse(compiler, root, new PrepareAnnotations(compiler));\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+          "functionStartLine": 56,
+          "functionName": "process",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n @Override\n public void process(Node externs, Node root) {\n+    normalizeNodeTypes(root);\n     if (externs !\u003d null) {\n-        NodeTraversal.traverse(compiler, externs, this);\n+        NodeTraversal.traverse(compiler, externs, new PrepareAnnotations(compiler));\n     }\n     if (root !\u003d null) {\n-        NodeTraversal.traverse(compiler, root, this);\n+        NodeTraversal.traverse(compiler, root, new PrepareAnnotations(compiler));\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/com/google/javascript/jscomp/CodingConventionAnnotator.java",
+            "newPath": "src/com/google/javascript/jscomp/PrepareAst.java",
+            "oldMethodName": "process",
+            "newMethodName": "process"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Merge NodeTypeNormalizer and CodingConventionAnnotator into\na single pass. (Nick)\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@116 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "2/24/10, 8:37 PM",
+          "commitName": "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "2/24/10, 4:14 PM",
+          "commitNameOld": "4922461babcc37fb037d2a6db3fcb33fe4127a60",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 0.18,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    normalizeNodeTypes(root);\n    if (externs !\u003d null) {\n        NodeTraversal.traverse(compiler, externs, new PrepareAnnotations(compiler));\n    }\n    if (root !\u003d null) {\n        NodeTraversal.traverse(compiler, root, new PrepareAnnotations(compiler));\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+          "functionStartLine": 56,
+          "functionName": "process",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n @Override\n public void process(Node externs, Node root) {\n+    normalizeNodeTypes(root);\n     if (externs !\u003d null) {\n-        NodeTraversal.traverse(compiler, externs, this);\n+        NodeTraversal.traverse(compiler, externs, new PrepareAnnotations(compiler));\n     }\n     if (root !\u003d null) {\n-        NodeTraversal.traverse(compiler, root, this);\n+        NodeTraversal.traverse(compiler, root, new PrepareAnnotations(compiler));\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public void process(Node externs, Node root) {\n+    if (externs !\u003d null) {\n+        NodeTraversal.traverse(compiler, externs, this);\n+    }\n+    if (root !\u003d null) {\n+        NodeTraversal.traverse(compiler, root, this);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    if (externs !\u003d null) {\n        NodeTraversal.traverse(compiler, externs, this);\n    }\n    if (root !\u003d null) {\n        NodeTraversal.traverse(compiler, root, this);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/CodingConventionAnnotator.java",
+      "functionStartLine": 43,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

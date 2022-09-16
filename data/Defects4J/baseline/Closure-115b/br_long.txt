@@ -1,0 +1,47 @@
+
+<b>What steps will reproduce the problem?</b>
+
+1. Create a file input.js with the following &quot;minimal&quot; test case:
+
+    window[&quot;anchor&quot;] = function (obj, modifiesProp) {
+        return (function (saved) {
+            return modifiesProp(obj) + saved;
+        })(obj[&quot;prop&quot;]);
+    }
+
+2. Compile it with:
+
+    java -jar .../build/compiler.jar                    \
+        --compilation_level ADVANCED_OPTIMIZATIONS      \
+        --warning_level VERBOSE                         \
+        --externs window.js                             \
+        --js input.js                                   \
+        --js_output_file output.js
+
+3. That's all!
+
+What is the expected output?
+
+    window.foo=function(a,b){var HOLD=a.prop;return b(a)+HOLD};
+
+What do you see instead?
+
+    window.foo=function(a,b){return b(a)+a.prop};
+
+Note how this is semantically very different if modifiesProp/b (whose
+semantics are unknown to the compiler) side-effects a.prop.
+
+The evaluation order of + is well-defined in EcmaScript 5, but even
+then, this happens even if one substitutes the , (comma) operator.
+
+<b>What version of the product are you using? On what operating system?</b>
+
+Git HEAD
+
+    commit 4a62ee4bca02169dd77a6f26ed64a624b3f05f95
+    Author: Chad Killingsworth &lt;chadkillingsworth@missouristate.edu&gt;
+    Date:   Wed Sep 25 14:52:28 2013 -0500
+    
+        Add history.state to html5 externs
+
+on Linux.

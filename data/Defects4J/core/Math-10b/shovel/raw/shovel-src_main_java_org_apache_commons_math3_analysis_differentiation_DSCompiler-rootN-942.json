@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "rootN",
+  "functionId": "rootN___operand-double[](modifiers-final)__operandOffset-int(modifiers-final)__n-int(modifiers-final)__result-double[](modifiers-final)__resultOffset-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compute n\u003csup\u003eth\u003c/sup\u003e root of a derivative structure.\n\n@param operand array holding the operand\n@param operandOffset offset of the operand in its array\n@param n order of the root\n@param result array where result must be stored (for\nn\u003csup\u003eth\u003c/sup\u003e root the result array \u003cem\u003ecannot\u003c/em\u003e be the input\narray)\n@param resultOffset offset of the result in its array\n",
+  "functionStartLine": 942,
+  "functionEndLine": 969,
+  "numCommitsSeen": 17,
+  "timeTaken": 2655,
+  "changeHistory": [
+    "4c5534fc9c99e4bfd55991c42821bf26fc0eef49",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "4c5534fc9c99e4bfd55991c42821bf26fc0eef49": "Ybodychange",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4c5534fc9c99e4bfd55991c42821bf26fc0eef49": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed some issues in nth root derivatives at 0.\n\nThe current behavior is correct with respect to infinities and NaN being\nappropriately generated, but in some cases counter-intuitive.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1391451 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/28/12, 6:28 AM",
+      "commitName": "4c5534fc9c99e4bfd55991c42821bf26fc0eef49",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "9/25/12, 6:29 AM",
+      "commitNameOld": "e457a7cf5f62dc9507a93232cf11f54b269e635e",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 3.0,
+      "commitsBetweenForRepo": 13,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void rootN(final double[] operand, final int operandOffset, final int n, final double[] result, final int resultOffset) {\n    double[] function \u003d new double[1 + order];\n    double xk;\n    if (n \u003d\u003d 2) {\n        function[0] \u003d FastMath.sqrt(operand[operandOffset]);\n        xk \u003d 0.5 / function[0];\n    } else if (n \u003d\u003d 3) {\n        function[0] \u003d FastMath.cbrt(operand[operandOffset]);\n        xk \u003d 1.0 / (3.0 * function[0] * function[0]);\n    } else {\n        function[0] \u003d FastMath.pow(operand[operandOffset], 1.0 / n);\n        xk \u003d 1.0 / (n * FastMath.pow(function[0], n - 1));\n    }\n    final double nReciprocal \u003d 1.0 / n;\n    final double xReciprocal \u003d 1.0 / operand[operandOffset];\n    for (int i \u003d 1; i \u003c\u003d order; ++i) {\n        function[i] \u003d xk;\n        xk *\u003d xReciprocal * (nReciprocal - i);\n    }\n    compose(operand, operandOffset, function, result, resultOffset);\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 947,
+      "functionName": "rootN",
+      "functionAnnotation": "",
+      "functionDoc": "Compute n\u003csup\u003eth\u003c/sup\u003e root of a derivative structure.\n\n@param operand array holding the operand\n@param operandOffset offset of the operand in its array\n@param n order of the root\n@param result array where result must be stored (for\nn\u003csup\u003eth\u003c/sup\u003e root the result array \u003cem\u003ecannot\u003c/em\u003e be the input\narray)\n@param resultOffset offset of the result in its array\n",
+      "diff": "@@ -1,18 +1,21 @@\n public void rootN(final double[] operand, final int operandOffset, final int n, final double[] result, final int resultOffset) {\n     double[] function \u003d new double[1 + order];\n     double xk;\n     if (n \u003d\u003d 2) {\n-        xk \u003d FastMath.sqrt(operand[operandOffset]);\n+        function[0] \u003d FastMath.sqrt(operand[operandOffset]);\n+        xk \u003d 0.5 / function[0];\n     } else if (n \u003d\u003d 3) {\n-        xk \u003d FastMath.cbrt(operand[operandOffset]);\n+        function[0] \u003d FastMath.cbrt(operand[operandOffset]);\n+        xk \u003d 1.0 / (3.0 * function[0] * function[0]);\n     } else {\n-        xk \u003d FastMath.pow(operand[operandOffset], 1.0 / n);\n+        function[0] \u003d FastMath.pow(operand[operandOffset], 1.0 / n);\n+        xk \u003d 1.0 / (n * FastMath.pow(function[0], n - 1));\n     }\n     final double nReciprocal \u003d 1.0 / n;\n     final double xReciprocal \u003d 1.0 / operand[operandOffset];\n-    for (int i \u003d 0; i \u003c\u003d order; ++i) {\n+    for (int i \u003d 1; i \u003c\u003d order; ++i) {\n         function[i] \u003d xk;\n         xk *\u003d xReciprocal * (nReciprocal - i);\n     }\n     compose(operand, operandOffset, function, result, resultOffset);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,18 @@\n+public void rootN(final double[] operand, final int operandOffset, final int n, final double[] result, final int resultOffset) {\n+    double[] function \u003d new double[1 + order];\n+    double xk;\n+    if (n \u003d\u003d 2) {\n+        xk \u003d FastMath.sqrt(operand[operandOffset]);\n+    } else if (n \u003d\u003d 3) {\n+        xk \u003d FastMath.cbrt(operand[operandOffset]);\n+    } else {\n+        xk \u003d FastMath.pow(operand[operandOffset], 1.0 / n);\n+    }\n+    final double nReciprocal \u003d 1.0 / n;\n+    final double xReciprocal \u003d 1.0 / operand[operandOffset];\n+    for (int i \u003d 0; i \u003c\u003d order; ++i) {\n+        function[i] \u003d xk;\n+        xk *\u003d xReciprocal * (nReciprocal - i);\n+    }\n+    compose(operand, operandOffset, function, result, resultOffset);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void rootN(final double[] operand, final int operandOffset, final int n, final double[] result, final int resultOffset) {\n    double[] function \u003d new double[1 + order];\n    double xk;\n    if (n \u003d\u003d 2) {\n        xk \u003d FastMath.sqrt(operand[operandOffset]);\n    } else if (n \u003d\u003d 3) {\n        xk \u003d FastMath.cbrt(operand[operandOffset]);\n    } else {\n        xk \u003d FastMath.pow(operand[operandOffset], 1.0 / n);\n    }\n    final double nReciprocal \u003d 1.0 / n;\n    final double xReciprocal \u003d 1.0 / operand[operandOffset];\n    for (int i \u003d 0; i \u003c\u003d order; ++i) {\n        function[i] \u003d xk;\n        xk *\u003d xReciprocal * (nReciprocal - i);\n    }\n    compose(operand, operandOffset, function, result, resultOffset);\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 911,
+      "functionName": "rootN",
+      "functionAnnotation": "",
+      "functionDoc": "Compute n\u003csup\u003eth\u003c/sup\u003e root of a derivative structure.\n\n@param operand array holding the operand\n@param operandOffset offset of the operand in its array\n@param n order of the root\n@param result array where result must be stored (for\nn\u003csup\u003eth\u003c/sup\u003e root the result array \u003cem\u003ecannot\u003c/em\u003e be the input\narray)\n@param resultOffset offset of the result in its array\n"
+    }
+  }
+}

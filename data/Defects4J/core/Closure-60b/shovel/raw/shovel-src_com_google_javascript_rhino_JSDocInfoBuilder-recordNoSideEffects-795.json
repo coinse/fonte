@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSDocInfoBuilder.java",
+  "functionName": "recordNoSideEffects",
+  "functionId": "recordNoSideEffects",
+  "sourceFilePath": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Records that the {@link JSDocInfo} being built should have its\n{@link JSDocInfo#isNoSideEffects()} flag set to {@code true}.\n",
+  "functionStartLine": 795,
+  "functionEndLine": 804,
+  "numCommitsSeen": 20,
+  "timeTaken": 829,
+  "changeHistory": [
+    "eb3e25de7fc6ee4858b9805519c0dc7a13e1b183",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "eb3e25de7fc6ee4858b9805519c0dc7a13e1b183": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "eb3e25de7fc6ee4858b9805519c0dc7a13e1b183": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd support for \"@modifies{this}\" and \"@modifies{arguments}\".\n\nR\u003dnicksantos\nDELTA\u003d220  (218 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d244022\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@456 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/22/10, 4:19 PM",
+      "commitName": "eb3e25de7fc6ee4858b9805519c0dc7a13e1b183",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "9/16/10, 2:10 PM",
+      "commitNameOld": "5b3bc3fa01328cdbbde6b865c4d3ff7562bc9d6f",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 6.09,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean recordNoSideEffects() {\n    if (!hasAnySingletonSideEffectTags() \u0026\u0026 !currentInfo.isNoSideEffects()) {\n        currentInfo.setNoSideEffects(true);\n        populated \u003d true;\n        return true;\n    } else {\n        return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+      "functionStartLine": 783,
+      "functionName": "recordNoSideEffects",
+      "functionAnnotation": "",
+      "functionDoc": "Records that the {@link JSDocInfo} being built should have its\n{@link JSDocInfo#isNoSideEffects()} flag set to {@code true}.\n",
+      "diff": "@@ -1,9 +1,9 @@\n public boolean recordNoSideEffects() {\n-    if (!currentInfo.isNoSideEffects()) {\n+    if (!hasAnySingletonSideEffectTags() \u0026\u0026 !currentInfo.isNoSideEffects()) {\n         currentInfo.setNoSideEffects(true);\n         populated \u003d true;\n         return true;\n     } else {\n         return false;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean recordNoSideEffects() {\n+    if (!currentInfo.isNoSideEffects()) {\n+        currentInfo.setNoSideEffects(true);\n+        populated \u003d true;\n+        return true;\n+    } else {\n+        return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean recordNoSideEffects() {\n    if (!currentInfo.isNoSideEffects()) {\n        currentInfo.setNoSideEffects(true);\n        populated \u003d true;\n        return true;\n    } else {\n        return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+      "functionStartLine": 705,
+      "functionName": "recordNoSideEffects",
+      "functionAnnotation": "",
+      "functionDoc": "Records that the {@link JSDocInfo} being built should have its\n{@link JSDocInfo#isNoSideEffects()} flag set to {@code true}.\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsDocInfoParser.java",
+  "functionName": "createTemplateNode",
+  "functionId": "createTemplateNode",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 2144,
+  "functionEndLine": 2149,
+  "numCommitsSeen": 46,
+  "timeTaken": 4105,
+  "changeHistory": [
+    "9320feca198878ca9464aae089399a8891c314d7",
+    "6bbac115c9a7928a7053b2da3a78df9569df8570"
+  ],
+  "changeHistoryShort": {
+    "9320feca198878ca9464aae089399a8891c314d7": "Ybodychange",
+    "6bbac115c9a7928a7053b2da3a78df9569df8570": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9320feca198878ca9464aae089399a8891c314d7": {
+      "type": "Ybodychange",
+      "commitMessage": "\nMake StaticSourceFile a property of Node\n\nR\u003djohnlenz\nDELTA\u003d183  (102 added, 25 deleted, 56 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2496\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1236 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/30/11, 1:25 PM",
+      "commitName": "9320feca198878ca9464aae089399a8891c314d7",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "6/9/11, 8:18 AM",
+      "commitNameOld": "cc5786f9a83ec0035c7aaf6a792c99e5cd6d81e9",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 21.21,
+      "commitsBetweenForRepo": 66,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node createTemplateNode() {\n    Node templateNode \u003d new Node(Token.SCRIPT);\n    templateNode.setStaticSourceFile(sourceFile);\n    return templateNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 2144,
+      "functionName": "createTemplateNode",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n private Node createTemplateNode() {\n     Node templateNode \u003d new Node(Token.SCRIPT);\n-    templateNode.putProp(Node.SOURCENAME_PROP, sourceName);\n+    templateNode.setStaticSourceFile(sourceFile);\n     return templateNode;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6bbac115c9a7928a7053b2da3a78df9569df8570": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/7/11, 9:19 AM",
+      "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+      "commitAuthor": "bashir@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+private Node createTemplateNode() {\n+    Node templateNode \u003d new Node(Token.SCRIPT);\n+    templateNode.putProp(Node.SOURCENAME_PROP, sourceName);\n+    return templateNode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node createTemplateNode() {\n    Node templateNode \u003d new Node(Token.SCRIPT);\n    templateNode.putProp(Node.SOURCENAME_PROP, sourceName);\n    return templateNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+      "functionStartLine": 2080,
+      "functionName": "createTemplateNode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

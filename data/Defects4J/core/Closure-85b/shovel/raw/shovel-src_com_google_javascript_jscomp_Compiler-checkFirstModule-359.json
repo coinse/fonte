@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-85b",
+  "repositoryPath": "/tmp/Closure-85b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "checkFirstModule",
+  "functionId": "checkFirstModule___modules-List__JSModule__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Verifies that at least one module has been provided and that the first one\nhas at least one source code input.\n",
+  "functionStartLine": 359,
+  "functionEndLine": 367,
+  "numCommitsSeen": 78,
+  "timeTaken": 4129,
+  "changeHistory": [
+    "279196b617c5de1ade21110979b6b13d8eda6342",
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": "Ybodychange",
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/04 by nick\n\n        Pipe everything through the module code path.\n        This teases out a bunch of edge-case bugs that worked in the non-module\n        code path, but not the module code path (and vice-versa)\n\n        R\u003dalan\n        DELTA\u003d136  (67 added, 19 deleted, 50 changed)\n\nChange on 2010/05/04 by nick\n\n        fiddle with the check_global_this_level decision tree\n        This should be off by default if collapse_properties is off,\n        and on by default if collapse_properties is on.\n\n        R\u003dalan\n        DELTA\u003d47  (32 added, 4 deleted, 11 changed)\n\nChange on 2010/05/04 by andrew\n\n        -Infer that arguments to goog.asserts.assert() are non-nullable after the\n        call.\n        -Infer the types of arguments to goog.asserts.assert{String,Number,...} after\n        the call.\n\n        Tested:\n          -Added new unit tests.\n\n        R\u003dnick\n        DELTA\u003d277  (266 added, 4 deleted, 7 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqdhuno\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@203 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/5/10, 4:36 PM",
+      "commitName": "279196b617c5de1ade21110979b6b13d8eda6342",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "5/3/10, 7:03 AM",
+      "commitNameOld": "9147da9979fb00599efd700fa5e0cccfa93d25a5",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 2.4,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void checkFirstModule(List\u003cJSModule\u003e modules) {\n    if (modules.isEmpty()) {\n        report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n    } else if (modules.get(0).getInputs().isEmpty() \u0026\u0026 modules.size() \u003e 1) {\n        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules.get(0).getName()));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 348,
+      "functionName": "checkFirstModule",
+      "functionAnnotation": "",
+      "functionDoc": "Verifies that at least one module has been provided and that the first one\nhas at least one source code input.\n",
+      "diff": "@@ -1,7 +1,7 @@\n private void checkFirstModule(List\u003cJSModule\u003e modules) {\n     if (modules.isEmpty()) {\n         report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n-    } else if (modules.get(0).getInputs().isEmpty()) {\n+    } else if (modules.get(0).getInputs().isEmpty() \u0026\u0026 modules.size() \u003e 1) {\n         report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules.get(0).getName()));\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "c25df7eca2462861bf42ad8b74215099c3f81ae6": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/5/10, 11:58 PM",
+      "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/5/10, 11:58 PM",
+          "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/22/10, 10:51 PM",
+          "commitNameOld": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 14.05,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void checkFirstModule(List\u003cJSModule\u003e modules) {\n    if (modules.isEmpty()) {\n        report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n    } else if (modules.get(0).getInputs().isEmpty()) {\n        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules.get(0).getName()));\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 338,
+          "functionName": "checkFirstModule",
+          "functionAnnotation": "",
+          "functionDoc": "Verifies that at least one module has been provided and that the first one\nhas at least one source code input.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-private void checkFirstModule(JSModule[] modules) {\n-    if (modules.length \u003d\u003d 0) {\n+private void checkFirstModule(List\u003cJSModule\u003e modules) {\n+    if (modules.isEmpty()) {\n         report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n-    } else if (modules[0].getInputs().isEmpty()) {\n-        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules[0].getName()));\n+    } else if (modules.get(0).getInputs().isEmpty()) {\n+        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules.get(0).getName()));\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[modules-JSModule[]]",
+            "newValue": "[modules-List\u003cJSModule\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Make lists the canonical representation of compiler sources.\nThey\u0027re so much easier to sort and mutate, which is going to\nmake a difference once we start sorting sources. (Nick)\nR\u003drobert\nDELTA\u003d97  (58 added, 6 deleted, 33 changed)\n\ninclude everything in the @license tag. (Nick)\nR\u003drobert\nDELTA\u003d78  (32 added, 19 deleted, 27 changed)\n\ntag externs files with the @externs tag. (Nick)\nR\u003dalan\nDELTA\u003d45  (45 added, 0 deleted, 0 changed)\n\nfix for issue 58.\nwork-around a bug in IE where it gets confused if the comparator\npassed to Array.prototype.sort writes to its own parameters. (Nick)\nR\u003dalan\nDELTA\u003d33  (30 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddpiluc\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@171 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/5/10, 11:58 PM",
+          "commitName": "c25df7eca2462861bf42ad8b74215099c3f81ae6",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/22/10, 10:51 PM",
+          "commitNameOld": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 14.05,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void checkFirstModule(List\u003cJSModule\u003e modules) {\n    if (modules.isEmpty()) {\n        report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n    } else if (modules.get(0).getInputs().isEmpty()) {\n        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules.get(0).getName()));\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 338,
+          "functionName": "checkFirstModule",
+          "functionAnnotation": "",
+          "functionDoc": "Verifies that at least one module has been provided and that the first one\nhas at least one source code input.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-private void checkFirstModule(JSModule[] modules) {\n-    if (modules.length \u003d\u003d 0) {\n+private void checkFirstModule(List\u003cJSModule\u003e modules) {\n+    if (modules.isEmpty()) {\n         report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n-    } else if (modules[0].getInputs().isEmpty()) {\n-        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules[0].getName()));\n+    } else if (modules.get(0).getInputs().isEmpty()) {\n+        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules.get(0).getName()));\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private void checkFirstModule(JSModule[] modules) {\n+    if (modules.length \u003d\u003d 0) {\n+        report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n+    } else if (modules[0].getInputs().isEmpty()) {\n+        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules[0].getName()));\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void checkFirstModule(JSModule[] modules) {\n    if (modules.length \u003d\u003d 0) {\n        report(JSError.make(EMPTY_MODULE_LIST_ERROR));\n    } else if (modules[0].getInputs().isEmpty()) {\n        report(JSError.make(EMPTY_ROOT_MODULE_ERROR, modules[0].getName()));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 316,
+      "functionName": "checkFirstModule",
+      "functionAnnotation": "",
+      "functionDoc": "Verifies that at least one module has been provided and that the first one\nhas at least one source code input.\n"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-4b",
+  "repositoryPath": "/tmp/JacksonCore-4b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextBuffer.java",
+  "functionName": "expandCurrentSegment",
+  "functionId": "expandCurrentSegment",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to expand size of the current segment, to\naccommodate for more contiguous content. Usually only\nused when parsing tokens like names if even then.\n",
+  "functionStartLine": 580,
+  "functionEndLine": 588,
+  "numCommitsSeen": 10,
+  "timeTaken": 587,
+  "changeHistory": [
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+    "60cb7bd0bd6f642212051e0e341b3b6e1e3e2a65",
+    "f15531c04f87f9e4e4724772426603a909eabe2c"
+  ],
+  "changeHistoryShort": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": "Yformatchange",
+    "60cb7bd0bd6f642212051e0e341b3b6e1e3e2a65": "Ymultichange(Ybodychange,Ydocchange)",
+    "f15531c04f87f9e4e4724772426603a909eabe2c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": {
+      "type": "Yformatchange",
+      "commitMessage": "minor addition to TextBuffer\n",
+      "commitDate": "1/19/14, 7:28 PM",
+      "commitName": "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/13/13, 9:15 PM",
+      "commitNameOld": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 36.93,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public char[] expandCurrentSegment() {\n    final char[] curr \u003d _currentSegment;\n    final int len \u003d curr.length;\n    int newLen \u003d (len \u003d\u003d MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len \u003e\u003e 1));\n    return (_currentSegment \u003d Arrays.copyOf(curr, newLen));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 574,
+      "functionName": "expandCurrentSegment",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to expand size of the current segment, to\naccommodate for more contiguous content. Usually only\nused when parsing tokens like names if even then.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "60cb7bd0bd6f642212051e0e341b3b6e1e3e2a65": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Minor clean up to start using Arrays.copyOf() (since we require Java 1.6)\n",
+      "commitDate": "6/6/13, 2:28 PM",
+      "commitName": "60cb7bd0bd6f642212051e0e341b3b6e1e3e2a65",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Minor clean up to start using Arrays.copyOf() (since we require Java 1.6)\n",
+          "commitDate": "6/6/13, 2:28 PM",
+          "commitName": "60cb7bd0bd6f642212051e0e341b3b6e1e3e2a65",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/29/12, 2:20 AM",
+          "commitNameOld": "1dc2c61b0e45d5f19078d297b9b63bc084804975",
+          "commitAuthorOld": "Francis Galiegue",
+          "daysBetweenCommits": 250.51,
+          "commitsBetweenForRepo": 108,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public char[] expandCurrentSegment() {\n    final char[] curr \u003d _currentSegment;\n    final int len \u003d curr.length;\n    int newLen \u003d (len \u003d\u003d MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len \u003e\u003e 1));\n    return (_currentSegment \u003d Arrays.copyOf(curr, newLen));\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+          "functionStartLine": 596,
+          "functionName": "expandCurrentSegment",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to expand size of the current segment, to\naccommodate for more contiguous content. Usually only\nused when parsing tokens like names if even then.\n",
+          "diff": "@@ -1,8 +1,6 @@\n public char[] expandCurrentSegment() {\n-    char[] curr \u003d _currentSegment;\n-    int len \u003d curr.length;\n+    final char[] curr \u003d _currentSegment;\n+    final int len \u003d curr.length;\n     int newLen \u003d (len \u003d\u003d MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len \u003e\u003e 1));\n-    _currentSegment \u003d _charArray(newLen);\n-    System.arraycopy(curr, 0, _currentSegment, 0, len);\n-    return _currentSegment;\n+    return (_currentSegment \u003d Arrays.copyOf(curr, newLen));\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Minor clean up to start using Arrays.copyOf() (since we require Java 1.6)\n",
+          "commitDate": "6/6/13, 2:28 PM",
+          "commitName": "60cb7bd0bd6f642212051e0e341b3b6e1e3e2a65",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/29/12, 2:20 AM",
+          "commitNameOld": "1dc2c61b0e45d5f19078d297b9b63bc084804975",
+          "commitAuthorOld": "Francis Galiegue",
+          "daysBetweenCommits": 250.51,
+          "commitsBetweenForRepo": 108,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public char[] expandCurrentSegment() {\n    final char[] curr \u003d _currentSegment;\n    final int len \u003d curr.length;\n    int newLen \u003d (len \u003d\u003d MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len \u003e\u003e 1));\n    return (_currentSegment \u003d Arrays.copyOf(curr, newLen));\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+          "functionStartLine": 596,
+          "functionName": "expandCurrentSegment",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to expand size of the current segment, to\naccommodate for more contiguous content. Usually only\nused when parsing tokens like names if even then.\n",
+          "diff": "@@ -1,8 +1,6 @@\n public char[] expandCurrentSegment() {\n-    char[] curr \u003d _currentSegment;\n-    int len \u003d curr.length;\n+    final char[] curr \u003d _currentSegment;\n+    final int len \u003d curr.length;\n     int newLen \u003d (len \u003d\u003d MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len \u003e\u003e 1));\n-    _currentSegment \u003d _charArray(newLen);\n-    System.arraycopy(curr, 0, _currentSegment, 0, len);\n-    return _currentSegment;\n+    return (_currentSegment \u003d Arrays.copyOf(curr, newLen));\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Method called to expand size of the current segment, to\naccomodate for more contiguous content. Usually only\nused when parsing tokens like names.\n",
+            "newValue": "Method called to expand size of the current segment, to\naccommodate for more contiguous content. Usually only\nused when parsing tokens like names if even then.\n"
+          }
+        }
+      ]
+    },
+    "f15531c04f87f9e4e4724772426603a909eabe2c": {
+      "type": "Yintroduced",
+      "commitMessage": "Check in actual sources, moved to the new package, cleaned up a bit\n",
+      "commitDate": "12/22/11, 11:00 PM",
+      "commitName": "f15531c04f87f9e4e4724772426603a909eabe2c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+public char[] expandCurrentSegment() {\n+    char[] curr \u003d _currentSegment;\n+    int len \u003d curr.length;\n+    int newLen \u003d (len \u003d\u003d MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len \u003e\u003e 1));\n+    _currentSegment \u003d _charArray(newLen);\n+    System.arraycopy(curr, 0, _currentSegment, 0, len);\n+    return _currentSegment;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public char[] expandCurrentSegment() {\n    char[] curr \u003d _currentSegment;\n    int len \u003d curr.length;\n    int newLen \u003d (len \u003d\u003d MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len \u003e\u003e 1));\n    _currentSegment \u003d _charArray(newLen);\n    System.arraycopy(curr, 0, _currentSegment, 0, len);\n    return _currentSegment;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 584,
+      "functionName": "expandCurrentSegment",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to expand size of the current segment, to\naccomodate for more contiguous content. Usually only\nused when parsing tokens like names.\n"
+    }
+  }
+}

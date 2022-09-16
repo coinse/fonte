@@ -1,0 +1,30 @@
+The following code:
+
+	// ==ClosureCompiler==
+	// @compilation_level ADVANCED_OPTIMIZATIONS
+	// ==/ClosureCompiler==
+	var uid;
+	function reset() {
+		uid = Math.random();
+	}
+	function doStuff() {
+		reset();
+		var _uid = uid;
+
+		if (uid &lt; 0.5) {
+			doStuff();
+		}
+
+		if (_uid !== uid) {
+			throw 'reset() was called';
+		}
+	}
+	doStuff();
+
+...gets optimized to:
+
+	var a;function b(){a=Math.random();0.5&gt;a&amp;&amp;b();if(a!==a)throw&quot;reset() was called&quot;;}b();
+
+Notice how _uid gets optimized away and (uid!==_uid) becomes (a!==a) even though doStuff() might have been called and uid's value may have changed and become different from _uid.
+
+As an aside, replacing the declaration with &quot;var _uid = +uid;&quot; fixes it, as does adding an extra &quot;uid = _uid&quot; after &quot;var _uid = uid&quot;.

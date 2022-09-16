@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "addJsString",
+  "functionId": "addJsString___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n",
+  "functionStartLine": 950,
+  "functionEndLine": 963,
+  "numCommitsSeen": 127,
+  "timeTaken": 1919,
+  "changeHistory": [
+    "e85593d14461f5342013d0d6c6e8484dca003eef",
+    "f78951b324be6cb453ebbefcb30ab83328282590"
+  ],
+  "changeHistoryShort": {
+    "e85593d14461f5342013d0d6c6e8484dca003eef": "Ymultichange(Yparameterchange,Ymodifierchange,Ybodychange)",
+    "f78951b324be6cb453ebbefcb30ab83328282590": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e85593d14461f5342013d0d6c6e8484dca003eef": {
+      "type": "Ymultichange(Yparameterchange,Ymodifierchange,Ybodychange)",
+      "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/21/11, 12:02 PM",
+      "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/21/11, 12:02 PM",
+          "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/17/11, 10:08 AM",
+          "commitNameOld": "4e976ac213f448bab78f5c1432340c489b533d7b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 4.08,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void addJsString(Node n) {\n    String s \u003d n.getString();\n    boolean useSlashV \u003d n.getBooleanProp(Node.SLASH_V);\n    if (useSlashV) {\n        add(jsString(n.getString(), useSlashV));\n    } else {\n        String cached \u003d ESCAPED_JS_STRINGS.get(s);\n        if (cached \u003d\u003d null) {\n            cached \u003d jsString(n.getString(), useSlashV);\n            ESCAPED_JS_STRINGS.put(s, cached);\n        }\n        add(cached);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 940,
+          "functionName": "addJsString",
+          "functionAnnotation": "",
+          "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n",
+          "diff": "@@ -1,8 +1,14 @@\n-void addJsString(String s) {\n-    String cached \u003d ESCAPED_JS_STRINGS.get(s);\n-    if (cached \u003d\u003d null) {\n-        cached \u003d jsString(s);\n-        ESCAPED_JS_STRINGS.put(s, cached);\n+private void addJsString(Node n) {\n+    String s \u003d n.getString();\n+    boolean useSlashV \u003d n.getBooleanProp(Node.SLASH_V);\n+    if (useSlashV) {\n+        add(jsString(n.getString(), useSlashV));\n+    } else {\n+        String cached \u003d ESCAPED_JS_STRINGS.get(s);\n+        if (cached \u003d\u003d null) {\n+            cached \u003d jsString(n.getString(), useSlashV);\n+            ESCAPED_JS_STRINGS.put(s, cached);\n+        }\n+        add(cached);\n     }\n-    add(cached);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[s-String]",
+            "newValue": "[n-Node]"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/21/11, 12:02 PM",
+          "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/17/11, 10:08 AM",
+          "commitNameOld": "4e976ac213f448bab78f5c1432340c489b533d7b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 4.08,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void addJsString(Node n) {\n    String s \u003d n.getString();\n    boolean useSlashV \u003d n.getBooleanProp(Node.SLASH_V);\n    if (useSlashV) {\n        add(jsString(n.getString(), useSlashV));\n    } else {\n        String cached \u003d ESCAPED_JS_STRINGS.get(s);\n        if (cached \u003d\u003d null) {\n            cached \u003d jsString(n.getString(), useSlashV);\n            ESCAPED_JS_STRINGS.put(s, cached);\n        }\n        add(cached);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 940,
+          "functionName": "addJsString",
+          "functionAnnotation": "",
+          "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n",
+          "diff": "@@ -1,8 +1,14 @@\n-void addJsString(String s) {\n-    String cached \u003d ESCAPED_JS_STRINGS.get(s);\n-    if (cached \u003d\u003d null) {\n-        cached \u003d jsString(s);\n-        ESCAPED_JS_STRINGS.put(s, cached);\n+private void addJsString(Node n) {\n+    String s \u003d n.getString();\n+    boolean useSlashV \u003d n.getBooleanProp(Node.SLASH_V);\n+    if (useSlashV) {\n+        add(jsString(n.getString(), useSlashV));\n+    } else {\n+        String cached \u003d ESCAPED_JS_STRINGS.get(s);\n+        if (cached \u003d\u003d null) {\n+            cached \u003d jsString(n.getString(), useSlashV);\n+            ESCAPED_JS_STRINGS.put(s, cached);\n+        }\n+        add(cached);\n     }\n-    add(cached);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nfix vertical tab encoding\nfixes issue 601\n\nR\u003djohnlenz\nDELTA\u003d147  (119 added, 0 deleted, 28 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3787\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1627 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/21/11, 12:02 PM",
+          "commitName": "e85593d14461f5342013d0d6c6e8484dca003eef",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "11/17/11, 10:08 AM",
+          "commitNameOld": "4e976ac213f448bab78f5c1432340c489b533d7b",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 4.08,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void addJsString(Node n) {\n    String s \u003d n.getString();\n    boolean useSlashV \u003d n.getBooleanProp(Node.SLASH_V);\n    if (useSlashV) {\n        add(jsString(n.getString(), useSlashV));\n    } else {\n        String cached \u003d ESCAPED_JS_STRINGS.get(s);\n        if (cached \u003d\u003d null) {\n            cached \u003d jsString(n.getString(), useSlashV);\n            ESCAPED_JS_STRINGS.put(s, cached);\n        }\n        add(cached);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+          "functionStartLine": 940,
+          "functionName": "addJsString",
+          "functionAnnotation": "",
+          "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n",
+          "diff": "@@ -1,8 +1,14 @@\n-void addJsString(String s) {\n-    String cached \u003d ESCAPED_JS_STRINGS.get(s);\n-    if (cached \u003d\u003d null) {\n-        cached \u003d jsString(s);\n-        ESCAPED_JS_STRINGS.put(s, cached);\n+private void addJsString(Node n) {\n+    String s \u003d n.getString();\n+    boolean useSlashV \u003d n.getBooleanProp(Node.SLASH_V);\n+    if (useSlashV) {\n+        add(jsString(n.getString(), useSlashV));\n+    } else {\n+        String cached \u003d ESCAPED_JS_STRINGS.get(s);\n+        if (cached \u003d\u003d null) {\n+            cached \u003d jsString(n.getString(), useSlashV);\n+            ESCAPED_JS_STRINGS.put(s, cached);\n+        }\n+        add(cached);\n     }\n-    add(cached);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f78951b324be6cb453ebbefcb30ab83328282590": {
+      "type": "Yintroduced",
+      "commitMessage": "\nspeed up code generation by about 10%\n\nR\u003djohnlenz\nDELTA\u003d29  (26 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1914\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1102 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 8:40 AM",
+      "commitName": "f78951b324be6cb453ebbefcb30ab83328282590",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+void addJsString(String s) {\n+    String cached \u003d ESCAPED_JS_STRINGS.get(s);\n+    if (cached \u003d\u003d null) {\n+        cached \u003d jsString(s);\n+        ESCAPED_JS_STRINGS.put(s, cached);\n+    }\n+    add(cached);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void addJsString(String s) {\n    String cached \u003d ESCAPED_JS_STRINGS.get(s);\n    if (cached \u003d\u003d null) {\n        cached \u003d jsString(s);\n        ESCAPED_JS_STRINGS.put(s, cached);\n    }\n    add(cached);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 947,
+      "functionName": "addJsString",
+      "functionAnnotation": "",
+      "functionDoc": "Outputs a js string, using the optimal (single/double) quote character\n"
+    }
+  }
+}

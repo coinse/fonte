@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-30b",
+  "repositoryPath": "/tmp/Closure-30b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DataFlowAnalysis.java",
+  "functionName": "joinInputs",
+  "functionId": "joinInputs___node-DiGraphNode__N,Branch__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DataFlowAnalysis.java",
+  "functionAnnotation": "",
+  "functionDoc": "Computes the new flow state at a given node\u0027s entry by merging the\noutput (input) lattice of the node\u0027s predecessor (successor).\n\n@param node Node to compute new join.\n",
+  "functionStartLine": 286,
+  "functionEndLine": 324,
+  "numCommitsSeen": 18,
+  "timeTaken": 678,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,39 @@\n+protected void joinInputs(DiGraphNode\u003cN, Branch\u003e node) {\n+    FlowState\u003cL\u003e state \u003d node.getAnnotation();\n+    if (isForward()) {\n+        if (cfg.getEntry() \u003d\u003d node) {\n+            state.setIn(createEntryLattice());\n+        } else {\n+            List\u003cDiGraphNode\u003cN, Branch\u003e\u003e inNodes \u003d cfg.getDirectedPredNodes(node);\n+            if (inNodes.size() \u003d\u003d 1) {\n+                FlowState\u003cL\u003e inNodeState \u003d inNodes.get(0).getAnnotation();\n+                state.setIn(inNodeState.getOut());\n+            } else if (inNodes.size() \u003e 1) {\n+                List\u003cL\u003e values \u003d new ArrayList\u003cL\u003e(inNodes.size());\n+                for (DiGraphNode\u003cN, Branch\u003e currentNode : inNodes) {\n+                    FlowState\u003cL\u003e currentNodeState \u003d currentNode.getAnnotation();\n+                    values.add(currentNodeState.getOut());\n+                }\n+                state.setIn(joinOp.apply(values));\n+            }\n+        }\n+    } else {\n+        List\u003cDiGraphNode\u003cN, Branch\u003e\u003e inNodes \u003d cfg.getDirectedSuccNodes(node);\n+        if (inNodes.size() \u003d\u003d 1) {\n+            DiGraphNode\u003cN, Branch\u003e inNode \u003d inNodes.get(0);\n+            if (inNode \u003d\u003d cfg.getImplicitReturn()) {\n+                state.setOut(createEntryLattice());\n+            } else {\n+                FlowState\u003cL\u003e inNodeState \u003d inNode.getAnnotation();\n+                state.setOut(inNodeState.getIn());\n+            }\n+        } else if (inNodes.size() \u003e 1) {\n+            List\u003cL\u003e values \u003d new ArrayList\u003cL\u003e(inNodes.size());\n+            for (DiGraphNode\u003cN, Branch\u003e currentNode : inNodes) {\n+                FlowState\u003cL\u003e currentNodeState \u003d currentNode.getAnnotation();\n+                values.add(currentNodeState.getIn());\n+            }\n+            state.setOut(joinOp.apply(values));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void joinInputs(DiGraphNode\u003cN, Branch\u003e node) {\n    FlowState\u003cL\u003e state \u003d node.getAnnotation();\n    if (isForward()) {\n        if (cfg.getEntry() \u003d\u003d node) {\n            state.setIn(createEntryLattice());\n        } else {\n            List\u003cDiGraphNode\u003cN, Branch\u003e\u003e inNodes \u003d cfg.getDirectedPredNodes(node);\n            if (inNodes.size() \u003d\u003d 1) {\n                FlowState\u003cL\u003e inNodeState \u003d inNodes.get(0).getAnnotation();\n                state.setIn(inNodeState.getOut());\n            } else if (inNodes.size() \u003e 1) {\n                List\u003cL\u003e values \u003d new ArrayList\u003cL\u003e(inNodes.size());\n                for (DiGraphNode\u003cN, Branch\u003e currentNode : inNodes) {\n                    FlowState\u003cL\u003e currentNodeState \u003d currentNode.getAnnotation();\n                    values.add(currentNodeState.getOut());\n                }\n                state.setIn(joinOp.apply(values));\n            }\n        }\n    } else {\n        List\u003cDiGraphNode\u003cN, Branch\u003e\u003e inNodes \u003d cfg.getDirectedSuccNodes(node);\n        if (inNodes.size() \u003d\u003d 1) {\n            DiGraphNode\u003cN, Branch\u003e inNode \u003d inNodes.get(0);\n            if (inNode \u003d\u003d cfg.getImplicitReturn()) {\n                state.setOut(createEntryLattice());\n            } else {\n                FlowState\u003cL\u003e inNodeState \u003d inNode.getAnnotation();\n                state.setOut(inNodeState.getIn());\n            }\n        } else if (inNodes.size() \u003e 1) {\n            List\u003cL\u003e values \u003d new ArrayList\u003cL\u003e(inNodes.size());\n            for (DiGraphNode\u003cN, Branch\u003e currentNode : inNodes) {\n                FlowState\u003cL\u003e currentNodeState \u003d currentNode.getAnnotation();\n                values.add(currentNodeState.getIn());\n            }\n            state.setOut(joinOp.apply(values));\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/DataFlowAnalysis.java",
+      "functionStartLine": 346,
+      "functionName": "joinInputs",
+      "functionAnnotation": "",
+      "functionDoc": "Computes the new flow state at a given node\u0027s entry by merging the\noutput (input) lattice of the node\u0027s predecessor (successor).\n\n@param node Node to compute new join.\n"
+    }
+  }
+}

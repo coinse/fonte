@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeValidator.java",
+  "functionName": "expectUndeclaredVariable",
+  "functionId": "expectUndeclaredVariable___sourceName-String__n-Node__parent-Node__var-Var__variableName-String__newType-JSType",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Expect that the given variable has not been declared with a type.\n\n@param sourceName The name of the source file we\u0027re in.\n@param n The node where warnings should point to.\n@param parent The parent of {@code n}.\n@param var The variable that we\u0027re checking.\n@param variableName The name of the variable.\n@param newType The type being applied to the variable. Mostly just here\n    for the benefit of the warning.\n",
+  "functionStartLine": 497,
+  "functionEndLine": 552,
+  "numCommitsSeen": 13,
+  "timeTaken": 796,
+  "changeHistory": [
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c": {
+      "type": "Ybodychange",
+      "commitMessage": "\n\nChange on 2010/06/16 by johnlenz\n\n        Remove unused member variable.\n\n        R\u003dacleung\n        DELTA\u003d17  (0 added, 12 deleted, 5 changed)\n\nChange on 2010/06/16 by acleung\n\n        Make @notypecheck behaves like it is doing typechecking except for reporting errors.\n\n        R\u003djohnlenz\n        DELTA\u003d144  (89 added, 17 deleted, 38 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d28012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@245 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/17/10, 10:16 AM",
+      "commitName": "0895c28861ee4a1969acc858f1a703ab11ddc64c",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/29/10, 7:04 AM",
+      "commitNameOld": "3cc8b3a5889f8b88ef7a2bd0b8ccea8cb0d916c4",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 80.13,
+      "commitsBetweenForRepo": 71,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void expectUndeclaredVariable(String sourceName, Node n, Node parent, Var var, String variableName, JSType newType) {\n    boolean allowDupe \u003d false;\n    if (n.getType() \u003d\u003d Token.GETPROP) {\n        JSDocInfo info \u003d n.getJSDocInfo();\n        if (info \u003d\u003d null) {\n            info \u003d parent.getJSDocInfo();\n        }\n        allowDupe \u003d info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\");\n    }\n    JSType varType \u003d var.getType();\n    if (varType !\u003d null \u0026\u0026 varType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE) \u0026\u0026 newType !\u003d null \u0026\u0026 newType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE)) {\n        if (var.input \u003d\u003d null) {\n            n.setJSType(varType);\n            if (parent.getType() \u003d\u003d Token.VAR) {\n                if (n.getFirstChild() !\u003d null) {\n                    n.getFirstChild().setJSType(varType);\n                }\n            } else {\n                Preconditions.checkState(parent.getType() \u003d\u003d Token.FUNCTION);\n                parent.setJSType(varType);\n            }\n        } else {\n            if (!(allowDupe || var.getParentNode().getType() \u003d\u003d Token.EXPR_RESULT) || !newType.equals(varType)) {\n                if (shouldReport) {\n                    compiler.report(JSError.make(sourceName, n, DUP_VAR_DECLARATION, variableName, newType.toString(), var.getInputName(), String.valueOf(var.nameNode.getLineno()), varType.toString()));\n                }\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeValidator.java",
+      "functionStartLine": 463,
+      "functionName": "expectUndeclaredVariable",
+      "functionAnnotation": "",
+      "functionDoc": "Expect that the given variable has not been declared with a type.\n\n@param sourceName The name of the source file we\u0027re in.\n@param n The node where warnings should point to.\n@param parent The parent of {@code n}.\n@param var The variable that we\u0027re checking.\n@param variableName The name of the variable.\n@param newType The type being applied to the variable. Mostly just here\n    for the benefit of the warning.\n",
+      "diff": "@@ -1,28 +1,30 @@\n void expectUndeclaredVariable(String sourceName, Node n, Node parent, Var var, String variableName, JSType newType) {\n     boolean allowDupe \u003d false;\n     if (n.getType() \u003d\u003d Token.GETPROP) {\n         JSDocInfo info \u003d n.getJSDocInfo();\n         if (info \u003d\u003d null) {\n             info \u003d parent.getJSDocInfo();\n         }\n         allowDupe \u003d info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\");\n     }\n     JSType varType \u003d var.getType();\n     if (varType !\u003d null \u0026\u0026 varType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE) \u0026\u0026 newType !\u003d null \u0026\u0026 newType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE)) {\n         if (var.input \u003d\u003d null) {\n             n.setJSType(varType);\n             if (parent.getType() \u003d\u003d Token.VAR) {\n                 if (n.getFirstChild() !\u003d null) {\n                     n.getFirstChild().setJSType(varType);\n                 }\n             } else {\n                 Preconditions.checkState(parent.getType() \u003d\u003d Token.FUNCTION);\n                 parent.setJSType(varType);\n             }\n         } else {\n             if (!(allowDupe || var.getParentNode().getType() \u003d\u003d Token.EXPR_RESULT) || !newType.equals(varType)) {\n-                compiler.report(JSError.make(sourceName, n, DUP_VAR_DECLARATION, variableName, newType.toString(), var.getInputName(), String.valueOf(var.nameNode.getLineno()), varType.toString()));\n+                if (shouldReport) {\n+                    compiler.report(JSError.make(sourceName, n, DUP_VAR_DECLARATION, variableName, newType.toString(), var.getInputName(), String.valueOf(var.nameNode.getLineno()), varType.toString()));\n+                }\n             }\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,28 @@\n+void expectUndeclaredVariable(String sourceName, Node n, Node parent, Var var, String variableName, JSType newType) {\n+    boolean allowDupe \u003d false;\n+    if (n.getType() \u003d\u003d Token.GETPROP) {\n+        JSDocInfo info \u003d n.getJSDocInfo();\n+        if (info \u003d\u003d null) {\n+            info \u003d parent.getJSDocInfo();\n+        }\n+        allowDupe \u003d info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\");\n+    }\n+    JSType varType \u003d var.getType();\n+    if (varType !\u003d null \u0026\u0026 varType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE) \u0026\u0026 newType !\u003d null \u0026\u0026 newType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE)) {\n+        if (var.input \u003d\u003d null) {\n+            n.setJSType(varType);\n+            if (parent.getType() \u003d\u003d Token.VAR) {\n+                if (n.getFirstChild() !\u003d null) {\n+                    n.getFirstChild().setJSType(varType);\n+                }\n+            } else {\n+                Preconditions.checkState(parent.getType() \u003d\u003d Token.FUNCTION);\n+                parent.setJSType(varType);\n+            }\n+        } else {\n+            if (!(allowDupe || var.getParentNode().getType() \u003d\u003d Token.EXPR_RESULT) || !newType.equals(varType)) {\n+                compiler.report(JSError.make(sourceName, n, DUP_VAR_DECLARATION, variableName, newType.toString(), var.getInputName(), String.valueOf(var.nameNode.getLineno()), varType.toString()));\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void expectUndeclaredVariable(String sourceName, Node n, Node parent, Var var, String variableName, JSType newType) {\n    boolean allowDupe \u003d false;\n    if (n.getType() \u003d\u003d Token.GETPROP) {\n        JSDocInfo info \u003d n.getJSDocInfo();\n        if (info \u003d\u003d null) {\n            info \u003d parent.getJSDocInfo();\n        }\n        allowDupe \u003d info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\");\n    }\n    JSType varType \u003d var.getType();\n    if (varType !\u003d null \u0026\u0026 varType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE) \u0026\u0026 newType !\u003d null \u0026\u0026 newType !\u003d typeRegistry.getNativeType(UNKNOWN_TYPE)) {\n        if (var.input \u003d\u003d null) {\n            n.setJSType(varType);\n            if (parent.getType() \u003d\u003d Token.VAR) {\n                if (n.getFirstChild() !\u003d null) {\n                    n.getFirstChild().setJSType(varType);\n                }\n            } else {\n                Preconditions.checkState(parent.getType() \u003d\u003d Token.FUNCTION);\n                parent.setJSType(varType);\n            }\n        } else {\n            if (!(allowDupe || var.getParentNode().getType() \u003d\u003d Token.EXPR_RESULT) || !newType.equals(varType)) {\n                compiler.report(JSError.make(sourceName, n, DUP_VAR_DECLARATION, variableName, newType.toString(), var.getInputName(), String.valueOf(var.nameNode.getLineno()), varType.toString()));\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeValidator.java",
+      "functionStartLine": 445,
+      "functionName": "expectUndeclaredVariable",
+      "functionAnnotation": "",
+      "functionDoc": "Expect that the given variable has not been declared with a type.\n\n@param sourceName The name of the source file we\u0027re in.\n@param n The node where warnings should point to.\n@param parent The parent of {@code n}.\n@param var The variable that we\u0027re checking.\n@param variableName The name of the variable.\n@param newType The type being applied to the variable. Mostly just here\n    for the benefit of the warning.\n"
+    }
+  }
+}

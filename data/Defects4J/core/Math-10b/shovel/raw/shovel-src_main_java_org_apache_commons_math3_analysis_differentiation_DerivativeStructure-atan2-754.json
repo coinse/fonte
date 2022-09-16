@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DerivativeStructure.java",
+  "functionName": "atan2",
+  "functionId": "atan2___y-DerivativeStructure(modifiers-final)__x-DerivativeStructure(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java",
+  "functionAnnotation": "",
+  "functionDoc": "Two arguments arc tangent operation.\n\n@param y first argument of the arc tangent\n@param x second argument of the arc tangent\n@return atan2(y, x)\n@exception DimensionMismatchException if number of free parameters or orders are inconsistent\n",
+  "functionStartLine": 754,
+  "functionEndLine": 760,
+  "numCommitsSeen": 23,
+  "timeTaken": 1654,
+  "changeHistory": [
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,6 @@\n+public static DerivativeStructure atan2(final DerivativeStructure y, final DerivativeStructure x) throws DimensionMismatchException {\n+    y.compiler.checkCompatibility(x.compiler);\n+    final DerivativeStructure result \u003d new DerivativeStructure(y.compiler);\n+    y.compiler.atan2(y.data, 0, x.data, 0, result.data, 0);\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static DerivativeStructure atan2(final DerivativeStructure y, final DerivativeStructure x) throws DimensionMismatchException {\n    y.compiler.checkCompatibility(x.compiler);\n    final DerivativeStructure result \u003d new DerivativeStructure(y.compiler);\n    y.compiler.atan2(y.data, 0, x.data, 0, result.data, 0);\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java",
+      "functionStartLine": 509,
+      "functionName": "atan2",
+      "functionAnnotation": "",
+      "functionDoc": "Two arguments arc tangent operation.\n\n@param y first argument of the arc tangent\n@param x second argument of the arc tangent\n@return atan2(y, x)\n@exception DimensionMismatchException if number of free parameters or orders are inconsistent\n"
+    }
+  }
+}

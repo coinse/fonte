@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSDocInfoBuilder.java",
+  "functionName": "recordConstructor",
+  "functionId": "recordConstructor",
+  "sourceFilePath": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Records that the {@link JSDocInfo} being built should have its\n{@link JSDocInfo#isConstructor()} flag set to {@code true}.\n\n@return @code true} if the constructor was recorded and {@code false}\n    if it was already defined or it was incompatible with the existing\n    flags\n",
+  "functionStartLine": 701,
+  "functionEndLine": 710,
+  "numCommitsSeen": 27,
+  "timeTaken": 875,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean recordConstructor() {\n+    if (!hasAnySingletonTypeTags() \u0026\u0026 !currentInfo.isConstructor() \u0026\u0026 !currentInfo.isInterface()) {\n+        currentInfo.setConstructor(true);\n+        populated \u003d true;\n+        return true;\n+    } else {\n+        return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean recordConstructor() {\n    if (!hasAnySingletonTypeTags() \u0026\u0026 !currentInfo.isConstructor() \u0026\u0026 !currentInfo.isInterface()) {\n        currentInfo.setConstructor(true);\n        populated \u003d true;\n        return true;\n    } else {\n        return false;\n    }\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+      "functionStartLine": 565,
+      "functionName": "recordConstructor",
+      "functionAnnotation": "",
+      "functionDoc": "Records that the {@link JSDocInfo} being built should have its\n{@link JSDocInfo#isConstructor()} flag set to {@code true}.\n\n@return @code true} if the constructor was recorded and {@code false}\n    if it was already defined or it was incompatible with the existing\n    flags\n"
+    }
+  }
+}

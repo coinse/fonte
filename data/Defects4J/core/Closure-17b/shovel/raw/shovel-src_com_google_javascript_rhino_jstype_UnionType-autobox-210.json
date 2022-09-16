@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "UnionType.java",
+  "functionName": "autobox",
+  "functionId": "autobox",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/UnionType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 210,
+  "functionEndLine": 216,
+  "numCommitsSeen": 29,
+  "timeTaken": 1739,
+  "changeHistory": [
+    "a69d5521ba50a1952682ab53bb0f1a1288314e8a"
+  ],
+  "changeHistoryShort": {
+    "a69d5521ba50a1952682ab53bb0f1a1288314e8a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a69d5521ba50a1952682ab53bb0f1a1288314e8a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nbetter property checks on union types\n\nR\u003djohnlenz\nDELTA\u003d90  (68 added, 2 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3236\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1427 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/12/11, 7:22 AM",
+      "commitName": "a69d5521ba50a1952682ab53bb0f1a1288314e8a",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public JSType autobox() {\n+    UnionTypeBuilder restricted \u003d new UnionTypeBuilder(registry);\n+    for (JSType t : alternates) {\n+        restricted.addAlternate(t.autobox());\n+    }\n+    return restricted.build();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JSType autobox() {\n    UnionTypeBuilder restricted \u003d new UnionTypeBuilder(registry);\n    for (JSType t : alternates) {\n        restricted.addAlternate(t.autobox());\n    }\n    return restricted.build();\n}",
+      "path": "src/com/google/javascript/rhino/jstype/UnionType.java",
+      "functionStartLine": 210,
+      "functionName": "autobox",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

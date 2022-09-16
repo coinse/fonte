@@ -1,0 +1,19 @@
+<b>What steps will reproduce the problem?</b>
+1. Open http://closure-compiler.appspot.com/home in your browser
+2. Enter the source code: alert('\x7f')
+3. Hit the &quot;Compile&quot; button.
+
+What is the expected output?
+alert(&quot;\x7f&quot;)
+
+What do you see instead?
+alert(&quot;&quot;);
+
+
+<b>What version of the product are you using? On what operating system?</b>
+The version live on 11 April 2011.
+
+<b>Please provide any additional information below.</b>
+Codepoint U+007f is a delete control character and is the only non-printable ASCII codepoint that is not &lt;= U+0020.  http://www.fileformat.info/info/unicode/char/7f/index.htm
+
+It should probably not appear raw in emitted source code because, it can confuse encoders.

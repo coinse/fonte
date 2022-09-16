@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "iterator",
+  "functionId": "$iterator",
+  "sourceFilePath": "src/com/google/javascript/rhino/Node.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 1278,
+  "functionEndLine": 1291,
+  "numCommitsSeen": 72,
+  "timeTaken": 5817,
+  "changeHistory": [
+    "5200a1c2404a424425ab2b04a7a64e08e0ee4925",
+    "43859717972907dd1ecebd8dca6e05036386e28b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "5200a1c2404a424425ab2b04a7a64e08e0ee4925": "Ymultichange(Ybodychange,Yannotationchange)",
+    "43859717972907dd1ecebd8dca6e05036386e28b": "Yformatchange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5200a1c2404a424425ab2b04a7a64e08e0ee4925": {
+      "type": "Ymultichange(Ybodychange,Yannotationchange)",
+      "commitMessage": "\nCleanup rhino_ast warnings.\n\nR\u003dacleung\nDELTA\u003d52  (30 added, 2 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2828\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1299 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/28/11, 2:24 PM",
+      "commitName": "5200a1c2404a424425ab2b04a7a64e08e0ee4925",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nCleanup rhino_ast warnings.\n\nR\u003dacleung\nDELTA\u003d52  (30 added, 2 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2828\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1299 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "7/28/11, 2:24 PM",
+          "commitName": "5200a1c2404a424425ab2b04a7a64e08e0ee4925",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "7/12/11, 8:03 AM",
+          "commitNameOld": "48a32150dae5412868226f0c336b24d51000a1b5",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 16.26,
+          "commitsBetweenForRepo": 38,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Iterator\u003cNode\u003e iterator() {\n    return new Iterator\u003cNode\u003e() {\n\n        @Override\n        public boolean hasNext() {\n            return cur !\u003d null;\n        }\n\n        @Override\n        public Node next() {\n            if (!hasNext())\n                throw new NoSuchElementException();\n            Node n \u003d cur;\n            cur \u003d cur.getParent();\n            return n;\n        }\n\n        @Override\n        public void remove() {\n            throw new UnsupportedOperationException();\n        }\n    };\n}",
+          "path": "src/com/google/javascript/rhino/Node.java",
+          "functionStartLine": 1457,
+          "functionName": "iterator",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,20 +1,24 @@\n+@Override\n public Iterator\u003cNode\u003e iterator() {\n     return new Iterator\u003cNode\u003e() {\n \n+        @Override\n         public boolean hasNext() {\n             return cur !\u003d null;\n         }\n \n+        @Override\n         public Node next() {\n             if (!hasNext())\n                 throw new NoSuchElementException();\n             Node n \u003d cur;\n             cur \u003d cur.getParent();\n             return n;\n         }\n \n+        @Override\n         public void remove() {\n             throw new UnsupportedOperationException();\n         }\n     };\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "\nCleanup rhino_ast warnings.\n\nR\u003dacleung\nDELTA\u003d52  (30 added, 2 deleted, 20 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2828\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1299 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "7/28/11, 2:24 PM",
+          "commitName": "5200a1c2404a424425ab2b04a7a64e08e0ee4925",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "7/12/11, 8:03 AM",
+          "commitNameOld": "48a32150dae5412868226f0c336b24d51000a1b5",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 16.26,
+          "commitsBetweenForRepo": 38,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Iterator\u003cNode\u003e iterator() {\n    return new Iterator\u003cNode\u003e() {\n\n        @Override\n        public boolean hasNext() {\n            return cur !\u003d null;\n        }\n\n        @Override\n        public Node next() {\n            if (!hasNext())\n                throw new NoSuchElementException();\n            Node n \u003d cur;\n            cur \u003d cur.getParent();\n            return n;\n        }\n\n        @Override\n        public void remove() {\n            throw new UnsupportedOperationException();\n        }\n    };\n}",
+          "path": "src/com/google/javascript/rhino/Node.java",
+          "functionStartLine": 1457,
+          "functionName": "iterator",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,20 +1,24 @@\n+@Override\n public Iterator\u003cNode\u003e iterator() {\n     return new Iterator\u003cNode\u003e() {\n \n+        @Override\n         public boolean hasNext() {\n             return cur !\u003d null;\n         }\n \n+        @Override\n         public Node next() {\n             if (!hasNext())\n                 throw new NoSuchElementException();\n             Node n \u003d cur;\n             cur \u003d cur.getParent();\n             return n;\n         }\n \n+        @Override\n         public void remove() {\n             throw new UnsupportedOperationException();\n         }\n     };\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "@Override"
+          }
+        }
+      ]
+    },
+    "43859717972907dd1ecebd8dca6e05036386e28b": {
+      "type": "Yformatchange",
+      "commitMessage": "\nChange on 2010/04/14 by john\n\n        Stop creating specialized Node types for FUNCTION and SCRIPT as the added functionality isn\u0027t used anywhere.\n\n        Also correct some formatting issue with Node (as it won\u0027t need to be merged with anything else anymore).\n\n        R\u003dsteve,robert\n        DELTA\u003d3969  (1913 added, 1925 deleted, 131 changed)\n\nChange on 2010/04/14 by john\n\n        Fix source information in MinimizeExitPoints.\n\n        R\u003drobert\n        DELTA\u003d10  (5 added, 2 deleted, 3 changed)\n\nChange on 2010/04/14 by john\n\n        Maintain source information.\n\n        R\u003dantonio\n        DELTA\u003d17  (11 added, 0 deleted, 6 changed)\n\nChange on 2010/04/14 by john\n\n        Maintain source information through FoldConstants.\n\n        R\u003drobert\n        DELTA\u003d42  (22 added, 0 deleted, 20 changed)\n\nChange on 2010/04/14 by nick\n\n        lock down function type construction\n\n        R\u003djohn\n        DELTA\u003d111  (83 added, 9 deleted, 19 changed)\n\nChange on 2010/04/14 by john\n\n        Fix source info in CollapseProperties.\n\n        R\u003dnick\n        DELTA\u003d17  (8 added, 3 deleted, 6 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dmbevwz\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@184 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/14/10, 4:53 PM",
+      "commitName": "43859717972907dd1ecebd8dca6e05036386e28b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/13/10, 2:39 PM",
+      "commitNameOld": "de13c3313c05f4449c50c560324389d6905a214d",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 1.09,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Iterator\u003cNode\u003e iterator() {\n    return new Iterator\u003cNode\u003e() {\n\n        public boolean hasNext() {\n            return cur !\u003d null;\n        }\n\n        public Node next() {\n            if (!hasNext())\n                throw new NoSuchElementException();\n            Node n \u003d cur;\n            cur \u003d cur.getParent();\n            return n;\n        }\n\n        public void remove() {\n            throw new UnsupportedOperationException();\n        }\n    };\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 1265,
+      "functionName": "iterator",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,20 @@\n+public Iterator\u003cNode\u003e iterator() {\n+    return new Iterator\u003cNode\u003e() {\n+\n+        public boolean hasNext() {\n+            return cur !\u003d null;\n+        }\n+\n+        public Node next() {\n+            if (!hasNext())\n+                throw new NoSuchElementException();\n+            Node n \u003d cur;\n+            cur \u003d cur.getParent();\n+            return n;\n+        }\n+\n+        public void remove() {\n+            throw new UnsupportedOperationException();\n+        }\n+    };\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Iterator\u003cNode\u003e iterator() {\n    return new Iterator\u003cNode\u003e() {\n\n        public boolean hasNext() {\n            return cur !\u003d null;\n        }\n\n        public Node next() {\n            if (!hasNext())\n                throw new NoSuchElementException();\n            Node n \u003d cur;\n            cur \u003d cur.getParent();\n            return n;\n        }\n\n        public void remove() {\n            throw new UnsupportedOperationException();\n        }\n    };\n}",
+      "path": "src/com/google/javascript/rhino/Node.java",
+      "functionStartLine": 1239,
+      "functionName": "iterator",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

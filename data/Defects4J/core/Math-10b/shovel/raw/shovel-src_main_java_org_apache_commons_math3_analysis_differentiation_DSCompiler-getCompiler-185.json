@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-10b",
+  "repositoryPath": "/tmp/Math-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DSCompiler.java",
+  "functionName": "getCompiler",
+  "functionId": "getCompiler___parameters-int__order-int",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the compiler for number of free parameters and order.\n\n@param parameters number of free parameters\n@param order derivation order\n@return cached rules set\n",
+  "functionStartLine": 185,
+  "functionEndLine": 225,
+  "numCommitsSeen": 17,
+  "timeTaken": 2526,
+  "changeHistory": [
+    "a62ba887c90267162cf572de6286479eb04e02a8",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5"
+  ],
+  "changeHistoryShort": {
+    "a62ba887c90267162cf572de6286479eb04e02a8": "Ybodychange",
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a62ba887c90267162cf572de6286479eb04e02a8": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed too large memory consumption in DSCompiler.\n\nPrior to this correction, when at one point in a program a user needed a\nderivative with 1 parameter and order 5, and at another point needed a\nderivative with 30 parameters and order 1, all DSCompilers from 1x1 to\n30x5 were created. As the compilation rules for 30 parameters and 5\norder are huge, this failed with memory heap errors after several\ngigabytes were consumed.\n\nThe fix is to simply build the necessary compilers, and let the array\ncontain null references for the compilers never used (these null\nreferences will be populated later if the user ask for some intermediate\nvalue that need them, of course).\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1384905 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/14/12, 1:16 PM",
+      "commitName": "a62ba887c90267162cf572de6286479eb04e02a8",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "8/18/12, 11:08 AM",
+      "commitNameOld": "97c7fae862a640aba31b41b06b9854975dbc7d7c",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 27.09,
+      "commitsBetweenForRepo": 88,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static DSCompiler getCompiler(int parameters, int order) {\n    final DSCompiler[][] cache \u003d compilers.get();\n    if (cache !\u003d null \u0026\u0026 cache.length \u003e parameters \u0026\u0026 cache[parameters].length \u003e order) {\n        if (cache[parameters][order] !\u003d null) {\n            return cache[parameters][order];\n        }\n    }\n    final int maxParameters \u003d FastMath.max(parameters, cache \u003d\u003d null ? 0 : cache.length);\n    final int maxOrder \u003d FastMath.max(order, cache \u003d\u003d null ? 0 : cache[0].length);\n    final DSCompiler[][] newCache \u003d new DSCompiler[maxParameters + 1][maxOrder + 1];\n    if (cache !\u003d null) {\n        for (int i \u003d 0; i \u003c cache.length; ++i) {\n            System.arraycopy(cache[i], 0, newCache[i], 0, cache[i].length);\n        }\n    }\n    for (int diag \u003d 0; diag \u003c\u003d parameters + order; ++diag) {\n        for (int o \u003d FastMath.max(0, diag - parameters); o \u003c\u003d FastMath.min(order, diag); ++o) {\n            final int p \u003d diag - o;\n            if (newCache[p][o] \u003d\u003d null) {\n                final DSCompiler valueCompiler \u003d (p \u003d\u003d 0) ? null : newCache[p - 1][o];\n                final DSCompiler derivativeCompiler \u003d (o \u003d\u003d 0) ? null : newCache[p][o - 1];\n                newCache[p][o] \u003d new DSCompiler(p, o, valueCompiler, derivativeCompiler);\n            }\n        }\n    }\n    compilers.compareAndSet(cache, newCache);\n    return newCache[parameters][order];\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 157,
+      "functionName": "getCompiler",
+      "functionAnnotation": "",
+      "functionDoc": "Get the compiler for number of free parameters and order.\n\n@param parameters number of free parameters\n@param order derivation order\n@return cached rules set\n",
+      "diff": "@@ -1,26 +1,28 @@\n public static DSCompiler getCompiler(int parameters, int order) {\n     final DSCompiler[][] cache \u003d compilers.get();\n     if (cache !\u003d null \u0026\u0026 cache.length \u003e parameters \u0026\u0026 cache[parameters].length \u003e order) {\n-        return cache[parameters][order];\n+        if (cache[parameters][order] !\u003d null) {\n+            return cache[parameters][order];\n+        }\n     }\n     final int maxParameters \u003d FastMath.max(parameters, cache \u003d\u003d null ? 0 : cache.length);\n     final int maxOrder \u003d FastMath.max(order, cache \u003d\u003d null ? 0 : cache[0].length);\n     final DSCompiler[][] newCache \u003d new DSCompiler[maxParameters + 1][maxOrder + 1];\n     if (cache !\u003d null) {\n         for (int i \u003d 0; i \u003c cache.length; ++i) {\n             System.arraycopy(cache[i], 0, newCache[i], 0, cache[i].length);\n         }\n     }\n-    for (int diag \u003d 0; diag \u003c\u003d maxParameters + maxOrder; ++diag) {\n-        for (int o \u003d FastMath.max(0, diag - maxParameters); o \u003c\u003d FastMath.min(maxOrder, diag); ++o) {\n+    for (int diag \u003d 0; diag \u003c\u003d parameters + order; ++diag) {\n+        for (int o \u003d FastMath.max(0, diag - parameters); o \u003c\u003d FastMath.min(order, diag); ++o) {\n             final int p \u003d diag - o;\n             if (newCache[p][o] \u003d\u003d null) {\n                 final DSCompiler valueCompiler \u003d (p \u003d\u003d 0) ? null : newCache[p - 1][o];\n                 final DSCompiler derivativeCompiler \u003d (o \u003d\u003d 0) ? null : newCache[p][o - 1];\n                 newCache[p][o] \u003d new DSCompiler(p, o, valueCompiler, derivativeCompiler);\n             }\n         }\n     }\n     compilers.compareAndSet(cache, newCache);\n     return newCache[parameters][order];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96dfe1afa1c06fb243e312d3366daf99b88ca7b5": {
+      "type": "Yintroduced",
+      "commitMessage": "Added a new package dealing with differentials.\n\nThe package is intended to deals with one or more free parameters and\nderivation order 1 or higher.\n\nThe core elements are based on Dan Kalman paper \"Recursive Multivariate\nAutomatic Differentiation\", Mathematics Magazine, vol. 75, no. 3, June\n2002. For efficiency, the recursive structure is compiled as simple\nloops once for each pair (number of free parameters, derivation order).\n\nThis is work in progress, there are still some features missing even in\nthe most basic blocks (typically the asin, acos, atan, atant2 and taylor\nmethods in DSCompiler). There are also still no high level\ndifferentiator implementation.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1370951 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/12, 1:33 PM",
+      "commitName": "96dfe1afa1c06fb243e312d3366daf99b88ca7b5",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,26 @@\n+public static DSCompiler getCompiler(int parameters, int order) {\n+    final DSCompiler[][] cache \u003d compilers.get();\n+    if (cache !\u003d null \u0026\u0026 cache.length \u003e parameters \u0026\u0026 cache[parameters].length \u003e order) {\n+        return cache[parameters][order];\n+    }\n+    final int maxParameters \u003d FastMath.max(parameters, cache \u003d\u003d null ? 0 : cache.length);\n+    final int maxOrder \u003d FastMath.max(order, cache \u003d\u003d null ? 0 : cache[0].length);\n+    final DSCompiler[][] newCache \u003d new DSCompiler[maxParameters + 1][maxOrder + 1];\n+    if (cache !\u003d null) {\n+        for (int i \u003d 0; i \u003c cache.length; ++i) {\n+            System.arraycopy(cache[i], 0, newCache[i], 0, cache[i].length);\n+        }\n+    }\n+    for (int diag \u003d 0; diag \u003c\u003d maxParameters + maxOrder; ++diag) {\n+        for (int o \u003d FastMath.max(0, diag - maxParameters); o \u003c\u003d FastMath.min(maxOrder, diag); ++o) {\n+            final int p \u003d diag - o;\n+            if (newCache[p][o] \u003d\u003d null) {\n+                final DSCompiler valueCompiler \u003d (p \u003d\u003d 0) ? null : newCache[p - 1][o];\n+                final DSCompiler derivativeCompiler \u003d (o \u003d\u003d 0) ? null : newCache[p][o - 1];\n+                newCache[p][o] \u003d new DSCompiler(p, o, valueCompiler, derivativeCompiler);\n+            }\n+        }\n+    }\n+    compilers.compareAndSet(cache, newCache);\n+    return newCache[parameters][order];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static DSCompiler getCompiler(int parameters, int order) {\n    final DSCompiler[][] cache \u003d compilers.get();\n    if (cache !\u003d null \u0026\u0026 cache.length \u003e parameters \u0026\u0026 cache[parameters].length \u003e order) {\n        return cache[parameters][order];\n    }\n    final int maxParameters \u003d FastMath.max(parameters, cache \u003d\u003d null ? 0 : cache.length);\n    final int maxOrder \u003d FastMath.max(order, cache \u003d\u003d null ? 0 : cache[0].length);\n    final DSCompiler[][] newCache \u003d new DSCompiler[maxParameters + 1][maxOrder + 1];\n    if (cache !\u003d null) {\n        for (int i \u003d 0; i \u003c cache.length; ++i) {\n            System.arraycopy(cache[i], 0, newCache[i], 0, cache[i].length);\n        }\n    }\n    for (int diag \u003d 0; diag \u003c\u003d maxParameters + maxOrder; ++diag) {\n        for (int o \u003d FastMath.max(0, diag - maxParameters); o \u003c\u003d FastMath.min(maxOrder, diag); ++o) {\n            final int p \u003d diag - o;\n            if (newCache[p][o] \u003d\u003d null) {\n                final DSCompiler valueCompiler \u003d (p \u003d\u003d 0) ? null : newCache[p - 1][o];\n                final DSCompiler derivativeCompiler \u003d (o \u003d\u003d 0) ? null : newCache[p][o - 1];\n                newCache[p][o] \u003d new DSCompiler(p, o, valueCompiler, derivativeCompiler);\n            }\n        }\n    }\n    compilers.compareAndSet(cache, newCache);\n    return newCache[parameters][order];\n}",
+      "path": "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+      "functionStartLine": 157,
+      "functionName": "getCompiler",
+      "functionAnnotation": "",
+      "functionDoc": "Get the compiler for number of free parameters and order.\n\n@param parameters number of free parameters\n@param order derivation order\n@return cached rules set\n"
+    }
+  }
+}

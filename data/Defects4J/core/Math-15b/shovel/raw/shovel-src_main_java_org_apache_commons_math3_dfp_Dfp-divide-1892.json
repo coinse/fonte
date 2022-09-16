@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-15b",
+  "repositoryPath": "/tmp/Math-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "divide",
+  "functionId": "divide___divisor-int",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Divide by a single digit less than radix.\n Special case, so there are speed advantages. 0 \u0026lt;\u003d divisor \u0026lt; radix\n\n@param divisor divisor\n@return quotient of this by divisor\n",
+  "functionStartLine": 1892,
+  "functionEndLine": 1950,
+  "numCommitsSeen": 13,
+  "timeTaken": 13084,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Dfp divide(int divisor) {\n    if (nans !\u003d FINITE) {\n        if (isNaN()) {\n            return this;\n        }\n        if (nans \u003d\u003d INFINITE) {\n            return newInstance(this);\n        }\n    }\n    if (divisor \u003d\u003d 0) {\n        field.setIEEEFlagsBits(DfpField.FLAG_DIV_ZERO);\n        Dfp result \u003d newInstance(getZero());\n        result.sign \u003d sign;\n        result.nans \u003d INFINITE;\n        result \u003d dotrap(DfpField.FLAG_DIV_ZERO, DIVIDE_TRAP, getZero(), result);\n        return result;\n    }\n    if (divisor \u003c 0 || divisor \u003e\u003d RADIX) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        Dfp result \u003d newInstance(getZero());\n        result.nans \u003d QNAN;\n        result \u003d dotrap(DfpField.FLAG_INVALID, DIVIDE_TRAP, result, result);\n        return result;\n    }\n    Dfp result \u003d newInstance(this);\n    int rl \u003d 0;\n    for (int i \u003d mant.length - 1; i \u003e\u003d 0; i--) {\n        final int r \u003d rl * RADIX + result.mant[i];\n        final int rh \u003d r / divisor;\n        rl \u003d r - rh * divisor;\n        result.mant[i] \u003d rh;\n    }\n    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n        result.shiftLeft();\n        final int r \u003d rl * RADIX;\n        final int rh \u003d r / divisor;\n        rl \u003d r - rh * divisor;\n        result.mant[0] \u003d rh;\n    }\n    final int excp \u003d result.round(rl * RADIX / divisor);\n    if (excp !\u003d 0) {\n        result \u003d dotrap(excp, DIVIDE_TRAP, result, result);\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+      "functionStartLine": 1880,
+      "functionName": "divide",
+      "functionAnnotation": "",
+      "functionDoc": "Divide by a single digit less than radix.\n Special case, so there are speed advantages. 0 \u0026lt;\u003d divisor \u0026lt; radix\n\n@param divisor divisor\n@return quotient of this by divisor\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+        "newPath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+        "oldMethodName": "divide",
+        "newMethodName": "divide"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,45 @@\n+public Dfp divide(int divisor) {\n+    if (nans !\u003d FINITE) {\n+        if (isNaN()) {\n+            return this;\n+        }\n+        if (nans \u003d\u003d INFINITE) {\n+            return newInstance(this);\n+        }\n+    }\n+    if (divisor \u003d\u003d 0) {\n+        field.setIEEEFlagsBits(DfpField.FLAG_DIV_ZERO);\n+        Dfp result \u003d newInstance(getZero());\n+        result.sign \u003d sign;\n+        result.nans \u003d INFINITE;\n+        result \u003d dotrap(DfpField.FLAG_DIV_ZERO, DIVIDE_TRAP, getZero(), result);\n+        return result;\n+    }\n+    if (divisor \u003c 0 || divisor \u003e\u003d RADIX) {\n+        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n+        Dfp result \u003d newInstance(getZero());\n+        result.nans \u003d QNAN;\n+        result \u003d dotrap(DfpField.FLAG_INVALID, DIVIDE_TRAP, result, result);\n+        return result;\n+    }\n+    Dfp result \u003d newInstance(this);\n+    int rl \u003d 0;\n+    for (int i \u003d mant.length - 1; i \u003e\u003d 0; i--) {\n+        final int r \u003d rl * RADIX + result.mant[i];\n+        final int rh \u003d r / divisor;\n+        rl \u003d r - rh * divisor;\n+        result.mant[i] \u003d rh;\n+    }\n+    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n+        result.shiftLeft();\n+        final int r \u003d rl * RADIX;\n+        final int rh \u003d r / divisor;\n+        rl \u003d r - rh * divisor;\n+        result.mant[0] \u003d rh;\n+    }\n+    final int excp \u003d result.round(rl * RADIX / divisor);\n+    if (excp !\u003d 0) {\n+        result \u003d dotrap(excp, DIVIDE_TRAP, result, result);\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Dfp divide(int divisor) {\n    if (nans !\u003d FINITE) {\n        if (isNaN()) {\n            return this;\n        }\n        if (nans \u003d\u003d INFINITE) {\n            return newInstance(this);\n        }\n    }\n    if (divisor \u003d\u003d 0) {\n        field.setIEEEFlagsBits(DfpField.FLAG_DIV_ZERO);\n        Dfp result \u003d newInstance(getZero());\n        result.sign \u003d sign;\n        result.nans \u003d INFINITE;\n        result \u003d dotrap(DfpField.FLAG_DIV_ZERO, DIVIDE_TRAP, getZero(), result);\n        return result;\n    }\n    if (divisor \u003c 0 || divisor \u003e\u003d RADIX) {\n        field.setIEEEFlagsBits(DfpField.FLAG_INVALID);\n        Dfp result \u003d newInstance(getZero());\n        result.nans \u003d QNAN;\n        result \u003d dotrap(DfpField.FLAG_INVALID, DIVIDE_TRAP, result, result);\n        return result;\n    }\n    Dfp result \u003d newInstance(this);\n    int rl \u003d 0;\n    for (int i \u003d mant.length - 1; i \u003e\u003d 0; i--) {\n        final int r \u003d rl * RADIX + result.mant[i];\n        final int rh \u003d r / divisor;\n        rl \u003d r - rh * divisor;\n        result.mant[i] \u003d rh;\n    }\n    if (result.mant[mant.length - 1] \u003d\u003d 0) {\n        result.shiftLeft();\n        final int r \u003d rl * RADIX;\n        final int rh \u003d r / divisor;\n        rl \u003d r - rh * divisor;\n        result.mant[0] \u003d rh;\n    }\n    final int excp \u003d result.round(rl * RADIX / divisor);\n    if (excp !\u003d 0) {\n        result \u003d dotrap(excp, DIVIDE_TRAP, result, result);\n    }\n    return result;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 1793,
+      "functionName": "divide",
+      "functionAnnotation": "",
+      "functionDoc": "Divide by a single digit less than radix.\n Special case, so there are speed advantages. 0 \u0026lt;\u003d divisor \u0026lt; radix\n\n@param divisor divisor\n@return quotient of this by divisor\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-50b",
+  "repositoryPath": "/tmp/Math-50b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "buildSinCosTables",
+  "functionId": "buildSinCosTables",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Build the sine and cosine tables.\n",
+  "functionStartLine": 1873,
+  "functionEndLine": 1965,
+  "numCommitsSeen": 50,
+  "timeTaken": 20650,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,69 @@\n+private static void buildSinCosTables() {\n+    final double[] result \u003d new double[2];\n+    for (int i \u003d 0; i \u003c 7; i++) {\n+        double x \u003d i / 8.0;\n+        slowSin(x, result);\n+        SINE_TABLE_A[i] \u003d result[0];\n+        SINE_TABLE_B[i] \u003d result[1];\n+        slowCos(x, result);\n+        COSINE_TABLE_A[i] \u003d result[0];\n+        COSINE_TABLE_B[i] \u003d result[1];\n+    }\n+    for (int i \u003d 7; i \u003c 14; i++) {\n+        double[] xs \u003d new double[2];\n+        double[] ys \u003d new double[2];\n+        double[] as \u003d new double[2];\n+        double[] bs \u003d new double[2];\n+        double[] temps \u003d new double[2];\n+        if ((i \u0026 1) \u003d\u003d 0) {\n+            xs[0] \u003d SINE_TABLE_A[i / 2];\n+            xs[1] \u003d SINE_TABLE_B[i / 2];\n+            ys[0] \u003d COSINE_TABLE_A[i / 2];\n+            ys[1] \u003d COSINE_TABLE_B[i / 2];\n+            splitMult(xs, ys, result);\n+            SINE_TABLE_A[i] \u003d result[0] * 2.0;\n+            SINE_TABLE_B[i] \u003d result[1] * 2.0;\n+            splitMult(ys, ys, as);\n+            splitMult(xs, xs, temps);\n+            temps[0] \u003d -temps[0];\n+            temps[1] \u003d -temps[1];\n+            splitAdd(as, temps, result);\n+            COSINE_TABLE_A[i] \u003d result[0];\n+            COSINE_TABLE_B[i] \u003d result[1];\n+        } else {\n+            xs[0] \u003d SINE_TABLE_A[i / 2];\n+            xs[1] \u003d SINE_TABLE_B[i / 2];\n+            ys[0] \u003d COSINE_TABLE_A[i / 2];\n+            ys[1] \u003d COSINE_TABLE_B[i / 2];\n+            as[0] \u003d SINE_TABLE_A[i / 2 + 1];\n+            as[1] \u003d SINE_TABLE_B[i / 2 + 1];\n+            bs[0] \u003d COSINE_TABLE_A[i / 2 + 1];\n+            bs[1] \u003d COSINE_TABLE_B[i / 2 + 1];\n+            splitMult(xs, bs, temps);\n+            splitMult(ys, as, result);\n+            splitAdd(result, temps, result);\n+            SINE_TABLE_A[i] \u003d result[0];\n+            SINE_TABLE_B[i] \u003d result[1];\n+            splitMult(ys, bs, result);\n+            splitMult(xs, as, temps);\n+            temps[0] \u003d -temps[0];\n+            temps[1] \u003d -temps[1];\n+            splitAdd(result, temps, result);\n+            COSINE_TABLE_A[i] \u003d result[0];\n+            COSINE_TABLE_B[i] \u003d result[1];\n+        }\n+    }\n+    for (int i \u003d 0; i \u003c 14; i++) {\n+        double[] xs \u003d new double[2];\n+        double[] ys \u003d new double[2];\n+        double[] as \u003d new double[2];\n+        as[0] \u003d COSINE_TABLE_A[i];\n+        as[1] \u003d COSINE_TABLE_B[i];\n+        splitReciprocal(as, ys);\n+        xs[0] \u003d SINE_TABLE_A[i];\n+        xs[1] \u003d SINE_TABLE_B[i];\n+        splitMult(xs, ys, as);\n+        TANGENT_TABLE_A[i] \u003d as[0];\n+        TANGENT_TABLE_B[i] \u003d as[1];\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void buildSinCosTables() {\n    final double[] result \u003d new double[2];\n    for (int i \u003d 0; i \u003c 7; i++) {\n        double x \u003d i / 8.0;\n        slowSin(x, result);\n        SINE_TABLE_A[i] \u003d result[0];\n        SINE_TABLE_B[i] \u003d result[1];\n        slowCos(x, result);\n        COSINE_TABLE_A[i] \u003d result[0];\n        COSINE_TABLE_B[i] \u003d result[1];\n    }\n    for (int i \u003d 7; i \u003c 14; i++) {\n        double[] xs \u003d new double[2];\n        double[] ys \u003d new double[2];\n        double[] as \u003d new double[2];\n        double[] bs \u003d new double[2];\n        double[] temps \u003d new double[2];\n        if ((i \u0026 1) \u003d\u003d 0) {\n            xs[0] \u003d SINE_TABLE_A[i / 2];\n            xs[1] \u003d SINE_TABLE_B[i / 2];\n            ys[0] \u003d COSINE_TABLE_A[i / 2];\n            ys[1] \u003d COSINE_TABLE_B[i / 2];\n            splitMult(xs, ys, result);\n            SINE_TABLE_A[i] \u003d result[0] * 2.0;\n            SINE_TABLE_B[i] \u003d result[1] * 2.0;\n            splitMult(ys, ys, as);\n            splitMult(xs, xs, temps);\n            temps[0] \u003d -temps[0];\n            temps[1] \u003d -temps[1];\n            splitAdd(as, temps, result);\n            COSINE_TABLE_A[i] \u003d result[0];\n            COSINE_TABLE_B[i] \u003d result[1];\n        } else {\n            xs[0] \u003d SINE_TABLE_A[i / 2];\n            xs[1] \u003d SINE_TABLE_B[i / 2];\n            ys[0] \u003d COSINE_TABLE_A[i / 2];\n            ys[1] \u003d COSINE_TABLE_B[i / 2];\n            as[0] \u003d SINE_TABLE_A[i / 2 + 1];\n            as[1] \u003d SINE_TABLE_B[i / 2 + 1];\n            bs[0] \u003d COSINE_TABLE_A[i / 2 + 1];\n            bs[1] \u003d COSINE_TABLE_B[i / 2 + 1];\n            splitMult(xs, bs, temps);\n            splitMult(ys, as, result);\n            splitAdd(result, temps, result);\n            SINE_TABLE_A[i] \u003d result[0];\n            SINE_TABLE_B[i] \u003d result[1];\n            splitMult(ys, bs, result);\n            splitMult(xs, as, temps);\n            temps[0] \u003d -temps[0];\n            temps[1] \u003d -temps[1];\n            splitAdd(result, temps, result);\n            COSINE_TABLE_A[i] \u003d result[0];\n            COSINE_TABLE_B[i] \u003d result[1];\n        }\n    }\n    for (int i \u003d 0; i \u003c 14; i++) {\n        double[] xs \u003d new double[2];\n        double[] ys \u003d new double[2];\n        double[] as \u003d new double[2];\n        as[0] \u003d COSINE_TABLE_A[i];\n        as[1] \u003d COSINE_TABLE_B[i];\n        splitReciprocal(as, ys);\n        xs[0] \u003d SINE_TABLE_A[i];\n        xs[1] \u003d SINE_TABLE_B[i];\n        splitMult(xs, ys, as);\n        TANGENT_TABLE_A[i] \u003d as[0];\n        TANGENT_TABLE_B[i] \u003d as[1];\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 1467,
+      "functionName": "buildSinCosTables",
+      "functionAnnotation": "",
+      "functionDoc": "Build the sine and cosine tables.\n"
+    }
+  }
+}

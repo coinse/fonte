@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-4b",
+  "repositoryPath": "/tmp/JacksonCore-4b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextBuffer.java",
+  "functionName": "unshare",
+  "functionId": "unshare___needExtra-int",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called if/when we need to append content when we have been\ninitialized to use shared buffer.\n",
+  "functionStartLine": 629,
+  "functionEndLine": 648,
+  "numCommitsSeen": 10,
+  "timeTaken": 586,
+  "changeHistory": [
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+    "f15531c04f87f9e4e4724772426603a909eabe2c"
+  ],
+  "changeHistoryShort": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": "Ybodychange",
+    "f15531c04f87f9e4e4724772426603a909eabe2c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0c8d86eab3670535dfcb5ad4d80f090f001aca14": {
+      "type": "Ybodychange",
+      "commitMessage": "minor addition to TextBuffer\n",
+      "commitDate": "1/19/14, 7:28 PM",
+      "commitName": "0c8d86eab3670535dfcb5ad4d80f090f001aca14",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/13/13, 9:15 PM",
+      "commitNameOld": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 36.93,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void unshare(int needExtra) {\n    int sharedLen \u003d _inputLen;\n    _inputLen \u003d 0;\n    char[] inputBuf \u003d _inputBuffer;\n    _inputBuffer \u003d null;\n    int start \u003d _inputStart;\n    _inputStart \u003d -1;\n    int needed \u003d sharedLen + needExtra;\n    if (_currentSegment \u003d\u003d null || needed \u003e _currentSegment.length) {\n        _currentSegment \u003d buf(needed);\n    }\n    if (sharedLen \u003e 0) {\n        System.arraycopy(inputBuf, start, _currentSegment, 0, sharedLen);\n    }\n    _segmentSize \u003d 0;\n    _currentSize \u003d sharedLen;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 623,
+      "functionName": "unshare",
+      "functionAnnotation": "",
+      "functionDoc": "Method called if/when we need to append content when we have been\ninitialized to use shared buffer.\n",
+      "diff": "@@ -1,17 +1,17 @@\n private void unshare(int needExtra) {\n     int sharedLen \u003d _inputLen;\n     _inputLen \u003d 0;\n     char[] inputBuf \u003d _inputBuffer;\n     _inputBuffer \u003d null;\n     int start \u003d _inputStart;\n     _inputStart \u003d -1;\n     int needed \u003d sharedLen + needExtra;\n     if (_currentSegment \u003d\u003d null || needed \u003e _currentSegment.length) {\n-        _currentSegment \u003d findBuffer(needed);\n+        _currentSegment \u003d buf(needed);\n     }\n     if (sharedLen \u003e 0) {\n         System.arraycopy(inputBuf, start, _currentSegment, 0, sharedLen);\n     }\n     _segmentSize \u003d 0;\n     _currentSize \u003d sharedLen;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f15531c04f87f9e4e4724772426603a909eabe2c": {
+      "type": "Yintroduced",
+      "commitMessage": "Check in actual sources, moved to the new package, cleaned up a bit\n",
+      "commitDate": "12/22/11, 11:00 PM",
+      "commitName": "f15531c04f87f9e4e4724772426603a909eabe2c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,17 @@\n+private void unshare(int needExtra) {\n+    int sharedLen \u003d _inputLen;\n+    _inputLen \u003d 0;\n+    char[] inputBuf \u003d _inputBuffer;\n+    _inputBuffer \u003d null;\n+    int start \u003d _inputStart;\n+    _inputStart \u003d -1;\n+    int needed \u003d sharedLen + needExtra;\n+    if (_currentSegment \u003d\u003d null || needed \u003e _currentSegment.length) {\n+        _currentSegment \u003d findBuffer(needed);\n+    }\n+    if (sharedLen \u003e 0) {\n+        System.arraycopy(inputBuf, start, _currentSegment, 0, sharedLen);\n+    }\n+    _segmentSize \u003d 0;\n+    _currentSize \u003d sharedLen;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void unshare(int needExtra) {\n    int sharedLen \u003d _inputLen;\n    _inputLen \u003d 0;\n    char[] inputBuf \u003d _inputBuffer;\n    _inputBuffer \u003d null;\n    int start \u003d _inputStart;\n    _inputStart \u003d -1;\n    int needed \u003d sharedLen + needExtra;\n    if (_currentSegment \u003d\u003d null || needed \u003e _currentSegment.length) {\n        _currentSegment \u003d findBuffer(needed);\n    }\n    if (sharedLen \u003e 0) {\n        System.arraycopy(inputBuf, start, _currentSegment, 0, sharedLen);\n    }\n    _segmentSize \u003d 0;\n    _currentSize \u003d sharedLen;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+      "functionStartLine": 623,
+      "functionName": "unshare",
+      "functionAnnotation": "",
+      "functionDoc": "Method called if/when we need to append content when we have been\ninitialized to use shared buffer.\n"
+    }
+  }
+}

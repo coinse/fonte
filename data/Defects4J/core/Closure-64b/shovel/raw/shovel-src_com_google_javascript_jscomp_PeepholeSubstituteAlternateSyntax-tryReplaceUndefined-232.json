@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeSubstituteAlternateSyntax.java",
+  "functionName": "tryReplaceUndefined",
+  "functionId": "tryReplaceUndefined___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+  "functionAnnotation": "",
+  "functionDoc": "Use \"void 0\" in place of \"undefined\"\n",
+  "functionStartLine": 232,
+  "functionEndLine": 243,
+  "numCommitsSeen": 37,
+  "timeTaken": 1822,
+  "changeHistory": [
+    "828828472848b88b6d3b1e847fa8be5dde78e2da",
+    "fc66128defd24dd67a02b1bdd87d1968126f02ea"
+  ],
+  "changeHistoryShort": {
+    "828828472848b88b6d3b1e847fa8be5dde78e2da": "Ybodychange",
+    "fc66128defd24dd67a02b1bdd87d1968126f02ea": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "828828472848b88b6d3b1e847fa8be5dde78e2da": {
+      "type": "Ybodychange",
+      "commitMessage": "\nMake sure that the compiler doesn\u0027t crash when you have\nfunction f(undefined) {}\nand you left out the default externs.\nI blame this on a poorly-named function\n\nR\u003djohnlenz\nDELTA\u003d70  (53 added, 7 deleted, 10 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1920\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1108 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 3:01 PM",
+      "commitName": "828828472848b88b6d3b1e847fa8be5dde78e2da",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/13/11, 9:09 PM",
+      "commitNameOld": "836a93db616b1cde4c4656fe4c0d781f02ca8ff4",
+      "commitAuthorOld": "fmeawad@google.com",
+      "daysBetweenCommits": 2.74,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node tryReplaceUndefined(Node n) {\n    if (isASTNormalized() \u0026\u0026 NodeUtil.isUndefined(n) \u0026\u0026 !NodeUtil.isLValue(n)) {\n        Node replacement \u003d NodeUtil.newUndefinedNode(n);\n        n.getParent().replaceChild(n, replacement);\n        reportCodeChange();\n        return replacement;\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+      "functionStartLine": 219,
+      "functionName": "tryReplaceUndefined",
+      "functionAnnotation": "",
+      "functionDoc": "Use \"void 0\" in place of \"undefined\"\n",
+      "diff": "@@ -1,9 +1,9 @@\n private Node tryReplaceUndefined(Node n) {\n-    if (isASTNormalized() \u0026\u0026 NodeUtil.isUndefined(n) \u0026\u0026 !NodeUtil.isLhs(n, n.getParent())) {\n+    if (isASTNormalized() \u0026\u0026 NodeUtil.isUndefined(n) \u0026\u0026 !NodeUtil.isLValue(n)) {\n         Node replacement \u003d NodeUtil.newUndefinedNode(n);\n         n.getParent().replaceChild(n, replacement);\n         reportCodeChange();\n         return replacement;\n     }\n     return n;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "fc66128defd24dd67a02b1bdd87d1968126f02ea": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFold \"undefined\" to \"void 0\".\nFold side-effect free \"void ...\" expressions to \"void 0\".\n\nR\u003dacleung\nDELTA\u003d54  (52 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d544\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@791 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/16/11, 1:24 PM",
+      "commitName": "fc66128defd24dd67a02b1bdd87d1968126f02ea",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private Node tryReplaceUndefined(Node n) {\n+    if (isASTNormalized() \u0026\u0026 NodeUtil.isUndefined(n) \u0026\u0026 !NodeUtil.isLhs(n, n.getParent())) {\n+        Node replacement \u003d NodeUtil.newUndefinedNode(n);\n+        n.getParent().replaceChild(n, replacement);\n+        reportCodeChange();\n+        return replacement;\n+    }\n+    return n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node tryReplaceUndefined(Node n) {\n    if (isASTNormalized() \u0026\u0026 NodeUtil.isUndefined(n) \u0026\u0026 !NodeUtil.isLhs(n, n.getParent())) {\n        Node replacement \u003d NodeUtil.newUndefinedNode(n);\n        n.getParent().replaceChild(n, replacement);\n        reportCodeChange();\n        return replacement;\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+      "functionStartLine": 137,
+      "functionName": "tryReplaceUndefined",
+      "functionAnnotation": "",
+      "functionDoc": "Use \"void 0\" in place of \"undefined\"\n"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getFunctionJSDocInfo",
+  "functionId": "getFunctionJSDocInfo___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the JSDocInfo for a function.\n",
+  "functionStartLine": 2820,
+  "functionEndLine": 2835,
+  "numCommitsSeen": 214,
+  "timeTaken": 10085,
+  "changeHistory": [
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+    "b783533aac33c06fc34ed4c3f284aa8411ea0c54",
+    "fb8792033d8def08a18a1920817d4b88a68b214e",
+    "52547e61d187e102f21e5545c24e8d232fefe92f"
+  ],
+  "changeHistoryShort": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": "Ybodychange",
+    "b783533aac33c06fc34ed4c3f284aa8411ea0c54": "Yrename",
+    "fb8792033d8def08a18a1920817d4b88a68b214e": "Ymodifierchange",
+    "52547e61d187e102f21e5545c24e8d232fefe92f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/9/11, 12:32 PM",
+      "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 10:08 AM",
+      "commitNameOld": "ca41f5d443aad22b11b2b6d514fdf20101f33276",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static JSDocInfo getFunctionJSDocInfo(Node n) {\n    Preconditions.checkState(n.isFunction());\n    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n    if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n        Node parent \u003d n.getParent();\n        if (parent.isAssign()) {\n            fnInfo \u003d parent.getJSDocInfo();\n        } else if (parent.isName()) {\n            fnInfo \u003d parent.getParent().getJSDocInfo();\n        }\n    }\n    return fnInfo;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2921,
+      "functionName": "getFunctionJSDocInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Get the JSDocInfo for a function.\n",
+      "diff": "@@ -1,13 +1,13 @@\n public static JSDocInfo getFunctionJSDocInfo(Node n) {\n-    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n+    Preconditions.checkState(n.isFunction());\n     JSDocInfo fnInfo \u003d n.getJSDocInfo();\n     if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n         Node parent \u003d n.getParent();\n-        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n+        if (parent.isAssign()) {\n             fnInfo \u003d parent.getJSDocInfo();\n-        } else if (parent.getType() \u003d\u003d Token.NAME) {\n+        } else if (parent.isName()) {\n             fnInfo \u003d parent.getParent().getJSDocInfo();\n         }\n     }\n     return fnInfo;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "b783533aac33c06fc34ed4c3f284aa8411ea0c54": {
+      "type": "Yrename",
+      "commitMessage": "\nRename NodeUtil.getFunctionInfo to NodeUtil.getFunctionJSDocInfo\nRename NodeUtil.getFnParameters to NodeUtil.getFunctionParameters.\nNOTE: this is a pure Eclipse refactor:rename CL\n\nR\u003djohnlenz\nDELTA\u003d18  (1 added, 0 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1913\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1101 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 8:14 AM",
+      "commitName": "b783533aac33c06fc34ed4c3f284aa8411ea0c54",
+      "commitAuthor": "tylerg@google.com",
+      "commitDateOld": "5/13/11, 8:24 AM",
+      "commitNameOld": "fb8792033d8def08a18a1920817d4b88a68b214e",
+      "commitAuthorOld": "tylerg@google.com",
+      "daysBetweenCommits": 2.99,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static JSDocInfo getFunctionJSDocInfo(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n    if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n        Node parent \u003d n.getParent();\n        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n            fnInfo \u003d parent.getJSDocInfo();\n        } else if (parent.getType() \u003d\u003d Token.NAME) {\n            fnInfo \u003d parent.getParent().getJSDocInfo();\n        }\n    }\n    return fnInfo;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2822,
+      "functionName": "getFunctionJSDocInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Get the JSDocInfo for a function.\n",
+      "diff": "@@ -1,13 +1,13 @@\n-public static JSDocInfo getFunctionInfo(Node n) {\n+public static JSDocInfo getFunctionJSDocInfo(Node n) {\n     Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n     JSDocInfo fnInfo \u003d n.getJSDocInfo();\n     if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n         Node parent \u003d n.getParent();\n         if (parent.getType() \u003d\u003d Token.ASSIGN) {\n             fnInfo \u003d parent.getJSDocInfo();\n         } else if (parent.getType() \u003d\u003d Token.NAME) {\n             fnInfo \u003d parent.getParent().getJSDocInfo();\n         }\n     }\n     return fnInfo;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "getFunctionInfo",
+        "newValue": "getFunctionJSDocInfo"
+      }
+    },
+    "fb8792033d8def08a18a1920817d4b88a68b214e": {
+      "type": "Ymodifierchange",
+      "commitMessage": "\nMake some NodeUtility function visible for use outside of JsCompiler (so clients can avoid re-implementing the same behaviors).\n\nR\u003dnicksantos\nDELTA\u003d4  (0 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1865\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1094 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/13/11, 8:24 AM",
+      "commitName": "fb8792033d8def08a18a1920817d4b88a68b214e",
+      "commitAuthor": "tylerg@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 30.84,
+      "commitsBetweenForRepo": 94,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static JSDocInfo getFunctionInfo(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n    if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n        Node parent \u003d n.getParent();\n        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n            fnInfo \u003d parent.getJSDocInfo();\n        } else if (parent.getType() \u003d\u003d Token.NAME) {\n            fnInfo \u003d parent.getParent().getJSDocInfo();\n        }\n    }\n    return fnInfo;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2822,
+      "functionName": "getFunctionInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Get the JSDocInfo for a function.\n",
+      "diff": "@@ -1,13 +1,13 @@\n-static JSDocInfo getFunctionInfo(Node n) {\n+public static JSDocInfo getFunctionInfo(Node n) {\n     Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n     JSDocInfo fnInfo \u003d n.getJSDocInfo();\n     if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n         Node parent \u003d n.getParent();\n         if (parent.getType() \u003d\u003d Token.ASSIGN) {\n             fnInfo \u003d parent.getJSDocInfo();\n         } else if (parent.getType() \u003d\u003d Token.NAME) {\n             fnInfo \u003d parent.getParent().getJSDocInfo();\n         }\n     }\n     return fnInfo;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[static]",
+        "newValue": "[public, static]"
+      }
+    },
+    "52547e61d187e102f21e5545c24e8d232fefe92f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nWarningsGuard for @suppress.\n\nR\u003djohnlenz\nDELTA\u003d276  (243 added, 16 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d86010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@343 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/5/10, 7:31 PM",
+      "commitName": "52547e61d187e102f21e5545c24e8d232fefe92f",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,13 @@\n+static JSDocInfo getFunctionInfo(Node n) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n+    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n+    if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n+        Node parent \u003d n.getParent();\n+        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n+            fnInfo \u003d parent.getJSDocInfo();\n+        } else if (parent.getType() \u003d\u003d Token.NAME) {\n+            fnInfo \u003d parent.getParent().getJSDocInfo();\n+        }\n+    }\n+    return fnInfo;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static JSDocInfo getFunctionInfo(Node n) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n    if (fnInfo \u003d\u003d null \u0026\u0026 NodeUtil.isFunctionExpression(n)) {\n        Node parent \u003d n.getParent();\n        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n            fnInfo \u003d parent.getJSDocInfo();\n        } else if (parent.getType() \u003d\u003d Token.NAME) {\n            fnInfo \u003d parent.getParent().getJSDocInfo();\n        }\n    }\n    return fnInfo;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2083,
+      "functionName": "getFunctionInfo",
+      "functionAnnotation": "",
+      "functionDoc": "Get the JSDocInfo for a function.\n"
+    }
+  }
+}

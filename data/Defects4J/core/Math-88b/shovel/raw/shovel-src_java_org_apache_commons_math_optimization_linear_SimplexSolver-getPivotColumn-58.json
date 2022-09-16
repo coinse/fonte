@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexSolver.java",
+  "functionName": "getPivotColumn",
+  "functionId": "getPivotColumn___tableau-SimplexTableau",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the column with the most negative coefficient in the objective function row.\n\n@param tableau simple tableau for the problem\n@return column with the most negative coefficient\n",
+  "functionStartLine": 58,
+  "functionEndLine": 68,
+  "numCommitsSeen": 4,
+  "timeTaken": 550,
+  "changeHistory": [
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5",
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5": "Ybodychange",
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5": {
+      "type": "Ybodychange",
+      "commitMessage": "added a threshold for comparisons in Simplex solver\nJira: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@763412 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/8/09, 2:41 PM",
+      "commitName": "6c65646a2d62b8ead3a7d4da3410fc4050c25fb5",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "4/5/09, 7:20 AM",
+      "commitNameOld": "9c8d2c79c1ef565337599849cd066ff63b8d5816",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 3.31,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Integer getPivotColumn(SimplexTableau tableau) {\n    double minValue \u003d 0;\n    Integer minPos \u003d null;\n    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n        if (MathUtils.compareTo(tableau.getEntry(0, i), minValue, epsilon) \u003c 0) {\n            minValue \u003d tableau.getEntry(0, i);\n            minPos \u003d i;\n        }\n    }\n    return minPos;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 61,
+      "functionName": "getPivotColumn",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the column with the most negative coefficient in the objective function row.\n\n@param tableau simple tableau for the problem\n@return column with the most negative coefficient\n",
+      "diff": "@@ -1,11 +1,11 @@\n private Integer getPivotColumn(SimplexTableau tableau) {\n     double minValue \u003d 0;\n     Integer minPos \u003d null;\n     for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n-        if (tableau.getEntry(0, i) \u003c minValue) {\n+        if (MathUtils.compareTo(tableau.getEntry(0, i), minValue, epsilon) \u003c 0) {\n             minValue \u003d tableau.getEntry(0, i);\n             minPos \u003d i;\n         }\n     }\n     return minPos;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,11 @@\n+private Integer getPivotColumn(SimplexTableau tableau) {\n+    double minValue \u003d 0;\n+    Integer minPos \u003d null;\n+    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n+        if (tableau.getEntry(0, i) \u003c minValue) {\n+            minValue \u003d tableau.getEntry(0, i);\n+            minPos \u003d i;\n+        }\n+    }\n+    return minPos;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Integer getPivotColumn(SimplexTableau tableau) {\n    double minValue \u003d 0;\n    Integer minPos \u003d null;\n    for (int i \u003d tableau.getNumObjectiveFunctions(); i \u003c tableau.getWidth() - 1; i++) {\n        if (tableau.getEntry(0, i) \u003c minValue) {\n            minValue \u003d tableau.getEntry(0, i);\n            minPos \u003d i;\n        }\n    }\n    return minPos;\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 61,
+      "functionName": "getPivotColumn",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the column with the most negative coefficient in the objective function row.\n\n@param tableau simple tableau for the problem\n@return column with the most negative coefficient\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RemoveUnusedVars.java",
+  "functionName": "collectMaybeUnreferencedVars",
+  "functionId": "collectMaybeUnreferencedVars___scope-Scope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+  "functionAnnotation": "",
+  "functionDoc": "For each variable in this scope that we haven\u0027t found a reference\nfor yet, add it to the list of variables to check later.\n",
+  "functionStartLine": 343,
+  "functionEndLine": 350,
+  "numCommitsSeen": 37,
+  "timeTaken": 1358,
+  "changeHistory": [
+    "747f2504d98e2d37c933ead6e40a0a1a1e36d6af"
+  ],
+  "changeHistoryShort": {
+    "747f2504d98e2d37c933ead6e40a0a1a1e36d6af": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "747f2504d98e2d37c933ead6e40a0a1a1e36d6af": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/08/04 13:06:31 by nicksantos\n\n\tA new var-collection mechanism for RemoveUnusedVars.  In the\n\tnew mechanism, we only traverse a subtree for references if it\n\tmight have side-effects, or if its return value is used.  If\n\tits return value is stored in a variable, then we store a\n\tcontinuation, and execute the continuation iff that variable\n\tis referenced.\n\n\tThis is a more general formulation of RemoveUnusedVars\u0027s current\n\tstrategy (\"traverse a function iff it\u0027s referenced\").\n\n\tR\u003dacleung\n\tDELTA\u003d560  (326 added, 63 deleted, 171 changed)\n\nChange on 2010/08/04 13:09:34 by rjfioravanti\n\n\tCreating externs for CSSMatrix and WebKitCSSMatrix.\n\n\tBased on documentation from the following locations:\n\thttp://www.w3.org/TR/css3-3d-transforms/#cssmatrix-interface\n\thttp://developer.apple.com/safari/library/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/WebKitCSSMatrix/WebKitCSSMatrix.html#//apple_ref/javascript/instm/WebKitCSSMatrix/setMatrixValue\n\n\tR\u003dnicksantos\n\tDELTA\u003d193  (193 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d90012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@335 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/10, 5:48 PM",
+      "commitName": "747f2504d98e2d37c933ead6e40a0a1a1e36d6af",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,8 @@\n+private void collectMaybeUnreferencedVars(Scope scope) {\n+    for (Iterator\u003cVar\u003e it \u003d scope.getVars(); it.hasNext(); ) {\n+        Var var \u003d it.next();\n+        if (isRemovableVar(var)) {\n+            maybeUnreferenced.add(var);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void collectMaybeUnreferencedVars(Scope scope) {\n    for (Iterator\u003cVar\u003e it \u003d scope.getVars(); it.hasNext(); ) {\n        Var var \u003d it.next();\n        if (isRemovableVar(var)) {\n            maybeUnreferenced.add(var);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+      "functionStartLine": 280,
+      "functionName": "collectMaybeUnreferencedVars",
+      "functionAnnotation": "",
+      "functionDoc": "For each variable in this scope that we haven\u0027t found a reference\nfor yet, add it to the list of variables to check later.\n"
+    }
+  }
+}

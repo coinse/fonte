@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "runInCompilerThread",
+  "functionId": "runInCompilerThread___callable-Callable__T__(modifiers-final)",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 570,
+  "functionEndLine": 572,
+  "numCommitsSeen": 90,
+  "timeTaken": 6001,
+  "changeHistory": [
+    "05b7dcdd4c4b017038586d582e8eebc4096a5619",
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "05b7dcdd4c4b017038586d582e8eebc4096a5619": "Ymultichange(Ybodychange,Yannotationchange)",
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "05b7dcdd4c4b017038586d582e8eebc4096a5619": {
+      "type": "Ymultichange(Ybodychange,Yannotationchange)",
+      "commitMessage": "\ncertain tools need a larger stack when generating code.\n\nR\u003dnicksantos\nDELTA\u003d25  (20 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d86\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@604 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/7/10, 11:03 AM",
+      "commitName": "05b7dcdd4c4b017038586d582e8eebc4096a5619",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\ncertain tools need a larger stack when generating code.\n\nR\u003dnicksantos\nDELTA\u003d25  (20 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d86\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@604 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/7/10, 11:03 AM",
+          "commitName": "05b7dcdd4c4b017038586d582e8eebc4096a5619",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "12/6/10, 1:39 PM",
+          "commitNameOld": "28982c32f367108886311969e01d69156230fd35",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.89,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n    return runCallable(callable, useThreads, options.tracer.isOn());\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 544,
+          "functionName": "runInCompilerThread",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,40 +1,3 @@\n-@SuppressWarnings(\"unchecked\")\n private \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n-    final boolean dumpTraceReport \u003d options.tracer.isOn();\n-    final Object[] result \u003d new Object[1];\n-    final Throwable[] exception \u003d new Throwable[1];\n-    Runnable runnable \u003d new Runnable() {\n-\n-        public void run() {\n-            try {\n-                if (dumpTraceReport) {\n-                    Tracer.initCurrentThreadTrace();\n-                }\n-                result[0] \u003d callable.call();\n-            } catch (Throwable e) {\n-                exception[0] \u003d e;\n-            } finally {\n-                if (dumpTraceReport) {\n-                    Tracer.logAndClearCurrentThreadTrace();\n-                }\n-            }\n-        }\n-    };\n-    if (useThreads) {\n-        Thread th \u003d new Thread(null, runnable, \"jscompiler\", COMPILER_STACK_SIZE);\n-        th.start();\n-        while (true) {\n-            try {\n-                th.join();\n-                break;\n-            } catch (InterruptedException ignore) {\n-            }\n-        }\n-    } else {\n-        runnable.run();\n-    }\n-    if (exception[0] !\u003d null) {\n-        throw new RuntimeException(exception[0]);\n-    }\n-    return (T) result[0];\n+    return runCallable(callable, useThreads, options.tracer.isOn());\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "\ncertain tools need a larger stack when generating code.\n\nR\u003dnicksantos\nDELTA\u003d25  (20 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d86\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@604 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/7/10, 11:03 AM",
+          "commitName": "05b7dcdd4c4b017038586d582e8eebc4096a5619",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "12/6/10, 1:39 PM",
+          "commitNameOld": "28982c32f367108886311969e01d69156230fd35",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.89,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n    return runCallable(callable, useThreads, options.tracer.isOn());\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 544,
+          "functionName": "runInCompilerThread",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,40 +1,3 @@\n-@SuppressWarnings(\"unchecked\")\n private \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n-    final boolean dumpTraceReport \u003d options.tracer.isOn();\n-    final Object[] result \u003d new Object[1];\n-    final Throwable[] exception \u003d new Throwable[1];\n-    Runnable runnable \u003d new Runnable() {\n-\n-        public void run() {\n-            try {\n-                if (dumpTraceReport) {\n-                    Tracer.initCurrentThreadTrace();\n-                }\n-                result[0] \u003d callable.call();\n-            } catch (Throwable e) {\n-                exception[0] \u003d e;\n-            } finally {\n-                if (dumpTraceReport) {\n-                    Tracer.logAndClearCurrentThreadTrace();\n-                }\n-            }\n-        }\n-    };\n-    if (useThreads) {\n-        Thread th \u003d new Thread(null, runnable, \"jscompiler\", COMPILER_STACK_SIZE);\n-        th.start();\n-        while (true) {\n-            try {\n-                th.join();\n-                break;\n-            } catch (InterruptedException ignore) {\n-            }\n-        }\n-    } else {\n-        runnable.run();\n-    }\n-    if (exception[0] !\u003d null) {\n-        throw new RuntimeException(exception[0]);\n-    }\n-    return (T) result[0];\n+    return runCallable(callable, useThreads, options.tracer.isOn());\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@SuppressWarnings(\"unchecked\")",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": {
+      "type": "Ybodychange",
+      "commitMessage": "fix silly 2004-era naming conventions (Nick)\nR\u003djohn\nDELTA\u003d134  (0 added, 0 deleted, 134 changed)\n\nInsert a place holder file for any empty modules. (Alan)\nR\u003dnick\nDELTA\u003d53  (46 added, 6 deleted, 1 changed)\n\nMaps API extern update.\n(Contributed by Chad Killingsworth)\nFixes issue 121\nDELTA\u003d86  (48 added, 16 deleted, 22 changed)\n\n\nGoogle Loader API externs.\n(Contributed by Chad Killingsworth)\nFixes issue 126\nDELTA\u003d54  (54 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@149 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/10, 10:51 PM",
+      "commitName": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/22/10, 3:55 PM",
+      "commitNameOld": "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.29,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nprivate \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n    final boolean dumpTraceReport \u003d options.tracer.isOn();\n    final Object[] result \u003d new Object[1];\n    final Throwable[] exception \u003d new Throwable[1];\n    Runnable runnable \u003d new Runnable() {\n\n        public void run() {\n            try {\n                if (dumpTraceReport) {\n                    Tracer.initCurrentThreadTrace();\n                }\n                result[0] \u003d callable.call();\n            } catch (Throwable e) {\n                exception[0] \u003d e;\n            } finally {\n                if (dumpTraceReport) {\n                    Tracer.logAndClearCurrentThreadTrace();\n                }\n            }\n        }\n    };\n    if (useThreads) {\n        Thread th \u003d new Thread(null, runnable, \"jscompiler\", COMPILER_STACK_SIZE);\n        th.start();\n        while (true) {\n            try {\n                th.join();\n                break;\n            } catch (InterruptedException ignore) {\n            }\n        }\n    } else {\n        runnable.run();\n    }\n    if (exception[0] !\u003d null) {\n        throw new RuntimeException(exception[0]);\n    }\n    return (T) result[0];\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 490,
+      "functionName": "runInCompilerThread",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "",
+      "diff": "@@ -1,40 +1,40 @@\n @SuppressWarnings(\"unchecked\")\n private \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n-    final boolean dumpTraceReport \u003d options_.tracer.isOn();\n+    final boolean dumpTraceReport \u003d options.tracer.isOn();\n     final Object[] result \u003d new Object[1];\n     final Throwable[] exception \u003d new Throwable[1];\n     Runnable runnable \u003d new Runnable() {\n \n         public void run() {\n             try {\n                 if (dumpTraceReport) {\n                     Tracer.initCurrentThreadTrace();\n                 }\n                 result[0] \u003d callable.call();\n             } catch (Throwable e) {\n                 exception[0] \u003d e;\n             } finally {\n                 if (dumpTraceReport) {\n                     Tracer.logAndClearCurrentThreadTrace();\n                 }\n             }\n         }\n     };\n     if (useThreads) {\n         Thread th \u003d new Thread(null, runnable, \"jscompiler\", COMPILER_STACK_SIZE);\n         th.start();\n         while (true) {\n             try {\n                 th.join();\n                 break;\n             } catch (InterruptedException ignore) {\n             }\n         }\n     } else {\n         runnable.run();\n     }\n     if (exception[0] !\u003d null) {\n         throw new RuntimeException(exception[0]);\n     }\n     return (T) result[0];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,40 @@\n+@SuppressWarnings(\"unchecked\")\n+private \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n+    final boolean dumpTraceReport \u003d options_.tracer.isOn();\n+    final Object[] result \u003d new Object[1];\n+    final Throwable[] exception \u003d new Throwable[1];\n+    Runnable runnable \u003d new Runnable() {\n+\n+        public void run() {\n+            try {\n+                if (dumpTraceReport) {\n+                    Tracer.initCurrentThreadTrace();\n+                }\n+                result[0] \u003d callable.call();\n+            } catch (Throwable e) {\n+                exception[0] \u003d e;\n+            } finally {\n+                if (dumpTraceReport) {\n+                    Tracer.logAndClearCurrentThreadTrace();\n+                }\n+            }\n+        }\n+    };\n+    if (useThreads) {\n+        Thread th \u003d new Thread(null, runnable, \"jscompiler\", COMPILER_STACK_SIZE);\n+        th.start();\n+        while (true) {\n+            try {\n+                th.join();\n+                break;\n+            } catch (InterruptedException ignore) {\n+            }\n+        }\n+    } else {\n+        runnable.run();\n+    }\n+    if (exception[0] !\u003d null) {\n+        throw new RuntimeException(exception[0]);\n+    }\n+    return (T) result[0];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nprivate \u003cT\u003e T runInCompilerThread(final Callable\u003cT\u003e callable) {\n    final boolean dumpTraceReport \u003d options_.tracer.isOn();\n    final Object[] result \u003d new Object[1];\n    final Throwable[] exception \u003d new Throwable[1];\n    Runnable runnable \u003d new Runnable() {\n\n        public void run() {\n            try {\n                if (dumpTraceReport) {\n                    Tracer.initCurrentThreadTrace();\n                }\n                result[0] \u003d callable.call();\n            } catch (Throwable e) {\n                exception[0] \u003d e;\n            } finally {\n                if (dumpTraceReport) {\n                    Tracer.logAndClearCurrentThreadTrace();\n                }\n            }\n        }\n    };\n    if (useThreads) {\n        Thread th \u003d new Thread(null, runnable, \"jscompiler\", COMPILER_STACK_SIZE);\n        th.start();\n        while (true) {\n            try {\n                th.join();\n                break;\n            } catch (InterruptedException ignore) {\n            }\n        }\n    } else {\n        runnable.run();\n    }\n    if (exception[0] !\u003d null) {\n        throw new RuntimeException(exception[0]);\n    }\n    return (T) result[0];\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 477,
+      "functionName": "runInCompilerThread",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": ""
+    }
+  }
+}

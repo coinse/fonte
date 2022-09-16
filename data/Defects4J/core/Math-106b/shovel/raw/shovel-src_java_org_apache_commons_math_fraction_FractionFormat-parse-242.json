@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-106b",
+  "repositoryPath": "/tmp/Math-106b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FractionFormat.java",
+  "functionName": "parse",
+  "functionId": "parse___source-String",
+  "sourceFilePath": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses a string to produce a {@link Fraction} object.\n\n@param source the string to parse\n@return the parsed {@link Fraction} object.\n@exception ParseException if the beginning of the specified string\n           cannot be parsed.\n",
+  "functionStartLine": 242,
+  "functionEndLine": 250,
+  "numCommitsSeen": 7,
+  "timeTaken": 465,
+  "changeHistory": [
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6"
+  ],
+  "changeHistoryShort": {
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "41598b038509e9cdb7f6dbeefdb2a2876d2708a6": {
+      "type": "Yintroduced",
+      "commitMessage": "added fraction class and fraction formatting classes.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@151479 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/4/05, 9:49 PM",
+      "commitName": "41598b038509e9cdb7f6dbeefdb2a2876d2708a6",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,8 @@\n+public Fraction parse(String source) throws ParseException {\n+    ParsePosition parsePosition \u003d new ParsePosition(0);\n+    Fraction result \u003d parse(source, parsePosition);\n+    if (parsePosition.getIndex() \u003d\u003d 0) {\n+        throw new ParseException(\"Unparseable fraction number: \\\"\" + source + \"\\\"\", parsePosition.getErrorIndex());\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Fraction parse(String source) throws ParseException {\n    ParsePosition parsePosition \u003d new ParsePosition(0);\n    Fraction result \u003d parse(source, parsePosition);\n    if (parsePosition.getIndex() \u003d\u003d 0) {\n        throw new ParseException(\"Unparseable fraction number: \\\"\" + source + \"\\\"\", parsePosition.getErrorIndex());\n    }\n    return result;\n}",
+      "path": "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+      "functionStartLine": 240,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Parses a string to produce a {@link Fraction} object.\n\n@param source the string to parse\n@return the parsed {@link Fraction} object.\n@exception ParseException if the beginning of the specified string\n           cannot be parsed.\n"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isLValue",
+  "functionId": "isLValue___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param n The node\n@return True if n is an L-value.\n",
+  "functionStartLine": 2024,
+  "functionEndLine": 2036,
+  "numCommitsSeen": 219,
+  "timeTaken": 4202,
+  "changeHistory": [
+    "5524adbda991632656059566b69cc2771ba42b7d",
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+    "828828472848b88b6d3b1e847fa8be5dde78e2da"
+  ],
+  "changeHistoryShort": {
+    "5524adbda991632656059566b69cc2771ba42b7d": "Ybodychange",
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "828828472848b88b6d3b1e847fa8be5dde78e2da": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5524adbda991632656059566b69cc2771ba42b7d": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRename a couple of AST nodes:\nDEFAULT becomes DEFAULT_CASE\nLP becomes PARAM_LIST\nGET becomes GETTER_DEF\nSET becomes SETTER_DEF\n\nR\u003dnicksantos\nDELTA\u003d215  (40 added, 5 deleted, 170 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3695\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1590 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/11, 4:42 PM",
+      "commitName": "5524adbda991632656059566b69cc2771ba42b7d",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 1:51 PM",
+      "commitNameOld": "3d80e1ed8fffbcb5f41b63f64726d9a4c76f209f",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 2.12,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean isLValue(Node n) {\n    Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n    Node parent \u003d n.getParent();\n    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isParamList() || parent.isCatch();\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2024,
+      "functionName": "isLValue",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param n The node\n@return True if n is an L-value.\n",
+      "diff": "@@ -1,5 +1,5 @@\n static boolean isLValue(Node n) {\n     Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n     Node parent \u003d n.getParent();\n-    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isLP() || parent.isCatch();\n+    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isParamList() || parent.isCatch();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/9/11, 12:32 PM",
+      "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/9/11, 12:32 PM",
+          "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/9/11, 10:08 AM",
+          "commitNameOld": "ca41f5d443aad22b11b2b6d514fdf20101f33276",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.1,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean isLValue(Node n) {\n    Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n    Node parent \u003d n.getParent();\n    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isLP() || parent.isCatch();\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 2104,
+          "functionName": "isLValue",
+          "functionAnnotation": "",
+          "functionDoc": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param n The node\n@return True if n is an L-value.\n",
+          "diff": "@@ -1,6 +1,5 @@\n-static boolean isLValue(Node node) {\n-    int nType \u003d node.getType();\n-    Preconditions.checkArgument(nType \u003d\u003d Token.NAME || nType \u003d\u003d Token.GETPROP || nType \u003d\u003d Token.GETELEM);\n-    Node parent \u003d node.getParent();\n-    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || NodeUtil.isVar(parent) || (parent.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || parent.getType() \u003d\u003d Token.DEC || parent.getType() \u003d\u003d Token.INC || parent.getType() \u003d\u003d Token.LP || parent.getType() \u003d\u003d Token.CATCH;\n+static boolean isLValue(Node n) {\n+    Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n+    Node parent \u003d n.getParent();\n+    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isLP() || parent.isCatch();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[node-Node]",
+            "newValue": "[n-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/9/11, 12:32 PM",
+          "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/9/11, 10:08 AM",
+          "commitNameOld": "ca41f5d443aad22b11b2b6d514fdf20101f33276",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.1,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean isLValue(Node n) {\n    Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n    Node parent \u003d n.getParent();\n    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isLP() || parent.isCatch();\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 2104,
+          "functionName": "isLValue",
+          "functionAnnotation": "",
+          "functionDoc": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param n The node\n@return True if n is an L-value.\n",
+          "diff": "@@ -1,6 +1,5 @@\n-static boolean isLValue(Node node) {\n-    int nType \u003d node.getType();\n-    Preconditions.checkArgument(nType \u003d\u003d Token.NAME || nType \u003d\u003d Token.GETPROP || nType \u003d\u003d Token.GETELEM);\n-    Node parent \u003d node.getParent();\n-    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || NodeUtil.isVar(parent) || (parent.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || parent.getType() \u003d\u003d Token.DEC || parent.getType() \u003d\u003d Token.INC || parent.getType() \u003d\u003d Token.LP || parent.getType() \u003d\u003d Token.CATCH;\n+static boolean isLValue(Node n) {\n+    Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n+    Node parent \u003d n.getParent();\n+    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isLP() || parent.isCatch();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/9/11, 12:32 PM",
+          "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "11/9/11, 10:08 AM",
+          "commitNameOld": "ca41f5d443aad22b11b2b6d514fdf20101f33276",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.1,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean isLValue(Node n) {\n    Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n    Node parent \u003d n.getParent();\n    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isLP() || parent.isCatch();\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 2104,
+          "functionName": "isLValue",
+          "functionAnnotation": "",
+          "functionDoc": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param n The node\n@return True if n is an L-value.\n",
+          "diff": "@@ -1,6 +1,5 @@\n-static boolean isLValue(Node node) {\n-    int nType \u003d node.getType();\n-    Preconditions.checkArgument(nType \u003d\u003d Token.NAME || nType \u003d\u003d Token.GETPROP || nType \u003d\u003d Token.GETELEM);\n-    Node parent \u003d node.getParent();\n-    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || NodeUtil.isVar(parent) || (parent.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || parent.getType() \u003d\u003d Token.DEC || parent.getType() \u003d\u003d Token.INC || parent.getType() \u003d\u003d Token.LP || parent.getType() \u003d\u003d Token.CATCH;\n+static boolean isLValue(Node n) {\n+    Preconditions.checkArgument(n.isName() || n.isGetProp() || n.isGetElem());\n+    Node parent \u003d n.getParent();\n+    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isVar() || (parent.isFunction() \u0026\u0026 parent.getFirstChild() \u003d\u003d n) || parent.isDec() || parent.isInc() || parent.isLP() || parent.isCatch();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param node The node\n@return True if n is an L-value.\n",
+            "newValue": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param n The node\n@return True if n is an L-value.\n"
+          }
+        }
+      ]
+    },
+    "828828472848b88b6d3b1e847fa8be5dde78e2da": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMake sure that the compiler doesn\u0027t crash when you have\nfunction f(undefined) {}\nand you left out the default externs.\nI blame this on a poorly-named function\n\nR\u003djohnlenz\nDELTA\u003d70  (53 added, 7 deleted, 10 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1920\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1108 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/16/11, 3:01 PM",
+      "commitName": "828828472848b88b6d3b1e847fa8be5dde78e2da",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+static boolean isLValue(Node node) {\n+    int nType \u003d node.getType();\n+    Preconditions.checkArgument(nType \u003d\u003d Token.NAME || nType \u003d\u003d Token.GETPROP || nType \u003d\u003d Token.GETELEM);\n+    Node parent \u003d node.getParent();\n+    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || NodeUtil.isVar(parent) || (parent.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || parent.getType() \u003d\u003d Token.DEC || parent.getType() \u003d\u003d Token.INC || parent.getType() \u003d\u003d Token.LP || parent.getType() \u003d\u003d Token.CATCH;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isLValue(Node node) {\n    int nType \u003d node.getType();\n    Preconditions.checkArgument(nType \u003d\u003d Token.NAME || nType \u003d\u003d Token.GETPROP || nType \u003d\u003d Token.GETELEM);\n    Node parent \u003d node.getParent();\n    return (NodeUtil.isAssignmentOp(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || (NodeUtil.isForIn(parent) \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || NodeUtil.isVar(parent) || (parent.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 parent.getFirstChild() \u003d\u003d node) || parent.getType() \u003d\u003d Token.DEC || parent.getType() \u003d\u003d Token.INC || parent.getType() \u003d\u003d Token.LP || parent.getType() \u003d\u003d Token.CATCH;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2043,
+      "functionName": "isLValue",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether this node is used as an L-value. Notice that sometimes\nnames are used as both L-values and R-values.\n\nWe treat \"var x;\" as a pseudo-L-value, which kind of makes sense if you\ntreat it as \"assignment to \u0027undefined\u0027 at the top of the scope\". But if\nwe\u0027re honest with ourselves, it doesn\u0027t make sense, and we only do this\nbecause it makes sense to treat this as synactically similar to\n\"var x \u003d 0;\".\n\n@param node The node\n@return True if n is an L-value.\n"
+    }
+  }
+}

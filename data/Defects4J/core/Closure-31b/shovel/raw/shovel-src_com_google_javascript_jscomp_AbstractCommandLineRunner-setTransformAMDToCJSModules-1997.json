@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "setTransformAMDToCJSModules",
+  "functionId": "$setTransformAMDToCJSModules___transformAMDToCJSModules-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Set whether to transform AMD to Common JS modules.\n",
+  "functionStartLine": 1997,
+  "functionEndLine": 2001,
+  "numCommitsSeen": 74,
+  "timeTaken": 1707,
+  "changeHistory": [
+    "5ef7a8a0a8263e8fd0291c7f11ad0bf4bd9cb1a4"
+  ],
+  "changeHistoryShort": {
+    "5ef7a8a0a8263e8fd0291c7f11ad0bf4bd9cb1a4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5ef7a8a0a8263e8fd0291c7f11ad0bf4bd9cb1a4": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFirst class support for AMD[1] and Common JS[2] modules in closure compiler.\n\nThe AMD specific pass, compiles AMD modules to CJS modules. The CJS pass\nturns the modules into a form that can be concatenated without the need\nto enclose the code in an immediate function to protect the scope. This makes\napplying our optimizations significantly more effective.\n\nAttempts to set up correct requires and provides for each module and to order\nmodules correctly. This part of my CL needs some help. I\u0027m having trouble\nunderstanding the original design and feel that what I wrote looks\nsub-optimal.\n\nI did integration testing by compiling the dojo library which uses AMD.\nSize reduction looks good and cross module code motion as well as dead\ncode elimination works.\n[1] https://github.com/amdjs/amdjs-api/wiki/AMD\n[2] http://wiki.commonjs.org/wiki/Modules/1.1.1\n\nR\u003djohnlenz,nicksantos\nDELTA\u003d1113  (1109 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3981\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1684 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/14/11, 12:52 PM",
+      "commitName": "5ef7a8a0a8263e8fd0291c7f11ad0bf4bd9cb1a4",
+      "commitAuthor": "malteubl@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+CommandLineConfig setTransformAMDToCJSModules(boolean transformAMDToCJSModules) {\n+    this.transformAMDToCJSModules \u003d transformAMDToCJSModules;\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "CommandLineConfig setTransformAMDToCJSModules(boolean transformAMDToCJSModules) {\n    this.transformAMDToCJSModules \u003d transformAMDToCJSModules;\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 1860,
+      "functionName": "setTransformAMDToCJSModules",
+      "functionAnnotation": "",
+      "functionDoc": "Set whether to transform AMD to Common JS modules.\n"
+    }
+  }
+}

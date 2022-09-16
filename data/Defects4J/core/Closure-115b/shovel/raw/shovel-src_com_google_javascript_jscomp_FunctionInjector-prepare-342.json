@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionInjector.java",
+  "functionName": "prepare",
+  "functionId": "$prepare___injector-FunctionInjector__callNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionInjector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 342,
+  "functionEndLine": 344,
+  "numCommitsSeen": 36,
+  "timeTaken": 1399,
+  "changeHistory": [
+    "98a487531ce3d6555851398daead0471b5932774"
+  ],
+  "changeHistoryShort": {
+    "98a487531ce3d6555851398daead0471b5932774": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "98a487531ce3d6555851398daead0471b5932774": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix incosistent internal state caused by when multiple functions are\ninlined into the same expression.\n\nR\u003dnicksantos\nDELTA\u003d300  (131 added, 51 deleted, 118 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d5029\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2052 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/18/12, 9:58 AM",
+      "commitName": "98a487531ce3d6555851398daead0471b5932774",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public void prepare(FunctionInjector injector, Node callNode) {\n+    injector.getDecomposer().maybeExposeExpression(callNode);\n+    CallSiteType callSiteType \u003d injector.classifyCallSite(callNode);\n+    Preconditions.checkState(this !\u003d callSiteType);\n+    callSiteType.prepare(injector, callNode);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void prepare(FunctionInjector injector, Node callNode) {\n    injector.getDecomposer().maybeExposeExpression(callNode);\n    CallSiteType callSiteType \u003d injector.classifyCallSite(callNode);\n    Preconditions.checkState(this !\u003d callSiteType);\n    callSiteType.prepare(injector, callNode);\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionInjector.java",
+      "functionStartLine": 379,
+      "functionName": "prepare",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

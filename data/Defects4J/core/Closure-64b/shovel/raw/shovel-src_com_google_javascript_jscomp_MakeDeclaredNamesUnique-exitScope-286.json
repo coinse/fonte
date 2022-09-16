@@ -1,0 +1,144 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MakeDeclaredNamesUnique.java",
+  "functionName": "exitScope",
+  "functionId": "$exitScope___t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+  "functionAnnotation": "",
+  "functionDoc": "Rename vars for the current scope, and merge any referenced\nnames into the parent scope reference set.\n",
+  "functionStartLine": 286,
+  "functionEndLine": 306,
+  "numCommitsSeen": 13,
+  "timeTaken": 627,
+  "changeHistory": [
+    "e33e925eea3a8e4de958864e531e1adc4da62e18",
+    "da30f170f29e983f014fb029fe5779bfd5d3b04f",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "e33e925eea3a8e4de958864e531e1adc4da62e18": "Ydocchange",
+    "da30f170f29e983f014fb029fe5779bfd5d3b04f": "Ymultichange(Ybodychange,Yannotationchange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e33e925eea3a8e4de958864e531e1adc4da62e18": {
+      "type": "Ydocchange",
+      "commitMessage": "\nChange on 2010/06/14 by johnlenz\n\n        Remove unneed parenthese from hook expressions.\n\n        R\u003dacleung\n        DELTA\u003d76  (20 added, 4 deleted, 52 changed)\n\nChange on 2010/06/14 by johnlenz\n\n        Fix non-determinisim.\n\n        R\u003djschorr\n        DELTA\u003d5  (3 added, 0 deleted, 2 changed)\n\nChange on 2010/06/15 by nicksantos\n\n        fix a regression caused by a change in the ordering in which\n        constant folding is done.\n        parts of PeepholeSubstituteAlternateSyntax will crash if they\n        see a NEG node with a NUMBER child.\n        They were assuming that FoldConstants would fold these into one node.\n\n        R\u003ddcc,acleung\n        DELTA\u003d153  (70 added, 6 deleted, 77 changed)\n\nChange on 2010/06/15 by johnlenz\n\n        More debug diffing improvements: convert unique globally unique names\n        to locally unique names for reproduciblity.\n\n        R\u003dacleung\n        DELTA\u003d222  (44 added, 7 deleted, 171 changed)\n\nChange on 2010/06/15 by nicksantos\n\n        Add the @nocompile annotation as a signal that this file should\n        be dropped silently if it gets pulled into a --manage_closure_dependencies\n        build.\n\n        R\u003dbowdidge,gboyer\n        DELTA\u003d82  (60 added, 1 deleted, 21 changed)\n\nChange on 2010/06/15 by dcc\n\n        Refactor FoldConstants dead code removal into PeepholeRemoveDeadCode.\n\n        R\u003dacleung\n        DELTA\u003d744  (403 added, 307 deleted, 34 changed)\n\nChange on 2010/06/15 by dcc\n\n        ExternExports test now emits type annotation for exported externs.\n                - Changed ExternExportsPass to generate the externs as an AST and then print\n        to a String rather than ad hoc with a StringBuilder.\n                - Changed TypedCodeGenerator to generate \u0027*\u0027 (AllType) for parameters with unknown types rather than \u0027?\u0027 (UnknownType) since \u0027?\u0027 is not valid JSDoc.\n\n        R\u003dacleung\n        DELTA\u003d643  (496 added, 66 deleted, 81 changed)\n\nChange on 2010/06/16 by johnlenz\n\n        Tweak to PureFunctionIndentifier to propagate the side-effects for\n        anonymous function expressions like: (Date.now||function(){return\n        +new Date})()\n\n        R\u003davd\n        DELTA\u003d42  (39 added, 0 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d29010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@243 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/16/10, 12:33 PM",
+      "commitName": "e33e925eea3a8e4de958864e531e1adc4da62e18",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/18/10, 3:51 PM",
+      "commitNameOld": "da30f170f29e983f014fb029fe5779bfd5d3b04f",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 89.86,
+      "commitsBetweenForRepo": 87,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void exitScope(NodeTraversal t) {\n    if (t.inGlobalScope()) {\n        return;\n    }\n    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n        Var v \u003d it.next();\n        handleScopeVar(v);\n    }\n    Set\u003cString\u003e current \u003d referencedNames;\n    referencedNames \u003d referenceStack.pop();\n    if (!referenceStack.isEmpty()) {\n        referencedNames.addAll(current);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+      "functionStartLine": 286,
+      "functionName": "exitScope",
+      "functionAnnotation": "",
+      "functionDoc": "Rename vars for the current scope, and merge any referenced\nnames into the parent scope reference set.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Rename vars for the current scope, and merge any referenced \nnames into the parent scope reference set.\n",
+        "newValue": "Rename vars for the current scope, and merge any referenced\nnames into the parent scope reference set.\n"
+      }
+    },
+    "da30f170f29e983f014fb029fe5779bfd5d3b04f": {
+      "type": "Ymultichange(Ybodychange,Yannotationchange,Ydocchange)",
+      "commitMessage": "Fix assorted type system bugs and crashes.\nFixes issue 124. (Nick)\nR\u003dandrew\nDELTA\u003d161  (122 added, 9 deleted, 30 changed)\n\nFix unique name inverter  to prevent masking needed global names. (John)\nR\u003dnick\nDELTA\u003d315  (225 added, 46 deleted, 44 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@142 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/18/10, 3:51 PM",
+      "commitName": "da30f170f29e983f014fb029fe5779bfd5d3b04f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fix assorted type system bugs and crashes.\nFixes issue 124. (Nick)\nR\u003dandrew\nDELTA\u003d161  (122 added, 9 deleted, 30 changed)\n\nFix unique name inverter  to prevent masking needed global names. (John)\nR\u003dnick\nDELTA\u003d315  (225 added, 46 deleted, 44 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@142 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/18/10, 3:51 PM",
+          "commitName": "da30f170f29e983f014fb029fe5779bfd5d3b04f",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/16/10, 3:53 PM",
+          "commitNameOld": "938f48a60c544f6b7bdb5d49006f654a51ca9a22",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.0,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void exitScope(NodeTraversal t) {\n    if (t.inGlobalScope()) {\n        return;\n    }\n    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n        Var v \u003d it.next();\n        handleScopeVar(v);\n    }\n    Set\u003cString\u003e current \u003d referencedNames;\n    referencedNames \u003d referenceStack.pop();\n    if (!referenceStack.isEmpty()) {\n        referencedNames.addAll(current);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+          "functionStartLine": 286,
+          "functionName": "exitScope",
+          "functionAnnotation": "",
+          "functionDoc": "Rename vars for the current scope, and merge any referenced \nnames into the parent scope reference set.\n",
+          "diff": "@@ -1,6 +1,14 @@\n-@Override\n public void exitScope(NodeTraversal t) {\n-    if (!t.inGlobalScope()) {\n-        nameStack.pop();\n+    if (t.inGlobalScope()) {\n+        return;\n+    }\n+    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n+        Var v \u003d it.next();\n+        handleScopeVar(v);\n+    }\n+    Set\u003cString\u003e current \u003d referencedNames;\n+    referencedNames \u003d referenceStack.pop();\n+    if (!referenceStack.isEmpty()) {\n+        referencedNames.addAll(current);\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Fix assorted type system bugs and crashes.\nFixes issue 124. (Nick)\nR\u003dandrew\nDELTA\u003d161  (122 added, 9 deleted, 30 changed)\n\nFix unique name inverter  to prevent masking needed global names. (John)\nR\u003dnick\nDELTA\u003d315  (225 added, 46 deleted, 44 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@142 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/18/10, 3:51 PM",
+          "commitName": "da30f170f29e983f014fb029fe5779bfd5d3b04f",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/16/10, 3:53 PM",
+          "commitNameOld": "938f48a60c544f6b7bdb5d49006f654a51ca9a22",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.0,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void exitScope(NodeTraversal t) {\n    if (t.inGlobalScope()) {\n        return;\n    }\n    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n        Var v \u003d it.next();\n        handleScopeVar(v);\n    }\n    Set\u003cString\u003e current \u003d referencedNames;\n    referencedNames \u003d referenceStack.pop();\n    if (!referenceStack.isEmpty()) {\n        referencedNames.addAll(current);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+          "functionStartLine": 286,
+          "functionName": "exitScope",
+          "functionAnnotation": "",
+          "functionDoc": "Rename vars for the current scope, and merge any referenced \nnames into the parent scope reference set.\n",
+          "diff": "@@ -1,6 +1,14 @@\n-@Override\n public void exitScope(NodeTraversal t) {\n-    if (!t.inGlobalScope()) {\n-        nameStack.pop();\n+    if (t.inGlobalScope()) {\n+        return;\n+    }\n+    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n+        Var v \u003d it.next();\n+        handleScopeVar(v);\n+    }\n+    Set\u003cString\u003e current \u003d referencedNames;\n+    referencedNames \u003d referenceStack.pop();\n+    if (!referenceStack.isEmpty()) {\n+        referencedNames.addAll(current);\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Fix assorted type system bugs and crashes.\nFixes issue 124. (Nick)\nR\u003dandrew\nDELTA\u003d161  (122 added, 9 deleted, 30 changed)\n\nFix unique name inverter  to prevent masking needed global names. (John)\nR\u003dnick\nDELTA\u003d315  (225 added, 46 deleted, 44 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@142 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "3/18/10, 3:51 PM",
+          "commitName": "da30f170f29e983f014fb029fe5779bfd5d3b04f",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "3/16/10, 3:53 PM",
+          "commitNameOld": "938f48a60c544f6b7bdb5d49006f654a51ca9a22",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 2.0,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void exitScope(NodeTraversal t) {\n    if (t.inGlobalScope()) {\n        return;\n    }\n    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n        Var v \u003d it.next();\n        handleScopeVar(v);\n    }\n    Set\u003cString\u003e current \u003d referencedNames;\n    referencedNames \u003d referenceStack.pop();\n    if (!referenceStack.isEmpty()) {\n        referencedNames.addAll(current);\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+          "functionStartLine": 286,
+          "functionName": "exitScope",
+          "functionAnnotation": "",
+          "functionDoc": "Rename vars for the current scope, and merge any referenced \nnames into the parent scope reference set.\n",
+          "diff": "@@ -1,6 +1,14 @@\n-@Override\n public void exitScope(NodeTraversal t) {\n-    if (!t.inGlobalScope()) {\n-        nameStack.pop();\n+    if (t.inGlobalScope()) {\n+        return;\n+    }\n+    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n+        Var v \u003d it.next();\n+        handleScopeVar(v);\n+    }\n+    Set\u003cString\u003e current \u003d referencedNames;\n+    referencedNames \u003d referenceStack.pop();\n+    if (!referenceStack.isEmpty()) {\n+        referencedNames.addAll(current);\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "Rename vars for the current scope, and merge any referenced \nnames into the parent scope reference set.\n"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,6 @@\n+@Override\n+public void exitScope(NodeTraversal t) {\n+    if (!t.inGlobalScope()) {\n+        nameStack.pop();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void exitScope(NodeTraversal t) {\n    if (!t.inGlobalScope()) {\n        nameStack.pop();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+      "functionStartLine": 93,
+      "functionName": "exitScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InlineObjectLiterals.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 63,
+  "functionEndLine": 67,
+  "numCommitsSeen": 6,
+  "timeTaken": 546,
+  "changeHistory": [
+    "ab11c6a445cea2045b5e8e8cbe0686f6fadc98df",
+    "23cf56d241b46465bd0f112ad0cc9c6ba5583fae"
+  ],
+  "changeHistoryShort": {
+    "ab11c6a445cea2045b5e8e8cbe0686f6fadc98df": "Ybodychange",
+    "23cf56d241b46465bd0f112ad0cc9c6ba5583fae": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ab11c6a445cea2045b5e8e8cbe0686f6fadc98df": {
+      "type": "Ybodychange",
+      "commitMessage": "\nLimit the cases where InlineObjectLiterals performs its work.\n\nR\u003dfmeawad\nDELTA\u003d88  (59 added, 22 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2198\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1163 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/7/11, 9:16 AM",
+      "commitName": "ab11c6a445cea2045b5e8e8cbe0686f6fadc98df",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "5/24/11, 10:36 AM",
+      "commitNameOld": "75a9013e3907e5db97f10578227497d7b018caf5",
+      "commitAuthorOld": "bashir@google.com",
+      "daysBetweenCommits": 13.94,
+      "commitsBetweenForRepo": 34,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    ReferenceCollectingCallback callback \u003d new ReferenceCollectingCallback(compiler, new InliningBehavior());\n    callback.process(externs, root);\n}",
+      "path": "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+      "functionStartLine": 63,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n @Override\n public void process(Node externs, Node root) {\n-    ReferenceCollectingCallback callback \u003d new ReferenceCollectingCallback(compiler, new InliningBehavior(), Predicates.\u003cVar\u003ealwaysTrue());\n+    ReferenceCollectingCallback callback \u003d new ReferenceCollectingCallback(compiler, new InliningBehavior());\n     callback.process(externs, root);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "23cf56d241b46465bd0f112ad0cc9c6ba5583fae": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce InlineObjectLiterals Pass.\n\nR\u003djohnlenz\nDELTA\u003d700  (700 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1774\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1062 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/5/11, 12:15 PM",
+      "commitName": "23cf56d241b46465bd0f112ad0cc9c6ba5583fae",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public void process(Node externs, Node root) {\n+    ReferenceCollectingCallback callback \u003d new ReferenceCollectingCallback(compiler, new InliningBehavior(), Predicates.\u003cVar\u003ealwaysTrue());\n+    callback.process(externs, root);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    ReferenceCollectingCallback callback \u003d new ReferenceCollectingCallback(compiler, new InliningBehavior(), Predicates.\u003cVar\u003ealwaysTrue());\n    callback.process(externs, root);\n}",
+      "path": "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+      "functionStartLine": 63,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

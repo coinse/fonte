@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GlobalVarReferenceMap.java",
+  "functionName": "updateGlobalVarReferences",
+  "functionId": "updateGlobalVarReferences___refMapPatch-Map__Var,ReferenceCollection____root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GlobalVarReferenceMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "Updates the internal reference map based on the provided parameters. If\n{@code scriptRoot} is not SCRIPT, it basically replaces the internal map\nwith the new one, otherwise it replaces all the information associated to\nthe given script.\n\n@param refMapPatch The reference map result of a\n    {@link ReferenceCollectingCallback} pass which might be collected from\n    the whole AST or just a sub-tree associated to a SCRIPT node.\n@param root AST sub-tree root on which reference collection was done.\n",
+  "functionStartLine": 102,
+  "functionEndLine": 120,
+  "numCommitsSeen": 3,
+  "timeTaken": 1150,
+  "changeHistory": [
+    "75a9013e3907e5db97f10578227497d7b018caf5"
+  ],
+  "changeHistoryShort": {
+    "75a9013e3907e5db97f10578227497d7b018caf5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "75a9013e3907e5db97f10578227497d7b018caf5": {
+      "type": "Yintroduced",
+      "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/24/11, 10:36 AM",
+      "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+      "commitAuthor": "bashir@google.com",
+      "diff": "@@ -0,0 +1,15 @@\n+void updateGlobalVarReferences(Map\u003cVar, ReferenceCollection\u003e refMapPatch, Node root) {\n+    if (refMap \u003d\u003d null || root.getType() !\u003d Token.SCRIPT) {\n+        resetGlobalVarReferences(refMapPatch);\n+        return;\n+    }\n+    String sourceName \u003d NodeUtil.getSourceName(root);\n+    Preconditions.checkNotNull(sourceName);\n+    removeScriptReferences(sourceName);\n+    for (Entry\u003cVar, ReferenceCollection\u003e entry : refMapPatch.entrySet()) {\n+        Var var \u003d entry.getKey();\n+        if (var.isGlobal()) {\n+            replaceReferences(var.getName(), sourceName, entry.getValue());\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void updateGlobalVarReferences(Map\u003cVar, ReferenceCollection\u003e refMapPatch, Node root) {\n    if (refMap \u003d\u003d null || root.getType() !\u003d Token.SCRIPT) {\n        resetGlobalVarReferences(refMapPatch);\n        return;\n    }\n    String sourceName \u003d NodeUtil.getSourceName(root);\n    Preconditions.checkNotNull(sourceName);\n    removeScriptReferences(sourceName);\n    for (Entry\u003cVar, ReferenceCollection\u003e entry : refMapPatch.entrySet()) {\n        Var var \u003d entry.getKey();\n        if (var.isGlobal()) {\n            replaceReferences(var.getName(), sourceName, entry.getValue());\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/GlobalVarReferenceMap.java",
+      "functionStartLine": 97,
+      "functionName": "updateGlobalVarReferences",
+      "functionAnnotation": "",
+      "functionDoc": "Updates the internal reference map based on the provided parameters. If\n{@code scriptRoot} is not SCRIPT, it basically replaces the internal map\nwith the new one, otherwise it replaces all the information associated to\nthe given script.\n\n@param refMapPatch The reference map result of a\n    {@link ReferenceCollectingCallback} pass which might be collected from\n    the whole AST or just a sub-tree associated to a SCRIPT node.\n@param root AST sub-tree root on which reference collection was done.\n"
+    }
+  }
+}

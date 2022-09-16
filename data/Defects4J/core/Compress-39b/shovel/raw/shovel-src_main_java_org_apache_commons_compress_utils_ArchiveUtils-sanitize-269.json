@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Compress-39b",
+  "repositoryPath": "/tmp/Compress-39b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ArchiveUtils.java",
+  "functionName": "sanitize",
+  "functionId": "sanitize___s-String",
+  "sourceFilePath": "src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a \"sanitized\" version of the string given as arguments,\nwhere sanitized means non-printable characters have been\nreplaced with a question mark.\n\n\u003cp\u003eThis method is used to clean up file names when they are\nused in exception messages as they may end up in log files or\nas console output and may have been read from a corrupted\ninput.\u003c/p\u003e\n\n@param s the string to sanitize\n@return a sanitized version of the argument\n@since Compress 1.12\n",
+  "functionStartLine": 269,
+  "functionEndLine": 285,
+  "numCommitsSeen": 16,
+  "timeTaken": 529,
+  "changeHistory": [
+    "318de9ae84f1731fda8ce0785ae537f149ea5fcf"
+  ],
+  "changeHistoryShort": {
+    "318de9ae84f1731fda8ce0785ae537f149ea5fcf": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "318de9ae84f1731fda8ce0785ae537f149ea5fcf": {
+      "type": "Yintroduced",
+      "commitMessage": "COMPRESS-351 extract method that sanitizes file names\n",
+      "commitDate": "4/24/16, 9:31 PM",
+      "commitName": "318de9ae84f1731fda8ce0785ae537f149ea5fcf",
+      "commitAuthor": "Stefan Bodewig",
+      "diff": "@@ -0,0 +1,17 @@\n+public static String sanitize(String s) {\n+    final char[] chars \u003d s.toCharArray();\n+    final int len \u003d chars.length;\n+    final StringBuilder sb \u003d new StringBuilder();\n+    for (int i \u003d 0; i \u003c len; i++) {\n+        final char c \u003d chars[i];\n+        if (!Character.isISOControl(c)) {\n+            Character.UnicodeBlock block \u003d Character.UnicodeBlock.of(c);\n+            if (block !\u003d null \u0026\u0026 block !\u003d Character.UnicodeBlock.SPECIALS) {\n+                sb.append(c);\n+                continue;\n+            }\n+        }\n+        sb.append(\u0027?\u0027);\n+    }\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String sanitize(String s) {\n    final char[] chars \u003d s.toCharArray();\n    final int len \u003d chars.length;\n    final StringBuilder sb \u003d new StringBuilder();\n    for (int i \u003d 0; i \u003c len; i++) {\n        final char c \u003d chars[i];\n        if (!Character.isISOControl(c)) {\n            Character.UnicodeBlock block \u003d Character.UnicodeBlock.of(c);\n            if (block !\u003d null \u0026\u0026 block !\u003d Character.UnicodeBlock.SPECIALS) {\n                sb.append(c);\n                continue;\n            }\n        }\n        sb.append(\u0027?\u0027);\n    }\n    return sb.toString();\n}",
+      "path": "src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java",
+      "functionStartLine": 269,
+      "functionName": "sanitize",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a \"sanitized\" version of the string given as arguments,\nwhere sanitized means non-printable characters have been\nreplaced with a question mark.\n\n\u003cp\u003eThis method is used to clean up file names when they are\nused in exception messages as they may end up in log files or\nas console output and may have been read from a corrupted\ninput.\u003c/p\u003e\n\n@param s the string to sanitize\n@return a sanitized version of the argument\n@since Compress 1.12\n"
+    }
+  }
+}

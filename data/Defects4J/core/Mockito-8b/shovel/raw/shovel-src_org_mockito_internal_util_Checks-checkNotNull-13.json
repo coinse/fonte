@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Mockito-8b",
+  "repositoryPath": "/tmp/Mockito-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Checks.java",
+  "functionName": "checkNotNull",
+  "functionId": "checkNotNull___value-T__checkedValue-String",
+  "sourceFilePath": "src/org/mockito/internal/util/Checks.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 13,
+  "functionEndLine": 18,
+  "numCommitsSeen": 2,
+  "timeTaken": 479,
+  "changeHistory": [
+    "377de51ddf90e01c50646f34e353bbf01844c677"
+  ],
+  "changeHistoryShort": {
+    "377de51ddf90e01c50646f34e353bbf01844c677": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "377de51ddf90e01c50646f34e353bbf01844c677": {
+      "type": "Yintroduced",
+      "commitMessage": "issue 238 : reworked inject mocks engine to allow constructor injection, constructor injection is still a work in progress\n\n--HG--\nbranch : issue 238 : constructor injection\nrename : src/org/mockito/internal/configuration/injection/FinalMockCandidateFilter.java \u003d\u003e src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java\nrename : src/org/mockito/internal/configuration/injection/MockCandidateFilter.java \u003d\u003e src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java\nrename : src/org/mockito/internal/configuration/injection/NameBasedCandidateFilter.java \u003d\u003e src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java\nrename : src/org/mockito/internal/configuration/injection/OngoingInjecter.java \u003d\u003e src/org/mockito/internal/configuration/injection/filter/OngoingInjecter.java\nrename : src/org/mockito/internal/configuration/injection/TypeBasedCandidateFilter.java \u003d\u003e src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java\nrename : src/org/mockito/internal/util/reflection/ConstructorInitializer.java \u003d\u003e src/org/mockito/internal/util/reflection/FieldConstructorInitializer.java\n",
+      "commitDate": "3/16/11, 6:19 PM",
+      "commitName": "377de51ddf90e01c50646f34e353bbf01844c677",
+      "commitAuthor": "Brice",
+      "diff": "@@ -0,0 +1,6 @@\n+public static \u003cT\u003e T checkNotNull(T value, String checkedValue) {\n+    if (value \u003d\u003d null) {\n+        throw new NullPointerException(checkedValue + \" should not be null\");\n+    }\n+    return value;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static \u003cT\u003e T checkNotNull(T value, String checkedValue) {\n    if (value \u003d\u003d null) {\n        throw new NullPointerException(checkedValue + \" should not be null\");\n    }\n    return value;\n}",
+      "path": "src/org/mockito/internal/util/Checks.java",
+      "functionStartLine": 8,
+      "functionName": "checkNotNull",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

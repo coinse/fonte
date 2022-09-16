@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrototypeObjectType.java",
+  "functionName": "matchConstraint",
+  "functionId": "matchConstraint___constraintObj-ObjectType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 555,
+  "functionEndLine": 578,
+  "numCommitsSeen": 37,
+  "timeTaken": 1430,
+  "changeHistory": [
+    "22784dc96c391b01692ce686eb93b9aa0ef74ede"
+  ],
+  "changeHistoryShort": {
+    "22784dc96c391b01692ce686eb93b9aa0ef74ede": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "22784dc96c391b01692ce686eb93b9aa0ef74ede": {
+      "type": "Yintroduced",
+      "commitMessage": "\npush reverse-inference into the type system\nfixes issue 669\n\nR\u003djohnlenz\nDELTA\u003d77  (62 added, 13 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4306\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1802 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/1/12, 8:46 AM",
+      "commitName": "22784dc96c391b01692ce686eb93b9aa0ef74ede",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,15 @@\n+@Override\n+public void matchConstraint(ObjectType constraintObj) {\n+    if (constraintObj.isRecordType()) {\n+        for (String prop : constraintObj.getOwnPropertyNames()) {\n+            JSType propType \u003d constraintObj.getPropertyType(prop);\n+            if (!isPropertyTypeDeclared(prop)) {\n+                JSType typeToInfer \u003d propType;\n+                if (!hasProperty(prop)) {\n+                    typeToInfer \u003d getNativeType(JSTypeNative.VOID_TYPE).getLeastSupertype(propType);\n+                }\n+                defineInferredProperty(prop, typeToInfer, null);\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void matchConstraint(ObjectType constraintObj) {\n    if (constraintObj.isRecordType()) {\n        for (String prop : constraintObj.getOwnPropertyNames()) {\n            JSType propType \u003d constraintObj.getPropertyType(prop);\n            if (!isPropertyTypeDeclared(prop)) {\n                JSType typeToInfer \u003d propType;\n                if (!hasProperty(prop)) {\n                    typeToInfer \u003d getNativeType(JSTypeNative.VOID_TYPE).getLeastSupertype(propType);\n                }\n                defineInferredProperty(prop, typeToInfer, null);\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+      "functionStartLine": 555,
+      "functionName": "matchConstraint",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

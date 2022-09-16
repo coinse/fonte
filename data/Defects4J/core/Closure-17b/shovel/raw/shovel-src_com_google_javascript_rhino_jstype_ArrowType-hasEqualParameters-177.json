@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ArrowType.java",
+  "functionName": "hasEqualParameters",
+  "functionId": "hasEqualParameters___that-ArrowType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ArrowType.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return True if our parameter spec is equal to {@code that}\u0027s parameter\n    spec.\n",
+  "functionStartLine": 177,
+  "functionEndLine": 200,
+  "numCommitsSeen": 19,
+  "timeTaken": 1611,
+  "changeHistory": [
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+    "a9757e8c7d85f9ee9622b3e5352955ba3429733d"
+  ],
+  "changeHistoryShort": {
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173": "Ybodychange",
+    "a9757e8c7d85f9ee9622b3e5352955ba3429733d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/26/10, 8:26 AM",
+      "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "5/18/10, 10:06 AM",
+      "commitNameOld": "a9757e8c7d85f9ee9622b3e5352955ba3429733d",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 7.93,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean hasEqualParameters(ArrowType that) {\n    Node thisParam \u003d parameters.getFirstChild();\n    Node otherParam \u003d that.parameters.getFirstChild();\n    while (thisParam !\u003d null \u0026\u0026 otherParam !\u003d null) {\n        JSType thisParamType \u003d thisParam.getJSType();\n        JSType otherParamType \u003d otherParam.getJSType();\n        if (thisParamType !\u003d null) {\n            if (otherParamType !\u003d null \u0026\u0026 !thisParamType.isEquivalentTo(otherParamType)) {\n                return false;\n            }\n        } else {\n            if (otherParamType !\u003d null) {\n                return false;\n            }\n        }\n        thisParam \u003d thisParam.getNext();\n        otherParam \u003d otherParam.getNext();\n    }\n    return thisParam \u003d\u003d otherParam;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ArrowType.java",
+      "functionStartLine": 148,
+      "functionName": "hasEqualParameters",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return True if our parameter spec is equal to {@code that}\u0027s parameter\n    spec.\n",
+      "diff": "@@ -1,20 +1,20 @@\n boolean hasEqualParameters(ArrowType that) {\n     Node thisParam \u003d parameters.getFirstChild();\n     Node otherParam \u003d that.parameters.getFirstChild();\n     while (thisParam !\u003d null \u0026\u0026 otherParam !\u003d null) {\n         JSType thisParamType \u003d thisParam.getJSType();\n         JSType otherParamType \u003d otherParam.getJSType();\n         if (thisParamType !\u003d null) {\n-            if (otherParamType !\u003d null \u0026\u0026 !thisParamType.equals(otherParamType)) {\n+            if (otherParamType !\u003d null \u0026\u0026 !thisParamType.isEquivalentTo(otherParamType)) {\n                 return false;\n             }\n         } else {\n             if (otherParamType !\u003d null) {\n                 return false;\n             }\n         }\n         thisParam \u003d thisParam.getNext();\n         otherParam \u003d otherParam.getNext();\n     }\n     return thisParam \u003d\u003d otherParam;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a9757e8c7d85f9ee9622b3e5352955ba3429733d": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/17 by robby\n\n        Check for non-alias locals in ScopedAliases.\n\n        R\u003dnick\n        DELTA\u003d26  (22 added, 3 deleted, 1 changed)\n\nChange on 2010/05/18 by nick\n\n        Add inferred return types.\n        Make the inf/sup relationship for function types a bit richer.\n        Make sure that the [call] pointer can never be null.\n\n        R\u003dandrew\n        DELTA\u003d192  (134 added, 30 deleted, 28 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4001\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@216 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/18/10, 10:06 AM",
+      "commitName": "a9757e8c7d85f9ee9622b3e5352955ba3429733d",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,20 @@\n+boolean hasEqualParameters(ArrowType that) {\n+    Node thisParam \u003d parameters.getFirstChild();\n+    Node otherParam \u003d that.parameters.getFirstChild();\n+    while (thisParam !\u003d null \u0026\u0026 otherParam !\u003d null) {\n+        JSType thisParamType \u003d thisParam.getJSType();\n+        JSType otherParamType \u003d otherParam.getJSType();\n+        if (thisParamType !\u003d null) {\n+            if (otherParamType !\u003d null \u0026\u0026 !thisParamType.equals(otherParamType)) {\n+                return false;\n+            }\n+        } else {\n+            if (otherParamType !\u003d null) {\n+                return false;\n+            }\n+        }\n+        thisParam \u003d thisParam.getNext();\n+        otherParam \u003d otherParam.getNext();\n+    }\n+    return thisParam \u003d\u003d otherParam;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean hasEqualParameters(ArrowType that) {\n    Node thisParam \u003d parameters.getFirstChild();\n    Node otherParam \u003d that.parameters.getFirstChild();\n    while (thisParam !\u003d null \u0026\u0026 otherParam !\u003d null) {\n        JSType thisParamType \u003d thisParam.getJSType();\n        JSType otherParamType \u003d otherParam.getJSType();\n        if (thisParamType !\u003d null) {\n            if (otherParamType !\u003d null \u0026\u0026 !thisParamType.equals(otherParamType)) {\n                return false;\n            }\n        } else {\n            if (otherParamType !\u003d null) {\n                return false;\n            }\n        }\n        thisParam \u003d thisParam.getNext();\n        otherParam \u003d otherParam.getNext();\n    }\n    return thisParam \u003d\u003d otherParam;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ArrowType.java",
+      "functionStartLine": 148,
+      "functionName": "hasEqualParameters",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return True if our parameter spec is equal to {@code that}\u0027s parameter\n    spec.\n"
+    }
+  }
+}

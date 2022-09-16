@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Codec-3b",
+  "repositoryPath": "/tmp/Codec-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DoubleMetaphone.java",
+  "functionName": "isSilentStart",
+  "functionId": "isSilentStart___value-String",
+  "sourceFilePath": "src/java/org/apache/commons/codec/language/DoubleMetaphone.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines whether or not the value starts with a silent letter.  It will\nreturn \u003ccode\u003etrue\u003c/code\u003e if the value starts with any of \u0027GN\u0027, \u0027KN\u0027,\n\u0027PN\u0027, \u0027WR\u0027 or \u0027PS\u0027.\n",
+  "functionStartLine": 904,
+  "functionEndLine": 913,
+  "numCommitsSeen": 32,
+  "timeTaken": 2024,
+  "changeHistory": [
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1"
+  ],
+  "changeHistoryShort": {
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1": {
+      "type": "Yintroduced",
+      "commitMessage": "Removed characters which were breaking GUMP build.  Need to replace character literals with Unicode codes\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/codec/trunk@130155 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/18/03, 10:46 AM",
+      "commitName": "f0ff6ed771ce1a795ec84897254ceb008f0e98a1",
+      "commitAuthor": "Timothy O\u0027Brien",
+      "diff": "@@ -0,0 +1,10 @@\n+private boolean isSilentStart(String value) {\n+    boolean result \u003d false;\n+    for (int i \u003d 0; i \u003c SILENT_START.length; i++) {\n+        if (value.startsWith(SILENT_START[i])) {\n+            result \u003d true;\n+            break;\n+        }\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isSilentStart(String value) {\n    boolean result \u003d false;\n    for (int i \u003d 0; i \u003c SILENT_START.length; i++) {\n        if (value.startsWith(SILENT_START[i])) {\n            result \u003d true;\n            break;\n        }\n    }\n    return result;\n}",
+      "path": "src/java/org/apache/commons/codec/language/DoubleMetaphone.java",
+      "functionStartLine": 908,
+      "functionName": "isSilentStart",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether or not the value starts with a silent letter.  It will\nreturn \u003ccode\u003etrue\u003c/code\u003e if the value starts with any of \u0027GN\u0027, \u0027KN\u0027,\n\u0027PN\u0027, \u0027WR\u0027 or \u0027PS\u0027.\n"
+    }
+  }
+}

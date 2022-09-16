@@ -1,0 +1,35 @@
+When attempting to compile the following code with default options (-jar compiler.jar --js filename) always produces the same error.
+
+function a(b) {
+  switch (b.v) {
+    case 'SWITCH':
+      if (b.i &gt;= 0) {
+        return b.o;
+      } else {
+        return undefined;
+      }
+      break;
+  }
+}
+
+Whenever I try and compile the above script I get a RuntimeException thrown:
+
+INTERNAL COMPILER ERROR.
+Please report this problem.
+null
+  Node(BREAK): C:\test.js:11:3
+      break;
+  Parent: NULL
+
+The result of calling --version on compiler.jar:
+
+Version: 20100917 (revision 440)
+Built on: 2010/09/17 17:55
+
+The result of calling -version on java.exe:
+
+java version &quot;1.6.0_11&quot;
+Java(TM) SE Runtime Environment (build 1.6.0_11-b03)
+Java HotSpot(TM) Client VM (build 11.0-b16, mixed mode, sharing)
+
+Anyone else with the same issue - to work around in the short term, comment out the &quot;break;&quot; line.

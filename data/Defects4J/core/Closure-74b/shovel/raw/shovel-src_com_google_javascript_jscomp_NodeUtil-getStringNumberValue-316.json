@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getStringNumberValue",
+  "functionId": "getStringNumberValue___rawJsString-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 316,
+  "functionEndLine": 360,
+  "numCommitsSeen": 80,
+  "timeTaken": 2319,
+  "changeHistory": [
+    "c6cc58a9bc617483366141386e047b085b4e83ff",
+    "db7e51f90e44be275b568d0b512e9778d6d6b253"
+  ],
+  "changeHistoryShort": {
+    "c6cc58a9bc617483366141386e047b085b4e83ff": "Ybodychange",
+    "db7e51f90e44be275b568d0b512e9778d6d6b253": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c6cc58a9bc617483366141386e047b085b4e83ff": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix \"string-to-number\" conversions in the presense of verical tabs.\nFixes issue 395.\n\nR\u003dnicksantos\nDELTA\u003d20  (14 added, 1 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1246\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@963 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 10:02 AM",
+      "commitName": "c6cc58a9bc617483366141386e047b085b4e83ff",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "3/25/11, 4:27 PM",
+      "commitNameOld": "86a7d25f3cc1177f35dc6480260fb807912c03fa",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 9.73,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static Double getStringNumberValue(String rawJsString) {\n    if (rawJsString.contains(\"\\u000b\")) {\n        return null;\n    }\n    String s \u003d trimJsWhiteSpace(rawJsString);\n    if (s.length() \u003d\u003d 0) {\n        return 0.0;\n    }\n    if (s.length() \u003e 2 \u0026\u0026 s.charAt(0) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(1) \u003d\u003d \u0027x\u0027 || s.charAt(1) \u003d\u003d \u0027X\u0027)) {\n        try {\n            return Double.valueOf(Integer.parseInt(s.substring(2), 16));\n        } catch (NumberFormatException e) {\n            return Double.NaN;\n        }\n    }\n    if (s.length() \u003e 3 \u0026\u0026 (s.charAt(0) \u003d\u003d \u0027-\u0027 || s.charAt(0) \u003d\u003d \u0027+\u0027) \u0026\u0026 s.charAt(1) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(2) \u003d\u003d \u0027x\u0027 || s.charAt(2) \u003d\u003d \u0027X\u0027)) {\n        return null;\n    }\n    if (s.equals(\"infinity\") || s.equals(\"-infinity\") || s.equals(\"+infinity\")) {\n        return null;\n    }\n    try {\n        return Double.parseDouble(s);\n    } catch (NumberFormatException e) {\n        return Double.NaN;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 312,
+      "functionName": "getStringNumberValue",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,24 +1,27 @@\n static Double getStringNumberValue(String rawJsString) {\n+    if (rawJsString.contains(\"\\u000b\")) {\n+        return null;\n+    }\n     String s \u003d trimJsWhiteSpace(rawJsString);\n     if (s.length() \u003d\u003d 0) {\n         return 0.0;\n     }\n     if (s.length() \u003e 2 \u0026\u0026 s.charAt(0) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(1) \u003d\u003d \u0027x\u0027 || s.charAt(1) \u003d\u003d \u0027X\u0027)) {\n         try {\n             return Double.valueOf(Integer.parseInt(s.substring(2), 16));\n         } catch (NumberFormatException e) {\n             return Double.NaN;\n         }\n     }\n     if (s.length() \u003e 3 \u0026\u0026 (s.charAt(0) \u003d\u003d \u0027-\u0027 || s.charAt(0) \u003d\u003d \u0027+\u0027) \u0026\u0026 s.charAt(1) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(2) \u003d\u003d \u0027x\u0027 || s.charAt(2) \u003d\u003d \u0027X\u0027)) {\n         return null;\n     }\n     if (s.equals(\"infinity\") || s.equals(\"-infinity\") || s.equals(\"+infinity\")) {\n         return null;\n     }\n     try {\n         return Double.parseDouble(s);\n     } catch (NumberFormatException e) {\n         return Double.NaN;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "db7e51f90e44be275b568d0b512e9778d6d6b253": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix issue with improper join of strings containing null and undefined.\nDefine a method for converting array literals to strings.\n\nR\u003dacleung\nDELTA\u003d174  (122 added, 38 deleted, 14 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d522\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@783 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/15/11, 10:52 AM",
+      "commitName": "db7e51f90e44be275b568d0b512e9778d6d6b253",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,24 @@\n+static Double getStringNumberValue(String rawJsString) {\n+    String s \u003d trimJsWhiteSpace(rawJsString);\n+    if (s.length() \u003d\u003d 0) {\n+        return 0.0;\n+    }\n+    if (s.length() \u003e 2 \u0026\u0026 s.charAt(0) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(1) \u003d\u003d \u0027x\u0027 || s.charAt(1) \u003d\u003d \u0027X\u0027)) {\n+        try {\n+            return Double.valueOf(Integer.parseInt(s.substring(2), 16));\n+        } catch (NumberFormatException e) {\n+            return Double.NaN;\n+        }\n+    }\n+    if (s.length() \u003e 3 \u0026\u0026 (s.charAt(0) \u003d\u003d \u0027-\u0027 || s.charAt(0) \u003d\u003d \u0027+\u0027) \u0026\u0026 s.charAt(1) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(2) \u003d\u003d \u0027x\u0027 || s.charAt(2) \u003d\u003d \u0027X\u0027)) {\n+        return null;\n+    }\n+    if (s.equals(\"infinity\") || s.equals(\"-infinity\") || s.equals(\"+infinity\")) {\n+        return null;\n+    }\n+    try {\n+        return Double.parseDouble(s);\n+    } catch (NumberFormatException e) {\n+        return Double.NaN;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Double getStringNumberValue(String rawJsString) {\n    String s \u003d trimJsWhiteSpace(rawJsString);\n    if (s.length() \u003d\u003d 0) {\n        return 0.0;\n    }\n    if (s.length() \u003e 2 \u0026\u0026 s.charAt(0) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(1) \u003d\u003d \u0027x\u0027 || s.charAt(1) \u003d\u003d \u0027X\u0027)) {\n        try {\n            return Double.valueOf(Integer.parseInt(s.substring(2), 16));\n        } catch (NumberFormatException e) {\n            return Double.NaN;\n        }\n    }\n    if (s.length() \u003e 3 \u0026\u0026 (s.charAt(0) \u003d\u003d \u0027-\u0027 || s.charAt(0) \u003d\u003d \u0027+\u0027) \u0026\u0026 s.charAt(1) \u003d\u003d \u00270\u0027 \u0026\u0026 (s.charAt(2) \u003d\u003d \u0027x\u0027 || s.charAt(2) \u003d\u003d \u0027X\u0027)) {\n        return null;\n    }\n    if (s.equals(\"infinity\") || s.equals(\"-infinity\") || s.equals(\"+infinity\")) {\n        return null;\n    }\n    try {\n        return Double.parseDouble(s);\n    } catch (NumberFormatException e) {\n        return Double.NaN;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 310,
+      "functionName": "getStringNumberValue",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

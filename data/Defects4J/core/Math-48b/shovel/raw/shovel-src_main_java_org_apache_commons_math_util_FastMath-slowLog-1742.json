@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-48b",
+  "repositoryPath": "/tmp/Math-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "slowLog",
+  "functionId": "slowLog___xi-double",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "xi in the range of [1, 2].\n                               3        5        7\n     x+1           /          x        x        x          \\\n ln ----- \u003d   2 *  |  x  +   ----  +  ----  +  ---- + ...  |\n     1-x           \\          3        5        7          /\n\nSo, compute a Remez approximation of the following function\n\n ln ((sqrt(x)+1)/(1-sqrt(x)))  /  x\n\nThis will be an even function with only positive coefficents.\nx is in the range [0 - 1/3].\n\nTransform xi for input to the above function by setting\nx \u003d (xi-1)/(xi+1).   Input to the polynomial is x^2, then\nthe result is multiplied by x.\n\n@param xi number from which log is requested\n@return log(xi)\n",
+  "functionStartLine": 1742,
+  "functionEndLine": 1784,
+  "numCommitsSeen": 51,
+  "timeTaken": 20903,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,30 @@\n+private static double[] slowLog(double xi) {\n+    double[] x \u003d new double[2];\n+    double[] x2 \u003d new double[2];\n+    double[] y \u003d new double[2];\n+    double[] a \u003d new double[2];\n+    split(xi, x);\n+    x[0] +\u003d 1.0;\n+    resplit(x);\n+    splitReciprocal(x, a);\n+    x[0] -\u003d 2.0;\n+    resplit(x);\n+    splitMult(x, a, y);\n+    x[0] \u003d y[0];\n+    x[1] \u003d y[1];\n+    splitMult(x, x, x2);\n+    y[0] \u003d LN_SPLIT_COEF[LN_SPLIT_COEF.length - 1][0];\n+    y[1] \u003d LN_SPLIT_COEF[LN_SPLIT_COEF.length - 1][1];\n+    for (int i \u003d LN_SPLIT_COEF.length - 2; i \u003e\u003d 0; i--) {\n+        splitMult(y, x2, a);\n+        y[0] \u003d a[0];\n+        y[1] \u003d a[1];\n+        splitAdd(y, LN_SPLIT_COEF[i], a);\n+        y[0] \u003d a[0];\n+        y[1] \u003d a[1];\n+    }\n+    splitMult(y, x, a);\n+    y[0] \u003d a[0];\n+    y[1] \u003d a[1];\n+    return y;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static double[] slowLog(double xi) {\n    double[] x \u003d new double[2];\n    double[] x2 \u003d new double[2];\n    double[] y \u003d new double[2];\n    double[] a \u003d new double[2];\n    split(xi, x);\n    x[0] +\u003d 1.0;\n    resplit(x);\n    splitReciprocal(x, a);\n    x[0] -\u003d 2.0;\n    resplit(x);\n    splitMult(x, a, y);\n    x[0] \u003d y[0];\n    x[1] \u003d y[1];\n    splitMult(x, x, x2);\n    y[0] \u003d LN_SPLIT_COEF[LN_SPLIT_COEF.length - 1][0];\n    y[1] \u003d LN_SPLIT_COEF[LN_SPLIT_COEF.length - 1][1];\n    for (int i \u003d LN_SPLIT_COEF.length - 2; i \u003e\u003d 0; i--) {\n        splitMult(y, x2, a);\n        y[0] \u003d a[0];\n        y[1] \u003d a[1];\n        splitAdd(y, LN_SPLIT_COEF[i], a);\n        y[0] \u003d a[0];\n        y[1] \u003d a[1];\n    }\n    splitMult(y, x, a);\n    y[0] \u003d a[0];\n    y[1] \u003d a[1];\n    return y;\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 1336,
+      "functionName": "slowLog",
+      "functionAnnotation": "",
+      "functionDoc": "xi in the range of [1, 2].\n                               3        5        7\n     x+1           /          x        x        x          \\\n ln ----- \u003d   2 *  |  x  +   ----  +  ----  +  ---- + ...  |\n     1-x           \\          3        5        7          /\n\nSo, compute a Remez approximation of the following function\n\n ln ((sqrt(x)+1)/(1-sqrt(x)))  /  x\n\nThis will be an even function with only positive coefficents.\nx is in the range [0 - 1/3].\n\nTransform xi for input to the above function by setting\nx \u003d (xi-1)/(xi+1).   Input to the polynomial is x^2, then\nthe result is multiplied by x.\n\n@param xi number from which log is requested\n@return log(xi)\n"
+    }
+  }
+}

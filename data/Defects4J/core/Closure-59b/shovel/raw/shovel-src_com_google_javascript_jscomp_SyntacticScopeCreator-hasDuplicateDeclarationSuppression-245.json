@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SyntacticScopeCreator.java",
+  "functionName": "hasDuplicateDeclarationSuppression",
+  "functionId": "hasDuplicateDeclarationSuppression___n-Node__origVar-Scope.Var",
+  "sourceFilePath": "src/com/google/javascript/jscomp/SyntacticScopeCreator.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@param n The name node to check.\n@param origVar The associated Var.\n@return Whether duplicated declarations warnings should be suppressed\n    for the given node.\n",
+  "functionStartLine": 245,
+  "functionEndLine": 263,
+  "numCommitsSeen": 19,
+  "timeTaken": 732,
+  "changeHistory": [
+    "03db3415761aa9d8ba2fafa0ed64116a8331b1a9"
+  ],
+  "changeHistoryShort": {
+    "03db3415761aa9d8ba2fafa0ed64116a8331b1a9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "03db3415761aa9d8ba2fafa0ed64116a8331b1a9": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPrevent inlining of extern vars that are redeclared.\n\nR\u003dnicksantos\nDELTA\u003d92  (58 added, 16 deleted, 18 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2401\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1204 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/23/11, 1:45 PM",
+      "commitName": "03db3415761aa9d8ba2fafa0ed64116a8331b1a9",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,17 @@\n+static boolean hasDuplicateDeclarationSuppression(Node n, Scope.Var origVar) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.NAME);\n+    Node parent \u003d n.getParent();\n+    Node origParent \u003d origVar.getParentNode();\n+    JSDocInfo info \u003d n.getJSDocInfo();\n+    if (info \u003d\u003d null) {\n+        info \u003d parent.getJSDocInfo();\n+    }\n+    if (info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\")) {\n+        return true;\n+    }\n+    info \u003d origVar.nameNode.getJSDocInfo();\n+    if (info \u003d\u003d null) {\n+        info \u003d origParent.getJSDocInfo();\n+    }\n+    return (info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\"));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean hasDuplicateDeclarationSuppression(Node n, Scope.Var origVar) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.NAME);\n    Node parent \u003d n.getParent();\n    Node origParent \u003d origVar.getParentNode();\n    JSDocInfo info \u003d n.getJSDocInfo();\n    if (info \u003d\u003d null) {\n        info \u003d parent.getJSDocInfo();\n    }\n    if (info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\")) {\n        return true;\n    }\n    info \u003d origVar.nameNode.getJSDocInfo();\n    if (info \u003d\u003d null) {\n        info \u003d origParent.getJSDocInfo();\n    }\n    return (info !\u003d null \u0026\u0026 info.getSuppressions().contains(\"duplicate\"));\n}",
+      "path": "src/com/google/javascript/jscomp/SyntacticScopeCreator.java",
+      "functionStartLine": 245,
+      "functionName": "hasDuplicateDeclarationSuppression",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param n The name node to check.\n@param origVar The associated Var.\n@return Whether duplicated declarations warnings should be suppressed\n    for the given node.\n"
+    }
+  }
+}

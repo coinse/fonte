@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-76b",
+  "repositoryPath": "/tmp/Closure-76b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "isIndirectEval",
+  "functionId": "isIndirectEval___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the name is an indirect eval.\n",
+  "functionStartLine": 725,
+  "functionEndLine": 728,
+  "numCommitsSeen": 45,
+  "timeTaken": 2190,
+  "changeHistory": [
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8"
+  ],
+  "changeHistoryShort": {
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic \"free call\" annotation and support for issue 180.  Additional\ntesting is required to validate that new CALL nodes are not\ninappropriately introduced.\n\nAlso, refactored PrepareAst to make the different actions being taken\neasier to follow.\n\nR\u003dnicksantos\nDELTA\u003d215  (120 added, 18 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@282 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:34 PM",
+      "commitName": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,3 @@\n+private boolean isIndirectEval(Node n) {\n+    return n.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(n.getString()) \u0026\u0026 !n.getBooleanProp(Node.DIRECT_EVAL);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isIndirectEval(Node n) {\n    return n.getType() \u003d\u003d Token.NAME \u0026\u0026 \"eval\".equals(n.getString()) \u0026\u0026 !n.getBooleanProp(Node.DIRECT_EVAL);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 653,
+      "functionName": "isIndirectEval",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the name is an indirect eval.\n"
+    }
+  }
+}

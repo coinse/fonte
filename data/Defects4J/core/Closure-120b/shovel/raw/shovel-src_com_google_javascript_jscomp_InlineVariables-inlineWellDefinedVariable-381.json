@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InlineVariables.java",
+  "functionName": "inlineWellDefinedVariable",
+  "functionId": "$inlineWellDefinedVariable___v-Var__value-Node__refSet-List__Reference__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InlineVariables.java",
+  "functionAnnotation": "",
+  "functionDoc": "Inline an immutable variable into all of its references.\n",
+  "functionStartLine": 381,
+  "functionEndLine": 388,
+  "numCommitsSeen": 36,
+  "timeTaken": 1820,
+  "changeHistory": [
+    "78995bf9e88599055a8c4165d89c09dc92a44b30",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/09, 11:16 AM",
+      "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/10/09, 11:16 AM",
+          "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/6/09, 5:24 PM",
+          "commitNameOld": "0b7eccf2fd3a9293d7b513fbb766d7bc06abd7e0",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 3.74,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void inlineWellDefinedVariable(Var v, Node value, List\u003cReference\u003e refSet) {\n    Reference decl \u003d refSet.get(0);\n    for (int i \u003d 1; i \u003c refSet.size(); i++) {\n        inlineValue(v, refSet.get(i), value.cloneTree());\n    }\n    removeDeclaration(decl);\n}",
+          "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+          "functionStartLine": 305,
+          "functionName": "inlineWellDefinedVariable",
+          "functionAnnotation": "",
+          "functionDoc": "Inline an immutable variable into all of its references.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-private void inlineWellDefinedVariable(Var v, List\u003cReference\u003e refSet) {\n+private void inlineWellDefinedVariable(Var v, Node value, List\u003cReference\u003e refSet) {\n     Reference decl \u003d refSet.get(0);\n     for (int i \u003d 1; i \u003c refSet.size(); i++) {\n-        inlineValue(v, refSet.get(i), decl.getNameNode().getFirstChild().cloneTree());\n+        inlineValue(v, refSet.get(i), value.cloneTree());\n     }\n     removeDeclaration(decl);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[v-Var, refSet-List\u003cReference\u003e]",
+            "newValue": "[v-Var, value-Node, refSet-List\u003cReference\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/10/09, 11:16 AM",
+          "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/6/09, 5:24 PM",
+          "commitNameOld": "0b7eccf2fd3a9293d7b513fbb766d7bc06abd7e0",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 3.74,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void inlineWellDefinedVariable(Var v, Node value, List\u003cReference\u003e refSet) {\n    Reference decl \u003d refSet.get(0);\n    for (int i \u003d 1; i \u003c refSet.size(); i++) {\n        inlineValue(v, refSet.get(i), value.cloneTree());\n    }\n    removeDeclaration(decl);\n}",
+          "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+          "functionStartLine": 305,
+          "functionName": "inlineWellDefinedVariable",
+          "functionAnnotation": "",
+          "functionDoc": "Inline an immutable variable into all of its references.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-private void inlineWellDefinedVariable(Var v, List\u003cReference\u003e refSet) {\n+private void inlineWellDefinedVariable(Var v, Node value, List\u003cReference\u003e refSet) {\n     Reference decl \u003d refSet.get(0);\n     for (int i \u003d 1; i \u003c refSet.size(); i++) {\n-        inlineValue(v, refSet.get(i), decl.getNameNode().getFirstChild().cloneTree());\n+        inlineValue(v, refSet.get(i), value.cloneTree());\n     }\n     removeDeclaration(decl);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private void inlineWellDefinedVariable(Var v, List\u003cReference\u003e refSet) {\n+    Reference decl \u003d refSet.get(0);\n+    for (int i \u003d 1; i \u003c refSet.size(); i++) {\n+        inlineValue(v, refSet.get(i), decl.getNameNode().getFirstChild().cloneTree());\n+    }\n+    removeDeclaration(decl);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void inlineWellDefinedVariable(Var v, List\u003cReference\u003e refSet) {\n    Reference decl \u003d refSet.get(0);\n    for (int i \u003d 1; i \u003c refSet.size(); i++) {\n        inlineValue(v, refSet.get(i), decl.getNameNode().getFirstChild().cloneTree());\n    }\n    removeDeclaration(decl);\n}",
+      "path": "src/com/google/javascript/jscomp/InlineVariables.java",
+      "functionStartLine": 316,
+      "functionName": "inlineWellDefinedVariable",
+      "functionAnnotation": "",
+      "functionDoc": "Inline an immutable variable into all of its references.\n"
+    }
+  }
+}

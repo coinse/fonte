@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-120b",
+  "repositoryPath": "/tmp/Closure-120b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReferenceCollectingCallback.java",
+  "functionName": "getOneAndOnlyAssignment",
+  "functionId": "$getOneAndOnlyAssignment",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return The one and only assignment. Returns if there are 0 or 2+\n   assignments.\n",
+  "functionStartLine": 444,
+  "functionEndLine": 458,
+  "numCommitsSeen": 35,
+  "timeTaken": 1847,
+  "changeHistory": [
+    "d1df970451b5a18956448097b3afb43f3a82263d"
+  ],
+  "changeHistoryShort": {
+    "d1df970451b5a18956448097b3afb43f3a82263d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d1df970451b5a18956448097b3afb43f3a82263d": {
+      "type": "Yintroduced",
+      "commitMessage": "\n\nChange on 2010/06/09 by nicksantos\n\n        be clear that \"assigned once\" means \"assigned once in lifetime\"\n        fixes issue 174.\n\n        R\u003djohnlenz\n        DELTA\u003d125  (113 added, 0 deleted, 12 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d26002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@241 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/10/10, 1:12 PM",
+      "commitName": "d1df970451b5a18956448097b3afb43f3a82263d",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,15 @@\n+private Reference getOneAndOnlyAssignment() {\n+    Reference assignment \u003d null;\n+    int size \u003d references.size();\n+    for (int i \u003d 0; i \u003c size; i++) {\n+        Reference ref \u003d references.get(i);\n+        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n+            if (assignment \u003d\u003d null) {\n+                assignment \u003d ref;\n+            } else {\n+                return null;\n+            }\n+        }\n+    }\n+    return assignment;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Reference getOneAndOnlyAssignment() {\n    Reference assignment \u003d null;\n    int size \u003d references.size();\n    for (int i \u003d 0; i \u003c size; i++) {\n        Reference ref \u003d references.get(i);\n        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n            if (assignment \u003d\u003d null) {\n                assignment \u003d ref;\n            } else {\n                return null;\n            }\n        }\n    }\n    return assignment;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 377,
+      "functionName": "getOneAndOnlyAssignment",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return The one and only assignment. Returns if there are 0 or 2+\n   assignments.\n"
+    }
+  }
+}

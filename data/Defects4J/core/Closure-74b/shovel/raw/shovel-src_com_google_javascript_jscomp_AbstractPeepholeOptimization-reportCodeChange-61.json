@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractPeepholeOptimization.java",
+  "functionName": "reportCodeChange",
+  "functionId": "reportCodeChange",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method for telling the compiler that something has changed.\nSubclasses must call these if they have changed the AST.\n",
+  "functionStartLine": 61,
+  "functionEndLine": 64,
+  "numCommitsSeen": 11,
+  "timeTaken": 1662,
+  "changeHistory": [
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777",
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a"
+  ],
+  "changeHistoryShort": {
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777": "Ydocchange",
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777": {
+      "type": "Ydocchange",
+      "commitMessage": "\nChange on 2010/06/30 15:06:33 by johnlenz\n\n\tAdd a diagnostic group so that projects with weird externs can opt-out of the stricter extern checks.\n\n\tR\u003dnicksantos\n\tDELTA\u003d54  (52 added, 0 deleted, 2 changed)\n\nChange on 2010/06/30 17:56:51 by johnlenz\n\n\tRevert warning levels until after a release is put out to control them.\n\n\tR\u003dnicksantos\n\tDELTA\u003d4  (2 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d47002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@260 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/1/10, 7:38 AM",
+      "commitName": "9de5e9b4671773bb3f2d5932e57c1b4186b9b777",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "6/22/10, 4:00 PM",
+      "commitNameOld": "c9e89727dc8063d087d28e42629606f4fd74a6e5",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 8.65,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void reportCodeChange() {\n    Preconditions.checkNotNull(currentTraversal);\n    currentTraversal.getCompiler().reportCodeChange();\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+      "functionStartLine": 60,
+      "functionName": "reportCodeChange",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method for telling the compiler that something has changed.\nSubclasses must call these if they have changed the AST.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Helper method for telling the compiler that something has changed. \nSubclasses must call these if they have changed the AST.\n",
+        "newValue": "Helper method for telling the compiler that something has changed.\nSubclasses must call these if they have changed the AST.\n"
+      }
+    },
+    "b4801b28ceea8db0f63da7440d6769cb9b7cce8a": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/28 by johnlenz\n\n        Inline functions with inner functions into global scope if they don\u0027t\n        declare any names.\n\n        R\u003dacleung\n        DELTA\u003d329  (244 added, 27 deleted, 58 changed)\n\nChange on 2010/05/28 by dcc\n\n        First pass on refactoring FoldConstants into separate peephole optimizations. This changelist adds the notion of an AbstractPeepholeOptimization and adds a PeepholeOptimizationsPass that runs them. In this go around the minimization aspects of FoldConstants have been factored out into PeepholeMinimize. A future change will factor out the other components of FoldConstants into their own PeepholeOptimizations. DefaultPassConfig has also been updated to run the new PeepholeOptimizationPass.\n\n        This change does not move the minimization-related unit tests from FoldConstantsTest to PeepholeMinimizeTest -- a future, separate, change will do so. Hopefully this will make it easier to review.\n\n        R\u003dacleung\n        DELTA\u003d1966  (1271 added, 675 deleted, 20 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d13010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@235 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/29/10, 1:07 PM",
+      "commitName": "b4801b28ceea8db0f63da7440d6769cb9b7cce8a",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,4 @@\n+protected void reportCodeChange() {\n+    Preconditions.checkNotNull(currentTraversal);\n+    currentTraversal.getCompiler().reportCodeChange();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void reportCodeChange() {\n    Preconditions.checkNotNull(currentTraversal);\n    currentTraversal.getCompiler().reportCodeChange();\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+      "functionStartLine": 60,
+      "functionName": "reportCodeChange",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method for telling the compiler that something has changed. \nSubclasses must call these if they have changed the AST.\n"
+    }
+  }
+}

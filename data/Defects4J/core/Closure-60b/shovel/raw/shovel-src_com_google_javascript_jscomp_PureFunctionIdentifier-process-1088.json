@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PureFunctionIdentifier.java",
+  "functionName": "process",
+  "functionId": "$process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 1088,
+  "functionEndLine": 1114,
+  "numCommitsSeen": 25,
+  "timeTaken": 1135,
+  "changeHistory": [
+    "9a05def053bc2ac4b24a5c1f72b35f6a2e753b0e"
+  ],
+  "changeHistoryShort": {
+    "9a05def053bc2ac4b24a5c1f72b35f6a2e753b0e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9a05def053bc2ac4b24a5c1f72b35f6a2e753b0e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nThrow the PureFunctionIdentifier harness out of\nthe pass config, so that we can benchmark it more easily.\n\nR\u003djohnlenz\nDELTA\u003d110  (66 added, 43 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d262301\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@461 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/24/10, 11:05 AM",
+      "commitName": "9a05def053bc2ac4b24a5c1f72b35f6a2e753b0e",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,22 @@\n+@Override\n+public void process(Node externs, Node root) {\n+    DefinitionProvider definitionProvider \u003d null;\n+    if (useNameReferenceGraph) {\n+        NameReferenceGraphConstruction graphBuilder \u003d new NameReferenceGraphConstruction(compiler);\n+        graphBuilder.process(externs, root);\n+        definitionProvider \u003d graphBuilder.getNameReferenceGraph();\n+    } else {\n+        SimpleDefinitionFinder defFinder \u003d new SimpleDefinitionFinder(compiler);\n+        defFinder.process(externs, root);\n+        definitionProvider \u003d defFinder;\n+    }\n+    PureFunctionIdentifier pureFunctionIdentifier \u003d new PureFunctionIdentifier(compiler, definitionProvider);\n+    pureFunctionIdentifier.process(externs, root);\n+    if (reportPath !\u003d null) {\n+        try {\n+            Files.write(pureFunctionIdentifier.getDebugReport(), new File(reportPath), Charsets.UTF_8);\n+        } catch (IOException e) {\n+            throw new RuntimeException(e);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    DefinitionProvider definitionProvider \u003d null;\n    if (useNameReferenceGraph) {\n        NameReferenceGraphConstruction graphBuilder \u003d new NameReferenceGraphConstruction(compiler);\n        graphBuilder.process(externs, root);\n        definitionProvider \u003d graphBuilder.getNameReferenceGraph();\n    } else {\n        SimpleDefinitionFinder defFinder \u003d new SimpleDefinitionFinder(compiler);\n        defFinder.process(externs, root);\n        definitionProvider \u003d defFinder;\n    }\n    PureFunctionIdentifier pureFunctionIdentifier \u003d new PureFunctionIdentifier(compiler, definitionProvider);\n    pureFunctionIdentifier.process(externs, root);\n    if (reportPath !\u003d null) {\n        try {\n            Files.write(pureFunctionIdentifier.getDebugReport(), new File(reportPath), Charsets.UTF_8);\n        } catch (IOException e) {\n            throw new RuntimeException(e);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+      "functionStartLine": 1151,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSDocInfoBuilder.java",
+  "functionName": "markAnnotation",
+  "functionId": "markAnnotation___annotation-String__lineno-int__charno-int",
+  "sourceFilePath": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Adds a marker to the current JSDocInfo and populates the marker with the\nannotation information.\n",
+  "functionStartLine": 148,
+  "functionEndLine": 162,
+  "numCommitsSeen": 25,
+  "timeTaken": 994,
+  "changeHistory": [
+    "ff67789e6125face69d6dc28697121cb3b6df854",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "ff67789e6125face69d6dc28697121cb3b6df854": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ff67789e6125face69d6dc28697121cb3b6df854": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix a bunch of bugs in marker generation, and add lots of inline\nassertions to prevent this from regressing.\nRight now, Grok has a bunch of checks to work around these bugs,\nand we would like to get rid of them.\n\nR\u003djschorr,tylerg\nDELTA\u003d272  (134 added, 14 deleted, 124 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3268\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1442 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/14/11, 8:18 AM",
+      "commitName": "ff67789e6125face69d6dc28697121cb3b6df854",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "8/4/11, 9:23 AM",
+      "commitNameOld": "0af94b21ceb7f8f0891b85e5713ff93c230e1bb6",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 40.95,
+      "commitsBetweenForRepo": 106,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void markAnnotation(String annotation, int lineno, int charno) {\n    JSDocInfo.Marker marker \u003d currentInfo.addMarker();\n    if (marker !\u003d null) {\n        JSDocInfo.TrimmedStringPosition position \u003d new JSDocInfo.TrimmedStringPosition();\n        position.setItem(annotation);\n        position.setPositionInformation(lineno, charno, lineno, charno + annotation.length());\n        marker.setAnnotation(position);\n        populated \u003d true;\n    }\n    currentMarker \u003d marker;\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+      "functionStartLine": 146,
+      "functionName": "markAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "Adds a marker to the current JSDocInfo and populates the marker with the\nannotation information.\n",
+      "diff": "@@ -1,9 +1,11 @@\n public void markAnnotation(String annotation, int lineno, int charno) {\n     JSDocInfo.Marker marker \u003d currentInfo.addMarker();\n     if (marker !\u003d null) {\n-        marker.annotation \u003d new JSDocInfo.StringPosition();\n-        marker.annotation.setItem(annotation);\n-        marker.annotation.setPositionInformation(lineno, charno, lineno, charno + annotation.length());\n+        JSDocInfo.TrimmedStringPosition position \u003d new JSDocInfo.TrimmedStringPosition();\n+        position.setItem(annotation);\n+        position.setPositionInformation(lineno, charno, lineno, charno + annotation.length());\n+        marker.setAnnotation(position);\n+        populated \u003d true;\n     }\n     currentMarker \u003d marker;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+public void markAnnotation(String annotation, int lineno, int charno) {\n+    JSDocInfo.Marker marker \u003d currentInfo.addMarker();\n+    if (marker !\u003d null) {\n+        marker.annotation \u003d new JSDocInfo.StringPosition();\n+        marker.annotation.setItem(annotation);\n+        marker.annotation.setPositionInformation(lineno, charno, lineno, charno + annotation.length());\n+    }\n+    currentMarker \u003d marker;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void markAnnotation(String annotation, int lineno, int charno) {\n    JSDocInfo.Marker marker \u003d currentInfo.addMarker();\n    if (marker !\u003d null) {\n        marker.annotation \u003d new JSDocInfo.StringPosition();\n        marker.annotation.setItem(annotation);\n        marker.annotation.setPositionInformation(lineno, charno, lineno, charno + annotation.length());\n    }\n    currentMarker \u003d marker;\n}",
+      "path": "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+      "functionStartLine": 131,
+      "functionName": "markAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "Adds a marker to the current JSDocInfo and populates the marker with the\nannotation information.\n"
+    }
+  }
+}

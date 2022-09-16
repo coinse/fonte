@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "endPass",
+  "functionId": "endPass",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Marks the end of a pass.\n",
+  "functionStartLine": 849,
+  "functionEndLine": 858,
+  "numCommitsSeen": 90,
+  "timeTaken": 5389,
+  "changeHistory": [
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": {
+      "type": "Ybodychange",
+      "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/8/09, 3:50 PM",
+      "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "12/7/09, 1:53 PM",
+      "commitNameOld": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 1.08,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void endPass() {\n    Preconditions.checkState(currentTracer !\u003d null, \"Tracer should not be null at the end of a pass.\");\n    stopTracer(currentTracer, currentPassName);\n    String passToCheck \u003d currentPassName;\n    currentPassName \u003d null;\n    currentTracer \u003d null;\n    maybeSanityCheck();\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 728,
+      "functionName": "endPass",
+      "functionAnnotation": "",
+      "functionDoc": "Marks the end of a pass.\n",
+      "diff": "@@ -1,8 +1,8 @@\n void endPass() {\n     Preconditions.checkState(currentTracer !\u003d null, \"Tracer should not be null at the end of a pass.\");\n     stopTracer(currentTracer, currentPassName);\n     String passToCheck \u003d currentPassName;\n     currentPassName \u003d null;\n     currentTracer \u003d null;\n-    maybeSanityCheck(passToCheck);\n+    maybeSanityCheck();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,8 @@\n+void endPass() {\n+    Preconditions.checkState(currentTracer !\u003d null, \"Tracer should not be null at the end of a pass.\");\n+    stopTracer(currentTracer, currentPassName);\n+    String passToCheck \u003d currentPassName;\n+    currentPassName \u003d null;\n+    currentTracer \u003d null;\n+    maybeSanityCheck(passToCheck);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void endPass() {\n    Preconditions.checkState(currentTracer !\u003d null, \"Tracer should not be null at the end of a pass.\");\n    stopTracer(currentTracer, currentPassName);\n    String passToCheck \u003d currentPassName;\n    currentPassName \u003d null;\n    currentTracer \u003d null;\n    maybeSanityCheck(passToCheck);\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 771,
+      "functionName": "endPass",
+      "functionAnnotation": "",
+      "functionDoc": "Marks the end of a pass.\n"
+    }
+  }
+}

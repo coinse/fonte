@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isUndefined",
+  "functionId": "isUndefined___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1291,
+  "functionEndLine": 1299,
+  "numCommitsSeen": 93,
+  "timeTaken": 3640,
+  "changeHistory": [
+    "711b76ac1015234f86805f1735ff2c3da195f55c"
+  ],
+  "changeHistoryShort": {
+    "711b76ac1015234f86805f1735ff2c3da195f55c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "711b76ac1015234f86805f1735ff2c3da195f55c": {
+      "type": "Yintroduced",
+      "commitMessage": "\nSome non-contraversal changes from 304.\nBased on a patch by Ilia Kantor\n\nR\u003dnicksantos\nDELTA\u003d333  (332 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d249\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@686 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/11/11, 12:06 PM",
+      "commitName": "711b76ac1015234f86805f1735ff2c3da195f55c",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+static boolean isUndefined(Node n) {\n+    switch(n.getType()) {\n+        case Token.VOID:\n+            return true;\n+        case Token.NAME:\n+            return n.getString().equals(\"undefined\");\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isUndefined(Node n) {\n    switch(n.getType()) {\n        case Token.VOID:\n            return true;\n        case Token.NAME:\n            return n.getString().equals(\"undefined\");\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1087,
+      "functionName": "isUndefined",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

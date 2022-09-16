@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-15b",
+  "repositoryPath": "/tmp/Math-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "compare",
+  "functionId": "compare___a-Dfp(modifiers-final)__b-Dfp(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compare two instances.\n\n@param a first instance in comparison\n@param b second instance in comparison\n@return -1 if a\u003cb, 1 if a\u003eb and 0 if a\u003d\u003db\n Note this method does not properly handle NaNs or numbers with different precision.\n",
+  "functionStartLine": 944,
+  "functionEndLine": 996,
+  "numCommitsSeen": 13,
+  "timeTaken": 12254,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static int compare(final Dfp a, final Dfp b) {\n    if (a.mant[a.mant.length - 1] \u003d\u003d 0 \u0026\u0026 b.mant[b.mant.length - 1] \u003d\u003d 0 \u0026\u0026 a.nans \u003d\u003d FINITE \u0026\u0026 b.nans \u003d\u003d FINITE) {\n        return 0;\n    }\n    if (a.sign !\u003d b.sign) {\n        if (a.sign \u003d\u003d -1) {\n            return -1;\n        } else {\n            return 1;\n        }\n    }\n    if (a.nans \u003d\u003d INFINITE \u0026\u0026 b.nans \u003d\u003d FINITE) {\n        return a.sign;\n    }\n    if (a.nans \u003d\u003d FINITE \u0026\u0026 b.nans \u003d\u003d INFINITE) {\n        return -b.sign;\n    }\n    if (a.nans \u003d\u003d INFINITE \u0026\u0026 b.nans \u003d\u003d INFINITE) {\n        return 0;\n    }\n    if (b.mant[b.mant.length - 1] !\u003d 0 \u0026\u0026 a.mant[b.mant.length - 1] !\u003d 0) {\n        if (a.exp \u003c b.exp) {\n            return -a.sign;\n        }\n        if (a.exp \u003e b.exp) {\n            return a.sign;\n        }\n    }\n    for (int i \u003d a.mant.length - 1; i \u003e\u003d 0; i--) {\n        if (a.mant[i] \u003e b.mant[i]) {\n            return a.sign;\n        }\n        if (a.mant[i] \u003c b.mant[i]) {\n            return -a.sign;\n        }\n    }\n    return 0;\n}",
+      "path": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+      "functionStartLine": 944,
+      "functionName": "compare",
+      "functionAnnotation": "",
+      "functionDoc": "Compare two instances.\n\n@param a first instance in comparison\n@param b second instance in comparison\n@return -1 if a\u003cb, 1 if a\u003eb and 0 if a\u003d\u003db\n Note this method does not properly handle NaNs or numbers with different precision.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+        "newPath": "src/main/java/org/apache/commons/math3/dfp/Dfp.java",
+        "oldMethodName": "compare",
+        "newMethodName": "compare"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,38 @@\n+private static int compare(final Dfp a, final Dfp b) {\n+    if (a.mant[a.mant.length - 1] \u003d\u003d 0 \u0026\u0026 b.mant[b.mant.length - 1] \u003d\u003d 0 \u0026\u0026 a.nans \u003d\u003d FINITE \u0026\u0026 b.nans \u003d\u003d FINITE) {\n+        return 0;\n+    }\n+    if (a.sign !\u003d b.sign) {\n+        if (a.sign \u003d\u003d -1) {\n+            return -1;\n+        } else {\n+            return 1;\n+        }\n+    }\n+    if (a.nans \u003d\u003d INFINITE \u0026\u0026 b.nans \u003d\u003d FINITE) {\n+        return a.sign;\n+    }\n+    if (a.nans \u003d\u003d FINITE \u0026\u0026 b.nans \u003d\u003d INFINITE) {\n+        return -b.sign;\n+    }\n+    if (a.nans \u003d\u003d INFINITE \u0026\u0026 b.nans \u003d\u003d INFINITE) {\n+        return 0;\n+    }\n+    if (b.mant[b.mant.length - 1] !\u003d 0 \u0026\u0026 a.mant[b.mant.length - 1] !\u003d 0) {\n+        if (a.exp \u003c b.exp) {\n+            return -a.sign;\n+        }\n+        if (a.exp \u003e b.exp) {\n+            return a.sign;\n+        }\n+    }\n+    for (int i \u003d a.mant.length - 1; i \u003e\u003d 0; i--) {\n+        if (a.mant[i] \u003e b.mant[i]) {\n+            return a.sign;\n+        }\n+        if (a.mant[i] \u003c b.mant[i]) {\n+            return -a.sign;\n+        }\n+    }\n+    return 0;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static int compare(final Dfp a, final Dfp b) {\n    if (a.mant[a.mant.length - 1] \u003d\u003d 0 \u0026\u0026 b.mant[b.mant.length - 1] \u003d\u003d 0 \u0026\u0026 a.nans \u003d\u003d FINITE \u0026\u0026 b.nans \u003d\u003d FINITE) {\n        return 0;\n    }\n    if (a.sign !\u003d b.sign) {\n        if (a.sign \u003d\u003d -1) {\n            return -1;\n        } else {\n            return 1;\n        }\n    }\n    if (a.nans \u003d\u003d INFINITE \u0026\u0026 b.nans \u003d\u003d FINITE) {\n        return a.sign;\n    }\n    if (a.nans \u003d\u003d FINITE \u0026\u0026 b.nans \u003d\u003d INFINITE) {\n        return -b.sign;\n    }\n    if (a.nans \u003d\u003d INFINITE \u0026\u0026 b.nans \u003d\u003d INFINITE) {\n        return 0;\n    }\n    if (b.mant[b.mant.length - 1] !\u003d 0 \u0026\u0026 a.mant[b.mant.length - 1] !\u003d 0) {\n        if (a.exp \u003c b.exp) {\n            return -a.sign;\n        }\n        if (a.exp \u003e b.exp) {\n            return a.sign;\n        }\n    }\n    for (int i \u003d a.mant.length - 1; i \u003e\u003d 0; i--) {\n        if (a.mant[i] \u003e b.mant[i]) {\n            return a.sign;\n        }\n        if (a.mant[i] \u003c b.mant[i]) {\n            return -a.sign;\n        }\n    }\n    return 0;\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 857,
+      "functionName": "compare",
+      "functionAnnotation": "",
+      "functionDoc": "Compare two instances.\n\n@param a first instance in comparison\n@param b second instance in comparison\n@return -1 if a\u003cb, 1 if a\u003eb and 0 if a\u003d\u003db\n Note this method does not properly handle NaNs or numbers with different precision.\n"
+    }
+  }
+}

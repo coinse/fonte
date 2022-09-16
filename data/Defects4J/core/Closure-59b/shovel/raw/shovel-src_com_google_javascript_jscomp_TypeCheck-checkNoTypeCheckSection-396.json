@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeCheck.java",
+  "functionName": "checkNoTypeCheckSection",
+  "functionId": "checkNoTypeCheckSection___n-Node__enterSection-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeCheck.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 396,
+  "functionEndLine": 414,
+  "numCommitsSeen": 48,
+  "timeTaken": 3836,
+  "changeHistory": [
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c"
+  ],
+  "changeHistoryShort": {
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0895c28861ee4a1969acc858f1a703ab11ddc64c": {
+      "type": "Yintroduced",
+      "commitMessage": "\n\nChange on 2010/06/16 by johnlenz\n\n        Remove unused member variable.\n\n        R\u003dacleung\n        DELTA\u003d17  (0 added, 12 deleted, 5 changed)\n\nChange on 2010/06/16 by acleung\n\n        Make @notypecheck behaves like it is doing typechecking except for reporting errors.\n\n        R\u003djohnlenz\n        DELTA\u003d144  (89 added, 17 deleted, 38 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d28012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@245 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/17/10, 10:16 AM",
+      "commitName": "0895c28861ee4a1969acc858f1a703ab11ddc64c",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,19 @@\n+private void checkNoTypeCheckSection(Node n, boolean enterSection) {\n+    switch(n.getType()) {\n+        case Token.SCRIPT:\n+        case Token.BLOCK:\n+        case Token.VAR:\n+        case Token.FUNCTION:\n+        case Token.ASSIGN:\n+            JSDocInfo info \u003d n.getJSDocInfo();\n+            if (info !\u003d null \u0026\u0026 info.isNoTypeCheck()) {\n+                if (enterSection) {\n+                    noTypeCheckSection++;\n+                } else {\n+                    noTypeCheckSection--;\n+                }\n+            }\n+            validator.setShouldReport(noTypeCheckSection \u003d\u003d 0);\n+            break;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void checkNoTypeCheckSection(Node n, boolean enterSection) {\n    switch(n.getType()) {\n        case Token.SCRIPT:\n        case Token.BLOCK:\n        case Token.VAR:\n        case Token.FUNCTION:\n        case Token.ASSIGN:\n            JSDocInfo info \u003d n.getJSDocInfo();\n            if (info !\u003d null \u0026\u0026 info.isNoTypeCheck()) {\n                if (enterSection) {\n                    noTypeCheckSection++;\n                } else {\n                    noTypeCheckSection--;\n                }\n            }\n            validator.setShouldReport(noTypeCheckSection \u003d\u003d 0);\n            break;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/TypeCheck.java",
+      "functionStartLine": 379,
+      "functionName": "checkNoTypeCheckSection",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

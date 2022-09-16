@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RenameVars.java",
+  "functionName": "enterScope",
+  "functionId": "$enterScope___t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/RenameVars.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 196,
+  "functionEndLine": 208,
+  "numCommitsSeen": 20,
+  "timeTaken": 616,
+  "changeHistory": [
+    "95ac6a7f06053f4a85286e30394836d62d141518"
+  ],
+  "changeHistoryShort": {
+    "95ac6a7f06053f4a85286e30394836d62d141518": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "95ac6a7f06053f4a85286e30394836d62d141518": {
+      "type": "Yintroduced",
+      "commitMessage": "\nHandle bleeding functions in local scopes.\n\nR\u003dacleung\nDELTA\u003d134  (90 added, 29 deleted, 15 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d519\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@780 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/14/11, 1:50 PM",
+      "commitName": "95ac6a7f06053f4a85286e30394836d62d141518",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,13 @@\n+@Override\n+public void enterScope(NodeTraversal t) {\n+    if (t.inGlobalScope())\n+        return;\n+    Iterator\u003cVar\u003e it \u003d t.getScope().getVars();\n+    while (it.hasNext()) {\n+        Var current \u003d it.next();\n+        if (current.isBleedingFunction()) {\n+            localBleedingFunctions.add(current);\n+            localBleedingFunctionsPerScope.put(t.getScope().getParent(), current);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void enterScope(NodeTraversal t) {\n    if (t.inGlobalScope())\n        return;\n    Iterator\u003cVar\u003e it \u003d t.getScope().getVars();\n    while (it.hasNext()) {\n        Var current \u003d it.next();\n        if (current.isBleedingFunction()) {\n            localBleedingFunctions.add(current);\n            localBleedingFunctionsPerScope.put(t.getScope().getParent(), current);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/RenameVars.java",
+      "functionStartLine": 195,
+      "functionName": "enterScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

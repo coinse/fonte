@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-101b",
+  "repositoryPath": "/tmp/Math-101b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ComplexFormat.java",
+  "functionName": "getDefaultNumberFormat",
+  "functionId": "getDefaultNumberFormat",
+  "sourceFilePath": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance()} with the only customizing is the\nmaximum number of fraction digits, which is set to 2.\n\n@return the default number format.\n",
+  "functionStartLine": 236,
+  "functionEndLine": 238,
+  "numCommitsSeen": 15,
+  "timeTaken": 543,
+  "changeHistory": [
+    "3842ecf3762347198bbc933abadb73c21327ca0c",
+    "322706393973a99fc70f0cbd8cadee38bae3aa94"
+  ],
+  "changeHistoryShort": {
+    "3842ecf3762347198bbc933abadb73c21327ca0c": "Ybodychange",
+    "322706393973a99fc70f0cbd8cadee38bae3aa94": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3842ecf3762347198bbc933abadb73c21327ca0c": {
+      "type": "Ybodychange",
+      "commitMessage": "Added locale support to complex format.  Added test cases for specific locales.\nPR: 31325\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141451 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/20/04, 9:45 PM",
+      "commitName": "3842ecf3762347198bbc933abadb73c21327ca0c",
+      "commitAuthor": "Brent Worden",
+      "commitDateOld": "6/23/04, 9:26 AM",
+      "commitNameOld": "7b22aec5529fb3bad1e8098938271398d13c92ba",
+      "commitAuthorOld": "Brent Worden",
+      "daysBetweenCommits": 89.51,
+      "commitsBetweenForRepo": 119,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static NumberFormat getDefaultNumberFormat() {\n    return getDefaultNumberFormat(Locale.getDefault());\n}",
+      "path": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+      "functionStartLine": 235,
+      "functionName": "getDefaultNumberFormat",
+      "functionAnnotation": "",
+      "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance()} with the only customizing is the\nmaximum number of fraction digits, which is set to 2.\n\n@return the default number format.\n",
+      "diff": "@@ -1,5 +1,3 @@\n private static NumberFormat getDefaultNumberFormat() {\n-    NumberFormat nf \u003d NumberFormat.getInstance();\n-    nf.setMaximumFractionDigits(2);\n-    return nf;\n+    return getDefaultNumberFormat(Locale.getDefault());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "322706393973a99fc70f0cbd8cadee38bae3aa94": {
+      "type": "Yintroduced",
+      "commitMessage": "PR: 29000\nMade ComplexFormat extend java.text.Format providing complex object formatting and parsing.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141256 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/1/04, 6:47 AM",
+      "commitName": "322706393973a99fc70f0cbd8cadee38bae3aa94",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,5 @@\n+private static NumberFormat getDefaultNumberFormat() {\n+    NumberFormat nf \u003d NumberFormat.getInstance();\n+    nf.setMaximumFractionDigits(2);\n+    return nf;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static NumberFormat getDefaultNumberFormat() {\n    NumberFormat nf \u003d NumberFormat.getInstance();\n    nf.setMaximumFractionDigits(2);\n    return nf;\n}",
+      "path": "src/java/org/apache/commons/math/complex/ComplexFormat.java",
+      "functionStartLine": 131,
+      "functionName": "getDefaultNumberFormat",
+      "functionAnnotation": "",
+      "functionDoc": "Create a default number format.  The default number format is based on\n{@link NumberFormat#getInstance()} with the only customizing is the\nmaximum number of fraction digits, which is set to 2.\n\n@return the default number format.\n"
+    }
+  }
+}

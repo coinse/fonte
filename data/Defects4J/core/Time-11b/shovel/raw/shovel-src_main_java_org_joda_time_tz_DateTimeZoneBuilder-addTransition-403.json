@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-11b",
+  "repositoryPath": "/tmp/Time-11b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DateTimeZoneBuilder.java",
+  "functionName": "addTransition",
+  "functionId": "addTransition___transitions-ArrayList__Transition____tr-Transition",
+  "sourceFilePath": "src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 403,
+  "functionEndLine": 433,
+  "numCommitsSeen": 42,
+  "timeTaken": 2621,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "3f1e047c898c9c925e1faac33bb07e1cb05d88cb",
+    "7fe68f297f7c372b515fde7f0bc8d721ec257ceb"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "3f1e047c898c9c925e1faac33bb07e1cb05d88cb": "Ymultichange(Yparameterchange,Ybodychange)",
+    "7fe68f297f7c372b515fde7f0bc8d721ec257ceb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean addTransition(ArrayList\u003cTransition\u003e transitions, Transition tr) {\n    int size \u003d transitions.size();\n    if (size \u003d\u003d 0) {\n        transitions.add(tr);\n        return true;\n    }\n    Transition last \u003d transitions.get(size - 1);\n    if (!tr.isTransitionFrom(last)) {\n        return false;\n    }\n    int offsetForLast \u003d 0;\n    if (size \u003e\u003d 2) {\n        offsetForLast \u003d transitions.get(size - 2).getWallOffset();\n    }\n    int offsetForNew \u003d last.getWallOffset();\n    long lastLocal \u003d last.getMillis() + offsetForLast;\n    long newLocal \u003d tr.getMillis() + offsetForNew;\n    if (newLocal !\u003d lastLocal) {\n        transitions.add(tr);\n        return true;\n    }\n    transitions.remove(size - 1);\n    return addTransition(transitions, tr);\n}",
+      "path": "src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+      "functionStartLine": 403,
+      "functionName": "addTransition",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+        "newPath": "src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean addTransition(ArrayList\u003cTransition\u003e transitions, Transition tr) {\n    int size \u003d transitions.size();\n    if (size \u003d\u003d 0) {\n        transitions.add(tr);\n        return true;\n    }\n    Transition last \u003d transitions.get(size - 1);\n    if (!tr.isTransitionFrom(last)) {\n        return false;\n    }\n    int offsetForLast \u003d 0;\n    if (size \u003e\u003d 2) {\n        offsetForLast \u003d transitions.get(size - 2).getWallOffset();\n    }\n    int offsetForNew \u003d last.getWallOffset();\n    long lastLocal \u003d last.getMillis() + offsetForLast;\n    long newLocal \u003d tr.getMillis() + offsetForNew;\n    if (newLocal !\u003d lastLocal) {\n        transitions.add(tr);\n        return true;\n    }\n    transitions.remove(size - 1);\n    return addTransition(transitions, tr);\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+      "functionStartLine": 403,
+      "functionName": "addTransition",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java"
+      }
+    },
+    "3f1e047c898c9c925e1faac33bb07e1cb05d88cb": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Move to Java 5 with generics\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1406 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "11/4/09, 3:55 PM",
+      "commitName": "3f1e047c898c9c925e1faac33bb07e1cb05d88cb",
+      "commitAuthor": "Stephen Colebourne",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Move to Java 5 with generics\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1406 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+          "commitDate": "11/4/09, 3:55 PM",
+          "commitName": "3f1e047c898c9c925e1faac33bb07e1cb05d88cb",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/13/09, 4:26 PM",
+          "commitNameOld": "6cd3a18f8cb3c907107017849ab1ac3b88e43fb5",
+          "commitAuthorOld": "Stephen Colebourne",
+          "daysBetweenCommits": 83.02,
+          "commitsBetweenForRepo": 10,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean addTransition(ArrayList\u003cTransition\u003e transitions, Transition tr) {\n    int size \u003d transitions.size();\n    if (size \u003d\u003d 0) {\n        transitions.add(tr);\n        return true;\n    }\n    Transition last \u003d transitions.get(size - 1);\n    if (!tr.isTransitionFrom(last)) {\n        return false;\n    }\n    int offsetForLast \u003d 0;\n    if (size \u003e\u003d 2) {\n        offsetForLast \u003d transitions.get(size - 2).getWallOffset();\n    }\n    int offsetForNew \u003d last.getWallOffset();\n    long lastLocal \u003d last.getMillis() + offsetForLast;\n    long newLocal \u003d tr.getMillis() + offsetForNew;\n    if (newLocal !\u003d lastLocal) {\n        transitions.add(tr);\n        return true;\n    }\n    transitions.remove(size - 1);\n    return addTransition(transitions, tr);\n}",
+          "path": "JodaTime/src/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+          "functionStartLine": 403,
+          "functionName": "addTransition",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,24 +1,24 @@\n-private boolean addTransition(ArrayList transitions, Transition tr) {\n+private boolean addTransition(ArrayList\u003cTransition\u003e transitions, Transition tr) {\n     int size \u003d transitions.size();\n     if (size \u003d\u003d 0) {\n         transitions.add(tr);\n         return true;\n     }\n-    Transition last \u003d (Transition) transitions.get(size - 1);\n+    Transition last \u003d transitions.get(size - 1);\n     if (!tr.isTransitionFrom(last)) {\n         return false;\n     }\n     int offsetForLast \u003d 0;\n     if (size \u003e\u003d 2) {\n-        offsetForLast \u003d ((Transition) transitions.get(size - 2)).getWallOffset();\n+        offsetForLast \u003d transitions.get(size - 2).getWallOffset();\n     }\n     int offsetForNew \u003d last.getWallOffset();\n     long lastLocal \u003d last.getMillis() + offsetForLast;\n     long newLocal \u003d tr.getMillis() + offsetForNew;\n     if (newLocal !\u003d lastLocal) {\n         transitions.add(tr);\n         return true;\n     }\n     transitions.remove(size - 1);\n     return addTransition(transitions, tr);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[transitions-ArrayList, tr-Transition]",
+            "newValue": "[transitions-ArrayList\u003cTransition\u003e, tr-Transition]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Move to Java 5 with generics\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1406 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+          "commitDate": "11/4/09, 3:55 PM",
+          "commitName": "3f1e047c898c9c925e1faac33bb07e1cb05d88cb",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "8/13/09, 4:26 PM",
+          "commitNameOld": "6cd3a18f8cb3c907107017849ab1ac3b88e43fb5",
+          "commitAuthorOld": "Stephen Colebourne",
+          "daysBetweenCommits": 83.02,
+          "commitsBetweenForRepo": 10,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean addTransition(ArrayList\u003cTransition\u003e transitions, Transition tr) {\n    int size \u003d transitions.size();\n    if (size \u003d\u003d 0) {\n        transitions.add(tr);\n        return true;\n    }\n    Transition last \u003d transitions.get(size - 1);\n    if (!tr.isTransitionFrom(last)) {\n        return false;\n    }\n    int offsetForLast \u003d 0;\n    if (size \u003e\u003d 2) {\n        offsetForLast \u003d transitions.get(size - 2).getWallOffset();\n    }\n    int offsetForNew \u003d last.getWallOffset();\n    long lastLocal \u003d last.getMillis() + offsetForLast;\n    long newLocal \u003d tr.getMillis() + offsetForNew;\n    if (newLocal !\u003d lastLocal) {\n        transitions.add(tr);\n        return true;\n    }\n    transitions.remove(size - 1);\n    return addTransition(transitions, tr);\n}",
+          "path": "JodaTime/src/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+          "functionStartLine": 403,
+          "functionName": "addTransition",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,24 +1,24 @@\n-private boolean addTransition(ArrayList transitions, Transition tr) {\n+private boolean addTransition(ArrayList\u003cTransition\u003e transitions, Transition tr) {\n     int size \u003d transitions.size();\n     if (size \u003d\u003d 0) {\n         transitions.add(tr);\n         return true;\n     }\n-    Transition last \u003d (Transition) transitions.get(size - 1);\n+    Transition last \u003d transitions.get(size - 1);\n     if (!tr.isTransitionFrom(last)) {\n         return false;\n     }\n     int offsetForLast \u003d 0;\n     if (size \u003e\u003d 2) {\n-        offsetForLast \u003d ((Transition) transitions.get(size - 2)).getWallOffset();\n+        offsetForLast \u003d transitions.get(size - 2).getWallOffset();\n     }\n     int offsetForNew \u003d last.getWallOffset();\n     long lastLocal \u003d last.getMillis() + offsetForLast;\n     long newLocal \u003d tr.getMillis() + offsetForNew;\n     if (newLocal !\u003d lastLocal) {\n         transitions.add(tr);\n         return true;\n     }\n     transitions.remove(size - 1);\n     return addTransition(transitions, tr);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "7fe68f297f7c372b515fde7f0bc8d721ec257ceb": {
+      "type": "Yintroduced",
+      "commitMessage": "Move version 0.9 to joda-time repository\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@4 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "12/16/03, 1:39 PM",
+      "commitName": "7fe68f297f7c372b515fde7f0bc8d721ec257ceb",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,24 @@\n+private boolean addTransition(ArrayList transitions, Transition tr) {\n+    int size \u003d transitions.size();\n+    if (size \u003d\u003d 0) {\n+        transitions.add(tr);\n+        return true;\n+    }\n+    Transition last \u003d (Transition) transitions.get(size - 1);\n+    if (!tr.isTransitionFrom(last)) {\n+        return false;\n+    }\n+    int offsetForLast \u003d 0;\n+    if (size \u003e\u003d 2) {\n+        offsetForLast \u003d ((Transition) transitions.get(size - 2)).getWallOffset();\n+    }\n+    int offsetForNew \u003d last.getWallOffset();\n+    long lastLocal \u003d last.getMillis() + offsetForLast;\n+    long newLocal \u003d tr.getMillis() + offsetForNew;\n+    if (newLocal !\u003d lastLocal) {\n+        transitions.add(tr);\n+        return true;\n+    }\n+    transitions.remove(size - 1);\n+    return addTransition(transitions, tr);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean addTransition(ArrayList transitions, Transition tr) {\n    int size \u003d transitions.size();\n    if (size \u003d\u003d 0) {\n        transitions.add(tr);\n        return true;\n    }\n    Transition last \u003d (Transition) transitions.get(size - 1);\n    if (!tr.isTransitionFrom(last)) {\n        return false;\n    }\n    int offsetForLast \u003d 0;\n    if (size \u003e\u003d 2) {\n        offsetForLast \u003d ((Transition) transitions.get(size - 2)).getWallOffset();\n    }\n    int offsetForNew \u003d last.getWallOffset();\n    long lastLocal \u003d last.getMillis() + offsetForLast;\n    long newLocal \u003d tr.getMillis() + offsetForNew;\n    if (newLocal !\u003d lastLocal) {\n        transitions.add(tr);\n        return true;\n    }\n    transitions.remove(size - 1);\n    return addTransition(transitions, tr);\n}",
+      "path": "JodaTime/src/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+      "functionStartLine": 399,
+      "functionName": "addTransition",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

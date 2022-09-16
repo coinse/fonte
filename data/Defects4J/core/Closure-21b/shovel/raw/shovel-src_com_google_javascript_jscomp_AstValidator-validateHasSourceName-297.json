@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-21b",
+  "repositoryPath": "/tmp/Closure-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AstValidator.java",
+  "functionName": "validateHasSourceName",
+  "functionId": "validateHasSourceName___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AstValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 297,
+  "functionEndLine": 302,
+  "numCommitsSeen": 15,
+  "timeTaken": 1053,
+  "changeHistory": [
+    "9320feca198878ca9464aae089399a8891c314d7",
+    "77efc4f9054e8f18b317f955f9d1e53b76f8e28d"
+  ],
+  "changeHistoryShort": {
+    "9320feca198878ca9464aae089399a8891c314d7": "Ybodychange",
+    "77efc4f9054e8f18b317f955f9d1e53b76f8e28d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9320feca198878ca9464aae089399a8891c314d7": {
+      "type": "Ybodychange",
+      "commitMessage": "\nMake StaticSourceFile a property of Node\n\nR\u003djohnlenz\nDELTA\u003d183  (102 added, 25 deleted, 56 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2496\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1236 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/30/11, 1:25 PM",
+      "commitName": "9320feca198878ca9464aae089399a8891c314d7",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/9/11, 2:43 PM",
+      "commitNameOld": "77efc4f9054e8f18b317f955f9d1e53b76f8e28d",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 51.95,
+      "commitsBetweenForRepo": 162,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void validateHasSourceName(Node n) {\n    String sourceName \u003d n.getSourceFileName();\n    if (sourceName \u003d\u003d null || sourceName.isEmpty()) {\n        violation(\"Missing \u0027source name\u0027 annotation.\", n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 296,
+      "functionName": "validateHasSourceName",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n private void validateHasSourceName(Node n) {\n-    String sourceName \u003d (String) n.getProp(Node.SOURCENAME_PROP);\n+    String sourceName \u003d n.getSourceFileName();\n     if (sourceName \u003d\u003d null || sourceName.isEmpty()) {\n         violation(\"Missing \u0027source name\u0027 annotation.\", n);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "77efc4f9054e8f18b317f955f9d1e53b76f8e28d": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nFixed\n\n*** Original change description ***\n\nAutomated g4 rollback.\n\n*** Reason for rollback ***\n\nPartial rollback\n\n*** Original change description ***\n\nAdvanced mode depends on source names being annotated on SCRIPT nodes\nto map them back to inputs in modules.\n\nR\u003dacleung\nDELTA\u003d18  (16 added, 2 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1804\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1068 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/9/11, 2:43 PM",
+      "commitName": "77efc4f9054e8f18b317f955f9d1e53b76f8e28d",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,6 @@\n+private void validateHasSourceName(Node n) {\n+    String sourceName \u003d (String) n.getProp(Node.SOURCENAME_PROP);\n+    if (sourceName \u003d\u003d null || sourceName.isEmpty()) {\n+        violation(\"Missing \u0027source name\u0027 annotation.\", n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void validateHasSourceName(Node n) {\n    String sourceName \u003d (String) n.getProp(Node.SOURCENAME_PROP);\n    if (sourceName \u003d\u003d null || sourceName.isEmpty()) {\n        violation(\"Missing \u0027source name\u0027 annotation.\", n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AstValidator.java",
+      "functionStartLine": 296,
+      "functionName": "validateHasSourceName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

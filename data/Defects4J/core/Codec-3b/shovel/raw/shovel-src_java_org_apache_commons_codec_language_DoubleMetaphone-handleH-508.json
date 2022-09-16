@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Codec-3b",
+  "repositoryPath": "/tmp/Codec-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DoubleMetaphone.java",
+  "functionName": "handleH",
+  "functionId": "handleH___value-String__result-DoubleMetaphoneResult__index-int",
+  "sourceFilePath": "src/java/org/apache/commons/codec/language/DoubleMetaphone.java",
+  "functionAnnotation": "",
+  "functionDoc": "Handles \u0027H\u0027 cases\n",
+  "functionStartLine": 508,
+  "functionEndLine": 521,
+  "numCommitsSeen": 32,
+  "timeTaken": 2163,
+  "changeHistory": [
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1"
+  ],
+  "changeHistoryShort": {
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f0ff6ed771ce1a795ec84897254ceb008f0e98a1": {
+      "type": "Yintroduced",
+      "commitMessage": "Removed characters which were breaking GUMP build.  Need to replace character literals with Unicode codes\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/codec/trunk@130155 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/18/03, 10:46 AM",
+      "commitName": "f0ff6ed771ce1a795ec84897254ceb008f0e98a1",
+      "commitAuthor": "Timothy O\u0027Brien",
+      "diff": "@@ -0,0 +1,9 @@\n+private int handleH(String value, DoubleMetaphoneResult result, int index) {\n+    if ((index \u003d\u003d 0 || isVowel(charAt(value, index - 1))) \u0026\u0026 isVowel(charAt(value, index + 1))) {\n+        result.append(\u0027H\u0027);\n+        index +\u003d 2;\n+    } else {\n+        index++;\n+    }\n+    return index;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private int handleH(String value, DoubleMetaphoneResult result, int index) {\n    if ((index \u003d\u003d 0 || isVowel(charAt(value, index - 1))) \u0026\u0026 isVowel(charAt(value, index + 1))) {\n        result.append(\u0027H\u0027);\n        index +\u003d 2;\n    } else {\n        index++;\n    }\n    return index;\n}",
+      "path": "src/java/org/apache/commons/codec/language/DoubleMetaphone.java",
+      "functionStartLine": 513,
+      "functionName": "handleH",
+      "functionAnnotation": "",
+      "functionDoc": "Handles \u0027H\u0027 cases\n"
+    }
+  }
+}

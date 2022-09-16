@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-31b",
+  "repositoryPath": "/tmp/Closure-31b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AbstractCommandLineRunner.java",
+  "functionName": "streamToLegacyOutputWriter",
+  "functionId": "streamToLegacyOutputWriter___stream-OutputStream",
+  "sourceFilePath": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a writer with the legacy output charset.\n",
+  "functionStartLine": 1139,
+  "functionEndLine": 1148,
+  "numCommitsSeen": 134,
+  "timeTaken": 3544,
+  "changeHistory": [
+    "62581c697a626f2cd848b98648aa42329d482859",
+    "4cede4f156740b7ce93d92d824066e9a42257541"
+  ],
+  "changeHistoryShort": {
+    "62581c697a626f2cd848b98648aa42329d482859": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+    "4cede4f156740b7ce93d92d824066e9a42257541": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "62581c697a626f2cd848b98648aa42329d482859": {
+      "type": "Ymultichange(Yrename,Ybodychange,Ydocchange)",
+      "commitMessage": "\nAll outputs (except the main output file) should be encoded in utf-8\nby default. This includes:\nsource maps\nbundles\nmanifests\n\nR\u003djohnlenz,zhuyi\nDELTA\u003d102  (78 added, 0 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3614\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1551 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/11, 1:39 PM",
+      "commitName": "62581c697a626f2cd848b98648aa42329d482859",
+      "commitAuthor": "nicksantos@google.com",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nAll outputs (except the main output file) should be encoded in utf-8\nby default. This includes:\nsource maps\nbundles\nmanifests\n\nR\u003djohnlenz,zhuyi\nDELTA\u003d102  (78 added, 0 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3614\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1551 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/3/11, 1:39 PM",
+          "commitName": "62581c697a626f2cd848b98648aa42329d482859",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/4/11, 6:08 AM",
+          "commitNameOld": "8b7e4f656bd5c067543681a721d9f69324ea7a10",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 30.31,
+          "commitsBetweenForRepo": 56,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Writer streamToLegacyOutputWriter(OutputStream stream) throws IOException {\n    if (legacyOutputCharset \u003d\u003d null) {\n        return new BufferedWriter(new OutputStreamWriter(stream));\n    } else {\n        return new BufferedWriter(new OutputStreamWriter(stream, legacyOutputCharset));\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1030,
+          "functionName": "streamToLegacyOutputWriter",
+          "functionAnnotation": "",
+          "functionDoc": "Create a writer with the legacy output charset.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-private Writer streamToOutputWriter(OutputStream stream) throws IOException {\n-    if (outputCharset \u003d\u003d null) {\n+private Writer streamToLegacyOutputWriter(OutputStream stream) throws IOException {\n+    if (legacyOutputCharset \u003d\u003d null) {\n         return new BufferedWriter(new OutputStreamWriter(stream));\n     } else {\n-        return new BufferedWriter(new OutputStreamWriter(stream, outputCharset));\n+        return new BufferedWriter(new OutputStreamWriter(stream, legacyOutputCharset));\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "streamToOutputWriter",
+            "newValue": "streamToLegacyOutputWriter"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAll outputs (except the main output file) should be encoded in utf-8\nby default. This includes:\nsource maps\nbundles\nmanifests\n\nR\u003djohnlenz,zhuyi\nDELTA\u003d102  (78 added, 0 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3614\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1551 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/3/11, 1:39 PM",
+          "commitName": "62581c697a626f2cd848b98648aa42329d482859",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/4/11, 6:08 AM",
+          "commitNameOld": "8b7e4f656bd5c067543681a721d9f69324ea7a10",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 30.31,
+          "commitsBetweenForRepo": 56,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Writer streamToLegacyOutputWriter(OutputStream stream) throws IOException {\n    if (legacyOutputCharset \u003d\u003d null) {\n        return new BufferedWriter(new OutputStreamWriter(stream));\n    } else {\n        return new BufferedWriter(new OutputStreamWriter(stream, legacyOutputCharset));\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1030,
+          "functionName": "streamToLegacyOutputWriter",
+          "functionAnnotation": "",
+          "functionDoc": "Create a writer with the legacy output charset.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-private Writer streamToOutputWriter(OutputStream stream) throws IOException {\n-    if (outputCharset \u003d\u003d null) {\n+private Writer streamToLegacyOutputWriter(OutputStream stream) throws IOException {\n+    if (legacyOutputCharset \u003d\u003d null) {\n         return new BufferedWriter(new OutputStreamWriter(stream));\n     } else {\n-        return new BufferedWriter(new OutputStreamWriter(stream, outputCharset));\n+        return new BufferedWriter(new OutputStreamWriter(stream, legacyOutputCharset));\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nAll outputs (except the main output file) should be encoded in utf-8\nby default. This includes:\nsource maps\nbundles\nmanifests\n\nR\u003djohnlenz,zhuyi\nDELTA\u003d102  (78 added, 0 deleted, 24 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3614\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1551 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/3/11, 1:39 PM",
+          "commitName": "62581c697a626f2cd848b98648aa42329d482859",
+          "commitAuthor": "nicksantos@google.com",
+          "commitDateOld": "10/4/11, 6:08 AM",
+          "commitNameOld": "8b7e4f656bd5c067543681a721d9f69324ea7a10",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 30.31,
+          "commitsBetweenForRepo": 56,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Writer streamToLegacyOutputWriter(OutputStream stream) throws IOException {\n    if (legacyOutputCharset \u003d\u003d null) {\n        return new BufferedWriter(new OutputStreamWriter(stream));\n    } else {\n        return new BufferedWriter(new OutputStreamWriter(stream, legacyOutputCharset));\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+          "functionStartLine": 1030,
+          "functionName": "streamToLegacyOutputWriter",
+          "functionAnnotation": "",
+          "functionDoc": "Create a writer with the legacy output charset.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-private Writer streamToOutputWriter(OutputStream stream) throws IOException {\n-    if (outputCharset \u003d\u003d null) {\n+private Writer streamToLegacyOutputWriter(OutputStream stream) throws IOException {\n+    if (legacyOutputCharset \u003d\u003d null) {\n         return new BufferedWriter(new OutputStreamWriter(stream));\n     } else {\n-        return new BufferedWriter(new OutputStreamWriter(stream, outputCharset));\n+        return new BufferedWriter(new OutputStreamWriter(stream, legacyOutputCharset));\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Create a writer.\n",
+            "newValue": "Create a writer with the legacy output charset.\n"
+          }
+        }
+      ]
+    },
+    "4cede4f156740b7ce93d92d824066e9a42257541": {
+      "type": "Yintroduced",
+      "commitMessage": "\nUnify output encoding for real this time\nFixes issue 224.\n\nRevision created by MOE tool push_codebase.\n\nR\u003djohnlenz\nDELTA\u003d39  (5 added, 5 deleted, 29 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d196345\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@394 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/30/10, 4:16 PM",
+      "commitName": "4cede4f156740b7ce93d92d824066e9a42257541",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,7 @@\n+private Writer streamToOutputWriter(OutputStream stream) throws IOException {\n+    if (outputCharset \u003d\u003d null) {\n+        return new BufferedWriter(new OutputStreamWriter(stream));\n+    } else {\n+        return new BufferedWriter(new OutputStreamWriter(stream, outputCharset));\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Writer streamToOutputWriter(OutputStream stream) throws IOException {\n    if (outputCharset \u003d\u003d null) {\n        return new BufferedWriter(new OutputStreamWriter(stream));\n    } else {\n        return new BufferedWriter(new OutputStreamWriter(stream, outputCharset));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+      "functionStartLine": 848,
+      "functionName": "streamToOutputWriter",
+      "functionAnnotation": "",
+      "functionDoc": "Create a writer.\n"
+    }
+  }
+}

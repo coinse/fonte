@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-48b",
+  "repositoryPath": "/tmp/Math-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "abs",
+  "functionId": "abs___x-double",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Absolute value.\n\n@param x number from which absolute value is requested\n@return abs(x)\n",
+  "functionStartLine": 3409,
+  "functionEndLine": 3411,
+  "numCommitsSeen": 51,
+  "timeTaken": 20769,
+  "changeHistory": [
+    "26208c15934856fadde46f75c23838d118fa6e32",
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "26208c15934856fadde46f75c23838d118fa6e32": "Ybodychange",
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "26208c15934856fadde46f75c23838d118fa6e32": {
+      "type": "Ybodychange",
+      "commitMessage": "MATH-483 FastMath does not handle all special cases correctly\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1060936 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/19/11, 11:49 AM",
+      "commitName": "26208c15934856fadde46f75c23838d118fa6e32",
+      "commitAuthor": "Sebastian Bazley",
+      "commitDateOld": "1/19/11, 11:26 AM",
+      "commitNameOld": "c26e90f68b327d3263ab2abe029c7c7d82552e8e",
+      "commitAuthorOld": "Sebastian Bazley",
+      "daysBetweenCommits": 0.02,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static double abs(double x) {\n    return (x \u003c 0.0) ? -x : (x \u003d\u003d 0.0) ? 0.0 : x;\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 3302,
+      "functionName": "abs",
+      "functionAnnotation": "",
+      "functionDoc": "Absolute value.\n\n@param x number from which absolute value is requested\n@return abs(x)\n",
+      "diff": "@@ -1,3 +1,3 @@\n public static double abs(double x) {\n-    return (x \u003c 0.0) ? -x : x;\n+    return (x \u003c 0.0) ? -x : (x \u003d\u003d 0.0) ? 0.0 : x;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,3 @@\n+public static double abs(double x) {\n+    return (x \u003c 0.0) ? -x : x;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static double abs(double x) {\n    return (x \u003c 0.0) ? -x : x;\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 2755,
+      "functionName": "abs",
+      "functionAnnotation": "",
+      "functionDoc": "Absolute value.\n\n@param x number from which absolute value is requested\n@return abs(x)\n"
+    }
+  }
+}

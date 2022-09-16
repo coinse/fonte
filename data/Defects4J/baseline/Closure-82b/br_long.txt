@@ -1,0 +1,9 @@
+The following code compiled with VERBOSE warnings or with the missingProperties check enabled fails to produce a warning or error:
+
+var s = new String(&quot;hello&quot;);
+alert(s.toLowerCase.indexOf(&quot;l&quot;));
+
+However, other string functions do properly produce the warning:
+
+var s = new String(&quot;hello&quot;);
+alert(s.toLowerCase.substr(0, 1));

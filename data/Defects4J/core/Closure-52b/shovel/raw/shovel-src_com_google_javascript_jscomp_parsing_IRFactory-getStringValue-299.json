@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-52b",
+  "repositoryPath": "/tmp/Closure-52b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "getStringValue",
+  "functionId": "getStringValue___value-double",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 299,
+  "functionEndLine": 308,
+  "numCommitsSeen": 47,
+  "timeTaken": 2419,
+  "changeHistory": [
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e"
+  ],
+  "changeHistoryShort": {
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "41acde3e8e5e8d37ade765b41d9fd29861f03e5e": {
+      "type": "Yintroduced",
+      "commitMessage": "\nDefine number keys in object literals to be quoted string nodes. Tagged with NUMBER_PROP\nFixes issue 347\n\nR\u003dnicksantos\nDELTA\u003d229  (157 added, 19 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1252\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@966 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 2:26 PM",
+      "commitName": "41acde3e8e5e8d37ade765b41d9fd29861f03e5e",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+private static String getStringValue(double value) {\n+    long longValue \u003d (long) value;\n+    if (longValue \u003d\u003d value) {\n+        return Long.toString(longValue);\n+    } else {\n+        return Double.toString(value);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static String getStringValue(double value) {\n    long longValue \u003d (long) value;\n    if (longValue \u003d\u003d value) {\n        return Long.toString(longValue);\n    } else {\n        return Double.toString(value);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 265,
+      "functionName": "getStringValue",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

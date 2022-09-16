@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "resolveTypesInScope",
+  "functionId": "resolveTypesInScope___scope-StaticScope__JSType__",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "Resolve all the unresolved types in the given scope.\n",
+  "functionStartLine": 941,
+  "functionEndLine": 965,
+  "numCommitsSeen": 69,
+  "timeTaken": 4539,
+  "changeHistory": [
+    "5da32cba7b68d69acfc535f57f21d652475d256f",
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "5da32cba7b68d69acfc535f57f21d652475d256f": "Ydocchange",
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5da32cba7b68d69acfc535f57f21d652475d256f": {
+      "type": "Ydocchange",
+      "commitMessage": "\nChange on 2010/04/19 by anatol\n\n        Replace {@inheritDoc} javadoc annotation with @Override.\n        @Override is better as it implies documentation inheritance plus checks\n        that the parent method exists at the compile-time.\n\n        R\u003dnick\n        DELTA\u003d137  (0 added, 70 deleted, 67 changed)\n\nChange on 2010/04/19 by nick\n\n        Change how we resolve types.\n        Instead of leaving shell proxy types around, unbox the proxy types.\n\n        R\u003dandrew,john\n        DELTA\u003d103  (84 added, 5 deleted, 14 changed)\n\nChange on 2010/04/19 by acleung\n\n        Enable Flow Sensitive Inlining by default.\n\n        R\u003djohn\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dpqvliw\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@191 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/19/10, 4:28 PM",
+      "commitName": "5da32cba7b68d69acfc535f57f21d652475d256f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/15/10, 4:45 PM",
+      "commitNameOld": "e3bcc1c6e7ce7e9bfc3098cd5bf57774049f5baa",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 3.99,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void resolveTypesInScope(StaticScope\u003cJSType\u003e scope) {\n    for (NamedType type : unresolvedNamedTypes.get(scope)) {\n        type.resolve(reporter, scope);\n    }\n    resolvedNamedTypes.putAll(scope, unresolvedNamedTypes.removeAll(scope));\n    if (scope !\u003d null \u0026\u0026 scope.getParentScope() \u003d\u003d null) {\n        PrototypeObjectType globalThis \u003d (PrototypeObjectType) getNativeType(JSTypeNative.GLOBAL_THIS);\n        JSType windowType \u003d getType(\"Window\");\n        if (globalThis.isUnknownType()) {\n            ObjectType windowObjType \u003d ObjectType.cast(windowType);\n            if (windowObjType !\u003d null) {\n                globalThis.setImplicitPrototype(windowObjType);\n            } else {\n                globalThis.setImplicitPrototype(getNativeObjectType(JSTypeNative.OBJECT_TYPE));\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 740,
+      "functionName": "resolveTypesInScope",
+      "functionAnnotation": "",
+      "functionDoc": "Resolve all the unresolved types in the given scope.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "Resolve all the unresolved types in the given scope.\n"
+      }
+    },
+    "a2d8936fae3eb0e3873c7f7c0233344c81436404": {
+      "type": "Ybodychange",
+      "commitMessage": "Add warnings for functions that are ambiguously defined on different\nbrowsers.\n\nAdd better support for Caja.\n\nRollback the change to CoalesceVariableNames, because it had problems.\n\nInternal type system refactoring.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@33 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/15/09, 1:52 PM",
+      "commitName": "a2d8936fae3eb0e3873c7f7c0233344c81436404",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "12/8/09, 3:50 PM",
+      "commitNameOld": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 6.92,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void resolveTypesInScope(StaticScope\u003cJSType\u003e scope) {\n    for (NamedType type : unresolvedNamedTypes.get(scope)) {\n        type.resolve(reporter, scope);\n    }\n    resolvedNamedTypes.putAll(scope, unresolvedNamedTypes.removeAll(scope));\n    if (scope !\u003d null \u0026\u0026 scope.getParentScope() \u003d\u003d null) {\n        PrototypeObjectType globalThis \u003d (PrototypeObjectType) getNativeType(JSTypeNative.GLOBAL_THIS);\n        JSType windowType \u003d getType(\"Window\");\n        if (globalThis.isUnknownType()) {\n            ObjectType windowObjType \u003d ObjectType.cast(windowType);\n            if (windowObjType !\u003d null) {\n                globalThis.setImplicitPrototype(windowObjType);\n            } else {\n                globalThis.setImplicitPrototype(getNativeObjectType(JSTypeNative.OBJECT_TYPE));\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 718,
+      "functionName": "resolveTypesInScope",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,17 +1,18 @@\n public void resolveTypesInScope(StaticScope\u003cJSType\u003e scope) {\n     for (NamedType type : unresolvedNamedTypes.get(scope)) {\n         type.resolve(reporter, scope);\n     }\n     resolvedNamedTypes.putAll(scope, unresolvedNamedTypes.removeAll(scope));\n     if (scope !\u003d null \u0026\u0026 scope.getParentScope() \u003d\u003d null) {\n         PrototypeObjectType globalThis \u003d (PrototypeObjectType) getNativeType(JSTypeNative.GLOBAL_THIS);\n         JSType windowType \u003d getType(\"Window\");\n         if (globalThis.isUnknownType()) {\n-            if (windowType instanceof ObjectType) {\n-                globalThis.setImplicitPrototype((ObjectType) windowType);\n+            ObjectType windowObjType \u003d ObjectType.cast(windowType);\n+            if (windowObjType !\u003d null) {\n+                globalThis.setImplicitPrototype(windowObjType);\n             } else {\n                 globalThis.setImplicitPrototype(getNativeObjectType(JSTypeNative.OBJECT_TYPE));\n             }\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,17 @@\n+public void resolveTypesInScope(StaticScope\u003cJSType\u003e scope) {\n+    for (NamedType type : unresolvedNamedTypes.get(scope)) {\n+        type.resolve(reporter, scope);\n+    }\n+    resolvedNamedTypes.putAll(scope, unresolvedNamedTypes.removeAll(scope));\n+    if (scope !\u003d null \u0026\u0026 scope.getParentScope() \u003d\u003d null) {\n+        PrototypeObjectType globalThis \u003d (PrototypeObjectType) getNativeType(JSTypeNative.GLOBAL_THIS);\n+        JSType windowType \u003d getType(\"Window\");\n+        if (globalThis.isUnknownType()) {\n+            if (windowType instanceof ObjectType) {\n+                globalThis.setImplicitPrototype((ObjectType) windowType);\n+            } else {\n+                globalThis.setImplicitPrototype(getNativeObjectType(JSTypeNative.OBJECT_TYPE));\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void resolveTypesInScope(StaticScope\u003cJSType\u003e scope) {\n    for (NamedType type : unresolvedNamedTypes.get(scope)) {\n        type.resolve(reporter, scope);\n    }\n    resolvedNamedTypes.putAll(scope, unresolvedNamedTypes.removeAll(scope));\n    if (scope !\u003d null \u0026\u0026 scope.getParentScope() \u003d\u003d null) {\n        PrototypeObjectType globalThis \u003d (PrototypeObjectType) getNativeType(JSTypeNative.GLOBAL_THIS);\n        JSType windowType \u003d getType(\"Window\");\n        if (globalThis.isUnknownType()) {\n            if (windowType instanceof ObjectType) {\n                globalThis.setImplicitPrototype((ObjectType) windowType);\n            } else {\n                globalThis.setImplicitPrototype(getNativeObjectType(JSTypeNative.OBJECT_TYPE));\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 719,
+      "functionName": "resolveTypesInScope",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionToBlockMutator.java",
+  "functionName": "getReplacementReturnStatement",
+  "functionId": "getReplacementReturnStatement___node-Node__resultName-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Replace the \u0027return\u0027 statement with its child expression.\nIf the result is needed (resultName !\u003d null):\n  \"return foo()\" becomes \"resultName \u003d foo()\"\n  \"return\" becomes \"resultName \u003d void 0\".\nOtherwise:\n  \"return foo()\" becomes \"foo()\"\n  \"return\", null is returned.\n",
+  "functionStartLine": 434,
+  "functionEndLine": 460,
+  "numCommitsSeen": 26,
+  "timeTaken": 995,
+  "changeHistory": [
+    "6e3eb4f7619179ba6c23db2af7549ef02f588c35",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6e3eb4f7619179ba6c23db2af7549ef02f588c35": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6e3eb4f7619179ba6c23db2af7549ef02f588c35": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/04/15 by john\n\n        Maintain source information in OverloadedMethodResolution.\n\n        R\u003dandrew\n        DELTA\u003d8  (5 added, 1 deleted, 2 changed)\n\nChange on 2010/04/15 by john\n\n        Maintain source information during function inlining.\n\n        R\u003dalan\n        DELTA\u003d104  (73 added, 2 deleted, 29 changed)\n\nChange on 2010/04/15 by john\n\n        Improve LineNumberCheck error message.\n\n        R\u003dnick\n        DELTA\u003d4  (3 added, 0 deleted, 1 changed)\n\nChange on 2010/04/15 by john\n\n        Maintain source information in smart name removal.\n        Enabled Normalize during tests, simplified VAR handling.\n\n        R\u003dantonio\n        DELTA\u003d71  (12 added, 48 deleted, 11 changed)\n\nChange on 2010/04/15 by john\n\n        Maintain source information in InlineGetters.\n\n        R\u003dalan\n        DELTA\u003d8  (7 added, 0 deleted, 1 changed)\n\nChange on 2010/04/15 by alan\n\n        Stops the post data from printing multiple times.\n\n        R\u003djohn\n        DELTA\u003d4  (1 added, 0 deleted, 3 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dhuwaud\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@188 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/16/10, 10:20 AM",
+      "commitName": "6e3eb4f7619179ba6c23db2af7549ef02f588c35",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/5/10, 12:30 PM",
+      "commitNameOld": "222eafd303155b3eac5cd244584b2cb3c4c11975",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 10.91,
+      "commitsBetweenForRepo": 15,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static Node getReplacementReturnStatement(Node node, String resultName) {\n    Node resultNode \u003d null;\n    Node retVal \u003d null;\n    if (node.hasChildren()) {\n        retVal \u003d node.getFirstChild().cloneTree();\n    }\n    if (resultName \u003d\u003d null) {\n        if (retVal !\u003d null) {\n            resultNode \u003d NodeUtil.newExpr(retVal);\n        }\n    } else {\n        if (retVal \u003d\u003d null) {\n            Node srcLocation \u003d node;\n            retVal \u003d NodeUtil.newUndefinedNode(srcLocation);\n        }\n        resultNode \u003d createAssignStatementNode(resultName, retVal);\n    }\n    return resultNode;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+      "functionStartLine": 353,
+      "functionName": "getReplacementReturnStatement",
+      "functionAnnotation": "",
+      "functionDoc": "Replace the \u0027return\u0027 statement with its child expression.\nIf the result is needed (resultName !\u003d null):\n  \"return foo()\" becomes \"resultName \u003d foo()\"\n  \"return\" becomes \"resultName \u003d void 0\".\nOtherwise:\n  \"return foo()\" becomes \"foo()\"\n  \"return\", null is returned.\n",
+      "diff": "@@ -1,18 +1,19 @@\n private static Node getReplacementReturnStatement(Node node, String resultName) {\n     Node resultNode \u003d null;\n     Node retVal \u003d null;\n     if (node.hasChildren()) {\n         retVal \u003d node.getFirstChild().cloneTree();\n     }\n     if (resultName \u003d\u003d null) {\n         if (retVal !\u003d null) {\n             resultNode \u003d NodeUtil.newExpr(retVal);\n         }\n     } else {\n         if (retVal \u003d\u003d null) {\n-            retVal \u003d NodeUtil.newUndefinedNode();\n+            Node srcLocation \u003d node;\n+            retVal \u003d NodeUtil.newUndefinedNode(srcLocation);\n         }\n         resultNode \u003d createAssignStatementNode(resultName, retVal);\n     }\n     return resultNode;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,18 @@\n+private static Node getReplacementReturnStatement(Node node, String resultName) {\n+    Node resultNode \u003d null;\n+    Node retVal \u003d null;\n+    if (node.hasChildren()) {\n+        retVal \u003d node.getFirstChild().cloneTree();\n+    }\n+    if (resultName \u003d\u003d null) {\n+        if (retVal !\u003d null) {\n+            resultNode \u003d NodeUtil.newExpr(retVal);\n+        }\n+    } else {\n+        if (retVal \u003d\u003d null) {\n+            retVal \u003d NodeUtil.newUndefinedNode();\n+        }\n+        resultNode \u003d createAssignStatementNode(resultName, retVal);\n+    }\n+    return resultNode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Node getReplacementReturnStatement(Node node, String resultName) {\n    Node resultNode \u003d null;\n    Node retVal \u003d null;\n    if (node.hasChildren()) {\n        retVal \u003d node.getFirstChild().cloneTree();\n    }\n    if (resultName \u003d\u003d null) {\n        if (retVal !\u003d null) {\n            resultNode \u003d NodeUtil.newExpr(retVal);\n        }\n    } else {\n        if (retVal \u003d\u003d null) {\n            retVal \u003d NodeUtil.newUndefinedNode();\n        }\n        resultNode \u003d createAssignStatementNode(resultName, retVal);\n    }\n    return resultNode;\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+      "functionStartLine": 346,
+      "functionName": "getReplacementReturnStatement",
+      "functionAnnotation": "",
+      "functionDoc": "Replace the \u0027return\u0027 statement with its child expression.\nIf the result is needed (resultName !\u003d null):\n  \"return foo()\" becomes \"resultName \u003d foo()\"\n  \"return\" becomes \"resultName \u003d void 0\".\nOtherwise:\n  \"return foo()\" becomes \"foo()\"\n  \"return\", null is returned.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexSolver.java",
+  "functionName": "solvePhase1",
+  "functionId": "solvePhase1___tableau-SimplexTableau(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+  "functionAnnotation": "",
+  "functionDoc": "Solves Phase 1 of the Simplex method.\n\n@param tableau simple tableau for the problem\n@exception OptimizationException if the maximal number of iterations is\nexceeded, or if the problem is found not to have a bounded solution, or\nif there is no feasible solution\n",
+  "functionStartLine": 164,
+  "functionEndLine": 179,
+  "numCommitsSeen": 4,
+  "timeTaken": 352,
+  "changeHistory": [
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,11 @@\n+protected void solvePhase1(final SimplexTableau tableau) throws OptimizationException {\n+    if (tableau.getNumArtificialVariables() \u003d\u003d 0) {\n+        return;\n+    }\n+    while (!isPhase1Solved(tableau)) {\n+        doIteration(tableau);\n+    }\n+    if (!MathUtils.equals(tableau.getEntry(0, tableau.getRhsOffset()), 0, epsilon)) {\n+        throw new NoFeasibleSolutionException();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void solvePhase1(final SimplexTableau tableau) throws OptimizationException {\n    if (tableau.getNumArtificialVariables() \u003d\u003d 0) {\n        return;\n    }\n    while (!isPhase1Solved(tableau)) {\n        doIteration(tableau);\n    }\n    if (!MathUtils.equals(tableau.getEntry(0, tableau.getRhsOffset()), 0, epsilon)) {\n        throw new NoFeasibleSolutionException();\n    }\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+      "functionStartLine": 167,
+      "functionName": "solvePhase1",
+      "functionAnnotation": "",
+      "functionDoc": "Solves Phase 1 of the Simplex method.\n\n@param tableau simple tableau for the problem\n@exception OptimizationException if the maximal number of iterations is\nexceeded, or if the problem is found not to have a bounded solution, or\nif there is no feasible solution\n"
+    }
+  }
+}

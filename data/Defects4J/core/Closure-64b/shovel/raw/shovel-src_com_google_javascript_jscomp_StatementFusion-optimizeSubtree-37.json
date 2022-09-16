@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StatementFusion.java",
+  "functionName": "optimizeSubtree",
+  "functionId": "optimizeSubtree___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/StatementFusion.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 37,
+  "functionEndLine": 44,
+  "numCommitsSeen": 5,
+  "timeTaken": 235,
+  "changeHistory": [
+    "de70209098a5cb103655afede52ff428f001a59f"
+  ],
+  "changeHistoryShort": {
+    "de70209098a5cb103655afede52ff428f001a59f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "de70209098a5cb103655afede52ff428f001a59f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMerges multiple statements into one.\n\nR\u003djohnlenz\nDELTA\u003d249  (249 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d501\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@776 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/10/11, 5:46 PM",
+      "commitName": "de70209098a5cb103655afede52ff428f001a59f",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+Node optimizeSubtree(Node n) {\n+    if (!NodeUtil.isFunction(n.getParent()) \u0026\u0026 canFuseIntoOneStatement(n)) {\n+        fuseIntoOneStatement(n);\n+        reportCodeChange();\n+    }\n+    return n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nNode optimizeSubtree(Node n) {\n    if (!NodeUtil.isFunction(n.getParent()) \u0026\u0026 canFuseIntoOneStatement(n)) {\n        fuseIntoOneStatement(n);\n        reportCodeChange();\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/StatementFusion.java",
+      "functionStartLine": 37,
+      "functionName": "optimizeSubtree",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

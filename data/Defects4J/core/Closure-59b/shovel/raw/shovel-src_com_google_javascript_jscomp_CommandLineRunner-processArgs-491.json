@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CommandLineRunner.java",
+  "functionName": "processArgs",
+  "functionId": "processArgs___args-String[]",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CommandLineRunner.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 491,
+  "functionEndLine": 517,
+  "numCommitsSeen": 44,
+  "timeTaken": 937,
+  "changeHistory": [
+    "39c4d538a4a1363db7385476d3e6bcc09cb71f65",
+    "4672d2c17dbddd139330f247d96b6cc94376a719"
+  ],
+  "changeHistoryShort": {
+    "39c4d538a4a1363db7385476d3e6bcc09cb71f65": "Yformatchange",
+    "4672d2c17dbddd139330f247d96b6cc94376a719": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "39c4d538a4a1363db7385476d3e6bcc09cb71f65": {
+      "type": "Yformatchange",
+      "commitMessage": "\nHide \"dev_mode\" from the commond-line usage message.\nFixes issue 348.\n\nR\u003dnicksantos\nDELTA\u003d3  (2 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d664\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@813 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/24/11, 10:14 AM",
+      "commitName": "39c4d538a4a1363db7385476d3e6bcc09cb71f65",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "2/8/11, 9:38 PM",
+      "commitNameOld": "d38121222cc7c1d5e8dd2c34dcea4c2dc7468450",
+      "commitAuthorOld": "kochi@google.com",
+      "daysBetweenCommits": 15.52,
+      "commitsBetweenForRepo": 40,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private List\u003cString\u003e processArgs(String[] args) {\n    Pattern argPattern \u003d Pattern.compile(\"(--[a-zA-Z_]+)\u003d(.*)\");\n    Pattern quotesPattern \u003d Pattern.compile(\"^[\u0027\\\"](.*)[\u0027\\\"]$\");\n    List\u003cString\u003e processedArgs \u003d Lists.newArrayList();\n    for (String arg : args) {\n        Matcher matcher \u003d argPattern.matcher(arg);\n        if (matcher.matches()) {\n            processedArgs.add(matcher.group(1));\n            String value \u003d matcher.group(2);\n            Matcher quotesMatcher \u003d quotesPattern.matcher(value);\n            if (quotesMatcher.matches()) {\n                processedArgs.add(quotesMatcher.group(1));\n            } else {\n                processedArgs.add(value);\n            }\n        } else {\n            processedArgs.add(arg);\n        }\n    }\n    return processedArgs;\n}",
+      "path": "src/com/google/javascript/jscomp/CommandLineRunner.java",
+      "functionStartLine": 422,
+      "functionName": "processArgs",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "4672d2c17dbddd139330f247d96b6cc94376a719": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFixes issue 162\nReimplement the --flagfile option\n\nR\u003djohnlenz,acleung\nDELTA\u003d73  (72 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d324\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@717 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/20/11, 2:51 PM",
+      "commitName": "4672d2c17dbddd139330f247d96b6cc94376a719",
+      "commitAuthor": "zhuyi@google.com",
+      "diff": "@@ -0,0 +1,21 @@\n+private List\u003cString\u003e processArgs(String[] args) {\n+    Pattern argPattern \u003d Pattern.compile(\"(--[a-zA-Z_]+)\u003d(.*)\");\n+    Pattern quotesPattern \u003d Pattern.compile(\"^[\u0027\\\"](.*)[\u0027\\\"]$\");\n+    List\u003cString\u003e processedArgs \u003d Lists.newArrayList();\n+    for (String arg : args) {\n+        Matcher matcher \u003d argPattern.matcher(arg);\n+        if (matcher.matches()) {\n+            processedArgs.add(matcher.group(1));\n+            String value \u003d matcher.group(2);\n+            Matcher quotesMatcher \u003d quotesPattern.matcher(value);\n+            if (quotesMatcher.matches()) {\n+                processedArgs.add(quotesMatcher.group(1));\n+            } else {\n+                processedArgs.add(value);\n+            }\n+        } else {\n+            processedArgs.add(arg);\n+        }\n+    }\n+    return processedArgs;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private List\u003cString\u003e processArgs(String[] args) {\n    Pattern argPattern \u003d Pattern.compile(\"(--[a-zA-Z_]+)\u003d(.*)\");\n    Pattern quotesPattern \u003d Pattern.compile(\"^[\u0027\\\"](.*)[\u0027\\\"]$\");\n    List\u003cString\u003e processedArgs \u003d Lists.newArrayList();\n    for (String arg : args) {\n        Matcher matcher \u003d argPattern.matcher(arg);\n        if (matcher.matches()) {\n            processedArgs.add(matcher.group(1));\n            String value \u003d matcher.group(2);\n            Matcher quotesMatcher \u003d quotesPattern.matcher(value);\n            if (quotesMatcher.matches()) {\n                processedArgs.add(quotesMatcher.group(1));\n            } else {\n                processedArgs.add(value);\n            }\n        } else {\n            processedArgs.add(arg);\n        }\n    }\n    return processedArgs;\n}",
+      "path": "src/com/google/javascript/jscomp/CommandLineRunner.java",
+      "functionStartLine": 416,
+      "functionName": "processArgs",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

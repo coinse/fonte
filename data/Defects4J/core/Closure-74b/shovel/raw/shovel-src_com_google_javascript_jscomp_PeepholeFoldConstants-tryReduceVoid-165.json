@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeFoldConstants.java",
+  "functionName": "tryReduceVoid",
+  "functionId": "tryReduceVoid___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 165,
+  "functionEndLine": 174,
+  "numCommitsSeen": 40,
+  "timeTaken": 1427,
+  "changeHistory": [
+    "fc66128defd24dd67a02b1bdd87d1968126f02ea"
+  ],
+  "changeHistoryShort": {
+    "fc66128defd24dd67a02b1bdd87d1968126f02ea": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fc66128defd24dd67a02b1bdd87d1968126f02ea": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFold \"undefined\" to \"void 0\".\nFold side-effect free \"void ...\" expressions to \"void 0\".\n\nR\u003dacleung\nDELTA\u003d54  (52 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d544\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@791 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/16/11, 1:24 PM",
+      "commitName": "fc66128defd24dd67a02b1bdd87d1968126f02ea",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private Node tryReduceVoid(Node n) {\n+    Node child \u003d n.getFirstChild();\n+    if (child.getType() !\u003d Token.NUMBER || child.getDouble() !\u003d 0.0) {\n+        if (!mayHaveSideEffects(n)) {\n+            n.replaceChild(child, Node.newNumber(0));\n+            reportCodeChange();\n+        }\n+    }\n+    return n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node tryReduceVoid(Node n) {\n    Node child \u003d n.getFirstChild();\n    if (child.getType() !\u003d Token.NUMBER || child.getDouble() !\u003d 0.0) {\n        if (!mayHaveSideEffects(n)) {\n            n.replaceChild(child, Node.newNumber(0));\n            reportCodeChange();\n        }\n    }\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 165,
+      "functionName": "tryReduceVoid",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

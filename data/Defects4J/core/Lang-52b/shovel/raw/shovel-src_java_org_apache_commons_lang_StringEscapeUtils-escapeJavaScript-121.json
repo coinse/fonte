@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-52b",
+  "repositoryPath": "/tmp/Lang-52b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringEscapeUtils.java",
+  "functionName": "escapeJavaScript",
+  "functionId": "escapeJavaScript___str-String",
+  "sourceFilePath": "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eEscapes the characters in a \u003ccode\u003eString\u003c/code\u003e using JavaScript String rules.\u003c/p\u003e\n\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in, may be null\n@return String with escaped values, \u003ccode\u003enull\u003c/code\u003e if null string input\n",
+  "functionStartLine": 121,
+  "functionEndLine": 123,
+  "numCommitsSeen": 49,
+  "timeTaken": 1482,
+  "changeHistory": [
+    "97dfb3a031f9f5ec3e8d0ec49f0cc2c322f70ffc",
+    "cac97555b1af54b2e8d8390c2ccc8621b36928cf",
+    "f03e83e74e8a723fd8c8fffc84cc7faaf9494ab4"
+  ],
+  "changeHistoryShort": {
+    "97dfb3a031f9f5ec3e8d0ec49f0cc2c322f70ffc": "Ydocchange",
+    "cac97555b1af54b2e8d8390c2ccc8621b36928cf": "Ydocchange",
+    "f03e83e74e8a723fd8c8fffc84cc7faaf9494ab4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "97dfb3a031f9f5ec3e8d0ec49f0cc2c322f70ffc": {
+      "type": "Ydocchange",
+      "commitMessage": "Update null behaviour for consistency and clarity\nDoument null behaviour\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137458 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/19/03, 1:22 PM",
+      "commitName": "97dfb3a031f9f5ec3e8d0ec49f0cc2c322f70ffc",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "7/7/03, 10:59 PM",
+      "commitNameOld": "043babf502ddf5a8fa731cb6b3a56814c14952a1",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 11.6,
+      "commitsBetweenForRepo": 55,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String escapeJavaScript(String str) {\n    return escapeJavaStyleString(str, true);\n}",
+      "path": "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+      "functionStartLine": 159,
+      "functionName": "escapeJavaScript",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eEscapes the characters in a \u003ccode\u003eString\u003c/code\u003e using JavaScript String rules.\u003c/p\u003e\n\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in, may be null\n@return String with escaped values, \u003ccode\u003enull\u003c/code\u003e if null string input\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eEscapes the characters in a \u003ccode\u003eString\u003c/code\u003e using JavaScript String rules.\u003c/p\u003e\n\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in\n@return String with escaped values\n@throws NullPointerException if str is \u003ccode\u003enull\u003c/code\u003e\n",
+        "newValue": "\u003cp\u003eEscapes the characters in a \u003ccode\u003eString\u003c/code\u003e using JavaScript String rules.\u003c/p\u003e\n\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in, may be null\n@return String with escaped values, \u003ccode\u003enull\u003c/code\u003e if null string input\n"
+      }
+    },
+    "cac97555b1af54b2e8d8390c2ccc8621b36928cf": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc only. Provide more uniform comments.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137318 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/16/03, 12:00 PM",
+      "commitName": "cac97555b1af54b2e8d8390c2ccc8621b36928cf",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "4/16/03, 9:31 AM",
+      "commitNameOld": "549d0da83b55b21efaee2edfbf55a486e329a845",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 30.1,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String escapeJavaScript(String str) {\n    return escapeJavaStyleString(str, true);\n}",
+      "path": "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+      "functionStartLine": 160,
+      "functionName": "escapeJavaScript",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eEscapes the characters in a \u003ccode\u003eString\u003c/code\u003e using JavaScript String rules.\u003c/p\u003e\n\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in\n@return String with escaped values\n@throws NullPointerException if str is \u003ccode\u003enull\u003c/code\u003e\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in\n@return String with escaped values\n@throws NullPointerException if str is \u003ccode\u003enull\u003c/code\u003e\n",
+        "newValue": "\u003cp\u003eEscapes the characters in a \u003ccode\u003eString\u003c/code\u003e using JavaScript String rules.\u003c/p\u003e\n\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in\n@return String with escaped values\n@throws NullPointerException if str is \u003ccode\u003enull\u003c/code\u003e\n"
+      }
+    },
+    "f03e83e74e8a723fd8c8fffc84cc7faaf9494ab4": {
+      "type": "Yintroduced",
+      "commitMessage": "StringEscapeUtils: escape/unescape Java/JavaScript/HTML\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137278 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/30/03, 7:53 PM",
+      "commitName": "f03e83e74e8a723fd8c8fffc84cc7faaf9494ab4",
+      "commitAuthor": "Alex Chaffee",
+      "diff": "@@ -0,0 +1,3 @@\n+public static String escapeJavaScript(String str) {\n+    return escapeJavaStyleString(str, true);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String escapeJavaScript(String str) {\n    return escapeJavaStyleString(str, true);\n}",
+      "path": "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+      "functionStartLine": 155,
+      "functionName": "escapeJavaScript",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eEscapes any values it finds into their JavaScript String form.\nDeals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) \u003c/p\u003e\n\n\u003cp\u003eSo a tab becomes the characters \u003ccode\u003e\u0027\\\\\u0027\u003c/code\u003e and\n\u003ccode\u003e\u0027t\u0027\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eThe only difference between Java strings and JavaScript strings\nis that in JavaScript, a single quote must be escaped.\u003c/p\u003e\n\n\u003cp\u003eExample:\n\u003cpre\u003e\ninput string: He didn\u0027t say, \"Stop!\"\noutput string: He didn\\\u0027t say, \\\"Stop!\\\"\n\u003c/pre\u003e\n\u003c/p\u003e\n\n@param str String to escape values in\n@return String with escaped values\n@throws NullPointerException if str is \u003ccode\u003enull\u003c/code\u003e\n"
+    }
+  }
+}

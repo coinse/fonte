@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-51b",
+  "repositoryPath": "/tmp/Lang-51b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BooleanUtils.java",
+  "functionName": "toBoolean",
+  "functionId": "toBoolean___str-String",
+  "sourceFilePath": "src/java/org/apache/commons/lang/BooleanUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eConverts a String to a boolean (optimised for performance).\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n\u003cp\u003eThis method performs 4 times faster (JDK1.4) than\n\u003ccode\u003eBoolean.valueOf(String)\u003c/code\u003e. However, this method accepts\n\u0027on\u0027 and \u0027yes\u0027 as true values.\n\n\u003cpre\u003e\n  BooleanUtils.toBoolean(null)    \u003d false\n  BooleanUtils.toBoolean(\"true\")  \u003d true\n  BooleanUtils.toBoolean(\"TRUE\")  \u003d true\n  BooleanUtils.toBoolean(\"tRUe\")  \u003d true\n  BooleanUtils.toBoolean(\"on\")    \u003d true\n  BooleanUtils.toBoolean(\"yes\")   \u003d true\n  BooleanUtils.toBoolean(\"false\") \u003d false\n  BooleanUtils.toBoolean(\"x gti\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n",
+  "functionStartLine": 649,
+  "functionEndLine": 700,
+  "numCommitsSeen": 29,
+  "timeTaken": 1040,
+  "changeHistory": [
+    "49b8c603ef302a4b8d44070e9649770f6afe655d",
+    "e5ce23927b004ff6f518d074228cc74343623953",
+    "c66659d62dbf69d4c1ccc5c9c50938273436c1b3",
+    "87be1d66ee69037529e1c6c27cb30e1d713e7c78"
+  ],
+  "changeHistoryShort": {
+    "49b8c603ef302a4b8d44070e9649770f6afe655d": "Ymultichange(Ybodychange,Ydocchange)",
+    "e5ce23927b004ff6f518d074228cc74343623953": "Ydocchange",
+    "c66659d62dbf69d4c1ccc5c9c50938273436c1b3": "Ydocchange",
+    "87be1d66ee69037529e1c6c27cb30e1d713e7c78": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "49b8c603ef302a4b8d44070e9649770f6afe655d": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Improve performance of BooleanUtils.toBoolean(String)\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137686 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/21/03, 4:23 PM",
+      "commitName": "49b8c603ef302a4b8d44070e9649770f6afe655d",
+      "commitAuthor": "Stephen Colebourne",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Improve performance of BooleanUtils.toBoolean(String)\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137686 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "10/21/03, 4:23 PM",
+          "commitName": "49b8c603ef302a4b8d44070e9649770f6afe655d",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "9/23/03, 12:45 PM",
+          "commitNameOld": "e5ce23927b004ff6f518d074228cc74343623953",
+          "commitAuthorOld": "Fredrik Westermarck",
+          "daysBetweenCommits": 28.15,
+          "commitsBetweenForRepo": 13,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static boolean toBoolean(String str) {\n    if (str \u003d\u003d \"true\") {\n        return true;\n    }\n    if (str \u003d\u003d null) {\n        return false;\n    }\n    switch(str.length()) {\n        case 2:\n            {\n                char ch0 \u003d str.charAt(0);\n                char ch1 \u003d str.charAt(1);\n                return (ch0 \u003d\u003d \u0027o\u0027 || ch0 \u003d\u003d \u0027O\u0027) \u0026\u0026 (ch1 \u003d\u003d \u0027n\u0027 || ch1 \u003d\u003d \u0027N\u0027);\n            }\n        case 3:\n            {\n                char ch \u003d str.charAt(0);\n                if (ch \u003d\u003d \u0027y\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027e\u0027 || str.charAt(1) \u003d\u003d \u0027E\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027s\u0027 || str.charAt(2) \u003d\u003d \u0027S\u0027);\n                }\n                if (ch \u003d\u003d \u0027Y\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027E\u0027 || str.charAt(1) \u003d\u003d \u0027e\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027S\u0027 || str.charAt(2) \u003d\u003d \u0027s\u0027);\n                }\n            }\n        case 4:\n            {\n                char ch \u003d str.charAt(0);\n                if (ch \u003d\u003d \u0027t\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027r\u0027 || str.charAt(1) \u003d\u003d \u0027R\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027u\u0027 || str.charAt(2) \u003d\u003d \u0027U\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027e\u0027 || str.charAt(3) \u003d\u003d \u0027E\u0027);\n                }\n                if (ch \u003d\u003d \u0027T\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027R\u0027 || str.charAt(1) \u003d\u003d \u0027r\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027U\u0027 || str.charAt(2) \u003d\u003d \u0027u\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027E\u0027 || str.charAt(3) \u003d\u003d \u0027e\u0027);\n                }\n            }\n    }\n    return false;\n}",
+          "path": "src/java/org/apache/commons/lang/BooleanUtils.java",
+          "functionStartLine": 603,
+          "functionName": "toBoolean",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eConverts a String to a boolean (optimised for performance).\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n\u003cp\u003eThis method performs 4 times faster (JDK1.4) than\n\u003ccode\u003eBoolean.valueOf(String)\u003c/code\u003e. However, this method accepts\n\u0027on\u0027 and \u0027yes\u0027 as true values.\n\n\u003cpre\u003e\n  BooleanUtils.toBoolean(null)    \u003d false\n  BooleanUtils.toBoolean(\"true\")  \u003d true\n  BooleanUtils.toBoolean(\"TRUE\")  \u003d true\n  BooleanUtils.toBoolean(\"tRUe\")  \u003d true\n  BooleanUtils.toBoolean(\"on\")    \u003d true\n  BooleanUtils.toBoolean(\"yes\")   \u003d true\n  BooleanUtils.toBoolean(\"false\") \u003d false\n  BooleanUtils.toBoolean(\"x gti\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n",
+          "diff": "@@ -1,10 +1,37 @@\n public static boolean toBoolean(String str) {\n-    if (\"true\".equalsIgnoreCase(str)) {\n+    if (str \u003d\u003d \"true\") {\n         return true;\n-    } else if (\"on\".equalsIgnoreCase(str)) {\n-        return true;\n-    } else if (\"yes\".equalsIgnoreCase(str)) {\n-        return true;\n+    }\n+    if (str \u003d\u003d null) {\n+        return false;\n+    }\n+    switch(str.length()) {\n+        case 2:\n+            {\n+                char ch0 \u003d str.charAt(0);\n+                char ch1 \u003d str.charAt(1);\n+                return (ch0 \u003d\u003d \u0027o\u0027 || ch0 \u003d\u003d \u0027O\u0027) \u0026\u0026 (ch1 \u003d\u003d \u0027n\u0027 || ch1 \u003d\u003d \u0027N\u0027);\n+            }\n+        case 3:\n+            {\n+                char ch \u003d str.charAt(0);\n+                if (ch \u003d\u003d \u0027y\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027e\u0027 || str.charAt(1) \u003d\u003d \u0027E\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027s\u0027 || str.charAt(2) \u003d\u003d \u0027S\u0027);\n+                }\n+                if (ch \u003d\u003d \u0027Y\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027E\u0027 || str.charAt(1) \u003d\u003d \u0027e\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027S\u0027 || str.charAt(2) \u003d\u003d \u0027s\u0027);\n+                }\n+            }\n+        case 4:\n+            {\n+                char ch \u003d str.charAt(0);\n+                if (ch \u003d\u003d \u0027t\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027r\u0027 || str.charAt(1) \u003d\u003d \u0027R\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027u\u0027 || str.charAt(2) \u003d\u003d \u0027U\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027e\u0027 || str.charAt(3) \u003d\u003d \u0027E\u0027);\n+                }\n+                if (ch \u003d\u003d \u0027T\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027R\u0027 || str.charAt(1) \u003d\u003d \u0027r\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027U\u0027 || str.charAt(2) \u003d\u003d \u0027u\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027E\u0027 || str.charAt(3) \u003d\u003d \u0027e\u0027);\n+                }\n+            }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Improve performance of BooleanUtils.toBoolean(String)\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137686 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "10/21/03, 4:23 PM",
+          "commitName": "49b8c603ef302a4b8d44070e9649770f6afe655d",
+          "commitAuthor": "Stephen Colebourne",
+          "commitDateOld": "9/23/03, 12:45 PM",
+          "commitNameOld": "e5ce23927b004ff6f518d074228cc74343623953",
+          "commitAuthorOld": "Fredrik Westermarck",
+          "daysBetweenCommits": 28.15,
+          "commitsBetweenForRepo": 13,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static boolean toBoolean(String str) {\n    if (str \u003d\u003d \"true\") {\n        return true;\n    }\n    if (str \u003d\u003d null) {\n        return false;\n    }\n    switch(str.length()) {\n        case 2:\n            {\n                char ch0 \u003d str.charAt(0);\n                char ch1 \u003d str.charAt(1);\n                return (ch0 \u003d\u003d \u0027o\u0027 || ch0 \u003d\u003d \u0027O\u0027) \u0026\u0026 (ch1 \u003d\u003d \u0027n\u0027 || ch1 \u003d\u003d \u0027N\u0027);\n            }\n        case 3:\n            {\n                char ch \u003d str.charAt(0);\n                if (ch \u003d\u003d \u0027y\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027e\u0027 || str.charAt(1) \u003d\u003d \u0027E\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027s\u0027 || str.charAt(2) \u003d\u003d \u0027S\u0027);\n                }\n                if (ch \u003d\u003d \u0027Y\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027E\u0027 || str.charAt(1) \u003d\u003d \u0027e\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027S\u0027 || str.charAt(2) \u003d\u003d \u0027s\u0027);\n                }\n            }\n        case 4:\n            {\n                char ch \u003d str.charAt(0);\n                if (ch \u003d\u003d \u0027t\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027r\u0027 || str.charAt(1) \u003d\u003d \u0027R\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027u\u0027 || str.charAt(2) \u003d\u003d \u0027U\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027e\u0027 || str.charAt(3) \u003d\u003d \u0027E\u0027);\n                }\n                if (ch \u003d\u003d \u0027T\u0027) {\n                    return (str.charAt(1) \u003d\u003d \u0027R\u0027 || str.charAt(1) \u003d\u003d \u0027r\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027U\u0027 || str.charAt(2) \u003d\u003d \u0027u\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027E\u0027 || str.charAt(3) \u003d\u003d \u0027e\u0027);\n                }\n            }\n    }\n    return false;\n}",
+          "path": "src/java/org/apache/commons/lang/BooleanUtils.java",
+          "functionStartLine": 603,
+          "functionName": "toBoolean",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eConverts a String to a boolean (optimised for performance).\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n\u003cp\u003eThis method performs 4 times faster (JDK1.4) than\n\u003ccode\u003eBoolean.valueOf(String)\u003c/code\u003e. However, this method accepts\n\u0027on\u0027 and \u0027yes\u0027 as true values.\n\n\u003cpre\u003e\n  BooleanUtils.toBoolean(null)    \u003d false\n  BooleanUtils.toBoolean(\"true\")  \u003d true\n  BooleanUtils.toBoolean(\"TRUE\")  \u003d true\n  BooleanUtils.toBoolean(\"tRUe\")  \u003d true\n  BooleanUtils.toBoolean(\"on\")    \u003d true\n  BooleanUtils.toBoolean(\"yes\")   \u003d true\n  BooleanUtils.toBoolean(\"false\") \u003d false\n  BooleanUtils.toBoolean(\"x gti\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n",
+          "diff": "@@ -1,10 +1,37 @@\n public static boolean toBoolean(String str) {\n-    if (\"true\".equalsIgnoreCase(str)) {\n+    if (str \u003d\u003d \"true\") {\n         return true;\n-    } else if (\"on\".equalsIgnoreCase(str)) {\n-        return true;\n-    } else if (\"yes\".equalsIgnoreCase(str)) {\n-        return true;\n+    }\n+    if (str \u003d\u003d null) {\n+        return false;\n+    }\n+    switch(str.length()) {\n+        case 2:\n+            {\n+                char ch0 \u003d str.charAt(0);\n+                char ch1 \u003d str.charAt(1);\n+                return (ch0 \u003d\u003d \u0027o\u0027 || ch0 \u003d\u003d \u0027O\u0027) \u0026\u0026 (ch1 \u003d\u003d \u0027n\u0027 || ch1 \u003d\u003d \u0027N\u0027);\n+            }\n+        case 3:\n+            {\n+                char ch \u003d str.charAt(0);\n+                if (ch \u003d\u003d \u0027y\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027e\u0027 || str.charAt(1) \u003d\u003d \u0027E\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027s\u0027 || str.charAt(2) \u003d\u003d \u0027S\u0027);\n+                }\n+                if (ch \u003d\u003d \u0027Y\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027E\u0027 || str.charAt(1) \u003d\u003d \u0027e\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027S\u0027 || str.charAt(2) \u003d\u003d \u0027s\u0027);\n+                }\n+            }\n+        case 4:\n+            {\n+                char ch \u003d str.charAt(0);\n+                if (ch \u003d\u003d \u0027t\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027r\u0027 || str.charAt(1) \u003d\u003d \u0027R\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027u\u0027 || str.charAt(2) \u003d\u003d \u0027U\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027e\u0027 || str.charAt(3) \u003d\u003d \u0027E\u0027);\n+                }\n+                if (ch \u003d\u003d \u0027T\u0027) {\n+                    return (str.charAt(1) \u003d\u003d \u0027R\u0027 || str.charAt(1) \u003d\u003d \u0027r\u0027) \u0026\u0026 (str.charAt(2) \u003d\u003d \u0027U\u0027 || str.charAt(2) \u003d\u003d \u0027u\u0027) \u0026\u0026 (str.charAt(3) \u003d\u003d \u0027E\u0027 || str.charAt(3) \u003d\u003d \u0027e\u0027);\n+                }\n+            }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n\u003cpre\u003e\n  BooleanUtils.toBoolean(\"true\")  \u003d true\n  BooleanUtils.toBoolean(\"on\")    \u003d true\n  BooleanUtils.toBoolean(\"yes\")   \u003d true\n  BooleanUtils.toBoolean(\"false\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n",
+            "newValue": "\u003cp\u003eConverts a String to a boolean (optimised for performance).\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n\u003cp\u003eThis method performs 4 times faster (JDK1.4) than\n\u003ccode\u003eBoolean.valueOf(String)\u003c/code\u003e. However, this method accepts\n\u0027on\u0027 and \u0027yes\u0027 as true values.\n\n\u003cpre\u003e\n  BooleanUtils.toBoolean(null)    \u003d false\n  BooleanUtils.toBoolean(\"true\")  \u003d true\n  BooleanUtils.toBoolean(\"TRUE\")  \u003d true\n  BooleanUtils.toBoolean(\"tRUe\")  \u003d true\n  BooleanUtils.toBoolean(\"on\")    \u003d true\n  BooleanUtils.toBoolean(\"yes\")   \u003d true\n  BooleanUtils.toBoolean(\"false\") \u003d false\n  BooleanUtils.toBoolean(\"x gti\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n"
+          }
+        }
+      ]
+    },
+    "e5ce23927b004ff6f518d074228cc74343623953": {
+      "type": "Ydocchange",
+      "commitMessage": "Added examples in javadoc.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137673 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/23/03, 12:45 PM",
+      "commitName": "e5ce23927b004ff6f518d074228cc74343623953",
+      "commitAuthor": "Fredrik Westermarck",
+      "commitDateOld": "9/7/03, 7:32 AM",
+      "commitNameOld": "5c89ea5c8f8a5110b575f0b8dd511b6aecd19359",
+      "commitAuthorOld": "Phil Steitz",
+      "daysBetweenCommits": 16.22,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean toBoolean(String str) {\n    if (\"true\".equalsIgnoreCase(str)) {\n        return true;\n    } else if (\"on\".equalsIgnoreCase(str)) {\n        return true;\n    } else if (\"yes\".equalsIgnoreCase(str)) {\n        return true;\n    }\n    return false;\n}",
+      "path": "src/java/org/apache/commons/lang/BooleanUtils.java",
+      "functionStartLine": 593,
+      "functionName": "toBoolean",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n\u003cpre\u003e\n  BooleanUtils.toBoolean(\"true\")  \u003d true\n  BooleanUtils.toBoolean(\"on\")    \u003d true\n  BooleanUtils.toBoolean(\"yes\")   \u003d true\n  BooleanUtils.toBoolean(\"false\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n",
+        "newValue": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n\u003cpre\u003e\n  BooleanUtils.toBoolean(\"true\")  \u003d true\n  BooleanUtils.toBoolean(\"on\")    \u003d true\n  BooleanUtils.toBoolean(\"yes\")   \u003d true\n  BooleanUtils.toBoolean(\"false\") \u003d false\n\u003c/pre\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n"
+      }
+    },
+    "c66659d62dbf69d4c1ccc5c9c50938273436c1b3": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc fixes. Shouldn\u0027t have been anything other than javadoc changes in this.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137416 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/14/03, 3:25 PM",
+      "commitName": "c66659d62dbf69d4c1ccc5c9c50938273436c1b3",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "6/28/03, 11:16 AM",
+      "commitNameOld": "56e1629be9728481a418daea26492c4b371dc7bf",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 16.17,
+      "commitsBetweenForRepo": 32,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean toBoolean(String str) {\n    if (\"true\".equalsIgnoreCase(str)) {\n        return true;\n    } else if (\"on\".equalsIgnoreCase(str)) {\n        return true;\n    } else if (\"yes\".equalsIgnoreCase(str)) {\n        return true;\n    }\n    return false;\n}",
+      "path": "src/java/org/apache/commons/lang/BooleanUtils.java",
+      "functionStartLine": 461,
+      "functionName": "toBoolean",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u0027true\u0027, \u0027on\u0027 or \u0027yes\u0027 (case insensitive) will return true.\nOtherwise, false is returned.\u003c/p\u003e\n\n@param str the String to check\n@return the boolean value of the string, false if no match\n",
+        "newValue": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003e\u0027true\u0027\u003c/code\u003e, \u003ccode\u003e\u0027on\u0027\u003c/code\u003e or \u003ccode\u003e\u0027yes\u0027\u003c/code\u003e\n(case insensitive) will return \u003ccode\u003etrue\u003c/code\u003e. Otherwise,\n\u003ccode\u003efalse\u003c/code\u003e is returned.\u003c/p\u003e\n\n@param str the String to check\n@return the boolean value of the string, \u003ccode\u003efalse\u003c/code\u003e if no match\n"
+      }
+    },
+    "87be1d66ee69037529e1c6c27cb30e1d713e7c78": {
+      "type": "Yintroduced",
+      "commitMessage": "Add BooleanUtils with lots of boolean conversions\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137184 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/15/02, 8:55 AM",
+      "commitName": "87be1d66ee69037529e1c6c27cb30e1d713e7c78",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,10 @@\n+public static boolean toBoolean(String str) {\n+    if (\"true\".equalsIgnoreCase(str)) {\n+        return true;\n+    } else if (\"on\".equalsIgnoreCase(str)) {\n+        return true;\n+    } else if (\"yes\".equalsIgnoreCase(str)) {\n+        return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean toBoolean(String str) {\n    if (\"true\".equalsIgnoreCase(str)) {\n        return true;\n    } else if (\"on\".equalsIgnoreCase(str)) {\n        return true;\n    } else if (\"yes\".equalsIgnoreCase(str)) {\n        return true;\n    }\n    return false;\n}",
+      "path": "src/java/org/apache/commons/lang/BooleanUtils.java",
+      "functionStartLine": 419,
+      "functionName": "toBoolean",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eConverts a String to a boolean.\u003c/p\u003e\n\n\u003cp\u003e\u0027true\u0027, \u0027on\u0027 or \u0027yes\u0027 (case insensitive) will return true.\nOtherwise, false is returned.\u003c/p\u003e\n\n@param str the String to check\n@return the boolean value of the string, false if no match\n"
+    }
+  }
+}

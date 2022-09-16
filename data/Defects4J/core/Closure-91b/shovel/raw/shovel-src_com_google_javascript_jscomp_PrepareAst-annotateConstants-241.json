@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "annotateConstants",
+  "functionId": "$annotateConstants___n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "Mark names and properties that are constants by convention.\n",
+  "functionStartLine": 241,
+  "functionEndLine": 254,
+  "numCommitsSeen": 9,
+  "timeTaken": 1190,
+  "changeHistory": [
+    "f93cdf97ea803c4702023daf1326dc45172de611",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8"
+  ],
+  "changeHistoryShort": {
+    "f93cdf97ea803c4702023daf1326dc45172de611": "Ymultichange(Ybodychange,Ydocchange)",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f93cdf97ea803c4702023daf1326dc45172de611": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/14/10, 4:04 PM",
+      "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "9/14/10, 4:04 PM",
+          "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "8/5/10, 7:31 PM",
+          "commitNameOld": "52547e61d187e102f21e5545c24e8d232fefe92f",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 39.86,
+          "commitsBetweenForRepo": 83,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void annotateConstants(Node n, Node parent) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.NAME || n.getType() \u003d\u003d Token.STRING);\n    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.GETPROP) {\n        if (NodeUtil.isConstantByConvention(convention, n, parent)) {\n            n.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n        }\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+          "functionStartLine": 241,
+          "functionName": "annotateConstants",
+          "functionAnnotation": "",
+          "functionDoc": "Mark names and properties that are constants by convention.\n",
+          "diff": "@@ -1,8 +1,8 @@\n private void annotateConstants(Node n, Node parent) {\n     Preconditions.checkState(n.getType() \u003d\u003d Token.NAME || n.getType() \u003d\u003d Token.STRING);\n-    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.OBJECTLIT || parent.getType() \u003d\u003d Token.GETPROP) {\n+    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.GETPROP) {\n         if (NodeUtil.isConstantByConvention(convention, n, parent)) {\n             n.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nMinor parse time performance improvement (profiling was showing ~500ms\nspent traversing the obj lit keys).  This changes the order from\nO(keys^2) to O(keys).\n\nR\u003dnicksantos\nDELTA\u003d47  (29 added, 5 deleted, 13 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d216974\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@428 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "9/14/10, 4:04 PM",
+          "commitName": "f93cdf97ea803c4702023daf1326dc45172de611",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "8/5/10, 7:31 PM",
+          "commitNameOld": "52547e61d187e102f21e5545c24e8d232fefe92f",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 39.86,
+          "commitsBetweenForRepo": 83,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void annotateConstants(Node n, Node parent) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.NAME || n.getType() \u003d\u003d Token.STRING);\n    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.GETPROP) {\n        if (NodeUtil.isConstantByConvention(convention, n, parent)) {\n            n.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n        }\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+          "functionStartLine": 241,
+          "functionName": "annotateConstants",
+          "functionAnnotation": "",
+          "functionDoc": "Mark names and properties that are constants by convention.\n",
+          "diff": "@@ -1,8 +1,8 @@\n private void annotateConstants(Node n, Node parent) {\n     Preconditions.checkState(n.getType() \u003d\u003d Token.NAME || n.getType() \u003d\u003d Token.STRING);\n-    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.OBJECTLIT || parent.getType() \u003d\u003d Token.GETPROP) {\n+    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.GETPROP) {\n         if (NodeUtil.isConstantByConvention(convention, n, parent)) {\n             n.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Mark names that are constants by convention.\n",
+            "newValue": "Mark names and properties that are constants by convention.\n"
+          }
+        }
+      ]
+    },
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic \"free call\" annotation and support for issue 180.  Additional\ntesting is required to validate that new CALL nodes are not\ninappropriately introduced.\n\nAlso, refactored PrepareAst to make the different actions being taken\neasier to follow.\n\nR\u003dnicksantos\nDELTA\u003d215  (120 added, 18 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@282 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:34 PM",
+      "commitName": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,8 @@\n+private void annotateConstants(Node n, Node parent) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.NAME || n.getType() \u003d\u003d Token.STRING);\n+    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.OBJECTLIT || parent.getType() \u003d\u003d Token.GETPROP) {\n+        if (NodeUtil.isConstantByConvention(convention, n, parent)) {\n+            n.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void annotateConstants(Node n, Node parent) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.NAME || n.getType() \u003d\u003d Token.STRING);\n    if (n.getType() !\u003d Token.STRING || parent.getType() \u003d\u003d Token.OBJECTLIT || parent.getType() \u003d\u003d Token.GETPROP) {\n        if (NodeUtil.isConstantByConvention(convention, n, parent)) {\n            n.putBooleanProp(Node.IS_CONSTANT_NAME, true);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 228,
+      "functionName": "annotateConstants",
+      "functionAnnotation": "",
+      "functionDoc": "Mark names that are constants by convention.\n"
+    }
+  }
+}

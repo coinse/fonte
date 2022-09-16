@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-2b",
+  "repositoryPath": "/tmp/Closure-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CompilerOptions.java",
+  "functionName": "addWarningsGuard",
+  "functionId": "addWarningsGuard___guard-WarningsGuard",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CompilerOptions.java",
+  "functionAnnotation": "",
+  "functionDoc": "Add a guard to the set of warnings guards.\n",
+  "functionStartLine": 1150,
+  "functionEndLine": 1152,
+  "numCommitsSeen": 125,
+  "timeTaken": 3611,
+  "changeHistory": [
+    "a2d9c861616c0308024d74a3be2b34f3d4cdd066",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "a2d9c861616c0308024d74a3be2b34f3d4cdd066": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a2d9c861616c0308024d74a3be2b34f3d4cdd066": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCreate an Emergency fail-safe switch\n\nR\u003dacleung\nDELTA\u003d198  (173 added, 13 deleted, 12 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1650\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1043 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/27/11, 12:58 PM",
+      "commitName": "a2d9c861616c0308024d74a3be2b34f3d4cdd066",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "4/26/11, 7:14 AM",
+      "commitNameOld": "4d27fdcfda10b3cfbf0c87b3b6d691da5b5291a7",
+      "commitAuthorOld": "davidplass@google.com",
+      "daysBetweenCommits": 1.24,
+      "commitsBetweenForRepo": 9,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void addWarningsGuard(WarningsGuard guard) {\n    warningsGuard.addGuard(guard);\n}",
+      "path": "src/com/google/javascript/jscomp/CompilerOptions.java",
+      "functionStartLine": 964,
+      "functionName": "addWarningsGuard",
+      "functionAnnotation": "",
+      "functionDoc": "Add a guard to the set of warnings guards.\n",
+      "diff": "@@ -1,7 +1,3 @@\n public void addWarningsGuard(WarningsGuard guard) {\n-    if (warningsGuard \u003d\u003d null) {\n-        warningsGuard \u003d new ComposeWarningsGuard(guard);\n-    } else {\n-        warningsGuard.addGuard(guard);\n-    }\n+    warningsGuard.addGuard(guard);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+public void addWarningsGuard(WarningsGuard guard) {\n+    if (warningsGuard \u003d\u003d null) {\n+        warningsGuard \u003d new ComposeWarningsGuard(guard);\n+    } else {\n+        warningsGuard.addGuard(guard);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void addWarningsGuard(WarningsGuard guard) {\n    if (warningsGuard \u003d\u003d null) {\n        warningsGuard \u003d new ComposeWarningsGuard(guard);\n    } else {\n        warningsGuard.addGuard(guard);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/CompilerOptions.java",
+      "functionStartLine": 733,
+      "functionName": "addWarningsGuard",
+      "functionAnnotation": "",
+      "functionDoc": "Add a guard to the set of warnings guards.\n"
+    }
+  }
+}

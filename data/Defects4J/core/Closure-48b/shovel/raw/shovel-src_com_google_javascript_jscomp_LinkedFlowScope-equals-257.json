@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LinkedFlowScope.java",
+  "functionName": "equals",
+  "functionId": "equals___other-Object",
+  "sourceFilePath": "src/com/google/javascript/jscomp/LinkedFlowScope.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 257,
+  "functionEndLine": 306,
+  "numCommitsSeen": 13,
+  "timeTaken": 570,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,35 @@\n+@Override\n+public boolean equals(Object other) {\n+    if (other instanceof LinkedFlowScope) {\n+        LinkedFlowScope that \u003d (LinkedFlowScope) other;\n+        if (this.optimize() \u003d\u003d that.optimize()) {\n+            return true;\n+        }\n+        if (this.getFunctionScope() !\u003d that.getFunctionScope()) {\n+            return false;\n+        }\n+        if (cache \u003d\u003d that.cache) {\n+            for (String name : cache.dirtySymbols) {\n+                if (diffSlots(getSlot(name), that.getSlot(name))) {\n+                    return false;\n+                }\n+            }\n+            return true;\n+        }\n+        Map\u003cString, StaticSlot\u003cJSType\u003e\u003e myFlowSlots \u003d allFlowSlots();\n+        Map\u003cString, StaticSlot\u003cJSType\u003e\u003e otherFlowSlots \u003d that.allFlowSlots();\n+        for (StaticSlot\u003cJSType\u003e slot : myFlowSlots.values()) {\n+            if (diffSlots(slot, otherFlowSlots.get(slot.getName()))) {\n+                return false;\n+            }\n+            otherFlowSlots.remove(slot.getName());\n+        }\n+        for (StaticSlot\u003cJSType\u003e slot : otherFlowSlots.values()) {\n+            if (diffSlots(slot, myFlowSlots.get(slot.getName()))) {\n+                return false;\n+            }\n+        }\n+        return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean equals(Object other) {\n    if (other instanceof LinkedFlowScope) {\n        LinkedFlowScope that \u003d (LinkedFlowScope) other;\n        if (this.optimize() \u003d\u003d that.optimize()) {\n            return true;\n        }\n        if (this.getFunctionScope() !\u003d that.getFunctionScope()) {\n            return false;\n        }\n        if (cache \u003d\u003d that.cache) {\n            for (String name : cache.dirtySymbols) {\n                if (diffSlots(getSlot(name), that.getSlot(name))) {\n                    return false;\n                }\n            }\n            return true;\n        }\n        Map\u003cString, StaticSlot\u003cJSType\u003e\u003e myFlowSlots \u003d allFlowSlots();\n        Map\u003cString, StaticSlot\u003cJSType\u003e\u003e otherFlowSlots \u003d that.allFlowSlots();\n        for (StaticSlot\u003cJSType\u003e slot : myFlowSlots.values()) {\n            if (diffSlots(slot, otherFlowSlots.get(slot.getName()))) {\n                return false;\n            }\n            otherFlowSlots.remove(slot.getName());\n        }\n        for (StaticSlot\u003cJSType\u003e slot : otherFlowSlots.values()) {\n            if (diffSlots(slot, myFlowSlots.get(slot.getName()))) {\n                return false;\n            }\n        }\n        return true;\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/LinkedFlowScope.java",
+      "functionStartLine": 255,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

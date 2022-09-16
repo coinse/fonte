@@ -1,0 +1,116 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-11b",
+  "repositoryPath": "/tmp/Time-11b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DateTimeZoneBuilder.java",
+  "functionName": "addRecurringSavings",
+  "functionId": "addRecurringSavings___nameKey-String__saveMillis-int__fromYear-int__toYear-int__mode-char__monthOfYear-int__dayOfMonth-int__dayOfWeek-int__advanceDayOfWeek-boolean__millisOfDay-int",
+  "sourceFilePath": "src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Add a recurring daylight saving time rule.\n\n@param nameKey the name key of new rule\n@param saveMillis the milliseconds to add to standard offset\n@param fromYear the first year that rule is in effect, MIN_VALUE indicates\nbeginning of time\n@param toYear the last year (inclusive) that rule is in effect, MAX_VALUE\n indicates end of time\n@param mode \u0027u\u0027 - transitions are calculated against UTC, \u0027w\u0027 -\n transitions are calculated against wall offset, \u0027s\u0027 - transitions are\n calculated against standard offset\n@param monthOfYear the month from 1 (January) to 12 (December)\n@param dayOfMonth if negative, set to ((last day of month) - ~dayOfMonth).\n For example, if -1, set to last day of month\n@param dayOfWeek from 1 (Monday) to 7 (Sunday), if 0 then ignore\n@param advanceDayOfWeek if dayOfMonth does not fall on dayOfWeek, advance to\n dayOfWeek when true, retreat when false.\n@param millisOfDay additional precision for specifying time of day of transitions\n",
+  "functionStartLine": 300,
+  "functionEndLine": 317,
+  "numCommitsSeen": 24,
+  "timeTaken": 2510,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "6cd3a18f8cb3c907107017849ab1ac3b88e43fb5",
+    "7fe68f297f7c372b515fde7f0bc8d721ec257ceb"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "6cd3a18f8cb3c907107017849ab1ac3b88e43fb5": "Ydocchange",
+    "7fe68f297f7c372b515fde7f0bc8d721ec257ceb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public DateTimeZoneBuilder addRecurringSavings(String nameKey, int saveMillis, int fromYear, int toYear, char mode, int monthOfYear, int dayOfMonth, int dayOfWeek, boolean advanceDayOfWeek, int millisOfDay) {\n    if (fromYear \u003c\u003d toYear) {\n        OfYear ofYear \u003d new OfYear(mode, monthOfYear, dayOfMonth, dayOfWeek, advanceDayOfWeek, millisOfDay);\n        Recurrence recurrence \u003d new Recurrence(ofYear, nameKey, saveMillis);\n        Rule rule \u003d new Rule(recurrence, fromYear, toYear);\n        getLastRuleSet().addRule(rule);\n    }\n    return this;\n}",
+      "path": "src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+      "functionStartLine": 300,
+      "functionName": "addRecurringSavings",
+      "functionAnnotation": "",
+      "functionDoc": "Add a recurring daylight saving time rule.\n\n@param nameKey the name key of new rule\n@param saveMillis the milliseconds to add to standard offset\n@param fromYear the first year that rule is in effect, MIN_VALUE indicates\nbeginning of time\n@param toYear the last year (inclusive) that rule is in effect, MAX_VALUE\n indicates end of time\n@param mode \u0027u\u0027 - transitions are calculated against UTC, \u0027w\u0027 -\n transitions are calculated against wall offset, \u0027s\u0027 - transitions are\n calculated against standard offset\n@param monthOfYear the month from 1 (January) to 12 (December)\n@param dayOfMonth if negative, set to ((last day of month) - ~dayOfMonth).\n For example, if -1, set to last day of month\n@param dayOfWeek from 1 (Monday) to 7 (Sunday), if 0 then ignore\n@param advanceDayOfWeek if dayOfMonth does not fall on dayOfWeek, advance to\n dayOfWeek when true, retreat when false.\n@param millisOfDay additional precision for specifying time of day of transitions\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+        "newPath": "src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public DateTimeZoneBuilder addRecurringSavings(String nameKey, int saveMillis, int fromYear, int toYear, char mode, int monthOfYear, int dayOfMonth, int dayOfWeek, boolean advanceDayOfWeek, int millisOfDay) {\n    if (fromYear \u003c\u003d toYear) {\n        OfYear ofYear \u003d new OfYear(mode, monthOfYear, dayOfMonth, dayOfWeek, advanceDayOfWeek, millisOfDay);\n        Recurrence recurrence \u003d new Recurrence(ofYear, nameKey, saveMillis);\n        Rule rule \u003d new Rule(recurrence, fromYear, toYear);\n        getLastRuleSet().addRule(rule);\n    }\n    return this;\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+      "functionStartLine": 300,
+      "functionName": "addRecurringSavings",
+      "functionAnnotation": "",
+      "functionDoc": "Add a recurring daylight saving time rule.\n\n@param nameKey the name key of new rule\n@param saveMillis the milliseconds to add to standard offset\n@param fromYear the first year that rule is in effect, MIN_VALUE indicates\nbeginning of time\n@param toYear the last year (inclusive) that rule is in effect, MAX_VALUE\n indicates end of time\n@param mode \u0027u\u0027 - transitions are calculated against UTC, \u0027w\u0027 -\n transitions are calculated against wall offset, \u0027s\u0027 - transitions are\n calculated against standard offset\n@param monthOfYear the month from 1 (January) to 12 (December)\n@param dayOfMonth if negative, set to ((last day of month) - ~dayOfMonth).\n For example, if -1, set to last day of month\n@param dayOfWeek from 1 (Monday) to 7 (Sunday), if 0 then ignore\n@param advanceDayOfWeek if dayOfMonth does not fall on dayOfWeek, advance to\n dayOfWeek when true, retreat when false.\n@param millisOfDay additional precision for specifying time of day of transitions\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java"
+      }
+    },
+    "6cd3a18f8cb3c907107017849ab1ac3b88e43fb5": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1396 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/13/09, 4:26 PM",
+      "commitName": "6cd3a18f8cb3c907107017849ab1ac3b88e43fb5",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "3/26/09, 7:35 AM",
+      "commitNameOld": "aa8986650e3820e03af178de7f69def85d780b64",
+      "commitAuthorOld": "Brian S O\u0027Neill",
+      "daysBetweenCommits": 140.37,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public DateTimeZoneBuilder addRecurringSavings(String nameKey, int saveMillis, int fromYear, int toYear, char mode, int monthOfYear, int dayOfMonth, int dayOfWeek, boolean advanceDayOfWeek, int millisOfDay) {\n    if (fromYear \u003c\u003d toYear) {\n        OfYear ofYear \u003d new OfYear(mode, monthOfYear, dayOfMonth, dayOfWeek, advanceDayOfWeek, millisOfDay);\n        Recurrence recurrence \u003d new Recurrence(ofYear, nameKey, saveMillis);\n        Rule rule \u003d new Rule(recurrence, fromYear, toYear);\n        getLastRuleSet().addRule(rule);\n    }\n    return this;\n}",
+      "path": "JodaTime/src/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+      "functionStartLine": 300,
+      "functionName": "addRecurringSavings",
+      "functionAnnotation": "",
+      "functionDoc": "Add a recurring daylight saving time rule.\n\n@param nameKey the name key of new rule\n@param saveMillis the milliseconds to add to standard offset\n@param fromYear the first year that rule is in effect, MIN_VALUE indicates\nbeginning of time\n@param toYear the last year (inclusive) that rule is in effect, MAX_VALUE\n indicates end of time\n@param mode \u0027u\u0027 - transitions are calculated against UTC, \u0027w\u0027 -\n transitions are calculated against wall offset, \u0027s\u0027 - transitions are\n calculated against standard offset\n@param monthOfYear the month from 1 (January) to 12 (December)\n@param dayOfMonth if negative, set to ((last day of month) - ~dayOfMonth).\n For example, if -1, set to last day of month\n@param dayOfWeek from 1 (Monday) to 7 (Sunday), if 0 then ignore\n@param advanceDayOfWeek if dayOfMonth does not fall on dayOfWeek, advance to\n dayOfWeek when true, retreat when false.\n@param millisOfDay additional precision for specifying time of day of transitions\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Add a recurring daylight saving time rule.\n\n@param nameKey name key of new rule\n@param saveMillis milliseconds to add to standard offset\n@param fromYear First year that rule is in effect. MIN_VALUE indicates\nbeginning of time.\n@param toYear Last year (inclusive) that rule is in effect. MAX_VALUE\nindicates end of time.\n@param mode \u0027u\u0027 - transitions are calculated against UTC, \u0027w\u0027 -\ntransitions are calculated against wall offset, \u0027s\u0027 - transitions are\ncalculated against standard offset.\n@param dayOfMonth if negative, set to ((last day of month) - ~dayOfMonth).\nFor example, if -1, set to last day of month\n@param dayOfWeek if 0, ignore\n@param advanceDayOfWeek if dayOfMonth does not fall on dayOfWeek, advance to\ndayOfWeek when true, retreat when false.\n@param millisOfDay additional precision for specifying time of day of\ntransitions\n",
+        "newValue": "Add a recurring daylight saving time rule.\n\n@param nameKey the name key of new rule\n@param saveMillis the milliseconds to add to standard offset\n@param fromYear the first year that rule is in effect, MIN_VALUE indicates\nbeginning of time\n@param toYear the last year (inclusive) that rule is in effect, MAX_VALUE\n indicates end of time\n@param mode \u0027u\u0027 - transitions are calculated against UTC, \u0027w\u0027 -\n transitions are calculated against wall offset, \u0027s\u0027 - transitions are\n calculated against standard offset\n@param monthOfYear the month from 1 (January) to 12 (December)\n@param dayOfMonth if negative, set to ((last day of month) - ~dayOfMonth).\n For example, if -1, set to last day of month\n@param dayOfWeek from 1 (Monday) to 7 (Sunday), if 0 then ignore\n@param advanceDayOfWeek if dayOfMonth does not fall on dayOfWeek, advance to\n dayOfWeek when true, retreat when false.\n@param millisOfDay additional precision for specifying time of day of transitions\n"
+      }
+    },
+    "7fe68f297f7c372b515fde7f0bc8d721ec257ceb": {
+      "type": "Yintroduced",
+      "commitMessage": "Move version 0.9 to joda-time repository\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@4 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "12/16/03, 1:39 PM",
+      "commitName": "7fe68f297f7c372b515fde7f0bc8d721ec257ceb",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,9 @@\n+public DateTimeZoneBuilder addRecurringSavings(String nameKey, int saveMillis, int fromYear, int toYear, char mode, int monthOfYear, int dayOfMonth, int dayOfWeek, boolean advanceDayOfWeek, int millisOfDay) {\n+    if (fromYear \u003c\u003d toYear) {\n+        OfYear ofYear \u003d new OfYear(mode, monthOfYear, dayOfMonth, dayOfWeek, advanceDayOfWeek, millisOfDay);\n+        Recurrence recurrence \u003d new Recurrence(ofYear, nameKey, saveMillis);\n+        Rule rule \u003d new Rule(recurrence, fromYear, toYear);\n+        getLastRuleSet().addRule(rule);\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public DateTimeZoneBuilder addRecurringSavings(String nameKey, int saveMillis, int fromYear, int toYear, char mode, int monthOfYear, int dayOfMonth, int dayOfWeek, boolean advanceDayOfWeek, int millisOfDay) {\n    if (fromYear \u003c\u003d toYear) {\n        OfYear ofYear \u003d new OfYear(mode, monthOfYear, dayOfMonth, dayOfWeek, advanceDayOfWeek, millisOfDay);\n        Recurrence recurrence \u003d new Recurrence(ofYear, nameKey, saveMillis);\n        Rule rule \u003d new Rule(recurrence, fromYear, toYear);\n        getLastRuleSet().addRule(rule);\n    }\n    return this;\n}",
+      "path": "JodaTime/src/java/org/joda/time/tz/DateTimeZoneBuilder.java",
+      "functionStartLine": 297,
+      "functionName": "addRecurringSavings",
+      "functionAnnotation": "",
+      "functionDoc": "Add a recurring daylight saving time rule.\n\n@param nameKey name key of new rule\n@param saveMillis milliseconds to add to standard offset\n@param fromYear First year that rule is in effect. MIN_VALUE indicates\nbeginning of time.\n@param toYear Last year (inclusive) that rule is in effect. MAX_VALUE\nindicates end of time.\n@param mode \u0027u\u0027 - transitions are calculated against UTC, \u0027w\u0027 -\ntransitions are calculated against wall offset, \u0027s\u0027 - transitions are\ncalculated against standard offset.\n@param dayOfMonth if negative, set to ((last day of month) - ~dayOfMonth).\nFor example, if -1, set to last day of month\n@param dayOfWeek if 0, ignore\n@param advanceDayOfWeek if dayOfMonth does not fall on dayOfWeek, advance to\ndayOfWeek when true, retreat when false.\n@param millisOfDay additional precision for specifying time of day of\ntransitions\n"
+    }
+  }
+}

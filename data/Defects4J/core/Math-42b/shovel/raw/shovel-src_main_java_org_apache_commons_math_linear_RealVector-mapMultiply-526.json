@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-42b",
+  "repositoryPath": "/tmp/Math-42b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RealVector.java",
+  "functionName": "mapMultiply",
+  "functionId": "mapMultiply___d-double",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/linear/RealVector.java",
+  "functionAnnotation": "",
+  "functionDoc": "Multiply each entry by the argument. Returns a new vector.\nDoes not change instance data.\n\n@param d Multiplication factor.\n@return @code this} * {@code d}.\n",
+  "functionStartLine": 526,
+  "functionEndLine": 528,
+  "numCommitsSeen": 62,
+  "timeTaken": 3944,
+  "changeHistory": [
+    "ed400a85341cb4b26cdd9f5339231c3862fef77d",
+    "26ca02d94e85f6e6b8c9db96c0411b901d6c89fc"
+  ],
+  "changeHistoryShort": {
+    "ed400a85341cb4b26cdd9f5339231c3862fef77d": "Ymultichange(Ymovefromfile,Ybodychange,Yannotationchange)",
+    "26ca02d94e85f6e6b8c9db96c0411b901d6c89fc": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ed400a85341cb4b26cdd9f5339231c3862fef77d": {
+      "type": "Ymultichange(Ymovefromfile,Ybodychange,Yannotationchange)",
+      "commitMessage": "MATH-653\nRenamed \"AbstracRealVector\" to \"RealVector\" (getting rid of the \"interface\").\nChanged \"SparseRealVector\" from \"interface\" to \"abstract\" class.\nModified subclasses (\"extends\" instead of \"implements\") and unit test name\n(\"RealVectorTest\" instead of \"AbstractRealVectorTest\") accordingly.\nSlightly modified \"UnmodifiableRealVectorAbstractTest\" to exclude methods\nthat are now inherited from \"Object\".\nChanged unmodifiable vector view from a static inner class to an anonymous\nclass.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1162511 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/28/11, 5:58 AM",
+      "commitName": "ed400a85341cb4b26cdd9f5339231c3862fef77d",
+      "commitAuthor": "Gilles Sadowski",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "MATH-653\nRenamed \"AbstracRealVector\" to \"RealVector\" (getting rid of the \"interface\").\nChanged \"SparseRealVector\" from \"interface\" to \"abstract\" class.\nModified subclasses (\"extends\" instead of \"implements\") and unit test name\n(\"RealVectorTest\" instead of \"AbstractRealVectorTest\") accordingly.\nSlightly modified \"UnmodifiableRealVectorAbstractTest\" to exclude methods\nthat are now inherited from \"Object\".\nChanged unmodifiable vector view from a static inner class to an anonymous\nclass.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1162511 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/28/11, 5:58 AM",
+          "commitName": "ed400a85341cb4b26cdd9f5339231c3862fef77d",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "8/27/11, 10:52 AM",
+          "commitNameOld": "1d852c13d96a9e4df3706a3cdcb33305a459204d",
+          "commitAuthorOld": "Greg Sterijevski",
+          "daysBetweenCommits": 0.8,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic RealVector mapMultiply(double d) {\n    return v.mapMultiply(d);\n}",
+          "path": "src/main/java/org/apache/commons/math/linear/RealVector.java",
+          "functionStartLine": 1275,
+          "functionName": "mapMultiply",
+          "functionAnnotation": "@Override",
+          "functionDoc": "@inheritDoc}\n",
+          "diff": "@@ -1,3 +1,4 @@\n+@Override\n public RealVector mapMultiply(double d) {\n-    return copy().mapMultiplyToSelf(d);\n+    return v.mapMultiply(d);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/org/apache/commons/math/linear/AbstractRealVector.java",
+            "newPath": "src/main/java/org/apache/commons/math/linear/RealVector.java",
+            "oldMethodName": "mapMultiply",
+            "newMethodName": "mapMultiply"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "MATH-653\nRenamed \"AbstracRealVector\" to \"RealVector\" (getting rid of the \"interface\").\nChanged \"SparseRealVector\" from \"interface\" to \"abstract\" class.\nModified subclasses (\"extends\" instead of \"implements\") and unit test name\n(\"RealVectorTest\" instead of \"AbstractRealVectorTest\") accordingly.\nSlightly modified \"UnmodifiableRealVectorAbstractTest\" to exclude methods\nthat are now inherited from \"Object\".\nChanged unmodifiable vector view from a static inner class to an anonymous\nclass.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1162511 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/28/11, 5:58 AM",
+          "commitName": "ed400a85341cb4b26cdd9f5339231c3862fef77d",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "8/27/11, 10:52 AM",
+          "commitNameOld": "1d852c13d96a9e4df3706a3cdcb33305a459204d",
+          "commitAuthorOld": "Greg Sterijevski",
+          "daysBetweenCommits": 0.8,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic RealVector mapMultiply(double d) {\n    return v.mapMultiply(d);\n}",
+          "path": "src/main/java/org/apache/commons/math/linear/RealVector.java",
+          "functionStartLine": 1275,
+          "functionName": "mapMultiply",
+          "functionAnnotation": "@Override",
+          "functionDoc": "@inheritDoc}\n",
+          "diff": "@@ -1,3 +1,4 @@\n+@Override\n public RealVector mapMultiply(double d) {\n-    return copy().mapMultiplyToSelf(d);\n+    return v.mapMultiply(d);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "MATH-653\nRenamed \"AbstracRealVector\" to \"RealVector\" (getting rid of the \"interface\").\nChanged \"SparseRealVector\" from \"interface\" to \"abstract\" class.\nModified subclasses (\"extends\" instead of \"implements\") and unit test name\n(\"RealVectorTest\" instead of \"AbstractRealVectorTest\") accordingly.\nSlightly modified \"UnmodifiableRealVectorAbstractTest\" to exclude methods\nthat are now inherited from \"Object\".\nChanged unmodifiable vector view from a static inner class to an anonymous\nclass.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1162511 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/28/11, 5:58 AM",
+          "commitName": "ed400a85341cb4b26cdd9f5339231c3862fef77d",
+          "commitAuthor": "Gilles Sadowski",
+          "commitDateOld": "8/27/11, 10:52 AM",
+          "commitNameOld": "1d852c13d96a9e4df3706a3cdcb33305a459204d",
+          "commitAuthorOld": "Greg Sterijevski",
+          "daysBetweenCommits": 0.8,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic RealVector mapMultiply(double d) {\n    return v.mapMultiply(d);\n}",
+          "path": "src/main/java/org/apache/commons/math/linear/RealVector.java",
+          "functionStartLine": 1275,
+          "functionName": "mapMultiply",
+          "functionAnnotation": "@Override",
+          "functionDoc": "@inheritDoc}\n",
+          "diff": "@@ -1,3 +1,4 @@\n+@Override\n public RealVector mapMultiply(double d) {\n-    return copy().mapMultiplyToSelf(d);\n+    return v.mapMultiply(d);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "@Override"
+          }
+        }
+      ]
+    },
+    "26ca02d94e85f6e6b8c9db96c0411b901d6c89fc": {
+      "type": "Yintroduced",
+      "commitMessage": "Added mapping and iteration methods to vectors.\nProvided a default implementation for the numerous simple methods in the RealVectorInterface.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@889008 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/9/09, 2:56 PM",
+      "commitName": "26ca02d94e85f6e6b8c9db96c0411b901d6c89fc",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,3 @@\n+public RealVector mapMultiply(double d) {\n+    return copy().mapMultiplyToSelf(d);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public RealVector mapMultiply(double d) {\n    return copy().mapMultiplyToSelf(d);\n}",
+      "path": "src/main/java/org/apache/commons/math/linear/AbstractRealVector.java",
+      "functionStartLine": 475,
+      "functionName": "mapMultiply",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n"
+    }
+  }
+}

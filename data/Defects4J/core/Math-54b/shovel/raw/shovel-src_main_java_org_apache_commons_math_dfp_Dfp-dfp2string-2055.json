@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-54b",
+  "repositoryPath": "/tmp/Math-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "dfp2string",
+  "functionId": "dfp2string",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+  "functionAnnotation": "",
+  "functionDoc": "Convert an instance to a string using normal notation.\n\n@return string representation of the instance in normal notation\n",
+  "functionStartLine": 2055,
+  "functionEndLine": 2123,
+  "numCommitsSeen": 4,
+  "timeTaken": 825,
+  "changeHistory": [
+    "d9e166919799da84dad85c844bfb61f85310778b",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "d9e166919799da84dad85c844bfb61f85310778b": "Ydocchange",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d9e166919799da84dad85c844bfb61f85310778b": {
+      "type": "Ydocchange",
+      "commitMessage": "fixed javadoc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992862 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/5/10, 12:08 PM",
+      "commitName": "d9e166919799da84dad85c844bfb61f85310778b",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "9/4/10, 3:59 PM",
+      "commitNameOld": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 0.84,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected String dfp2string() {\n    char[] buffer \u003d new char[mant.length * 4 + 20];\n    int p \u003d 1;\n    int q;\n    int e \u003d exp;\n    boolean pointInserted \u003d false;\n    buffer[0] \u003d \u0027 \u0027;\n    if (e \u003c\u003d 0) {\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u0027.\u0027;\n        pointInserted \u003d true;\n    }\n    while (e \u003c 0) {\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        e++;\n    }\n    for (int i \u003d mant.length - 1; i \u003e\u003d 0; i--) {\n        buffer[p++] \u003d (char) ((mant[i] / 1000) + \u00270\u0027);\n        buffer[p++] \u003d (char) (((mant[i] / 100) % 10) + \u00270\u0027);\n        buffer[p++] \u003d (char) (((mant[i] / 10) % 10) + \u00270\u0027);\n        buffer[p++] \u003d (char) (((mant[i]) % 10) + \u00270\u0027);\n        if (--e \u003d\u003d 0) {\n            buffer[p++] \u003d \u0027.\u0027;\n            pointInserted \u003d true;\n        }\n    }\n    while (e \u003e 0) {\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        e--;\n    }\n    if (!pointInserted) {\n        buffer[p++] \u003d \u0027.\u0027;\n    }\n    q \u003d 1;\n    while (buffer[q] \u003d\u003d \u00270\u0027) {\n        q++;\n    }\n    if (buffer[q] \u003d\u003d \u0027.\u0027) {\n        q--;\n    }\n    while (buffer[p - 1] \u003d\u003d \u00270\u0027) {\n        p--;\n    }\n    if (sign \u003c 0) {\n        buffer[--q] \u003d \u0027-\u0027;\n    }\n    return new String(buffer, q, p - q);\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 2054,
+      "functionName": "dfp2string",
+      "functionAnnotation": "",
+      "functionDoc": "Convert an instance to a string using normal notation.\n\n@return string representation of the instance in normal notation\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Convert an instance to a string using normal notation.\n\n@param a instance to convert\n@return string representation of the instance in normal notation\n",
+        "newValue": "Convert an instance to a string using normal notation.\n\n@return string representation of the instance in normal notation\n"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,54 @@\n+protected String dfp2string() {\n+    char[] buffer \u003d new char[mant.length * 4 + 20];\n+    int p \u003d 1;\n+    int q;\n+    int e \u003d exp;\n+    boolean pointInserted \u003d false;\n+    buffer[0] \u003d \u0027 \u0027;\n+    if (e \u003c\u003d 0) {\n+        buffer[p++] \u003d \u00270\u0027;\n+        buffer[p++] \u003d \u0027.\u0027;\n+        pointInserted \u003d true;\n+    }\n+    while (e \u003c 0) {\n+        buffer[p++] \u003d \u00270\u0027;\n+        buffer[p++] \u003d \u00270\u0027;\n+        buffer[p++] \u003d \u00270\u0027;\n+        buffer[p++] \u003d \u00270\u0027;\n+        e++;\n+    }\n+    for (int i \u003d mant.length - 1; i \u003e\u003d 0; i--) {\n+        buffer[p++] \u003d (char) ((mant[i] / 1000) + \u00270\u0027);\n+        buffer[p++] \u003d (char) (((mant[i] / 100) % 10) + \u00270\u0027);\n+        buffer[p++] \u003d (char) (((mant[i] / 10) % 10) + \u00270\u0027);\n+        buffer[p++] \u003d (char) (((mant[i]) % 10) + \u00270\u0027);\n+        if (--e \u003d\u003d 0) {\n+            buffer[p++] \u003d \u0027.\u0027;\n+            pointInserted \u003d true;\n+        }\n+    }\n+    while (e \u003e 0) {\n+        buffer[p++] \u003d \u00270\u0027;\n+        buffer[p++] \u003d \u00270\u0027;\n+        buffer[p++] \u003d \u00270\u0027;\n+        buffer[p++] \u003d \u00270\u0027;\n+        e--;\n+    }\n+    if (!pointInserted) {\n+        buffer[p++] \u003d \u0027.\u0027;\n+    }\n+    q \u003d 1;\n+    while (buffer[q] \u003d\u003d \u00270\u0027) {\n+        q++;\n+    }\n+    if (buffer[q] \u003d\u003d \u0027.\u0027) {\n+        q--;\n+    }\n+    while (buffer[p - 1] \u003d\u003d \u00270\u0027) {\n+        p--;\n+    }\n+    if (sign \u003c 0) {\n+        buffer[--q] \u003d \u0027-\u0027;\n+    }\n+    return new String(buffer, q, p - q);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected String dfp2string() {\n    char[] buffer \u003d new char[mant.length * 4 + 20];\n    int p \u003d 1;\n    int q;\n    int e \u003d exp;\n    boolean pointInserted \u003d false;\n    buffer[0] \u003d \u0027 \u0027;\n    if (e \u003c\u003d 0) {\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u0027.\u0027;\n        pointInserted \u003d true;\n    }\n    while (e \u003c 0) {\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        e++;\n    }\n    for (int i \u003d mant.length - 1; i \u003e\u003d 0; i--) {\n        buffer[p++] \u003d (char) ((mant[i] / 1000) + \u00270\u0027);\n        buffer[p++] \u003d (char) (((mant[i] / 100) % 10) + \u00270\u0027);\n        buffer[p++] \u003d (char) (((mant[i] / 10) % 10) + \u00270\u0027);\n        buffer[p++] \u003d (char) (((mant[i]) % 10) + \u00270\u0027);\n        if (--e \u003d\u003d 0) {\n            buffer[p++] \u003d \u0027.\u0027;\n            pointInserted \u003d true;\n        }\n    }\n    while (e \u003e 0) {\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        buffer[p++] \u003d \u00270\u0027;\n        e--;\n    }\n    if (!pointInserted) {\n        buffer[p++] \u003d \u0027.\u0027;\n    }\n    q \u003d 1;\n    while (buffer[q] \u003d\u003d \u00270\u0027) {\n        q++;\n    }\n    if (buffer[q] \u003d\u003d \u0027.\u0027) {\n        q--;\n    }\n    while (buffer[p - 1] \u003d\u003d \u00270\u0027) {\n        p--;\n    }\n    if (sign \u003c 0) {\n        buffer[--q] \u003d \u0027-\u0027;\n    }\n    return new String(buffer, q, p - q);\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 2056,
+      "functionName": "dfp2string",
+      "functionAnnotation": "",
+      "functionDoc": "Convert an instance to a string using normal notation.\n\n@param a instance to convert\n@return string representation of the instance in normal notation\n"
+    }
+  }
+}

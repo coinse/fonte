@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "initInputsByNameMap",
+  "functionId": "initInputsByNameMap",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates a map to make looking up an input by name fast. Also checks for\nduplicate inputs.\n",
+  "functionStartLine": 455,
+  "functionEndLine": 473,
+  "numCommitsSeen": 95,
+  "timeTaken": 6037,
+  "changeHistory": [
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": {
+      "type": "Ybodychange",
+      "commitMessage": "fix silly 2004-era naming conventions (Nick)\nR\u003djohn\nDELTA\u003d134  (0 added, 0 deleted, 134 changed)\n\nInsert a place holder file for any empty modules. (Alan)\nR\u003dnick\nDELTA\u003d53  (46 added, 6 deleted, 1 changed)\n\nMaps API extern update.\n(Contributed by Chad Killingsworth)\nFixes issue 121\nDELTA\u003d86  (48 added, 16 deleted, 22 changed)\n\n\nGoogle Loader API externs.\n(Contributed by Chad Killingsworth)\nFixes issue 126\nDELTA\u003d54  (54 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@149 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/10, 10:51 PM",
+      "commitName": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/22/10, 3:55 PM",
+      "commitNameOld": "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.29,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void initInputsByNameMap() {\n    inputsByName \u003d new HashMap\u003cString, CompilerInput\u003e();\n    for (CompilerInput input : externs) {\n        String name \u003d input.getName();\n        if (!inputsByName.containsKey(name)) {\n            inputsByName.put(name, input);\n        } else {\n            report(JSError.make(DUPLICATE_EXTERN_INPUT, name));\n        }\n    }\n    for (CompilerInput input : inputs) {\n        String name \u003d input.getName();\n        if (!inputsByName.containsKey(name)) {\n            inputsByName.put(name, input);\n        } else {\n            report(JSError.make(DUPLICATE_INPUT, name));\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 392,
+      "functionName": "initInputsByNameMap",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a map to make looking up an input by name fast. Also checks for\nduplicate inputs.\n",
+      "diff": "@@ -1,19 +1,19 @@\n void initInputsByNameMap() {\n-    inputsByName_ \u003d new HashMap\u003cString, CompilerInput\u003e();\n-    for (CompilerInput input : externs_) {\n+    inputsByName \u003d new HashMap\u003cString, CompilerInput\u003e();\n+    for (CompilerInput input : externs) {\n         String name \u003d input.getName();\n-        if (!inputsByName_.containsKey(name)) {\n-            inputsByName_.put(name, input);\n+        if (!inputsByName.containsKey(name)) {\n+            inputsByName.put(name, input);\n         } else {\n             report(JSError.make(DUPLICATE_EXTERN_INPUT, name));\n         }\n     }\n-    for (CompilerInput input : inputs_) {\n+    for (CompilerInput input : inputs) {\n         String name \u003d input.getName();\n-        if (!inputsByName_.containsKey(name)) {\n-            inputsByName_.put(name, input);\n+        if (!inputsByName.containsKey(name)) {\n+            inputsByName.put(name, input);\n         } else {\n             report(JSError.make(DUPLICATE_INPUT, name));\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,19 @@\n+void initInputsByNameMap() {\n+    inputsByName_ \u003d new HashMap\u003cString, CompilerInput\u003e();\n+    for (CompilerInput input : externs_) {\n+        String name \u003d input.getName();\n+        if (!inputsByName_.containsKey(name)) {\n+            inputsByName_.put(name, input);\n+        } else {\n+            report(JSError.make(DUPLICATE_EXTERN_INPUT, name));\n+        }\n+    }\n+    for (CompilerInput input : inputs_) {\n+        String name \u003d input.getName();\n+        if (!inputsByName_.containsKey(name)) {\n+            inputsByName_.put(name, input);\n+        } else {\n+            report(JSError.make(DUPLICATE_INPUT, name));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void initInputsByNameMap() {\n    inputsByName_ \u003d new HashMap\u003cString, CompilerInput\u003e();\n    for (CompilerInput input : externs_) {\n        String name \u003d input.getName();\n        if (!inputsByName_.containsKey(name)) {\n            inputsByName_.put(name, input);\n        } else {\n            report(JSError.make(DUPLICATE_EXTERN_INPUT, name));\n        }\n    }\n    for (CompilerInput input : inputs_) {\n        String name \u003d input.getName();\n        if (!inputsByName_.containsKey(name)) {\n            inputsByName_.put(name, input);\n        } else {\n            report(JSError.make(DUPLICATE_INPUT, name));\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 379,
+      "functionName": "initInputsByNameMap",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a map to make looking up an input by name fast. Also checks for\nduplicate inputs.\n"
+    }
+  }
+}

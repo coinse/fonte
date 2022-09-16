@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-121b",
+  "repositoryPath": "/tmp/Closure-121b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReferenceCollectingCallback.java",
+  "functionName": "isNeverAssigned",
+  "functionId": "$isNeverAssigned",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the variable is never assigned a value.\n",
+  "functionStartLine": 463,
+  "functionEndLine": 472,
+  "numCommitsSeen": 33,
+  "timeTaken": 2924,
+  "changeHistory": [
+    "bca9abb0e3062d373fe52c0e8340337588c05708"
+  ],
+  "changeHistoryShort": {
+    "bca9abb0e3062d373fe52c0e8340337588c05708": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bca9abb0e3062d373fe52c0e8340337588c05708": {
+      "type": "Yintroduced",
+      "commitMessage": "Make sure that InlineVariables can inline variables that are never defined.\n\nCreate a function-inlining blacklist.\n\nSome minor type inference fixes.\n\nStart re-architecting type resolution to happen differently.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@77 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/26/10, 1:59 PM",
+      "commitName": "bca9abb0e3062d373fe52c0e8340337588c05708",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,10 @@\n+boolean isNeverAssigned() {\n+    int size \u003d references.size();\n+    for (int i \u003d 0; i \u003c size; i++) {\n+        Reference ref \u003d references.get(i);\n+        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n+            return false;\n+        }\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean isNeverAssigned() {\n    int size \u003d references.size();\n    for (int i \u003d 0; i \u003c size; i++) {\n        Reference ref \u003d references.get(i);\n        if (ref.isLvalue() || ref.isInitializingDeclaration()) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 357,
+      "functionName": "isNeverAssigned",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the variable is never assigned a value.\n"
+    }
+  }
+}

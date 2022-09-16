@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "append",
+  "functionId": "$append___str-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "Appends the given string to the text buffer.\n",
+  "functionStartLine": 1535,
+  "functionEndLine": 1554,
+  "numCommitsSeen": 95,
+  "timeTaken": 5892,
+  "changeHistory": [
+    "ad757409572dcd9f8c47a37aa6af9b2cc42d2fa9",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "ad757409572dcd9f8c47a37aa6af9b2cc42d2fa9": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ad757409572dcd9f8c47a37aa6af9b2cc42d2fa9": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix source map generation when used with the module set interface.\n- allow the generation of empty source maps\n- maintain source column information when a CodeBuilder is \"reset\".\n\nR\u003dchrisn\nDELTA\u003d107  (97 added, 6 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d89003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@328 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/4/10, 12:48 PM",
+      "commitName": "ad757409572dcd9f8c47a37aa6af9b2cc42d2fa9",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "7/7/10, 3:14 PM",
+      "commitNameOld": "35d56dd1fadec0ed50797d222de4e05f78bbf1c9",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 27.9,
+      "commitsBetweenForRepo": 62,
+      "commitsBetweenForFile": 1,
+      "actualSource": "CodeBuilder append(String str) {\n    sb.append(str);\n    int index \u003d -1;\n    int lastIndex \u003d index;\n    while ((index \u003d str.indexOf(\u0027\\n\u0027, index + 1)) \u003e\u003d 0) {\n        ++lineCount;\n        lastIndex \u003d index;\n    }\n    if (lastIndex \u003d\u003d -1) {\n        colCount +\u003d str.length();\n    } else {\n        colCount \u003d str.length() - (lastIndex + 1);\n    }\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1378,
+      "functionName": "append",
+      "functionAnnotation": "",
+      "functionDoc": "Appends the given string to the text buffer.\n",
+      "diff": "@@ -1,8 +1,15 @@\n CodeBuilder append(String str) {\n     sb.append(str);\n     int index \u003d -1;\n+    int lastIndex \u003d index;\n     while ((index \u003d str.indexOf(\u0027\\n\u0027, index + 1)) \u003e\u003d 0) {\n         ++lineCount;\n+        lastIndex \u003d index;\n+    }\n+    if (lastIndex \u003d\u003d -1) {\n+        colCount +\u003d str.length();\n+    } else {\n+        colCount \u003d str.length() - (lastIndex + 1);\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,8 @@\n+CodeBuilder append(String str) {\n+    sb.append(str);\n+    int index \u003d -1;\n+    while ((index \u003d str.indexOf(\u0027\\n\u0027, index + 1)) \u003e\u003d 0) {\n+        ++lineCount;\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "CodeBuilder append(String str) {\n    sb.append(str);\n    int index \u003d -1;\n    while ((index \u003d str.indexOf(\u0027\\n\u0027, index + 1)) \u003e\u003d 0) {\n        ++lineCount;\n    }\n    return this;\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1263,
+      "functionName": "append",
+      "functionAnnotation": "",
+      "functionDoc": "Appends the given string to the text buffer.\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-85b",
+  "repositoryPath": "/tmp/Closure-85b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsAst.java",
+  "functionName": "createAst",
+  "functionId": "createAst___compiler-AbstractCompiler",
+  "sourceFilePath": "src/com/google/javascript/jscomp/JsAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 75,
+  "functionEndLine": 82,
+  "numCommitsSeen": 11,
+  "timeTaken": 253,
+  "changeHistory": [
+    "3924ff1e4a236d68a0b5448d185537d90ca04419",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3924ff1e4a236d68a0b5448d185537d90ca04419": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3924ff1e4a236d68a0b5448d185537d90ca04419": {
+      "type": "Ybodychange",
+      "commitMessage": "Warn about all with statements, unless there\u0027s an explicit\n/** @suppress {with} */ tag\n\nRefactor a bunch of stuff into PassConfigs\n\nAdd a bunch of parser tests.\n\nUp-integrate John and Norris\u0027 latest changes to Rhino at trunk\n\nMinor type-tightening bug fixes.\n\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@18 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/2/09, 5:12 PM",
+      "commitName": "3924ff1e4a236d68a0b5448d185537d90ca04419",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "commitDateOld": "11/3/09, 3:51 PM",
+      "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 29.06,
+      "commitsBetweenForRepo": 16,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void createAst(AbstractCompiler compiler) {\n    try {\n        parse(compiler, sourceFile.getName(), sourceFile.getCode());\n    } catch (IOException e) {\n        compiler.report(JSError.make(AbstractCompiler.READ_ERROR, sourceFile.getName()));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/JsAst.java",
+      "functionStartLine": 76,
+      "functionName": "createAst",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,7 @@\n private void createAst(AbstractCompiler compiler) {\n     try {\n         parse(compiler, sourceFile.getName(), sourceFile.getCode());\n     } catch (IOException e) {\n-        compiler.report(JSError.make(Compiler.READ_ERROR, sourceFile.getName()));\n+        compiler.report(JSError.make(AbstractCompiler.READ_ERROR, sourceFile.getName()));\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+private void createAst(AbstractCompiler compiler) {\n+    try {\n+        parse(compiler, sourceFile.getName(), sourceFile.getCode());\n+    } catch (IOException e) {\n+        compiler.report(JSError.make(Compiler.READ_ERROR, sourceFile.getName()));\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void createAst(AbstractCompiler compiler) {\n    try {\n        parse(compiler, sourceFile.getName(), sourceFile.getCode());\n    } catch (IOException e) {\n        compiler.report(JSError.make(Compiler.READ_ERROR, sourceFile.getName()));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/JsAst.java",
+      "functionStartLine": 76,
+      "functionName": "createAst",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

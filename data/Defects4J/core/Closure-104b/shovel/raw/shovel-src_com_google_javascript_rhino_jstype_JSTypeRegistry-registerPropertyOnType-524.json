@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-104b",
+  "repositoryPath": "/tmp/Closure-104b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSTypeRegistry.java",
+  "functionName": "registerPropertyOnType",
+  "functionId": "registerPropertyOnType___propertyName-String__owner-ObjectType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "functionAnnotation": "",
+  "functionDoc": "Tells the type system that {@code owner} may have a property named\n{@code propertyName}. This allows the registry to keep track of what\ntypes a property is defined upon.\n\nThis is NOT the same as saying that {@code owner} must have a property\nnamed type. ObjectType#hasProperty attempts to minimize false positives\n(\"if we\u0027re not sure, then don\u0027t type check this property\"). The type\nregistry, on the other hand, should attempt to minimize false negatives\n(\"if this property is assigned anywhere in the program, it must\nshow up in the type registry\").\n",
+  "functionStartLine": 524,
+  "functionEndLine": 531,
+  "numCommitsSeen": 5,
+  "timeTaken": 541,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,8 @@\n+public void registerPropertyOnType(String propertyName, ObjectType owner) {\n+    Set\u003cObjectType\u003e typeSet \u003d typesIndexedByProperty.get(propertyName);\n+    if (typeSet \u003d\u003d null) {\n+        typesIndexedByProperty.put(propertyName, typeSet \u003d Sets.newHashSet());\n+    }\n+    greatestSubtypeByProperty.remove(propertyName);\n+    typeSet.add(owner);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void registerPropertyOnType(String propertyName, ObjectType owner) {\n    Set\u003cObjectType\u003e typeSet \u003d typesIndexedByProperty.get(propertyName);\n    if (typeSet \u003d\u003d null) {\n        typesIndexedByProperty.put(propertyName, typeSet \u003d Sets.newHashSet());\n    }\n    greatestSubtypeByProperty.remove(propertyName);\n    typeSet.add(owner);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+      "functionStartLine": 525,
+      "functionName": "registerPropertyOnType",
+      "functionAnnotation": "",
+      "functionDoc": "Tells the type system that {@code owner} may have a property named\n{@code propertyName}. This allows the registry to keep track of what\ntypes a property is defined upon.\n\nThis is NOT the same as saying that {@code owner} must have a property\nnamed type. ObjectType#hasProperty attempts to minimize false positives\n(\"if we\u0027re not sure, then don\u0027t type check this property\"). The type\nregistry, on the other hand, should attempt to minimize false negatives\n(\"if this property is assigned anywhere in the program, it must\nshow up in the type registry\").\n"
+    }
+  }
+}

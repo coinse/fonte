@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-6b",
+  "repositoryPath": "/tmp/Lang-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtils.java",
+  "functionName": "containsNone",
+  "functionId": "containsNone___cs-CharSequence__searchChars-char",
+  "sourceFilePath": "src/main/java/org/apache/commons/lang3/StringUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eChecks that the CharSequence does not contain certain characters.\u003c/p\u003e\n\n\u003cp\u003eA {@code null} CharSequence will return {@code true}.\nA {@code null} invalid character array will return {@code true}.\nAn empty CharSequence (length()\u003d0) always returns true.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.containsNone(null, *)       \u003d true\nStringUtils.containsNone(*, null)       \u003d true\nStringUtils.containsNone(\"\", *)         \u003d true\nStringUtils.containsNone(\"ab\", \u0027\u0027)      \u003d true\nStringUtils.containsNone(\"abab\", \u0027xyz\u0027) \u003d true\nStringUtils.containsNone(\"ab1\", \u0027xyz\u0027)  \u003d true\nStringUtils.containsNone(\"abz\", \u0027xyz\u0027)  \u003d false\n\u003c/pre\u003e\n\n@param cs the CharSequence to check, may be null\n@param searchChars an array of invalid chars, may be null\n@return true if it contains none of the invalid chars, or is null\n@since 2.0\n@since 3.0 Changed signature from containsNone(String, char[]) to containsNone(CharSequence, char...)\n",
+  "functionStartLine": 1736,
+  "functionEndLine": 1764,
+  "numCommitsSeen": 143,
+  "timeTaken": 8061,
+  "changeHistory": [
+    "fec5e47638aeb2860a604daa0f424a91dbd9a166"
+  ],
+  "changeHistoryShort": {
+    "fec5e47638aeb2860a604daa0f424a91dbd9a166": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fec5e47638aeb2860a604daa0f424a91dbd9a166": {
+      "type": "Yintroduced",
+      "commitMessage": "Rolling back accidental r1089306 commit\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@1089307 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/5/11, 10:36 PM",
+      "commitName": "fec5e47638aeb2860a604daa0f424a91dbd9a166",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,27 @@\n+public static boolean containsNone(CharSequence cs, char... searchChars) {\n+    if (cs \u003d\u003d null || searchChars \u003d\u003d null) {\n+        return true;\n+    }\n+    int csLen \u003d cs.length();\n+    int csLast \u003d csLen - 1;\n+    int searchLen \u003d searchChars.length;\n+    int searchLast \u003d searchLen - 1;\n+    for (int i \u003d 0; i \u003c csLen; i++) {\n+        char ch \u003d cs.charAt(i);\n+        for (int j \u003d 0; j \u003c searchLen; j++) {\n+            if (searchChars[j] \u003d\u003d ch) {\n+                if (Character.isHighSurrogate(ch)) {\n+                    if (j \u003d\u003d searchLast) {\n+                        return false;\n+                    }\n+                    if (i \u003c csLast \u0026\u0026 searchChars[j + 1] \u003d\u003d cs.charAt(i + 1)) {\n+                        return false;\n+                    }\n+                } else {\n+                    return false;\n+                }\n+            }\n+        }\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean containsNone(CharSequence cs, char... searchChars) {\n    if (cs \u003d\u003d null || searchChars \u003d\u003d null) {\n        return true;\n    }\n    int csLen \u003d cs.length();\n    int csLast \u003d csLen - 1;\n    int searchLen \u003d searchChars.length;\n    int searchLast \u003d searchLen - 1;\n    for (int i \u003d 0; i \u003c csLen; i++) {\n        char ch \u003d cs.charAt(i);\n        for (int j \u003d 0; j \u003c searchLen; j++) {\n            if (searchChars[j] \u003d\u003d ch) {\n                if (Character.isHighSurrogate(ch)) {\n                    if (j \u003d\u003d searchLast) {\n                        return false;\n                    }\n                    if (i \u003c csLast \u0026\u0026 searchChars[j + 1] \u003d\u003d cs.charAt(i + 1)) {\n                        return false;\n                    }\n                } else {\n                    return false;\n                }\n            }\n        }\n    }\n    return true;\n}",
+      "path": "src/main/java/org/apache/commons/lang3/StringUtils.java",
+      "functionStartLine": 1784,
+      "functionName": "containsNone",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eChecks that the CharSequence does not contain certain characters.\u003c/p\u003e\n\n\u003cp\u003eA {@code null} CharSequence will return {@code true}.\nA {@code null} invalid character array will return {@code true}.\nAn empty CharSequence (length()\u003d0) always returns true.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.containsNone(null, *)       \u003d true\nStringUtils.containsNone(*, null)       \u003d true\nStringUtils.containsNone(\"\", *)         \u003d true\nStringUtils.containsNone(\"ab\", \u0027\u0027)      \u003d true\nStringUtils.containsNone(\"abab\", \u0027xyz\u0027) \u003d true\nStringUtils.containsNone(\"ab1\", \u0027xyz\u0027)  \u003d true\nStringUtils.containsNone(\"abz\", \u0027xyz\u0027)  \u003d false\n\u003c/pre\u003e\n\n@param cs the CharSequence to check, may be null\n@param searchChars an array of invalid chars, may be null\n@return true if it contains none of the invalid chars, or is null\n@since 2.0\n@since 3.0 Changed signature from containsNone(String, char[]) to containsNone(CharSequence, char...)\n"
+    }
+  }
+}

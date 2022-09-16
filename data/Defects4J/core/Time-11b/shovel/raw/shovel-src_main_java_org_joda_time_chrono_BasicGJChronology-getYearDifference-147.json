@@ -1,0 +1,116 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-11b",
+  "repositoryPath": "/tmp/Time-11b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicGJChronology.java",
+  "functionName": "getYearDifference",
+  "functionId": "getYearDifference___minuendInstant-long__subtrahendInstant-long",
+  "sourceFilePath": "src/main/java/org/joda/time/chrono/BasicGJChronology.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 147,
+  "functionEndLine": 171,
+  "numCommitsSeen": 8,
+  "timeTaken": 960,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "b501bed838191e3fb64fca2eb3e62d0407861dc3",
+    "7b7cb44562d5942add1f093111e84a5836780de4"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "b501bed838191e3fb64fca2eb3e62d0407861dc3": "Yfilerename",
+    "7b7cb44562d5942add1f093111e84a5836780de4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "long getYearDifference(long minuendInstant, long subtrahendInstant) {\n    int minuendYear \u003d getYear(minuendInstant);\n    int subtrahendYear \u003d getYear(subtrahendInstant);\n    long minuendRem \u003d minuendInstant - getYearMillis(minuendYear);\n    long subtrahendRem \u003d subtrahendInstant - getYearMillis(subtrahendYear);\n    if (subtrahendRem \u003e\u003d FEB_29) {\n        if (isLeapYear(subtrahendYear)) {\n            if (!isLeapYear(minuendYear)) {\n                subtrahendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n            }\n        } else if (minuendRem \u003e\u003d FEB_29 \u0026\u0026 isLeapYear(minuendYear)) {\n            minuendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n        }\n    }\n    int difference \u003d minuendYear - subtrahendYear;\n    if (minuendRem \u003c subtrahendRem) {\n        difference--;\n    }\n    return difference;\n}",
+      "path": "src/main/java/org/joda/time/chrono/BasicGJChronology.java",
+      "functionStartLine": 147,
+      "functionName": "getYearDifference",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/chrono/BasicGJChronology.java",
+        "newPath": "src/main/java/org/joda/time/chrono/BasicGJChronology.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "long getYearDifference(long minuendInstant, long subtrahendInstant) {\n    int minuendYear \u003d getYear(minuendInstant);\n    int subtrahendYear \u003d getYear(subtrahendInstant);\n    long minuendRem \u003d minuendInstant - getYearMillis(minuendYear);\n    long subtrahendRem \u003d subtrahendInstant - getYearMillis(subtrahendYear);\n    if (subtrahendRem \u003e\u003d FEB_29) {\n        if (isLeapYear(subtrahendYear)) {\n            if (!isLeapYear(minuendYear)) {\n                subtrahendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n            }\n        } else if (minuendRem \u003e\u003d FEB_29 \u0026\u0026 isLeapYear(minuendYear)) {\n            minuendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n        }\n    }\n    int difference \u003d minuendYear - subtrahendYear;\n    if (minuendRem \u003c subtrahendRem) {\n        difference--;\n    }\n    return difference;\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/chrono/BasicGJChronology.java",
+      "functionStartLine": 147,
+      "functionName": "getYearDifference",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/chrono/BasicGJChronology.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/chrono/BasicGJChronology.java"
+      }
+    },
+    "b501bed838191e3fb64fca2eb3e62d0407861dc3": {
+      "type": "Yfilerename",
+      "commitMessage": "Refactor abstract chronology classes to be package scoped and better named\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@928 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "11/2/05, 1:52 PM",
+      "commitName": "b501bed838191e3fb64fca2eb3e62d0407861dc3",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "11/2/05, 9:26 AM",
+      "commitNameOld": "beec594614e14f83c57ca24414179de8f9b564ea",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.18,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "long getYearDifference(long minuendInstant, long subtrahendInstant) {\n    int minuendYear \u003d getYear(minuendInstant);\n    int subtrahendYear \u003d getYear(subtrahendInstant);\n    long minuendRem \u003d minuendInstant - getYearMillis(minuendYear);\n    long subtrahendRem \u003d subtrahendInstant - getYearMillis(subtrahendYear);\n    if (subtrahendRem \u003e\u003d FEB_29) {\n        if (isLeapYear(subtrahendYear)) {\n            if (!isLeapYear(minuendYear)) {\n                subtrahendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n            }\n        } else if (minuendRem \u003e\u003d FEB_29 \u0026\u0026 isLeapYear(minuendYear)) {\n            minuendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n        }\n    }\n    int difference \u003d minuendYear - subtrahendYear;\n    if (minuendRem \u003c subtrahendRem) {\n        difference--;\n    }\n    return difference;\n}",
+      "path": "JodaTime/src/java/org/joda/time/chrono/BasicGJChronology.java",
+      "functionStartLine": 157,
+      "functionName": "getYearDifference",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/chrono/CommonGJChronology.java",
+        "newPath": "JodaTime/src/java/org/joda/time/chrono/BasicGJChronology.java"
+      }
+    },
+    "7b7cb44562d5942add1f093111e84a5836780de4": {
+      "type": "Yintroduced",
+      "commitMessage": "Refactor chronology classes to avoid dupication in code\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@779 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "6/8/05, 3:57 PM",
+      "commitName": "7b7cb44562d5942add1f093111e84a5836780de4",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,20 @@\n+long getYearDifference(long minuendInstant, long subtrahendInstant) {\n+    int minuendYear \u003d getYear(minuendInstant);\n+    int subtrahendYear \u003d getYear(subtrahendInstant);\n+    long minuendRem \u003d minuendInstant - getYearMillis(minuendYear);\n+    long subtrahendRem \u003d subtrahendInstant - getYearMillis(subtrahendYear);\n+    if (subtrahendRem \u003e\u003d FEB_29) {\n+        if (isLeapYear(subtrahendYear)) {\n+            if (!isLeapYear(minuendYear)) {\n+                subtrahendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n+            }\n+        } else if (minuendRem \u003e\u003d FEB_29 \u0026\u0026 isLeapYear(minuendYear)) {\n+            minuendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n+        }\n+    }\n+    int difference \u003d minuendYear - subtrahendYear;\n+    if (minuendRem \u003c subtrahendRem) {\n+        difference--;\n+    }\n+    return difference;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "long getYearDifference(long minuendInstant, long subtrahendInstant) {\n    int minuendYear \u003d getYear(minuendInstant);\n    int subtrahendYear \u003d getYear(subtrahendInstant);\n    long minuendRem \u003d minuendInstant - getYearMillis(minuendYear);\n    long subtrahendRem \u003d subtrahendInstant - getYearMillis(subtrahendYear);\n    if (subtrahendRem \u003e\u003d FEB_29) {\n        if (isLeapYear(subtrahendYear)) {\n            if (!isLeapYear(minuendYear)) {\n                subtrahendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n            }\n        } else if (minuendRem \u003e\u003d FEB_29 \u0026\u0026 isLeapYear(minuendYear)) {\n            minuendRem -\u003d DateTimeConstants.MILLIS_PER_DAY;\n        }\n    }\n    int difference \u003d minuendYear - subtrahendYear;\n    if (minuendRem \u003c subtrahendRem) {\n        difference--;\n    }\n    return difference;\n}",
+      "path": "JodaTime/src/java/org/joda/time/chrono/CommonGJChronology.java",
+      "functionStartLine": 157,
+      "functionName": "getYearDifference",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

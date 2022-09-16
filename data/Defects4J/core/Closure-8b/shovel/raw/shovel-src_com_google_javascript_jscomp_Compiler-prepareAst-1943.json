@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-8b",
+  "repositoryPath": "/tmp/Closure-8b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "prepareAst",
+  "functionId": "prepareAst___root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 1943,
+  "functionEndLine": 1946,
+  "numCommitsSeen": 153,
+  "timeTaken": 10319,
+  "changeHistory": [
+    "b9ccef88272debaf064b073081137f849e61e6b1",
+    "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044"
+  ],
+  "changeHistoryShort": {
+    "b9ccef88272debaf064b073081137f849e61e6b1": "Ybodychange",
+    "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b9ccef88272debaf064b073081137f849e61e6b1": {
+      "type": "Ybodychange",
+      "commitMessage": "\nRemove tracers on prepareAst: these run once on every source file,\nand logging it is not that useful (because it\u0027s already covered by\nthe parseAst tracer)\nBump up the logging level so that tracers show up under default\nlogging level\n\nR\u003dacleung\nDELTA\u003d3  (0 added, 2 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3398\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1484 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "10/4/11, 6:06 AM",
+      "commitName": "b9ccef88272debaf064b073081137f849e61e6b1",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "9/21/11, 10:24 AM",
+      "commitNameOld": "b375f9440f76066c562ecdd883a9b2588516bcf5",
+      "commitAuthorOld": "tylerg@google.com",
+      "daysBetweenCommits": 12.82,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nvoid prepareAst(Node root) {\n    CompilerPass pass \u003d new PrepareAst(this);\n    pass.process(null, root);\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1690,
+      "functionName": "prepareAst",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,5 @@\n @Override\n void prepareAst(Node root) {\n-    Tracer tracer \u003d newTracer(\"prepareAst\");\n     CompilerPass pass \u003d new PrepareAst(this);\n     pass.process(null, root);\n-    stopTracer(tracer, \"prepareAst\");\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044": {
+      "type": "Yintroduced",
+      "commitMessage": "Merge NodeTypeNormalizer and CodingConventionAnnotator into\na single pass. (Nick)\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@116 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/24/10, 8:37 PM",
+      "commitName": "9a1ddf5f982e54ecbc3e028dfa84ef9bd07a8044",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+void prepareAst(Node root) {\n+    Tracer tracer \u003d newTracer(\"prepareAst\");\n+    CompilerPass pass \u003d new PrepareAst(this);\n+    pass.process(null, root);\n+    stopTracer(tracer, \"prepareAst\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nvoid prepareAst(Node root) {\n    Tracer tracer \u003d newTracer(\"prepareAst\");\n    CompilerPass pass \u003d new PrepareAst(this);\n    pass.process(null, root);\n    stopTracer(tracer, \"prepareAst\");\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 1352,
+      "functionName": "prepareAst",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

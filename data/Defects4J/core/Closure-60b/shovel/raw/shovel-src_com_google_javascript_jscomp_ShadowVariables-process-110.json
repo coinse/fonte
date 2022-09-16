@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ShadowVariables.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ShadowVariables.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 110,
+  "functionEndLine": 126,
+  "numCommitsSeen": 5,
+  "timeTaken": 813,
+  "changeHistory": [
+    "69c3608899f162b58555e4b5f9dab2719f9fbf11",
+    "b6e3f5c01de00915df7682dba4e9a7f733630d34"
+  ],
+  "changeHistoryShort": {
+    "69c3608899f162b58555e4b5f9dab2719f9fbf11": "Ybodychange",
+    "b6e3f5c01de00915df7682dba4e9a7f733630d34": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "69c3608899f162b58555e4b5f9dab2719f9fbf11": {
+      "type": "Ybodychange",
+      "commitMessage": "\nFix incorrect pseudo names in shadow variables.\n\nR\u003dnicksantos\nDELTA\u003d48  (41 added, 0 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1098\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@946 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/28/11, 2:45 PM",
+      "commitName": "69c3608899f162b58555e4b5f9dab2719f9fbf11",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "3/16/11, 12:45 PM",
+      "commitNameOld": "695eed613dede3a21f673cd18f89b39e086ddc45",
+      "commitAuthorOld": "acleung@google.com",
+      "daysBetweenCommits": 12.08,
+      "commitsBetweenForRepo": 43,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    NodeTraversal.traverse(compiler, root, new GatherReferenceInfo());\n    NodeTraversal.traverse(compiler, root, new DoShadowVariables());\n    if (oldPseudoNameMap !\u003d null) {\n        oldPseudoNameMap.putAll(deltaPseudoNameMap);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/ShadowVariables.java",
+      "functionStartLine": 110,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,8 @@\n @Override\n public void process(Node externs, Node root) {\n     NodeTraversal.traverse(compiler, root, new GatherReferenceInfo());\n     NodeTraversal.traverse(compiler, root, new DoShadowVariables());\n+    if (oldPseudoNameMap !\u003d null) {\n+        oldPseudoNameMap.putAll(deltaPseudoNameMap);\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "b6e3f5c01de00915df7682dba4e9a7f733630d34": {
+      "type": "Yintroduced",
+      "commitMessage": "\nShadows variables\n\nR\u003djohnlenz,nicksantos\nDELTA\u003d580  (531 added, 7 deleted, 42 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d639\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@808 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/22/11, 2:58 PM",
+      "commitName": "b6e3f5c01de00915df7682dba4e9a7f733630d34",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public void process(Node externs, Node root) {\n+    NodeTraversal.traverse(compiler, root, new GatherReferenceInfo());\n+    NodeTraversal.traverse(compiler, root, new DoShadowVariables());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void process(Node externs, Node root) {\n    NodeTraversal.traverse(compiler, root, new GatherReferenceInfo());\n    NodeTraversal.traverse(compiler, root, new DoShadowVariables());\n}",
+      "path": "src/com/google/javascript/jscomp/ShadowVariables.java",
+      "functionStartLine": 107,
+      "functionName": "process",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

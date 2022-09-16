@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "traverseCall",
+  "functionId": "traverseCall___n-Node__scope-FlowScope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 797,
+  "functionEndLine": 815,
+  "numCommitsSeen": 42,
+  "timeTaken": 2691,
+  "changeHistory": [
+    "279196b617c5de1ade21110979b6b13d8eda6342",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "279196b617c5de1ade21110979b6b13d8eda6342": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/04 by nick\n\n        Pipe everything through the module code path.\n        This teases out a bunch of edge-case bugs that worked in the non-module\n        code path, but not the module code path (and vice-versa)\n\n        R\u003dalan\n        DELTA\u003d136  (67 added, 19 deleted, 50 changed)\n\nChange on 2010/05/04 by nick\n\n        fiddle with the check_global_this_level decision tree\n        This should be off by default if collapse_properties is off,\n        and on by default if collapse_properties is on.\n\n        R\u003dalan\n        DELTA\u003d47  (32 added, 4 deleted, 11 changed)\n\nChange on 2010/05/04 by andrew\n\n        -Infer that arguments to goog.asserts.assert() are non-nullable after the\n        call.\n        -Infer the types of arguments to goog.asserts.assert{String,Number,...} after\n        the call.\n\n        Tested:\n          -Added new unit tests.\n\n        R\u003dnick\n        DELTA\u003d277  (266 added, 4 deleted, 7 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqdhuno\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@203 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/5/10, 4:36 PM",
+      "commitName": "279196b617c5de1ade21110979b6b13d8eda6342",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "4/23/10, 11:31 AM",
+      "commitNameOld": "ebb59a97610015bc41bda7f458dd1428a3a3e335",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 12.21,
+      "commitsBetweenForRepo": 6,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private FlowScope traverseCall(Node n, FlowScope scope) {\n    scope \u003d traverseChildren(n, scope);\n    Node left \u003d n.getFirstChild();\n    JSType functionType \u003d getJSType(left).restrictByNotNullOrUndefined();\n    if (functionType !\u003d null) {\n        if (functionType instanceof FunctionType) {\n            FunctionType fnType \u003d (FunctionType) functionType;\n            n.setJSType(fnType.getReturnType());\n            updateTypeOfParametersOnClosure(n, fnType);\n            updateTypeOfThisOnClosure(n, fnType);\n        } else if (functionType.equals(getNativeType(CHECKED_UNKNOWN_TYPE))) {\n            n.setJSType(getNativeType(CHECKED_UNKNOWN_TYPE));\n        }\n    }\n    scope \u003d tightenTypesAfterAssertions(scope, n);\n    return scope;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 777,
+      "functionName": "traverseCall",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,16 +1,17 @@\n private FlowScope traverseCall(Node n, FlowScope scope) {\n     scope \u003d traverseChildren(n, scope);\n     Node left \u003d n.getFirstChild();\n     JSType functionType \u003d getJSType(left).restrictByNotNullOrUndefined();\n     if (functionType !\u003d null) {\n         if (functionType instanceof FunctionType) {\n             FunctionType fnType \u003d (FunctionType) functionType;\n             n.setJSType(fnType.getReturnType());\n             updateTypeOfParametersOnClosure(n, fnType);\n             updateTypeOfThisOnClosure(n, fnType);\n         } else if (functionType.equals(getNativeType(CHECKED_UNKNOWN_TYPE))) {\n             n.setJSType(getNativeType(CHECKED_UNKNOWN_TYPE));\n         }\n     }\n+    scope \u003d tightenTypesAfterAssertions(scope, n);\n     return scope;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,16 @@\n+private FlowScope traverseCall(Node n, FlowScope scope) {\n+    scope \u003d traverseChildren(n, scope);\n+    Node left \u003d n.getFirstChild();\n+    JSType functionType \u003d getJSType(left).restrictByNotNullOrUndefined();\n+    if (functionType !\u003d null) {\n+        if (functionType instanceof FunctionType) {\n+            FunctionType fnType \u003d (FunctionType) functionType;\n+            n.setJSType(fnType.getReturnType());\n+            updateTypeOfParametersOnClosure(n, fnType);\n+            updateTypeOfThisOnClosure(n, fnType);\n+        } else if (functionType.equals(getNativeType(CHECKED_UNKNOWN_TYPE))) {\n+            n.setJSType(getNativeType(CHECKED_UNKNOWN_TYPE));\n+        }\n+    }\n+    return scope;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private FlowScope traverseCall(Node n, FlowScope scope) {\n    scope \u003d traverseChildren(n, scope);\n    Node left \u003d n.getFirstChild();\n    JSType functionType \u003d getJSType(left).restrictByNotNullOrUndefined();\n    if (functionType !\u003d null) {\n        if (functionType instanceof FunctionType) {\n            FunctionType fnType \u003d (FunctionType) functionType;\n            n.setJSType(fnType.getReturnType());\n            updateTypeOfParametersOnClosure(n, fnType);\n            updateTypeOfThisOnClosure(n, fnType);\n        } else if (functionType.equals(getNativeType(CHECKED_UNKNOWN_TYPE))) {\n            n.setJSType(getNativeType(CHECKED_UNKNOWN_TYPE));\n        }\n    }\n    return scope;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 715,
+      "functionName": "traverseCall",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

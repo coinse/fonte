@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-104b",
+  "repositoryPath": "/tmp/Math-104b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Gamma.java",
+  "functionName": "regularizedGammaQ",
+  "functionId": "regularizedGammaQ___a-double__x-double",
+  "sourceFilePath": "src/java/org/apache/commons/math/special/Gamma.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the regularized gamma function Q(a, x) \u003d 1 - P(a, x).\n\n@param a the a parameter.\n@param x the value.\n@return the regularized gamma function Q(a, x)\n@throws MathException if the algorithm fails to converge.\n",
+  "functionStartLine": 197,
+  "functionEndLine": 201,
+  "numCommitsSeen": 26,
+  "timeTaken": 409,
+  "changeHistory": [
+    "a25f1e4515b215f4510088cd1787725479390b14"
+  ],
+  "changeHistoryShort": {
+    "a25f1e4515b215f4510088cd1787725479390b14": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a25f1e4515b215f4510088cd1787725479390b14": {
+      "type": "Yintroduced",
+      "commitMessage": "PR: 29419\nAdded an implementation of regularized gamma function, Q(a, x) \u003d 1 - P(a,x), based on a continued fraction.  This converges much faster for the large x case.  I added the example submitted by Scott as a test case and ran all the test cases with everything passing.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141286 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/7/04, 1:30 PM",
+      "commitName": "a25f1e4515b215f4510088cd1787725479390b14",
+      "commitAuthor": "Brent Worden",
+      "diff": "@@ -0,0 +1,3 @@\n+public static double regularizedGammaQ(double a, double x) throws MathException {\n+    return regularizedGammaQ(a, x, DEFAULT_EPSILON, Integer.MAX_VALUE);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static double regularizedGammaQ(double a, double x) throws MathException {\n    return regularizedGammaQ(a, x, DEFAULT_EPSILON, Integer.MAX_VALUE);\n}",
+      "path": "src/java/org/apache/commons/math/special/Gamma.java",
+      "functionStartLine": 191,
+      "functionName": "regularizedGammaQ",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the regularized gamma function Q(a, x) \u003d 1 - P(a, x).\n\n@param a the a parameter.\n@param x the value.\n@return the regularized gamma function Q(a, x)\n@throws MathException if the algorithm fails to converge.\n"
+    }
+  }
+}

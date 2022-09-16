@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PassConfig.java",
+  "functionName": "regenerateGlobalTypedScope",
+  "functionId": "regenerateGlobalTypedScope___compiler-AbstractCompiler__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PassConfig.java",
+  "functionAnnotation": "",
+  "functionDoc": "Regenerates the top scope from scratch.\n\n@param compiler The compiler for which the global scope is regenerated.\n@param root The root of the AST.\n",
+  "functionStartLine": 65,
+  "functionEndLine": 69,
+  "numCommitsSeen": 18,
+  "timeTaken": 1149,
+  "changeHistory": [
+    "e2da3b80158f6df8377e95ba54da85eb286e63d4",
+    "de306603cfe39c64672539af78bb74a10439e1b3",
+    "ec80fa13ec02cbcfac33ccc2436cd5d38c3dfd1f"
+  ],
+  "changeHistoryShort": {
+    "e2da3b80158f6df8377e95ba54da85eb286e63d4": "Ymultichange(Ybodychange,Ydocchange)",
+    "de306603cfe39c64672539af78bb74a10439e1b3": "Ybodychange",
+    "ec80fa13ec02cbcfac33ccc2436cd5d38c3dfd1f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e2da3b80158f6df8377e95ba54da85eb286e63d4": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "\nMaking global typed scope regeneration, hot-swappable.\n\nR\u003dnicksantos\nDELTA\u003d163  (130 added, 16 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2142\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1154 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/2/11, 9:10 AM",
+      "commitName": "e2da3b80158f6df8377e95ba54da85eb286e63d4",
+      "commitAuthor": "bashir@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nMaking global typed scope regeneration, hot-swappable.\n\nR\u003dnicksantos\nDELTA\u003d163  (130 added, 16 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2142\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1154 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/2/11, 9:10 AM",
+          "commitName": "e2da3b80158f6df8377e95ba54da85eb286e63d4",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "5/9/11, 4:32 PM",
+          "commitNameOld": "de306603cfe39c64672539af78bb74a10439e1b3",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 23.69,
+          "commitsBetweenForRepo": 81,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n    internalScopeCreator \u003d new TypedScopeCreator(compiler);\n    typedScopeCreator \u003d new MemoizedScopeCreator(internalScopeCreator);\n    topScope \u003d typedScopeCreator.createScope(root, null);\n}",
+          "path": "src/com/google/javascript/jscomp/PassConfig.java",
+          "functionStartLine": 65,
+          "functionName": "regenerateGlobalTypedScope",
+          "functionAnnotation": "",
+          "functionDoc": "Regenerates the top scope from scratch.\n\n@param compiler The compiler for which the global scope is regenerated.\n@param root The root of the AST.\n",
+          "diff": "@@ -1,18 +1,5 @@\n void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n-    MemoizedScopeCreator oldScopeCreator \u003d typedScopeCreator;\n-    typedScopeCreator \u003d new MemoizedScopeCreator(new TypedScopeCreator(compiler));\n+    internalScopeCreator \u003d new TypedScopeCreator(compiler);\n+    typedScopeCreator \u003d new MemoizedScopeCreator(internalScopeCreator);\n     topScope \u003d typedScopeCreator.createScope(root, null);\n-    if (oldScopeCreator !\u003d null) {\n-        Scope oldTopScope \u003d oldScopeCreator.getScopeIfMemoized(root);\n-        if (oldTopScope !\u003d null) {\n-            Iterator\u003cVar\u003e varIt \u003d topScope.getDeclarativelyUnboundVarsWithoutTypes();\n-            while (varIt.hasNext()) {\n-                Var newVar \u003d varIt.next();\n-                Var oldVar \u003d oldTopScope.getVar(newVar.getName());\n-                if (oldVar !\u003d null) {\n-                    newVar.setType(oldVar.getType());\n-                }\n-            }\n-        }\n-    }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nMaking global typed scope regeneration, hot-swappable.\n\nR\u003dnicksantos\nDELTA\u003d163  (130 added, 16 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2142\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1154 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "6/2/11, 9:10 AM",
+          "commitName": "e2da3b80158f6df8377e95ba54da85eb286e63d4",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "5/9/11, 4:32 PM",
+          "commitNameOld": "de306603cfe39c64672539af78bb74a10439e1b3",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 23.69,
+          "commitsBetweenForRepo": 81,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n    internalScopeCreator \u003d new TypedScopeCreator(compiler);\n    typedScopeCreator \u003d new MemoizedScopeCreator(internalScopeCreator);\n    topScope \u003d typedScopeCreator.createScope(root, null);\n}",
+          "path": "src/com/google/javascript/jscomp/PassConfig.java",
+          "functionStartLine": 65,
+          "functionName": "regenerateGlobalTypedScope",
+          "functionAnnotation": "",
+          "functionDoc": "Regenerates the top scope from scratch.\n\n@param compiler The compiler for which the global scope is regenerated.\n@param root The root of the AST.\n",
+          "diff": "@@ -1,18 +1,5 @@\n void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n-    MemoizedScopeCreator oldScopeCreator \u003d typedScopeCreator;\n-    typedScopeCreator \u003d new MemoizedScopeCreator(new TypedScopeCreator(compiler));\n+    internalScopeCreator \u003d new TypedScopeCreator(compiler);\n+    typedScopeCreator \u003d new MemoizedScopeCreator(internalScopeCreator);\n     topScope \u003d typedScopeCreator.createScope(root, null);\n-    if (oldScopeCreator !\u003d null) {\n-        Scope oldTopScope \u003d oldScopeCreator.getScopeIfMemoized(root);\n-        if (oldTopScope !\u003d null) {\n-            Iterator\u003cVar\u003e varIt \u003d topScope.getDeclarativelyUnboundVarsWithoutTypes();\n-            while (varIt.hasNext()) {\n-                Var newVar \u003d varIt.next();\n-                Var oldVar \u003d oldTopScope.getVar(newVar.getName());\n-                if (oldVar !\u003d null) {\n-                    newVar.setType(oldVar.getType());\n-                }\n-            }\n-        }\n-    }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Regenerates the top scope.\n",
+            "newValue": "Regenerates the top scope from scratch.\n\n@param compiler The compiler for which the global scope is regenerated.\n@param root The root of the AST.\n"
+          }
+        }
+      ]
+    },
+    "de306603cfe39c64672539af78bb74a10439e1b3": {
+      "type": "Ybodychange",
+      "commitMessage": "\nWhen regenerating the global scope, grab the types of things\nthat were inferred in previous compiler passes, so that we\ndon\u0027t need to run type inference of the global scope again\n\nR\u003dbashir\nDELTA\u003d116  (77 added, 18 deleted, 21 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1805\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1069 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/9/11, 4:32 PM",
+      "commitName": "de306603cfe39c64672539af78bb74a10439e1b3",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "4/26/11, 7:14 AM",
+      "commitNameOld": "4d27fdcfda10b3cfbf0c87b3b6d691da5b5291a7",
+      "commitAuthorOld": "davidplass@google.com",
+      "daysBetweenCommits": 13.39,
+      "commitsBetweenForRepo": 35,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n    MemoizedScopeCreator oldScopeCreator \u003d typedScopeCreator;\n    typedScopeCreator \u003d new MemoizedScopeCreator(new TypedScopeCreator(compiler));\n    topScope \u003d typedScopeCreator.createScope(root, null);\n    if (oldScopeCreator !\u003d null) {\n        Scope oldTopScope \u003d oldScopeCreator.getScopeIfMemoized(root);\n        if (oldTopScope !\u003d null) {\n            Iterator\u003cVar\u003e varIt \u003d topScope.getDeclarativelyUnboundVarsWithoutTypes();\n            while (varIt.hasNext()) {\n                Var newVar \u003d varIt.next();\n                Var oldVar \u003d oldTopScope.getVar(newVar.getName());\n                if (oldVar !\u003d null) {\n                    newVar.setType(oldVar.getType());\n                }\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PassConfig.java",
+      "functionStartLine": 58,
+      "functionName": "regenerateGlobalTypedScope",
+      "functionAnnotation": "",
+      "functionDoc": "Regenerates the top scope.\n",
+      "diff": "@@ -1,4 +1,18 @@\n void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n+    MemoizedScopeCreator oldScopeCreator \u003d typedScopeCreator;\n     typedScopeCreator \u003d new MemoizedScopeCreator(new TypedScopeCreator(compiler));\n     topScope \u003d typedScopeCreator.createScope(root, null);\n+    if (oldScopeCreator !\u003d null) {\n+        Scope oldTopScope \u003d oldScopeCreator.getScopeIfMemoized(root);\n+        if (oldTopScope !\u003d null) {\n+            Iterator\u003cVar\u003e varIt \u003d topScope.getDeclarativelyUnboundVarsWithoutTypes();\n+            while (varIt.hasNext()) {\n+                Var newVar \u003d varIt.next();\n+                Var oldVar \u003d oldTopScope.getVar(newVar.getName());\n+                if (oldVar !\u003d null) {\n+                    newVar.setType(oldVar.getType());\n+                }\n+            }\n+        }\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "ec80fa13ec02cbcfac33ccc2436cd5d38c3dfd1f": {
+      "type": "Yintroduced",
+      "commitMessage": "\nCreate some functions for incremental recompilation.\n\nR\u003dbashir,johnlenz\nDELTA\u003d114  (110 added, 2 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d88\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@606 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/7/10, 1:55 PM",
+      "commitName": "ec80fa13ec02cbcfac33ccc2436cd5d38c3dfd1f",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,4 @@\n+void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n+    typedScopeCreator \u003d new MemoizedScopeCreator(new TypedScopeCreator(compiler));\n+    topScope \u003d typedScopeCreator.createScope(root, null);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void regenerateGlobalTypedScope(AbstractCompiler compiler, Node root) {\n    typedScopeCreator \u003d new MemoizedScopeCreator(new TypedScopeCreator(compiler));\n    topScope \u003d typedScopeCreator.createScope(root, null);\n}",
+      "path": "src/com/google/javascript/jscomp/PassConfig.java",
+      "functionStartLine": 56,
+      "functionName": "regenerateGlobalTypedScope",
+      "functionAnnotation": "",
+      "functionDoc": "Regenerates the top scope.\n"
+    }
+  }
+}

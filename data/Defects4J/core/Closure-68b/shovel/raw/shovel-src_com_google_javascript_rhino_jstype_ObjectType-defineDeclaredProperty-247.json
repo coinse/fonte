@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-68b",
+  "repositoryPath": "/tmp/Closure-68b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectType.java",
+  "functionName": "defineDeclaredProperty",
+  "functionId": "defineDeclaredProperty___propertyName-String__type-JSType__inExterns-boolean__propertyNode-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n@param propertyNode the node corresponding to the declaration of property\n       which might later be accessed using {@code getPropertyNode}.\n",
+  "functionStartLine": 247,
+  "functionEndLine": 259,
+  "numCommitsSeen": 40,
+  "timeTaken": 845,
+  "changeHistory": [
+    "6bbac115c9a7928a7053b2da3a78df9569df8570",
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6bbac115c9a7928a7053b2da3a78df9569df8570": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6bbac115c9a7928a7053b2da3a78df9569df8570": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/7/11, 9:19 AM",
+      "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+      "commitAuthor": "bashir@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/7/11, 9:19 AM",
+          "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "12/13/10, 8:10 AM",
+          "commitNameOld": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 25.05,
+          "commitsBetweenForRepo": 50,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns, Node propertyNode) {\n    boolean result \u003d defineProperty(propertyName, type, false, inExterns, propertyNode);\n    registry.registerPropertyOnType(propertyName, this);\n    return result;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+          "functionStartLine": 247,
+          "functionName": "defineDeclaredProperty",
+          "functionAnnotation": "",
+          "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n@param propertyNode the node corresponding to the declaration of property\n       which might later be accessed using {@code getPropertyNode}.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n-    boolean result \u003d defineProperty(propertyName, type, false, inExterns);\n+public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns, Node propertyNode) {\n+    boolean result \u003d defineProperty(propertyName, type, false, inExterns, propertyNode);\n     registry.registerPropertyOnType(propertyName, this);\n     return result;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[propertyName-String, type-JSType, inExterns-boolean]",
+            "newValue": "[propertyName-String, type-JSType, inExterns-boolean, propertyNode-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/7/11, 9:19 AM",
+          "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "12/13/10, 8:10 AM",
+          "commitNameOld": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 25.05,
+          "commitsBetweenForRepo": 50,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns, Node propertyNode) {\n    boolean result \u003d defineProperty(propertyName, type, false, inExterns, propertyNode);\n    registry.registerPropertyOnType(propertyName, this);\n    return result;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+          "functionStartLine": 247,
+          "functionName": "defineDeclaredProperty",
+          "functionAnnotation": "",
+          "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n@param propertyNode the node corresponding to the declaration of property\n       which might later be accessed using {@code getPropertyNode}.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n-    boolean result \u003d defineProperty(propertyName, type, false, inExterns);\n+public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns, Node propertyNode) {\n+    boolean result \u003d defineProperty(propertyName, type, false, inExterns, propertyNode);\n     registry.registerPropertyOnType(propertyName, this);\n     return result;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nAdding getPropertyNode functionality to ObjectType. This needs\nassociating nodes to properties in defineProperty.\n\nR\u003dnicksantos\nDELTA\u003d307  (127 added, 0 deleted, 180 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d223\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@674 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "1/7/11, 9:19 AM",
+          "commitName": "6bbac115c9a7928a7053b2da3a78df9569df8570",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "12/13/10, 8:10 AM",
+          "commitNameOld": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+          "commitAuthorOld": "nicksantos@google.com",
+          "daysBetweenCommits": 25.05,
+          "commitsBetweenForRepo": 50,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns, Node propertyNode) {\n    boolean result \u003d defineProperty(propertyName, type, false, inExterns, propertyNode);\n    registry.registerPropertyOnType(propertyName, this);\n    return result;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+          "functionStartLine": 247,
+          "functionName": "defineDeclaredProperty",
+          "functionAnnotation": "",
+          "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n@param propertyNode the node corresponding to the declaration of property\n       which might later be accessed using {@code getPropertyNode}.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n-    boolean result \u003d defineProperty(propertyName, type, false, inExterns);\n+public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns, Node propertyNode) {\n+    boolean result \u003d defineProperty(propertyName, type, false, inExterns, propertyNode);\n     registry.registerPropertyOnType(propertyName, this);\n     return result;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n",
+            "newValue": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n@param propertyNode the node corresponding to the declaration of property\n       which might later be accessed using {@code getPropertyNode}.\n"
+          }
+        }
+      ]
+    },
+    "1c75a5484b515bd593295fbf0c8491e2dd1f1c45": {
+      "type": "Ybodychange",
+      "commitMessage": "\nremove all uses of Sets of types.\nequality can change over time, so this is not safe.\nThis means we need to be much more explicit in how\nwe collapse type duplicates in unions and in type tightening\n\nR\u003djohnlenz\nDELTA\u003d319  (210 added, 52 deleted, 57 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d121\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@623 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/13/10, 8:10 AM",
+      "commitName": "1c75a5484b515bd593295fbf0c8491e2dd1f1c45",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "12/8/10, 12:18 PM",
+      "commitNameOld": "8a76da206034045c555297e5069eb273d05fc6fb",
+      "commitAuthorOld": "tylerg@google.com",
+      "daysBetweenCommits": 4.83,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n    boolean result \u003d defineProperty(propertyName, type, false, inExterns);\n    registry.registerPropertyOnType(propertyName, this);\n    return result;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 244,
+      "functionName": "defineDeclaredProperty",
+      "functionAnnotation": "",
+      "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n",
+      "diff": "@@ -1,4 +1,5 @@\n public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n+    boolean result \u003d defineProperty(propertyName, type, false, inExterns);\n     registry.registerPropertyOnType(propertyName, this);\n-    return defineProperty(propertyName, type, false, inExterns);\n+    return result;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n+    registry.registerPropertyOnType(propertyName, this);\n+    return defineProperty(propertyName, type, false, inExterns);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final boolean defineDeclaredProperty(String propertyName, JSType type, boolean inExterns) {\n    registry.registerPropertyOnType(propertyName, this);\n    return defineProperty(propertyName, type, false, inExterns);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 211,
+      "functionName": "defineDeclaredProperty",
+      "functionAnnotation": "",
+      "functionDoc": "Defines a property whose type is synthesized (i.e. not inferred).\n\n@param propertyName the property\u0027s name\n@param type the type\n@param inExterns @code true} if this property was defined in an externs\n       file. TightenTypes assumes that any function passed to an externs\n       property could be called, so setting this incorrectly could result\n       in live code being removed.\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FlowSensitiveInlineVariables.java",
+  "functionName": "enterScope",
+  "functionId": "enterScope___t-NodeTraversal",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 116,
+  "functionEndLine": 145,
+  "numCommitsSeen": 16,
+  "timeTaken": 686,
+  "changeHistory": [
+    "3c5a6f6a1b87c655c5eb3ed0ebcfce886ab6a614",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "3c5a6f6a1b87c655c5eb3ed0ebcfce886ab6a614": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3c5a6f6a1b87c655c5eb3ed0ebcfce886ab6a614": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAllow graphs without annotations.\n\nR\u003dacleung\nDELTA\u003d405  (249 added, 83 deleted, 73 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d58\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@592 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/3/10, 2:10 PM",
+      "commitName": "3c5a6f6a1b87c655c5eb3ed0ebcfce886ab6a614",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/11/10, 9:42 PM",
+      "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 21.69,
+      "commitsBetweenForRepo": 47,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic void enterScope(NodeTraversal t) {\n    if (t.inGlobalScope()) {\n        return;\n    }\n    ControlFlowAnalysis cfa \u003d new ControlFlowAnalysis(compiler, false, true);\n    Preconditions.checkState(NodeUtil.isFunction(t.getScopeRoot()));\n    cfa.process(null, t.getScopeRoot().getLastChild());\n    cfg \u003d cfa.getCfg();\n    reachingDef \u003d new MustBeReachingVariableDef(cfg, t.getScope(), compiler);\n    reachingDef.analyze();\n    candidates \u003d Lists.newLinkedList();\n    new NodeTraversal(compiler, new GatherCandiates()).traverse(t.getScopeRoot().getLastChild());\n    reachingUses \u003d new MaybeReachingVariableUse(cfg, t.getScope(), compiler);\n    reachingUses.analyze();\n    for (Candidate c : candidates) {\n        if (c.canInline()) {\n            c.inlineVariable();\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+      "functionStartLine": 116,
+      "functionName": "enterScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,21 +1,21 @@\n @Override\n public void enterScope(NodeTraversal t) {\n     if (t.inGlobalScope()) {\n         return;\n     }\n-    ControlFlowAnalysis cfa \u003d new ControlFlowAnalysis(compiler, false);\n+    ControlFlowAnalysis cfa \u003d new ControlFlowAnalysis(compiler, false, true);\n     Preconditions.checkState(NodeUtil.isFunction(t.getScopeRoot()));\n     cfa.process(null, t.getScopeRoot().getLastChild());\n     cfg \u003d cfa.getCfg();\n     reachingDef \u003d new MustBeReachingVariableDef(cfg, t.getScope(), compiler);\n     reachingDef.analyze();\n     candidates \u003d Lists.newLinkedList();\n     new NodeTraversal(compiler, new GatherCandiates()).traverse(t.getScopeRoot().getLastChild());\n     reachingUses \u003d new MaybeReachingVariableUse(cfg, t.getScope(), compiler);\n     reachingUses.analyze();\n     for (Candidate c : candidates) {\n         if (c.canInline()) {\n             c.inlineVariable();\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,21 @@\n+@Override\n+public void enterScope(NodeTraversal t) {\n+    if (t.inGlobalScope()) {\n+        return;\n+    }\n+    ControlFlowAnalysis cfa \u003d new ControlFlowAnalysis(compiler, false);\n+    Preconditions.checkState(NodeUtil.isFunction(t.getScopeRoot()));\n+    cfa.process(null, t.getScopeRoot().getLastChild());\n+    cfg \u003d cfa.getCfg();\n+    reachingDef \u003d new MustBeReachingVariableDef(cfg, t.getScope(), compiler);\n+    reachingDef.analyze();\n+    candidates \u003d Lists.newLinkedList();\n+    new NodeTraversal(compiler, new GatherCandiates()).traverse(t.getScopeRoot().getLastChild());\n+    reachingUses \u003d new MaybeReachingVariableUse(cfg, t.getScope(), compiler);\n+    reachingUses.analyze();\n+    for (Candidate c : candidates) {\n+        if (c.canInline()) {\n+            c.inlineVariable();\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void enterScope(NodeTraversal t) {\n    if (t.inGlobalScope()) {\n        return;\n    }\n    ControlFlowAnalysis cfa \u003d new ControlFlowAnalysis(compiler, false);\n    Preconditions.checkState(NodeUtil.isFunction(t.getScopeRoot()));\n    cfa.process(null, t.getScopeRoot().getLastChild());\n    cfg \u003d cfa.getCfg();\n    reachingDef \u003d new MustBeReachingVariableDef(cfg, t.getScope(), compiler);\n    reachingDef.analyze();\n    candidates \u003d Lists.newLinkedList();\n    new NodeTraversal(compiler, new GatherCandiates()).traverse(t.getScopeRoot().getLastChild());\n    reachingUses \u003d new MaybeReachingVariableUse(cfg, t.getScope(), compiler);\n    reachingUses.analyze();\n    for (Candidate c : candidates) {\n        if (c.canInline()) {\n            c.inlineVariable();\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+      "functionStartLine": 85,
+      "functionName": "enterScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

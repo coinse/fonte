@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-14b",
+  "repositoryPath": "/tmp/Lang-14b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtils.java",
+  "functionName": "equals",
+  "functionId": "equals___cs1-CharSequence__cs2-CharSequence",
+  "sourceFilePath": "src/main/java/org/apache/commons/lang3/StringUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eCompares two CharSequences, returning {@code true} if they are equal.\u003c/p\u003e\n\n\u003cp\u003e{@code null}s are handled without exceptions. Two {@code null}\nreferences are considered to be equal. The comparison is case sensitive.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n@see java.lang.String#equals(Object)\n@param cs1 the first CharSequence, may be null\n@param cs2 the second CharSequence, may be null\n@return @code true} if the CharSequences are equal, case sensitive, or\n both {@code null}\n@since 3.0 Changed signature from equals(String, String) to equals(CharSequence, CharSequence)\n",
+  "functionStartLine": 781,
+  "functionEndLine": 783,
+  "numCommitsSeen": 128,
+  "timeTaken": 6162,
+  "changeHistory": [
+    "fec5e47638aeb2860a604daa0f424a91dbd9a166"
+  ],
+  "changeHistoryShort": {
+    "fec5e47638aeb2860a604daa0f424a91dbd9a166": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fec5e47638aeb2860a604daa0f424a91dbd9a166": {
+      "type": "Yintroduced",
+      "commitMessage": "Rolling back accidental r1089306 commit\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@1089307 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/5/11, 10:36 PM",
+      "commitName": "fec5e47638aeb2860a604daa0f424a91dbd9a166",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,3 @@\n+public static boolean equals(CharSequence cs1, CharSequence cs2) {\n+    return cs1 \u003d\u003d null ? cs2 \u003d\u003d null : cs1.equals(cs2);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean equals(CharSequence cs1, CharSequence cs2) {\n    return cs1 \u003d\u003d null ? cs2 \u003d\u003d null : cs1.equals(cs2);\n}",
+      "path": "src/main/java/org/apache/commons/lang3/StringUtils.java",
+      "functionStartLine": 752,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eCompares two CharSequences, returning {@code true} if they are equal.\u003c/p\u003e\n\n\u003cp\u003e{@code null}s are handled without exceptions. Two {@code null}\nreferences are considered to be equal. The comparison is case sensitive.\u003c/p\u003e\n\n\u003cpre\u003e\nStringUtils.equals(null, null)   \u003d true\nStringUtils.equals(null, \"abc\")  \u003d false\nStringUtils.equals(\"abc\", null)  \u003d false\nStringUtils.equals(\"abc\", \"abc\") \u003d true\nStringUtils.equals(\"abc\", \"ABC\") \u003d false\n\u003c/pre\u003e\n\n@see java.lang.String#equals(Object)\n@param cs1 the first CharSequence, may be null\n@param cs2 the second CharSequence, may be null\n@return @code true} if the CharSequences are equal, case sensitive, or\n both {@code null}\n@since 3.0 Changed signature from equals(String, String) to equals(CharSequence, CharSequence)\n"
+    }
+  }
+}

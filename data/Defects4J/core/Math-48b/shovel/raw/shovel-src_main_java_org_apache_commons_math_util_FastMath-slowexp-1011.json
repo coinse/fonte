@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-48b",
+  "repositoryPath": "/tmp/Math-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "slowexp",
+  "functionId": "slowexp___x-double(modifiers-final)__result-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": " For x between 0 and 1, returns exp(x), uses extended precision\n\n@ @param x argument of exponential\n @param result placeholder where to place exp(x) split in two terms\n for extra precision (i.e. exp(x) \u003d result[0] + result[1]\n @return exp(x)\n",
+  "functionStartLine": 1011,
+  "functionEndLine": 1038,
+  "numCommitsSeen": 51,
+  "timeTaken": 20634,
+  "changeHistory": [
+    "1b989ad91b864f07366ba737f8f05dcd84aec185",
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "1b989ad91b864f07366ba737f8f05dcd84aec185": "Ydocchange",
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1b989ad91b864f07366ba737f8f05dcd84aec185": {
+      "type": "Ydocchange",
+      "commitMessage": "fixed charact with wrong encoding\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1157739 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/15/11, 1:49 AM",
+      "commitName": "1b989ad91b864f07366ba737f8f05dcd84aec185",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "7/10/11, 6:14 PM",
+      "commitNameOld": "907d55ee00e256bf26376c0ac3ae918f30130510",
+      "commitAuthorOld": "Phil Steitz",
+      "daysBetweenCommits": 35.32,
+      "commitsBetweenForRepo": 107,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static double slowexp(final double x, final double[] result) {\n    final double[] xs \u003d new double[2];\n    final double[] ys \u003d new double[2];\n    final double[] facts \u003d new double[2];\n    final double[] as \u003d new double[2];\n    split(x, xs);\n    ys[0] \u003d ys[1] \u003d 0.0;\n    for (int i \u003d 19; i \u003e\u003d 0; i--) {\n        splitMult(xs, ys, as);\n        ys[0] \u003d as[0];\n        ys[1] \u003d as[1];\n        split(FACT[i], as);\n        splitReciprocal(as, facts);\n        splitAdd(ys, facts, as);\n        ys[0] \u003d as[0];\n        ys[1] \u003d as[1];\n    }\n    if (result !\u003d null) {\n        result[0] \u003d ys[0];\n        result[1] \u003d ys[1];\n    }\n    return ys[0] + ys[1];\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 1011,
+      "functionName": "slowexp",
+      "functionAnnotation": "",
+      "functionDoc": " For x between 0 and 1, returns exp(x), uses extended precision\n\n@ @param x argument of exponential\n @param result placeholder where to place exp(x) split in two terms\n for extra precision (i.e. exp(x) \u003d result[0] + result[1]\n @return exp(x)\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": " For x between 0 and 1, returns exp(x), uses extended precision\n\n@ @param x argument of exponential\n @param result placeholder where to place exp(x) split in two terms\n for extra precision (i.e. exp(x) \u003d result[0] ￂﾰ result[1]\n @return exp(x)\n",
+        "newValue": " For x between 0 and 1, returns exp(x), uses extended precision\n\n@ @param x argument of exponential\n @param result placeholder where to place exp(x) split in two terms\n for extra precision (i.e. exp(x) \u003d result[0] + result[1]\n @return exp(x)\n"
+      }
+    },
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,23 @@\n+private static double slowexp(final double x, final double[] result) {\n+    final double[] xs \u003d new double[2];\n+    final double[] ys \u003d new double[2];\n+    final double[] facts \u003d new double[2];\n+    final double[] as \u003d new double[2];\n+    split(x, xs);\n+    ys[0] \u003d ys[1] \u003d 0.0;\n+    for (int i \u003d 19; i \u003e\u003d 0; i--) {\n+        splitMult(xs, ys, as);\n+        ys[0] \u003d as[0];\n+        ys[1] \u003d as[1];\n+        split(FACT[i], as);\n+        splitReciprocal(as, facts);\n+        splitAdd(ys, facts, as);\n+        ys[0] \u003d as[0];\n+        ys[1] \u003d as[1];\n+    }\n+    if (result !\u003d null) {\n+        result[0] \u003d ys[0];\n+        result[1] \u003d ys[1];\n+    }\n+    return ys[0] + ys[1];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static double slowexp(final double x, final double[] result) {\n    final double[] xs \u003d new double[2];\n    final double[] ys \u003d new double[2];\n    final double[] facts \u003d new double[2];\n    final double[] as \u003d new double[2];\n    split(x, xs);\n    ys[0] \u003d ys[1] \u003d 0.0;\n    for (int i \u003d 19; i \u003e\u003d 0; i--) {\n        splitMult(xs, ys, as);\n        ys[0] \u003d as[0];\n        ys[1] \u003d as[1];\n        split(FACT[i], as);\n        splitReciprocal(as, facts);\n        splitAdd(ys, facts, as);\n        ys[0] \u003d as[0];\n        ys[1] \u003d as[1];\n    }\n    if (result !\u003d null) {\n        result[0] \u003d ys[0];\n        result[1] \u003d ys[1];\n    }\n    return ys[0] + ys[1];\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 688,
+      "functionName": "slowexp",
+      "functionAnnotation": "",
+      "functionDoc": " For x between 0 and 1, returns exp(x), uses extended precision\n\n@ @param x argument of exponential\n @param result placeholder where to place exp(x) split in two terms\n for extra precision (i.e. exp(x) \u003d result[0] ￂﾰ result[1]\n @return exp(x)\n"
+    }
+  }
+}

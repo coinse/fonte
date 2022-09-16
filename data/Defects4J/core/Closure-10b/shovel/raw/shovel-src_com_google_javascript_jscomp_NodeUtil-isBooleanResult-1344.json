@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "isBooleanResult",
+  "functionId": "isBooleanResult___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return Whether the result of node evaluation is always a boolean\n",
+  "functionStartLine": 1344,
+  "functionEndLine": 1346,
+  "numCommitsSeen": 136,
+  "timeTaken": 8263,
+  "changeHistory": [
+    "1a7fbd18b47c102152869c3b046b65ff0f12fc43",
+    "711b76ac1015234f86805f1735ff2c3da195f55c"
+  ],
+  "changeHistoryShort": {
+    "1a7fbd18b47c102152869c3b046b65ff0f12fc43": "Ybodychange",
+    "711b76ac1015234f86805f1735ff2c3da195f55c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1a7fbd18b47c102152869c3b046b65ff0f12fc43": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAllow more folding of Token.ADD.\n\nR\u003dacleung\nDELTA\u003d160  (107 added, 4 deleted, 49 changed)\n\nHi Jason!\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d453\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@764 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/7/11, 2:59 PM",
+      "commitName": "1a7fbd18b47c102152869c3b046b65ff0f12fc43",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "1/27/11, 10:33 AM",
+      "commitNameOld": "70f817ae4f80ac11dd2dfe97babf5896c690fb48",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 11.18,
+      "commitsBetweenForRepo": 28,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean isBooleanResult(Node n) {\n    return valueCheck(n, BOOLEAN_RESULT_PREDICATE);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1162,
+      "functionName": "isBooleanResult",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the result of node evaluation is always a boolean\n",
+      "diff": "@@ -1,20 +1,3 @@\n static boolean isBooleanResult(Node n) {\n-    switch(n.getType()) {\n-        case Token.TRUE:\n-        case Token.FALSE:\n-        case Token.EQ:\n-        case Token.NE:\n-        case Token.SHEQ:\n-        case Token.SHNE:\n-        case Token.LT:\n-        case Token.GT:\n-        case Token.LE:\n-        case Token.GE:\n-        case Token.IN:\n-        case Token.INSTANCEOF:\n-        case Token.NOT:\n-            return true;\n-        default:\n-            return false;\n-    }\n+    return valueCheck(n, BOOLEAN_RESULT_PREDICATE);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "711b76ac1015234f86805f1735ff2c3da195f55c": {
+      "type": "Yintroduced",
+      "commitMessage": "\nSome non-contraversal changes from 304.\nBased on a patch by Ilia Kantor\n\nR\u003dnicksantos\nDELTA\u003d333  (332 added, 0 deleted, 1 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d249\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@686 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/11/11, 12:06 PM",
+      "commitName": "711b76ac1015234f86805f1735ff2c3da195f55c",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,20 @@\n+static boolean isBooleanResult(Node n) {\n+    switch(n.getType()) {\n+        case Token.TRUE:\n+        case Token.FALSE:\n+        case Token.EQ:\n+        case Token.NE:\n+        case Token.SHEQ:\n+        case Token.SHNE:\n+        case Token.LT:\n+        case Token.GT:\n+        case Token.LE:\n+        case Token.GE:\n+        case Token.IN:\n+        case Token.INSTANCEOF:\n+        case Token.NOT:\n+            return true;\n+        default:\n+            return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean isBooleanResult(Node n) {\n    switch(n.getType()) {\n        case Token.TRUE:\n        case Token.FALSE:\n        case Token.EQ:\n        case Token.NE:\n        case Token.SHEQ:\n        case Token.SHNE:\n        case Token.LT:\n        case Token.GT:\n        case Token.LE:\n        case Token.GE:\n        case Token.IN:\n        case Token.INSTANCEOF:\n        case Token.NOT:\n            return true;\n        default:\n            return false;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1060,
+      "functionName": "isBooleanResult",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return Whether the result of node evaluation is always a boolean\n"
+    }
+  }
+}

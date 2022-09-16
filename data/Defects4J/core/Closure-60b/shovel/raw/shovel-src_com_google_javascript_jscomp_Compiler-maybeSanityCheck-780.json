@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Compiler.java",
+  "functionName": "maybeSanityCheck",
+  "functionId": "maybeSanityCheck",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Compiler.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 780,
+  "functionEndLine": 784,
+  "numCommitsSeen": 97,
+  "timeTaken": 6020,
+  "changeHistory": [
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": "Ybodychange",
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b": {
+      "type": "Ybodychange",
+      "commitMessage": "fix silly 2004-era naming conventions (Nick)\nR\u003djohn\nDELTA\u003d134  (0 added, 0 deleted, 134 changed)\n\nInsert a place holder file for any empty modules. (Alan)\nR\u003dnick\nDELTA\u003d53  (46 added, 6 deleted, 1 changed)\n\nMaps API extern update.\n(Contributed by Chad Killingsworth)\nFixes issue 121\nDELTA\u003d86  (48 added, 16 deleted, 22 changed)\n\n\nGoogle Loader API externs.\n(Contributed by Chad Killingsworth)\nFixes issue 126\nDELTA\u003d54  (54 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@149 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/10, 10:51 PM",
+      "commitName": "a70a7c599e53a7752cf4b9e6e82b4408c3c4c04b",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/22/10, 3:55 PM",
+      "commitNameOld": "b347ce3a71e23a4ab92dc0a6c07d43e2f497c953",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 0.29,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void maybeSanityCheck() {\n    if (options.devMode \u003d\u003d DevMode.EVERY_PASS) {\n        runSanityCheck();\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 694,
+      "functionName": "maybeSanityCheck",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n private void maybeSanityCheck() {\n-    if (options_.devMode \u003d\u003d DevMode.EVERY_PASS) {\n+    if (options.devMode \u003d\u003d DevMode.EVERY_PASS) {\n         runSanityCheck();\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "847b296c23a63aa0a0b38cc3e63883e1688288e3": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/8/09, 3:50 PM",
+      "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/8/09, 3:50 PM",
+          "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "12/7/09, 1:53 PM",
+          "commitNameOld": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 1.08,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void maybeSanityCheck() {\n    if (options_.devMode \u003d\u003d DevMode.EVERY_PASS) {\n        runSanityCheck();\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 662,
+          "functionName": "maybeSanityCheck",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n-private void maybeSanityCheck(String passName) {\n+private void maybeSanityCheck() {\n     if (options_.devMode \u003d\u003d DevMode.EVERY_PASS) {\n-        sanityCheck.create(this).process(null, jsRoot);\n+        runSanityCheck();\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[passName-String]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Add support for other charset types.\n\nAdd support for ES5 directives.\n\nFork unit tests, so that they run more hermetically.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@21 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "12/8/09, 3:50 PM",
+          "commitName": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "12/7/09, 1:53 PM",
+          "commitNameOld": "845f5ff65858fd0d1829f3d2f16f758725e8028f",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 1.08,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void maybeSanityCheck() {\n    if (options_.devMode \u003d\u003d DevMode.EVERY_PASS) {\n        runSanityCheck();\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/Compiler.java",
+          "functionStartLine": 662,
+          "functionName": "maybeSanityCheck",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n-private void maybeSanityCheck(String passName) {\n+private void maybeSanityCheck() {\n     if (options_.devMode \u003d\u003d DevMode.EVERY_PASS) {\n-        sanityCheck.create(this).process(null, jsRoot);\n+        runSanityCheck();\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,5 @@\n+private void maybeSanityCheck(String passName) {\n+    if (options_.devMode \u003d\u003d DevMode.EVERY_PASS) {\n+        sanityCheck.create(this).process(null, jsRoot);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void maybeSanityCheck(String passName) {\n    if (options_.devMode \u003d\u003d DevMode.EVERY_PASS) {\n        sanityCheck.create(this).process(null, jsRoot);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Compiler.java",
+      "functionStartLine": 681,
+      "functionName": "maybeSanityCheck",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

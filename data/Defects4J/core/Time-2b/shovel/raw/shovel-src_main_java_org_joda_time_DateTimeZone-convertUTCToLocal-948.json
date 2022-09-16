@@ -1,0 +1,116 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-2b",
+  "repositoryPath": "/tmp/Time-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DateTimeZone.java",
+  "functionName": "convertUTCToLocal",
+  "functionId": "convertUTCToLocal___instantUTC-long",
+  "sourceFilePath": "src/main/java/org/joda/time/DateTimeZone.java",
+  "functionAnnotation": "",
+  "functionDoc": "Converts a standard UTC instant to a local instant with the same\nlocal time. This conversion is used before performing a calculation\nso that the calculation can be done using a simple local zone.\n\n@param instantUTC the UTC instant to convert to local\n@return the local instant with the same local time\n@throws ArithmeticException if the result overflows a long\n@since 1.5\n",
+  "functionStartLine": 948,
+  "functionEndLine": 956,
+  "numCommitsSeen": 59,
+  "timeTaken": 2015,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "5ccd1def534f2e37637d0311fb8bcfba62f1c74d",
+    "c41eff1e6026a6e0b88ea45edda3e41eecc6ac7b"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "5ccd1def534f2e37637d0311fb8bcfba62f1c74d": "Ydocchange",
+    "c41eff1e6026a6e0b88ea45edda3e41eecc6ac7b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public long convertUTCToLocal(long instantUTC) {\n    int offset \u003d getOffset(instantUTC);\n    long instantLocal \u003d instantUTC + offset;\n    if ((instantUTC ^ instantLocal) \u003c 0 \u0026\u0026 (instantUTC ^ offset) \u003e\u003d 0) {\n        throw new ArithmeticException(\"Adding time zone offset caused overflow\");\n    }\n    return instantLocal;\n}",
+      "path": "src/main/java/org/joda/time/DateTimeZone.java",
+      "functionStartLine": 923,
+      "functionName": "convertUTCToLocal",
+      "functionAnnotation": "",
+      "functionDoc": "Converts a standard UTC instant to a local instant with the same\nlocal time. This conversion is used before performing a calculation\nso that the calculation can be done using a simple local zone.\n\n@param instantUTC the UTC instant to convert to local\n@return the local instant with the same local time\n@throws ArithmeticException if the result overflows a long\n@since 1.5\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/DateTimeZone.java",
+        "newPath": "src/main/java/org/joda/time/DateTimeZone.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public long convertUTCToLocal(long instantUTC) {\n    int offset \u003d getOffset(instantUTC);\n    long instantLocal \u003d instantUTC + offset;\n    if ((instantUTC ^ instantLocal) \u003c 0 \u0026\u0026 (instantUTC ^ offset) \u003e\u003d 0) {\n        throw new ArithmeticException(\"Adding time zone offset caused overflow\");\n    }\n    return instantLocal;\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/DateTimeZone.java",
+      "functionStartLine": 893,
+      "functionName": "convertUTCToLocal",
+      "functionAnnotation": "",
+      "functionDoc": "Converts a standard UTC instant to a local instant with the same\nlocal time. This conversion is used before performing a calculation\nso that the calculation can be done using a simple local zone.\n\n@param instantUTC the UTC instant to convert to local\n@return the local instant with the same local time\n@throws ArithmeticException if the result overflows a long\n@since 1.5\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/DateTimeZone.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/DateTimeZone.java"
+      }
+    },
+    "5ccd1def534f2e37637d0311fb8bcfba62f1c74d": {
+      "type": "Ydocchange",
+      "commitMessage": "Add missing since tags for 1.5\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1279 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "10/29/07, 2:28 AM",
+      "commitName": "5ccd1def534f2e37637d0311fb8bcfba62f1c74d",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/4/07, 10:46 AM",
+      "commitNameOld": "3f5e2fafb4f17632d783a1f6977b42588c7b1414",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 85.65,
+      "commitsBetweenForRepo": 46,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public long convertUTCToLocal(long instantUTC) {\n    int offset \u003d getOffset(instantUTC);\n    long instantLocal \u003d instantUTC + offset;\n    if ((instantUTC ^ instantLocal) \u003c 0 \u0026\u0026 (instantUTC ^ offset) \u003e\u003d 0) {\n        throw new ArithmeticException(\"Adding time zone offset caused overflow\");\n    }\n    return instantLocal;\n}",
+      "path": "JodaTime/src/java/org/joda/time/DateTimeZone.java",
+      "functionStartLine": 891,
+      "functionName": "convertUTCToLocal",
+      "functionAnnotation": "",
+      "functionDoc": "Converts a standard UTC instant to a local instant with the same\nlocal time. This conversion is used before performing a calculation\nso that the calculation can be done using a simple local zone.\n\n@param instantUTC the UTC instant to convert to local\n@return the local instant with the same local time\n@throws ArithmeticException if the result overflows a long\n@since 1.5\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Converts a standard UTC instant to a local instant with the same\nlocal time. This conversion is used before performing a calculation\nso that the calculation can be done using a simple local zone.\n\n@param instantUTC the UTC instant to convert to local\n@return the local instant with the same local time\n@throws ArithmeticException if the result overflows a long\n",
+        "newValue": "Converts a standard UTC instant to a local instant with the same\nlocal time. This conversion is used before performing a calculation\nso that the calculation can be done using a simple local zone.\n\n@param instantUTC the UTC instant to convert to local\n@return the local instant with the same local time\n@throws ArithmeticException if the result overflows a long\n@since 1.5\n"
+      }
+    },
+    "c41eff1e6026a6e0b88ea45edda3e41eecc6ac7b": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix DateTimeZone to better handle spring DST cutover\nbugs 1710316, 1747219, 1755158\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1232 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/4/07, 10:23 AM",
+      "commitName": "c41eff1e6026a6e0b88ea45edda3e41eecc6ac7b",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,8 @@\n+public long convertUTCToLocal(long instantUTC) {\n+    int offset \u003d getOffset(instantUTC);\n+    long instantLocal \u003d instantUTC + offset;\n+    if ((instantUTC ^ instantLocal) \u003c 0 \u0026\u0026 (instantUTC ^ offset) \u003e\u003d 0) {\n+        throw new ArithmeticException(\"Adding time zone offset caused overflow\");\n+    }\n+    return instantLocal;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public long convertUTCToLocal(long instantUTC) {\n    int offset \u003d getOffset(instantUTC);\n    long instantLocal \u003d instantUTC + offset;\n    if ((instantUTC ^ instantLocal) \u003c 0 \u0026\u0026 (instantUTC ^ offset) \u003e\u003d 0) {\n        throw new ArithmeticException(\"Adding time zone offset caused overflow\");\n    }\n    return instantLocal;\n}",
+      "path": "JodaTime/src/java/org/joda/time/DateTimeZone.java",
+      "functionStartLine": 887,
+      "functionName": "convertUTCToLocal",
+      "functionAnnotation": "",
+      "functionDoc": "Converts a standard UTC instant to a local instant with the same\nlocal time. This conversion is used before performing a calculation\nso that the calculation can be done using a simple local zone.\n\n@param instantUTC the UTC instant to convert to local\n@return the local instant with the same local time\n@throws ArithmeticException if the result overflows a long\n"
+    }
+  }
+}

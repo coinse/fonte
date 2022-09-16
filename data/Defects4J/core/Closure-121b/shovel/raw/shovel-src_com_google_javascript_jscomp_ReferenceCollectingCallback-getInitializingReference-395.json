@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-121b",
+  "repositoryPath": "/tmp/Closure-121b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReferenceCollectingCallback.java",
+  "functionName": "getInitializingReference",
+  "functionId": "$getInitializingReference",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@return The reference that provides the value for the variable at the\ntime of the first read, if known, otherwise null.\n\nThis is either the variable declaration (\"var a \u003d ...\") or first\nreference following the declaration if it is an assignment.\n",
+  "functionStartLine": 395,
+  "functionEndLine": 402,
+  "numCommitsSeen": 33,
+  "timeTaken": 2417,
+  "changeHistory": [
+    "78995bf9e88599055a8c4165d89c09dc92a44b30"
+  ],
+  "changeHistoryShort": {
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "78995bf9e88599055a8c4165d89c09dc92a44b30": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix synthesis of vars in DEFAULT mode.\nBetter variable inlining\nBetter function inlining\nAssorted bug fixes\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@6 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/10/09, 11:16 AM",
+      "commitName": "78995bf9e88599055a8c4165d89c09dc92a44b30",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,8 @@\n+Reference getInitializingReference() {\n+    if (isInitializingDeclarationAt(0)) {\n+        return references.get(0);\n+    } else if (isInitializingAssignmentAt(1)) {\n+        return references.get(1);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Reference getInitializingReference() {\n    if (isInitializingDeclarationAt(0)) {\n        return references.get(0);\n    } else if (isInitializingAssignmentAt(1)) {\n        return references.get(1);\n    }\n    return null;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 313,
+      "functionName": "getInitializingReference",
+      "functionAnnotation": "",
+      "functionDoc": "\n@return The reference that provides the value for the variable at the\ntime of the first read, if known, otherwise null.\n\nThis is either the variable declaration (\"var a \u003d ...\") or first\nreference following the declaration if it is an assignment.\n"
+    }
+  }
+}

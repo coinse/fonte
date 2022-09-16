@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-60b",
+  "repositoryPath": "/tmp/Math-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FastMath.java",
+  "functionName": "resplit",
+  "functionId": "resplit___a-double[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/util/FastMath.java",
+  "functionAnnotation": "",
+  "functionDoc": "Recompute a split.\n\n@param a input/out array containing the split, changed\non output\n",
+  "functionStartLine": 960,
+  "functionEndLine": 973,
+  "numCommitsSeen": 6,
+  "timeTaken": 10309,
+  "changeHistory": [
+    "80b1e90b42a34856b61cec628fcea6633d1000cd"
+  ],
+  "changeHistoryShort": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80b1e90b42a34856b61cec628fcea6633d1000cd": {
+      "type": "Yintroduced",
+      "commitMessage": "added FastMath and used it everywhere in replacement of java.util.Math\nthe unit tests have not been added yet (waiting for dfp library addition)\nJIRA: MATH-375\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@990658 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/10, 3:04 PM",
+      "commitName": "80b1e90b42a34856b61cec628fcea6633d1000cd",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,13 @@\n+private static void resplit(final double[] a) {\n+    final double c \u003d a[0] + a[1];\n+    final double d \u003d -(c - a[0] - a[1]);\n+    if (c \u003c 8e298 \u0026\u0026 c \u003e -8e298) {\n+        double z \u003d c * 1073741824.0;\n+        a[0] \u003d (c + z) - z;\n+        a[1] \u003d c - a[0] + d;\n+    } else {\n+        double z \u003d c * 9.31322574615478515625E-10;\n+        a[0] \u003d (c + z - c) * 1073741824.0;\n+        a[1] \u003d c - a[0] + d;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void resplit(final double[] a) {\n    final double c \u003d a[0] + a[1];\n    final double d \u003d -(c - a[0] - a[1]);\n    if (c \u003c 8e298 \u0026\u0026 c \u003e -8e298) {\n        double z \u003d c * 1073741824.0;\n        a[0] \u003d (c + z) - z;\n        a[1] \u003d c - a[0] + d;\n    } else {\n        double z \u003d c * 9.31322574615478515625E-10;\n        a[0] \u003d (c + z - c) * 1073741824.0;\n        a[1] \u003d c - a[0] + d;\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/util/FastMath.java",
+      "functionStartLine": 738,
+      "functionName": "resplit",
+      "functionAnnotation": "",
+      "functionDoc": "Recompute a split.\n\n@param a input/out array containing the split, changed\non output\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-91b",
+  "repositoryPath": "/tmp/Closure-91b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PrepareAst.java",
+  "functionName": "annotateFunctions",
+  "functionId": "$annotateFunctions___n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PrepareAst.java",
+  "functionAnnotation": "",
+  "functionDoc": "Annotate optional and var_arg function parameters.\n",
+  "functionStartLine": 271,
+  "functionEndLine": 293,
+  "numCommitsSeen": 9,
+  "timeTaken": 1193,
+  "changeHistory": [
+    "52547e61d187e102f21e5545c24e8d232fefe92f",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8"
+  ],
+  "changeHistoryShort": {
+    "52547e61d187e102f21e5545c24e8d232fefe92f": "Ybodychange",
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "52547e61d187e102f21e5545c24e8d232fefe92f": {
+      "type": "Ybodychange",
+      "commitMessage": "\nWarningsGuard for @suppress.\n\nR\u003djohnlenz\nDELTA\u003d276  (243 added, 16 deleted, 17 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d86010\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@343 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "8/5/10, 7:31 PM",
+      "commitName": "52547e61d187e102f21e5545c24e8d232fefe92f",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "7/15/10, 2:34 PM",
+      "commitNameOld": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 21.21,
+      "commitsBetweenForRepo": 60,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void annotateFunctions(Node n, Node parent) {\n    JSDocInfo fnInfo \u003d NodeUtil.getFunctionInfo(n);\n    Node args \u003d n.getFirstChild().getNext();\n    for (Node arg \u003d args.getFirstChild(); arg !\u003d null; arg \u003d arg.getNext()) {\n        String argName \u003d arg.getString();\n        JSTypeExpression typeExpr \u003d fnInfo \u003d\u003d null ? null : fnInfo.getParameterType(argName);\n        if (convention.isOptionalParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isOptionalArg()) {\n            arg.putBooleanProp(Node.IS_OPTIONAL_PARAM, true);\n        }\n        if (convention.isVarArgsParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isVarArgs()) {\n            arg.putBooleanProp(Node.IS_VAR_ARGS_PARAM, true);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 247,
+      "functionName": "annotateFunctions",
+      "functionAnnotation": "",
+      "functionDoc": "Annotate optional and var_arg function parameters.\n",
+      "diff": "@@ -1,22 +1,14 @@\n private void annotateFunctions(Node n, Node parent) {\n-    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n-    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n-    if (fnInfo \u003d\u003d null) {\n-        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n-            fnInfo \u003d parent.getJSDocInfo();\n-        } else if (parent.getType() \u003d\u003d Token.NAME) {\n-            fnInfo \u003d parent.getParent().getJSDocInfo();\n-        }\n-    }\n+    JSDocInfo fnInfo \u003d NodeUtil.getFunctionInfo(n);\n     Node args \u003d n.getFirstChild().getNext();\n     for (Node arg \u003d args.getFirstChild(); arg !\u003d null; arg \u003d arg.getNext()) {\n         String argName \u003d arg.getString();\n         JSTypeExpression typeExpr \u003d fnInfo \u003d\u003d null ? null : fnInfo.getParameterType(argName);\n         if (convention.isOptionalParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isOptionalArg()) {\n             arg.putBooleanProp(Node.IS_OPTIONAL_PARAM, true);\n         }\n         if (convention.isVarArgsParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isVarArgs()) {\n             arg.putBooleanProp(Node.IS_VAR_ARGS_PARAM, true);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic \"free call\" annotation and support for issue 180.  Additional\ntesting is required to validate that new CALL nodes are not\ninappropriately introduced.\n\nAlso, refactored PrepareAst to make the different actions being taken\neasier to follow.\n\nR\u003dnicksantos\nDELTA\u003d215  (120 added, 18 deleted, 77 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d52003\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@282 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/15/10, 2:34 PM",
+      "commitName": "d7e85b0997ebb3d920c977de7a4a3f8ede5ba2d8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,22 @@\n+private void annotateFunctions(Node n, Node parent) {\n+    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n+    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n+    if (fnInfo \u003d\u003d null) {\n+        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n+            fnInfo \u003d parent.getJSDocInfo();\n+        } else if (parent.getType() \u003d\u003d Token.NAME) {\n+            fnInfo \u003d parent.getParent().getJSDocInfo();\n+        }\n+    }\n+    Node args \u003d n.getFirstChild().getNext();\n+    for (Node arg \u003d args.getFirstChild(); arg !\u003d null; arg \u003d arg.getNext()) {\n+        String argName \u003d arg.getString();\n+        JSTypeExpression typeExpr \u003d fnInfo \u003d\u003d null ? null : fnInfo.getParameterType(argName);\n+        if (convention.isOptionalParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isOptionalArg()) {\n+            arg.putBooleanProp(Node.IS_OPTIONAL_PARAM, true);\n+        }\n+        if (convention.isVarArgsParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isVarArgs()) {\n+            arg.putBooleanProp(Node.IS_VAR_ARGS_PARAM, true);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void annotateFunctions(Node n, Node parent) {\n    Preconditions.checkState(n.getType() \u003d\u003d Token.FUNCTION);\n    JSDocInfo fnInfo \u003d n.getJSDocInfo();\n    if (fnInfo \u003d\u003d null) {\n        if (parent.getType() \u003d\u003d Token.ASSIGN) {\n            fnInfo \u003d parent.getJSDocInfo();\n        } else if (parent.getType() \u003d\u003d Token.NAME) {\n            fnInfo \u003d parent.getParent().getJSDocInfo();\n        }\n    }\n    Node args \u003d n.getFirstChild().getNext();\n    for (Node arg \u003d args.getFirstChild(); arg !\u003d null; arg \u003d arg.getNext()) {\n        String argName \u003d arg.getString();\n        JSTypeExpression typeExpr \u003d fnInfo \u003d\u003d null ? null : fnInfo.getParameterType(argName);\n        if (convention.isOptionalParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isOptionalArg()) {\n            arg.putBooleanProp(Node.IS_OPTIONAL_PARAM, true);\n        }\n        if (convention.isVarArgsParameter(arg) || typeExpr !\u003d null \u0026\u0026 typeExpr.isVarArgs()) {\n            arg.putBooleanProp(Node.IS_VAR_ARGS_PARAM, true);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PrepareAst.java",
+      "functionStartLine": 247,
+      "functionName": "annotateFunctions",
+      "functionAnnotation": "",
+      "functionDoc": "Annotate optional and var_arg function parameters.\n"
+    }
+  }
+}

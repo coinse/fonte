@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-64b",
+  "repositoryPath": "/tmp/Lang-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Enum.java",
+  "functionName": "createEntry",
+  "functionId": "createEntry___enumClass-Class",
+  "sourceFilePath": "src/java/org/apache/commons/lang/enums/Enum.java",
+  "functionAnnotation": "",
+  "functionDoc": "\u003cp\u003eCreates an \u003ccode\u003eEntry\u003c/code\u003e for storing the Enums.\u003c/p\u003e\n\n\u003cp\u003eThis accounts for subclassed Enums.\u003c/p\u003e\n\n@param enumClass the class of the \u003ccode\u003eEnum\u003c/code\u003e to get\n@return the enum entry\n",
+  "functionStartLine": 483,
+  "functionEndLine": 496,
+  "numCommitsSeen": 17,
+  "timeTaken": 509,
+  "changeHistory": [
+    "d17bffa174a507998e343b60a5e8852821f36412"
+  ],
+  "changeHistoryShort": {
+    "d17bffa174a507998e343b60a5e8852821f36412": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d17bffa174a507998e343b60a5e8852821f36412": {
+      "type": "Yintroduced",
+      "commitMessage": "\nlang.enum.*:\n\tDeprecated and replaced by org.apache.commons.lang.enums.* and will be\n\tremoved in version 3.0. All classes in this package are deprecated and \n\trepackaged to org.apache.commons.lang.enums since enum is a Java 1.5 \n\tkeyword.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/lang/trunk@137811 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/22/04, 8:34 PM",
+      "commitName": "d17bffa174a507998e343b60a5e8852821f36412",
+      "commitAuthor": "Gary D. Gregory",
+      "diff": "@@ -0,0 +1,14 @@\n+private static Entry createEntry(Class enumClass) {\n+    Entry entry \u003d new Entry();\n+    Class cls \u003d enumClass.getSuperclass();\n+    while (cls !\u003d null \u0026\u0026 cls !\u003d Enum.class \u0026\u0026 cls !\u003d ValuedEnum.class) {\n+        Entry loopEntry \u003d (Entry) cEnumClasses.get(cls);\n+        if (loopEntry !\u003d null) {\n+            entry.list.addAll(loopEntry.list);\n+            entry.map.putAll(loopEntry.map);\n+            break;\n+        }\n+        cls \u003d cls.getSuperclass();\n+    }\n+    return entry;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Entry createEntry(Class enumClass) {\n    Entry entry \u003d new Entry();\n    Class cls \u003d enumClass.getSuperclass();\n    while (cls !\u003d null \u0026\u0026 cls !\u003d Enum.class \u0026\u0026 cls !\u003d ValuedEnum.class) {\n        Entry loopEntry \u003d (Entry) cEnumClasses.get(cls);\n        if (loopEntry !\u003d null) {\n            entry.list.addAll(loopEntry.list);\n            entry.map.putAll(loopEntry.map);\n            break;\n        }\n        cls \u003d cls.getSuperclass();\n    }\n    return entry;\n}",
+      "path": "src/java/org/apache/commons/lang/enums/Enum.java",
+      "functionStartLine": 477,
+      "functionName": "createEntry",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eCreates an \u003ccode\u003eEntry\u003c/code\u003e for storing the Enums.\u003c/p\u003e\n\n\u003cp\u003eThis accounts for subclassed Enums.\u003c/p\u003e\n\n@param enumClass the class of the \u003ccode\u003eEnum\u003c/code\u003e to get\n@return the enum entry\n"
+    }
+  }
+}

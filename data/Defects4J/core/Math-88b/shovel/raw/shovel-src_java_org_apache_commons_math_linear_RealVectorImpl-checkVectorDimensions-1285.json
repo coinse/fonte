@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "RealVectorImpl.java",
+  "functionName": "checkVectorDimensions",
+  "functionId": "checkVectorDimensions___n-int",
+  "sourceFilePath": "src/java/org/apache/commons/math/linear/RealVectorImpl.java",
+  "functionAnnotation": "",
+  "functionDoc": "Check if instance dimension is equal to some expected value.\n\n@param n expected dimension.\n@exception IllegalArgumentException if the dimension is\ninconsistent with vector size\n",
+  "functionStartLine": 1285,
+  "functionEndLine": 1292,
+  "numCommitsSeen": 13,
+  "timeTaken": 1523,
+  "changeHistory": [
+    "2628b29e876bf69f58727a8ef9d63924f8f87a27",
+    "f24be14aaa099d18b15ee2cb295c8951a3154866",
+    "a311dce47eb28360297655aefeac518cfac069a9"
+  ],
+  "changeHistoryShort": {
+    "2628b29e876bf69f58727a8ef9d63924f8f87a27": "Ybodychange",
+    "f24be14aaa099d18b15ee2cb295c8951a3154866": "Ymodifierchange",
+    "a311dce47eb28360297655aefeac518cfac069a9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2628b29e876bf69f58727a8ef9d63924f8f87a27": {
+      "type": "Ybodychange",
+      "commitMessage": "minor code cleanups\n(error messages, javadoc, avoiding array copies, final attributes ...)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@747544 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/24/09, 12:59 PM",
+      "commitName": "2628b29e876bf69f58727a8ef9d63924f8f87a27",
+      "commitAuthor": "Luc Maisonobe",
+      "commitDateOld": "2/21/09, 12:01 PM",
+      "commitNameOld": "7f88773d6c3c96c0a2fd24c3e50d1eb80daca11d",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 3.04,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void checkVectorDimensions(int n) throws IllegalArgumentException {\n    if (data.length !\u003d n) {\n        throw MathRuntimeException.createIllegalArgumentException(\"vector length mismatch: got {0} but expected {1}\", data.length, n);\n    }\n}",
+      "path": "src/java/org/apache/commons/math/linear/RealVectorImpl.java",
+      "functionStartLine": 1284,
+      "functionName": "checkVectorDimensions",
+      "functionAnnotation": "",
+      "functionDoc": "Check if instance dimension is equal to some expected value.\n\n@param n expected dimension.\n@exception IllegalArgumentException if the dimension is\ninconsistent with vector size\n",
+      "diff": "@@ -1,5 +1,5 @@\n protected void checkVectorDimensions(int n) throws IllegalArgumentException {\n     if (data.length !\u003d n) {\n-        throw new IllegalArgumentException(\"vector dimension is \" + data.length + \", not \" + n + \" as expected\");\n+        throw MathRuntimeException.createIllegalArgumentException(\"vector length mismatch: got {0} but expected {1}\", data.length, n);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f24be14aaa099d18b15ee2cb295c8951a3154866": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Mostly completing the methods that don\u0027t make sense if using a sparse vector in the first place.  Initial implementations for equals on the backing store, but it seems it will need more work (since still have to comment out junit tests).  \nMaking  checkVectorDimensions protected instead of public on all RealVector classes.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@742257 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/8/09, 8:50 PM",
+      "commitName": "f24be14aaa099d18b15ee2cb295c8951a3154866",
+      "commitAuthor": "William Barker",
+      "commitDateOld": "2/4/09, 5:59 AM",
+      "commitNameOld": "0374533c6938e4e804af95c35cbf9b41e6190afd",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 4.62,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void checkVectorDimensions(int n) throws IllegalArgumentException {\n    if (data.length !\u003d n) {\n        throw new IllegalArgumentException(\"vector dimension is \" + data.length + \", not \" + n + \" as expected\");\n    }\n}",
+      "path": "src/java/org/apache/commons/math/linear/RealVectorImpl.java",
+      "functionStartLine": 1285,
+      "functionName": "checkVectorDimensions",
+      "functionAnnotation": "",
+      "functionDoc": "Check if instance dimension is equal to some expected value.\n\n@param n expected dimension.\n@exception IllegalArgumentException if the dimension is\ninconsistent with vector size\n",
+      "diff": "@@ -1,5 +1,5 @@\n-public void checkVectorDimensions(int n) throws IllegalArgumentException {\n+protected void checkVectorDimensions(int n) throws IllegalArgumentException {\n     if (data.length !\u003d n) {\n         throw new IllegalArgumentException(\"vector dimension is \" + data.length + \", not \" + n + \" as expected\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[public]",
+        "newValue": "[protected]"
+      }
+    },
+    "a311dce47eb28360297655aefeac518cfac069a9": {
+      "type": "Yintroduced",
+      "commitMessage": "Support for one dimensional vectors has been added to the linear algebra\npackage with a RealVector interface, a RealVectorImpl default implementation\nusing a single double array to store elements and a RealVectorFormat class for\ninput/output.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/branches/MATH_2_0@680166 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/27/08, 12:15 PM",
+      "commitName": "a311dce47eb28360297655aefeac518cfac069a9",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,5 @@\n+public void checkVectorDimensions(int n) throws IllegalArgumentException {\n+    if (data.length !\u003d n) {\n+        throw new IllegalArgumentException(\"vector dimension is \" + data.length + \", not \" + n + \" as expected\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void checkVectorDimensions(int n) throws IllegalArgumentException {\n    if (data.length !\u003d n) {\n        throw new IllegalArgumentException(\"vector dimension is \" + data.length + \", not \" + n + \" as expected\");\n    }\n}",
+      "path": "src/java/org/apache/commons/math/linear/RealVectorImpl.java",
+      "functionStartLine": 1185,
+      "functionName": "checkVectorDimensions",
+      "functionAnnotation": "",
+      "functionDoc": "Check if instance dimension is equal to some expected value.\n\n@param n expected dimension.\n@exception IllegalArgumentException if the dimension is\ninconsistent with vector size\n"
+    }
+  }
+}

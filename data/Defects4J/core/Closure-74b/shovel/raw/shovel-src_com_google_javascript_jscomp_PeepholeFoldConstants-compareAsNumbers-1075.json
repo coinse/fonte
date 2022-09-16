@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeFoldConstants.java",
+  "functionName": "compareAsNumbers",
+  "functionId": "compareAsNumbers___op-int__left-Node__right-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "functionAnnotation": "",
+  "functionDoc": "The result of the comparison as a Boolean or null if the\nresult could not be determined.\n",
+  "functionStartLine": 1075,
+  "functionEndLine": 1110,
+  "numCommitsSeen": 40,
+  "timeTaken": 1973,
+  "changeHistory": [
+    "510ff24ac51a8c73ff3f2401379654c37a00546b"
+  ],
+  "changeHistoryShort": {
+    "510ff24ac51a8c73ff3f2401379654c37a00546b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "510ff24ac51a8c73ff3f2401379654c37a00546b": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFold a few more comparison cases.\n\nR\u003dnicksantos\nDELTA\u003d215  (169 added, 20 deleted, 26 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d98\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@610 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "12/8/10, 2:31 PM",
+      "commitName": "510ff24ac51a8c73ff3f2401379654c37a00546b",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,40 @@\n+private Boolean compareAsNumbers(int op, Node left, Node right) {\n+    Double leftValue \u003d NodeUtil.getNumberValue(left);\n+    if (leftValue \u003d\u003d null) {\n+        return null;\n+    }\n+    Double rightValue \u003d NodeUtil.getNumberValue(right);\n+    if (rightValue \u003d\u003d null) {\n+        return null;\n+    }\n+    double lv \u003d leftValue;\n+    double rv \u003d rightValue;\n+    Boolean result;\n+    switch(op) {\n+        case Token.SHEQ:\n+        case Token.EQ:\n+            Preconditions.checkState(left.getType() \u003d\u003d Token.NUMBER \u0026\u0026 right.getType() \u003d\u003d Token.NUMBER);\n+            result \u003d lv \u003d\u003d rv;\n+            break;\n+        case Token.SHNE:\n+        case Token.NE:\n+            Preconditions.checkState(left.getType() \u003d\u003d Token.NUMBER \u0026\u0026 right.getType() \u003d\u003d Token.NUMBER);\n+            result \u003d lv !\u003d rv;\n+            break;\n+        case Token.LE:\n+            result \u003d lv \u003c\u003d rv;\n+            break;\n+        case Token.LT:\n+            result \u003d lv \u003c rv;\n+            break;\n+        case Token.GE:\n+            result \u003d lv \u003e\u003d rv;\n+            break;\n+        case Token.GT:\n+            result \u003d lv \u003e rv;\n+            break;\n+        default:\n+            return null;\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Boolean compareAsNumbers(int op, Node left, Node right) {\n    Double leftValue \u003d NodeUtil.getNumberValue(left);\n    if (leftValue \u003d\u003d null) {\n        return null;\n    }\n    Double rightValue \u003d NodeUtil.getNumberValue(right);\n    if (rightValue \u003d\u003d null) {\n        return null;\n    }\n    double lv \u003d leftValue;\n    double rv \u003d rightValue;\n    Boolean result;\n    switch(op) {\n        case Token.SHEQ:\n        case Token.EQ:\n            Preconditions.checkState(left.getType() \u003d\u003d Token.NUMBER \u0026\u0026 right.getType() \u003d\u003d Token.NUMBER);\n            result \u003d lv \u003d\u003d rv;\n            break;\n        case Token.SHNE:\n        case Token.NE:\n            Preconditions.checkState(left.getType() \u003d\u003d Token.NUMBER \u0026\u0026 right.getType() \u003d\u003d Token.NUMBER);\n            result \u003d lv !\u003d rv;\n            break;\n        case Token.LE:\n            result \u003d lv \u003c\u003d rv;\n            break;\n        case Token.LT:\n            result \u003d lv \u003c rv;\n            break;\n        case Token.GE:\n            result \u003d lv \u003e\u003d rv;\n            break;\n        case Token.GT:\n            result \u003d lv \u003e rv;\n            break;\n        default:\n            return null;\n    }\n    return result;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 927,
+      "functionName": "compareAsNumbers",
+      "functionAnnotation": "",
+      "functionDoc": "The result of the comparison as a Boolean or null if the\nresult could not be determined.\n"
+    }
+  }
+}

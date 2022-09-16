@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectType.java",
+  "functionName": "isImplicitPrototype",
+  "functionId": "isImplicitPrototype___prototype-ObjectType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Checks that the prototype is an implicit prototype of this object. Since\neach object has an implicit prototype, an implicit prototype\u0027s\nimplicit prototype is also this implicit prototype\u0027s.\n\n@param prototype any prototype based object\n@return @code true} if {@code prototype} is {@code equal} to any\n        object in this object\u0027s implicit prototype chain.\n",
+  "functionStartLine": 469,
+  "functionEndLine": 478,
+  "numCommitsSeen": 35,
+  "timeTaken": 785,
+  "changeHistory": [
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/26/10, 8:26 AM",
+      "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "2/5/10, 10:31 AM",
+      "commitNameOld": "d1f25380b5d74c5303533491e36ae4b33a50e2da",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 109.87,
+      "commitsBetweenForRepo": 123,
+      "commitsBetweenForFile": 1,
+      "actualSource": "final boolean isImplicitPrototype(ObjectType prototype) {\n    for (ObjectType current \u003d this; current !\u003d null; current \u003d current.getImplicitPrototype()) {\n        if (current.isEquivalentTo(prototype)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 383,
+      "functionName": "isImplicitPrototype",
+      "functionAnnotation": "",
+      "functionDoc": "Checks that the prototype is an implicit prototype of this object. Since\neach object has an implicit prototype, an implicit prototype\u0027s\nimplicit prototype is also this implicit prototype\u0027s.\n\n@param prototype any prototype based object\n@return @code true} if {@code prototype} is {@code equal} to any\n        object in this object\u0027s implicit prototype chain.\n",
+      "diff": "@@ -1,8 +1,8 @@\n final boolean isImplicitPrototype(ObjectType prototype) {\n     for (ObjectType current \u003d this; current !\u003d null; current \u003d current.getImplicitPrototype()) {\n-        if (current.equals(prototype)) {\n+        if (current.isEquivalentTo(prototype)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,8 @@\n+final boolean isImplicitPrototype(ObjectType prototype) {\n+    for (ObjectType current \u003d this; current !\u003d null; current \u003d current.getImplicitPrototype()) {\n+        if (current.equals(prototype)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "final boolean isImplicitPrototype(ObjectType prototype) {\n    for (ObjectType current \u003d this; current !\u003d null; current \u003d current.getImplicitPrototype()) {\n        if (current.equals(prototype)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/ObjectType.java",
+      "functionStartLine": 377,
+      "functionName": "isImplicitPrototype",
+      "functionAnnotation": "",
+      "functionDoc": "Checks that the prototype is an implicit prototype of this object. Since\neach object has an implicit prototype, an implicit prototype\u0027s\nimplicit prototype is also this implicit prototype\u0027s.\n\n@param prototype any prototype based object\n@return @code true} if {@code prototype} is {@code equal} to any\n        object in this object\u0027s implicit prototype chain.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-85b",
+  "repositoryPath": "/tmp/Closure-85b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "transformAsString",
+  "functionId": "$transformAsString___n-AstNode",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Transforms the given node and then sets its type to Token.STRING if it\nwas Token.NAME. If its type was already Token.STRING, then quotes it.\nUsed for properties, as the old AST uses String tokens, while the new one\nuses Name tokens for unquoted strings. For example, in\nvar o \u003d {\u0027a\u0027 : 1, b: 2};\nthe string \u0027a\u0027 is quoted, while the name b is turned into a string, but\nunquoted.\n",
+  "functionStartLine": 295,
+  "functionEndLine": 303,
+  "numCommitsSeen": 28,
+  "timeTaken": 2540,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private Node transformAsString(AstNode n) {\n+    Node ret \u003d transform(n);\n+    if (ret.getType() \u003d\u003d Token.STRING) {\n+        ret.putBooleanProp(Node.QUOTED_PROP, true);\n+    } else if (ret.getType() \u003d\u003d Token.NAME) {\n+        ret.setType(Token.STRING);\n+    }\n+    return ret;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node transformAsString(AstNode n) {\n    Node ret \u003d transform(n);\n    if (ret.getType() \u003d\u003d Token.STRING) {\n        ret.putBooleanProp(Node.QUOTED_PROP, true);\n    } else if (ret.getType() \u003d\u003d Token.NAME) {\n        ret.setType(Token.STRING);\n    }\n    return ret;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 312,
+      "functionName": "transformAsString",
+      "functionAnnotation": "",
+      "functionDoc": "Transforms the given node and then sets its type to Token.STRING if it\nwas Token.NAME. If its type was already Token.STRING, then quotes it.\nUsed for properties, as the old AST uses String tokens, while the new one\nuses Name tokens for unquoted strings. For example, in\nvar o \u003d {\u0027a\u0027 : 1, b: 2};\nthe string \u0027a\u0027 is quoted, while the name b is turned into a string, but\nunquoted.\n"
+    }
+  }
+}

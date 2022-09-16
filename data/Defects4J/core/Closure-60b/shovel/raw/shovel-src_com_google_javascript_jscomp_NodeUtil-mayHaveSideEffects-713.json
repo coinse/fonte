@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "mayHaveSideEffects",
+  "functionId": "mayHaveSideEffects___n-Node__compiler-AbstractCompiler",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 713,
+  "functionEndLine": 715,
+  "numCommitsSeen": 112,
+  "timeTaken": 7873,
+  "changeHistory": [
+    "80fe41fd0173c3eaa56f4abb783031966ea89cef",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "80fe41fd0173c3eaa56f4abb783031966ea89cef": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80fe41fd0173c3eaa56f4abb783031966ea89cef": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "\nChange on 2010/04/09 by john\n\n        Part II: Use global RegExp reference information to optimize references when possible.\n\n        R\u003dalan\n        DELTA\u003d231  (173 added, 17 deleted, 41 changed)\n\nChange on 2010/04/09 by nicksantos\n\n        Make JsFileLineParser much more efficient for large files\n        (we were running into problems with it running out of memory.)\n\n        R\u003dandrew\n        DELTA\u003d192  (157 added, 1 deleted, 34 changed)\n\nChange on 2010/04/09 by alan\n\n        Fix typed code gen crash when generating typed code.\n\n        R\u003dnicksantos\n        DELTA\u003d35  (24 added, 2 deleted, 9 changed)\n\nChange on 2010/04/09 by alan\n\n        Disable method motion on functions that reads closure variables.\n\n        R\u003dnicksantos\n        DELTA\u003d171  (162 added, 1 deleted, 8 changed)\n\nChange on 2010/04/12 by nada\n\n        In AmbiguateProperties, invert the related type relationship, by\n        considering subclasses and implementors (down) instead of superclasses\n        and implemented interfaces (up). This has two advantages:\n\n        - The \u0027independent of\u0027 relationship is simplified, because we only\n          need to consider whether the related types intersect.\n\n        - We can account for \u0027multiple inheritance\u0027, which is a practical\n          issue because of interfaces.\n\n        Note that the \u0027up\u0027 relationship allows us to easily find common\n        ancestors while the \u0027down\u0027 relationship allows us to easily find\n        common descendants -- and this is what we care about for ambiguation.\n\n\n        R\u003dmoedinger\n        DELTA\u003d173  (124 added, 15 deleted, 34 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dmwgnge\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@180 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/12/10, 7:59 AM",
+      "commitName": "80fe41fd0173c3eaa56f4abb783031966ea89cef",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nChange on 2010/04/09 by john\n\n        Part II: Use global RegExp reference information to optimize references when possible.\n\n        R\u003dalan\n        DELTA\u003d231  (173 added, 17 deleted, 41 changed)\n\nChange on 2010/04/09 by nicksantos\n\n        Make JsFileLineParser much more efficient for large files\n        (we were running into problems with it running out of memory.)\n\n        R\u003dandrew\n        DELTA\u003d192  (157 added, 1 deleted, 34 changed)\n\nChange on 2010/04/09 by alan\n\n        Fix typed code gen crash when generating typed code.\n\n        R\u003dnicksantos\n        DELTA\u003d35  (24 added, 2 deleted, 9 changed)\n\nChange on 2010/04/09 by alan\n\n        Disable method motion on functions that reads closure variables.\n\n        R\u003dnicksantos\n        DELTA\u003d171  (162 added, 1 deleted, 8 changed)\n\nChange on 2010/04/12 by nada\n\n        In AmbiguateProperties, invert the related type relationship, by\n        considering subclasses and implementors (down) instead of superclasses\n        and implemented interfaces (up). This has two advantages:\n\n        - The \u0027independent of\u0027 relationship is simplified, because we only\n          need to consider whether the related types intersect.\n\n        - We can account for \u0027multiple inheritance\u0027, which is a practical\n          issue because of interfaces.\n\n        Note that the \u0027up\u0027 relationship allows us to easily find common\n        ancestors while the \u0027down\u0027 relationship allows us to easily find\n        common descendants -- and this is what we care about for ambiguation.\n\n\n        R\u003dmoedinger\n        DELTA\u003d173  (124 added, 15 deleted, 34 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dmwgnge\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@180 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/12/10, 7:59 AM",
+          "commitName": "80fe41fd0173c3eaa56f4abb783031966ea89cef",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/7/10, 11:34 AM",
+          "commitNameOld": "7eaa0d8eca2549742649af34671eaf3da83b5c08",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 4.85,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean mayHaveSideEffects(Node n, AbstractCompiler compiler) {\n    return checkForStateChangeHelper(n, false, compiler);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 353,
+          "functionName": "mayHaveSideEffects",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-static boolean mayHaveSideEffects(Node n) {\n-    return checkForStateChangeHelper(n, false);\n+static boolean mayHaveSideEffects(Node n, AbstractCompiler compiler) {\n+    return checkForStateChangeHelper(n, false, compiler);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[n-Node]",
+            "newValue": "[n-Node, compiler-AbstractCompiler]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nChange on 2010/04/09 by john\n\n        Part II: Use global RegExp reference information to optimize references when possible.\n\n        R\u003dalan\n        DELTA\u003d231  (173 added, 17 deleted, 41 changed)\n\nChange on 2010/04/09 by nicksantos\n\n        Make JsFileLineParser much more efficient for large files\n        (we were running into problems with it running out of memory.)\n\n        R\u003dandrew\n        DELTA\u003d192  (157 added, 1 deleted, 34 changed)\n\nChange on 2010/04/09 by alan\n\n        Fix typed code gen crash when generating typed code.\n\n        R\u003dnicksantos\n        DELTA\u003d35  (24 added, 2 deleted, 9 changed)\n\nChange on 2010/04/09 by alan\n\n        Disable method motion on functions that reads closure variables.\n\n        R\u003dnicksantos\n        DELTA\u003d171  (162 added, 1 deleted, 8 changed)\n\nChange on 2010/04/12 by nada\n\n        In AmbiguateProperties, invert the related type relationship, by\n        considering subclasses and implementors (down) instead of superclasses\n        and implemented interfaces (up). This has two advantages:\n\n        - The \u0027independent of\u0027 relationship is simplified, because we only\n          need to consider whether the related types intersect.\n\n        - We can account for \u0027multiple inheritance\u0027, which is a practical\n          issue because of interfaces.\n\n        Note that the \u0027up\u0027 relationship allows us to easily find common\n        ancestors while the \u0027down\u0027 relationship allows us to easily find\n        common descendants -- and this is what we care about for ambiguation.\n\n\n        R\u003dmoedinger\n        DELTA\u003d173  (124 added, 15 deleted, 34 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dmwgnge\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@180 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/12/10, 7:59 AM",
+          "commitName": "80fe41fd0173c3eaa56f4abb783031966ea89cef",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/7/10, 11:34 AM",
+          "commitNameOld": "7eaa0d8eca2549742649af34671eaf3da83b5c08",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 4.85,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean mayHaveSideEffects(Node n, AbstractCompiler compiler) {\n    return checkForStateChangeHelper(n, false, compiler);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 353,
+          "functionName": "mayHaveSideEffects",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-static boolean mayHaveSideEffects(Node n) {\n-    return checkForStateChangeHelper(n, false);\n+static boolean mayHaveSideEffects(Node n, AbstractCompiler compiler) {\n+    return checkForStateChangeHelper(n, false, compiler);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nChange on 2010/04/09 by john\n\n        Part II: Use global RegExp reference information to optimize references when possible.\n\n        R\u003dalan\n        DELTA\u003d231  (173 added, 17 deleted, 41 changed)\n\nChange on 2010/04/09 by nicksantos\n\n        Make JsFileLineParser much more efficient for large files\n        (we were running into problems with it running out of memory.)\n\n        R\u003dandrew\n        DELTA\u003d192  (157 added, 1 deleted, 34 changed)\n\nChange on 2010/04/09 by alan\n\n        Fix typed code gen crash when generating typed code.\n\n        R\u003dnicksantos\n        DELTA\u003d35  (24 added, 2 deleted, 9 changed)\n\nChange on 2010/04/09 by alan\n\n        Disable method motion on functions that reads closure variables.\n\n        R\u003dnicksantos\n        DELTA\u003d171  (162 added, 1 deleted, 8 changed)\n\nChange on 2010/04/12 by nada\n\n        In AmbiguateProperties, invert the related type relationship, by\n        considering subclasses and implementors (down) instead of superclasses\n        and implemented interfaces (up). This has two advantages:\n\n        - The \u0027independent of\u0027 relationship is simplified, because we only\n          need to consider whether the related types intersect.\n\n        - We can account for \u0027multiple inheritance\u0027, which is a practical\n          issue because of interfaces.\n\n        Note that the \u0027up\u0027 relationship allows us to easily find common\n        ancestors while the \u0027down\u0027 relationship allows us to easily find\n        common descendants -- and this is what we care about for ambiguation.\n\n\n        R\u003dmoedinger\n        DELTA\u003d173  (124 added, 15 deleted, 34 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dmwgnge\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@180 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "4/12/10, 7:59 AM",
+          "commitName": "80fe41fd0173c3eaa56f4abb783031966ea89cef",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "4/7/10, 11:34 AM",
+          "commitNameOld": "7eaa0d8eca2549742649af34671eaf3da83b5c08",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 4.85,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean mayHaveSideEffects(Node n, AbstractCompiler compiler) {\n    return checkForStateChangeHelper(n, false, compiler);\n}",
+          "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+          "functionStartLine": 353,
+          "functionName": "mayHaveSideEffects",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-static boolean mayHaveSideEffects(Node n) {\n-    return checkForStateChangeHelper(n, false);\n+static boolean mayHaveSideEffects(Node n, AbstractCompiler compiler) {\n+    return checkForStateChangeHelper(n, false, compiler);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Returns true if the node which may have side effects when executed.\n",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,3 @@\n+static boolean mayHaveSideEffects(Node n) {\n+    return checkForStateChangeHelper(n, false);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean mayHaveSideEffects(Node n) {\n    return checkForStateChangeHelper(n, false);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 341,
+      "functionName": "mayHaveSideEffects",
+      "functionAnnotation": "",
+      "functionDoc": "Returns true if the node which may have side effects when executed.\n"
+    }
+  }
+}

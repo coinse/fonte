@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-15b",
+  "repositoryPath": "/tmp/Gson-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonWriter.java",
+  "functionName": "open",
+  "functionId": "open___empty-int__openBracket-String",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Enters a new scope by appending any necessary whitespace and the given\nbracket.\n",
+  "functionStartLine": 324,
+  "functionEndLine": 329,
+  "numCommitsSeen": 29,
+  "timeTaken": 953,
+  "changeHistory": [
+    "c8627c8ab831dec86eeb52fc02600b22c81ba858",
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e"
+  ],
+  "changeHistoryShort": {
+    "c8627c8ab831dec86eeb52fc02600b22c81ba858": "Ybodychange",
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": "Ymultichange(Yparameterchange,Ybodychange)",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c8627c8ab831dec86eeb52fc02600b22c81ba858": {
+      "type": "Ybodychange",
+      "commitMessage": "Update reader and writer for RFC 7159.\n",
+      "commitDate": "1/18/16, 12:07 PM",
+      "commitName": "c8627c8ab831dec86eeb52fc02600b22c81ba858",
+      "commitAuthor": "Jake Wharton",
+      "commitDateOld": "9/26/15, 6:10 PM",
+      "commitNameOld": "1e9004403c619729ad1c49f070ab61427bd462c5",
+      "commitAuthorOld": "Inderjeet Singh",
+      "daysBetweenCommits": 113.79,
+      "commitsBetweenForRepo": 71,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private JsonWriter open(int empty, String openBracket) throws IOException {\n    beforeValue();\n    push(empty);\n    out.write(openBracket);\n    return this;\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 324,
+      "functionName": "open",
+      "functionAnnotation": "",
+      "functionDoc": "Enters a new scope by appending any necessary whitespace and the given\nbracket.\n",
+      "diff": "@@ -1,6 +1,6 @@\n private JsonWriter open(int empty, String openBracket) throws IOException {\n-    beforeValue(true);\n+    beforeValue();\n     push(empty);\n     out.write(openBracket);\n     return this;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+      "commitDate": "8/14/12, 2:32 PM",
+      "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+      "commitAuthor": "Jesse Wilson",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+          "commitDate": "8/14/12, 2:32 PM",
+          "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "6/29/12, 7:46 PM",
+          "commitNameOld": "1c7aee40f3d0d6f50b3d149e94a2b3b4627ca8a9",
+          "commitAuthorOld": "Jesse Wilson",
+          "daysBetweenCommits": 45.78,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JsonWriter open(int empty, String openBracket) throws IOException {\n    beforeValue(true);\n    push(empty);\n    out.write(openBracket);\n    return this;\n}",
+          "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+          "functionStartLine": 324,
+          "functionName": "open",
+          "functionAnnotation": "",
+          "functionDoc": "Enters a new scope by appending any necessary whitespace and the given\nbracket.\n",
+          "diff": "@@ -1,6 +1,6 @@\n-private JsonWriter open(JsonScope empty, String openBracket) throws IOException {\n+private JsonWriter open(int empty, String openBracket) throws IOException {\n     beforeValue(true);\n-    stack.add(empty);\n+    push(empty);\n     out.write(openBracket);\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[empty-JsonScope, openBracket-String]",
+            "newValue": "[empty-int, openBracket-String]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+          "commitDate": "8/14/12, 2:32 PM",
+          "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "6/29/12, 7:46 PM",
+          "commitNameOld": "1c7aee40f3d0d6f50b3d149e94a2b3b4627ca8a9",
+          "commitAuthorOld": "Jesse Wilson",
+          "daysBetweenCommits": 45.78,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JsonWriter open(int empty, String openBracket) throws IOException {\n    beforeValue(true);\n    push(empty);\n    out.write(openBracket);\n    return this;\n}",
+          "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+          "functionStartLine": 324,
+          "functionName": "open",
+          "functionAnnotation": "",
+          "functionDoc": "Enters a new scope by appending any necessary whitespace and the given\nbracket.\n",
+          "diff": "@@ -1,6 +1,6 @@\n-private JsonWriter open(JsonScope empty, String openBracket) throws IOException {\n+private JsonWriter open(int empty, String openBracket) throws IOException {\n     beforeValue(true);\n-    stack.add(empty);\n+    push(empty);\n     out.write(openBracket);\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": {
+      "type": "Yintroduced",
+      "commitMessage": "Brand new classes for streaming JSON efficiently.\n\nNotable features:\n - Efficiency. The parser is faster than the current javacc parser. It\u0027s also faster than popular libraries for JSON streaming.\n - Toggle lenient/strict\n - Toggle pretty/compact\n - Friendly error messages on bad JSON\n - GSON-quality Javadoc\n - Non-execute prefix handling\n\nThis doesn\u0027t wire JsonReader up into Gson just yet. That\u0027s coming soon...\n",
+      "commitDate": "8/26/10, 1:44 AM",
+      "commitName": "765a9f1ecdfaf96f3587f488385111c9d6a4927e",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,6 @@\n+private JsonWriter open(JsonScope empty, String openBracket) throws IOException {\n+    beforeValue(true);\n+    stack.add(empty);\n+    out.write(openBracket);\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JsonWriter open(JsonScope empty, String openBracket) throws IOException {\n    beforeValue(true);\n    stack.add(empty);\n    out.write(openBracket);\n    return this;\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 215,
+      "functionName": "open",
+      "functionAnnotation": "",
+      "functionDoc": "Enters a new scope by appending any necessary whitespace and the given\nbracket.\n"
+    }
+  }
+}

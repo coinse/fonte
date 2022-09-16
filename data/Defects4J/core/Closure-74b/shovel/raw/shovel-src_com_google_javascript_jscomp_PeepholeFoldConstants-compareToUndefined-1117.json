@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeFoldConstants.java",
+  "functionName": "compareToUndefined",
+  "functionId": "compareToUndefined___value-Node__op-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@param value The value to compare to \"undefined\"\n@param op The boolean op to compare with\n@return Whether the boolean op is true or false\n",
+  "functionStartLine": 1117,
+  "functionEndLine": 1142,
+  "numCommitsSeen": 40,
+  "timeTaken": 1991,
+  "changeHistory": [
+    "7a1ffc0ee87ec8ec2168b134dd644cd73c399584",
+    "9548f8637872d775c168e91d63a657d5694035e1"
+  ],
+  "changeHistoryShort": {
+    "7a1ffc0ee87ec8ec2168b134dd644cd73c399584": "Ybodychange",
+    "9548f8637872d775c168e91d63a657d5694035e1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7a1ffc0ee87ec8ec2168b134dd644cd73c399584": {
+      "type": "Ybodychange",
+      "commitMessage": "\nTweaks suggested by Alan for my last CL.\n\nR\u003dacleung\nDELTA\u003d15  (0 added, 10 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d25\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@575 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/30/10, 9:34 AM",
+      "commitName": "7a1ffc0ee87ec8ec2168b134dd644cd73c399584",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/29/10, 5:14 PM",
+      "commitNameOld": "9548f8637872d775c168e91d63a657d5694035e1",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.68,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean compareToUndefined(Node value, int op) {\n    boolean valueUndefined \u003d ((Token.NAME \u003d\u003d value.getType() \u0026\u0026 value.getString().equals(\"undefined\")) || (Token.VOID \u003d\u003d value.getType() \u0026\u0026 NodeUtil.isLiteralValue(value.getFirstChild(), false)));\n    boolean valueNull \u003d (Token.NULL \u003d\u003d value.getType());\n    boolean equivalent \u003d valueUndefined || valueNull;\n    switch(op) {\n        case Token.EQ:\n            return equivalent;\n        case Token.NE:\n            return !equivalent;\n        case Token.SHEQ:\n            return valueUndefined;\n        case Token.SHNE:\n            return !valueUndefined;\n        case Token.LT:\n        case Token.GT:\n        case Token.LE:\n        case Token.GE:\n            return false;\n        default:\n            throw new IllegalStateException(\"unexpected.\");\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 884,
+      "functionName": "compareToUndefined",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param value The value to compare to \"undefined\"\n@param op The boolean op to compare with\n@return Whether the boolean op is true or false\n",
+      "diff": "@@ -1,29 +1,22 @@\n private boolean compareToUndefined(Node value, int op) {\n-    boolean result;\n     boolean valueUndefined \u003d ((Token.NAME \u003d\u003d value.getType() \u0026\u0026 value.getString().equals(\"undefined\")) || (Token.VOID \u003d\u003d value.getType() \u0026\u0026 NodeUtil.isLiteralValue(value.getFirstChild(), false)));\n     boolean valueNull \u003d (Token.NULL \u003d\u003d value.getType());\n     boolean equivalent \u003d valueUndefined || valueNull;\n     switch(op) {\n         case Token.EQ:\n-            result \u003d equivalent;\n-            break;\n+            return equivalent;\n         case Token.NE:\n-            result \u003d !equivalent;\n-            break;\n+            return !equivalent;\n         case Token.SHEQ:\n-            result \u003d valueUndefined;\n-            break;\n+            return valueUndefined;\n         case Token.SHNE:\n-            result \u003d !valueUndefined;\n-            break;\n+            return !valueUndefined;\n         case Token.LT:\n         case Token.GT:\n         case Token.LE:\n         case Token.GE:\n-            result \u003d false;\n-            break;\n+            return false;\n         default:\n             throw new IllegalStateException(\"unexpected.\");\n     }\n-    return result;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "9548f8637872d775c168e91d63a657d5694035e1": {
+      "type": "Yintroduced",
+      "commitMessage": "\nFix folding of String-to-undefined comparisons\n\nR\u003dacleung\nDELTA\u003d125  (69 added, 49 deleted, 7 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d18\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@572 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/29/10, 5:14 PM",
+      "commitName": "9548f8637872d775c168e91d63a657d5694035e1",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,29 @@\n+private boolean compareToUndefined(Node value, int op) {\n+    boolean result;\n+    boolean valueUndefined \u003d ((Token.NAME \u003d\u003d value.getType() \u0026\u0026 value.getString().equals(\"undefined\")) || (Token.VOID \u003d\u003d value.getType() \u0026\u0026 NodeUtil.isLiteralValue(value.getFirstChild(), false)));\n+    boolean valueNull \u003d (Token.NULL \u003d\u003d value.getType());\n+    boolean equivalent \u003d valueUndefined || valueNull;\n+    switch(op) {\n+        case Token.EQ:\n+            result \u003d equivalent;\n+            break;\n+        case Token.NE:\n+            result \u003d !equivalent;\n+            break;\n+        case Token.SHEQ:\n+            result \u003d valueUndefined;\n+            break;\n+        case Token.SHNE:\n+            result \u003d !valueUndefined;\n+            break;\n+        case Token.LT:\n+        case Token.GT:\n+        case Token.LE:\n+        case Token.GE:\n+            result \u003d false;\n+            break;\n+        default:\n+            throw new IllegalStateException(\"unexpected.\");\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean compareToUndefined(Node value, int op) {\n    boolean result;\n    boolean valueUndefined \u003d ((Token.NAME \u003d\u003d value.getType() \u0026\u0026 value.getString().equals(\"undefined\")) || (Token.VOID \u003d\u003d value.getType() \u0026\u0026 NodeUtil.isLiteralValue(value.getFirstChild(), false)));\n    boolean valueNull \u003d (Token.NULL \u003d\u003d value.getType());\n    boolean equivalent \u003d valueUndefined || valueNull;\n    switch(op) {\n        case Token.EQ:\n            result \u003d equivalent;\n            break;\n        case Token.NE:\n            result \u003d !equivalent;\n            break;\n        case Token.SHEQ:\n            result \u003d valueUndefined;\n            break;\n        case Token.SHNE:\n            result \u003d !valueUndefined;\n            break;\n        case Token.LT:\n        case Token.GT:\n        case Token.LE:\n        case Token.GE:\n            result \u003d false;\n            break;\n        default:\n            throw new IllegalStateException(\"unexpected.\");\n    }\n    return result;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+      "functionStartLine": 884,
+      "functionName": "compareToUndefined",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param value The value to compare to \"undefined\"\n@param op The boolean op to compare with\n@return Whether the boolean op is true or false\n"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-10b",
+  "repositoryPath": "/tmp/Closure-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "valueCheck",
+  "functionId": "valueCheck___n-Node__p-Predicate__Node__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Apply the supplied predicate against\nall possible result Nodes of the expression.\n",
+  "functionStartLine": 1261,
+  "functionEndLine": 1276,
+  "numCommitsSeen": 136,
+  "timeTaken": 8016,
+  "changeHistory": [
+    "b7ce2386bc89e5d957001054bee68416451d8b76",
+    "1a7fbd18b47c102152869c3b046b65ff0f12fc43"
+  ],
+  "changeHistoryShort": {
+    "b7ce2386bc89e5d957001054bee68416451d8b76": "Ydocchange",
+    "1a7fbd18b47c102152869c3b046b65ff0f12fc43": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b7ce2386bc89e5d957001054bee68416451d8b76": {
+      "type": "Ydocchange",
+      "commitMessage": "\nCorrect comment.\n\nDELTA\u003d2  (0 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4669\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1948 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/2/12, 4:06 PM",
+      "commitName": "b7ce2386bc89e5d957001054bee68416451d8b76",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "4/25/12, 1:34 PM",
+      "commitNameOld": "f412f0c0efd54842b30207c845d65cb826217fd6",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 7.11,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean valueCheck(Node n, Predicate\u003cNode\u003e p) {\n    switch(n.getType()) {\n        case Token.ASSIGN:\n        case Token.COMMA:\n            return valueCheck(n.getLastChild(), p);\n        case Token.AND:\n        case Token.OR:\n            return valueCheck(n.getFirstChild(), p) \u0026\u0026 valueCheck(n.getLastChild(), p);\n        case Token.HOOK:\n            return valueCheck(n.getFirstChild().getNext(), p) \u0026\u0026 valueCheck(n.getLastChild(), p);\n        default:\n            return p.apply(n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1242,
+      "functionName": "valueCheck",
+      "functionAnnotation": "",
+      "functionDoc": "Apply the supplied predicate against\nall possible result Nodes of the expression.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Apply the supplied predicate against the potential\nall possible result of the expression.\n",
+        "newValue": "Apply the supplied predicate against\nall possible result Nodes of the expression.\n"
+      }
+    },
+    "1a7fbd18b47c102152869c3b046b65ff0f12fc43": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAllow more folding of Token.ADD.\n\nR\u003dacleung\nDELTA\u003d160  (107 added, 4 deleted, 49 changed)\n\nHi Jason!\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d453\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@764 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/7/11, 2:59 PM",
+      "commitName": "1a7fbd18b47c102152869c3b046b65ff0f12fc43",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,14 @@\n+static boolean valueCheck(Node n, Predicate\u003cNode\u003e p) {\n+    switch(n.getType()) {\n+        case Token.ASSIGN:\n+        case Token.COMMA:\n+            return valueCheck(n.getLastChild(), p);\n+        case Token.AND:\n+        case Token.OR:\n+            return valueCheck(n.getFirstChild(), p) \u0026\u0026 valueCheck(n.getLastChild(), p);\n+        case Token.HOOK:\n+            return valueCheck(n.getFirstChild().getNext(), p) \u0026\u0026 valueCheck(n.getLastChild(), p);\n+        default:\n+            return p.apply(n);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean valueCheck(Node n, Predicate\u003cNode\u003e p) {\n    switch(n.getType()) {\n        case Token.ASSIGN:\n        case Token.COMMA:\n            return valueCheck(n.getLastChild(), p);\n        case Token.AND:\n        case Token.OR:\n            return valueCheck(n.getFirstChild(), p) \u0026\u0026 valueCheck(n.getLastChild(), p);\n        case Token.HOOK:\n            return valueCheck(n.getFirstChild().getNext(), p) \u0026\u0026 valueCheck(n.getLastChild(), p);\n        default:\n            return p.apply(n);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1081,
+      "functionName": "valueCheck",
+      "functionAnnotation": "",
+      "functionDoc": "Apply the supplied predicate against the potential\nall possible result of the expression.\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-104b",
+  "repositoryPath": "/tmp/Closure-104b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "getGreatestSubtype",
+  "functionId": "getGreatestSubtype___thisType-JSType__thatType-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "A generic implementation meant to be used as a helper for common\ngetGreatestSubtype implementations.\n",
+  "functionStartLine": 577,
+  "functionEndLine": 599,
+  "numCommitsSeen": 8,
+  "timeTaken": 386,
+  "changeHistory": [
+    "1be1c2636ef14071afa7da5cb8988972bd90149f",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "1be1c2636ef14071afa7da5cb8988972bd90149f": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1be1c2636ef14071afa7da5cb8988972bd90149f": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix getGreatestSubtype for UnionTypes by always returning the meet of\nthe two types. (Andrew)\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@112 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/22/10, 11:05 AM",
+      "commitName": "1be1c2636ef14071afa7da5cb8988972bd90149f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "1/26/10, 1:59 PM",
+      "commitNameOld": "bca9abb0e3062d373fe52c0e8340337588c05708",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 26.88,
+      "commitsBetweenForRepo": 31,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static JSType getGreatestSubtype(JSType thisType, JSType thatType) {\n    if (thatType.isEmptyType() || thatType.isAllType()) {\n        return thatType.getGreatestSubtype(thisType);\n    } else if (thisType.isUnknownType() || thatType.isUnknownType()) {\n        return thisType.equals(thatType) ? thisType : thisType.getNativeType(JSTypeNative.UNKNOWN_TYPE);\n    } else if (thisType.isSubtype(thatType)) {\n        return thisType;\n    } else if (thatType.isSubtype(thisType)) {\n        return thatType;\n    } else if (thisType.isUnionType()) {\n        return ((UnionType) thisType).meet(thatType);\n    } else if (thatType.isUnionType()) {\n        return ((UnionType) thatType).meet(thisType);\n    } else if (thisType.isObject() \u0026\u0026 thatType.isObject()) {\n        return thisType.getNativeType(JSTypeNative.NO_OBJECT_TYPE);\n    }\n    return thisType.getNativeType(JSTypeNative.NO_TYPE);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 577,
+      "functionName": "getGreatestSubtype",
+      "functionAnnotation": "",
+      "functionDoc": "A generic implementation meant to be used as a helper for common\ngetGreatestSubtype implementations.\n",
+      "diff": "@@ -1,14 +1,18 @@\n static JSType getGreatestSubtype(JSType thisType, JSType thatType) {\n     if (thatType.isEmptyType() || thatType.isAllType()) {\n         return thatType.getGreatestSubtype(thisType);\n     } else if (thisType.isUnknownType() || thatType.isUnknownType()) {\n         return thisType.equals(thatType) ? thisType : thisType.getNativeType(JSTypeNative.UNKNOWN_TYPE);\n     } else if (thisType.isSubtype(thatType)) {\n         return thisType;\n     } else if (thatType.isSubtype(thisType)) {\n         return thatType;\n+    } else if (thisType.isUnionType()) {\n+        return ((UnionType) thisType).meet(thatType);\n+    } else if (thatType.isUnionType()) {\n+        return ((UnionType) thatType).meet(thisType);\n     } else if (thisType.isObject() \u0026\u0026 thatType.isObject()) {\n         return thisType.getNativeType(JSTypeNative.NO_OBJECT_TYPE);\n     }\n     return thisType.getNativeType(JSTypeNative.NO_TYPE);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,14 @@\n+static JSType getGreatestSubtype(JSType thisType, JSType thatType) {\n+    if (thatType.isEmptyType() || thatType.isAllType()) {\n+        return thatType.getGreatestSubtype(thisType);\n+    } else if (thisType.isUnknownType() || thatType.isUnknownType()) {\n+        return thisType.equals(thatType) ? thisType : thisType.getNativeType(JSTypeNative.UNKNOWN_TYPE);\n+    } else if (thisType.isSubtype(thatType)) {\n+        return thisType;\n+    } else if (thatType.isSubtype(thisType)) {\n+        return thatType;\n+    } else if (thisType.isObject() \u0026\u0026 thatType.isObject()) {\n+        return thisType.getNativeType(JSTypeNative.NO_OBJECT_TYPE);\n+    }\n+    return thisType.getNativeType(JSTypeNative.NO_TYPE);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static JSType getGreatestSubtype(JSType thisType, JSType thatType) {\n    if (thatType.isEmptyType() || thatType.isAllType()) {\n        return thatType.getGreatestSubtype(thisType);\n    } else if (thisType.isUnknownType() || thatType.isUnknownType()) {\n        return thisType.equals(thatType) ? thisType : thisType.getNativeType(JSTypeNative.UNKNOWN_TYPE);\n    } else if (thisType.isSubtype(thatType)) {\n        return thisType;\n    } else if (thatType.isSubtype(thisType)) {\n        return thatType;\n    } else if (thisType.isObject() \u0026\u0026 thatType.isObject()) {\n        return thisType.getNativeType(JSTypeNative.NO_OBJECT_TYPE);\n    }\n    return thisType.getNativeType(JSTypeNative.NO_TYPE);\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 571,
+      "functionName": "getGreatestSubtype",
+      "functionAnnotation": "",
+      "functionDoc": "A generic implementation meant to be used as a helper for common\ngetGreatestSubtype implementations.\n"
+    }
+  }
+}

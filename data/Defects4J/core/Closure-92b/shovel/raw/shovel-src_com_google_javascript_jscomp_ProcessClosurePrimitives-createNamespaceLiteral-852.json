@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ProcessClosurePrimitives.java",
+  "functionName": "createNamespaceLiteral",
+  "functionId": "$createNamespaceLiteral",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "There are some special cases where clients of the compiler\ndo not run TypedScopeCreator after running this pass.\nSo always give the namespace literal a type.\n",
+  "functionStartLine": 852,
+  "functionEndLine": 857,
+  "numCommitsSeen": 23,
+  "timeTaken": 883,
+  "changeHistory": [
+    "0a40e6661cd197e1cd0d3a3bccaa4c5313df8514"
+  ],
+  "changeHistoryShort": {
+    "0a40e6661cd197e1cd0d3a3bccaa4c5313df8514": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0a40e6661cd197e1cd0d3a3bccaa4c5313df8514": {
+      "type": "Yintroduced",
+      "commitMessage": "\nfix a weird integration issue.\nsome processes run the\nprovide/require processor after scope creation.  That means\nthat TypedScopeCreator can\u0027t assign types to the\nnew namespaces.  Normal closure compiler is moving towards a model\nwhere TypedScopeCreator declares namespaces in the global\nscope.\nIt\u0027s not clear how we should resolve this inconsistency, but\nfor now this shim will make things better.\n\nR\u003dmoedinger\nDELTA\u003d25  (15 added, 5 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d214752\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@419 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/13/10, 7:29 AM",
+      "commitName": "0a40e6661cd197e1cd0d3a3bccaa4c5313df8514",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+private Node createNamespaceLiteral() {\n+    Node objlit \u003d new Node(Token.OBJECTLIT);\n+    objlit.setJSType(compiler.getTypeRegistry().createAnonymousObjectType());\n+    return objlit;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node createNamespaceLiteral() {\n    Node objlit \u003d new Node(Token.OBJECTLIT);\n    objlit.setJSType(compiler.getTypeRegistry().createAnonymousObjectType());\n    return objlit;\n}",
+      "path": "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+      "functionStartLine": 855,
+      "functionName": "createNamespaceLiteral",
+      "functionAnnotation": "",
+      "functionDoc": "There are some special cases where clients of the compiler\ndo not run TypedScopeCreator after running this pass.\nSo always give the namespace literal a type.\n"
+    }
+  }
+}

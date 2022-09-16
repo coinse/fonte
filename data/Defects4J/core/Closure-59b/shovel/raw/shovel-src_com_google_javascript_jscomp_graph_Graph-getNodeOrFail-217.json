@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Graph.java",
+  "functionName": "getNodeOrFail",
+  "functionId": "getNodeOrFail___val-N",
+  "sourceFilePath": "src/com/google/javascript/jscomp/graph/Graph.java",
+  "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+  "functionDoc": "Gets the node of the specified type, or throws an\nIllegalArgumentException.\n",
+  "functionStartLine": 217,
+  "functionEndLine": 223,
+  "numCommitsSeen": 11,
+  "timeTaken": 1579,
+  "changeHistory": [
+    "97bbbffb65eda01aa9b38a5cec43a598afb39070"
+  ],
+  "changeHistoryShort": {
+    "97bbbffb65eda01aa9b38a5cec43a598afb39070": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "97bbbffb65eda01aa9b38a5cec43a598afb39070": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/05/12 by nick\n\n        simplify how we build source map paths.\n\n        R\u003djoey\n        DELTA\u003d111  (76 added, 4 deleted, 31 changed)\n\nChange on 2010/05/12 by nick\n\n        Use generics magic to clean up the graph code a bit.\n        These changes don\u0027t give the performance improvements that I hoped,\n        but i think they\u0027re good changes anyway.\n\n        R\u003dalan\n        DELTA\u003d253  (69 added, 121 deleted, 63 changed)\n\nChange on 2010/05/12 by nick\n\n        API clean-up: don\u0027t store null return types or parameter-list types.\n\n        R\u003drobert\n        DELTA\u003d195  (89 added, 54 deleted, 52 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003ddzaoho\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@209 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/13/10, 10:46 AM",
+      "commitName": "97bbbffb65eda01aa9b38a5cec43a598afb39070",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,8 @@\n+@SuppressWarnings(\"unchecked\")\n+\u003cT extends GraphNode\u003cN, E\u003e\u003e T getNodeOrFail(N val) {\n+    T node \u003d (T) getNode(val);\n+    if (node \u003d\u003d null) {\n+        throw new IllegalArgumentException(val + \" does not exist in graph\");\n+    }\n+    return node;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\n\u003cT extends GraphNode\u003cN, E\u003e\u003e T getNodeOrFail(N val) {\n    T node \u003d (T) getNode(val);\n    if (node \u003d\u003d null) {\n        throw new IllegalArgumentException(val + \" does not exist in graph\");\n    }\n    return node;\n}",
+      "path": "src/com/google/javascript/jscomp/graph/Graph.java",
+      "functionStartLine": 208,
+      "functionName": "getNodeOrFail",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "Gets the node of the specified type, or throws an\nIllegalArgumentException.\n"
+    }
+  }
+}

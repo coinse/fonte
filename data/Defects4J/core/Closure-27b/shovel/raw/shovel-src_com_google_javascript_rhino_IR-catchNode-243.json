@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-27b",
+  "repositoryPath": "/tmp/Closure-27b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IR.java",
+  "functionName": "catchNode",
+  "functionId": "catchNode___expr-Node__body-Node",
+  "sourceFilePath": "src/com/google/javascript/rhino/IR.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 243,
+  "functionEndLine": 247,
+  "numCommitsSeen": 4,
+  "timeTaken": 336,
+  "changeHistory": [
+    "2f28243f97f468e92316a2c7ea209c857689ab43"
+  ],
+  "changeHistoryShort": {
+    "2f28243f97f468e92316a2c7ea209c857689ab43": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2f28243f97f468e92316a2c7ea209c857689ab43": {
+      "type": "Yintroduced",
+      "commitMessage": "\nRFC: An AST builder helper class.  This class has two goals:\n1) have a simpler method of building the AST for those new to the\ncompiler.\n2) create a more readable AST construction. Rather than something like:\nNode fn \u003d new Node(Token.FUNCTION, Node.newString(Token.NAME, \"fn\"),\nnew Node(Token.PARAM_LIST, new Node(Token.NAME, \"a\"), new\nNode(Token.NAME, \"b\")),new Node(Token.BLOCK));\nyou would have:\nNode fn \u003d function(name(\"fn\"), paramList(name(\"a\"),name(\"b\")),\nblock());\n\nThe intent is that the the referencing class will have a \"import static\nAst.*\".\n\nR\u003dnicksantos\nDELTA\u003d560  (560 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3726\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1602 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/15/11, 6:18 PM",
+      "commitName": "2f28243f97f468e92316a2c7ea209c857689ab43",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,5 @@\n+public static Node catchNode(Node expr, Node body) {\n+    Preconditions.checkState(expr.isName());\n+    Preconditions.checkState(body.isBlock());\n+    return new Node(Token.CATCH, expr, body);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Node catchNode(Node expr, Node body) {\n    Preconditions.checkState(expr.isName());\n    Preconditions.checkState(body.isBlock());\n    return new Node(Token.CATCH, expr, body);\n}",
+      "path": "src/com/google/javascript/rhino/IR.java",
+      "functionStartLine": 232,
+      "functionName": "catchNode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

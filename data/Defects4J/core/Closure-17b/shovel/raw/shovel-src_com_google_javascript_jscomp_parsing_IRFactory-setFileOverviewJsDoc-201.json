@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-17b",
+  "repositoryPath": "/tmp/Closure-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "setFileOverviewJsDoc",
+  "functionId": "setFileOverviewJsDoc___irNode-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 201,
+  "functionEndLine": 219,
+  "numCommitsSeen": 68,
+  "timeTaken": 4105,
+  "changeHistory": [
+    "afc8fd66475d6ac122a5ab0891ba763c43a44cf3",
+    "f95797059bdc7b6c4cfc4960081f0773ec85bbf8"
+  ],
+  "changeHistoryShort": {
+    "afc8fd66475d6ac122a5ab0891ba763c43a44cf3": "Ybodychange",
+    "f95797059bdc7b6c4cfc4960081f0773ec85bbf8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "afc8fd66475d6ac122a5ab0891ba763c43a44cf3": {
+      "type": "Ybodychange",
+      "commitMessage": "\nhandle fileoverviews in the symbol table\n\nR\u003djschorr\nDELTA\u003d91  (53 added, 19 deleted, 19 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3329\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1463 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/26/11, 9:16 AM",
+      "commitName": "afc8fd66475d6ac122a5ab0891ba763c43a44cf3",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "9/1/11, 5:21 AM",
+      "commitNameOld": "ffd701db8fd53ccb34c32b954227e65a33b77c84",
+      "commitAuthorOld": "jfield@google.com",
+      "daysBetweenCommits": 25.16,
+      "commitsBetweenForRepo": 61,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void setFileOverviewJsDoc(Node irNode) {\n    JSDocInfo rootNodeJsDoc \u003d rootNodeJsDocHolder.getJSDocInfo();\n    if (rootNodeJsDoc !\u003d null) {\n        irNode.setJSDocInfo(rootNodeJsDoc);\n        rootNodeJsDoc.setAssociatedNode(irNode);\n    }\n    if (fileOverviewInfo !\u003d null) {\n        if ((irNode.getJSDocInfo() !\u003d null) \u0026\u0026 (irNode.getJSDocInfo().getLicense() !\u003d null)) {\n            fileOverviewInfo.setLicense(irNode.getJSDocInfo().getLicense());\n        }\n        irNode.setJSDocInfo(fileOverviewInfo);\n        fileOverviewInfo.setAssociatedNode(irNode);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 188,
+      "functionName": "setFileOverviewJsDoc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,14 @@\n private void setFileOverviewJsDoc(Node irNode) {\n-    irNode.setJSDocInfo(rootNodeJsDocHolder.getJSDocInfo());\n+    JSDocInfo rootNodeJsDoc \u003d rootNodeJsDocHolder.getJSDocInfo();\n+    if (rootNodeJsDoc !\u003d null) {\n+        irNode.setJSDocInfo(rootNodeJsDoc);\n+        rootNodeJsDoc.setAssociatedNode(irNode);\n+    }\n     if (fileOverviewInfo !\u003d null) {\n         if ((irNode.getJSDocInfo() !\u003d null) \u0026\u0026 (irNode.getJSDocInfo().getLicense() !\u003d null)) {\n             fileOverviewInfo.setLicense(irNode.getJSDocInfo().getLicense());\n         }\n         irNode.setJSDocInfo(fileOverviewInfo);\n+        fileOverviewInfo.setAssociatedNode(irNode);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f95797059bdc7b6c4cfc4960081f0773ec85bbf8": {
+      "type": "Yintroduced",
+      "commitMessage": "\nClean up some record keeping of comments.  This doesn\u0027t appear to have\nhelped the parsing speed at all.\n\nR\u003dnicksantos\nDELTA\u003d134  (45 added, 66 deleted, 23 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d266012\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@465 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/27/10, 1:21 PM",
+      "commitName": "f95797059bdc7b6c4cfc4960081f0773ec85bbf8",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+private void setFileOverviewJsDoc(Node irNode) {\n+    irNode.setJSDocInfo(rootNodeJsDocHolder.getJSDocInfo());\n+    if (fileOverviewInfo !\u003d null) {\n+        if ((irNode.getJSDocInfo() !\u003d null) \u0026\u0026 (irNode.getJSDocInfo().getLicense() !\u003d null)) {\n+            fileOverviewInfo.setLicense(irNode.getJSDocInfo().getLicense());\n+        }\n+        irNode.setJSDocInfo(fileOverviewInfo);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void setFileOverviewJsDoc(Node irNode) {\n    irNode.setJSDocInfo(rootNodeJsDocHolder.getJSDocInfo());\n    if (fileOverviewInfo !\u003d null) {\n        if ((irNode.getJSDocInfo() !\u003d null) \u0026\u0026 (irNode.getJSDocInfo().getLicense() !\u003d null)) {\n            fileOverviewInfo.setLicense(irNode.getJSDocInfo().getLicense());\n        }\n        irNode.setJSDocInfo(fileOverviewInfo);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 144,
+      "functionName": "setFileOverviewJsDoc",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

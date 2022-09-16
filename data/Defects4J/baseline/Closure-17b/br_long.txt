@@ -1,0 +1,47 @@
+The following code compiles fine:
+
+/**
+* Class defining an interface with two numbers.
+* @interface
+*/
+function TwoNumbers() {}
+
+/** @type number */
+TwoNumbers.prototype.first;
+
+/** @type number */
+TwoNumbers.prototype.second;
+
+var SOME_DEFAULT =
+  /** @type {TwoNumbers} */ ({first: 1, second: 2});
+
+/**
+ * Class with a two number member.
+ * @constructor
+ */
+function HasTwoNumbers() {
+  /** @type {TwoNumbers} */
+  this.twoNumbers = this.getTwoNumbers();
+}
+
+/**
+ * Get the default two numbers.
+ * @return {TwoNumbers}
+ */
+HasTwoNumbers.prototype.getTwoNumbers = function() {
+  return SOME_DEFAULT;
+};
+
+Now realizing that SOME_DEFAULTS is actually a preset constant which should not change I would like to say for that line (just adding an @const)
+
+/** @const */ var SOME_DEFAULT =
+  /** @type {TwoNumbers} */ ({first: 1, second: 2});
+
+However that starts throwing warnings as adding the @const makes the compiler dump the type. (Does the value get inlined without the typecast?)
+
+Expected:
+Compiles fine.
+
+Error can be reproduced on:
+http://closure-compiler.appspot.com/home
+copy-past the attached file in there, it throws a warning and does not compile.

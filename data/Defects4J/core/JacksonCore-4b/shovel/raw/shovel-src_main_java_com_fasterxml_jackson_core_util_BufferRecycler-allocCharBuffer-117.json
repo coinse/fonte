@@ -1,0 +1,150 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonCore-4b",
+  "repositoryPath": "/tmp/JacksonCore-4b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BufferRecycler.java",
+  "functionName": "allocCharBuffer",
+  "functionId": "allocCharBuffer___ix-int__minSize-int",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 117,
+  "functionEndLine": 129,
+  "numCommitsSeen": 14,
+  "timeTaken": 419,
+  "changeHistory": [
+    "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf",
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+    "f15531c04f87f9e4e4724772426603a909eabe2c"
+  ],
+  "changeHistoryShort": {
+    "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc": "Ymultichange(Yparameterchange,Ybodychange)",
+    "f15531c04f87f9e4e4724772426603a909eabe2c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "Refactor BufferRecycler for sub-classing\n",
+      "commitDate": "1/13/14, 7:32 PM",
+      "commitName": "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Refactor BufferRecycler for sub-classing\n",
+          "commitDate": "1/13/14, 7:32 PM",
+          "commitName": "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/9/14, 10:39 PM",
+          "commitNameOld": "4646ed1f76f6d90503bc4969d1ba772daea7296d",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 3.87,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public char[] allocCharBuffer(int ix, int minSize) {\n    final int DEF_SIZE \u003d charBufferLength(ix);\n    if (minSize \u003c DEF_SIZE) {\n        minSize \u003d DEF_SIZE;\n    }\n    char[] buffer \u003d _charBuffers[ix];\n    if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n        buffer \u003d calloc(minSize);\n    } else {\n        _charBuffers[ix] \u003d null;\n    }\n    return buffer;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+          "functionStartLine": 119,
+          "functionName": "allocCharBuffer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,13 @@\n-public final char[] allocCharBuffer(int ix, int minSize) {\n-    final int DEF_SIZE \u003d CHAR_BUFFER_LENGTHS[ix];\n+public char[] allocCharBuffer(int ix, int minSize) {\n+    final int DEF_SIZE \u003d charBufferLength(ix);\n     if (minSize \u003c DEF_SIZE) {\n         minSize \u003d DEF_SIZE;\n     }\n     char[] buffer \u003d _charBuffers[ix];\n     if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n         buffer \u003d calloc(minSize);\n     } else {\n         _charBuffers[ix] \u003d null;\n     }\n     return buffer;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public, final]",
+            "newValue": "[public]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Refactor BufferRecycler for sub-classing\n",
+          "commitDate": "1/13/14, 7:32 PM",
+          "commitName": "ebf0091c5d5ed3eedeaaec0b60aa1032e80e2ebf",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/9/14, 10:39 PM",
+          "commitNameOld": "4646ed1f76f6d90503bc4969d1ba772daea7296d",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 3.87,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public char[] allocCharBuffer(int ix, int minSize) {\n    final int DEF_SIZE \u003d charBufferLength(ix);\n    if (minSize \u003c DEF_SIZE) {\n        minSize \u003d DEF_SIZE;\n    }\n    char[] buffer \u003d _charBuffers[ix];\n    if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n        buffer \u003d calloc(minSize);\n    } else {\n        _charBuffers[ix] \u003d null;\n    }\n    return buffer;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+          "functionStartLine": 119,
+          "functionName": "allocCharBuffer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,13 @@\n-public final char[] allocCharBuffer(int ix, int minSize) {\n-    final int DEF_SIZE \u003d CHAR_BUFFER_LENGTHS[ix];\n+public char[] allocCharBuffer(int ix, int minSize) {\n+    final int DEF_SIZE \u003d charBufferLength(ix);\n     if (minSize \u003c DEF_SIZE) {\n         minSize \u003d DEF_SIZE;\n     }\n     char[] buffer \u003d _charBuffers[ix];\n     if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n         buffer \u003d calloc(minSize);\n     } else {\n         _charBuffers[ix] \u003d null;\n     }\n     return buffer;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f633f108db4fe343a0f7652eb4b29e0fa625a6fc": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "bit of source code sanitization\n",
+      "commitDate": "12/13/13, 9:15 PM",
+      "commitName": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "bit of source code sanitization\n",
+          "commitDate": "12/13/13, 9:15 PM",
+          "commitName": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/29/12, 2:24 AM",
+          "commitNameOld": "6c842ae82802ad5e5cc9065d3b8d93f99b84f8fc",
+          "commitAuthorOld": "Francis Galiegue",
+          "daysBetweenCommits": 440.83,
+          "commitsBetweenForRepo": 208,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final char[] allocCharBuffer(int ix, int minSize) {\n    final int DEF_SIZE \u003d CHAR_BUFFER_LENGTHS[ix];\n    if (minSize \u003c DEF_SIZE) {\n        minSize \u003d DEF_SIZE;\n    }\n    char[] buffer \u003d _charBuffers[ix];\n    if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n        buffer \u003d calloc(minSize);\n    } else {\n        _charBuffers[ix] \u003d null;\n    }\n    return buffer;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+          "functionStartLine": 75,
+          "functionName": "allocCharBuffer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,13 @@\n-public final char[] allocCharBuffer(CharBufferType type, int minSize) {\n-    if (type.size \u003e minSize) {\n-        minSize \u003d type.size;\n+public final char[] allocCharBuffer(int ix, int minSize) {\n+    final int DEF_SIZE \u003d CHAR_BUFFER_LENGTHS[ix];\n+    if (minSize \u003c DEF_SIZE) {\n+        minSize \u003d DEF_SIZE;\n     }\n-    int ix \u003d type.ordinal();\n     char[] buffer \u003d _charBuffers[ix];\n     if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n         buffer \u003d calloc(minSize);\n     } else {\n         _charBuffers[ix] \u003d null;\n     }\n     return buffer;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[type-CharBufferType, minSize-int]",
+            "newValue": "[ix-int, minSize-int]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "bit of source code sanitization\n",
+          "commitDate": "12/13/13, 9:15 PM",
+          "commitName": "f633f108db4fe343a0f7652eb4b29e0fa625a6fc",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/29/12, 2:24 AM",
+          "commitNameOld": "6c842ae82802ad5e5cc9065d3b8d93f99b84f8fc",
+          "commitAuthorOld": "Francis Galiegue",
+          "daysBetweenCommits": 440.83,
+          "commitsBetweenForRepo": 208,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final char[] allocCharBuffer(int ix, int minSize) {\n    final int DEF_SIZE \u003d CHAR_BUFFER_LENGTHS[ix];\n    if (minSize \u003c DEF_SIZE) {\n        minSize \u003d DEF_SIZE;\n    }\n    char[] buffer \u003d _charBuffers[ix];\n    if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n        buffer \u003d calloc(minSize);\n    } else {\n        _charBuffers[ix] \u003d null;\n    }\n    return buffer;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+          "functionStartLine": 75,
+          "functionName": "allocCharBuffer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,13 @@\n-public final char[] allocCharBuffer(CharBufferType type, int minSize) {\n-    if (type.size \u003e minSize) {\n-        minSize \u003d type.size;\n+public final char[] allocCharBuffer(int ix, int minSize) {\n+    final int DEF_SIZE \u003d CHAR_BUFFER_LENGTHS[ix];\n+    if (minSize \u003c DEF_SIZE) {\n+        minSize \u003d DEF_SIZE;\n     }\n-    int ix \u003d type.ordinal();\n     char[] buffer \u003d _charBuffers[ix];\n     if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n         buffer \u003d calloc(minSize);\n     } else {\n         _charBuffers[ix] \u003d null;\n     }\n     return buffer;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f15531c04f87f9e4e4724772426603a909eabe2c": {
+      "type": "Yintroduced",
+      "commitMessage": "Check in actual sources, moved to the new package, cleaned up a bit\n",
+      "commitDate": "12/22/11, 11:00 PM",
+      "commitName": "f15531c04f87f9e4e4724772426603a909eabe2c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+public final char[] allocCharBuffer(CharBufferType type, int minSize) {\n+    if (type.size \u003e minSize) {\n+        minSize \u003d type.size;\n+    }\n+    int ix \u003d type.ordinal();\n+    char[] buffer \u003d _charBuffers[ix];\n+    if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n+        buffer \u003d calloc(minSize);\n+    } else {\n+        _charBuffers[ix] \u003d null;\n+    }\n+    return buffer;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final char[] allocCharBuffer(CharBufferType type, int minSize) {\n    if (type.size \u003e minSize) {\n        minSize \u003d type.size;\n    }\n    int ix \u003d type.ordinal();\n    char[] buffer \u003d _charBuffers[ix];\n    if (buffer \u003d\u003d null || buffer.length \u003c minSize) {\n        buffer \u003d calloc(minSize);\n    } else {\n        _charBuffers[ix] \u003d null;\n    }\n    return buffer;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+      "functionStartLine": 74,
+      "functionName": "allocCharBuffer",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

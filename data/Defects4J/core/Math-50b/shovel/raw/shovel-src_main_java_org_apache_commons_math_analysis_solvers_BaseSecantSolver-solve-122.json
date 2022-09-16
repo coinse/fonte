@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-50b",
+  "repositoryPath": "/tmp/Math-50b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BaseSecantSolver.java",
+  "functionName": "solve",
+  "functionId": "solve___maxEval-int(modifiers-final)__f-UnivariateRealFunction(modifiers-final)__min-double(modifiers-final)__max-double(modifiers-final)__startValue-double(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "@inheritDoc}\n",
+  "functionStartLine": 122,
+  "functionEndLine": 125,
+  "numCommitsSeen": 9,
+  "timeTaken": 503,
+  "changeHistory": [
+    "5a3c5f2f87367f3bf9a2a1e0b8a1926c11f174e0",
+    "c8bb7cc4bbf53334f9b803cdcd4c3af6390320a1"
+  ],
+  "changeHistoryShort": {
+    "5a3c5f2f87367f3bf9a2a1e0b8a1926c11f174e0": "Ybodychange",
+    "c8bb7cc4bbf53334f9b803cdcd4c3af6390320a1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5a3c5f2f87367f3bf9a2a1e0b8a1926c11f174e0": {
+      "type": "Ybodychange",
+      "commitMessage": "MATH-599\nRenamed \"AllowedSolutions\" to \"AllowedSolution\".\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1152644 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/31/11, 2:27 PM",
+      "commitName": "5a3c5f2f87367f3bf9a2a1e0b8a1926c11f174e0",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "7/11/11, 5:32 AM",
+      "commitNameOld": "4fb53c76030656981644a1a9792cd439c16a4137",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 20.37,
+      "commitsBetweenForRepo": 64,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic double solve(final int maxEval, final UnivariateRealFunction f, final double min, final double max, final double startValue) {\n    return solve(maxEval, f, min, max, startValue, AllowedSolution.ANY_SIDE);\n}",
+      "path": "src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+      "functionStartLine": 122,
+      "functionName": "solve",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "@@ -1,4 +1,4 @@\n @Override\n public double solve(final int maxEval, final UnivariateRealFunction f, final double min, final double max, final double startValue) {\n-    return solve(maxEval, f, min, max, startValue, AllowedSolutions.ANY_SIDE);\n+    return solve(maxEval, f, min, max, startValue, AllowedSolution.ANY_SIDE);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "c8bb7cc4bbf53334f9b803cdcd4c3af6390320a1": {
+      "type": "Yintroduced",
+      "commitMessage": "Separate implementation of secant solver from bracketing solvers.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1144828 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/10/11, 4:07 AM",
+      "commitName": "c8bb7cc4bbf53334f9b803cdcd4c3af6390320a1",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public double solve(final int maxEval, final UnivariateRealFunction f, final double min, final double max, final double startValue) {\n+    return solve(maxEval, f, min, max, startValue, AllowedSolutions.ANY_SIDE);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic double solve(final int maxEval, final UnivariateRealFunction f, final double min, final double max, final double startValue) {\n    return solve(maxEval, f, min, max, startValue, AllowedSolutions.ANY_SIDE);\n}",
+      "path": "src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+      "functionStartLine": 105,
+      "functionName": "solve",
+      "functionAnnotation": "@Override",
+      "functionDoc": "@inheritDoc}\n"
+    }
+  }
+}

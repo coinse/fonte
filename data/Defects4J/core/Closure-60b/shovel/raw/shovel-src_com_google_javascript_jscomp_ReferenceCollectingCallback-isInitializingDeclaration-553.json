@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReferenceCollectingCallback.java",
+  "functionName": "isInitializingDeclaration",
+  "functionId": "$isInitializingDeclaration",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines whether the variable is initialized at the declaration.\n",
+  "functionStartLine": 553,
+  "functionEndLine": 559,
+  "numCommitsSeen": 21,
+  "timeTaken": 1075,
+  "changeHistory": [
+    "fb1ca6ab49d90553268b711edc805c47ceae5088",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "fb1ca6ab49d90553268b711edc805c47ceae5088": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fb1ca6ab49d90553268b711edc805c47ceae5088": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCreate an inferface for references in the symbol table\n\nR\u003dacleung\nDELTA\u003d275  (214 added, 16 deleted, 45 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d2317\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1185 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/16/11, 11:12 AM",
+      "commitName": "fb1ca6ab49d90553268b711edc805c47ceae5088",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "5/31/11, 9:19 AM",
+      "commitNameOld": "d12de273ab94c681feedf108fe86be8099c24d52",
+      "commitAuthorOld": "bashir@google.com",
+      "daysBetweenCommits": 16.08,
+      "commitsBetweenForRepo": 36,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean isInitializingDeclaration() {\n    return isDeclaration() \u0026\u0026 getParent().getType() !\u003d Token.VAR || nameNode.getFirstChild() !\u003d null;\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 542,
+      "functionName": "isInitializingDeclaration",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether the variable is initialized at the declaration.\n",
+      "diff": "@@ -1,3 +1,3 @@\n boolean isInitializingDeclaration() {\n-    return isDeclaration() \u0026\u0026 (parent.getType() !\u003d Token.VAR || nameNode.getFirstChild() !\u003d null);\n+    return isDeclaration() \u0026\u0026 getParent().getType() !\u003d Token.VAR || nameNode.getFirstChild() !\u003d null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,3 @@\n+boolean isInitializingDeclaration() {\n+    return isDeclaration() \u0026\u0026 (parent.getType() !\u003d Token.VAR || nameNode.getFirstChild() !\u003d null);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean isInitializingDeclaration() {\n    return isDeclaration() \u0026\u0026 (parent.getType() !\u003d Token.VAR || nameNode.getFirstChild() !\u003d null);\n}",
+      "path": "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+      "functionStartLine": 341,
+      "functionName": "isInitializingDeclaration",
+      "functionAnnotation": "",
+      "functionDoc": "Determines whether the variable is initialized at the declaration.\n"
+    }
+  }
+}

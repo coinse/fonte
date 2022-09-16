@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-4b",
+  "repositoryPath": "/tmp/Jsoup-4b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Entities.java",
+  "functionName": "escape",
+  "functionId": "escape___string-String__encoder-CharsetEncoder__escapeMode-EscapeMode",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Entities.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 31,
+  "functionEndLine": 46,
+  "numCommitsSeen": 7,
+  "timeTaken": 645,
+  "changeHistory": [
+    "09d99e7e5edc96348b9fa50131274aed3ee1bd2e",
+    "f8841edabba28d6125dd87ed72f557e85570066b",
+    "17486e2fa5b542b1f68b9b60efbefecd216a4a48"
+  ],
+  "changeHistoryShort": {
+    "09d99e7e5edc96348b9fa50131274aed3ee1bd2e": "Ybodychange",
+    "f8841edabba28d6125dd87ed72f557e85570066b": "Ymultichange(Yfilerename,Ybodychange,Yparameterchange)",
+    "17486e2fa5b542b1f68b9b60efbefecd216a4a48": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "09d99e7e5edc96348b9fa50131274aed3ee1bd2e": {
+      "type": "Ybodychange",
+      "commitMessage": "Mini optimisations\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "09d99e7e5edc96348b9fa50131274aed3ee1bd2e",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "57bce6dc8424637621f6b660855f23e72a08c4b3",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n    StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n    Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n    for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n        Character c \u003d string.charAt(pos);\n        if (map.containsKey(c))\n            accum.append(\u0027\u0026\u0027).append(map.get(c)).append(\u0027;\u0027);\n        else if (encoder.canEncode(c))\n            accum.append(c.charValue());\n        else\n            accum.append(\"\u0026#\").append((int) c).append(\u0027;\u0027);\n    }\n    return accum.toString();\n}",
+      "path": "src/main/java/org/jsoup/nodes/Entities.java",
+      "functionStartLine": 31,
+      "functionName": "escape",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,14 +1,14 @@\n static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n     StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n     Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n     for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n         Character c \u003d string.charAt(pos);\n         if (map.containsKey(c))\n-            accum.append(\"\u0026\").append(map.get(c)).append(\";\");\n+            accum.append(\u0027\u0026\u0027).append(map.get(c)).append(\u0027;\u0027);\n         else if (encoder.canEncode(c))\n-            accum.append(c);\n+            accum.append(c.charValue());\n         else\n-            accum.append(\"\u0026#\").append((int) c).append(\";\");\n+            accum.append(\"\u0026#\").append((int) c).append(\u0027;\u0027);\n     }\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f8841edabba28d6125dd87ed72f557e85570066b": {
+      "type": "Ymultichange(Yfilerename,Ybodychange,Yparameterchange)",
+      "commitMessage": "Working on escape/unescape routine.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f8841edabba28d6125dd87ed72f557e85570066b",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yfilerename",
+          "commitMessage": "Working on escape/unescape routine.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "f8841edabba28d6125dd87ed72f557e85570066b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "17486e2fa5b542b1f68b9b60efbefecd216a4a48",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n    StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n    Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n    for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n        Character c \u003d string.charAt(pos);\n        if (map.containsKey(c))\n            accum.append(\"\u0026\").append(map.get(c)).append(\";\");\n        else if (encoder.canEncode(c))\n            accum.append(c);\n        else\n            accum.append(\"\u0026#\").append((int) c).append(\";\");\n    }\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/nodes/Entities.java",
+          "functionStartLine": 27,
+          "functionName": "escape",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,14 +1,14 @@\n-static String escape(String string, Charset charset) {\n-    StringBuilder accum \u003d new StringBuilder((int) (string.length() * 1.5));\n-    CharsetEncoder encoder \u003d charset.newEncoder();\n+static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n+    StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n+    Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n     for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n         Character c \u003d string.charAt(pos);\n-        if (fullByVal.containsKey((int) c))\n-            accum.append(\"\u0026\").append(fullByVal.get((int) c)).append(\";\");\n+        if (map.containsKey(c))\n+            accum.append(\"\u0026\").append(map.get(c)).append(\";\");\n         else if (encoder.canEncode(c))\n             accum.append(c);\n         else\n             accum.append(\"\u0026#\").append((int) c).append(\";\");\n     }\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/org/jsoup/Entities.java",
+            "newPath": "src/main/java/org/jsoup/nodes/Entities.java"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Working on escape/unescape routine.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "f8841edabba28d6125dd87ed72f557e85570066b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "17486e2fa5b542b1f68b9b60efbefecd216a4a48",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n    StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n    Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n    for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n        Character c \u003d string.charAt(pos);\n        if (map.containsKey(c))\n            accum.append(\"\u0026\").append(map.get(c)).append(\";\");\n        else if (encoder.canEncode(c))\n            accum.append(c);\n        else\n            accum.append(\"\u0026#\").append((int) c).append(\";\");\n    }\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/nodes/Entities.java",
+          "functionStartLine": 27,
+          "functionName": "escape",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,14 +1,14 @@\n-static String escape(String string, Charset charset) {\n-    StringBuilder accum \u003d new StringBuilder((int) (string.length() * 1.5));\n-    CharsetEncoder encoder \u003d charset.newEncoder();\n+static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n+    StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n+    Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n     for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n         Character c \u003d string.charAt(pos);\n-        if (fullByVal.containsKey((int) c))\n-            accum.append(\"\u0026\").append(fullByVal.get((int) c)).append(\";\");\n+        if (map.containsKey(c))\n+            accum.append(\"\u0026\").append(map.get(c)).append(\";\");\n         else if (encoder.canEncode(c))\n             accum.append(c);\n         else\n             accum.append(\"\u0026#\").append((int) c).append(\";\");\n     }\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Working on escape/unescape routine.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "f8841edabba28d6125dd87ed72f557e85570066b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "17486e2fa5b542b1f68b9b60efbefecd216a4a48",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n    StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n    Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n    for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n        Character c \u003d string.charAt(pos);\n        if (map.containsKey(c))\n            accum.append(\"\u0026\").append(map.get(c)).append(\";\");\n        else if (encoder.canEncode(c))\n            accum.append(c);\n        else\n            accum.append(\"\u0026#\").append((int) c).append(\";\");\n    }\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/nodes/Entities.java",
+          "functionStartLine": 27,
+          "functionName": "escape",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,14 +1,14 @@\n-static String escape(String string, Charset charset) {\n-    StringBuilder accum \u003d new StringBuilder((int) (string.length() * 1.5));\n-    CharsetEncoder encoder \u003d charset.newEncoder();\n+static String escape(String string, CharsetEncoder encoder, EscapeMode escapeMode) {\n+    StringBuilder accum \u003d new StringBuilder(string.length() * 2);\n+    Map\u003cCharacter, String\u003e map \u003d escapeMode \u003d\u003d EscapeMode.extended ? fullByVal : baseByVal;\n     for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n         Character c \u003d string.charAt(pos);\n-        if (fullByVal.containsKey((int) c))\n-            accum.append(\"\u0026\").append(fullByVal.get((int) c)).append(\";\");\n+        if (map.containsKey(c))\n+            accum.append(\"\u0026\").append(map.get(c)).append(\";\");\n         else if (encoder.canEncode(c))\n             accum.append(c);\n         else\n             accum.append(\"\u0026#\").append((int) c).append(\";\");\n     }\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[string-String, charset-Charset]",
+            "newValue": "[string-String, encoder-CharsetEncoder, escapeMode-EscapeMode]"
+          }
+        }
+      ]
+    },
+    "17486e2fa5b542b1f68b9b60efbefecd216a4a48": {
+      "type": "Yintroduced",
+      "commitMessage": "Draft implementation of Entities, for customisable entity escaping.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "17486e2fa5b542b1f68b9b60efbefecd216a4a48",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,14 @@\n+static String escape(String string, Charset charset) {\n+    StringBuilder accum \u003d new StringBuilder((int) (string.length() * 1.5));\n+    CharsetEncoder encoder \u003d charset.newEncoder();\n+    for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n+        Character c \u003d string.charAt(pos);\n+        if (fullByVal.containsKey((int) c))\n+            accum.append(\"\u0026\").append(fullByVal.get((int) c)).append(\";\");\n+        else if (encoder.canEncode(c))\n+            accum.append(c);\n+        else\n+            accum.append(\"\u0026#\").append((int) c).append(\";\");\n+    }\n+    return accum.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static String escape(String string, Charset charset) {\n    StringBuilder accum \u003d new StringBuilder((int) (string.length() * 1.5));\n    CharsetEncoder encoder \u003d charset.newEncoder();\n    for (int pos \u003d 0; pos \u003c string.length(); pos++) {\n        Character c \u003d string.charAt(pos);\n        if (fullByVal.containsKey((int) c))\n            accum.append(\"\u0026\").append(fullByVal.get((int) c)).append(\";\");\n        else if (encoder.canEncode(c))\n            accum.append(c);\n        else\n            accum.append(\"\u0026#\").append((int) c).append(\";\");\n    }\n    return accum.toString();\n}",
+      "path": "src/main/java/org/jsoup/Entities.java",
+      "functionStartLine": 20,
+      "functionName": "escape",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

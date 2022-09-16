@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Time-11b",
+  "repositoryPath": "/tmp/Time-11b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BaseChronology.java",
+  "functionName": "get",
+  "functionId": "get___period-ReadablePeriod__startInstant-long__endInstant-long",
+  "sourceFilePath": "src/main/java/org/joda/time/chrono/BaseChronology.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the values of a period from an interval.\n\n@param period the period instant to use\n@param startInstant the start instant of an interval to query\n@param endInstant the start instant of an interval to query\n@return the values of the period extracted from the interval\n",
+  "functionStartLine": 254,
+  "functionEndLine": 266,
+  "numCommitsSeen": 18,
+  "timeTaken": 1320,
+  "changeHistory": [
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+    "14ca195dfadb4b2f2c71eae03b2d58d165c033f9"
+  ],
+  "changeHistoryShort": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": "Yfilerename",
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": "Yfilerename",
+    "14ca195dfadb4b2f2c71eae03b2d58d165c033f9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "df4a82f4fb46cc2248280c462e18f08d55a3d112": {
+      "type": "Yfilerename",
+      "commitMessage": "Remove JodaTime folder moving files to top level\n",
+      "commitDate": "5/16/11, 10:02 AM",
+      "commitName": "df4a82f4fb46cc2248280c462e18f08d55a3d112",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "5/16/11, 9:58 AM",
+      "commitNameOld": "72b22654962284bac59c2777131b42a2d1f53228",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public int[] get(ReadablePeriod period, long startInstant, long endInstant) {\n    int size \u003d period.size();\n    int[] values \u003d new int[size];\n    if (startInstant !\u003d endInstant) {\n        for (int i \u003d 0; i \u003c size; i++) {\n            DurationField field \u003d period.getFieldType(i).getField(this);\n            int value \u003d field.getDifference(endInstant, startInstant);\n            startInstant \u003d field.add(startInstant, value);\n            values[i] \u003d value;\n        }\n    }\n    return values;\n}",
+      "path": "src/main/java/org/joda/time/chrono/BaseChronology.java",
+      "functionStartLine": 254,
+      "functionName": "get",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the values of a period from an interval.\n\n@param period the period instant to use\n@param startInstant the start instant of an interval to query\n@param endInstant the start instant of an interval to query\n@return the values of the period extracted from the interval\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/main/java/org/joda/time/chrono/BaseChronology.java",
+        "newPath": "src/main/java/org/joda/time/chrono/BaseChronology.java"
+      }
+    },
+    "53feb3fa56af7260e607844524b7e5a9be49ecc1": {
+      "type": "Yfilerename",
+      "commitMessage": "Convert to maven 2\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@1540 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "8/8/10, 5:17 PM",
+      "commitName": "53feb3fa56af7260e607844524b7e5a9be49ecc1",
+      "commitAuthor": "Stephen Colebourne",
+      "commitDateOld": "8/8/10, 5:02 PM",
+      "commitNameOld": "7fa2ceaf5d95d050095432aa646ea803aa35e122",
+      "commitAuthorOld": "Stephen Colebourne",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public int[] get(ReadablePeriod period, long startInstant, long endInstant) {\n    int size \u003d period.size();\n    int[] values \u003d new int[size];\n    if (startInstant !\u003d endInstant) {\n        for (int i \u003d 0; i \u003c size; i++) {\n            DurationField field \u003d period.getFieldType(i).getField(this);\n            int value \u003d field.getDifference(endInstant, startInstant);\n            startInstant \u003d field.add(startInstant, value);\n            values[i] \u003d value;\n        }\n    }\n    return values;\n}",
+      "path": "JodaTime/src/main/java/org/joda/time/chrono/BaseChronology.java",
+      "functionStartLine": 254,
+      "functionName": "get",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the values of a period from an interval.\n\n@param period the period instant to use\n@param startInstant the start instant of an interval to query\n@param endInstant the start instant of an interval to query\n@return the values of the period extracted from the interval\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "JodaTime/src/java/org/joda/time/chrono/BaseChronology.java",
+        "newPath": "JodaTime/src/main/java/org/joda/time/chrono/BaseChronology.java"
+      }
+    },
+    "14ca195dfadb4b2f2c71eae03b2d58d165c033f9": {
+      "type": "Yintroduced",
+      "commitMessage": "Move code from BasePeriod to chrono\n\n\ngit-svn-id: https://joda-time.svn.sourceforge.net/svnroot/joda-time/trunk@495 1e1cfbb7-5c0e-0410-a2f0-f98d92ec03a1\n",
+      "commitDate": "9/8/04, 3:52 PM",
+      "commitName": "14ca195dfadb4b2f2c71eae03b2d58d165c033f9",
+      "commitAuthor": "Stephen Colebourne",
+      "diff": "@@ -0,0 +1,13 @@\n+public int[] get(ReadablePeriod period, long startInstant, long endInstant) {\n+    int size \u003d period.size();\n+    int[] values \u003d new int[size];\n+    if (startInstant !\u003d endInstant) {\n+        for (int i \u003d 0; i \u003c size; i++) {\n+            DurationField field \u003d period.getFieldType(i).getField(this);\n+            int value \u003d field.getDifference(endInstant, startInstant);\n+            startInstant \u003d field.add(startInstant, value);\n+            values[i] \u003d value;\n+        }\n+    }\n+    return values;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public int[] get(ReadablePeriod period, long startInstant, long endInstant) {\n    int size \u003d period.size();\n    int[] values \u003d new int[size];\n    if (startInstant !\u003d endInstant) {\n        for (int i \u003d 0; i \u003c size; i++) {\n            DurationField field \u003d period.getFieldType(i).getField(this);\n            int value \u003d field.getDifference(endInstant, startInstant);\n            startInstant \u003d field.add(startInstant, value);\n            values[i] \u003d value;\n        }\n    }\n    return values;\n}",
+      "path": "JodaTime/src/java/org/joda/time/chrono/BaseChronology.java",
+      "functionStartLine": 286,
+      "functionName": "get",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the values of a period from an interval.\n\n@param period the period instant to use\n@param startInstant the start instant of an interval to query\n@param endInstant the start instant of an interval to query\n@return the values of the period extracted from the interval\n"
+    }
+  }
+}

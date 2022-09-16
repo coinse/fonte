@@ -1,0 +1,36 @@
+Compiling the following code (in advanced optimizations with VERBOSE
+warning levels):
+
+/** @constructor */
+function MyClass() {}
+MyClass.prototype[&quot;MyMethod&quot;] = function(a) {
+  this.a = a;
+}
+window[&quot;MyClass&quot;] = MyClass;
+
+Results in the following warning: &quot;dangerous use of the global this
+object.&quot; This notation is convenient to declare a prototype that is purely
+used for export purposes. The warning can be suppressed by using an @this
+notation.
+
+Given the following externs:
+
+/**@interface */
+function MyParent() {}
+/** @param {*} a */
+MyParent.prototype.MyMethod = function(a) {}
+
+And the following code:
+
+/**
+* @constructor
+* @implements {MyParent}
+*/
+function MyClass() {}
+MyClass.prototype[&quot;MyMethod&quot;] = function(a) {
+  this.a2 = a;
+}
+window[&quot;MyClass&quot;] = MyClass;
+
+The compiler also produces the waring: &quot;property MyMethod on interface
+MyParent is not implemented by type MyClass&quot;.

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-74b",
+  "repositoryPath": "/tmp/Closure-74b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "processInfixExpression",
+  "functionId": "$processInfixExpression___exprNode-InfixExpression",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 633,
+  "functionEndLine": 647,
+  "numCommitsSeen": 36,
+  "timeTaken": 3135,
+  "changeHistory": [
+    "35d56dd1fadec0ed50797d222de4e05f78bbf1c9",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "35d56dd1fadec0ed50797d222de4e05f78bbf1c9": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "35d56dd1fadec0ed50797d222de4e05f78bbf1c9": {
+      "type": "Ybodychange",
+      "commitMessage": "\nChange on 2010/07/02 17:44:46 by nicksantos\n\n        fix RAI when comparing two types that are always equal.\n        Fixes issue 172\n\n        R\u003dacleung\n        DELTA\u003d20  (19 added, 0 deleted, 1 changed)\n\nChange on 2010/07/03 08:52:08 by johnlenz\n\n        Prefer the use of the unsyncronized StringBuilder over StringBuffer. This is just a code style change, this are no uses that should have any performance impact.\n\n        R\u003dacleung\n        DELTA\u003d30  (0 added, 2 deleted, 28 changed)\n\nChange on 2010/07/07 11:56:02 by johnlenz\n\n        Reduce the memory cost of generating source maps by reducing the number\n        of property structure objects that are created.  We do this by taking\n        advantage of the fact the property list objects are immutable and can be\n        shared between Nodes.  The source file prop is then shared between\n        every Node in the AST for a given source file, reducing the the number\n        of property nodes used to store this information from O(ast-nodes) to\n        O(source-files).\n\n        R\u003dbowdidge\n        DELTA\u003d122  (68 added, 1 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d49002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@265 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/7/10, 3:14 PM",
+      "commitName": "35d56dd1fadec0ed50797d222de4e05f78bbf1c9",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "6/29/10, 2:10 PM",
+      "commitNameOld": "541402929a600a95bf099513908b4efd8b0e1c5b",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 8.04,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nNode processInfixExpression(InfixExpression exprNode) {\n    Node n \u003d newNode(transformTokenType(exprNode.getType()), transform(exprNode.getLeft()), transform(exprNode.getRight()));\n    n.setLineno(exprNode.getLineno());\n    n.setCharno(position2charno(exprNode.getAbsolutePosition() + exprNode.getOperatorPosition()));\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 595,
+      "functionName": "processInfixExpression",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,7 @@\n @Override\n Node processInfixExpression(InfixExpression exprNode) {\n-    Node n \u003d new Node(transformTokenType(exprNode.getType()), transform(exprNode.getLeft()), transform(exprNode.getRight()));\n+    Node n \u003d newNode(transformTokenType(exprNode.getType()), transform(exprNode.getLeft()), transform(exprNode.getRight()));\n     n.setLineno(exprNode.getLineno());\n     n.setCharno(position2charno(exprNode.getAbsolutePosition() + exprNode.getOperatorPosition()));\n     return n;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+Node processInfixExpression(InfixExpression exprNode) {\n+    Node n \u003d new Node(transformTokenType(exprNode.getType()), transform(exprNode.getLeft()), transform(exprNode.getRight()));\n+    n.setLineno(exprNode.getLineno());\n+    n.setCharno(position2charno(exprNode.getAbsolutePosition() + exprNode.getOperatorPosition()));\n+    return n;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nNode processInfixExpression(InfixExpression exprNode) {\n    Node n \u003d new Node(transformTokenType(exprNode.getType()), transform(exprNode.getLeft()), transform(exprNode.getRight()));\n    n.setLineno(exprNode.getLineno());\n    n.setCharno(position2charno(exprNode.getAbsolutePosition() + exprNode.getOperatorPosition()));\n    return n;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 547,
+      "functionName": "processInfixExpression",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

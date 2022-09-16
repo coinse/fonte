@@ -1,0 +1,166 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-68b",
+  "repositoryPath": "/tmp/Closure-68b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JSType.java",
+  "functionName": "isEquivalentTo",
+  "functionId": "isEquivalentTo___jsType-JSType",
+  "sourceFilePath": "src/com/google/javascript/rhino/jstype/JSType.java",
+  "functionAnnotation": "",
+  "functionDoc": "Checks if two types are equivalent.\n",
+  "functionStartLine": 322,
+  "functionEndLine": 331,
+  "numCommitsSeen": 47,
+  "timeTaken": 1382,
+  "changeHistory": [
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173": "Ymultichange(Yrename,Yparameterchange,Ybodychange,Yannotationchange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cf5fd88f13f0b11625ac407f85cb58b36862e173": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Ybodychange,Yannotationchange,Ydocchange)",
+      "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/26/10, 8:26 AM",
+      "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+      "commitAuthor": "Nicholas.J.Santos",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/26/10, 8:26 AM",
+          "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "5/4/10, 7:39 AM",
+          "commitNameOld": "58c3e4ce1d17ec619bcc4964bdeebc676f93567d",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 22.03,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public boolean isEquivalentTo(JSType jsType) {\n    if (jsType instanceof ProxyObjectType) {\n        return jsType.isEquivalentTo(this);\n    }\n    return this \u003d\u003d jsType;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+          "functionStartLine": 303,
+          "functionName": "isEquivalentTo",
+          "functionAnnotation": "",
+          "functionDoc": "Checks if two types are equivalent.\n",
+          "diff": "@@ -1,7 +1,6 @@\n-@Override\n-public boolean equals(Object jsType) {\n+public boolean isEquivalentTo(JSType jsType) {\n     if (jsType instanceof ProxyObjectType) {\n-        return jsType.equals(this);\n+        return jsType.isEquivalentTo(this);\n     }\n     return this \u003d\u003d jsType;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "equals",
+            "newValue": "isEquivalentTo"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/26/10, 8:26 AM",
+          "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "5/4/10, 7:39 AM",
+          "commitNameOld": "58c3e4ce1d17ec619bcc4964bdeebc676f93567d",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 22.03,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public boolean isEquivalentTo(JSType jsType) {\n    if (jsType instanceof ProxyObjectType) {\n        return jsType.isEquivalentTo(this);\n    }\n    return this \u003d\u003d jsType;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+          "functionStartLine": 303,
+          "functionName": "isEquivalentTo",
+          "functionAnnotation": "",
+          "functionDoc": "Checks if two types are equivalent.\n",
+          "diff": "@@ -1,7 +1,6 @@\n-@Override\n-public boolean equals(Object jsType) {\n+public boolean isEquivalentTo(JSType jsType) {\n     if (jsType instanceof ProxyObjectType) {\n-        return jsType.equals(this);\n+        return jsType.isEquivalentTo(this);\n     }\n     return this \u003d\u003d jsType;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[jsType-Object]",
+            "newValue": "[jsType-JSType]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/26/10, 8:26 AM",
+          "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "5/4/10, 7:39 AM",
+          "commitNameOld": "58c3e4ce1d17ec619bcc4964bdeebc676f93567d",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 22.03,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public boolean isEquivalentTo(JSType jsType) {\n    if (jsType instanceof ProxyObjectType) {\n        return jsType.isEquivalentTo(this);\n    }\n    return this \u003d\u003d jsType;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+          "functionStartLine": 303,
+          "functionName": "isEquivalentTo",
+          "functionAnnotation": "",
+          "functionDoc": "Checks if two types are equivalent.\n",
+          "diff": "@@ -1,7 +1,6 @@\n-@Override\n-public boolean equals(Object jsType) {\n+public boolean isEquivalentTo(JSType jsType) {\n     if (jsType instanceof ProxyObjectType) {\n-        return jsType.equals(this);\n+        return jsType.isEquivalentTo(this);\n     }\n     return this \u003d\u003d jsType;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/26/10, 8:26 AM",
+          "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "5/4/10, 7:39 AM",
+          "commitNameOld": "58c3e4ce1d17ec619bcc4964bdeebc676f93567d",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 22.03,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public boolean isEquivalentTo(JSType jsType) {\n    if (jsType instanceof ProxyObjectType) {\n        return jsType.isEquivalentTo(this);\n    }\n    return this \u003d\u003d jsType;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+          "functionStartLine": 303,
+          "functionName": "isEquivalentTo",
+          "functionAnnotation": "",
+          "functionDoc": "Checks if two types are equivalent.\n",
+          "diff": "@@ -1,7 +1,6 @@\n-@Override\n-public boolean equals(Object jsType) {\n+public boolean isEquivalentTo(JSType jsType) {\n     if (jsType instanceof ProxyObjectType) {\n-        return jsType.equals(this);\n+        return jsType.isEquivalentTo(this);\n     }\n     return this \u003d\u003d jsType;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nChange on 2010/05/25 by nicksantos\n\n        start moving away from using Object#equals for type equality.\n\n        R\u003djohnlenz\n        DELTA\u003d445  (98 added, 3 deleted, 344 changed)\n\nChange on 2010/05/25 by acleung\n\n        Fix bug with resolving a member function of a resolved constructor.\n\n        R\u003djohnlenz\n        DELTA\u003d48  (48 added, 0 deleted, 0 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d12002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@231 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/26/10, 8:26 AM",
+          "commitName": "cf5fd88f13f0b11625ac407f85cb58b36862e173",
+          "commitAuthor": "Nicholas.J.Santos",
+          "commitDateOld": "5/4/10, 7:39 AM",
+          "commitNameOld": "58c3e4ce1d17ec619bcc4964bdeebc676f93567d",
+          "commitAuthorOld": "Nicholas.J.Santos",
+          "daysBetweenCommits": 22.03,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public boolean isEquivalentTo(JSType jsType) {\n    if (jsType instanceof ProxyObjectType) {\n        return jsType.isEquivalentTo(this);\n    }\n    return this \u003d\u003d jsType;\n}",
+          "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+          "functionStartLine": 303,
+          "functionName": "isEquivalentTo",
+          "functionAnnotation": "",
+          "functionDoc": "Checks if two types are equivalent.\n",
+          "diff": "@@ -1,7 +1,6 @@\n-@Override\n-public boolean equals(Object jsType) {\n+public boolean isEquivalentTo(JSType jsType) {\n     if (jsType instanceof ProxyObjectType) {\n-        return jsType.equals(this);\n+        return jsType.isEquivalentTo(this);\n     }\n     return this \u003d\u003d jsType;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "This method relies on the fact that for the base {@link JSType}, only one\ninstance of each sub-type will ever be created in a given registry, so\nthere is no need to verify members. If the object pointers are not\nidentical, then the type member must be different.\n",
+            "newValue": "Checks if two types are equivalent.\n"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public boolean equals(Object jsType) {\n+    if (jsType instanceof ProxyObjectType) {\n+        return jsType.equals(this);\n+    }\n+    return this \u003d\u003d jsType;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean equals(Object jsType) {\n    if (jsType instanceof ProxyObjectType) {\n        return jsType.equals(this);\n    }\n    return this \u003d\u003d jsType;\n}",
+      "path": "src/com/google/javascript/rhino/jstype/JSType.java",
+      "functionStartLine": 305,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": "This method relies on the fact that for the base {@link JSType}, only one\ninstance of each sub-type will ever be created in a given registry, so\nthere is no need to verify members. If the object pointers are not\nidentical, then the type member must be different.\n"
+    }
+  }
+}

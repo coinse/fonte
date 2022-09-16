@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DefaultCodingConvention.java",
+  "functionName": "isExported",
+  "functionId": "isExported___name-String__local-boolean",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DefaultCodingConvention.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 66,
+  "functionEndLine": 68,
+  "numCommitsSeen": 23,
+  "timeTaken": 1312,
+  "changeHistory": [
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a"
+  ],
+  "changeHistoryShort": {
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fe64e87cccd2c38524c0b36c49beb4c988d1453a": {
+      "type": "Yintroduced",
+      "commitMessage": "Never rename a variable named \"$super\", because the Prototype library\nuses this to do magic.\n\nBetter dead assignment elimination.\n\nEmit an error if you declare a parameter twice.\n\nDon\u0027t do anonymous function collapsing by default.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@12 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/17/09, 4:21 PM",
+      "commitName": "fe64e87cccd2c38524c0b36c49beb4c988d1453a",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public boolean isExported(String name, boolean local) {\n+    return local \u0026\u0026 name.startsWith(\"$super\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean isExported(String name, boolean local) {\n    return local \u0026\u0026 name.startsWith(\"$super\");\n}",
+      "path": "src/com/google/javascript/jscomp/DefaultCodingConvention.java",
+      "functionStartLine": 59,
+      "functionName": "isExported",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

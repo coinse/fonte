@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Normalize.java",
+  "functionName": "moveNamedFunctions",
+  "functionId": "$moveNamedFunctions___functionBody-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Normalize.java",
+  "functionAnnotation": "",
+  "functionDoc": "Move all the functions that are valid at the execution of the first\nstatement of the function to the beginning of the function definition.\n",
+  "functionStartLine": 577,
+  "functionEndLine": 609,
+  "numCommitsSeen": 31,
+  "timeTaken": 1789,
+  "changeHistory": [
+    "9a185e0c06b0a595ca0e6fb7990945cd0114a12f",
+    "6a36f04485599820ff86441accee002b4deec2eb"
+  ],
+  "changeHistoryShort": {
+    "9a185e0c06b0a595ca0e6fb7990945cd0114a12f": "Ybodychange",
+    "6a36f04485599820ff86441accee002b4deec2eb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9a185e0c06b0a595ca0e6fb7990945cd0114a12f": {
+      "type": "Ybodychange",
+      "commitMessage": "Run cross module code motion before and after devirtualization. (Alan)\n\nMaking ErrorPass package-private. (Brad)\n\nImprove strict equality comparisons. (John)\n\nUpdate comments and minor cleanup of Normalize. (John)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@133 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/10/10, 9:49 PM",
+      "commitName": "9a185e0c06b0a595ca0e6fb7990945cd0114a12f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "2/26/10, 7:11 AM",
+      "commitNameOld": "d48c365ba8251057a71a2e2b7aabff640209e31b",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 12.61,
+      "commitsBetweenForRepo": 16,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void moveNamedFunctions(Node functionBody) {\n    Preconditions.checkState(functionBody.getParent().getType() \u003d\u003d Token.FUNCTION);\n    Node previous \u003d null;\n    Node current \u003d functionBody.getFirstChild();\n    while (current !\u003d null \u0026\u0026 NodeUtil.isFunctionDeclaration(current)) {\n        previous \u003d current;\n        current \u003d current.getNext();\n    }\n    Node insertAfter \u003d previous;\n    while (current !\u003d null) {\n        Node next \u003d current.getNext();\n        if (NodeUtil.isFunctionDeclaration(current)) {\n            Preconditions.checkNotNull(previous);\n            functionBody.removeChildAfter(previous);\n            insertAfter \u003d addToFront(functionBody, current, insertAfter);\n            reportCodeChange(\"Move function declaration not at top of function\");\n        } else {\n            previous \u003d current;\n        }\n        current \u003d next;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Normalize.java",
+      "functionStartLine": 397,
+      "functionName": "moveNamedFunctions",
+      "functionAnnotation": "",
+      "functionDoc": "Move all the functions that are valid at the execution of the first\nstatement of the function to the beginning of the function definition.\n",
+      "diff": "@@ -1,22 +1,22 @@\n private void moveNamedFunctions(Node functionBody) {\n     Preconditions.checkState(functionBody.getParent().getType() \u003d\u003d Token.FUNCTION);\n     Node previous \u003d null;\n     Node current \u003d functionBody.getFirstChild();\n     while (current !\u003d null \u0026\u0026 NodeUtil.isFunctionDeclaration(current)) {\n         previous \u003d current;\n         current \u003d current.getNext();\n     }\n     Node insertAfter \u003d previous;\n     while (current !\u003d null) {\n         Node next \u003d current.getNext();\n         if (NodeUtil.isFunctionDeclaration(current)) {\n             Preconditions.checkNotNull(previous);\n             functionBody.removeChildAfter(previous);\n             insertAfter \u003d addToFront(functionBody, current, insertAfter);\n-            compiler.reportCodeChange();\n+            reportCodeChange(\"Move function declaration not at top of function\");\n         } else {\n             previous \u003d current;\n         }\n         current \u003d next;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6a36f04485599820ff86441accee002b4deec2eb": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixes for issues 14 and 16.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@7 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/09, 11:05 AM",
+      "commitName": "6a36f04485599820ff86441accee002b4deec2eb",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,22 @@\n+private void moveNamedFunctions(Node functionBody) {\n+    Preconditions.checkState(functionBody.getParent().getType() \u003d\u003d Token.FUNCTION);\n+    Node previous \u003d null;\n+    Node current \u003d functionBody.getFirstChild();\n+    while (current !\u003d null \u0026\u0026 NodeUtil.isFunctionDeclaration(current)) {\n+        previous \u003d current;\n+        current \u003d current.getNext();\n+    }\n+    Node insertAfter \u003d previous;\n+    while (current !\u003d null) {\n+        Node next \u003d current.getNext();\n+        if (NodeUtil.isFunctionDeclaration(current)) {\n+            Preconditions.checkNotNull(previous);\n+            functionBody.removeChildAfter(previous);\n+            insertAfter \u003d addToFront(functionBody, current, insertAfter);\n+            compiler.reportCodeChange();\n+        } else {\n+            previous \u003d current;\n+        }\n+        current \u003d next;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void moveNamedFunctions(Node functionBody) {\n    Preconditions.checkState(functionBody.getParent().getType() \u003d\u003d Token.FUNCTION);\n    Node previous \u003d null;\n    Node current \u003d functionBody.getFirstChild();\n    while (current !\u003d null \u0026\u0026 NodeUtil.isFunctionDeclaration(current)) {\n        previous \u003d current;\n        current \u003d current.getNext();\n    }\n    Node insertAfter \u003d previous;\n    while (current !\u003d null) {\n        Node next \u003d current.getNext();\n        if (NodeUtil.isFunctionDeclaration(current)) {\n            Preconditions.checkNotNull(previous);\n            functionBody.removeChildAfter(previous);\n            insertAfter \u003d addToFront(functionBody, current, insertAfter);\n            compiler.reportCodeChange();\n        } else {\n            previous \u003d current;\n        }\n        current \u003d next;\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/Normalize.java",
+      "functionStartLine": 343,
+      "functionName": "moveNamedFunctions",
+      "functionAnnotation": "",
+      "functionDoc": "Move all the functions that are valid at the execution of the first\nstatement of the function to the beginning of the function definition.\n"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "InlineObjectLiterals.java",
+  "functionName": "afterExitScope",
+  "functionId": "$afterExitScope___t-NodeTraversal__referenceMap-ReferenceMap",
+  "sourceFilePath": "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 83,
+  "functionEndLine": 106,
+  "numCommitsSeen": 7,
+  "timeTaken": 748,
+  "changeHistory": [
+    "75a9013e3907e5db97f10578227497d7b018caf5",
+    "23cf56d241b46465bd0f112ad0cc9c6ba5583fae"
+  ],
+  "changeHistoryShort": {
+    "75a9013e3907e5db97f10578227497d7b018caf5": "Ymultichange(Yparameterchange,Ybodychange)",
+    "23cf56d241b46465bd0f112ad0cc9c6ba5583fae": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "75a9013e3907e5db97f10578227497d7b018caf5": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/24/11, 10:36 AM",
+      "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+      "commitAuthor": "bashir@google.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/11, 10:36 AM",
+          "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "5/5/11, 12:15 PM",
+          "commitNameOld": "23cf56d241b46465bd0f112ad0cc9c6ba5583fae",
+          "commitAuthorOld": "acleung@google.com",
+          "daysBetweenCommits": 18.93,
+          "commitsBetweenForRepo": 63,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic void afterExitScope(NodeTraversal t, ReferenceMap referenceMap) {\n    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n        Var v \u003d it.next();\n        if (isVarInlineForbidden(v)) {\n            continue;\n        }\n        ReferenceCollection referenceInfo \u003d referenceMap.getReferences(v);\n        if (isInlinableObject(referenceInfo.references)) {\n            staleVars.add(v);\n            Reference declaration \u003d referenceInfo.references.get(0);\n            Reference init \u003d referenceInfo.getInitializingReference();\n            splitObject(v, declaration, init, referenceInfo);\n        }\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+          "functionStartLine": 84,
+          "functionName": "afterExitScope",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,16 +1,16 @@\n @Override\n-public void afterExitScope(NodeTraversal t, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n+public void afterExitScope(NodeTraversal t, ReferenceMap referenceMap) {\n     for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n         Var v \u003d it.next();\n         if (isVarInlineForbidden(v)) {\n             continue;\n         }\n-        ReferenceCollection referenceInfo \u003d referenceMap.get(v);\n+        ReferenceCollection referenceInfo \u003d referenceMap.getReferences(v);\n         if (isInlinableObject(referenceInfo.references)) {\n             staleVars.add(v);\n             Reference declaration \u003d referenceInfo.references.get(0);\n             Reference init \u003d referenceInfo.getInitializingReference();\n             splitObject(v, declaration, init, referenceInfo);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[t-NodeTraversal, referenceMap-Map\u003cVar,ReferenceCollection\u003e]",
+            "newValue": "[t-NodeTraversal, referenceMap-ReferenceMap]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nmade checkVariableReferences hot-swappable and to do this added the\nfunctionality to keep lists of all global var references in Compiler\n\nR\u003dnicksantos\nDELTA\u003d478  (417 added, 8 deleted, 53 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1999\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1128 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/24/11, 10:36 AM",
+          "commitName": "75a9013e3907e5db97f10578227497d7b018caf5",
+          "commitAuthor": "bashir@google.com",
+          "commitDateOld": "5/5/11, 12:15 PM",
+          "commitNameOld": "23cf56d241b46465bd0f112ad0cc9c6ba5583fae",
+          "commitAuthorOld": "acleung@google.com",
+          "daysBetweenCommits": 18.93,
+          "commitsBetweenForRepo": 63,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic void afterExitScope(NodeTraversal t, ReferenceMap referenceMap) {\n    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n        Var v \u003d it.next();\n        if (isVarInlineForbidden(v)) {\n            continue;\n        }\n        ReferenceCollection referenceInfo \u003d referenceMap.getReferences(v);\n        if (isInlinableObject(referenceInfo.references)) {\n            staleVars.add(v);\n            Reference declaration \u003d referenceInfo.references.get(0);\n            Reference init \u003d referenceInfo.getInitializingReference();\n            splitObject(v, declaration, init, referenceInfo);\n        }\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+          "functionStartLine": 84,
+          "functionName": "afterExitScope",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,16 +1,16 @@\n @Override\n-public void afterExitScope(NodeTraversal t, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n+public void afterExitScope(NodeTraversal t, ReferenceMap referenceMap) {\n     for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n         Var v \u003d it.next();\n         if (isVarInlineForbidden(v)) {\n             continue;\n         }\n-        ReferenceCollection referenceInfo \u003d referenceMap.get(v);\n+        ReferenceCollection referenceInfo \u003d referenceMap.getReferences(v);\n         if (isInlinableObject(referenceInfo.references)) {\n             staleVars.add(v);\n             Reference declaration \u003d referenceInfo.references.get(0);\n             Reference init \u003d referenceInfo.getInitializingReference();\n             splitObject(v, declaration, init, referenceInfo);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "23cf56d241b46465bd0f112ad0cc9c6ba5583fae": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIntroduce InlineObjectLiterals Pass.\n\nR\u003djohnlenz\nDELTA\u003d700  (700 added, 0 deleted, 0 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1774\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1062 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/5/11, 12:15 PM",
+      "commitName": "23cf56d241b46465bd0f112ad0cc9c6ba5583fae",
+      "commitAuthor": "acleung@google.com",
+      "diff": "@@ -0,0 +1,16 @@\n+@Override\n+public void afterExitScope(NodeTraversal t, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n+    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n+        Var v \u003d it.next();\n+        if (isVarInlineForbidden(v)) {\n+            continue;\n+        }\n+        ReferenceCollection referenceInfo \u003d referenceMap.get(v);\n+        if (isInlinableObject(referenceInfo.references)) {\n+            staleVars.add(v);\n+            Reference declaration \u003d referenceInfo.references.get(0);\n+            Reference init \u003d referenceInfo.getInitializingReference();\n+            splitObject(v, declaration, init, referenceInfo);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic void afterExitScope(NodeTraversal t, Map\u003cVar, ReferenceCollection\u003e referenceMap) {\n    for (Iterator\u003cVar\u003e it \u003d t.getScope().getVars(); it.hasNext(); ) {\n        Var v \u003d it.next();\n        if (isVarInlineForbidden(v)) {\n            continue;\n        }\n        ReferenceCollection referenceInfo \u003d referenceMap.get(v);\n        if (isInlinableObject(referenceInfo.references)) {\n            staleVars.add(v);\n            Reference declaration \u003d referenceInfo.references.get(0);\n            Reference init \u003d referenceInfo.getInitializingReference();\n            splitObject(v, declaration, init, referenceInfo);\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+      "functionStartLine": 83,
+      "functionName": "afterExitScope",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

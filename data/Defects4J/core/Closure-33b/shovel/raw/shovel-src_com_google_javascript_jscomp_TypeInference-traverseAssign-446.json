@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeInference.java",
+  "functionName": "traverseAssign",
+  "functionId": "traverseAssign___n-Node__scope-FlowScope",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeInference.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 446,
+  "functionEndLine": 457,
+  "numCommitsSeen": 69,
+  "timeTaken": 4221,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private FlowScope traverseAssign(Node n, FlowScope scope) {\n+    Node left \u003d n.getFirstChild();\n+    Node right \u003d n.getLastChild();\n+    scope \u003d traverseChildren(n, scope);\n+    JSType leftType \u003d left.getJSType();\n+    JSType rightType \u003d getJSType(right);\n+    n.setJSType(rightType);\n+    updateScopeForTypeChange(scope, left, leftType, rightType);\n+    return scope;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private FlowScope traverseAssign(Node n, FlowScope scope) {\n    Node left \u003d n.getFirstChild();\n    Node right \u003d n.getLastChild();\n    scope \u003d traverseChildren(n, scope);\n    JSType leftType \u003d left.getJSType();\n    JSType rightType \u003d getJSType(right);\n    n.setJSType(rightType);\n    updateScopeForTypeChange(scope, left, leftType, rightType);\n    return scope;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeInference.java",
+      "functionStartLine": 444,
+      "functionName": "traverseAssign",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-92b",
+  "repositoryPath": "/tmp/Closure-92b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "GoogleCodingConvention.java",
+  "functionName": "isConstantKey",
+  "functionId": "isConstantKey___name-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/GoogleCodingConvention.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 80,
+  "functionEndLine": 87,
+  "numCommitsSeen": 10,
+  "timeTaken": 2365,
+  "changeHistory": [
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143"
+  ],
+  "changeHistoryShort": {
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e829dafb9b3365bda6b6bb80f5fa97783752d143": {
+      "type": "Yintroduced",
+      "commitMessage": "\nChange on 2010/06/17 by nicksantos\n\n        don\u0027t use Sets to build union types.\n\n        R\u003djohnlenz\n        DELTA\u003d76  (52 added, 6 deleted, 18 changed)\n\nChange on 2010/06/17 by nicksantos\n\n        fix a couple bugs in goog.scope processing\n\n        R\u003drobbyw\n        DELTA\u003d54  (42 added, 11 deleted, 1 changed)\n\n\nChange on 2010/06/17 by acleung\n\n        Disables function argument check with @notypecheck is on for the whole file.\n\n        R\u003djohnlenz\n        DELTA\u003d8  (5 added, 1 deleted, 2 changed)\n\nChange on 2010/06/17 by dcc\n\n        Fix NPE in ExportExternsPass with --check_types\u003dfalse.\n\n        R\u003dacleung\n        DELTA\u003d72  (66 added, 4 deleted, 2 changed)\n\nChange on 2010/06/17 by johnlenz\n\n        Change stub method parameters to allow sanity checks to pass with\n        CrossModuleMethodMotion.\n\n        R\u003dnicksantos\n        DELTA\u003d7  (3 added, 0 deleted, 4 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Modify AliasKeywords so passes the sanity checks: don\u0027t create coding\n        convention constants without annotation them so that the tests pass\n        when the sanity checks are on.\n\n        R\u003dnicksantos\n        DELTA\u003d18  (5 added, 0 deleted, 13 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Fix source maps when run with sanity checks.\n\n        R\u003dnicksantos\n        DELTA\u003d10  (7 added, 0 deleted, 3 changed)\n\nChange on 2010/06/18 by johnlenz\n\n        Changes to PrepareAst to make it valid to run during SanityChecks.\n\n        R\u003dnicksantos\n        DELTA\u003d18  (5 added, 0 deleted, 13 changed)\n\nChange on 2010/06/18 by nicksantos\n\n        fix constant annotations in CollapseProperties.\n\n        R\u003djohnlenz\n        DELTA\u003d61  (49 added, 1 deleted, 11 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d30002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@246 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "6/18/10, 5:18 PM",
+      "commitName": "e829dafb9b3365bda6b6bb80f5fa97783752d143",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public boolean isConstantKey(String name) {\n+    if (name.isEmpty() || !Character.isUpperCase(name.charAt(0))) {\n+        return false;\n+    }\n+    return name.toUpperCase().equals(name);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean isConstantKey(String name) {\n    if (name.isEmpty() || !Character.isUpperCase(name.charAt(0))) {\n        return false;\n    }\n    return name.toUpperCase().equals(name);\n}",
+      "path": "src/com/google/javascript/jscomp/GoogleCodingConvention.java",
+      "functionStartLine": 79,
+      "functionName": "isConstantKey",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

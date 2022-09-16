@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MathUtils.java",
+  "functionName": "compareTo",
+  "functionId": "compareTo___x-double__y-double__eps-double",
+  "sourceFilePath": "src/java/org/apache/commons/math/util/MathUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Compares two numbers given some amount of allowed error.\n\n@param x the first number\n@param y the second number\n@param eps the amount of error to allow when checking for equality\n@return \u003cul\u003e\u003cli\u003e0 if  {@link #equals(double, double, double) equals(x, y, eps)}\u003c/li\u003e\n      \u003cli\u003e\u0026lt; 0 if !{@link #equals(double, double, double) equals(x, y, eps)} \u0026amp;\u0026amp; x \u0026lt; y\u003c/li\u003e\n      \u003cli\u003e\u003e 0 if !{@link #equals(double, double, double) equals(x, y, eps)} \u0026amp;\u0026amp; x \u003e y\u003c/li\u003e\u003c/ul\u003e\n",
+  "functionStartLine": 366,
+  "functionEndLine": 373,
+  "numCommitsSeen": 66,
+  "timeTaken": 991,
+  "changeHistory": [
+    "95836d833482615c11d46e2e655f3eea06a641d7"
+  ],
+  "changeHistoryShort": {
+    "95836d833482615c11d46e2e655f3eea06a641d7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "95836d833482615c11d46e2e655f3eea06a641d7": {
+      "type": "Yintroduced",
+      "commitMessage": "added compareTo method with epsilon\nJIRA: MATH-247\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@749139 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/1/09, 2:21 PM",
+      "commitName": "95836d833482615c11d46e2e655f3eea06a641d7",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,8 @@\n+public static int compareTo(double x, double y, double eps) {\n+    if (equals(x, y, eps)) {\n+        return 0;\n+    } else if (x \u003c y) {\n+        return -1;\n+    }\n+    return 1;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static int compareTo(double x, double y, double eps) {\n    if (equals(x, y, eps)) {\n        return 0;\n    } else if (x \u003c y) {\n        return -1;\n    }\n    return 1;\n}",
+      "path": "src/java/org/apache/commons/math/util/MathUtils.java",
+      "functionStartLine": 360,
+      "functionName": "compareTo",
+      "functionAnnotation": "",
+      "functionDoc": "Compares two numbers given some amount of allowed error.\n\n@param x the first number\n@param y the second number\n@param eps the amount of error to allow when checking for equality\n@return \u003cul\u003e\u003cli\u003e0 if  {@link #equals(double, double, double) equals(x, y, eps)}\u003c/li\u003e\n      \u003cli\u003e\u0026lt; 0 if !{@link #equals(double, double, double) equals(x, y, eps)} \u0026amp;\u0026amp; x \u0026lt; y\u003c/li\u003e\n      \u003cli\u003e\u003e 0 if !{@link #equals(double, double, double) equals(x, y, eps)} \u0026amp;\u0026amp; x \u003e y\u003c/li\u003e\u003c/ul\u003e\n"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-33b",
+  "repositoryPath": "/tmp/Closure-33b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FunctionTypeBuilder.java",
+  "functionName": "isVarArgsParameter",
+  "functionId": "isVarArgsParameter___param-Node__info-JSDocInfo(annotations-@Nullable)",
+  "sourceFilePath": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determine whether this is a var args parameter.\n\n@return Whether the given param is a var args param.\n",
+  "functionStartLine": 525,
+  "functionEndLine": 534,
+  "numCommitsSeen": 47,
+  "timeTaken": 1948,
+  "changeHistory": [
+    "6a36f04485599820ff86441accee002b4deec2eb",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6a36f04485599820ff86441accee002b4deec2eb": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6a36f04485599820ff86441accee002b4deec2eb": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "Fixes for issues 14 and 16.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@7 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/11/09, 11:05 AM",
+      "commitName": "6a36f04485599820ff86441accee002b4deec2eb",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fixes for issues 14 and 16.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@7 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/11/09, 11:05 AM",
+          "commitName": "6a36f04485599820ff86441accee002b4deec2eb",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/3/09, 3:51 PM",
+          "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 7.8,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isVarArgsParameter(Node param, @Nullable JSDocInfo info) {\n    if (codingConvention.isVarArgsParameter(param)) {\n        return true;\n    }\n    String paramName \u003d param.getString();\n    return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+          "functionStartLine": 396,
+          "functionName": "isVarArgsParameter",
+          "functionAnnotation": "",
+          "functionDoc": "Determine whether this is a var args parameter.\n\n@return Whether the given param is a var args param.\n",
+          "diff": "@@ -1,6 +1,7 @@\n-private boolean isVarArgsParameter(String paramName, @Nullable JSDocInfo info) {\n-    if (codingConvention.isVarArgsParameter(null, paramName)) {\n+private boolean isVarArgsParameter(Node param, @Nullable JSDocInfo info) {\n+    if (codingConvention.isVarArgsParameter(param)) {\n         return true;\n     }\n+    String paramName \u003d param.getString();\n     return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[paramName-String, info-JSDocInfo(annotations-@Nullable)]",
+            "newValue": "[param-Node, info-JSDocInfo(annotations-@Nullable)]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fixes for issues 14 and 16.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@7 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/11/09, 11:05 AM",
+          "commitName": "6a36f04485599820ff86441accee002b4deec2eb",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/3/09, 3:51 PM",
+          "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 7.8,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isVarArgsParameter(Node param, @Nullable JSDocInfo info) {\n    if (codingConvention.isVarArgsParameter(param)) {\n        return true;\n    }\n    String paramName \u003d param.getString();\n    return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+          "functionStartLine": 396,
+          "functionName": "isVarArgsParameter",
+          "functionAnnotation": "",
+          "functionDoc": "Determine whether this is a var args parameter.\n\n@return Whether the given param is a var args param.\n",
+          "diff": "@@ -1,6 +1,7 @@\n-private boolean isVarArgsParameter(String paramName, @Nullable JSDocInfo info) {\n-    if (codingConvention.isVarArgsParameter(null, paramName)) {\n+private boolean isVarArgsParameter(Node param, @Nullable JSDocInfo info) {\n+    if (codingConvention.isVarArgsParameter(param)) {\n         return true;\n     }\n+    String paramName \u003d param.getString();\n     return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Fixes for issues 14 and 16.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@7 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "11/11/09, 11:05 AM",
+          "commitName": "6a36f04485599820ff86441accee002b4deec2eb",
+          "commitAuthor": "nicholas.j.santos@gmail.com",
+          "commitDateOld": "11/3/09, 3:51 PM",
+          "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+          "commitAuthorOld": "nicholas.j.santos@gmail.com",
+          "daysBetweenCommits": 7.8,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isVarArgsParameter(Node param, @Nullable JSDocInfo info) {\n    if (codingConvention.isVarArgsParameter(param)) {\n        return true;\n    }\n    String paramName \u003d param.getString();\n    return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n}",
+          "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+          "functionStartLine": 396,
+          "functionName": "isVarArgsParameter",
+          "functionAnnotation": "",
+          "functionDoc": "Determine whether this is a var args parameter.\n\n@return Whether the given param is a var args param.\n",
+          "diff": "@@ -1,6 +1,7 @@\n-private boolean isVarArgsParameter(String paramName, @Nullable JSDocInfo info) {\n-    if (codingConvention.isVarArgsParameter(null, paramName)) {\n+private boolean isVarArgsParameter(Node param, @Nullable JSDocInfo info) {\n+    if (codingConvention.isVarArgsParameter(param)) {\n         return true;\n     }\n+    String paramName \u003d param.getString();\n     return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Determine whether this is a var args parameter from just the name and\nannotation. This is the case where we have a stub declaration, with\nno function literal.\n\n@return Whether the given param is a var args param.\n",
+            "newValue": "Determine whether this is a var args parameter.\n\n@return Whether the given param is a var args param.\n"
+          }
+        }
+      ]
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,6 @@\n+private boolean isVarArgsParameter(String paramName, @Nullable JSDocInfo info) {\n+    if (codingConvention.isVarArgsParameter(null, paramName)) {\n+        return true;\n+    }\n+    return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isVarArgsParameter(String paramName, @Nullable JSDocInfo info) {\n    if (codingConvention.isVarArgsParameter(null, paramName)) {\n        return true;\n    }\n    return info !\u003d null \u0026\u0026 info.hasParameterType(paramName) \u0026\u0026 info.getParameterType(paramName).isVarArgs();\n}",
+      "path": "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+      "functionStartLine": 405,
+      "functionName": "isVarArgsParameter",
+      "functionAnnotation": "",
+      "functionDoc": "Determine whether this is a var args parameter from just the name and\nannotation. This is the case where we have a stub declaration, with\nno function literal.\n\n@return Whether the given param is a var args param.\n"
+    }
+  }
+}

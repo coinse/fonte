@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-103b",
+  "repositoryPath": "/tmp/Math-103b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MathException.java",
+  "functionName": "printStackTrace",
+  "functionId": "printStackTrace___out-PrintStream",
+  "sourceFilePath": "src/java/org/apache/commons/math/MathException.java",
+  "functionAnnotation": "",
+  "functionDoc": "Prints the stack trace of this exception to the specified stream.\n\n@param out the \u003ccode\u003ePrintStream\u003c/code\u003e to use for output\n",
+  "functionStartLine": 250,
+  "functionEndLine": 257,
+  "numCommitsSeen": 26,
+  "timeTaken": 207,
+  "changeHistory": [
+    "770db53d4d3c2987ca1ee5b2436a6abd444c6b42"
+  ],
+  "changeHistoryShort": {
+    "770db53d4d3c2987ca1ee5b2436a6abd444c6b42": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "770db53d4d3c2987ca1ee5b2436a6abd444c6b42": {
+      "type": "Yintroduced",
+      "commitMessage": "Eliminated [lang] dependency.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/math/trunk@141372 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/10/04, 3:21 PM",
+      "commitName": "770db53d4d3c2987ca1ee5b2436a6abd444c6b42",
+      "commitAuthor": "Phil Steitz",
+      "diff": "@@ -0,0 +1,7 @@\n+public void printStackTrace(PrintStream out) {\n+    synchronized (out) {\n+        PrintWriter pw \u003d new PrintWriter(out, false);\n+        printStackTrace(pw);\n+        pw.flush();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void printStackTrace(PrintStream out) {\n    synchronized (out) {\n        PrintWriter pw \u003d new PrintWriter(out, false);\n        printStackTrace(pw);\n        pw.flush();\n    }\n}",
+      "path": "src/java/org/apache/commons/math/MathException.java",
+      "functionStartLine": 124,
+      "functionName": "printStackTrace",
+      "functionAnnotation": "",
+      "functionDoc": "Prints the stack trace of this exception to the specified stream.\n\n@param out the \u003ccode\u003ePrintStream\u003c/code\u003e to use for output\n"
+    }
+  }
+}

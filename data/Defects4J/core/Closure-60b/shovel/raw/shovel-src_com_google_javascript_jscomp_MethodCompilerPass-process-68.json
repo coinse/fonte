@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MethodCompilerPass.java",
+  "functionName": "process",
+  "functionId": "process___externs-Node__root-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/MethodCompilerPass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 68,
+  "functionEndLine": 84,
+  "numCommitsSeen": 14,
+  "timeTaken": 454,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,12 @@\n+public void process(Node externs, Node root) {\n+    externMethods.clear();\n+    externMethodsWithoutSignatures.clear();\n+    getSignatureStore().reset();\n+    methodDefinitions.clear();\n+    if (externs !\u003d null) {\n+        NodeTraversal.traverse(compiler, externs, new GetExternMethods());\n+    }\n+    List\u003cNode\u003e externsAndJs \u003d Lists.newArrayList(externs, root);\n+    NodeTraversal.traverseRoots(compiler, Lists.newArrayList(externs, root), new GatherSignatures());\n+    NodeTraversal.traverseRoots(compiler, externsAndJs, getActingCallback());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void process(Node externs, Node root) {\n    externMethods.clear();\n    externMethodsWithoutSignatures.clear();\n    getSignatureStore().reset();\n    methodDefinitions.clear();\n    if (externs !\u003d null) {\n        NodeTraversal.traverse(compiler, externs, new GetExternMethods());\n    }\n    List\u003cNode\u003e externsAndJs \u003d Lists.newArrayList(externs, root);\n    NodeTraversal.traverseRoots(compiler, Lists.newArrayList(externs, root), new GatherSignatures());\n    NodeTraversal.traverseRoots(compiler, externsAndJs, getActingCallback());\n}",
+      "path": "src/com/google/javascript/jscomp/MethodCompilerPass.java",
+      "functionStartLine": 67,
+      "functionName": "process",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

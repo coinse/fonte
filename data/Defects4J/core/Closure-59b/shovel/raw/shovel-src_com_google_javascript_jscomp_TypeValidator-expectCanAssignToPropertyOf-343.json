@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeValidator.java",
+  "functionName": "expectCanAssignToPropertyOf",
+  "functionId": "expectCanAssignToPropertyOf___t-NodeTraversal__n-Node__rightType-JSType__leftType-JSType__owner-Node__propName-String",
+  "sourceFilePath": "src/com/google/javascript/jscomp/TypeValidator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Expect that the first type can be assigned to a symbol of the second\ntype.\n\n@param t The node traversal.\n@param n The node to issue warnings on.\n@param rightType The type on the RHS of the assign.\n@param leftType The type of the symbol on the LHS of the assign.\n@param owner The owner of the property being assigned to.\n@param propName The name of the property being assigned to.\n@return True if the types matched, false otherwise.\n",
+  "functionStartLine": 343,
+  "functionEndLine": 360,
+  "numCommitsSeen": 22,
+  "timeTaken": 1012,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,11 @@\n+boolean expectCanAssignToPropertyOf(NodeTraversal t, Node n, JSType rightType, JSType leftType, Node owner, String propName) {\n+    if (!leftType.isNoType() \u0026\u0026 !rightType.canAssignTo(leftType)) {\n+        if (bothIntrinsics(rightType, leftType)) {\n+            registerMismatch(rightType, leftType);\n+        } else {\n+            mismatch(t, n, \"assignment to property \" + propName + \" of \" + getReadableJSTypeName(owner, true), rightType, leftType);\n+        }\n+        return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean expectCanAssignToPropertyOf(NodeTraversal t, Node n, JSType rightType, JSType leftType, Node owner, String propName) {\n    if (!leftType.isNoType() \u0026\u0026 !rightType.canAssignTo(leftType)) {\n        if (bothIntrinsics(rightType, leftType)) {\n            registerMismatch(rightType, leftType);\n        } else {\n            mismatch(t, n, \"assignment to property \" + propName + \" of \" + getReadableJSTypeName(owner, true), rightType, leftType);\n        }\n        return false;\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/TypeValidator.java",
+      "functionStartLine": 285,
+      "functionName": "expectCanAssignToPropertyOf",
+      "functionAnnotation": "",
+      "functionDoc": "Expect that the first type can be assigned to a symbol of the second\ntype.\n\n@param t The node traversal.\n@param n The node to issue warnings on.\n@param rightType The type on the RHS of the assign.\n@param leftType The type of the symbol on the LHS of the assign.\n@param owner The owner of the property being assigned to.\n@param propName The name of the property being assigned to.\n@return True if the types matched, false otherwise.\n"
+    }
+  }
+}

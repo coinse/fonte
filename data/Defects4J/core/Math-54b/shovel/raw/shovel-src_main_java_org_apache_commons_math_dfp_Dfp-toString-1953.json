@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-54b",
+  "repositoryPath": "/tmp/Math-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Dfp.java",
+  "functionName": "toString",
+  "functionId": "toString",
+  "sourceFilePath": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Get a string representation of the instance.\n\n@return string representation of the instance\n",
+  "functionStartLine": 1953,
+  "functionEndLine": 1969,
+  "numCommitsSeen": 4,
+  "timeTaken": 855,
+  "changeHistory": [
+    "983b064f7f31830788ba2b5485302f02ab637767",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "983b064f7f31830788ba2b5485302f02ab637767": "Yannotationchange",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "983b064f7f31830788ba2b5485302f02ab637767": {
+      "type": "Yannotationchange",
+      "commitMessage": "Unnecessary to cast byte into byte\nAdd missing @Override marker\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1003349 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/30/10, 6:40 PM",
+      "commitName": "983b064f7f31830788ba2b5485302f02ab637767",
+      "commitAuthor": "Sebastian Bazley",
+      "commitDateOld": "9/5/10, 12:09 PM",
+      "commitNameOld": "86d92c9994adc66abd9c3e4de93394a59e79357b",
+      "commitAuthorOld": "Luc Maisonobe",
+      "daysBetweenCommits": 25.27,
+      "commitsBetweenForRepo": 43,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String toString() {\n    if (nans !\u003d FINITE) {\n        if (nans \u003d\u003d INFINITE) {\n            return (sign \u003c 0) ? NEG_INFINITY_STRING : POS_INFINITY_STRING;\n        } else {\n            return NAN_STRING;\n        }\n    }\n    if (exp \u003e mant.length || exp \u003c -1) {\n        return dfp2sci();\n    }\n    return dfp2string();\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 1953,
+      "functionName": "toString",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Get a string representation of the instance.\n\n@return string representation of the instance\n",
+      "diff": "@@ -1,13 +1,14 @@\n+@Override\n public String toString() {\n     if (nans !\u003d FINITE) {\n         if (nans \u003d\u003d INFINITE) {\n             return (sign \u003c 0) ? NEG_INFINITY_STRING : POS_INFINITY_STRING;\n         } else {\n             return NAN_STRING;\n         }\n     }\n     if (exp \u003e mant.length || exp \u003c -1) {\n         return dfp2sci();\n     }\n     return dfp2string();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,13 @@\n+public String toString() {\n+    if (nans !\u003d FINITE) {\n+        if (nans \u003d\u003d INFINITE) {\n+            return (sign \u003c 0) ? NEG_INFINITY_STRING : POS_INFINITY_STRING;\n+        } else {\n+            return NAN_STRING;\n+        }\n+    }\n+    if (exp \u003e mant.length || exp \u003c -1) {\n+        return dfp2sci();\n+    }\n+    return dfp2string();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String toString() {\n    if (nans !\u003d FINITE) {\n        if (nans \u003d\u003d INFINITE) {\n            return (sign \u003c 0) ? NEG_INFINITY_STRING : POS_INFINITY_STRING;\n        } else {\n            return NAN_STRING;\n        }\n    }\n    if (exp \u003e mant.length || exp \u003c -1) {\n        return dfp2sci();\n    }\n    return dfp2string();\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/Dfp.java",
+      "functionStartLine": 1952,
+      "functionName": "toString",
+      "functionAnnotation": "",
+      "functionDoc": "Get a string representation of the instance.\n\n@return string representation of the instance\n"
+    }
+  }
+}

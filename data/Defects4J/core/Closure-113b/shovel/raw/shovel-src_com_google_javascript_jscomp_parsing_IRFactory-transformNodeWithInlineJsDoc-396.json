@@ -1,0 +1,123 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-113b",
+  "repositoryPath": "/tmp/Closure-113b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "IRFactory.java",
+  "functionName": "transformNodeWithInlineJsDoc",
+  "functionId": "transformNodeWithInlineJsDoc___node-AstNode",
+  "sourceFilePath": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "NAMEs in parameters or variable declarations are special, because they can\nhave inline type docs attached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see \u003ca href\u003d\"http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\"\u003e\n  Using Inline Doc Comments\u003c/a\u003e\n",
+  "functionStartLine": 396,
+  "functionEndLine": 407,
+  "numCommitsSeen": 177,
+  "timeTaken": 3079,
+  "changeHistory": [
+    "db506a36af5df9338b1141a9e163e7a39197fc18",
+    "5ed0298bb770537235c2bf63165aa4cfc6069b78",
+    "b53207c1f8477fb28dfaa94add349cfc21ad5ba0"
+  ],
+  "changeHistoryShort": {
+    "db506a36af5df9338b1141a9e163e7a39197fc18": "Ymultichange(Yrename,Ydocchange)",
+    "5ed0298bb770537235c2bf63165aa4cfc6069b78": "Ydocchange",
+    "b53207c1f8477fb28dfaa94add349cfc21ad5ba0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "db506a36af5df9338b1141a9e163e7a39197fc18": {
+      "type": "Ymultichange(Yrename,Ydocchange)",
+      "commitMessage": "Correctly process inline jsdocs for variable initializers.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d50122173\n",
+      "commitDate": "8/5/13, 6:44 PM",
+      "commitName": "db506a36af5df9338b1141a9e163e7a39197fc18",
+      "commitAuthor": "Ben Lickly",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Correctly process inline jsdocs for variable initializers.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d50122173\n",
+          "commitDate": "8/5/13, 6:44 PM",
+          "commitName": "db506a36af5df9338b1141a9e163e7a39197fc18",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "7/17/13, 3:26 PM",
+          "commitNameOld": "c0319a67683315956ce33bdeba995ac4d9dffde3",
+          "commitAuthorOld": "Ben Lickly",
+          "daysBetweenCommits": 19.14,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Node transformNodeWithInlineJsDoc(AstNode node) {\n    Node irNode \u003d justTransform(node);\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JSDocInfo info \u003d parseInlineTypeDoc(comment, irNode);\n        if (info !\u003d null) {\n            irNode.setJSDocInfo(info);\n        }\n    }\n    setSourceInfo(irNode, node);\n    return irNode;\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+          "functionStartLine": 396,
+          "functionName": "transformNodeWithInlineJsDoc",
+          "functionAnnotation": "",
+          "functionDoc": "NAMEs in parameters or variable declarations are special, because they can\nhave inline type docs attached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see \u003ca href\u003d\"http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\"\u003e\n  Using Inline Doc Comments\u003c/a\u003e\n",
+          "diff": "@@ -1,12 +1,12 @@\n-private Node transformParameter(AstNode node) {\n+private Node transformNodeWithInlineJsDoc(AstNode node) {\n     Node irNode \u003d justTransform(node);\n     Comment comment \u003d node.getJsDocNode();\n     if (comment !\u003d null) {\n         JSDocInfo info \u003d parseInlineTypeDoc(comment, irNode);\n         if (info !\u003d null) {\n             irNode.setJSDocInfo(info);\n         }\n     }\n     setSourceInfo(irNode, node);\n     return irNode;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "transformParameter",
+            "newValue": "transformNodeWithInlineJsDoc"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Correctly process inline jsdocs for variable initializers.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d50122173\n",
+          "commitDate": "8/5/13, 6:44 PM",
+          "commitName": "db506a36af5df9338b1141a9e163e7a39197fc18",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "7/17/13, 3:26 PM",
+          "commitNameOld": "c0319a67683315956ce33bdeba995ac4d9dffde3",
+          "commitAuthorOld": "Ben Lickly",
+          "daysBetweenCommits": 19.14,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Node transformNodeWithInlineJsDoc(AstNode node) {\n    Node irNode \u003d justTransform(node);\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JSDocInfo info \u003d parseInlineTypeDoc(comment, irNode);\n        if (info !\u003d null) {\n            irNode.setJSDocInfo(info);\n        }\n    }\n    setSourceInfo(irNode, node);\n    return irNode;\n}",
+          "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+          "functionStartLine": 396,
+          "functionName": "transformNodeWithInlineJsDoc",
+          "functionAnnotation": "",
+          "functionDoc": "NAMEs in parameters or variable declarations are special, because they can\nhave inline type docs attached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see \u003ca href\u003d\"http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\"\u003e\n  Using Inline Doc Comments\u003c/a\u003e\n",
+          "diff": "@@ -1,12 +1,12 @@\n-private Node transformParameter(AstNode node) {\n+private Node transformNodeWithInlineJsDoc(AstNode node) {\n     Node irNode \u003d justTransform(node);\n     Comment comment \u003d node.getJsDocNode();\n     if (comment !\u003d null) {\n         JSDocInfo info \u003d parseInlineTypeDoc(comment, irNode);\n         if (info !\u003d null) {\n             irNode.setJSDocInfo(info);\n         }\n     }\n     setSourceInfo(irNode, node);\n     return irNode;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Parameter NAMEs are special, because they can have inline type docs\nattached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see \u003ca href\u003d\"http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\"\u003e\n  Using Inline Doc Comments\u003c/a\u003e\n",
+            "newValue": "NAMEs in parameters or variable declarations are special, because they can\nhave inline type docs attached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see \u003ca href\u003d\"http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\"\u003e\n  Using Inline Doc Comments\u003c/a\u003e\n"
+          }
+        }
+      ]
+    },
+    "5ed0298bb770537235c2bf63165aa4cfc6069b78": {
+      "type": "Ydocchange",
+      "commitMessage": "Fix various eclipse warnings.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d46797763\n",
+      "commitDate": "5/17/13, 5:50 PM",
+      "commitName": "5ed0298bb770537235c2bf63165aa4cfc6069b78",
+      "commitAuthor": "Ben Lickly",
+      "commitDateOld": "3/20/13, 9:50 AM",
+      "commitNameOld": "a1637bfdf32282f81ef6c71adec0b5bfed597119",
+      "commitAuthorOld": "Ben Lickly",
+      "daysBetweenCommits": 58.33,
+      "commitsBetweenForRepo": 107,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Node transformParameter(AstNode node) {\n    Node irNode \u003d justTransform(node);\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JSDocInfo info \u003d parseInlineTypeDoc(comment, irNode);\n        if (info !\u003d null) {\n            irNode.setJSDocInfo(info);\n        }\n    }\n    setSourceInfo(irNode, node);\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 386,
+      "functionName": "transformParameter",
+      "functionAnnotation": "",
+      "functionDoc": "Parameter NAMEs are special, because they can have inline type docs\nattached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see \u003ca href\u003d\"http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\"\u003e\n  Using Inline Doc Comments\u003c/a\u003e\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Parameter NAMEs are special, because they can have inline type docs\nattached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\n",
+        "newValue": "Parameter NAMEs are special, because they can have inline type docs\nattached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see \u003ca href\u003d\"http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\"\u003e\n  Using Inline Doc Comments\u003c/a\u003e\n"
+      }
+    },
+    "b53207c1f8477fb28dfaa94add349cfc21ad5ba0": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement inline jsdocs, as described in the public jsdoc wiki\nThis does not actually use the types yet for any type-checking.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d42548438\n",
+      "commitDate": "2/14/13, 11:43 AM",
+      "commitName": "b53207c1f8477fb28dfaa94add349cfc21ad5ba0",
+      "commitAuthor": "Nick Santos",
+      "diff": "@@ -0,0 +1,12 @@\n+private Node transformParameter(AstNode node) {\n+    Node irNode \u003d justTransform(node);\n+    Comment comment \u003d node.getJsDocNode();\n+    if (comment !\u003d null) {\n+        JSDocInfo info \u003d parseInlineTypeDoc(comment, irNode);\n+        if (info !\u003d null) {\n+            irNode.setJSDocInfo(info);\n+        }\n+    }\n+    setSourceInfo(irNode, node);\n+    return irNode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node transformParameter(AstNode node) {\n    Node irNode \u003d justTransform(node);\n    Comment comment \u003d node.getJsDocNode();\n    if (comment !\u003d null) {\n        JSDocInfo info \u003d parseInlineTypeDoc(comment, irNode);\n        if (info !\u003d null) {\n            irNode.setJSDocInfo(info);\n        }\n    }\n    setSourceInfo(irNode, node);\n    return irNode;\n}",
+      "path": "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+      "functionStartLine": 383,
+      "functionName": "transformParameter",
+      "functionAnnotation": "",
+      "functionDoc": "Parameter NAMEs are special, because they can have inline type docs\nattached.\n\nfunction f(/** string \u0026#42;/ x) {}\nannotates \u0027x\u0027 as a string.\n\n@see http://code.google.com/p/jsdoc-toolkit/wiki/InlineDocs\n"
+    }
+  }
+}

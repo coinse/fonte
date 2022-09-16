@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-17b",
+  "repositoryPath": "/tmp/Math-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DfpField.java",
+  "functionName": "computeStringConstants",
+  "functionId": "computeStringConstants___highPrecisionDecimalDigits-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/math3/dfp/DfpField.java",
+  "functionAnnotation": "",
+  "functionDoc": "Recompute the high precision string constants.\n\n@param highPrecisionDecimalDigits precision at which the string constants mus be computed\n",
+  "functionStartLine": 577,
+  "functionEndLine": 601,
+  "numCommitsSeen": 8,
+  "timeTaken": 11211,
+  "changeHistory": [
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e"
+  ],
+  "changeHistoryShort": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": "Ymovefromfile",
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd": {
+      "type": "Ymovefromfile",
+      "commitMessage": "MATH-444\nBase package name change: \"o.a.c.math\" -\u003e \"o.a.c.math3\"\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@1244107 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/14/12, 8:17 AM",
+      "commitName": "2d698e4905cb75bd125e2fe1f5223d7e68f0adcd",
+      "commitAuthor": "Gilles Sadowski",
+      "commitDateOld": "2/14/12, 6:34 AM",
+      "commitNameOld": "53257329dd394be1333b38bae787bf0cf19dc900",
+      "commitAuthorOld": "Gilles Sadowski",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void computeStringConstants(final int highPrecisionDecimalDigits) {\n    if (sqr2String \u003d\u003d null || sqr2String.length() \u003c highPrecisionDecimalDigits - 3) {\n        final DfpField highPrecisionField \u003d new DfpField(highPrecisionDecimalDigits, false);\n        final Dfp highPrecisionOne \u003d new Dfp(highPrecisionField, 1);\n        final Dfp highPrecisionTwo \u003d new Dfp(highPrecisionField, 2);\n        final Dfp highPrecisionThree \u003d new Dfp(highPrecisionField, 3);\n        final Dfp highPrecisionSqr2 \u003d highPrecisionTwo.sqrt();\n        sqr2String \u003d highPrecisionSqr2.toString();\n        sqr2ReciprocalString \u003d highPrecisionOne.divide(highPrecisionSqr2).toString();\n        final Dfp highPrecisionSqr3 \u003d highPrecisionThree.sqrt();\n        sqr3String \u003d highPrecisionSqr3.toString();\n        sqr3ReciprocalString \u003d highPrecisionOne.divide(highPrecisionSqr3).toString();\n        piString \u003d computePi(highPrecisionOne, highPrecisionTwo, highPrecisionThree).toString();\n        eString \u003d computeExp(highPrecisionOne, highPrecisionOne).toString();\n        ln2String \u003d computeLn(highPrecisionTwo, highPrecisionOne, highPrecisionTwo).toString();\n        ln5String \u003d computeLn(new Dfp(highPrecisionField, 5), highPrecisionOne, highPrecisionTwo).toString();\n        ln10String \u003d computeLn(new Dfp(highPrecisionField, 10), highPrecisionOne, highPrecisionTwo).toString();\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math3/dfp/DfpField.java",
+      "functionStartLine": 575,
+      "functionName": "computeStringConstants",
+      "functionAnnotation": "",
+      "functionDoc": "Recompute the high precision string constants.\n\n@param highPrecisionDecimalDigits precision at which the string constants mus be computed\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/apache/commons/math/dfp/DfpField.java",
+        "newPath": "src/main/java/org/apache/commons/math3/dfp/DfpField.java",
+        "oldMethodName": "computeStringConstants",
+        "newMethodName": "computeStringConstants"
+      }
+    },
+    "1eb0c0d7421823470de3a901643ae3be2c9e0a8e": {
+      "type": "Yintroduced",
+      "commitMessage": "added the dfp library\nThe Dfp class represent the high precision numbers, it implements our existing Field interface and hence each instance is associated with a DfpField that provides the constants at the required precision as well as factory methods. This allowed to remove the compile-time constraint in the library. Users can even use at the same time a field for 20 decimals digits precision and another field for 100 digits precision. Dfp instances with different precision CANNOT be mixed in the same computation (doing so creates a NaN). A few utility methods have been added, like constructors from integral types, isInfinite and isNaN methods, equal has been renames to equals and its signature changed to match the general Object method (a hashcode method has been added too).\nJIRA: MATH-412\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@992697 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/4/10, 3:59 PM",
+      "commitName": "1eb0c0d7421823470de3a901643ae3be2c9e0a8e",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,19 @@\n+private static void computeStringConstants(final int highPrecisionDecimalDigits) {\n+    if (sqr2String \u003d\u003d null || sqr2String.length() \u003c highPrecisionDecimalDigits - 3) {\n+        final DfpField highPrecisionField \u003d new DfpField(highPrecisionDecimalDigits, false);\n+        final Dfp highPrecisionOne \u003d new Dfp(highPrecisionField, 1);\n+        final Dfp highPrecisionTwo \u003d new Dfp(highPrecisionField, 2);\n+        final Dfp highPrecisionThree \u003d new Dfp(highPrecisionField, 3);\n+        final Dfp highPrecisionSqr2 \u003d highPrecisionTwo.sqrt();\n+        sqr2String \u003d highPrecisionSqr2.toString();\n+        sqr2ReciprocalString \u003d highPrecisionOne.divide(highPrecisionSqr2).toString();\n+        final Dfp highPrecisionSqr3 \u003d highPrecisionThree.sqrt();\n+        sqr3String \u003d highPrecisionSqr3.toString();\n+        sqr3ReciprocalString \u003d highPrecisionOne.divide(highPrecisionSqr3).toString();\n+        piString \u003d computePi(highPrecisionOne, highPrecisionTwo, highPrecisionThree).toString();\n+        eString \u003d computeExp(highPrecisionOne, highPrecisionOne).toString();\n+        ln2String \u003d computeLn(highPrecisionTwo, highPrecisionOne, highPrecisionTwo).toString();\n+        ln5String \u003d computeLn(new Dfp(highPrecisionField, 5), highPrecisionOne, highPrecisionTwo).toString();\n+        ln10String \u003d computeLn(new Dfp(highPrecisionField, 10), highPrecisionOne, highPrecisionTwo).toString();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void computeStringConstants(final int highPrecisionDecimalDigits) {\n    if (sqr2String \u003d\u003d null || sqr2String.length() \u003c highPrecisionDecimalDigits - 3) {\n        final DfpField highPrecisionField \u003d new DfpField(highPrecisionDecimalDigits, false);\n        final Dfp highPrecisionOne \u003d new Dfp(highPrecisionField, 1);\n        final Dfp highPrecisionTwo \u003d new Dfp(highPrecisionField, 2);\n        final Dfp highPrecisionThree \u003d new Dfp(highPrecisionField, 3);\n        final Dfp highPrecisionSqr2 \u003d highPrecisionTwo.sqrt();\n        sqr2String \u003d highPrecisionSqr2.toString();\n        sqr2ReciprocalString \u003d highPrecisionOne.divide(highPrecisionSqr2).toString();\n        final Dfp highPrecisionSqr3 \u003d highPrecisionThree.sqrt();\n        sqr3String \u003d highPrecisionSqr3.toString();\n        sqr3ReciprocalString \u003d highPrecisionOne.divide(highPrecisionSqr3).toString();\n        piString \u003d computePi(highPrecisionOne, highPrecisionTwo, highPrecisionThree).toString();\n        eString \u003d computeExp(highPrecisionOne, highPrecisionOne).toString();\n        ln2String \u003d computeLn(highPrecisionTwo, highPrecisionOne, highPrecisionTwo).toString();\n        ln5String \u003d computeLn(new Dfp(highPrecisionField, 5), highPrecisionOne, highPrecisionTwo).toString();\n        ln10String \u003d computeLn(new Dfp(highPrecisionField, 10), highPrecisionOne, highPrecisionTwo).toString();\n    }\n}",
+      "path": "src/main/java/org/apache/commons/math/dfp/DfpField.java",
+      "functionStartLine": 569,
+      "functionName": "computeStringConstants",
+      "functionAnnotation": "",
+      "functionDoc": "Recompute the high precision string constants.\n\n@param highPrecisionDecimalDigits precision at which the string constants mus be computed\n"
+    }
+  }
+}

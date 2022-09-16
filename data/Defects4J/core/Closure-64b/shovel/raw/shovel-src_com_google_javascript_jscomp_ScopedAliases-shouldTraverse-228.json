@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-64b",
+  "repositoryPath": "/tmp/Closure-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ScopedAliases.java",
+  "functionName": "shouldTraverse",
+  "functionId": "$shouldTraverse___t-NodeTraversal__n-Node__parent-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ScopedAliases.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 228,
+  "functionEndLine": 236,
+  "numCommitsSeen": 14,
+  "timeTaken": 817,
+  "changeHistory": [
+    "58c3e4ce1d17ec619bcc4964bdeebc676f93567d"
+  ],
+  "changeHistoryShort": {
+    "58c3e4ce1d17ec619bcc4964bdeebc676f93567d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "58c3e4ce1d17ec619bcc4964bdeebc676f93567d": {
+      "type": "Yintroduced",
+      "commitMessage": "\n\nChange on 2010/05/03 by robby\n\n        Preliminary: goog.scope support for closure-compiler\n\n        R\u003dnick,john\n        DELTA\u003d318  (318 added, 0 deleted, 0 changed)\n\nChange on 2010/05/03 by nick\n\n        Add a bit more smarts to type resolution. Also, give it a\n        \"forceResolve\" method so that it will try to resolve type names,\n        even if the registry is in a lazy mode.\n\n        R\u003drobert\n        DELTA\u003d205  (133 added, 54 deleted, 18 changed)\n\nChange on 2010/05/03 by alan\n\n        Enable Flow Sensitive Inlining by default. Passes GMail automation test.\n\n        R\u003dnick\n        DELTA\u003d1  (0 added, 0 deleted, 1 changed)\n\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dcmvhwl\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@202 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/4/10, 7:39 AM",
+      "commitName": "58c3e4ce1d17ec619bcc4964bdeebc676f93567d",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public final boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n+    if (n.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 t.inGlobalScope()) {\n+        if (parent \u003d\u003d null || !isCallToScopeMethod(parent)) {\n+            return false;\n+        }\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic final boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {\n    if (n.getType() \u003d\u003d Token.FUNCTION \u0026\u0026 t.inGlobalScope()) {\n        if (parent \u003d\u003d null || !isCallToScopeMethod(parent)) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/ScopedAliases.java",
+      "functionStartLine": 153,
+      "functionName": "shouldTraverse",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

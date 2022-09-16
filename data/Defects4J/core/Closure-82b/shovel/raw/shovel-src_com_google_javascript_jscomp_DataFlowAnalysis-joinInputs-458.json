@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-82b",
+  "repositoryPath": "/tmp/Closure-82b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DataFlowAnalysis.java",
+  "functionName": "joinInputs",
+  "functionId": "$joinInputs___node-DiGraphNode__N,Branch__",
+  "sourceFilePath": "src/com/google/javascript/jscomp/DataFlowAnalysis.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 458,
+  "functionEndLine": 477,
+  "numCommitsSeen": 11,
+  "timeTaken": 499,
+  "changeHistory": [
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,16 @@\n+@Override\n+protected void joinInputs(DiGraphNode\u003cN, Branch\u003e node) {\n+    BranchedFlowState\u003cL\u003e state \u003d node.getAnnotation();\n+    List\u003cDiGraphNode\u003cN, Branch\u003e\u003e predNodes \u003d getCfg().getDirectedPredNodes(node);\n+    List\u003cL\u003e values \u003d new ArrayList\u003cL\u003e(predNodes.size());\n+    for (DiGraphNode\u003cN, Branch\u003e predNode : predNodes) {\n+        BranchedFlowState\u003cL\u003e predNodeState \u003d predNode.getAnnotation();\n+        L in \u003d predNodeState.out.get(getCfg().getDirectedSuccNodes(predNode).indexOf(node));\n+        values.add(in);\n+    }\n+    if (getCfg().getEntry() \u003d\u003d node) {\n+        state.setIn(createEntryLattice());\n+    } else if (!values.isEmpty()) {\n+        state.setIn(joinOp.apply(values));\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nprotected void joinInputs(DiGraphNode\u003cN, Branch\u003e node) {\n    BranchedFlowState\u003cL\u003e state \u003d node.getAnnotation();\n    List\u003cDiGraphNode\u003cN, Branch\u003e\u003e predNodes \u003d getCfg().getDirectedPredNodes(node);\n    List\u003cL\u003e values \u003d new ArrayList\u003cL\u003e(predNodes.size());\n    for (DiGraphNode\u003cN, Branch\u003e predNode : predNodes) {\n        BranchedFlowState\u003cL\u003e predNodeState \u003d predNode.getAnnotation();\n        L in \u003d predNodeState.out.get(getCfg().getDirectedSuccNodes(predNode).indexOf(node));\n        values.add(in);\n    }\n    if (getCfg().getEntry() \u003d\u003d node) {\n        state.setIn(createEntryLattice());\n    } else if (!values.isEmpty()) {\n        state.setIn(joinOp.apply(values));\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/DataFlowAnalysis.java",
+      "functionStartLine": 520,
+      "functionName": "joinInputs",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

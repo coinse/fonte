@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CodeGenerator.java",
+  "functionName": "unrollBinaryOperator",
+  "functionId": "unrollBinaryOperator___n-Node__op-int__opStr-String__context-Context__rhsContext-Context__leftPrecedence-int__rightPrecedence-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "We could use addList recursively here, but sometimes we produce\nvery deeply nested operators and run out of stack space, so we\njust unroll the recursion when possible.\n\nWe assume nodes are left-recursive.\n",
+  "functionStartLine": 791,
+  "functionEndLine": 807,
+  "numCommitsSeen": 85,
+  "timeTaken": 2419,
+  "changeHistory": [
+    "87b154f89cba3c67045cd7a783b79231d0630a4c"
+  ],
+  "changeHistoryShort": {
+    "87b154f89cba3c67045cd7a783b79231d0630a4c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "87b154f89cba3c67045cd7a783b79231d0630a4c": {
+      "type": "Yintroduced",
+      "commitMessage": "\nMore recursion unrolling\nFixes issue 691\n\nR\u003djohnlenz\nDELTA\u003d78  (54 added, 21 deleted, 3 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d4425\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1849 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/27/12, 8:38 AM",
+      "commitName": "87b154f89cba3c67045cd7a783b79231d0630a4c",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,13 @@\n+private void unrollBinaryOperator(Node n, int op, String opStr, Context context, Context rhsContext, int leftPrecedence, int rightPrecedence) {\n+    Node firstNonOperator \u003d n.getFirstChild();\n+    while (firstNonOperator.getType() \u003d\u003d op) {\n+        firstNonOperator \u003d firstNonOperator.getFirstChild();\n+    }\n+    addExpr(firstNonOperator, leftPrecedence, context);\n+    Node current \u003d firstNonOperator;\n+    do {\n+        current \u003d current.getParent();\n+        cc.addOp(opStr, true);\n+        addExpr(current.getFirstChild().getNext(), rightPrecedence, rhsContext);\n+    } while (current !\u003d n);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void unrollBinaryOperator(Node n, int op, String opStr, Context context, Context rhsContext, int leftPrecedence, int rightPrecedence) {\n    Node firstNonOperator \u003d n.getFirstChild();\n    while (firstNonOperator.getType() \u003d\u003d op) {\n        firstNonOperator \u003d firstNonOperator.getFirstChild();\n    }\n    addExpr(firstNonOperator, leftPrecedence, context);\n    Node current \u003d firstNonOperator;\n    do {\n        current \u003d current.getParent();\n        cc.addOp(opStr, true);\n        addExpr(current.getFirstChild().getNext(), rightPrecedence, rhsContext);\n    } while (current !\u003d n);\n}",
+      "path": "src/com/google/javascript/jscomp/CodeGenerator.java",
+      "functionStartLine": 739,
+      "functionName": "unrollBinaryOperator",
+      "functionAnnotation": "",
+      "functionDoc": "We could use addList recursively here, but sometimes we produce\nvery deeply nested operators and run out of stack space, so we\njust unroll the recursion when possible.\n\nWe assume nodes are left-recursive.\n"
+    }
+  }
+}

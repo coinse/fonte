@@ -1,0 +1,12 @@
+There appears to be a bug in the fix to http://sourceforge.net/p/joda-time/bugs/148 (which I also reported).
+
+The following code (which can be added to org.joda.time.format.TestDateTimeFormatter) breaks, because the input mutable date time's millis appear to be mishandled and the year for the parse is changed to 1999:
+
+``` java
+    public void testParseInto_monthDay_feb29_startOfYear() {
+        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
+        MutableDateTime result = new MutableDateTime(2000, 1, 1, 0, 0, 0, 0, NEWYORK);
+        assertEquals(4, f.parseInto(result, "2 29", 0));
+        assertEquals(new MutableDateTime(2000, 2, 29, 0, 0, 0, 0, NEWYORK), result);
+    }
+```

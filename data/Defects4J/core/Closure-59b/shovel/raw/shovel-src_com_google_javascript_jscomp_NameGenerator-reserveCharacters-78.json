@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NameGenerator.java",
+  "functionName": "reserveCharacters",
+  "functionId": "reserveCharacters___chars-char[]__reservedCharacters-char[]",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NameGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Provides the array of available characters based on the specified arrays.\n\n@param chars The list of characters that are legal\n@param reservedCharacters The characters that should not be used\n@return An array of characters to use. Will return the chars array if\n   reservedCharacters is null or empty, otherwise creates a new array.\n",
+  "functionStartLine": 78,
+  "functionEndLine": 87,
+  "numCommitsSeen": 10,
+  "timeTaken": 334,
+  "changeHistory": [
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777",
+    "4938fd2f88debf796c181d44ae5b9a35aa595513",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777": "Yformatchange",
+    "4938fd2f88debf796c181d44ae5b9a35aa595513": "Ymodifierchange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9de5e9b4671773bb3f2d5932e57c1b4186b9b777": {
+      "type": "Yformatchange",
+      "commitMessage": "\nChange on 2010/06/30 15:06:33 by johnlenz\n\n\tAdd a diagnostic group so that projects with weird externs can opt-out of the stricter extern checks.\n\n\tR\u003dnicksantos\n\tDELTA\u003d54  (52 added, 0 deleted, 2 changed)\n\nChange on 2010/06/30 17:56:51 by johnlenz\n\n\tRevert warning levels until after a release is put out to control them.\n\n\tR\u003dnicksantos\n\tDELTA\u003d4  (2 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d47002\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@260 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "7/1/10, 7:38 AM",
+      "commitName": "9de5e9b4671773bb3f2d5932e57c1b4186b9b777",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "3/9/10, 10:24 PM",
+      "commitNameOld": "4938fd2f88debf796c181d44ae5b9a35aa595513",
+      "commitAuthorOld": "Nicholas.J.Santos",
+      "daysBetweenCommits": 113.34,
+      "commitsBetweenForRepo": 113,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static char[] reserveCharacters(char[] chars, char[] reservedCharacters) {\n    if (reservedCharacters \u003d\u003d null || reservedCharacters.length \u003d\u003d 0) {\n        return chars;\n    }\n    Set\u003cCharacter\u003e charSet \u003d Sets.newLinkedHashSet(Chars.asList(chars));\n    for (char reservedCharacter : reservedCharacters) {\n        charSet.remove(reservedCharacter);\n    }\n    return Chars.toArray(charSet);\n}",
+      "path": "src/com/google/javascript/jscomp/NameGenerator.java",
+      "functionStartLine": 79,
+      "functionName": "reserveCharacters",
+      "functionAnnotation": "",
+      "functionDoc": "Provides the array of available characters based on the specified arrays.\n\n@param chars The list of characters that are legal\n@param reservedCharacters The characters that should not be used\n@return An array of characters to use. Will return the chars array if\n   reservedCharacters is null or empty, otherwise creates a new array.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "4938fd2f88debf796c181d44ae5b9a35aa595513": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Add a pass type that just reports an error (Brad)\n\nAdd externs for new events. (Eric)\n\nMake CrossModuleCodeMotion detect more recursions. (Alan)\n\nRun cross module code motion before and after devirtualization. (Alan)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@132 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/9/10, 10:24 PM",
+      "commitName": "4938fd2f88debf796c181d44ae5b9a35aa595513",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "11/3/09, 3:51 PM",
+      "commitNameOld": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 126.27,
+      "commitsBetweenForRepo": 105,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static char[] reserveCharacters(char[] chars, char[] reservedCharacters) {\n    if (reservedCharacters \u003d\u003d null || reservedCharacters.length \u003d\u003d 0) {\n        return chars;\n    }\n    Set\u003cCharacter\u003e charSet \u003d Sets.newLinkedHashSet(Chars.asList(chars));\n    for (char reservedCharacter : reservedCharacters) {\n        charSet.remove(reservedCharacter);\n    }\n    return Chars.toArray(charSet);\n}",
+      "path": "src/com/google/javascript/jscomp/NameGenerator.java",
+      "functionStartLine": 79,
+      "functionName": "reserveCharacters",
+      "functionAnnotation": "",
+      "functionDoc": "Provides the array of available characters based on the specified arrays.\n\n@param chars The list of characters that are legal\n@param reservedCharacters The characters that should not be used\n@return An array of characters to use. Will return the chars array if\n   reservedCharacters is null or empty, otherwise creates a new array.\n",
+      "diff": "@@ -1,10 +1,10 @@\n-private char[] reserveCharacters(char[] chars, char[] reservedCharacters) {\n+static char[] reserveCharacters(char[] chars, char[] reservedCharacters) {\n     if (reservedCharacters \u003d\u003d null || reservedCharacters.length \u003d\u003d 0) {\n         return chars;\n     }\n     Set\u003cCharacter\u003e charSet \u003d Sets.newLinkedHashSet(Chars.asList(chars));\n     for (char reservedCharacter : reservedCharacters) {\n         charSet.remove(reservedCharacter);\n     }\n     return Chars.toArray(charSet);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private]",
+        "newValue": "[static]"
+      }
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,10 @@\n+private char[] reserveCharacters(char[] chars, char[] reservedCharacters) {\n+    if (reservedCharacters \u003d\u003d null || reservedCharacters.length \u003d\u003d 0) {\n+        return chars;\n+    }\n+    Set\u003cCharacter\u003e charSet \u003d Sets.newLinkedHashSet(Chars.asList(chars));\n+    for (char reservedCharacter : reservedCharacters) {\n+        charSet.remove(reservedCharacter);\n+    }\n+    return Chars.toArray(charSet);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private char[] reserveCharacters(char[] chars, char[] reservedCharacters) {\n    if (reservedCharacters \u003d\u003d null || reservedCharacters.length \u003d\u003d 0) {\n        return chars;\n    }\n    Set\u003cCharacter\u003e charSet \u003d Sets.newLinkedHashSet(Chars.asList(chars));\n    for (char reservedCharacter : reservedCharacters) {\n        charSet.remove(reservedCharacter);\n    }\n    return Chars.toArray(charSet);\n}",
+      "path": "src/com/google/javascript/jscomp/NameGenerator.java",
+      "functionStartLine": 79,
+      "functionName": "reserveCharacters",
+      "functionAnnotation": "",
+      "functionDoc": "Provides the array of available characters based on the specified arrays.\n\n@param chars The list of characters that are legal\n@param reservedCharacters The characters that should not be used\n@return An array of characters to use. Will return the chars array if\n   reservedCharacters is null or empty, otherwise creates a new array.\n"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeCollectPropertyAssignments.java",
+  "functionName": "isPropertyAssignmentToName",
+  "functionId": "isPropertyAssignmentToName___propertyCandidate-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 106,
+  "functionEndLine": 128,
+  "numCommitsSeen": 9,
+  "timeTaken": 1304,
+  "changeHistory": [
+    "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551",
+    "aa365d3e2d35439107337c856a3b27b8dc3e1bcd"
+  ],
+  "changeHistoryShort": {
+    "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551": "Yrename",
+    "aa365d3e2d35439107337c856a3b27b8dc3e1bcd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551": {
+      "type": "Yrename",
+      "commitMessage": "\nCollect object and array values for simple assignments in addition to\nvar declarations.\n\nR\u003dagrieve\nDELTA\u003d146  (103 added, 5 deleted, 38 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1306\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@980 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/8/11, 10:29 AM",
+      "commitName": "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "3/22/11, 5:02 PM",
+      "commitNameOld": "aa365d3e2d35439107337c856a3b27b8dc3e1bcd",
+      "commitAuthorOld": "msamuel@google.com",
+      "daysBetweenCommits": 16.73,
+      "commitsBetweenForRepo": 44,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isPropertyAssignmentToName(Node propertyCandidate) {\n    if (propertyCandidate \u003d\u003d null) {\n        return false;\n    }\n    if (!NodeUtil.isExprAssign(propertyCandidate)) {\n        return false;\n    }\n    Node expr \u003d propertyCandidate.getFirstChild();\n    Node lhs \u003d expr.getFirstChild();\n    if (lhs.getType() !\u003d Token.GETELEM \u0026\u0026 lhs.getType() !\u003d Token.GETPROP) {\n        return false;\n    }\n    Node obj \u003d lhs.getFirstChild();\n    if (obj.getType() !\u003d Token.NAME) {\n        return false;\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java",
+      "functionStartLine": 106,
+      "functionName": "isPropertyAssignmentToName",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,18 +1,18 @@\n-private boolean isPropertyAssignmentToVar(Node propertyCandidate) {\n+private boolean isPropertyAssignmentToName(Node propertyCandidate) {\n     if (propertyCandidate \u003d\u003d null) {\n         return false;\n     }\n     if (!NodeUtil.isExprAssign(propertyCandidate)) {\n         return false;\n     }\n     Node expr \u003d propertyCandidate.getFirstChild();\n     Node lhs \u003d expr.getFirstChild();\n     if (lhs.getType() !\u003d Token.GETELEM \u0026\u0026 lhs.getType() !\u003d Token.GETPROP) {\n         return false;\n     }\n     Node obj \u003d lhs.getFirstChild();\n     if (obj.getType() !\u003d Token.NAME) {\n         return false;\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "isPropertyAssignmentToVar",
+        "newValue": "isPropertyAssignmentToName"
+      }
+    },
+    "aa365d3e2d35439107337c856a3b27b8dc3e1bcd": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPeephole collapsing property assignments into objects/array definitions.\n\nRoll-forward\n\nThis fixes out-of-order array setting.\n\nR\u003djohnlenz\nDELTA\u003d402  (370 added, 3 deleted, 29 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1007\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@931 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/11, 5:02 PM",
+      "commitName": "aa365d3e2d35439107337c856a3b27b8dc3e1bcd",
+      "commitAuthor": "msamuel@google.com",
+      "diff": "@@ -0,0 +1,18 @@\n+private boolean isPropertyAssignmentToVar(Node propertyCandidate) {\n+    if (propertyCandidate \u003d\u003d null) {\n+        return false;\n+    }\n+    if (!NodeUtil.isExprAssign(propertyCandidate)) {\n+        return false;\n+    }\n+    Node expr \u003d propertyCandidate.getFirstChild();\n+    Node lhs \u003d expr.getFirstChild();\n+    if (lhs.getType() !\u003d Token.GETELEM \u0026\u0026 lhs.getType() !\u003d Token.GETPROP) {\n+        return false;\n+    }\n+    Node obj \u003d lhs.getFirstChild();\n+    if (obj.getType() !\u003d Token.NAME) {\n+        return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isPropertyAssignmentToVar(Node propertyCandidate) {\n    if (propertyCandidate \u003d\u003d null) {\n        return false;\n    }\n    if (!NodeUtil.isExprAssign(propertyCandidate)) {\n        return false;\n    }\n    Node expr \u003d propertyCandidate.getFirstChild();\n    Node lhs \u003d expr.getFirstChild();\n    if (lhs.getType() !\u003d Token.GETELEM \u0026\u0026 lhs.getType() !\u003d Token.GETPROP) {\n        return false;\n    }\n    Node obj \u003d lhs.getFirstChild();\n    if (obj.getType() !\u003d Token.NAME) {\n        return false;\n    }\n    return true;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java",
+      "functionStartLine": 78,
+      "functionName": "isPropertyAssignmentToVar",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

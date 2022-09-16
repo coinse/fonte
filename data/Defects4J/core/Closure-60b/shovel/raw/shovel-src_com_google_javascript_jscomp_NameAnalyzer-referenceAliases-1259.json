@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-60b",
+  "repositoryPath": "/tmp/Closure-60b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NameAnalyzer.java",
+  "functionName": "referenceAliases",
+  "functionId": "referenceAliases",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+  "functionAnnotation": "",
+  "functionDoc": "The NameAnalyzer algorithm works best when all objects have a canonical\nname in the global scope. When multiple names in the global scope\npoint to the same object, things start to break down.\n\nFor example, if we have\n\u003ccode\u003e\nvar a \u003d {};\nvar b \u003d a;\na.foo \u003d 3;\nalert(b.foo);\n\u003c/code\u003e\nthen a.foo and b.foo are the same name, even though NameAnalyzer doesn\u0027t\nrepresent them as such.\n\nTo handle this case, we look at all the aliases in the program.\nIf descendant properties of that alias are assigned, then we create a\ndirectional reference from the original name to the alias. For example,\nin this case, the assign to {@code a.foo} triggers a reference from\n{@code b} to {@code a}, but NOT from a to b.\n\nSimilarly, \"instanceof\" checks do not prevent the removal\nof a unaliased name but an instanceof check on an alias can only be removed\nif the other aliases are also removed, so we add a connection here.\n",
+  "functionStartLine": 1259,
+  "functionEndLine": 1268,
+  "numCommitsSeen": 28,
+  "timeTaken": 2653,
+  "changeHistory": [
+    "f11155426907290f18d4b86854c207cd89419ddc",
+    "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f"
+  ],
+  "changeHistoryShort": {
+    "f11155426907290f18d4b86854c207cd89419ddc": "Ymultichange(Ybodychange,Ydocchange)",
+    "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f11155426907290f18d4b86854c207cd89419ddc": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "\nHandle aliases used in \"instanceof\" checks.\n\nR\u003dnicksantos\nDELTA\u003d57  (55 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1814\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1078 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/10/11, 3:01 PM",
+      "commitName": "f11155426907290f18d4b86854c207cd89419ddc",
+      "commitAuthor": "johnlenz@google.com",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "\nHandle aliases used in \"instanceof\" checks.\n\nR\u003dnicksantos\nDELTA\u003d57  (55 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1814\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1078 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/10/11, 3:01 PM",
+          "commitName": "f11155426907290f18d4b86854c207cd89419ddc",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/10/11, 11:39 AM",
+          "commitNameOld": "686a1daa30deb8970d5f3d9aa799d84cff92eac2",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.14,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void referenceAliases() {\n    for (Map.Entry\u003cString, AliasSet\u003e entry : aliases.entrySet()) {\n        JsName name \u003d getName(entry.getKey(), false);\n        if (name.hasWrittenDescendants || name.hasInstanceOfReference) {\n            for (String alias : entry.getValue().names) {\n                recordReference(alias, entry.getKey(), RefType.REGULAR);\n            }\n        }\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+          "functionStartLine": 1259,
+          "functionName": "referenceAliases",
+          "functionAnnotation": "",
+          "functionDoc": "The NameAnalyzer algorithm works best when all objects have a canonical\nname in the global scope. When multiple names in the global scope\npoint to the same object, things start to break down.\n\nFor example, if we have\n\u003ccode\u003e\nvar a \u003d {};\nvar b \u003d a;\na.foo \u003d 3;\nalert(b.foo);\n\u003c/code\u003e\nthen a.foo and b.foo are the same name, even though NameAnalyzer doesn\u0027t\nrepresent them as such.\n\nTo handle this case, we look at all the aliases in the program.\nIf descendant properties of that alias are assigned, then we create a\ndirectional reference from the original name to the alias. For example,\nin this case, the assign to {@code a.foo} triggers a reference from\n{@code b} to {@code a}, but NOT from a to b.\n\nSimilarly, \"instanceof\" checks do not prevent the removal\nof a unaliased name but an instanceof check on an alias can only be removed\nif the other aliases are also removed, so we add a connection here.\n",
+          "diff": "@@ -1,10 +1,10 @@\n private void referenceAliases() {\n     for (Map.Entry\u003cString, AliasSet\u003e entry : aliases.entrySet()) {\n         JsName name \u003d getName(entry.getKey(), false);\n-        if (name.hasWrittenDescendants) {\n+        if (name.hasWrittenDescendants || name.hasInstanceOfReference) {\n             for (String alias : entry.getValue().names) {\n                 recordReference(alias, entry.getKey(), RefType.REGULAR);\n             }\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "\nHandle aliases used in \"instanceof\" checks.\n\nR\u003dnicksantos\nDELTA\u003d57  (55 added, 0 deleted, 2 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1814\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1078 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+          "commitDate": "5/10/11, 3:01 PM",
+          "commitName": "f11155426907290f18d4b86854c207cd89419ddc",
+          "commitAuthor": "johnlenz@google.com",
+          "commitDateOld": "5/10/11, 11:39 AM",
+          "commitNameOld": "686a1daa30deb8970d5f3d9aa799d84cff92eac2",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 0.14,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void referenceAliases() {\n    for (Map.Entry\u003cString, AliasSet\u003e entry : aliases.entrySet()) {\n        JsName name \u003d getName(entry.getKey(), false);\n        if (name.hasWrittenDescendants || name.hasInstanceOfReference) {\n            for (String alias : entry.getValue().names) {\n                recordReference(alias, entry.getKey(), RefType.REGULAR);\n            }\n        }\n    }\n}",
+          "path": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+          "functionStartLine": 1259,
+          "functionName": "referenceAliases",
+          "functionAnnotation": "",
+          "functionDoc": "The NameAnalyzer algorithm works best when all objects have a canonical\nname in the global scope. When multiple names in the global scope\npoint to the same object, things start to break down.\n\nFor example, if we have\n\u003ccode\u003e\nvar a \u003d {};\nvar b \u003d a;\na.foo \u003d 3;\nalert(b.foo);\n\u003c/code\u003e\nthen a.foo and b.foo are the same name, even though NameAnalyzer doesn\u0027t\nrepresent them as such.\n\nTo handle this case, we look at all the aliases in the program.\nIf descendant properties of that alias are assigned, then we create a\ndirectional reference from the original name to the alias. For example,\nin this case, the assign to {@code a.foo} triggers a reference from\n{@code b} to {@code a}, but NOT from a to b.\n\nSimilarly, \"instanceof\" checks do not prevent the removal\nof a unaliased name but an instanceof check on an alias can only be removed\nif the other aliases are also removed, so we add a connection here.\n",
+          "diff": "@@ -1,10 +1,10 @@\n private void referenceAliases() {\n     for (Map.Entry\u003cString, AliasSet\u003e entry : aliases.entrySet()) {\n         JsName name \u003d getName(entry.getKey(), false);\n-        if (name.hasWrittenDescendants) {\n+        if (name.hasWrittenDescendants || name.hasInstanceOfReference) {\n             for (String alias : entry.getValue().names) {\n                 recordReference(alias, entry.getKey(), RefType.REGULAR);\n             }\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "The NameAnalyzer algorithm works best when all objects have a canonical\nname in the global scope. When multiple names in the global scope\npoint to the same object, things start to break down.\n\nFor example, if we have\n\u003ccode\u003e\nvar a \u003d {};\nvar b \u003d a;\na.foo \u003d 3;\nalert(b.foo);\n\u003c/code\u003e\nthen a.foo and b.foo are the same name, even though NameAnalyzer doesn\u0027t\nrepresent them as such.\n\nTo handle this case, we look at all the aliases in the program.\nIf descendant properties of that alias are assigned, then we create a\ndirectional reference from the original name to the alias. For example,\nin this case, the assign to {@code a.foo} triggers a reference from\n{@code b} to {@code a}, but NOT from a to b.\n",
+            "newValue": "The NameAnalyzer algorithm works best when all objects have a canonical\nname in the global scope. When multiple names in the global scope\npoint to the same object, things start to break down.\n\nFor example, if we have\n\u003ccode\u003e\nvar a \u003d {};\nvar b \u003d a;\na.foo \u003d 3;\nalert(b.foo);\n\u003c/code\u003e\nthen a.foo and b.foo are the same name, even though NameAnalyzer doesn\u0027t\nrepresent them as such.\n\nTo handle this case, we look at all the aliases in the program.\nIf descendant properties of that alias are assigned, then we create a\ndirectional reference from the original name to the alias. For example,\nin this case, the assign to {@code a.foo} triggers a reference from\n{@code b} to {@code a}, but NOT from a to b.\n\nSimilarly, \"instanceof\" checks do not prevent the removal\nof a unaliased name but an instanceof check on an alias can only be removed\nif the other aliases are also removed, so we add a connection here.\n"
+          }
+        }
+      ]
+    },
+    "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f": {
+      "type": "Yintroduced",
+      "commitMessage": "Make sure that NameAnalyzer does not\nremove property assignments done via aliases. (Nick)\nR\u003dantonio\nDELTA\u003d417  (399 added, 9 deleted, 9 changed)\n\nput the graph tests in the graph package. (Nick)\nR\u003dalan\nDELTA\u003d1422  (753 added, 660 deleted, 9 changed)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003dqlondb\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@168 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/2/10, 3:08 PM",
+      "commitName": "0d98b3ca84c0b6179b71a9de75b0a2fe42d7343f",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,10 @@\n+private void referenceAliases() {\n+    for (Map.Entry\u003cString, AliasSet\u003e entry : aliases.entrySet()) {\n+        JsName name \u003d getName(entry.getKey(), false);\n+        if (name.hasWrittenDescendants) {\n+            for (String alias : entry.getValue().names) {\n+                recordReference(alias, entry.getKey(), RefType.REGULAR);\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void referenceAliases() {\n    for (Map.Entry\u003cString, AliasSet\u003e entry : aliases.entrySet()) {\n        JsName name \u003d getName(entry.getKey(), false);\n        if (name.hasWrittenDescendants) {\n            for (String alias : entry.getValue().names) {\n                recordReference(alias, entry.getKey(), RefType.REGULAR);\n            }\n        }\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NameAnalyzer.java",
+      "functionStartLine": 1232,
+      "functionName": "referenceAliases",
+      "functionAnnotation": "",
+      "functionDoc": "The NameAnalyzer algorithm works best when all objects have a canonical\nname in the global scope. When multiple names in the global scope\npoint to the same object, things start to break down.\n\nFor example, if we have\n\u003ccode\u003e\nvar a \u003d {};\nvar b \u003d a;\na.foo \u003d 3;\nalert(b.foo);\n\u003c/code\u003e\nthen a.foo and b.foo are the same name, even though NameAnalyzer doesn\u0027t\nrepresent them as such.\n\nTo handle this case, we look at all the aliases in the program.\nIf descendant properties of that alias are assigned, then we create a\ndirectional reference from the original name to the alias. For example,\nin this case, the assign to {@code a.foo} triggers a reference from\n{@code b} to {@code a}, but NOT from a to b.\n"
+    }
+  }
+}

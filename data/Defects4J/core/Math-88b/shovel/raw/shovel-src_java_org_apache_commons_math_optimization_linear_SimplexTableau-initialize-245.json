@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Math-88b",
+  "repositoryPath": "/tmp/Math-88b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplexTableau.java",
+  "functionName": "initialize",
+  "functionId": "initialize",
+  "sourceFilePath": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "functionAnnotation": "",
+  "functionDoc": "Puts the tableau in proper form by zeroing out the artificial variables\nin the objective function via elementary row operations.\n",
+  "functionStartLine": 245,
+  "functionEndLine": 250,
+  "numCommitsSeen": 5,
+  "timeTaken": 429,
+  "changeHistory": [
+    "96b1276efd88c536f3c918396f7460e557b9ee65"
+  ],
+  "changeHistoryShort": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "96b1276efd88c536f3c918396f7460e557b9ee65": {
+      "type": "Yintroduced",
+      "commitMessage": "added an implementation of Dantzig\u0027s simplex algorithm\nto solve constrained linear optimization problems\nJIRA: MATH-246\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@758920 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/26/09, 4:25 PM",
+      "commitName": "96b1276efd88c536f3c918396f7460e557b9ee65",
+      "commitAuthor": "Luc Maisonobe",
+      "diff": "@@ -0,0 +1,6 @@\n+private void initialize() {\n+    for (int artificialVar \u003d 0; artificialVar \u003c numArtificialVariables; artificialVar++) {\n+        int row \u003d getBasicRow(getArtificialVariableOffset() + artificialVar);\n+        subtractRow(0, row, 1.0);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void initialize() {\n    for (int artificialVar \u003d 0; artificialVar \u003c numArtificialVariables; artificialVar++) {\n        int row \u003d getBasicRow(getArtificialVariableOffset() + artificialVar);\n        subtractRow(0, row, 1.0);\n    }\n}",
+      "path": "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+      "functionStartLine": 234,
+      "functionName": "initialize",
+      "functionAnnotation": "",
+      "functionDoc": "Puts the tableau in proper form by zeroing out the artificial variables\nin the objective function via elementary row operations.\n"
+    }
+  }
+}

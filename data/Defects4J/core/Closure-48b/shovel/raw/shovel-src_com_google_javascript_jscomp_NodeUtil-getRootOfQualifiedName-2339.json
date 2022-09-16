@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getRootOfQualifiedName",
+  "functionId": "getRootOfQualifiedName___qName-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the root node of a qualified name. Must be either NAME or THIS.\n",
+  "functionStartLine": 2339,
+  "functionEndLine": 2347,
+  "numCommitsSeen": 111,
+  "timeTaken": 7915,
+  "changeHistory": [
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+    "fb8792033d8def08a18a1920817d4b88a68b214e",
+    "f6607996d6d3bd6820ce3848d147991b27600a12"
+  ],
+  "changeHistoryShort": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": "Ybodychange",
+    "fb8792033d8def08a18a1920817d4b88a68b214e": "Ymodifierchange",
+    "f6607996d6d3bd6820ce3848d147991b27600a12": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4d98fc9034031ee146c7e5534a150e2700d89f8e": {
+      "type": "Ybodychange",
+      "commitMessage": "\nAdd basic Node type helpers to Node\n\nR\u003dnicksantos\nDELTA\u003d241  (135 added, 9 deleted, 97 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d3672\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1577 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/9/11, 12:32 PM",
+      "commitName": "4d98fc9034031ee146c7e5534a150e2700d89f8e",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "11/9/11, 10:08 AM",
+      "commitNameOld": "ca41f5d443aad22b11b2b6d514fdf20101f33276",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.1,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Node getRootOfQualifiedName(Node qName) {\n    for (Node current \u003d qName; true; current \u003d current.getFirstChild()) {\n        if (current.isName() || current.isThis()) {\n            return current;\n        }\n        Preconditions.checkState(current.isGetProp());\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2419,
+      "functionName": "getRootOfQualifiedName",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the root node of a qualified name. Must be either NAME or THIS.\n",
+      "diff": "@@ -1,9 +1,8 @@\n public static Node getRootOfQualifiedName(Node qName) {\n     for (Node current \u003d qName; true; current \u003d current.getFirstChild()) {\n-        int type \u003d current.getType();\n-        if (type \u003d\u003d Token.NAME || type \u003d\u003d Token.THIS) {\n+        if (current.isName() || current.isThis()) {\n             return current;\n         }\n-        Preconditions.checkState(type \u003d\u003d Token.GETPROP);\n+        Preconditions.checkState(current.isGetProp());\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "fb8792033d8def08a18a1920817d4b88a68b214e": {
+      "type": "Ymodifierchange",
+      "commitMessage": "\nMake some NodeUtility function visible for use outside of JsCompiler (so clients can avoid re-implementing the same behaviors).\n\nR\u003dnicksantos\nDELTA\u003d4  (0 added, 0 deleted, 4 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1865\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@1094 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "5/13/11, 8:24 AM",
+      "commitName": "fb8792033d8def08a18a1920817d4b88a68b214e",
+      "commitAuthor": "tylerg@google.com",
+      "commitDateOld": "4/12/11, 12:15 PM",
+      "commitNameOld": "f322be0e576d5e2114cb59c0a6537197997b9c59",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 30.84,
+      "commitsBetweenForRepo": 94,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Node getRootOfQualifiedName(Node qName) {\n    for (Node current \u003d qName; true; current \u003d current.getFirstChild()) {\n        int type \u003d current.getType();\n        if (type \u003d\u003d Token.NAME || type \u003d\u003d Token.THIS) {\n            return current;\n        }\n        Preconditions.checkState(type \u003d\u003d Token.GETPROP);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2331,
+      "functionName": "getRootOfQualifiedName",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the root node of a qualified name. Must be either NAME or THIS.\n",
+      "diff": "@@ -1,9 +1,9 @@\n-static Node getRootOfQualifiedName(Node qName) {\n+public static Node getRootOfQualifiedName(Node qName) {\n     for (Node current \u003d qName; true; current \u003d current.getFirstChild()) {\n         int type \u003d current.getType();\n         if (type \u003d\u003d Token.NAME || type \u003d\u003d Token.THIS) {\n             return current;\n         }\n         Preconditions.checkState(type \u003d\u003d Token.GETPROP);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[static]",
+        "newValue": "[public, static]"
+      }
+    },
+    "f6607996d6d3bd6820ce3848d147991b27600a12": {
+      "type": "Yintroduced",
+      "commitMessage": "\nIf a property is defined on a global name, but in a local scope,\ndeclare that property in the global scope.\nthis goes most of the way towards fixing issue 66.\n\nR\u003djohnlenz\nDELTA\u003d84  (78 added, 1 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d219633\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@429 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/15/10, 7:50 AM",
+      "commitName": "f6607996d6d3bd6820ce3848d147991b27600a12",
+      "commitAuthor": "nicksantos@google.com",
+      "diff": "@@ -0,0 +1,9 @@\n+static Node getRootOfQualifiedName(Node qName) {\n+    for (Node current \u003d qName; true; current \u003d current.getFirstChild()) {\n+        int type \u003d current.getType();\n+        if (type \u003d\u003d Token.NAME || type \u003d\u003d Token.THIS) {\n+            return current;\n+        }\n+        Preconditions.checkState(type \u003d\u003d Token.GETPROP);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static Node getRootOfQualifiedName(Node qName) {\n    for (Node current \u003d qName; true; current \u003d current.getFirstChild()) {\n        int type \u003d current.getType();\n        if (type \u003d\u003d Token.NAME || type \u003d\u003d Token.THIS) {\n            return current;\n        }\n        Preconditions.checkState(type \u003d\u003d Token.GETPROP);\n    }\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1650,
+      "functionName": "getRootOfQualifiedName",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the root node of a qualified name. Must be either NAME or THIS.\n"
+    }
+  }
+}

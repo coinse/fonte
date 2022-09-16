@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-48b",
+  "repositoryPath": "/tmp/Closure-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ControlFlowAnalysis.java",
+  "functionName": "mayThrowException",
+  "functionId": "mayThrowException___n-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+  "functionAnnotation": "",
+  "functionDoc": "Determines if the subtree might throw an exception.\n",
+  "functionStartLine": 900,
+  "functionEndLine": 921,
+  "numCommitsSeen": 19,
+  "timeTaken": 1245,
+  "changeHistory": [
+    "68e00612bc6a04357b638958f380ea6d4072ccf1",
+    "2f5cb1622371de540fe20dcbe0411651ec89f952",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3"
+  ],
+  "changeHistoryShort": {
+    "68e00612bc6a04357b638958f380ea6d4072ccf1": "Ymodifierchange",
+    "2f5cb1622371de540fe20dcbe0411651ec89f952": "Ybodychange",
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "68e00612bc6a04357b638958f380ea6d4072ccf1": {
+      "type": "Ymodifierchange",
+      "commitMessage": "\nReplace returns with breaks when possible.\n\nR\u003djohnlenz\nDELTA\u003d188  (183 added, 0 deleted, 5 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d208289\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@406 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "9/5/10, 10:57 PM",
+      "commitName": "68e00612bc6a04357b638958f380ea6d4072ccf1",
+      "commitAuthor": "acleung@google.com",
+      "commitDateOld": "8/24/10, 12:29 PM",
+      "commitNameOld": "ec8f3c1ea3de563d6ed6ce7af198701f46aea338",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 12.44,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean mayThrowException(Node n) {\n    switch(n.getType()) {\n        case Token.CALL:\n        case Token.GETPROP:\n        case Token.GETELEM:\n        case Token.THROW:\n        case Token.NEW:\n        case Token.ASSIGN:\n        case Token.INC:\n        case Token.DEC:\n        case Token.INSTANCEOF:\n            return true;\n        case Token.FUNCTION:\n            return false;\n    }\n    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        if (!ControlFlowGraph.isEnteringNewCfgNode(c) \u0026\u0026 mayThrowException(c)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+      "functionStartLine": 889,
+      "functionName": "mayThrowException",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if the subtree might throw an exception.\n",
+      "diff": "@@ -1,22 +1,22 @@\n-private static boolean mayThrowException(Node n) {\n+public static boolean mayThrowException(Node n) {\n     switch(n.getType()) {\n         case Token.CALL:\n         case Token.GETPROP:\n         case Token.GETELEM:\n         case Token.THROW:\n         case Token.NEW:\n         case Token.ASSIGN:\n         case Token.INC:\n         case Token.DEC:\n         case Token.INSTANCEOF:\n             return true;\n         case Token.FUNCTION:\n             return false;\n     }\n     for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n         if (!ControlFlowGraph.isEnteringNewCfgNode(c) \u0026\u0026 mayThrowException(c)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private, static]",
+        "newValue": "[public, static]"
+      }
+    },
+    "2f5cb1622371de540fe20dcbe0411651ec89f952": {
+      "type": "Ybodychange",
+      "commitMessage": "Make the CFA recognize possible ON_EX edges for instanceof operations.\nFixes issue 113. (Alan)\n\nFix DisambiugateProperties to look at subclasses of a type on which\na property is referenced. (Andrew)\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@114 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/22/10, 5:07 PM",
+      "commitName": "2f5cb1622371de540fe20dcbe0411651ec89f952",
+      "commitAuthor": "Nicholas.J.Santos",
+      "commitDateOld": "12/8/09, 3:50 PM",
+      "commitNameOld": "847b296c23a63aa0a0b38cc3e63883e1688288e3",
+      "commitAuthorOld": "nicholas.j.santos@gmail.com",
+      "daysBetweenCommits": 76.05,
+      "commitsBetweenForRepo": 68,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static boolean mayThrowException(Node n) {\n    switch(n.getType()) {\n        case Token.CALL:\n        case Token.GETPROP:\n        case Token.GETELEM:\n        case Token.THROW:\n        case Token.NEW:\n        case Token.ASSIGN:\n        case Token.INC:\n        case Token.DEC:\n        case Token.INSTANCEOF:\n            return true;\n        case Token.FUNCTION:\n            return false;\n    }\n    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        if (!ControlFlowGraph.isEnteringNewCfgNode(c) \u0026\u0026 mayThrowException(c)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+      "functionStartLine": 884,
+      "functionName": "mayThrowException",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if the subtree might throw an exception.\n",
+      "diff": "@@ -1,21 +1,22 @@\n private static boolean mayThrowException(Node n) {\n     switch(n.getType()) {\n         case Token.CALL:\n         case Token.GETPROP:\n         case Token.GETELEM:\n         case Token.THROW:\n         case Token.NEW:\n         case Token.ASSIGN:\n         case Token.INC:\n         case Token.DEC:\n+        case Token.INSTANCEOF:\n             return true;\n         case Token.FUNCTION:\n             return false;\n     }\n     for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n-        if (mayThrowException(c)) {\n+        if (!ControlFlowGraph.isEnteringNewCfgNode(c) \u0026\u0026 mayThrowException(c)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial commit.\n\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@2 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "11/3/09, 3:51 PM",
+      "commitName": "6b49cfd9022fe111bdad745c78ea877fbc2f7ba3",
+      "commitAuthor": "nicholas.j.santos@gmail.com",
+      "diff": "@@ -0,0 +1,21 @@\n+private static boolean mayThrowException(Node n) {\n+    switch(n.getType()) {\n+        case Token.CALL:\n+        case Token.GETPROP:\n+        case Token.GETELEM:\n+        case Token.THROW:\n+        case Token.NEW:\n+        case Token.ASSIGN:\n+        case Token.INC:\n+        case Token.DEC:\n+            return true;\n+        case Token.FUNCTION:\n+            return false;\n+    }\n+    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n+        if (mayThrowException(c)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean mayThrowException(Node n) {\n    switch(n.getType()) {\n        case Token.CALL:\n        case Token.GETPROP:\n        case Token.GETELEM:\n        case Token.THROW:\n        case Token.NEW:\n        case Token.ASSIGN:\n        case Token.INC:\n        case Token.DEC:\n            return true;\n        case Token.FUNCTION:\n            return false;\n    }\n    for (Node c \u003d n.getFirstChild(); c !\u003d null; c \u003d c.getNext()) {\n        if (mayThrowException(c)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+      "functionStartLine": 885,
+      "functionName": "mayThrowException",
+      "functionAnnotation": "",
+      "functionDoc": "Determines if the subtree might throw an exception.\n"
+    }
+  }
+}

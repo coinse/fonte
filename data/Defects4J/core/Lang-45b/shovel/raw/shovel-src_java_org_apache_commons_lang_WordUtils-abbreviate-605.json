@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Lang-45b",
+  "repositoryPath": "/tmp/Lang-45b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "WordUtils.java",
+  "functionName": "abbreviate",
+  "functionId": "abbreviate___str-String__lower-int__upper-int__appendToEnd-String",
+  "sourceFilePath": "src/java/org/apache/commons/lang/WordUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Abbreviates a string nicely.\n\nThis method searches for the first space after the lower limit and abbreviates\nthe String there. It will also append any String passed as a parameter\nto the end of the String. The upper limit can be specified to forcibly\nabbreviate a String.\n\n@param str the string to be abbreviated. If null is passed, null is returned.\n                   If the empty String is passed, the empty string is returned.\n@param lower the lower limit.\n@param upper the upper limit; specify -1 if no limit is desired.\n                   If the upper limit is lower than the lower limit, it will be\n                   adjusted to be the same as the lower limit.\n@param appendToEnd String to be appended to the end of the abbreviated string.\n                   This is appended ONLY if the string was indeed abbreviated.\n                   The append does not count towards the lower or upper limits.\n@return the abbreviated String.\n@since 2.4\n",
+  "functionStartLine": 605,
+  "functionEndLine": 640,
+  "numCommitsSeen": 29,
+  "timeTaken": 678,
+  "changeHistory": [
+    "9dbd8b354d88a86d2a1d83813d8e7cf43376b13e",
+    "8c4335a77b48fd7d3721bdfb31a708dff195a0db",
+    "8688d11849b9335f63210dd9018545b3c3a907d8"
+  ],
+  "changeHistoryShort": {
+    "9dbd8b354d88a86d2a1d83813d8e7cf43376b13e": "Ydocchange",
+    "8c4335a77b48fd7d3721bdfb31a708dff195a0db": "Ybodychange",
+    "8688d11849b9335f63210dd9018545b3c3a907d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9dbd8b354d88a86d2a1d83813d8e7cf43376b13e": {
+      "type": "Ydocchange",
+      "commitMessage": "Added missing \u0027@since 2.4\u0027 lines based on jardiff report\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@618884 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/5/08, 8:37 PM",
+      "commitName": "9dbd8b354d88a86d2a1d83813d8e7cf43376b13e",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "11/21/07, 5:31 PM",
+      "commitNameOld": "8c4335a77b48fd7d3721bdfb31a708dff195a0db",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 76.13,
+      "commitsBetweenForRepo": 51,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String abbreviate(String str, int lower, int upper, String appendToEnd) {\n    if (str \u003d\u003d null) {\n        return null;\n    }\n    if (str.length() \u003d\u003d 0) {\n        return StringUtils.EMPTY;\n    }\n    if (upper \u003d\u003d -1 || upper \u003e str.length()) {\n        upper \u003d str.length();\n    }\n    if (upper \u003c lower) {\n        upper \u003d lower;\n    }\n    StringBuffer result \u003d new StringBuffer();\n    int index \u003d StringUtils.indexOf(str, \" \", lower);\n    if (index \u003d\u003d -1) {\n        result.append(str.substring(0, upper));\n        if (upper !\u003d str.length()) {\n            result.append(StringUtils.defaultString(appendToEnd));\n        }\n    } else if (index \u003e upper) {\n        result.append(str.substring(0, upper));\n        result.append(StringUtils.defaultString(appendToEnd));\n    } else {\n        result.append(str.substring(0, index));\n        result.append(StringUtils.defaultString(appendToEnd));\n    }\n    return result.toString();\n}",
+      "path": "src/java/org/apache/commons/lang/WordUtils.java",
+      "functionStartLine": 605,
+      "functionName": "abbreviate",
+      "functionAnnotation": "",
+      "functionDoc": "Abbreviates a string nicely.\n\nThis method searches for the first space after the lower limit and abbreviates\nthe String there. It will also append any String passed as a parameter\nto the end of the String. The upper limit can be specified to forcibly\nabbreviate a String.\n\n@param str the string to be abbreviated. If null is passed, null is returned.\n                   If the empty String is passed, the empty string is returned.\n@param lower the lower limit.\n@param upper the upper limit; specify -1 if no limit is desired.\n                   If the upper limit is lower than the lower limit, it will be\n                   adjusted to be the same as the lower limit.\n@param appendToEnd String to be appended to the end of the abbreviated string.\n                   This is appended ONLY if the string was indeed abbreviated.\n                   The append does not count towards the lower or upper limits.\n@return the abbreviated String.\n@since 2.4\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Abbreviates a string nicely.\n\nThis method searches for the first space after the lower limit and abbreviates\nthe String there. It will also append any String passed as a parameter\nto the end of the String. The upper limit can be specified to forcibly\nabbreviate a String.\n\n@param str the string to be abbreviated. If null is passed, null is returned.\n                   If the empty String is passed, the empty string is returned.\n@param lower the lower limit.\n@param upper the upper limit; specify -1 if no limit is desired.\n                   If the upper limit is lower than the lower limit, it will be\n                   adjusted to be the same as the lower limit.\n@param appendToEnd String to be appended to the end of the abbreviated string.\n                   This is appended ONLY if the string was indeed abbreviated.\n                   The append does not count towards the lower or upper limits.\n@return the abbreviated String.\n",
+        "newValue": "Abbreviates a string nicely.\n\nThis method searches for the first space after the lower limit and abbreviates\nthe String there. It will also append any String passed as a parameter\nto the end of the String. The upper limit can be specified to forcibly\nabbreviate a String.\n\n@param str the string to be abbreviated. If null is passed, null is returned.\n                   If the empty String is passed, the empty string is returned.\n@param lower the lower limit.\n@param upper the upper limit; specify -1 if no limit is desired.\n                   If the upper limit is lower than the lower limit, it will be\n                   adjusted to be the same as the lower limit.\n@param appendToEnd String to be appended to the end of the abbreviated string.\n                   This is appended ONLY if the string was indeed abbreviated.\n                   The append does not count towards the lower or upper limits.\n@return the abbreviated String.\n@since 2.4\n"
+      }
+    },
+    "8c4335a77b48fd7d3721bdfb31a708dff195a0db": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixing checkstyle issue - lack of braces after an if\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@597282 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/21/07, 5:31 PM",
+      "commitName": "8c4335a77b48fd7d3721bdfb31a708dff195a0db",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "11/13/07, 10:04 AM",
+      "commitNameOld": "8688d11849b9335f63210dd9018545b3c3a907d8",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 8.31,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String abbreviate(String str, int lower, int upper, String appendToEnd) {\n    if (str \u003d\u003d null) {\n        return null;\n    }\n    if (str.length() \u003d\u003d 0) {\n        return StringUtils.EMPTY;\n    }\n    if (upper \u003d\u003d -1 || upper \u003e str.length()) {\n        upper \u003d str.length();\n    }\n    if (upper \u003c lower) {\n        upper \u003d lower;\n    }\n    StringBuffer result \u003d new StringBuffer();\n    int index \u003d StringUtils.indexOf(str, \" \", lower);\n    if (index \u003d\u003d -1) {\n        result.append(str.substring(0, upper));\n        if (upper !\u003d str.length()) {\n            result.append(StringUtils.defaultString(appendToEnd));\n        }\n    } else if (index \u003e upper) {\n        result.append(str.substring(0, upper));\n        result.append(StringUtils.defaultString(appendToEnd));\n    } else {\n        result.append(str.substring(0, index));\n        result.append(StringUtils.defaultString(appendToEnd));\n    }\n    return result.toString();\n}",
+      "path": "src/java/org/apache/commons/lang/WordUtils.java",
+      "functionStartLine": 604,
+      "functionName": "abbreviate",
+      "functionAnnotation": "",
+      "functionDoc": "Abbreviates a string nicely.\n\nThis method searches for the first space after the lower limit and abbreviates\nthe String there. It will also append any String passed as a parameter\nto the end of the String. The upper limit can be specified to forcibly\nabbreviate a String.\n\n@param str the string to be abbreviated. If null is passed, null is returned.\n                   If the empty String is passed, the empty string is returned.\n@param lower the lower limit.\n@param upper the upper limit; specify -1 if no limit is desired.\n                   If the upper limit is lower than the lower limit, it will be\n                   adjusted to be the same as the lower limit.\n@param appendToEnd String to be appended to the end of the abbreviated string.\n                   This is appended ONLY if the string was indeed abbreviated.\n                   The append does not count towards the lower or upper limits.\n@return the abbreviated String.\n",
+      "diff": "@@ -1,28 +1,29 @@\n public static String abbreviate(String str, int lower, int upper, String appendToEnd) {\n     if (str \u003d\u003d null) {\n         return null;\n     }\n     if (str.length() \u003d\u003d 0) {\n         return StringUtils.EMPTY;\n     }\n     if (upper \u003d\u003d -1 || upper \u003e str.length()) {\n         upper \u003d str.length();\n     }\n     if (upper \u003c lower) {\n         upper \u003d lower;\n     }\n     StringBuffer result \u003d new StringBuffer();\n     int index \u003d StringUtils.indexOf(str, \" \", lower);\n     if (index \u003d\u003d -1) {\n         result.append(str.substring(0, upper));\n-        if (upper !\u003d str.length())\n+        if (upper !\u003d str.length()) {\n             result.append(StringUtils.defaultString(appendToEnd));\n+        }\n     } else if (index \u003e upper) {\n         result.append(str.substring(0, upper));\n         result.append(StringUtils.defaultString(appendToEnd));\n     } else {\n         result.append(str.substring(0, index));\n         result.append(StringUtils.defaultString(appendToEnd));\n     }\n     return result.toString();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8688d11849b9335f63210dd9018545b3c3a907d8": {
+      "type": "Yintroduced",
+      "commitMessage": "Applying the truncateNicely patch from LANG-338 as abbreviate. I\u0027ve added it to WordUtils rather than StringUtils; it feels like a better fit there to me\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/lang/trunk@594599 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/13/07, 10:04 AM",
+      "commitName": "8688d11849b9335f63210dd9018545b3c3a907d8",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,28 @@\n+public static String abbreviate(String str, int lower, int upper, String appendToEnd) {\n+    if (str \u003d\u003d null) {\n+        return null;\n+    }\n+    if (str.length() \u003d\u003d 0) {\n+        return StringUtils.EMPTY;\n+    }\n+    if (upper \u003d\u003d -1 || upper \u003e str.length()) {\n+        upper \u003d str.length();\n+    }\n+    if (upper \u003c lower) {\n+        upper \u003d lower;\n+    }\n+    StringBuffer result \u003d new StringBuffer();\n+    int index \u003d StringUtils.indexOf(str, \" \", lower);\n+    if (index \u003d\u003d -1) {\n+        result.append(str.substring(0, upper));\n+        if (upper !\u003d str.length())\n+            result.append(StringUtils.defaultString(appendToEnd));\n+    } else if (index \u003e upper) {\n+        result.append(str.substring(0, upper));\n+        result.append(StringUtils.defaultString(appendToEnd));\n+    } else {\n+        result.append(str.substring(0, index));\n+        result.append(StringUtils.defaultString(appendToEnd));\n+    }\n+    return result.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String abbreviate(String str, int lower, int upper, String appendToEnd) {\n    if (str \u003d\u003d null) {\n        return null;\n    }\n    if (str.length() \u003d\u003d 0) {\n        return StringUtils.EMPTY;\n    }\n    if (upper \u003d\u003d -1 || upper \u003e str.length()) {\n        upper \u003d str.length();\n    }\n    if (upper \u003c lower) {\n        upper \u003d lower;\n    }\n    StringBuffer result \u003d new StringBuffer();\n    int index \u003d StringUtils.indexOf(str, \" \", lower);\n    if (index \u003d\u003d -1) {\n        result.append(str.substring(0, upper));\n        if (upper !\u003d str.length())\n            result.append(StringUtils.defaultString(appendToEnd));\n    } else if (index \u003e upper) {\n        result.append(str.substring(0, upper));\n        result.append(StringUtils.defaultString(appendToEnd));\n    } else {\n        result.append(str.substring(0, index));\n        result.append(StringUtils.defaultString(appendToEnd));\n    }\n    return result.toString();\n}",
+      "path": "src/java/org/apache/commons/lang/WordUtils.java",
+      "functionStartLine": 604,
+      "functionName": "abbreviate",
+      "functionAnnotation": "",
+      "functionDoc": "Abbreviates a string nicely.\n\nThis method searches for the first space after the lower limit and abbreviates\nthe String there. It will also append any String passed as a parameter\nto the end of the String. The upper limit can be specified to forcibly\nabbreviate a String.\n\n@param str the string to be abbreviated. If null is passed, null is returned.\n                   If the empty String is passed, the empty string is returned.\n@param lower the lower limit.\n@param upper the upper limit; specify -1 if no limit is desired.\n                   If the upper limit is lower than the lower limit, it will be\n                   adjusted to be the same as the lower limit.\n@param appendToEnd String to be appended to the end of the abbreviated string.\n                   This is appended ONLY if the string was indeed abbreviated.\n                   The append does not count towards the lower or upper limits.\n@return the abbreviated String.\n"
+    }
+  }
+}

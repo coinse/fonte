@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-66b",
+  "repositoryPath": "/tmp/Closure-66b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeUtil.java",
+  "functionName": "getObjectLitKeyName",
+  "functionId": "getObjectLitKeyName___key-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/NodeUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the name of an object literal key.\n\n@param key A node\n",
+  "functionStartLine": 2082,
+  "functionEndLine": 2090,
+  "numCommitsSeen": 87,
+  "timeTaken": 3721,
+  "changeHistory": [
+    "75aa5f653b08995428743f6951a99ad101e73e37",
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48"
+  ],
+  "changeHistoryShort": {
+    "75aa5f653b08995428743f6951a99ad101e73e37": "Ybodychange",
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "75aa5f653b08995428743f6951a99ad101e73e37": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCleanup obsolete handling of NUMBER keys of OBJECTLIT.\n\nR\u003dnicksantos\nDELTA\u003d109  (3 added, 48 deleted, 58 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1253\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@967 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/4/11, 2:40 PM",
+      "commitName": "75aa5f653b08995428743f6951a99ad101e73e37",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "4/4/11, 2:26 PM",
+      "commitNameOld": "41acde3e8e5e8d37ade765b41d9fd29861f03e5e",
+      "commitAuthorOld": "johnlenz@google.com",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static String getObjectLitKeyName(Node key) {\n    switch(key.getType()) {\n        case Token.STRING:\n        case Token.GET:\n        case Token.SET:\n            return key.getString();\n    }\n    throw new IllegalStateException(\"Unexpected node type: \" + key);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 2054,
+      "functionName": "getObjectLitKeyName",
+      "functionAnnotation": "",
+      "functionDoc": "Get the name of an object literal key.\n\n@param key A node\n",
+      "diff": "@@ -1,11 +1,9 @@\n static String getObjectLitKeyName(Node key) {\n     switch(key.getType()) {\n-        case Token.NUMBER:\n-            return NodeUtil.getStringValue(key);\n         case Token.STRING:\n         case Token.GET:\n         case Token.SET:\n             return key.getString();\n     }\n     throw new IllegalStateException(\"Unexpected node type: \" + key);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "70f817ae4f80ac11dd2dfe97babf5896c690fb48": {
+      "type": "Yintroduced",
+      "commitMessage": "\nAdd basic getters and setters support to TypeInference.\n\nR\u003dnicksantos\nDELTA\u003d573  (533 added, 15 deleted, 25 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d366\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@735 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "1/27/11, 10:33 AM",
+      "commitName": "70f817ae4f80ac11dd2dfe97babf5896c690fb48",
+      "commitAuthor": "johnlenz@google.com",
+      "diff": "@@ -0,0 +1,11 @@\n+static String getObjectLitKeyName(Node key) {\n+    switch(key.getType()) {\n+        case Token.NUMBER:\n+            return NodeUtil.getStringValue(key);\n+        case Token.STRING:\n+        case Token.GET:\n+        case Token.SET:\n+            return key.getString();\n+    }\n+    throw new IllegalStateException(\"Unexpected node type: \" + key);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static String getObjectLitKeyName(Node key) {\n    switch(key.getType()) {\n        case Token.NUMBER:\n            return NodeUtil.getStringValue(key);\n        case Token.STRING:\n        case Token.GET:\n        case Token.SET:\n            return key.getString();\n    }\n    throw new IllegalStateException(\"Unexpected node type: \" + key);\n}",
+      "path": "src/com/google/javascript/jscomp/NodeUtil.java",
+      "functionStartLine": 1872,
+      "functionName": "getObjectLitKeyName",
+      "functionAnnotation": "",
+      "functionDoc": "Get the name of an object literal key.\n\n@param key A node\n"
+    }
+  }
+}

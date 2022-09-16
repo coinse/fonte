@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-59b",
+  "repositoryPath": "/tmp/Closure-59b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PeepholeCollectPropertyAssignments.java",
+  "functionName": "optimizeSubtree",
+  "functionId": "optimizeSubtree___subtree-Node",
+  "sourceFilePath": "src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 35,
+  "functionEndLine": 82,
+  "numCommitsSeen": 6,
+  "timeTaken": 1216,
+  "changeHistory": [
+    "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551",
+    "aa365d3e2d35439107337c856a3b27b8dc3e1bcd"
+  ],
+  "changeHistoryShort": {
+    "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551": "Ybodychange",
+    "aa365d3e2d35439107337c856a3b27b8dc3e1bcd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551": {
+      "type": "Ybodychange",
+      "commitMessage": "\nCollect object and array values for simple assignments in addition to\nvar declarations.\n\nR\u003dagrieve\nDELTA\u003d146  (103 added, 5 deleted, 38 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1306\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@980 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "4/8/11, 10:29 AM",
+      "commitName": "22f6cda30ea24cd6c0ce8935e3148c1b0c6b1551",
+      "commitAuthor": "johnlenz@google.com",
+      "commitDateOld": "3/22/11, 5:02 PM",
+      "commitNameOld": "aa365d3e2d35439107337c856a3b27b8dc3e1bcd",
+      "commitAuthorOld": "msamuel@google.com",
+      "daysBetweenCommits": 16.73,
+      "commitsBetweenForRepo": 44,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nNode optimizeSubtree(Node subtree) {\n    if (subtree.getType() !\u003d Token.SCRIPT \u0026\u0026 subtree.getType() !\u003d Token.BLOCK) {\n        return subtree;\n    }\n    boolean codeChanged \u003d false;\n    for (Node child \u003d subtree.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (child.getType() !\u003d Token.VAR \u0026\u0026 !NodeUtil.isExprAssign(child)) {\n            continue;\n        }\n        if (!isPropertyAssignmentToName(child.getNext())) {\n            continue;\n        }\n        Preconditions.checkState(child.hasOneChild());\n        Node name \u003d getName(child);\n        if (name.getType() !\u003d Token.NAME) {\n            continue;\n        }\n        Node value \u003d getValue(child);\n        if (value \u003d\u003d null || !isInterestingValue(value)) {\n            continue;\n        }\n        Node propertyCandidate;\n        while ((propertyCandidate \u003d child.getNext()) !\u003d null) {\n            if (!collectProperty(propertyCandidate, name.getString(), value)) {\n                break;\n            }\n            codeChanged \u003d true;\n        }\n    }\n    if (codeChanged) {\n        reportCodeChange();\n    }\n    return subtree;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java",
+      "functionStartLine": 35,
+      "functionName": "optimizeSubtree",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,32 +1,35 @@\n @Override\n Node optimizeSubtree(Node subtree) {\n     if (subtree.getType() !\u003d Token.SCRIPT \u0026\u0026 subtree.getType() !\u003d Token.BLOCK) {\n         return subtree;\n     }\n     boolean codeChanged \u003d false;\n     for (Node child \u003d subtree.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n-        if (child.getType() !\u003d Token.VAR) {\n+        if (child.getType() !\u003d Token.VAR \u0026\u0026 !NodeUtil.isExprAssign(child)) {\n             continue;\n         }\n-        if (!isPropertyAssignmentToVar(child.getNext())) {\n+        if (!isPropertyAssignmentToName(child.getNext())) {\n             continue;\n         }\n         Preconditions.checkState(child.hasOneChild());\n-        Node var \u003d child.getFirstChild();\n-        Node varValue \u003d var.getFirstChild();\n-        if (varValue \u003d\u003d null) {\n+        Node name \u003d getName(child);\n+        if (name.getType() !\u003d Token.NAME) {\n+            continue;\n+        }\n+        Node value \u003d getValue(child);\n+        if (value \u003d\u003d null || !isInterestingValue(value)) {\n             continue;\n         }\n         Node propertyCandidate;\n         while ((propertyCandidate \u003d child.getNext()) !\u003d null) {\n-            if (!collectProperty(propertyCandidate, var)) {\n+            if (!collectProperty(propertyCandidate, name.getString(), value)) {\n                 break;\n             }\n             codeChanged \u003d true;\n         }\n     }\n     if (codeChanged) {\n         reportCodeChange();\n     }\n     return subtree;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "aa365d3e2d35439107337c856a3b27b8dc3e1bcd": {
+      "type": "Yintroduced",
+      "commitMessage": "\nPeephole collapsing property assignments into objects/array definitions.\n\nRoll-forward\n\nThis fixes out-of-order array setting.\n\nR\u003djohnlenz\nDELTA\u003d402  (370 added, 3 deleted, 29 changed)\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d1007\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@931 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/22/11, 5:02 PM",
+      "commitName": "aa365d3e2d35439107337c856a3b27b8dc3e1bcd",
+      "commitAuthor": "msamuel@google.com",
+      "diff": "@@ -0,0 +1,32 @@\n+@Override\n+Node optimizeSubtree(Node subtree) {\n+    if (subtree.getType() !\u003d Token.SCRIPT \u0026\u0026 subtree.getType() !\u003d Token.BLOCK) {\n+        return subtree;\n+    }\n+    boolean codeChanged \u003d false;\n+    for (Node child \u003d subtree.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n+        if (child.getType() !\u003d Token.VAR) {\n+            continue;\n+        }\n+        if (!isPropertyAssignmentToVar(child.getNext())) {\n+            continue;\n+        }\n+        Preconditions.checkState(child.hasOneChild());\n+        Node var \u003d child.getFirstChild();\n+        Node varValue \u003d var.getFirstChild();\n+        if (varValue \u003d\u003d null) {\n+            continue;\n+        }\n+        Node propertyCandidate;\n+        while ((propertyCandidate \u003d child.getNext()) !\u003d null) {\n+            if (!collectProperty(propertyCandidate, var)) {\n+                break;\n+            }\n+            codeChanged \u003d true;\n+        }\n+    }\n+    if (codeChanged) {\n+        reportCodeChange();\n+    }\n+    return subtree;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nNode optimizeSubtree(Node subtree) {\n    if (subtree.getType() !\u003d Token.SCRIPT \u0026\u0026 subtree.getType() !\u003d Token.BLOCK) {\n        return subtree;\n    }\n    boolean codeChanged \u003d false;\n    for (Node child \u003d subtree.getFirstChild(); child !\u003d null; child \u003d child.getNext()) {\n        if (child.getType() !\u003d Token.VAR) {\n            continue;\n        }\n        if (!isPropertyAssignmentToVar(child.getNext())) {\n            continue;\n        }\n        Preconditions.checkState(child.hasOneChild());\n        Node var \u003d child.getFirstChild();\n        Node varValue \u003d var.getFirstChild();\n        if (varValue \u003d\u003d null) {\n            continue;\n        }\n        Node propertyCandidate;\n        while ((propertyCandidate \u003d child.getNext()) !\u003d null) {\n            if (!collectProperty(propertyCandidate, var)) {\n                break;\n            }\n            codeChanged \u003d true;\n        }\n    }\n    if (codeChanged) {\n        reportCodeChange();\n    }\n    return subtree;\n}",
+      "path": "src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java",
+      "functionStartLine": 35,
+      "functionName": "optimizeSubtree",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

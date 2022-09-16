@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Closure-115b",
+  "repositoryPath": "/tmp/Closure-115b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tracer.java",
+  "functionName": "stop",
+  "functionId": "stop___silenceThreshold-int",
+  "sourceFilePath": "src/com/google/javascript/jscomp/Tracer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silenceThreshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n",
+  "functionStartLine": 407,
+  "functionEndLine": 434,
+  "numCommitsSeen": 32,
+  "timeTaken": 2403,
+  "changeHistory": [
+    "5ed0298bb770537235c2bf63165aa4cfc6069b78",
+    "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5",
+    "a2715a52745d816a87c05d3007ed8bfe7ef18491",
+    "086aeab1deabfa192544f14670d7d2fd2b12cffe"
+  ],
+  "changeHistoryShort": {
+    "5ed0298bb770537235c2bf63165aa4cfc6069b78": "Ydocchange",
+    "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5": "Ymultichange(Yparameterchange,Ybodychange)",
+    "a2715a52745d816a87c05d3007ed8bfe7ef18491": "Ybodychange",
+    "086aeab1deabfa192544f14670d7d2fd2b12cffe": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5ed0298bb770537235c2bf63165aa4cfc6069b78": {
+      "type": "Ydocchange",
+      "commitMessage": "Fix various eclipse warnings.\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d46797763\n",
+      "commitDate": "5/17/13, 5:50 PM",
+      "commitName": "5ed0298bb770537235c2bf63165aa4cfc6069b78",
+      "commitAuthor": "Ben Lickly",
+      "commitDateOld": "3/20/13, 9:48 AM",
+      "commitNameOld": "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5",
+      "commitAuthorOld": "Ben Lickly",
+      "daysBetweenCommits": 58.33,
+      "commitsBetweenForRepo": 108,
+      "commitsBetweenForFile": 1,
+      "actualSource": "long stop(int silenceThreshold) {\n    Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n    ThreadTrace trace \u003d getThreadTrace();\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    stopTimeMs \u003d clock.currentTimeMillis();\n    if (extraTracingValues !\u003d null) {\n        for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n            long value \u003d extraTracingStatistics.get(i).stop(startThread);\n            extraTracingValues[i] \u003d value - extraTracingValues[i];\n        }\n    }\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    trace.endEvent(this, silenceThreshold);\n    return stopTimeMs - startTimeMs;\n}",
+      "path": "src/com/google/javascript/jscomp/Tracer.java",
+      "functionStartLine": 407,
+      "functionName": "stop",
+      "functionAnnotation": "",
+      "functionDoc": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silenceThreshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silence_threshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n",
+        "newValue": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silenceThreshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n"
+      }
+    },
+    "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Remove lint warnings\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44164469\n",
+      "commitDate": "3/20/13, 9:48 AM",
+      "commitName": "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5",
+      "commitAuthor": "Ben Lickly",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Remove lint warnings\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44164469\n",
+          "commitDate": "3/20/13, 9:48 AM",
+          "commitName": "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "5/18/12, 11:09 AM",
+          "commitNameOld": "70a5626922ea7e8c98747e22b6986638ba38fadc",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 305.94,
+          "commitsBetweenForRepo": 595,
+          "commitsBetweenForFile": 1,
+          "actualSource": "long stop(int silenceThreshold) {\n    Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n    ThreadTrace trace \u003d getThreadTrace();\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    stopTimeMs \u003d clock.currentTimeMillis();\n    if (extraTracingValues !\u003d null) {\n        for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n            long value \u003d extraTracingStatistics.get(i).stop(startThread);\n            extraTracingValues[i] \u003d value - extraTracingValues[i];\n        }\n    }\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    trace.endEvent(this, silenceThreshold);\n    return stopTimeMs - startTimeMs;\n}",
+          "path": "src/com/google/javascript/jscomp/Tracer.java",
+          "functionStartLine": 407,
+          "functionName": "stop",
+          "functionAnnotation": "",
+          "functionDoc": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silence_threshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n",
+          "diff": "@@ -1,19 +1,19 @@\n-long stop(int silence_threshold) {\n+long stop(int silenceThreshold) {\n     Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n     ThreadTrace trace \u003d getThreadTrace();\n     if (!trace.isInitialized()) {\n         return 0;\n     }\n     stopTimeMs \u003d clock.currentTimeMillis();\n     if (extraTracingValues !\u003d null) {\n         for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n             long value \u003d extraTracingStatistics.get(i).stop(startThread);\n             extraTracingValues[i] \u003d value - extraTracingValues[i];\n         }\n     }\n     if (!trace.isInitialized()) {\n         return 0;\n     }\n-    trace.endEvent(this, silence_threshold);\n+    trace.endEvent(this, silenceThreshold);\n     return stopTimeMs - startTimeMs;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[silence_threshold-int]",
+            "newValue": "[silenceThreshold-int]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Remove lint warnings\n-------------\nCreated by MOE: http://code.google.com/p/moe-java\nMOE_MIGRATED_REVID\u003d44164469\n",
+          "commitDate": "3/20/13, 9:48 AM",
+          "commitName": "f423b0e9d4b2c0f3f74b3850dd5a35fd89ebc8a5",
+          "commitAuthor": "Ben Lickly",
+          "commitDateOld": "5/18/12, 11:09 AM",
+          "commitNameOld": "70a5626922ea7e8c98747e22b6986638ba38fadc",
+          "commitAuthorOld": "johnlenz@google.com",
+          "daysBetweenCommits": 305.94,
+          "commitsBetweenForRepo": 595,
+          "commitsBetweenForFile": 1,
+          "actualSource": "long stop(int silenceThreshold) {\n    Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n    ThreadTrace trace \u003d getThreadTrace();\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    stopTimeMs \u003d clock.currentTimeMillis();\n    if (extraTracingValues !\u003d null) {\n        for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n            long value \u003d extraTracingStatistics.get(i).stop(startThread);\n            extraTracingValues[i] \u003d value - extraTracingValues[i];\n        }\n    }\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    trace.endEvent(this, silenceThreshold);\n    return stopTimeMs - startTimeMs;\n}",
+          "path": "src/com/google/javascript/jscomp/Tracer.java",
+          "functionStartLine": 407,
+          "functionName": "stop",
+          "functionAnnotation": "",
+          "functionDoc": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silence_threshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n",
+          "diff": "@@ -1,19 +1,19 @@\n-long stop(int silence_threshold) {\n+long stop(int silenceThreshold) {\n     Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n     ThreadTrace trace \u003d getThreadTrace();\n     if (!trace.isInitialized()) {\n         return 0;\n     }\n     stopTimeMs \u003d clock.currentTimeMillis();\n     if (extraTracingValues !\u003d null) {\n         for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n             long value \u003d extraTracingStatistics.get(i).stop(startThread);\n             extraTracingValues[i] \u003d value - extraTracingValues[i];\n         }\n     }\n     if (!trace.isInitialized()) {\n         return 0;\n     }\n-    trace.endEvent(this, silence_threshold);\n+    trace.endEvent(this, silenceThreshold);\n     return stopTimeMs - startTimeMs;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "a2715a52745d816a87c05d3007ed8bfe7ef18491": {
+      "type": "Ybodychange",
+      "commitMessage": "\ndelete all trailing whitespace\nfix up the presubmit to skip generated files\n\nR\u003djohnlenz\n\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d822\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@875 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "3/10/11, 3:34 PM",
+      "commitName": "a2715a52745d816a87c05d3007ed8bfe7ef18491",
+      "commitAuthor": "nicksantos@google.com",
+      "commitDateOld": "11/11/10, 9:42 PM",
+      "commitNameOld": "df223efd38c514d584f00d076488ab9a02011492",
+      "commitAuthorOld": "nicksantos@google.com",
+      "daysBetweenCommits": 118.74,
+      "commitsBetweenForRepo": 317,
+      "commitsBetweenForFile": 1,
+      "actualSource": "long stop(int silence_threshold) {\n    Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n    ThreadTrace trace \u003d getThreadTrace();\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    stopTimeMs \u003d clock.currentTimeMillis();\n    if (extraTracingValues !\u003d null) {\n        for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n            long value \u003d extraTracingStatistics.get(i).stop(startThread);\n            extraTracingValues[i] \u003d value - extraTracingValues[i];\n        }\n    }\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    trace.endEvent(this, silence_threshold);\n    return stopTimeMs - startTimeMs;\n}",
+      "path": "src/com/google/javascript/jscomp/Tracer.java",
+      "functionStartLine": 406,
+      "functionName": "stop",
+      "functionAnnotation": "",
+      "functionDoc": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silence_threshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "086aeab1deabfa192544f14670d7d2fd2b12cffe": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix chrome.tabs.sendRequest extern in javascript/chrome_externs.js. \n(Matias)\n\nFork common.base.Tracer, so that it can be open-sourced in our codebase.\nMake it package-private until it gets open-sourced properly\nas a public library of guava. (Nick)\n\nRevision created by MOE tool push_codebase.\nMOE_MIGRATION\u003d\n\n\ngit-svn-id: https://closure-compiler.googlecode.com/svn/trunk@110 b0f006be-c8cd-11de-a2e8-8d36a3108c74\n",
+      "commitDate": "2/18/10, 8:47 AM",
+      "commitName": "086aeab1deabfa192544f14670d7d2fd2b12cffe",
+      "commitAuthor": "Nicholas.J.Santos",
+      "diff": "@@ -0,0 +1,19 @@\n+long stop(int silence_threshold) {\n+    Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n+    ThreadTrace trace \u003d getThreadTrace();\n+    if (!trace.isInitialized()) {\n+        return 0;\n+    }\n+    stopTimeMs \u003d clock.currentTimeMillis();\n+    if (extraTracingValues !\u003d null) {\n+        for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n+            long value \u003d extraTracingStatistics.get(i).stop(startThread);\n+            extraTracingValues[i] \u003d value - extraTracingValues[i];\n+        }\n+    }\n+    if (!trace.isInitialized()) {\n+        return 0;\n+    }\n+    trace.endEvent(this, silence_threshold);\n+    return stopTimeMs - startTimeMs;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "long stop(int silence_threshold) {\n    Preconditions.checkState(Thread.currentThread() \u003d\u003d startThread);\n    ThreadTrace trace \u003d getThreadTrace();\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    stopTimeMs \u003d clock.currentTimeMillis();\n    if (extraTracingValues !\u003d null) {\n        for (int i \u003d 0; i \u003c extraTracingValues.length; i++) {\n            long value \u003d extraTracingStatistics.get(i).stop(startThread);\n            extraTracingValues[i] \u003d value - extraTracingValues[i];\n        }\n    }\n    if (!trace.isInitialized()) {\n        return 0;\n    }\n    trace.endEvent(this, silence_threshold);\n    return stopTimeMs - startTimeMs;\n}",
+      "path": "src/com/google/javascript/jscomp/Tracer.java",
+      "functionStartLine": 421,
+      "functionName": "stop",
+      "functionAnnotation": "",
+      "functionDoc": "Stop the trace.\nThis may only be done once and must be done from the same thread\nthat started it.\n\n@param silence_threshold Traces for time less than silence_threshold\nms will be left out of the trace report. A value of -1 indicates\nthat the current ThreadTrace silence_threshold should be used.\n@return The time that this trace actually ran\n"
+    }
+  }
+}
