@@ -17,7 +17,7 @@ if __name__ == "__main__":
     parser.add_argument('--formula', type=str, default="Ochiai",
         help="SBFL formula (default: Ochiai)")
     parser.add_argument('--alpha', type=int, default=0,
-        help="alpha (default: Ochiai)")
+        help="alpha (default: 0)")
     parser.add_argument('--tau', type=str, default="max",
         help="tau (default: max)")
     parser.add_argument('--lamb', type=float, default=0.1,
