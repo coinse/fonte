@@ -1,0 +1,75 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="lib/github-markdown.css">
+<style>
+    .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 45px;
+    }
+
+    @media (max-width: 767px) {
+        .markdown-body {
+            padding: 15px;
+        }
+    }
+</style>
+<article class="markdown-body">
+<h1><a id="user-content-spectrum-based-fault-localization" class="anchor" aria-hidden="true" href="#spectrum-based-fault-localization"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spectrum-based Fault Localization</h1>
+<p><a href="https://github.com/Suresoft-GLaDOS/SBFL/actions/workflows/run_tests.yml"><img src="https://github.com/Suresoft-GLaDOS/SBFL/actions/workflows/run_tests.yml/badge.svg" alt="test" style="max-width: 100%;"></a></p>
+<p><g-emoji class="g-emoji" alias="warning" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png">⚠️</g-emoji> This engine is under construction.<g-emoji class="g-emoji" alias="construction_worker_woman" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f477-2640.png">👷‍♀️</g-emoji></p>
+<h2><a id="user-content-environment" class="anchor" aria-hidden="true" href="#environment"><span aria-hidden="true" class="octicon octicon-link"></span></a>Environment</h2>
+<ul>
+<li>Developed &amp; tested under Python 3.9.1</li>
+<li>Installing dependencies:
+<div class="highlight highlight-source-shell"><pre>python -m pip install -r requirements.txt</pre></div>
+</li>
+</ul>
+<h2><a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/Suresoft-GLaDOS/SBFL
+<span class="pl-c1">cd</span> SBFL
+pip install setuptools
+python setup.py install</pre></div>
+<h2><a id="user-content-getting-started" class="anchor" aria-hidden="true" href="#getting-started"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">numpy</span> <span class="pl-k">as</span> <span class="pl-s1">np</span>
+<span class="pl-k">from</span> <span class="pl-s1">sbfl</span>.<span class="pl-s1">base</span> <span class="pl-k">import</span> <span class="pl-v">SBFL</span>
+
+<span class="pl-k">if</span> <span class="pl-s1">__name__</span> <span class="pl-c1">==</span> <span class="pl-s">"__main__"</span>:
+    <span class="pl-s">"""</span>
+<span class="pl-s">    X: coverage data</span>
+<span class="pl-s">    y: test results</span>
+<span class="pl-s">    """</span>
+    <span class="pl-v">X</span> <span class="pl-c1">=</span> <span class="pl-s1">np</span>.<span class="pl-en">array</span>([
+        [<span class="pl-c1">1</span>,<span class="pl-c1">0</span>,<span class="pl-c1">1</span>], <span class="pl-c"># coverage of test t0</span>
+        [<span class="pl-c1">0</span>,<span class="pl-c1">0</span>,<span class="pl-c1">1</span>], <span class="pl-c"># coverage of test t1</span>
+        [<span class="pl-c1">1</span>,<span class="pl-c1">1</span>,<span class="pl-c1">0</span>]  <span class="pl-c"># coverage of test t2</span>
+    ], <span class="pl-s1">dtype</span><span class="pl-c1">=</span><span class="pl-s1">bool</span>)
+
+    <span class="pl-s1">y</span> <span class="pl-c1">=</span> <span class="pl-s1">np</span>.<span class="pl-en">array</span>([
+        <span class="pl-c1">1</span>, <span class="pl-c"># t0: PASS</span>
+        <span class="pl-c1">0</span>, <span class="pl-c"># t1: FAIL</span>
+        <span class="pl-c1">1</span>  <span class="pl-c"># t2: PASS</span>
+    ], <span class="pl-s1">dtype</span><span class="pl-c1">=</span><span class="pl-s1">bool</span>)
+
+    <span class="pl-s">"""</span>
+<span class="pl-s">    Calculate the suspiciousness scores</span>
+<span class="pl-s">    """</span>
+    <span class="pl-s1">sbfl</span> <span class="pl-c1">=</span> <span class="pl-v">SBFL</span>(<span class="pl-s1">formula</span><span class="pl-c1">=</span><span class="pl-s">'Ochiai'</span>)
+    <span class="pl-s1">sbfl</span>.<span class="pl-en">fit</span>(<span class="pl-v">X</span>, <span class="pl-s1">y</span>)
+    <span class="pl-en">print</span>(<span class="pl-s1">sbfl</span>.<span class="pl-en">ranks</span>(<span class="pl-s1">method</span><span class="pl-c1">=</span><span class="pl-s">'max'</span>))</pre></div>
+<p>See the full example usage of this engine in <a href="./main.ipynb">./main.ipynb</a>.</p>
+<h2><a id="user-content-running-tests" class="anchor" aria-hidden="true" href="#running-tests"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running tests</h2>
+<ul>
+<li>If you implement new functionality, please add the test cases for it.</li>
+<li>After any code change, make sure that the entire test suite passes.</li>
+</ul>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> without measuring coverage</span>
+python -m pytest
+
+<span class="pl-c"><span class="pl-c">#</span> with measuring coverage</span>
+python -m pip install coverage
+python -m coverage run --source=sbfl -m pytest
+python -m coverage report</pre></div>
+
+</article>

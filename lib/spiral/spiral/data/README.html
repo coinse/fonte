@@ -1,0 +1,36 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="lib/github-markdown.css">
+<style>
+    .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 45px;
+    }
+
+    @media (max-width: 767px) {
+        .markdown-body {
+            padding: 15px;
+        }
+    }
+</style>
+<article class="markdown-body">
+<h1><a id="user-content-spiral-data-files" class="anchor" aria-hidden="true" href="#spiral-data-files"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spiral data files</h1>
+<p>The following are the data files located in this subdirectory.</p>
+<h2><a id="user-content-frequenciespklz-and-frequenciescsv" class="anchor" aria-hidden="true" href="#frequenciespklz-and-frequenciescsv"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<code>frequencies.pklz</code> and <code>frequencies.csv</code>
+</h2>
+<p>A compressed Python pickle file containing a Python <code>dict</code> object.  It constitutes a table of token frequencies that was created from an analysis of over 46,000 randomly selected software projects in GitHub that contained at least one Python source code file.  This file contains only those entries that had frequencies of at least 10; the full (and much larger) table is in <code>frequencies-full.csv</code>.  The <code>frequencies.csv</code> file is a CSV version of the data in the Python dictionary contained in <code>frequencies.pklz</code>.</p>
+<h2><a id="user-content-frequencies-fullpklz-and-frequencies-fullcsv" class="anchor" aria-hidden="true" href="#frequencies-fullpklz-and-frequencies-fullcsv"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<code>frequencies-full.pklz</code> and <code>frequencies-full.csv</code>
+</h2>
+<p>A compressed Python pickle file containing a Python <code>dict</code> object.  It constitutes a table of token frequencies that was created from an analysis of over 46,000 randomly selected software projects in GitHub that contained at least one Python source code file.  The tokens were extracted using software from Spiral's parent project, <a href="https://github.com/casics">CASICS</a> (specifically, the <a href="https://github.com/casics/extractor">extractor</a> package), and the frequency table constructed using a procedure encoded in the small program <code>create_frequency_file</code> <a href="../../utils/create_frequency_file">included with Spiral</a>.</p>
+<h2><a id="user-content-dictionarypklz" class="anchor" aria-hidden="true" href="#dictionarypklz"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>dictionary.pklz</code></h2>
+<p>The Python <code>set</code> contained in this compressed Python pickle was created in part using the <code>word</code> and <code>wordnet</code> datasets from <a href="https://github.com/nltk">NTLK</a>.  The <code>word</code> dictionary is public domain, but the <code>wordnet</code> dictionary is copyright 2006 by Princeton University and made available under <a href="https://wordnet.princeton.edu/license-and-commercial-use" rel="nofollow">license terms</a> that permit free redistribution.  The following is full statement for WordNet:</p>
+<blockquote>
+WordNet 3.0 license: (Download)
+<p>WordNet Release 3.0 This software and database is being provided to you, the LICENSEE, by Princeton University under the following license. By obtaining, using and/or copying this software and database, you agree that you have read, understood, and will comply with these terms and conditions.: Permission to use, copy, modify and distribute this software and database and its documentation for any purpose and without fee or royalty is hereby granted, provided that you agree to comply with the following copyright notice and statements, including the disclaimer, and that the same appear on ALL copies of the software, database and documentation, including modifications that you make for internal use or for distribution. WordNet 3.0 Copyright 2006 by Princeton University. All rights reserved. THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION, PRINCETON UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANT- ABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. The name of Princeton University or Princeton may not be used in advertising or publicity pertaining to distribution of the software and/or database. Title to copyright in this software, database and any associated documentation shall at all times remain with Princeton University and LICENSEE agrees to preserve same.</p>
+</blockquote>
+
+</article>

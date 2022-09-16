@@ -1,0 +1,109 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="lib/github-markdown.css">
+<style>
+    .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 45px;
+    }
+
+    @media (max-width: 767px) {
+        .markdown-body {
+            padding: 15px;
+        }
+    }
+</style>
+<article class="markdown-body">
+<hr>
+<p>title: 'Spiral: splitters for identifiers in source code files'
+tags:</p>
+<ul>
+<li>source code mining</li>
+<li>text processing</li>
+<li>machine learning
+authors:</li>
+<li>name: Michael Hucka
+orcid: 0000-0001-9105-5960
+affiliation: 1
+affiliations:</li>
+<li>name: Department of Computing and Mathematical Sciences, California Institute of Technology, Pasadena, CA 91125, USA
+index: 1
+date: 28 March 2018
+bibliography: paper.bib</li>
+</ul>
+<hr>
+<h1><a id="user-content-summary" class="anchor" aria-hidden="true" href="#summary"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h1>
+<p><em>Spiral</em> is a Python package that implements numerous algorithms for splitting identifiers.  <em>Identifier splitting</em> (also known as <em>identifier name tokenization</em>) is the task of partioning program identifiers such as <code>readUTF8stream</code> into component tokens: [<code>read</code>, <code>UTF8</code>, <code>stream</code>].  The need for splitting identifiers arises in a variety of contexts, including natural language processing (NLP) methods applied to source code analysis and program comprehension.</p>
+<p>Spiral is easy to use.  Here are some examples of calling the Ronin splitter algorithm on inputs that would challenge simpler splitters.  The following Python code,</p>
+<div class="highlight highlight-source-python"><pre>  <span class="pl-k">from</span> <span class="pl-s1">spiral</span> <span class="pl-k">import</span> <span class="pl-s1">ronin</span>
+  <span class="pl-k">for</span> <span class="pl-s1">s</span> <span class="pl-c1">in</span> [ <span class="pl-s">'mStartCData'</span>, <span class="pl-s">'nonnegativedecimaltype'</span>, <span class="pl-s">'getUtf8Octets'</span>,
+             <span class="pl-s">'savefileas'</span>, <span class="pl-s">'nbrOfbugs'</span>]:
+      <span class="pl-en">print</span>(<span class="pl-s1">ronin</span>.<span class="pl-en">split</span>(<span class="pl-s1">s</span>))</pre></div>
+<p>produces the following output:</p>
+<div class="highlight highlight-source-python"><pre>  [<span class="pl-s">'m'</span>, <span class="pl-s">'Start'</span>, <span class="pl-s">'C'</span>, <span class="pl-s">'Data'</span>]
+  [<span class="pl-s">'nonnegative'</span>, <span class="pl-s">'decimal'</span>, <span class="pl-s">'type'</span>]
+  [<span class="pl-s">'get'</span>, <span class="pl-s">'Utf8'</span>, <span class="pl-s">'Octets'</span>]
+  [<span class="pl-s">'save'</span>, <span class="pl-s">'file'</span>, <span class="pl-s">'as'</span>]
+  [<span class="pl-s">'nbr'</span>, <span class="pl-s">'Of'</span>, <span class="pl-s">'bugs'</span>]</pre></div>
+<p>Spiral also includes a command-line program named <code>spiral</code>; it will split strings provided on the command line or in a file, and is useful for experimenting with Spiral.</p>
+<h1><a id="user-content-the-need-for-sophisticated-splitting-algorithms" class="anchor" aria-hidden="true" href="#the-need-for-sophisticated-splitting-algorithms"><span aria-hidden="true" class="octicon octicon-link"></span></a>The need for sophisticated splitting algorithms</h1>
+<p>Splitting identifiers is deceptively difficult and remains a research problem for which no perfect solution exists today.  Even in cases where the input consists of identifiers that strictly follow conventions such as camel case, ambiguities can arise.  For example, to split <code>J2SEProjectTypeProfiler</code> into [<code>J2SE</code>, <code>Project</code>, <code>Type</code>, <code>Profiler</code>] requires the reader to recognize <code>J2SE</code> as a unit.  The task of splitting identifiers is made more difficult when there are no case transitions or other obvious boundaries in an identifier.</p>
+<p>Spiral provides some several basic naive splitting algorithms, such as a straightforward camel-case splitter, as well as more elaborate heuristic splitters, including a novel algorithm we call <em>Ronin</em>.  Ronin uses a variety of heuristic rules, English dictionaries constructed using NLTK [@Bird2004-ld; @Loper2002-su] and WordNet [@Fellbaum1998-pa; @Miller1995-yc], and tables of token frequencies obtained from mining source code repositories.  It includes a default table of term frequencies derived from an analysis of over 46,000 randomly selected software projects in GitHub that contained at least one Python source code file.</p>
+<h1><a id="user-content-splitters-available-in-spiral" class="anchor" aria-hidden="true" href="#splitters-available-in-spiral"><span aria-hidden="true" class="octicon octicon-link"></span></a>Splitters available in Spiral</h1>
+<p>The following table lists the splitters implemented in Spiral at this time:</p>
+<table>
+<thead>
+<tr>
+<th>Splitter name</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>delimiter_split</code></td>
+<td>split only at characters <code>$</code> <code>~</code> <code>_</code> <code>.</code> <code>:</code> <code>/</code> <code>@</code>
+</td>
+</tr>
+<tr>
+<td><code>digit_split</code></td>
+<td>split only at digits</td>
+</tr>
+<tr>
+<td><code>pure_camelcase_split</code></td>
+<td>split at forward camel case transitions (lower to upper case)</td>
+</tr>
+<tr>
+<td><code>safe_simple_split</code></td>
+<td>split at hard delimiter characters and forward camel case only; won't split strings that don't follow strict camel case</td>
+</tr>
+<tr>
+<td><code>simple_split</code></td>
+<td>split at hard delimiter characters and forward camel case, even if a string doesn't follow strict camel case conventions</td>
+</tr>
+<tr>
+<td><code>elementary_split</code></td>
+<td>split by hard delimiters, forward camel case, and digits</td>
+</tr>
+<tr>
+<td><code>heuristic_split</code></td>
+<td>split by hard delimiters, forward camel case, and digits, but recognize special cases such as <code>utf8</code>, <code>sha256</code>, etc.</td>
+</tr>
+<tr>
+<td><em>Samurai</em></td>
+<td>frequency-based approach published in the literature</td>
+</tr>
+<tr>
+<td><em>Ronin</em></td>
+<td>frequency-based approach originally based on Samurai</td>
+</tr>
+</tbody>
+</table>
+<p>The name "Ronin" is a play on the use of the name "Samurai" [@Enslen2009-gk] for their identifier splitting algorithm.  The core loop of Ronin is based on Samurai, but substantially modified and extended.  A goal for Ronin was to produce a splitter that had good performance using only a global table of token frequencies, without the need for an additional table of frequencies mined from the source code currently being analyzed.  This makes Ronin usable even without preprocessing a code base to extract token frequencies.</p>
+<p>The name <em>Spiral</em> is a loose acronym based on "<em>SPlitters for IdentifieRs: A Library</em>".</p>
+<h1><a id="user-content-acknowledgments" class="anchor" aria-hidden="true" href="#acknowledgments"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgments</h1>
+<p>This material is based upon work supported by the <a href="https://nsf.gov" rel="nofollow">National Science Foundation</a> under Grant Number 1533792.  Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
+<h1><a id="user-content-references" class="anchor" aria-hidden="true" href="#references"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h1>
+
+</article>
