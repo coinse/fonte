@@ -85,7 +85,7 @@ We provide a pre-built Docker image, containing our data collection scripts alon
     ```bash
     docker run -dt --name fonte -v $(pwd)/docker/workspace:/root/workspace anonyfonte/fonte:latest
     ```
-    - What the `-v` option does?: The directory `./docker/workspace` in the local machine will share data with `/root/workspace` in the container.
+    - The directory `./docker/workspace` in the local machine will share data with `/root/workspace` in the container.
     - `$(pwd)`: The current directory. Change it to `${PWD}` or `%cd%` if you're using PowerShell or Windows Command Prompt, respectively.
 3. Collect the coverage information and the commit history of `<pid>-<vid>b`
     ```bash
