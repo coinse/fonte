@@ -4,7 +4,7 @@
   <img src="./fonte.png" />
 </p>
 
-## **Environmental Setup**
+## **A. Environmental Setup**
 - Hardware
   - Developed under Mac with Intel chip
   - Compatible with AMD64 processors
@@ -26,11 +26,12 @@
 
   - Docker client (only for the replication or extension): [Download here](https://www.docker.com/products/docker-desktop)
 
-## **Getting Started**
+## **B. Getting Started**
 
-### Please note that
-- The core ingredient data including coverage matrix and commit history is available at `./data/Defects4J/core/`.
-- The BIC dataset is available at `./data/Defects4J/BIC_dataset/`.
+### Please be aware that
+- Information on the file and directory structure can be found at the end of this README file.
+- The necessary data including coverage matrix and commit history can be found in `./data/Defects4J/core/`
+- The BIC dataset is located at `./data/Defects4J/BIC_dataset/`
 
 ### Running Fonte
 ```bash
@@ -67,7 +68,7 @@ python Fonte.py data/Defecst4J/core/<pid>-<vid>b -o <savepath>
                           path to output file (example: output.csv)
   ```
 
-## **Reproducing the experiment results**
+## **C. Reproducing the experiment results**
 1. Run the Jupyter notebook
     ```bash
     jupyter notebook
@@ -76,8 +77,9 @@ python Fonte.py data/Defecst4J/core/<pid>-<vid>b -o <savepath>
 2. Open `experiment.ipynb` and run the cells to reproduce our experiment results.
     - The output will be saved to `./experiment_results/`. Note that the directory already contains the pre-computed results. If you want to fully replicate our experiments, remove all files from the `./experiment_results/` and run the cells again.
 
-## **Wait, how to extract the core data for other Defects4J faults for further extensions?** (optional)
-We provide a pre-built Docker image, containing our data collection scripts along with Defects4J, that can be used to extract the core data for all bugs in Defects4J.
+## **D. Extension for other Defects4J faults** (Optional) 
+To support further extension, we have created a pre-built Docker image that includes our data collection scripts and a fully installed version of Defects4J. This image can be used to gather the core data for any Defects4J fault.
+
 1. Pull the image from DockerHub. This may take a while because the image size is about 4GB.
     ```bash
     docker pull agb94/fonte:latest
@@ -106,8 +108,6 @@ We provide a pre-built Docker image, containing our data collection scripts alon
     docker exec fonte sh collect_core.sh <pid> <vid> <tool:git,shovel> false
     # docker exec fonte sh collect_core.sh Cli 29 git false
     ```
-
-
 
 ## **File & Directory Structure**
 - `README.md`
