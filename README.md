@@ -10,7 +10,7 @@
 |📍 [STATUS](./STATUS.md)| Badges we are aming for |
 |🪪 [LICENSE](LICENSE)|MIT license| 
 
-**Fonte** is a technique for finding the commit that introduced a bug in a software project. The purpose of this research artifact is to provide the necessary information and instructions for using Fonte. This artifact would be useful for researchers or developers who are interested in analysing the commit history of a software project or identifying their bug inducing commits.
+**Fonte** is a technique for finding the commit that introduced a bug in a software project. The purpose of this research artifact is to provide the necessary information and instructions for using Fonte. This artifact would be useful for researchers or developers who are interested in analysing the commit history of software projects or identifying their bug inducing commits.
 
 Included are:
 
