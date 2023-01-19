@@ -1,8 +1,25 @@
 # **Fonte: Finding Bug Inducing Commit From Failure**
-[[preprint](./preprint.pdf))
-<p align="center">
-  <img src="./fonte.png" />
-</p>
+
+![Fonte_Logo](./fonte.png)
+
+|File|Description|
+|------------------------------------|----------------|
+|📄 [PREPRINT](./preprint.pdf) | Preprint of the paper |
+|🖥 [REQUIREMENTS](./REQUIREMENTS.md)| HW/OS/SW Requirements |
+|🔨 [INSTALL](./INSTALL.md)| Installation Guide |
+|📍 [STATUS](./STATUS.md)| Badge we're aming for |
+|🪪 [LICENSE](LICENSE)|MIT License| 
+
+**Fonte** is a technique for finding the commit that introduced a bug in a software project. The purpose of this research artifact is to provide the necessary information and instructions for using Fonte. This artifact would be useful for researchers or developers who are interested in analysing the commit history of a software project or identifying their bug inducing commits.
+
+Included are:
+
+- Instructions for setting up the environment, including required hardware and software (Python and Docker) and information on how to install dependencies
+- Instructions for running Fonte, including an example command and a list of available arguments
+- Instructions for reproducing the experiment results, including information on using a Jupyter notebook
+- Optional instructions for extracting the core data for other Defects4J faults using a pre-built Docker image
+- Information on the structure of the data directory and the location of the core data and BIC dataset
+
 
 ## **A. Environmental Setup**
 - Hardware
