@@ -10,7 +10,7 @@
   - Compatible with amd64 processors
 - SW
   - Tested with bash (recommended), zsh, PowerShell
-  - Requires Python >= 3.9.1
+  - Best working with Python 3.9
     - If you're using `pyenv`, you can use the following commands:
       ```bash
       pyenv install 3.9.1
