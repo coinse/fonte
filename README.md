@@ -3,6 +3,10 @@
 
 ![Fonte_Logo](./fonte.png)
 
+```
+git clone git@github.com:coinse/fonte.git
+```
+
 |File|Description|
 |------------------------------------|----------------|
 |📄 [PREPRINT](./preprint.pdf) | Preprint of the paper |
@@ -20,7 +24,6 @@ Included are:
 - Instructions for reproducing the experiment results, including information on using a Jupyter notebook
 - Optional instructions for extracting the core data for other Defects4J faults using a pre-built Docker image
 - Information on the structure of the data directory and the location of the core data and BIC dataset
-
 
 ## **A. Environmental Setup**
 - Hardware
