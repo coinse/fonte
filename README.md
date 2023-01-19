@@ -1,4 +1,5 @@
 # **Fonte: Finding Bug Inducing Commit From Failure**
+[![DOI](https://zenodo.org/badge/537269386.svg)](https://zenodo.org/badge/latestdoi/537269386)
 
 ![Fonte_Logo](./fonte.png)
 
