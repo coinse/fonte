@@ -1,5 +1,5 @@
 # **Fonte: Finding Bug Inducing Commit From Failure**
-
+[[preprint](./preprint.pdf))
 <p align="center">
   <img src="./fonte.png" />
 </p>
@@ -30,7 +30,7 @@
 
 ### Please be aware that
 - Information on the file and directory structure can be found at the end of this README file.
-- The necessary data including coverage matrix and commit history can be found in `./data/Defects4J/core/`
+- The necessary data including coverage matrix and commit history for each fault can be found in `./data/Defects4J/core/`
 - The BIC dataset is located at `./data/Defects4J/BIC_dataset/`
 
 ### Running Fonte
@@ -78,7 +78,7 @@ python Fonte.py data/Defecst4J/core/<pid>-<vid>b -o <savepath>
     - The output will be saved to `./experiment_results/`. Note that the directory already contains the pre-computed results. If you want to fully replicate our experiments, remove all files from the `./experiment_results/` and run the cells again.
 
 ## **D. Extension for other Defects4J faults** (Optional) 
-To support further extension, we have created a pre-built Docker image that includes our data collection scripts and a fully installed version of Defects4J. This image can be used to gather the core data for any Defects4J fault.
+To support further extension, we have created a pre-built Docker image that includes our data collection scripts and a fully installed version of Defects4J. This image can be used to extract the core data, in the same format as found in ./data/Defects4J/core/, for any Defects4J fault.
 
 1. Pull the image from DockerHub. This may take a while because the image size is about 4GB.
     ```bash
@@ -110,7 +110,6 @@ To support further extension, we have created a pre-built Docker image that incl
     ```
 
 ## **File & Directory Structure**
-- `README.md`
 - `CodeShovel-error.md`: this contains the error reproduction steps for CodeShovel
 - **`Fonte.py`: Fonte CLI**
 - **`experiment.ipynb`: the main experiment script**
