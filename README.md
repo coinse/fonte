@@ -5,13 +5,13 @@
 </p>
 
 ## **Environmental Setup**
-- H/W
+- Hardware
   - Developed under Mac with Intel chip
-  - Compatible with amd64 processors
-- SW
+  - Compatible with AMD64 processors
+- Software
   - Tested with bash (recommended), zsh, PowerShell
-  - Best working with Python 3.9
-    - If you're using `pyenv`, you can use the following commands:
+  - Python 3.9.1
+    - If using `pyenv`, use these commands:
       ```bash
       pyenv install 3.9.1
       pyenv local 3.9.1
