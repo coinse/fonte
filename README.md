@@ -40,8 +40,7 @@ Included are:
         python -m pip install lib/SBFL
         python -m pip install lib/spiral
         ```
-
-  - Docker client (only for the replication or extension): [Download here](https://www.docker.com/products/docker-desktop)
+  - [Docker client](https://www.docker.com/products/docker-desktop) (only for the future extension)
 
 ## **B. Getting Started**
 
@@ -65,7 +64,7 @@ python Fonte.py data/Defecst4J/core/<pid>-<vid>b -o <savepath>
   ```
 
 - Available arguments:
-  ```
+  ```bash
   usage: Fonte.py [-h] [--tool TOOL] [--formula FORMULA] [--alpha ALPHA] [--tau TAU] [--lamb LAMB] [--skip-stage-2] [--output OUTPUT] coredir
 
   Compute commit scores
@@ -77,9 +76,9 @@ python Fonte.py data/Defecst4J/core/<pid>-<vid>b -o <savepath>
     -h, --help            show this help message and exit
     --tool TOOL           history retrieval tool, git or shovel (default: git)
     --formula FORMULA     SBFL formula (default: Ochiai)
-    --alpha ALPHA         alpha (default: 0)
-    --tau TAU             tau (default: max)
-    --lamb LAMB           lambda (default: 0.1)
+    --alpha ALPHA         alpha: 0 or 1 (default: 0)
+    --tau TAU             tau: max or dense (default: max)
+    --lamb LAMB           lambda: [0.0, 1.0) (default: 0.1)
     --skip-stage-2        skip stage 2 (default: False)
     --output OUTPUT, -o OUTPUT
                           path to output file (example: output.csv)
