@@ -80,11 +80,11 @@ python Fonte.py data/Defecst4J/core/<pid>-<vid>b -o <savepath>
 We provide a pre-built Docker image, containing our data collection scripts along with Defects4J, that can be used to extract the core data for all bugs in Defects4J.
 1. Pull the image from DockerHub. This may take a while because the image size is about 4GB.
     ```bash
-    docker pull anonyfonte/fonte:latest
+    docker pull agb94/fonte:latest
     ```
 2. Start a Docker container
     ```bash
-    docker run -dt --name fonte -v $(pwd)/docker/workspace:/root/workspace anonyfonte/fonte:latest
+    docker run -dt --name fonte -v $(pwd)/docker/workspace:/root/workspace agb94/fonte:latest
     ```
     - The directory `./docker/workspace` in the local machine will share data with `/root/workspace` in the container.
     - `$(pwd)`: The current directory. Change it to `${PWD}` or `%cd%` if you're using PowerShell or Windows Command Prompt, respectively.
