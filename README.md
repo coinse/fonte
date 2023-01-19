@@ -110,17 +110,17 @@ To support further extension, we have created a pre-built Docker image that incl
 3. Collect the coverage information and the commit history of `<pid>-<vid>b`
     ```bash
     docker exec fonte sh collect_core.sh <pid> <vid> <tool:git,shovel>
-    # docker exec fonte sh collect_core.sh Cli 29 git
+    # Example: docker exec fonte sh collect_core.sh Cli 29 git
     ```
     - The output will be saved to `./docker/workspace/data/<pid>-<vid>b/`
     - Don't forget to append the tool option (`git` or `shovel`)!
 4. Run Fonte on the newly collected data:
     ```bash
     python Fonte.py ./docker/workspace/data/<pid>-<vid>b/
-    # python Fonte.py ./docker/workspace/data/Cli-29b/
+    # Example: python Fonte.py ./docker/workspace/data/Cli-29b/
     ```
-
-    💡 To **speed up** the AST comparison, you can turn off the code formatting using OpenRewrite. Just append `false` when calling `collect_core.sh`:
+    💡 To **speed up** the AST comparison, you can disable code formatting using OpenRewrite by appending `false` when calling the `collect_core.sh` script:
+    
     ```bash
     docker exec fonte sh collect_core.sh <pid> <vid> <tool:git,shovel> false
     # docker exec fonte sh collect_core.sh Cli 29 git false
