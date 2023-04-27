@@ -13,6 +13,10 @@ def parse_git_log(s):
         if m:
             sha = m.group(1)
             commits.append({'sha': sha, 'before':None, 'after':None})
+        elif line.startswith('Date:') and "commitDate" not in commits[-1]:
+            commits[-1]['commitDate'] = line.lstrip("Date:").strip()
+        elif line.startswith('Author:') and "commitAuthor" not in commits[-1]:
+            commits[-1]['commitAuthor'] = line.lstrip("Author:").strip()
         elif line.startswith('--- '):
             path = line[4:]
             if path.startswith("a/"):
