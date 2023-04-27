@@ -3,6 +3,9 @@ import logging
 import numpy as np
 from .coverage import CoverageMatrix, parse_cobertura_output
 
+class NoCoverageDirException(Exception):
+  pass
+
 class D4JBug:
   D4J_CONFIG = '.defects4j.config'
   SRC_DIR_INFO = 'dir.src.classes'
