@@ -40,6 +40,7 @@ Included are:
       ```
     - **Install dependencies**:
         ```bash
+        pip install --upgrade pip
         python -m pip install numpy==1.21.0 pandas==1.4.3 scipy==1.9.0 tqdm matplotlib==3.4.0 seaborn==0.11.1 rank-bm25==0.2.2 tabulate==0.8.9 jupyter setuptools
         python -m pip install lib/SBFL
         python -m pip install lib/spiral
