@@ -151,7 +151,8 @@ def vote_for_commits(fault_dir, tool, formula, decay, voting_func,
         # update commit depth
         commit_df.loc[commit_df.excluded, "new_depth"] = None
         commit_df["method_identifier"] = commit_df.class_file + ":" + \
-            commit_df.method_name + commit_df.method_signature
+            commit_df.method_name + commit_df.method_signature + \
+            ":L" + commit_df.begin_line.astype(str) + "," + commit_df.end_line.astype(str)
         for _, row in commit_df[commit_df.excluded].iterrows():
             # print(row)
             affected = (commit_df.method_identifier == row.method_identifier)\
