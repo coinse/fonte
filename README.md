@@ -31,9 +31,8 @@ Included are:
   - Compatible with AMD64 processors
 - Software
   - Tested with bash (recommended), zsh, PowerShell
-  - Python 3.9.1
+  - Python 3.9+
     - If using `pyenv`, use these commands:
-    
       ```bash
       pyenv install 3.9.1
       pyenv local 3.9.1
@@ -43,7 +42,9 @@ Included are:
         pip install --upgrade pip
         python -m pip install numpy pandas scipy tqdm matplotlib seaborn rank-bm25 tabulate jupyter setuptools
         python -m pip install lib/SBFL
+        # Alternative: python -m pip install git+https://github.com/Suresoft-GLaDOS/SBFL 
         python -m pip install lib/spiral
+        # Alternative: python -m pip install git+https://github.com/casics/spiral
         ```
   - [Docker client](https://www.docker.com/products/docker-desktop) (only for the future extension)
 
