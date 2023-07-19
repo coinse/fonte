@@ -66,6 +66,7 @@ if ! timeout 10m defects4j test; then
 fi
 
 if [ -f failing_tests ]; then
+  cp failing_tests "$(dirname $path_to_coverage)/failing_tests"
   grep "\-\-\- \K(.*)" failing_tests -oP > tests.trigger
 else
   touch tests.trigger
