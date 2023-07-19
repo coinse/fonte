@@ -17,7 +17,6 @@ echo "Measuring coverage at $tmp_dir ....................................... OK"
 (REL=true; sh ./measure_coverage.sh $pid $vid $tmp_dir $cov_path)
 if [ $? -eq 0 ]; then
   [ ! -d $output_dir ] && mkdir $output_dir
-  cp $tmp_dir/failing_tests $output_dir/failing_tests
   cp $tmp_dir/commits.log $output_dir/commits.log
   source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 11.0.12-open
   [ ! -d $output_dir/$tool ] && mkdir $output_dir/$tool
