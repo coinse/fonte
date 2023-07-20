@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
     cp $tmp_dir/shovel* $output_dir/$tool/raw/
   fi
   sh ./tools/detect_style_change.sh $pid $vid $tool $use_Rewrite
-  sh ./tools/combine_style_change_results.sh $pid $vid $tool
+  sh ./tools/combine_style_change_results.sh $pid $vid $tool $use_Rewrite
 
   #rm -rf $tmp_dir
   echo "Cleaning up $tmp_dir"

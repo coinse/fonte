@@ -3,10 +3,17 @@
 pid=$1
 vid=$2
 tool=$3
+use_Rewrite=$4
 
-scdir=/root/workspace/data/$pid-${vid}b/$tool/validation
+if [ "$use_Rewrite" = true ]; then
+  postfix=""
+else
+  postfix="_noOpenRewrite"
+fi
+
+scdir=/root/workspace/data/$pid-${vid}b/$tool/validation${postfix}
 commits=/root/workspace/data/${pid}-${vid}b/$tool/commits.pkl
-aggregated=/root/workspace/data/${pid}-${vid}b/$tool/validation.csv
+aggregated=/root/workspace/data/${pid}-${vid}b/$tool/validation${postfix}.csv
 
 if [ ! -f $aggregated ]; then
   touch $aggregated

@@ -23,7 +23,9 @@ if __name__ == "__main__":
     parser.add_argument('--lamb', type=float, default=0.1,
         help="lambda (default: 0.1)")
     parser.add_argument('--skip-stage-2', action="store_true",
-        help="skip stage 2 (default: False)")
+        help="skiping stage 2 (default: False)")
+    parser.add_argument('--no-openrewrite', action="store_true",
+        help="not using openrewrite in Stage 2(default: False)")
     parser.add_argument('--output', '-o',
         help="path to output file (example: output.csv)")
     args = parser.parse_args()
