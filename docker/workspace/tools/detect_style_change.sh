@@ -5,7 +5,12 @@ vid=$2
 tool=$3
 use_Rewrite=$4
 
-scdir=/root/workspace/data/$pid-${vid}b/$tool/validation
+if [ "$use_Rewrite" = true ]; then
+  scdir=/root/workspace/data/$pid-${vid}b/$tool/validation
+else
+  scdir=/root/workspace/data/$pid-${vid}b/$tool/validation_noOpenRewrite
+fi
+
 commits=/root/workspace/data/${pid}-${vid}b/$tool/commits.pkl
 
 # clean up the output directory
