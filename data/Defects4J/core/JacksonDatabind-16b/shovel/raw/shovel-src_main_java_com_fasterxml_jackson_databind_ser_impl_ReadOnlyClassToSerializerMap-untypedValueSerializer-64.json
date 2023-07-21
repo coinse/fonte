@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReadOnlyClassToSerializerMap.java",
+  "functionName": "untypedValueSerializer",
+  "functionId": "untypedValueSerializer___type-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/impl/ReadOnlyClassToSerializerMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 64,
+  "functionEndLine": 71,
+  "numCommitsSeen": 7,
+  "timeTaken": 224,
+  "changeHistory": [
+    "3ac5fa9ec32bbc20cddd7db2804635fe0a99bac3",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "3ac5fa9ec32bbc20cddd7db2804635fe0a99bac3": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3ac5fa9ec32bbc20cddd7db2804635fe0a99bac3": {
+      "type": "Ybodychange",
+      "commitMessage": "change cache key creation to lazy, minor perf improvement\n",
+      "commitDate": "11/11/12, 3:47 PM",
+      "commitName": "3ac5fa9ec32bbc20cddd7db2804635fe0a99bac3",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/2/12, 5:33 PM",
+      "commitNameOld": "82b474d51545919cb38a49485f56fd29d6ed199b",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 282.93,
+      "commitsBetweenForRepo": 398,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JsonSerializer\u003cObject\u003e untypedValueSerializer(JavaType type) {\n    if (_cacheKey \u003d\u003d null) {\n        _cacheKey \u003d new TypeKey(type, false);\n    } else {\n        _cacheKey.resetUntyped(type);\n    }\n    return _map.find(_cacheKey);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/ReadOnlyClassToSerializerMap.java",
+      "functionStartLine": 69,
+      "functionName": "untypedValueSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,8 @@\n public JsonSerializer\u003cObject\u003e untypedValueSerializer(JavaType type) {\n-    _cacheKey.resetUntyped(type);\n+    if (_cacheKey \u003d\u003d null) {\n+        _cacheKey \u003d new TypeKey(type, false);\n+    } else {\n+        _cacheKey.resetUntyped(type);\n+    }\n     return _map.find(_cacheKey);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+public JsonSerializer\u003cObject\u003e untypedValueSerializer(JavaType type) {\n+    _cacheKey.resetUntyped(type);\n+    return _map.find(_cacheKey);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JsonSerializer\u003cObject\u003e untypedValueSerializer(JavaType type) {\n    _cacheKey.resetUntyped(type);\n    return _map.find(_cacheKey);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/ReadOnlyClassToSerializerMap.java",
+      "functionStartLine": 69,
+      "functionName": "untypedValueSerializer",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

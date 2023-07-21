@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectMapper.java",
+  "functionName": "enableDefaultTyping",
+  "functionId": "enableDefaultTyping___applicability-DefaultTyping__includeAs-JsonTypeInfo.As",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method for enabling automatic inclusion of type information, needed\nfor proper deserialization of polymorphic types (unless types\nhave been annotated with {@link com.fasterxml.jackson.annotation.JsonTypeInfo}).\n\n@param applicability Defines kinds of types for which additional type information\n   is added; see {@link DefaultTyping} for more information.\n",
+  "functionStartLine": 1095,
+  "functionEndLine": 1102,
+  "numCommitsSeen": 136,
+  "timeTaken": 10870,
+  "changeHistory": [
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": {
+      "type": "Ydocchange",
+      "commitMessage": "Clean up, to get rid of deprecated stuff\n",
+      "commitDate": "12/24/11, 10:07 PM",
+      "commitName": "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 8:25 PM",
+      "commitNameOld": "2f823444ac34d14ab976b15e70ac82f2168ac7f8",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.07,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public ObjectMapper enableDefaultTyping(DefaultTyping applicability, JsonTypeInfo.As includeAs) {\n    TypeResolverBuilder\u003c?\u003e typer \u003d new DefaultTypeResolverBuilder(applicability);\n    typer \u003d typer.init(JsonTypeInfo.Id.CLASS, null);\n    typer \u003d typer.inclusion(includeAs);\n    return setDefaultTyping(typer);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 837,
+      "functionName": "enableDefaultTyping",
+      "functionAnnotation": "",
+      "functionDoc": "Method for enabling automatic inclusion of type information, needed\nfor proper deserialization of polymorphic types (unless types\nhave been annotated with {@link com.fasterxml.jackson.annotation.JsonTypeInfo}).\n\n@param applicability Defines kinds of types for which additional type information\n   is added; see {@link DefaultTyping} for more information.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method for enabling automatic inclusion of type information, needed\nfor proper deserialization of polymorphic types (unless types\nhave been annotated with {@link org.codehaus.jackson.annotate.JsonTypeInfo}).\n\n@param applicability Defines kinds of types for which additional type information\n   is added; see {@link DefaultTyping} for more information.\n",
+        "newValue": "Method for enabling automatic inclusion of type information, needed\nfor proper deserialization of polymorphic types (unless types\nhave been annotated with {@link com.fasterxml.jackson.annotation.JsonTypeInfo}).\n\n@param applicability Defines kinds of types for which additional type information\n   is added; see {@link DefaultTyping} for more information.\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+public ObjectMapper enableDefaultTyping(DefaultTyping applicability, JsonTypeInfo.As includeAs) {\n+    TypeResolverBuilder\u003c?\u003e typer \u003d new DefaultTypeResolverBuilder(applicability);\n+    typer \u003d typer.init(JsonTypeInfo.Id.CLASS, null);\n+    typer \u003d typer.inclusion(includeAs);\n+    return setDefaultTyping(typer);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public ObjectMapper enableDefaultTyping(DefaultTyping applicability, JsonTypeInfo.As includeAs) {\n    TypeResolverBuilder\u003c?\u003e typer \u003d new DefaultTypeResolverBuilder(applicability);\n    typer \u003d typer.init(JsonTypeInfo.Id.CLASS, null);\n    typer \u003d typer.inclusion(includeAs);\n    return setDefaultTyping(typer);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 871,
+      "functionName": "enableDefaultTyping",
+      "functionAnnotation": "",
+      "functionDoc": "Method for enabling automatic inclusion of type information, needed\nfor proper deserialization of polymorphic types (unless types\nhave been annotated with {@link org.codehaus.jackson.annotate.JsonTypeInfo}).\n\n@param applicability Defines kinds of types for which additional type information\n   is added; see {@link DefaultTyping} for more information.\n"
+    }
+  }
+}

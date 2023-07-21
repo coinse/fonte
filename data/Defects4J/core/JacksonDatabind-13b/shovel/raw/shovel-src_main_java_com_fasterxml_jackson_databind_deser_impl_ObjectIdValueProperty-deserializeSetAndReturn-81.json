@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectIdValueProperty.java",
+  "functionName": "deserializeSetAndReturn",
+  "functionId": "deserializeSetAndReturn___jp-JsonParser__ctxt-DeserializationContext__instance-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 81,
+  "functionEndLine": 94,
+  "numCommitsSeen": 18,
+  "timeTaken": 2106,
+  "changeHistory": [
+    "5f177cc6a1fc10de8bca2f42e28f9f0c211b94b1",
+    "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d",
+    "60e30f499e9318b2b18c3cbac4edc2bfcf6d6d66",
+    "2fd4ffd9963545ce735a58957a84afb90809561e"
+  ],
+  "changeHistoryShort": {
+    "5f177cc6a1fc10de8bca2f42e28f9f0c211b94b1": "Yexceptionschange",
+    "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d": "Ybodychange",
+    "60e30f499e9318b2b18c3cbac4edc2bfcf6d6d66": "Yfilerename",
+    "2fd4ffd9963545ce735a58957a84afb90809561e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5f177cc6a1fc10de8bca2f42e28f9f0c211b94b1": {
+      "type": "Yexceptionschange",
+      "commitMessage": "cosmetic\n",
+      "commitDate": "8/7/14, 11:26 PM",
+      "commitName": "5f177cc6a1fc10de8bca2f42e28f9f0c211b94b1",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/10/14, 7:59 AM",
+      "commitNameOld": "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d",
+      "commitAuthorOld": "Pascal Gélinas",
+      "daysBetweenCommits": 178.6,
+      "commitsBetweenForRepo": 247,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException {\n    Object id \u003d _valueDeserializer.deserialize(jp, ctxt);\n    ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator, _objectIdReader.resolver);\n    roid.bindItem(instance);\n    SettableBeanProperty idProp \u003d _objectIdReader.idProperty;\n    if (idProp !\u003d null) {\n        return idProp.setAndReturn(instance, id);\n    }\n    return instance;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java",
+      "functionStartLine": 86,
+      "functionName": "deserializeSetAndReturn",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n @Override\n-public Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException, JsonProcessingException {\n+public Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException {\n     Object id \u003d _valueDeserializer.deserialize(jp, ctxt);\n     ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator, _objectIdReader.resolver);\n     roid.bindItem(instance);\n     SettableBeanProperty idProp \u003d _objectIdReader.idProperty;\n     if (idProp !\u003d null) {\n         return idProp.setAndReturn(instance, id);\n     }\n     return instance;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[IOException, JsonProcessingException]",
+        "newValue": "[IOException]"
+      }
+    },
+    "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d": {
+      "type": "Ybodychange",
+      "commitMessage": "Implementation of custom object id resolution.\n",
+      "commitDate": "2/10/14, 7:59 AM",
+      "commitName": "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d",
+      "commitAuthor": "Pascal Gélinas",
+      "commitDateOld": "8/10/13, 9:47 PM",
+      "commitNameOld": "9ad6b5e9064702d52ad202061b0ca1c574e67cd2",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 183.47,
+      "commitsBetweenForRepo": 233,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException, JsonProcessingException {\n    Object id \u003d _valueDeserializer.deserialize(jp, ctxt);\n    ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator, _objectIdReader.resolver);\n    roid.bindItem(instance);\n    SettableBeanProperty idProp \u003d _objectIdReader.idProperty;\n    if (idProp !\u003d null) {\n        return idProp.setAndReturn(instance, id);\n    }\n    return instance;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java",
+      "functionStartLine": 88,
+      "functionName": "deserializeSetAndReturn",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n @Override\n public Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException, JsonProcessingException {\n     Object id \u003d _valueDeserializer.deserialize(jp, ctxt);\n-    ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator);\n+    ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator, _objectIdReader.resolver);\n     roid.bindItem(instance);\n     SettableBeanProperty idProp \u003d _objectIdReader.idProperty;\n     if (idProp !\u003d null) {\n         return idProp.setAndReturn(instance, id);\n     }\n     return instance;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "60e30f499e9318b2b18c3cbac4edc2bfcf6d6d66": {
+      "type": "Yfilerename",
+      "commitMessage": "Implement [JACKSON-792]; can now handle Object Id forward references correctly\n",
+      "commitDate": "3/5/12, 10:34 PM",
+      "commitName": "60e30f499e9318b2b18c3cbac4edc2bfcf6d6d66",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/4/12, 7:52 PM",
+      "commitNameOld": "e1ceccd484643cd7a8e213de14bc3a85eebb3c11",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.11,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException, JsonProcessingException {\n    Object id \u003d _valueDeserializer.deserialize(jp, ctxt);\n    ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator);\n    roid.bindItem(instance);\n    SettableBeanProperty idProp \u003d _objectIdReader.idProperty;\n    if (idProp !\u003d null) {\n        return idProp.setAndReturn(instance, id);\n    }\n    return instance;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java",
+      "functionStartLine": 75,
+      "functionName": "deserializeSetAndReturn",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdProperty.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java"
+      }
+    },
+    "2fd4ffd9963545ce735a58957a84afb90809561e": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement Builder-based deserializer; fix a few ObjectId issues\n",
+      "commitDate": "2/17/12, 10:40 PM",
+      "commitName": "2fd4ffd9963545ce735a58957a84afb90809561e",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+public Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException, JsonProcessingException {\n+    Object id \u003d _valueDeserializer.deserialize(jp, ctxt);\n+    ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator);\n+    roid.bindItem(instance);\n+    SettableBeanProperty idProp \u003d _objectIdReader.idProperty;\n+    if (idProp !\u003d null) {\n+        return idProp.setAndReturn(instance, id);\n+    }\n+    return instance;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Object deserializeSetAndReturn(JsonParser jp, DeserializationContext ctxt, Object instance) throws IOException, JsonProcessingException {\n    Object id \u003d _valueDeserializer.deserialize(jp, ctxt);\n    ReadableObjectId roid \u003d ctxt.findObjectId(id, _objectIdReader.generator);\n    roid.bindItem(instance);\n    SettableBeanProperty idProp \u003d _objectIdReader.idProperty;\n    if (idProp !\u003d null) {\n        return idProp.setAndReturn(instance, id);\n    }\n    return instance;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdProperty.java",
+      "functionStartLine": 75,
+      "functionName": "deserializeSetAndReturn",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

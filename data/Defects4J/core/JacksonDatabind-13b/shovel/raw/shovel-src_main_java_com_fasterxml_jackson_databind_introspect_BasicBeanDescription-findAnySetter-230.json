@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicBeanDescription.java",
+  "functionName": "findAnySetter",
+  "functionId": "findAnySetter",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 230,
+  "functionEndLine": 247,
+  "numCommitsSeen": 31,
+  "timeTaken": 1182,
+  "changeHistory": [
+    "1dcce980954c9acef708aa9a0a128f04564bdd25",
+    "28bde0726d83be7f70ca4586abee6f536bfc8885",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "1dcce980954c9acef708aa9a0a128f04564bdd25": "Ybodychange",
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": "Ydocchange",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1dcce980954c9acef708aa9a0a128f04564bdd25": {
+      "type": "Ybodychange",
+      "commitMessage": "Bit more renaming for consistency\n",
+      "commitDate": "1/26/12, 12:33 PM",
+      "commitName": "1dcce980954c9acef708aa9a0a128f04564bdd25",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "1/26/12, 11:35 AM",
+      "commitNameOld": "20c80806d3542abc0d159ec7a4a1a8351bd5d063",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.04,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedMethod findAnySetter() throws IllegalArgumentException {\n    if (_anySetterMethod !\u003d null) {\n        Class\u003c?\u003e type \u003d _anySetterMethod.getRawParameterType(0);\n        if (type !\u003d String.class \u0026\u0026 type !\u003d Object.class) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-setter\u0027 annotation on method \" + _anySetterMethod.getName() + \"(): first argument not of type String or Object, but \" + type.getName());\n        }\n    }\n    return _anySetterMethod;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 186,
+      "functionName": "findAnySetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,10 @@\n @Override\n public AnnotatedMethod findAnySetter() throws IllegalArgumentException {\n     if (_anySetterMethod !\u003d null) {\n-        Class\u003c?\u003e type \u003d _anySetterMethod.getParameterClass(0);\n+        Class\u003c?\u003e type \u003d _anySetterMethod.getRawParameterType(0);\n         if (type !\u003d String.class \u0026\u0026 type !\u003d Object.class) {\n             throw new IllegalArgumentException(\"Invalid \u0027any-setter\u0027 annotation on method \" + _anySetterMethod.getName() + \"(): first argument not of type String or Object, but \" + type.getName());\n         }\n     }\n     return _anySetterMethod;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": {
+      "type": "Ydocchange",
+      "commitMessage": "Refactoring: eliminate exposure of BasicBeanDescription (now just base class. BeanDescription)\n",
+      "commitDate": "1/22/12, 10:57 PM",
+      "commitName": "28bde0726d83be7f70ca4586abee6f536bfc8885",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/19/12, 2:36 PM",
+      "commitNameOld": "de0c33f113d1ba64cec81ba118dc1c84d3cd70a5",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 3.35,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedMethod findAnySetter() throws IllegalArgumentException {\n    if (_anySetterMethod !\u003d null) {\n        Class\u003c?\u003e type \u003d _anySetterMethod.getParameterClass(0);\n        if (type !\u003d String.class \u0026\u0026 type !\u003d Object.class) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-setter\u0027 annotation on method \" + _anySetterMethod.getName() + \"(): first argument not of type String or Object, but \" + type.getName());\n        }\n    }\n    return _anySetterMethod;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 186,
+      "functionName": "findAnySetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnySetter}. If no such method exists\nnull is returned. If more than one are found, an exception\nis thrown.\nAdditional checks are also made to see that method signature\nis acceptable: needs to take 2 arguments, first one String or\nObject; second any can be any type.\n",
+        "newValue": ""
+      }
+    },
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": {
+      "type": "Ydocchange",
+      "commitMessage": "Clean up, to get rid of deprecated stuff\n",
+      "commitDate": "12/24/11, 10:07 PM",
+      "commitName": "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 8:25 PM",
+      "commitNameOld": "2f823444ac34d14ab976b15e70ac82f2168ac7f8",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.07,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedMethod findAnySetter() throws IllegalArgumentException {\n    if (_anySetterMethod !\u003d null) {\n        Class\u003c?\u003e type \u003d _anySetterMethod.getParameterClass(0);\n        if (type !\u003d String.class \u0026\u0026 type !\u003d Object.class) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-setter\u0027 annotation on method \" + _anySetterMethod.getName() + \"(): first argument not of type String or Object, but \" + type.getName());\n        }\n    }\n    return _anySetterMethod;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 230,
+      "functionName": "findAnySetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnySetter}. If no such method exists\nnull is returned. If more than one are found, an exception\nis thrown.\nAdditional checks are also made to see that method signature\nis acceptable: needs to take 2 arguments, first one String or\nObject; second any can be any type.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method used to locate the method of introspected class that\nimplements {@link org.codehaus.jackson.annotate.JsonAnySetter}. If no such method exists\nnull is returned. If more than one are found, an exception\nis thrown.\nAdditional checks are also made to see that method signature\nis acceptable: needs to take 2 arguments, first one String or\nObject; second any can be any type.\n",
+        "newValue": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnySetter}. If no such method exists\nnull is returned. If more than one are found, an exception\nis thrown.\nAdditional checks are also made to see that method signature\nis acceptable: needs to take 2 arguments, first one String or\nObject; second any can be any type.\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+public AnnotatedMethod findAnySetter() throws IllegalArgumentException {\n+    if (_anySetterMethod !\u003d null) {\n+        Class\u003c?\u003e type \u003d _anySetterMethod.getParameterClass(0);\n+        if (type !\u003d String.class \u0026\u0026 type !\u003d Object.class) {\n+            throw new IllegalArgumentException(\"Invalid \u0027any-setter\u0027 annotation on method \" + _anySetterMethod.getName() + \"(): first argument not of type String or Object, but \" + type.getName());\n+        }\n+    }\n+    return _anySetterMethod;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic AnnotatedMethod findAnySetter() throws IllegalArgumentException {\n    if (_anySetterMethod !\u003d null) {\n        Class\u003c?\u003e type \u003d _anySetterMethod.getParameterClass(0);\n        if (type !\u003d String.class \u0026\u0026 type !\u003d Object.class) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-setter\u0027 annotation on method \" + _anySetterMethod.getName() + \"(): first argument not of type String or Object, but \" + type.getName());\n        }\n    }\n    return _anySetterMethod;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 236,
+      "functionName": "findAnySetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link org.codehaus.jackson.annotate.JsonAnySetter}. If no such method exists\nnull is returned. If more than one are found, an exception\nis thrown.\nAdditional checks are also made to see that method signature\nis acceptable: needs to take 2 arguments, first one String or\nObject; second any can be any type.\n"
+    }
+  }
+}

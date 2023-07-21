@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanUtil.java",
+  "functionName": "okNameForMutator",
+  "functionId": "okNameForMutator___am-AnnotatedMethod__prefix-String__stdNaming-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@since 2.5\n",
+  "functionStartLine": 93,
+  "functionEndLine": 102,
+  "numCommitsSeen": 16,
+  "timeTaken": 2205,
+  "changeHistory": [
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+    "2a41afcbb877081476a441628b50ff59f08a2d0d",
+    "2fd4ffd9963545ce735a58957a84afb90809561e"
+  ],
+  "changeHistoryShort": {
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "2a41afcbb877081476a441628b50ff59f08a2d0d": "Yformatchange",
+    "2fd4ffd9963545ce735a58957a84afb90809561e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "Fixed #653\n",
+      "commitDate": "12/18/14, 8:45 PM",
+      "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fixed #653\n",
+          "commitDate": "12/18/14, 8:45 PM",
+          "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/17/14, 10:03 PM",
+          "commitNameOld": "cb13a6fbbb4140c2ad2003b7f130ae852ccfc556",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static String okNameForMutator(AnnotatedMethod am, String prefix, boolean stdNaming) {\n    String name \u003d am.getName();\n    if (name.startsWith(prefix)) {\n        return stdNaming ? stdManglePropertyName(name, prefix.length()) : legacyManglePropertyName(name, prefix.length());\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+          "functionStartLine": 93,
+          "functionName": "okNameForMutator",
+          "functionAnnotation": "",
+          "functionDoc": "\n@since 2.5\n",
+          "diff": "@@ -1,7 +1,7 @@\n-public static String okNameForMutator(AnnotatedMethod am, String prefix) {\n+public static String okNameForMutator(AnnotatedMethod am, String prefix, boolean stdNaming) {\n     String name \u003d am.getName();\n     if (name.startsWith(prefix)) {\n-        return manglePropertyName(name.substring(prefix.length()));\n+        return stdNaming ? stdManglePropertyName(name, prefix.length()) : legacyManglePropertyName(name, prefix.length());\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[am-AnnotatedMethod, prefix-String]",
+            "newValue": "[am-AnnotatedMethod, prefix-String, stdNaming-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fixed #653\n",
+          "commitDate": "12/18/14, 8:45 PM",
+          "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/17/14, 10:03 PM",
+          "commitNameOld": "cb13a6fbbb4140c2ad2003b7f130ae852ccfc556",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static String okNameForMutator(AnnotatedMethod am, String prefix, boolean stdNaming) {\n    String name \u003d am.getName();\n    if (name.startsWith(prefix)) {\n        return stdNaming ? stdManglePropertyName(name, prefix.length()) : legacyManglePropertyName(name, prefix.length());\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+          "functionStartLine": 93,
+          "functionName": "okNameForMutator",
+          "functionAnnotation": "",
+          "functionDoc": "\n@since 2.5\n",
+          "diff": "@@ -1,7 +1,7 @@\n-public static String okNameForMutator(AnnotatedMethod am, String prefix) {\n+public static String okNameForMutator(AnnotatedMethod am, String prefix, boolean stdNaming) {\n     String name \u003d am.getName();\n     if (name.startsWith(prefix)) {\n-        return manglePropertyName(name.substring(prefix.length()));\n+        return stdNaming ? stdManglePropertyName(name, prefix.length()) : legacyManglePropertyName(name, prefix.length());\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Fixed #653\n",
+          "commitDate": "12/18/14, 8:45 PM",
+          "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/17/14, 10:03 PM",
+          "commitNameOld": "cb13a6fbbb4140c2ad2003b7f130ae852ccfc556",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static String okNameForMutator(AnnotatedMethod am, String prefix, boolean stdNaming) {\n    String name \u003d am.getName();\n    if (name.startsWith(prefix)) {\n        return stdNaming ? stdManglePropertyName(name, prefix.length()) : legacyManglePropertyName(name, prefix.length());\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+          "functionStartLine": 93,
+          "functionName": "okNameForMutator",
+          "functionAnnotation": "",
+          "functionDoc": "\n@since 2.5\n",
+          "diff": "@@ -1,7 +1,7 @@\n-public static String okNameForMutator(AnnotatedMethod am, String prefix) {\n+public static String okNameForMutator(AnnotatedMethod am, String prefix, boolean stdNaming) {\n     String name \u003d am.getName();\n     if (name.startsWith(prefix)) {\n-        return manglePropertyName(name.substring(prefix.length()));\n+        return stdNaming ? stdManglePropertyName(name, prefix.length()) : legacyManglePropertyName(name, prefix.length());\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "\n@since 2.5\n"
+          }
+        }
+      ]
+    },
+    "2a41afcbb877081476a441628b50ff59f08a2d0d": {
+      "type": "Yformatchange",
+      "commitMessage": "Starting to work on resolving more of non-conflicting getters\n",
+      "commitDate": "5/30/14, 10:58 PM",
+      "commitName": "2a41afcbb877081476a441628b50ff59f08a2d0d",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/18/13, 11:04 AM",
+      "commitNameOld": "f4ce14a433f8311ad696c638d7b386f7ad640b55",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 254.5,
+      "commitsBetweenForRepo": 385,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String okNameForMutator(AnnotatedMethod am, String prefix) {\n    String name \u003d am.getName();\n    if (name.startsWith(prefix)) {\n        return manglePropertyName(name.substring(prefix.length()));\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+      "functionStartLine": 83,
+      "functionName": "okNameForMutator",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "2fd4ffd9963545ce735a58957a84afb90809561e": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement Builder-based deserializer; fix a few ObjectId issues\n",
+      "commitDate": "2/17/12, 10:40 PM",
+      "commitName": "2fd4ffd9963545ce735a58957a84afb90809561e",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+public static String okNameForMutator(AnnotatedMethod am, String prefix) {\n+    String name \u003d am.getName();\n+    if (name.startsWith(prefix)) {\n+        return manglePropertyName(name.substring(prefix.length()));\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String okNameForMutator(AnnotatedMethod am, String prefix) {\n    String name \u003d am.getName();\n    if (name.startsWith(prefix)) {\n        return manglePropertyName(name.substring(prefix.length()));\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+      "functionStartLine": 83,
+      "functionName": "okNameForMutator",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

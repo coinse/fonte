@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CreatorCollector.java",
+  "functionName": "verifyNonDup",
+  "functionId": "verifyNonDup___newOne-AnnotatedWithParams__oldOne-AnnotatedWithParams__type-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 222,
+  "functionEndLine": 232,
+  "numCommitsSeen": 17,
+  "timeTaken": 433,
+  "changeHistory": [
+    "11cec4de94b8de50670e4b0be2d8d5d1e4d6b1f7",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "11cec4de94b8de50670e4b0be2d8d5d1e4d6b1f7": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "11cec4de94b8de50670e4b0be2d8d5d1e4d6b1f7": {
+      "type": "Ybodychange",
+      "commitMessage": "Implement [JACKSON-850]: allow use of zero-arg factory methods using @JsonCreator\n",
+      "commitDate": "7/22/12, 10:33 PM",
+      "commitName": "11cec4de94b8de50670e4b0be2d8d5d1e4d6b1f7",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "5/1/12, 11:20 PM",
+      "commitNameOld": "9cddb7a9435f92c2be682af0157ab51e2061e23f",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 81.97,
+      "commitsBetweenForRepo": 59,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected AnnotatedWithParams verifyNonDup(AnnotatedWithParams newOne, AnnotatedWithParams oldOne, String type) {\n    if (oldOne !\u003d null) {\n        if (oldOne.getClass() \u003d\u003d newOne.getClass()) {\n            throw new IllegalArgumentException(\"Conflicting \" + type + \" creators: already had \" + oldOne + \", encountered \" + newOne);\n        }\n    }\n    return _fixAccess(newOne);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java",
+      "functionStartLine": 198,
+      "functionName": "verifyNonDup",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,8 @@\n protected AnnotatedWithParams verifyNonDup(AnnotatedWithParams newOne, AnnotatedWithParams oldOne, String type) {\n     if (oldOne !\u003d null) {\n         if (oldOne.getClass() \u003d\u003d newOne.getClass()) {\n             throw new IllegalArgumentException(\"Conflicting \" + type + \" creators: already had \" + oldOne + \", encountered \" + newOne);\n         }\n     }\n-    if (_canFixAccess) {\n-        ClassUtil.checkAndFixAccess((Member) newOne.getAnnotated());\n-    }\n-    return newOne;\n+    return _fixAccess(newOne);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+protected AnnotatedWithParams verifyNonDup(AnnotatedWithParams newOne, AnnotatedWithParams oldOne, String type) {\n+    if (oldOne !\u003d null) {\n+        if (oldOne.getClass() \u003d\u003d newOne.getClass()) {\n+            throw new IllegalArgumentException(\"Conflicting \" + type + \" creators: already had \" + oldOne + \", encountered \" + newOne);\n+        }\n+    }\n+    if (_canFixAccess) {\n+        ClassUtil.checkAndFixAccess((Member) newOne.getAnnotated());\n+    }\n+    return newOne;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected AnnotatedWithParams verifyNonDup(AnnotatedWithParams newOne, AnnotatedWithParams oldOne, String type) {\n    if (oldOne !\u003d null) {\n        if (oldOne.getClass() \u003d\u003d newOne.getClass()) {\n            throw new IllegalArgumentException(\"Conflicting \" + type + \" creators: already had \" + oldOne + \", encountered \" + newOne);\n        }\n    }\n    if (_canFixAccess) {\n        ClassUtil.checkAndFixAccess((Member) newOne.getAnnotated());\n    }\n    return newOne;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java",
+      "functionStartLine": 128,
+      "functionName": "verifyNonDup",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

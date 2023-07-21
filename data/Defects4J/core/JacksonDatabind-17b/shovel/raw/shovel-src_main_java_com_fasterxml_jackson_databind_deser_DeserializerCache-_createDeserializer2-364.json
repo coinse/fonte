@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializerCache.java",
+  "functionName": "_createDeserializer2",
+  "functionId": "_createDeserializer2___ctxt-DeserializationContext__factory-DeserializerFactory__type-JavaType__beanDesc-BeanDescription",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 364,
+  "functionEndLine": 404,
+  "numCommitsSeen": 32,
+  "timeTaken": 2057,
+  "changeHistory": [
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e",
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96"
+  ],
+  "changeHistoryShort": {
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e": "Yformatchange",
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e": {
+      "type": "Yformatchange",
+      "commitMessage": "Improvements to Converter, added StdConverter base class\n",
+      "commitDate": "3/3/13, 1:11 PM",
+      "commitName": "cc737528660b99e71865096e3cd0c4c4a2b3871e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/2/13, 3:08 PM",
+      "commitNameOld": "329b50c86796b277dec4188e46675968e79cd071",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.92,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonDeserializer\u003c?\u003e _createDeserializer2(DeserializationContext ctxt, DeserializerFactory factory, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    final DeserializationConfig config \u003d ctxt.getConfig();\n    if (type.isEnumType()) {\n        return factory.createEnumDeserializer(ctxt, type, beanDesc);\n    }\n    if (type.isContainerType()) {\n        if (type.isArrayType()) {\n            return factory.createArrayDeserializer(ctxt, (ArrayType) type, beanDesc);\n        }\n        if (type.isMapLikeType()) {\n            MapLikeType mlt \u003d (MapLikeType) type;\n            if (mlt.isTrueMapType()) {\n                return factory.createMapDeserializer(ctxt, (MapType) mlt, beanDesc);\n            }\n            return factory.createMapLikeDeserializer(ctxt, mlt, beanDesc);\n        }\n        if (type.isCollectionLikeType()) {\n            JsonFormat.Value format \u003d beanDesc.findExpectedFormat(null);\n            if (format \u003d\u003d null || format.getShape() !\u003d JsonFormat.Shape.OBJECT) {\n                CollectionLikeType clt \u003d (CollectionLikeType) type;\n                if (clt.isTrueCollectionType()) {\n                    return factory.createCollectionDeserializer(ctxt, (CollectionType) clt, beanDesc);\n                }\n                return factory.createCollectionLikeDeserializer(ctxt, clt, beanDesc);\n            }\n        }\n    }\n    if (JsonNode.class.isAssignableFrom(type.getRawClass())) {\n        return factory.createTreeDeserializer(config, type, beanDesc);\n    }\n    return factory.createBeanDeserializer(ctxt, type, beanDesc);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+      "functionStartLine": 362,
+      "functionName": "_createDeserializer2",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": {
+      "type": "Yintroduced",
+      "commitMessage": "More work on converters for deserialization; now passes 2/6 of new tests. Also adding \u0027DatabindContext\u0027, shared base class for DeserializationContext, SerializerProvider\n",
+      "commitDate": "3/2/13, 1:13 PM",
+      "commitName": "9439a310c169a00cd01a4e9b64fb9f5441297b96",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,32 @@\n+protected JsonDeserializer\u003c?\u003e _createDeserializer2(DeserializationContext ctxt, DeserializerFactory factory, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n+    final DeserializationConfig config \u003d ctxt.getConfig();\n+    if (type.isEnumType()) {\n+        return factory.createEnumDeserializer(ctxt, type, beanDesc);\n+    }\n+    if (type.isContainerType()) {\n+        if (type.isArrayType()) {\n+            return factory.createArrayDeserializer(ctxt, (ArrayType) type, beanDesc);\n+        }\n+        if (type.isMapLikeType()) {\n+            MapLikeType mlt \u003d (MapLikeType) type;\n+            if (mlt.isTrueMapType()) {\n+                return factory.createMapDeserializer(ctxt, (MapType) mlt, beanDesc);\n+            }\n+            return factory.createMapLikeDeserializer(ctxt, mlt, beanDesc);\n+        }\n+        if (type.isCollectionLikeType()) {\n+            JsonFormat.Value format \u003d beanDesc.findExpectedFormat(null);\n+            if (format \u003d\u003d null || format.getShape() !\u003d JsonFormat.Shape.OBJECT) {\n+                CollectionLikeType clt \u003d (CollectionLikeType) type;\n+                if (clt.isTrueCollectionType()) {\n+                    return factory.createCollectionDeserializer(ctxt, (CollectionType) clt, beanDesc);\n+                }\n+                return factory.createCollectionLikeDeserializer(ctxt, clt, beanDesc);\n+            }\n+        }\n+    }\n+    if (JsonNode.class.isAssignableFrom(type.getRawClass())) {\n+        return factory.createTreeDeserializer(config, type, beanDesc);\n+    }\n+    return factory.createBeanDeserializer(ctxt, type, beanDesc);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonDeserializer\u003c?\u003e _createDeserializer2(DeserializationContext ctxt, DeserializerFactory factory, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    final DeserializationConfig config \u003d ctxt.getConfig();\n    if (type.isEnumType()) {\n        return factory.createEnumDeserializer(ctxt, type, beanDesc);\n    }\n    if (type.isContainerType()) {\n        if (type.isArrayType()) {\n            return factory.createArrayDeserializer(ctxt, (ArrayType) type, beanDesc);\n        }\n        if (type.isMapLikeType()) {\n            MapLikeType mlt \u003d (MapLikeType) type;\n            if (mlt.isTrueMapType()) {\n                return factory.createMapDeserializer(ctxt, (MapType) mlt, beanDesc);\n            }\n            return factory.createMapLikeDeserializer(ctxt, mlt, beanDesc);\n        }\n        if (type.isCollectionLikeType()) {\n            JsonFormat.Value format \u003d beanDesc.findExpectedFormat(null);\n            if (format \u003d\u003d null || format.getShape() !\u003d JsonFormat.Shape.OBJECT) {\n                CollectionLikeType clt \u003d (CollectionLikeType) type;\n                if (clt.isTrueCollectionType()) {\n                    return factory.createCollectionDeserializer(ctxt, (CollectionType) clt, beanDesc);\n                }\n                return factory.createCollectionLikeDeserializer(ctxt, clt, beanDesc);\n            }\n        }\n    }\n    if (JsonNode.class.isAssignableFrom(type.getRawClass())) {\n        return factory.createTreeDeserializer(config, type, beanDesc);\n    }\n    return factory.createBeanDeserializer(ctxt, type, beanDesc);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+      "functionStartLine": 369,
+      "functionName": "_createDeserializer2",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

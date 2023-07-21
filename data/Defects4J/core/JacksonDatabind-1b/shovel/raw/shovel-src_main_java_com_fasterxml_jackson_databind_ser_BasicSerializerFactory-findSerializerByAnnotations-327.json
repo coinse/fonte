@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicSerializerFactory.java",
+  "functionName": "findSerializerByAnnotations",
+  "functionId": "findSerializerByAnnotations___prov-SerializerProvider__type-JavaType__beanDesc-BeanDescription",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to see if one of primary per-class annotations\n(or related, like implementing of {@link JsonSerializable})\ndetermines the serializer to use.\n\u003cp\u003e\nCurrently handles things like:\n\u003cul\u003e\n\u003cli\u003eIf type implements {@link JsonSerializable}, use that\n \u003c/li\u003e\n\u003cli\u003eIf type has {@link com.fasterxml.jackson.annotation.JsonValue} annotation (or equivalent), build serializer\n   based on that property\n \u003c/li\u003e\n\u003c/ul\u003e\n\n@since 2.0\n",
+  "functionStartLine": 327,
+  "functionEndLine": 348,
+  "numCommitsSeen": 58,
+  "timeTaken": 1560,
+  "changeHistory": [
+    "1421af6eeaa8101c3ba8cef834f893943e244cf8",
+    "288087216060a7f910a9bcf20bfd4504bd31c89d"
+  ],
+  "changeHistoryShort": {
+    "1421af6eeaa8101c3ba8cef834f893943e244cf8": "Ydocchange",
+    "288087216060a7f910a9bcf20bfd4504bd31c89d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1421af6eeaa8101c3ba8cef834f893943e244cf8": {
+      "type": "Ydocchange",
+      "commitMessage": "Implement [JACKSON-805], SerializationFeature.WRITE_SINGLE_ELEM_ARRAYS_UNWRAPPED\n",
+      "commitDate": "3/9/12, 9:46 PM",
+      "commitName": "1421af6eeaa8101c3ba8cef834f893943e244cf8",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/24/12, 6:35 PM",
+      "commitNameOld": "288087216060a7f910a9bcf20bfd4504bd31c89d",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 14.13,
+      "commitsBetweenForRepo": 28,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected final JsonSerializer\u003c?\u003e findSerializerByAnnotations(SerializerProvider prov, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    Class\u003c?\u003e raw \u003d type.getRawClass();\n    if (JsonSerializable.class.isAssignableFrom(raw)) {\n        return SerializableSerializer.instance;\n    }\n    AnnotatedMethod valueMethod \u003d beanDesc.findJsonValueMethod();\n    if (valueMethod !\u003d null) {\n        Method m \u003d valueMethod.getAnnotated();\n        if (prov.canOverrideAccessModifiers()) {\n            ClassUtil.checkAndFixAccess(m);\n        }\n        JsonSerializer\u003cObject\u003e ser \u003d findSerializerFromAnnotation(prov, valueMethod);\n        return new JsonValueSerializer(m, ser);\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+      "functionStartLine": 303,
+      "functionName": "findSerializerByAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to see if one of primary per-class annotations\n(or related, like implementing of {@link JsonSerializable})\ndetermines the serializer to use.\n\u003cp\u003e\nCurrently handles things like:\n\u003cul\u003e\n\u003cli\u003eIf type implements {@link JsonSerializable}, use that\n \u003c/li\u003e\n\u003cli\u003eIf type has {@link com.fasterxml.jackson.annotation.JsonValue} annotation (or equivalent), build serializer\n   based on that property\n \u003c/li\u003e\n\u003c/ul\u003e\n\n@since 2.0\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method called to see if one of primary per-class annotations\n(or related, like implementing of {@link JsonSerializable})\ndetermines the serializer to use.\n\u003cp\u003e\nCurrently handles things like:\n\u003cul\u003e\n\u003cli\u003eIf type implements {@link JsonSerializable}, use that\n \u003c/li\u003e\n\u003cli\u003eIf type has {@link JsonValue} annotation (or equivalent), build serializer\n   based on that property\n \u003c/li\u003e\n\u003c/ul\u003e\n\n@since 2.0\n",
+        "newValue": "Method called to see if one of primary per-class annotations\n(or related, like implementing of {@link JsonSerializable})\ndetermines the serializer to use.\n\u003cp\u003e\nCurrently handles things like:\n\u003cul\u003e\n\u003cli\u003eIf type implements {@link JsonSerializable}, use that\n \u003c/li\u003e\n\u003cli\u003eIf type has {@link com.fasterxml.jackson.annotation.JsonValue} annotation (or equivalent), build serializer\n   based on that property\n \u003c/li\u003e\n\u003c/ul\u003e\n\n@since 2.0\n"
+      }
+    },
+    "288087216060a7f910a9bcf20bfd4504bd31c89d": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement [JACKSON-795]: @JsonValue will now work with Maps, Collections too\n",
+      "commitDate": "2/24/12, 6:35 PM",
+      "commitName": "288087216060a7f910a9bcf20bfd4504bd31c89d",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,16 @@\n+protected final JsonSerializer\u003c?\u003e findSerializerByAnnotations(SerializerProvider prov, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n+    Class\u003c?\u003e raw \u003d type.getRawClass();\n+    if (JsonSerializable.class.isAssignableFrom(raw)) {\n+        return SerializableSerializer.instance;\n+    }\n+    AnnotatedMethod valueMethod \u003d beanDesc.findJsonValueMethod();\n+    if (valueMethod !\u003d null) {\n+        Method m \u003d valueMethod.getAnnotated();\n+        if (prov.canOverrideAccessModifiers()) {\n+            ClassUtil.checkAndFixAccess(m);\n+        }\n+        JsonSerializer\u003cObject\u003e ser \u003d findSerializerFromAnnotation(prov, valueMethod);\n+        return new JsonValueSerializer(m, ser);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected final JsonSerializer\u003c?\u003e findSerializerByAnnotations(SerializerProvider prov, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    Class\u003c?\u003e raw \u003d type.getRawClass();\n    if (JsonSerializable.class.isAssignableFrom(raw)) {\n        return SerializableSerializer.instance;\n    }\n    AnnotatedMethod valueMethod \u003d beanDesc.findJsonValueMethod();\n    if (valueMethod !\u003d null) {\n        Method m \u003d valueMethod.getAnnotated();\n        if (prov.canOverrideAccessModifiers()) {\n            ClassUtil.checkAndFixAccess(m);\n        }\n        JsonSerializer\u003cObject\u003e ser \u003d findSerializerFromAnnotation(prov, valueMethod);\n        return new JsonValueSerializer(m, ser);\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+      "functionStartLine": 303,
+      "functionName": "findSerializerByAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to see if one of primary per-class annotations\n(or related, like implementing of {@link JsonSerializable})\ndetermines the serializer to use.\n\u003cp\u003e\nCurrently handles things like:\n\u003cul\u003e\n\u003cli\u003eIf type implements {@link JsonSerializable}, use that\n \u003c/li\u003e\n\u003cli\u003eIf type has {@link JsonValue} annotation (or equivalent), build serializer\n   based on that property\n \u003c/li\u003e\n\u003c/ul\u003e\n\n@since 2.0\n"
+    }
+  }
+}

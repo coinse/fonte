@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JavaType.java",
+  "functionName": "isConcrete",
+  "functionId": "isConcrete",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/JavaType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Convenience method for checking whether underlying Java type\nis a concrete class or not: abstract classes and interfaces\nare not.\n",
+  "functionStartLine": 241,
+  "functionEndLine": 250,
+  "numCommitsSeen": 12,
+  "timeTaken": 3177,
+  "changeHistory": [
+    "0e1e87827326aa785da225aa980d7429a9d562f7",
+    "d92c1ed454e8474103e7eb698b0a855e7850dbb5"
+  ],
+  "changeHistoryShort": {
+    "0e1e87827326aa785da225aa980d7429a9d562f7": "Ybodychange",
+    "d92c1ed454e8474103e7eb698b0a855e7850dbb5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0e1e87827326aa785da225aa980d7429a9d562f7": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix #88\n",
+      "commitDate": "1/11/14, 7:51 PM",
+      "commitName": "0e1e87827326aa785da225aa980d7429a9d562f7",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/15/13, 3:37 PM",
+      "commitNameOld": "43307b438d6aab67686cb0941e6541c82a6fab2a",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 302.22,
+      "commitsBetweenForRepo": 354,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean isConcrete() {\n    int mod \u003d _class.getModifiers();\n    if ((mod \u0026 (Modifier.INTERFACE | Modifier.ABSTRACT)) \u003d\u003d 0) {\n        return true;\n    }\n    return _class.isPrimitive();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JavaType.java",
+      "functionStartLine": 247,
+      "functionName": "isConcrete",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Convenience method for checking whether underlying Java type\nis a concrete class or not: abstract classes and interfaces\nare not.\n",
+      "diff": "@@ -1,11 +1,8 @@\n @Override\n public boolean isConcrete() {\n     int mod \u003d _class.getModifiers();\n     if ((mod \u0026 (Modifier.INTERFACE | Modifier.ABSTRACT)) \u003d\u003d 0) {\n         return true;\n     }\n-    if (_class.isPrimitive()) {\n-        return true;\n-    }\n-    return false;\n+    return _class.isPrimitive();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d92c1ed454e8474103e7eb698b0a855e7850dbb5": {
+      "type": "Yintroduced",
+      "commitMessage": "More refactoring: moving JavaType to databind; other smaller clean up\n",
+      "commitDate": "12/23/11, 6:23 PM",
+      "commitName": "d92c1ed454e8474103e7eb698b0a855e7850dbb5",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+public boolean isConcrete() {\n+    int mod \u003d _class.getModifiers();\n+    if ((mod \u0026 (Modifier.INTERFACE | Modifier.ABSTRACT)) \u003d\u003d 0) {\n+        return true;\n+    }\n+    if (_class.isPrimitive()) {\n+        return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean isConcrete() {\n    int mod \u003d _class.getModifiers();\n    if ((mod \u0026 (Modifier.INTERFACE | Modifier.ABSTRACT)) \u003d\u003d 0) {\n        return true;\n    }\n    if (_class.isPrimitive()) {\n        return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JavaType.java",
+      "functionStartLine": 224,
+      "functionName": "isConcrete",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Convenience method for checking whether underlying Java type\nis a concrete class or not: abstract classes and interfaces\nare not.\n"
+    }
+  }
+}

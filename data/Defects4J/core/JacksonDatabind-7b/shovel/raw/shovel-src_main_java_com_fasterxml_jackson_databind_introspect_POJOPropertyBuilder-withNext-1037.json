@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "withNext",
+  "functionId": "$withNext___newNext-Linked__T__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1037,
+  "functionEndLine": 1042,
+  "numCommitsSeen": 48,
+  "timeTaken": 2027,
+  "changeHistory": [
+    "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333",
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333": "Ybodychange",
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Ymultichange(Yparameterchange,Yreturntypechange,Ybodychange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333": {
+      "type": "Ybodychange",
+      "commitMessage": "Groundwork for addressing renaming of explicit names with PropertyNamingStrategy\n",
+      "commitDate": "3/28/14, 3:51 PM",
+      "commitName": "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "3/14/14, 8:55 PM",
+      "commitNameOld": "11f78112961d71b2123ffd8aebb650671f1989a9",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 13.79,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n    if (newNext \u003d\u003d next) {\n        return this;\n    }\n    return new Linked\u003cT\u003e(value, newNext, name, isNameExplicit, isVisible, isMarkedIgnored);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 819,
+      "functionName": "withNext",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n     if (newNext \u003d\u003d next) {\n         return this;\n     }\n-    return new Linked\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n+    return new Linked\u003cT\u003e(value, newNext, name, isNameExplicit, isVisible, isMarkedIgnored);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Ymultichange(Yparameterchange,Yreturntypechange,Ybodychange)",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "refactoring\n",
+          "commitDate": "1/27/12, 8:44 PM",
+          "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/12, 10:26 PM",
+          "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.93,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n    if (newNext \u003d\u003d next) {\n        return this;\n    }\n    return new Linked\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 639,
+          "functionName": "withNext",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,6 +1,6 @@\n-public Node\u003cT\u003e withNext(Node\u003cT\u003e newNext) {\n+public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n     if (newNext \u003d\u003d next) {\n         return this;\n     }\n-    return new Node\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n+    return new Linked\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[newNext-Node\u003cT\u003e]",
+            "newValue": "[newNext-Linked\u003cT\u003e]"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "refactoring\n",
+          "commitDate": "1/27/12, 8:44 PM",
+          "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/12, 10:26 PM",
+          "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.93,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n    if (newNext \u003d\u003d next) {\n        return this;\n    }\n    return new Linked\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 639,
+          "functionName": "withNext",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,6 +1,6 @@\n-public Node\u003cT\u003e withNext(Node\u003cT\u003e newNext) {\n+public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n     if (newNext \u003d\u003d next) {\n         return this;\n     }\n-    return new Node\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n+    return new Linked\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Node\u003cT\u003e",
+            "newValue": "Linked\u003cT\u003e"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "refactoring\n",
+          "commitDate": "1/27/12, 8:44 PM",
+          "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/12, 10:26 PM",
+          "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.93,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n    if (newNext \u003d\u003d next) {\n        return this;\n    }\n    return new Linked\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 639,
+          "functionName": "withNext",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,6 +1,6 @@\n-public Node\u003cT\u003e withNext(Node\u003cT\u003e newNext) {\n+public Linked\u003cT\u003e withNext(Linked\u003cT\u003e newNext) {\n     if (newNext \u003d\u003d next) {\n         return this;\n     }\n-    return new Node\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n+    return new Linked\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+public Node\u003cT\u003e withNext(Node\u003cT\u003e newNext) {\n+    if (newNext \u003d\u003d next) {\n+        return this;\n+    }\n+    return new Node\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Node\u003cT\u003e withNext(Node\u003cT\u003e newNext) {\n    if (newNext \u003d\u003d next) {\n        return this;\n    }\n    return new Node\u003cT\u003e(value, newNext, explicitName, isVisible, isMarkedIgnored);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 564,
+      "functionName": "withNext",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

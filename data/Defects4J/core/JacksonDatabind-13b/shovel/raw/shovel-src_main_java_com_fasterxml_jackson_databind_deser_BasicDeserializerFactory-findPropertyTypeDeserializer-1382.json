@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "findPropertyTypeDeserializer",
+  "functionId": "findPropertyTypeDeserializer___config-DeserializationConfig__baseType-JavaType__annotated-AnnotatedMember",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n",
+  "functionStartLine": 1382,
+  "functionEndLine": 1396,
+  "numCommitsSeen": 140,
+  "timeTaken": 7337,
+  "changeHistory": [
+    "bc6485776be5c45a52e4b07459caf3b9a78c80d3",
+    "49b712169c432100297164f6b5102f3578bd636c",
+    "703bf4a104193e8098f904fe33531c58c6e7f359",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "bc6485776be5c45a52e4b07459caf3b9a78c80d3": "Ybodychange",
+    "49b712169c432100297164f6b5102f3578bd636c": "Ymultichange(Yparameterchange,Ybodychange)",
+    "703bf4a104193e8098f904fe33531c58c6e7f359": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc6485776be5c45a52e4b07459caf3b9a78c80d3": {
+      "type": "Ybodychange",
+      "commitMessage": "Minor improvements to SubtypeResolver, to pass base type of property, to support structured values properly\n",
+      "commitDate": "8/17/12, 2:59 PM",
+      "commitName": "bc6485776be5c45a52e4b07459caf3b9a78c80d3",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "8/16/12, 3:03 PM",
+      "commitNameOld": "e268dd573d6b6bf789d4f36e856e72716875cd0c",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.0,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated) throws JsonMappingException {\n    AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n    TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n    if (b \u003d\u003d null) {\n        return findTypeDeserializer(config, baseType);\n    }\n    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai, baseType);\n    return b.buildTypeDeserializer(config, baseType, subtypes);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 1215,
+      "functionName": "findPropertyTypeDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n",
+      "diff": "@@ -1,9 +1,9 @@\n public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated) throws JsonMappingException {\n     AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n     TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n     if (b \u003d\u003d null) {\n         return findTypeDeserializer(config, baseType);\n     }\n-    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n+    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai, baseType);\n     return b.buildTypeDeserializer(config, baseType, subtypes);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "49b712169c432100297164f6b5102f3578bd636c": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Removing BeanProperty from TypeDeserializer constructors, now added via fluent factories\n",
+      "commitDate": "1/30/12, 10:13 PM",
+      "commitName": "49b712169c432100297164f6b5102f3578bd636c",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Removing BeanProperty from TypeDeserializer constructors, now added via fluent factories\n",
+          "commitDate": "1/30/12, 10:13 PM",
+          "commitName": "49b712169c432100297164f6b5102f3578bd636c",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/30/12, 7:15 PM",
+          "commitNameOld": "d6e90d0259da622ddc593215361acdec3950bfe8",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.12,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated) throws JsonMappingException {\n    AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n    TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n    if (b \u003d\u003d null) {\n        return findTypeDeserializer(config, baseType);\n    }\n    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n    return b.buildTypeDeserializer(config, baseType, subtypes);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 1206,
+          "functionName": "findPropertyTypeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated, BeanProperty property) throws JsonMappingException {\n+public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated) throws JsonMappingException {\n     AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n     TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n     if (b \u003d\u003d null) {\n-        return findTypeDeserializer(config, baseType, property);\n+        return findTypeDeserializer(config, baseType);\n     }\n     Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n-    return b.buildTypeDeserializer(config, baseType, subtypes, property);\n+    return b.buildTypeDeserializer(config, baseType, subtypes);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[config-DeserializationConfig, baseType-JavaType, annotated-AnnotatedMember, property-BeanProperty]",
+            "newValue": "[config-DeserializationConfig, baseType-JavaType, annotated-AnnotatedMember]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Removing BeanProperty from TypeDeserializer constructors, now added via fluent factories\n",
+          "commitDate": "1/30/12, 10:13 PM",
+          "commitName": "49b712169c432100297164f6b5102f3578bd636c",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/30/12, 7:15 PM",
+          "commitNameOld": "d6e90d0259da622ddc593215361acdec3950bfe8",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.12,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated) throws JsonMappingException {\n    AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n    TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n    if (b \u003d\u003d null) {\n        return findTypeDeserializer(config, baseType);\n    }\n    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n    return b.buildTypeDeserializer(config, baseType, subtypes);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 1206,
+          "functionName": "findPropertyTypeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated, BeanProperty property) throws JsonMappingException {\n+public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated) throws JsonMappingException {\n     AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n     TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n     if (b \u003d\u003d null) {\n-        return findTypeDeserializer(config, baseType, property);\n+        return findTypeDeserializer(config, baseType);\n     }\n     Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n-    return b.buildTypeDeserializer(config, baseType, subtypes, property);\n+    return b.buildTypeDeserializer(config, baseType, subtypes);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "703bf4a104193e8098f904fe33531c58c6e7f359": {
+      "type": "Ydocchange",
+      "commitMessage": "Implement [JACKSON-749]: Make @JsonValue the canonical serialization of Enums, so that deserializer also uses it\n",
+      "commitDate": "1/11/12, 10:14 PM",
+      "commitName": "703bf4a104193e8098f904fe33531c58c6e7f359",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/27/11, 8:53 PM",
+      "commitNameOld": "79a126ba58df304da0e5c2eb7a7a4874fadea118",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 15.06,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated, BeanProperty property) throws JsonMappingException {\n    AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n    TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n    if (b \u003d\u003d null) {\n        return findTypeDeserializer(config, baseType, property);\n    }\n    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n    return b.buildTypeDeserializer(config, baseType, subtypes, property);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 604,
+      "functionName": "findPropertyTypeDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n@since 1.5\n",
+        "newValue": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated, BeanProperty property) throws JsonMappingException {\n+    AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n+    TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n+    if (b \u003d\u003d null) {\n+        return findTypeDeserializer(config, baseType, property);\n+    }\n+    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n+    return b.buildTypeDeserializer(config, baseType, subtypes, property);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public TypeDeserializer findPropertyTypeDeserializer(DeserializationConfig config, JavaType baseType, AnnotatedMember annotated, BeanProperty property) throws JsonMappingException {\n    AnnotationIntrospector ai \u003d config.getAnnotationIntrospector();\n    TypeResolverBuilder\u003c?\u003e b \u003d ai.findPropertyTypeResolver(config, annotated, baseType);\n    if (b \u003d\u003d null) {\n        return findTypeDeserializer(config, baseType, property);\n    }\n    Collection\u003cNamedType\u003e subtypes \u003d config.getSubtypeResolver().collectAndResolveSubtypes(annotated, config, ai);\n    return b.buildTypeDeserializer(config, baseType, subtypes, property);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 617,
+      "functionName": "findPropertyTypeDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to create a type information deserializer for values of\ngiven non-container property, if one is needed.\nIf not needed (no polymorphic handling configured for property), should return null.\n\u003cp\u003e\nNote that this method is only called for non-container bean properties,\nand not for values in container types or root values (or container properties)\n\n@param baseType Declared base type of the value to deserializer (actual\n   deserializer type will be this type or its subtype)\n@return Type deserializer to use for given base type, if one is needed; null if not.\n@since 1.5\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeFactory.java",
+  "functionName": "_fromVariable",
+  "functionId": "_fromVariable___type-TypeVariable__?____context-TypeBindings",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 889,
+  "functionEndLine": 930,
+  "numCommitsSeen": 27,
+  "timeTaken": 1631,
+  "changeHistory": [
+    "66bfe6658e6c25e03d1bcd5d4d858e1aaf738a01",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "66bfe6658e6c25e03d1bcd5d4d858e1aaf738a01": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "66bfe6658e6c25e03d1bcd5d4d858e1aaf738a01": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix #609, Fix #728\n",
+      "commitDate": "3/19/15, 8:20 PM",
+      "commitName": "66bfe6658e6c25e03d1bcd5d4d858e1aaf738a01",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "11/19/14, 3:07 PM",
+      "commitNameOld": "75ea87180b0818af9c19cda821d4b216808518ab",
+      "commitAuthorOld": "Cowtowncoder",
+      "daysBetweenCommits": 120.18,
+      "commitsBetweenForRepo": 162,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JavaType _fromVariable(TypeVariable\u003c?\u003e type, TypeBindings context) {\n    final String name \u003d type.getName();\n    if (context \u003d\u003d null) {\n        context \u003d new TypeBindings(this, (Class\u003c?\u003e) null);\n    } else {\n        JavaType actualType \u003d context.findType(name, false);\n        if (actualType !\u003d null) {\n            return actualType;\n        }\n    }\n    Type[] bounds \u003d type.getBounds();\n    context._addPlaceholder(name);\n    return _constructType(bounds[0], context);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 889,
+      "functionName": "_fromVariable",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,14 @@\n protected JavaType _fromVariable(TypeVariable\u003c?\u003e type, TypeBindings context) {\n+    final String name \u003d type.getName();\n     if (context \u003d\u003d null) {\n-        return _unknownType();\n-    }\n-    String name \u003d type.getName();\n-    JavaType actualType \u003d context.findType(name);\n-    if (actualType !\u003d null) {\n-        return actualType;\n+        context \u003d new TypeBindings(this, (Class\u003c?\u003e) null);\n+    } else {\n+        JavaType actualType \u003d context.findType(name, false);\n+        if (actualType !\u003d null) {\n+            return actualType;\n+        }\n     }\n     Type[] bounds \u003d type.getBounds();\n     context._addPlaceholder(name);\n     return _constructType(bounds[0], context);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+protected JavaType _fromVariable(TypeVariable\u003c?\u003e type, TypeBindings context) {\n+    if (context \u003d\u003d null) {\n+        return _unknownType();\n+    }\n+    String name \u003d type.getName();\n+    JavaType actualType \u003d context.findType(name);\n+    if (actualType !\u003d null) {\n+        return actualType;\n+    }\n+    Type[] bounds \u003d type.getBounds();\n+    context._addPlaceholder(name);\n+    return _constructType(bounds[0], context);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JavaType _fromVariable(TypeVariable\u003c?\u003e type, TypeBindings context) {\n    if (context \u003d\u003d null) {\n        return _unknownType();\n    }\n    String name \u003d type.getName();\n    JavaType actualType \u003d context.findType(name);\n    if (actualType !\u003d null) {\n        return actualType;\n    }\n    Type[] bounds \u003d type.getBounds();\n    context._addPlaceholder(name);\n    return _constructType(bounds[0], context);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 940,
+      "functionName": "_fromVariable",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-38b",
+  "repositoryPath": "/tmp/Cli-38b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DefaultParser.java",
+  "functionName": "isShortOption",
+  "functionId": "isShortOption___token-String",
+  "sourceFilePath": "src/main/java/org/apache/commons/cli/DefaultParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "Tells if the token looks like a short option.\n\n@param token\n",
+  "functionStartLine": 299,
+  "functionEndLine": 311,
+  "numCommitsSeen": 16,
+  "timeTaken": 1079,
+  "changeHistory": [
+    "1bf9e6c551b6a2e7d37291673a1ff77c338ce131",
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df",
+    "f43698527ef2b5ba15fe85d46d2d505418f68243"
+  ],
+  "changeHistoryShort": {
+    "1bf9e6c551b6a2e7d37291673a1ff77c338ce131": "Ybodychange",
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df": "Yfilerename",
+    "f43698527ef2b5ba15fe85d46d2d505418f68243": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1bf9e6c551b6a2e7d37291673a1ff77c338ce131": {
+      "type": "Ybodychange",
+      "commitMessage": "CLI-265: Optional argument picking up next regular option as its argument. Thank you to Lynn Henderson, Martin Sandiford and Veit Guna for providing reproductions.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@1759695 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/7/16, 1:19 PM",
+      "commitName": "1bf9e6c551b6a2e7d37291673a1ff77c338ce131",
+      "commitAuthor": "Benedikt Ritter",
+      "commitDateOld": "5/3/15, 10:13 AM",
+      "commitNameOld": "f8e2c074559dd66d327c85fbedad58da8b2821d5",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 493.13,
+      "commitsBetweenForRepo": 26,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isShortOption(String token) {\n    if (!token.startsWith(\"-\") || token.length() \u003d\u003d 1) {\n        return false;\n    }\n    int pos \u003d token.indexOf(\"\u003d\");\n    String optName \u003d pos \u003d\u003d -1 ? token.substring(1) : token.substring(1, pos);\n    return options.hasShortOption(optName);\n}",
+      "path": "src/main/java/org/apache/commons/cli/DefaultParser.java",
+      "functionStartLine": 299,
+      "functionName": "isShortOption",
+      "functionAnnotation": "",
+      "functionDoc": "Tells if the token looks like a short option.\n\n@param token\n",
+      "diff": "@@ -1,3 +1,8 @@\n private boolean isShortOption(String token) {\n-    return token.startsWith(\"-\") \u0026\u0026 token.length() \u003e\u003d 2 \u0026\u0026 options.hasShortOption(token.substring(1, 2));\n+    if (!token.startsWith(\"-\") || token.length() \u003d\u003d 1) {\n+        return false;\n+    }\n+    int pos \u003d token.indexOf(\"\u003d\");\n+    String optName \u003d pos \u003d\u003d -1 ? token.substring(1) : token.substring(1, pos);\n+    return options.hasShortOption(optName);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df": {
+      "type": "Yfilerename",
+      "commitMessage": "Switched to the Maven 2 default directory layout (part 3)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@955173 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/16/10, 2:45 AM",
+      "commitName": "1596f3bbe57986361da4ac1a23634dd5b00d10df",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "6/16/10, 2:42 AM",
+      "commitNameOld": "406a35f1a128944b7c51dcbc4a1f04c3f8bec3e6",
+      "commitAuthorOld": "Emmanuel Bourg",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isShortOption(String token) {\n    return token.startsWith(\"-\") \u0026\u0026 token.length() \u003e\u003d 2 \u0026\u0026 options.hasShortOption(token.substring(1, 2));\n}",
+      "path": "src/main/java/org/apache/commons/cli/DefaultParser.java",
+      "functionStartLine": 289,
+      "functionName": "isShortOption",
+      "functionAnnotation": "",
+      "functionDoc": "Tells if the token looks like a short option.\n\n@param token\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/cli/DefaultParser.java",
+        "newPath": "src/main/java/org/apache/commons/cli/DefaultParser.java"
+      }
+    },
+    "f43698527ef2b5ba15fe85d46d2d505418f68243": {
+      "type": "Yintroduced",
+      "commitMessage": "New unified parser (CLI-181, also fixes CLI-160, CLI-161, CLI-167, CLI-184)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@780264 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/30/09, 6:43 AM",
+      "commitName": "f43698527ef2b5ba15fe85d46d2d505418f68243",
+      "commitAuthor": "Emmanuel Bourg",
+      "diff": "@@ -0,0 +1,3 @@\n+private boolean isShortOption(String token) {\n+    return token.startsWith(\"-\") \u0026\u0026 token.length() \u003e\u003d 2 \u0026\u0026 options.hasShortOption(token.substring(1, 2));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isShortOption(String token) {\n    return token.startsWith(\"-\") \u0026\u0026 token.length() \u003e\u003d 2 \u0026\u0026 options.hasShortOption(token.substring(1, 2));\n}",
+      "path": "src/java/org/apache/commons/cli/DefaultParser.java",
+      "functionStartLine": 199,
+      "functionName": "isShortOption",
+      "functionAnnotation": "",
+      "functionDoc": "Tells if the token looks like a short option.\n\n@param token\n"
+    }
+  }
+}

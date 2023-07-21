@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanSerializer.java",
+  "functionName": "asArraySerializer",
+  "functionId": "asArraySerializer",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializer.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Implementation has to check whether as-array serialization\nis possible reliably; if (and only if) so, will construct\na {@link BeanAsArraySerializer}, otherwise will return this\nserializer as is.\n",
+  "functionStartLine": 101,
+  "functionEndLine": 117,
+  "numCommitsSeen": 20,
+  "timeTaken": 531,
+  "changeHistory": [
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7"
+  ],
+  "changeHistoryShort": {
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7": {
+      "type": "Yintroduced",
+      "commitMessage": "Start work on \"POJOs-as-arrays\" serialization\n",
+      "commitDate": "6/28/12, 10:23 PM",
+      "commitName": "dc65cc043479dd03dad878b22a9e5864e2e53bd7",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+protected BeanSerializerBase asArraySerializer() {\n+    if ((_objectIdWriter \u003d\u003d null) \u0026\u0026 (_anyGetterWriter \u003d\u003d null) \u0026\u0026 (_propertyFilterId \u003d\u003d null)) {\n+        return new BeanAsArraySerializer(this);\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nprotected BeanSerializerBase asArraySerializer() {\n    if ((_objectIdWriter \u003d\u003d null) \u0026\u0026 (_anyGetterWriter \u003d\u003d null) \u0026\u0026 (_propertyFilterId \u003d\u003d null)) {\n        return new BeanAsArraySerializer(this);\n    }\n    return this;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializer.java",
+      "functionStartLine": 102,
+      "functionName": "asArraySerializer",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Implementation has to check whether as-array serialization\nis possible reliably; if (and only if) so, will construct\na {@link BeanAsArraySerializer}, otherwise will return this\nserializer as is.\n"
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializationConfig.java",
+  "functionName": "useRootWrapping",
+  "functionId": "useRootWrapping",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 457,
+  "functionEndLine": 463,
+  "numCommitsSeen": 67,
+  "timeTaken": 1517,
+  "changeHistory": [
+    "eafafffda5d43e4ae2b2d6eb3a06c89575224b94",
+    "9610aff9eb922486478ab92ad5c4d02a11b2ad1f",
+    "e1961745ea5209c66990f76ba94bf8cd02b77387"
+  ],
+  "changeHistoryShort": {
+    "eafafffda5d43e4ae2b2d6eb3a06c89575224b94": "Yfilerename",
+    "9610aff9eb922486478ab92ad5c4d02a11b2ad1f": "Ymultichange(Yfilerename,Ybodychange)",
+    "e1961745ea5209c66990f76ba94bf8cd02b77387": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "eafafffda5d43e4ae2b2d6eb3a06c89575224b94": {
+      "type": "Yfilerename",
+      "commitMessage": "Reorg things a bit: SerializationConfig, DeserializationConfig back at main level (so widely used), BeanPropertyDefinition moved under introspect\n",
+      "commitDate": "2/3/12, 9:50 PM",
+      "commitName": "eafafffda5d43e4ae2b2d6eb3a06c89575224b94",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/3/12, 7:42 PM",
+      "commitNameOld": "c166fa380d2716480ff4a0548bc062744defb57f",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.09,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean useRootWrapping() {\n    if (_rootName !\u003d null) {\n        return (_rootName.length() \u003e 0);\n    }\n    return isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+      "functionStartLine": 389,
+      "functionName": "useRootWrapping",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/cfg/DeserializationConfig.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java"
+      }
+    },
+    "9610aff9eb922486478ab92ad5c4d02a11b2ad1f": {
+      "type": "Ymultichange(Yfilerename,Ybodychange)",
+      "commitMessage": "Implemented [JACKSON-777] (renamed SerializationConfig.Feature, DeserializationConfig.Feature); various other restructure\n",
+      "commitDate": "2/2/12, 11:30 AM",
+      "commitName": "9610aff9eb922486478ab92ad5c4d02a11b2ad1f",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Yfilerename",
+          "commitMessage": "Implemented [JACKSON-777] (renamed SerializationConfig.Feature, DeserializationConfig.Feature); various other restructure\n",
+          "commitDate": "2/2/12, 11:30 AM",
+          "commitName": "9610aff9eb922486478ab92ad5c4d02a11b2ad1f",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "2/1/12, 10:18 PM",
+          "commitNameOld": "060ce11a33baa8a1c951cb5b7a857d5d81db09ef",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.55,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean useRootWrapping() {\n    if (_rootName !\u003d null) {\n        return (_rootName.length() \u003e 0);\n    }\n    return isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/cfg/DeserializationConfig.java",
+          "functionStartLine": 393,
+          "functionName": "useRootWrapping",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n @Override\n public boolean useRootWrapping() {\n     if (_rootName !\u003d null) {\n         return (_rootName.length() \u003e 0);\n     }\n-    return isEnabled(DeserializationConfig.Feature.UNWRAP_ROOT_VALUE);\n+    return isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/cfg/DeserializationConfig.java"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implemented [JACKSON-777] (renamed SerializationConfig.Feature, DeserializationConfig.Feature); various other restructure\n",
+          "commitDate": "2/2/12, 11:30 AM",
+          "commitName": "9610aff9eb922486478ab92ad5c4d02a11b2ad1f",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "2/1/12, 10:18 PM",
+          "commitNameOld": "060ce11a33baa8a1c951cb5b7a857d5d81db09ef",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.55,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean useRootWrapping() {\n    if (_rootName !\u003d null) {\n        return (_rootName.length() \u003e 0);\n    }\n    return isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/cfg/DeserializationConfig.java",
+          "functionStartLine": 393,
+          "functionName": "useRootWrapping",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n @Override\n public boolean useRootWrapping() {\n     if (_rootName !\u003d null) {\n         return (_rootName.length() \u003e 0);\n     }\n-    return isEnabled(DeserializationConfig.Feature.UNWRAP_ROOT_VALUE);\n+    return isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e1961745ea5209c66990f76ba94bf8cd02b77387": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement [JACKSON-764], programmatic way to set root name to use for root-wrapping\n",
+      "commitDate": "1/22/12, 4:03 PM",
+      "commitName": "e1961745ea5209c66990f76ba94bf8cd02b77387",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public boolean useRootWrapping() {\n+    if (_rootName !\u003d null) {\n+        return (_rootName.length() \u003e 0);\n+    }\n+    return isEnabled(DeserializationConfig.Feature.UNWRAP_ROOT_VALUE);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean useRootWrapping() {\n    if (_rootName !\u003d null) {\n        return (_rootName.length() \u003e 0);\n    }\n    return isEnabled(DeserializationConfig.Feature.UNWRAP_ROOT_VALUE);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+      "functionStartLine": 573,
+      "functionName": "useRootWrapping",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

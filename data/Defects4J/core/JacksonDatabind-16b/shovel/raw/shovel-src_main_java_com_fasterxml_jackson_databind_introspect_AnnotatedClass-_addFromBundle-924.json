@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "_addFromBundle",
+  "functionId": "_addFromBundle___bundle-Annotation__result-List__Annotation__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 924,
+  "functionEndLine": 937,
+  "numCommitsSeen": 23,
+  "timeTaken": 414,
+  "changeHistory": [
+    "6dcb13f70fb1c68b0c055bfb1dae2b296ae67b03"
+  ],
+  "changeHistoryShort": {
+    "6dcb13f70fb1c68b0c055bfb1dae2b296ae67b03": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6dcb13f70fb1c68b0c055bfb1dae2b296ae67b03": {
+      "type": "Yintroduced",
+      "commitMessage": "Streamlining `AnnotatedClass` slightly, trying to figure out #771\n",
+      "commitDate": "4/26/15, 10:24 PM",
+      "commitName": "6dcb13f70fb1c68b0c055bfb1dae2b296ae67b03",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+private List\u003cAnnotation\u003e _addFromBundle(Annotation bundle, List\u003cAnnotation\u003e result) {\n+    for (Annotation a : bundle.annotationType().getDeclaredAnnotations()) {\n+        if ((a instanceof Target) || (a instanceof Retention)) {\n+            continue;\n+        }\n+        if (result \u003d\u003d null) {\n+            result \u003d new ArrayList\u003cAnnotation\u003e();\n+        }\n+        result.add(a);\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private List\u003cAnnotation\u003e _addFromBundle(Annotation bundle, List\u003cAnnotation\u003e result) {\n    for (Annotation a : bundle.annotationType().getDeclaredAnnotations()) {\n        if ((a instanceof Target) || (a instanceof Retention)) {\n            continue;\n        }\n        if (result \u003d\u003d null) {\n            result \u003d new ArrayList\u003cAnnotation\u003e();\n        }\n        result.add(a);\n    }\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 924,
+      "functionName": "_addFromBundle",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

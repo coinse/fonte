@@ -1,0 +1,97 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "fromMemberAnnotations",
+  "functionId": "fromMemberAnnotations___func-WithMember__T__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used for finding annotation values, from accessors\nrelevant to current usage (deserialization, serialization)\n",
+  "functionStartLine": 658,
+  "functionEndLine": 679,
+  "numCommitsSeen": 36,
+  "timeTaken": 1309,
+  "changeHistory": [
+    "f412e85aee296fdfdbbc7f3c40ed11af248c88c9",
+    "65c410c0c40724f763e0b4bce2db6d43bf078818"
+  ],
+  "changeHistoryShort": {
+    "f412e85aee296fdfdbbc7f3c40ed11af248c88c9": "Ymultichange(Yrename,Ydocchange)",
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f412e85aee296fdfdbbc7f3c40ed11af248c88c9": {
+      "type": "Ymultichange(Yrename,Ydocchange)",
+      "commitMessage": "Fix issues with wrapper-based property-renaming\n",
+      "commitDate": "9/11/12, 10:05 PM",
+      "commitName": "f412e85aee296fdfdbbc7f3c40ed11af248c88c9",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Fix issues with wrapper-based property-renaming\n",
+          "commitDate": "9/11/12, 10:05 PM",
+          "commitName": "f412e85aee296fdfdbbc7f3c40ed11af248c88c9",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/11/12, 8:25 PM",
+          "commitNameOld": "a1e496f0e6da44ac68ae93a58cb1645d40ee5739",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected \u003cT\u003e T fromMemberAnnotations(WithMember\u003cT\u003e func) {\n    T result \u003d null;\n    if (_annotationIntrospector !\u003d null) {\n        if (_forSerialization) {\n            if (_getters !\u003d null) {\n                result \u003d func.withMember(_getters.value);\n            }\n        } else {\n            if (_ctorParameters !\u003d null) {\n                result \u003d func.withMember(_ctorParameters.value);\n            }\n            if (result \u003d\u003d null \u0026\u0026 _setters !\u003d null) {\n                result \u003d func.withMember(_setters.value);\n            }\n        }\n        if (result \u003d\u003d null \u0026\u0026 _fields !\u003d null) {\n            result \u003d func.withMember(_fields.value);\n        }\n    }\n    return result;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 614,
+          "functionName": "fromMemberAnnotations",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method used for finding annotation values, from accessors\nrelevant to current usage (deserialization, serialization)\n",
+          "diff": "@@ -1,21 +1,21 @@\n-protected \u003cT\u003e T fromMemberAnnotation(WithMember\u003cT\u003e func) {\n+protected \u003cT\u003e T fromMemberAnnotations(WithMember\u003cT\u003e func) {\n     T result \u003d null;\n     if (_annotationIntrospector !\u003d null) {\n         if (_forSerialization) {\n             if (_getters !\u003d null) {\n                 result \u003d func.withMember(_getters.value);\n             }\n         } else {\n             if (_ctorParameters !\u003d null) {\n                 result \u003d func.withMember(_ctorParameters.value);\n             }\n             if (result \u003d\u003d null \u0026\u0026 _setters !\u003d null) {\n                 result \u003d func.withMember(_setters.value);\n             }\n         }\n         if (result \u003d\u003d null \u0026\u0026 _fields !\u003d null) {\n             result \u003d func.withMember(_fields.value);\n         }\n     }\n     return result;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "fromMemberAnnotation",
+            "newValue": "fromMemberAnnotations"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Fix issues with wrapper-based property-renaming\n",
+          "commitDate": "9/11/12, 10:05 PM",
+          "commitName": "f412e85aee296fdfdbbc7f3c40ed11af248c88c9",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/11/12, 8:25 PM",
+          "commitNameOld": "a1e496f0e6da44ac68ae93a58cb1645d40ee5739",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.07,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected \u003cT\u003e T fromMemberAnnotations(WithMember\u003cT\u003e func) {\n    T result \u003d null;\n    if (_annotationIntrospector !\u003d null) {\n        if (_forSerialization) {\n            if (_getters !\u003d null) {\n                result \u003d func.withMember(_getters.value);\n            }\n        } else {\n            if (_ctorParameters !\u003d null) {\n                result \u003d func.withMember(_ctorParameters.value);\n            }\n            if (result \u003d\u003d null \u0026\u0026 _setters !\u003d null) {\n                result \u003d func.withMember(_setters.value);\n            }\n        }\n        if (result \u003d\u003d null \u0026\u0026 _fields !\u003d null) {\n            result \u003d func.withMember(_fields.value);\n        }\n    }\n    return result;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 614,
+          "functionName": "fromMemberAnnotations",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method used for finding annotation values, from accessors\nrelevant to current usage (deserialization, serialization)\n",
+          "diff": "@@ -1,21 +1,21 @@\n-protected \u003cT\u003e T fromMemberAnnotation(WithMember\u003cT\u003e func) {\n+protected \u003cT\u003e T fromMemberAnnotations(WithMember\u003cT\u003e func) {\n     T result \u003d null;\n     if (_annotationIntrospector !\u003d null) {\n         if (_forSerialization) {\n             if (_getters !\u003d null) {\n                 result \u003d func.withMember(_getters.value);\n             }\n         } else {\n             if (_ctorParameters !\u003d null) {\n                 result \u003d func.withMember(_ctorParameters.value);\n             }\n             if (result \u003d\u003d null \u0026\u0026 _setters !\u003d null) {\n                 result \u003d func.withMember(_setters.value);\n             }\n         }\n         if (result \u003d\u003d null \u0026\u0026 _fields !\u003d null) {\n             result \u003d func.withMember(_fields.value);\n         }\n     }\n     return result;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Helper method used for finding annotation values\n",
+            "newValue": "Helper method used for finding annotation values, from accessors\nrelevant to current usage (deserialization, serialization)\n"
+          }
+        }
+      ]
+    },
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Yintroduced",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,21 @@\n+protected \u003cT\u003e T fromMemberAnnotation(WithMember\u003cT\u003e func) {\n+    T result \u003d null;\n+    if (_annotationIntrospector !\u003d null) {\n+        if (_forSerialization) {\n+            if (_getters !\u003d null) {\n+                result \u003d func.withMember(_getters.value);\n+            }\n+        } else {\n+            if (_ctorParameters !\u003d null) {\n+                result \u003d func.withMember(_ctorParameters.value);\n+            }\n+            if (result \u003d\u003d null \u0026\u0026 _setters !\u003d null) {\n+                result \u003d func.withMember(_setters.value);\n+            }\n+        }\n+        if (result \u003d\u003d null \u0026\u0026 _fields !\u003d null) {\n+            result \u003d func.withMember(_fields.value);\n+        }\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected \u003cT\u003e T fromMemberAnnotation(WithMember\u003cT\u003e func) {\n    T result \u003d null;\n    if (_annotationIntrospector !\u003d null) {\n        if (_forSerialization) {\n            if (_getters !\u003d null) {\n                result \u003d func.withMember(_getters.value);\n            }\n        } else {\n            if (_ctorParameters !\u003d null) {\n                result \u003d func.withMember(_ctorParameters.value);\n            }\n            if (result \u003d\u003d null \u0026\u0026 _setters !\u003d null) {\n                result \u003d func.withMember(_setters.value);\n            }\n        }\n        if (result \u003d\u003d null \u0026\u0026 _fields !\u003d null) {\n            result \u003d func.withMember(_fields.value);\n        }\n    }\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 569,
+      "functionName": "fromMemberAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used for finding annotation values\n"
+    }
+  }
+}

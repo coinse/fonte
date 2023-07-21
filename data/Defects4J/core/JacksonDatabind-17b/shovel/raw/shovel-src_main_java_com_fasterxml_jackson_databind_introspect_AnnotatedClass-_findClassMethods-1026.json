@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "_findClassMethods",
+  "functionId": "_findClassMethods___cls-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method that gets methods declared in given class; usually a simple thing,\nbut sometimes (as per [databind#785]) more complicated, depending on classloader\nsetup.\n\n@since 2.4.7\n",
+  "functionStartLine": 1026,
+  "functionEndLine": 1048,
+  "numCommitsSeen": 20,
+  "timeTaken": 426,
+  "changeHistory": [
+    "7db1f44069bbcac9d884d829f8052a89b5ec271b"
+  ],
+  "changeHistoryShort": {
+    "7db1f44069bbcac9d884d829f8052a89b5ec271b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7db1f44069bbcac9d884d829f8052a89b5ec271b": {
+      "type": "Yintroduced",
+      "commitMessage": "Update release notes wrt #785, minor refactoring\n",
+      "commitDate": "5/8/15, 3:20 PM",
+      "commitName": "7db1f44069bbcac9d884d829f8052a89b5ec271b",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,17 @@\n+protected Method[] _findClassMethods(Class\u003c?\u003e cls) {\n+    try {\n+        return cls.getDeclaredMethods();\n+    } catch (final NoClassDefFoundError ex) {\n+        final ClassLoader loader \u003d Thread.currentThread().getContextClassLoader();\n+        if (loader \u003d\u003d null) {\n+            throw ex;\n+        }\n+        final Class\u003c?\u003e contextClass;\n+        try {\n+            contextClass \u003d loader.loadClass(cls.getName());\n+        } catch (ClassNotFoundException e) {\n+            throw ex;\n+        }\n+        return contextClass.getDeclaredMethods();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Method[] _findClassMethods(Class\u003c?\u003e cls) {\n    try {\n        return cls.getDeclaredMethods();\n    } catch (final NoClassDefFoundError ex) {\n        final ClassLoader loader \u003d Thread.currentThread().getContextClassLoader();\n        if (loader \u003d\u003d null) {\n            throw ex;\n        }\n        final Class\u003c?\u003e contextClass;\n        try {\n            contextClass \u003d loader.loadClass(cls.getName());\n        } catch (ClassNotFoundException e) {\n            throw ex;\n        }\n        return contextClass.getDeclaredMethods();\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 1026,
+      "functionName": "_findClassMethods",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method that gets methods declared in given class; usually a simple thing,\nbut sometimes (as per [databind#785]) more complicated, depending on classloader\nsetup.\n\n@since 2.4.7\n"
+    }
+  }
+}

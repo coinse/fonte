@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-28b",
+  "repositoryPath": "/tmp/Cli-28b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PosixParser.java",
+  "functionName": "processNonOptionToken",
+  "functionId": "processNonOptionToken___value-String__stopAtNonOption-boolean",
+  "sourceFilePath": "src/java/org/apache/commons/cli/PosixParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "Add the special token \"\u003cb\u003e--\u003c/b\u003e\" and the current \u003ccode\u003evalue\u003c/code\u003e\nto the processed tokens list. Then add all the remaining\n\u003ccode\u003eargument\u003c/code\u003e values to the processed tokens list.\n\n@param value The current token\n",
+  "functionStartLine": 203,
+  "functionEndLine": 212,
+  "numCommitsSeen": 55,
+  "timeTaken": 314,
+  "changeHistory": [
+    "db4a638cf642fd7d031fcaebffa306b0a16ba771",
+    "0823e1100abd395aa022285dc97d2dc0dd9472ef"
+  ],
+  "changeHistoryShort": {
+    "db4a638cf642fd7d031fcaebffa306b0a16ba771": "Ymultichange(Yparameterchange,Ybodychange)",
+    "0823e1100abd395aa022285dc97d2dc0dd9472ef": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "db4a638cf642fd7d031fcaebffa306b0a16ba771": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Fixed testStopAtExpectedArg for PosixParser\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@695760 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/16/08, 1:05 AM",
+      "commitName": "db4a638cf642fd7d031fcaebffa306b0a16ba771",
+      "commitAuthor": "Emmanuel Bourg",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fixed testStopAtExpectedArg for PosixParser\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@695760 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "9/16/08, 1:05 AM",
+          "commitName": "db4a638cf642fd7d031fcaebffa306b0a16ba771",
+          "commitAuthor": "Emmanuel Bourg",
+          "commitDateOld": "7/29/08, 1:13 AM",
+          "commitNameOld": "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+          "commitAuthorOld": "Emmanuel Bourg",
+          "daysBetweenCommits": 48.99,
+          "commitsBetweenForRepo": 14,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void processNonOptionToken(String value, boolean stopAtNonOption) {\n    if (stopAtNonOption \u0026\u0026 (currentOption \u003d\u003d null || !currentOption.hasArg())) {\n        eatTheRest \u003d true;\n        tokens.add(\"--\");\n    }\n    tokens.add(value);\n}",
+          "path": "src/java/org/apache/commons/cli/PosixParser.java",
+          "functionStartLine": 182,
+          "functionName": "processNonOptionToken",
+          "functionAnnotation": "",
+          "functionDoc": "Add the special token \"\u003cb\u003e--\u003c/b\u003e\" and the current \u003ccode\u003evalue\u003c/code\u003e\nto the processed tokens list. Then add all the remaining\n\u003ccode\u003eargument\u003c/code\u003e values to the processed tokens list.\n\n@param value The current token\n",
+          "diff": "@@ -1,5 +1,7 @@\n-private void processNonOptionToken(String value) {\n-    eatTheRest \u003d true;\n-    tokens.add(\"--\");\n+private void processNonOptionToken(String value, boolean stopAtNonOption) {\n+    if (stopAtNonOption \u0026\u0026 (currentOption \u003d\u003d null || !currentOption.hasArg())) {\n+        eatTheRest \u003d true;\n+        tokens.add(\"--\");\n+    }\n     tokens.add(value);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[value-String]",
+            "newValue": "[value-String, stopAtNonOption-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fixed testStopAtExpectedArg for PosixParser\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@695760 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "9/16/08, 1:05 AM",
+          "commitName": "db4a638cf642fd7d031fcaebffa306b0a16ba771",
+          "commitAuthor": "Emmanuel Bourg",
+          "commitDateOld": "7/29/08, 1:13 AM",
+          "commitNameOld": "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+          "commitAuthorOld": "Emmanuel Bourg",
+          "daysBetweenCommits": 48.99,
+          "commitsBetweenForRepo": 14,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void processNonOptionToken(String value, boolean stopAtNonOption) {\n    if (stopAtNonOption \u0026\u0026 (currentOption \u003d\u003d null || !currentOption.hasArg())) {\n        eatTheRest \u003d true;\n        tokens.add(\"--\");\n    }\n    tokens.add(value);\n}",
+          "path": "src/java/org/apache/commons/cli/PosixParser.java",
+          "functionStartLine": 182,
+          "functionName": "processNonOptionToken",
+          "functionAnnotation": "",
+          "functionDoc": "Add the special token \"\u003cb\u003e--\u003c/b\u003e\" and the current \u003ccode\u003evalue\u003c/code\u003e\nto the processed tokens list. Then add all the remaining\n\u003ccode\u003eargument\u003c/code\u003e values to the processed tokens list.\n\n@param value The current token\n",
+          "diff": "@@ -1,5 +1,7 @@\n-private void processNonOptionToken(String value) {\n-    eatTheRest \u003d true;\n-    tokens.add(\"--\");\n+private void processNonOptionToken(String value, boolean stopAtNonOption) {\n+    if (stopAtNonOption \u0026\u0026 (currentOption \u003d\u003d null || !currentOption.hasArg())) {\n+        eatTheRest \u003d true;\n+        tokens.add(\"--\");\n+    }\n     tokens.add(value);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "0823e1100abd395aa022285dc97d2dc0dd9472ef": {
+      "type": "Yintroduced",
+      "commitMessage": "Removed the unused code from PosixParser\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@680316 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/28/08, 3:36 AM",
+      "commitName": "0823e1100abd395aa022285dc97d2dc0dd9472ef",
+      "commitAuthor": "Emmanuel Bourg",
+      "diff": "@@ -0,0 +1,5 @@\n+private void processNonOptionToken(String value) {\n+    eatTheRest \u003d true;\n+    tokens.add(\"--\");\n+    tokens.add(value);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void processNonOptionToken(String value) {\n    eatTheRest \u003d true;\n    tokens.add(\"--\");\n    tokens.add(value);\n}",
+      "path": "src/java/org/apache/commons/cli/PosixParser.java",
+      "functionStartLine": 185,
+      "functionName": "processNonOptionToken",
+      "functionAnnotation": "",
+      "functionDoc": "Add the special token \"\u003cb\u003e--\u003c/b\u003e\" and the current \u003ccode\u003evalue\u003c/code\u003e\nto the processed tokens list. Then add all the remaining\n\u003ccode\u003eargument\u003c/code\u003e values to the processed tokens list.\n\n@param value The current token\n"
+    }
+  }
+}

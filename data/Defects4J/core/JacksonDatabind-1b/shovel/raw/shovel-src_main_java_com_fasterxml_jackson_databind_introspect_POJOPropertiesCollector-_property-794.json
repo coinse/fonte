@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertiesCollector.java",
+  "functionName": "_property",
+  "functionId": "_property___implName-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 794,
+  "functionEndLine": 803,
+  "numCommitsSeen": 24,
+  "timeTaken": 1266,
+  "changeHistory": [
+    "e40a76936b9f3e1cfb5b903b06518195a157f3fd",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e40a76936b9f3e1cfb5b903b06518195a157f3fd": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e40a76936b9f3e1cfb5b903b06518195a157f3fd": {
+      "type": "Ybodychange",
+      "commitMessage": "Piping view definitions through\n",
+      "commitDate": "1/25/12, 5:36 PM",
+      "commitName": "e40a76936b9f3e1cfb5b903b06518195a157f3fd",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/22/12, 1:03 PM",
+      "commitNameOld": "1a7c6f905711ecf704576024dfead79aee47b320",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 3.19,
+      "commitsBetweenForRepo": 34,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected POJOPropertyBuilder _property(String implName) {\n    POJOPropertyBuilder prop \u003d _properties.get(implName);\n    if (prop \u003d\u003d null) {\n        prop \u003d new POJOPropertyBuilder(implName, _annotationIntrospector, _forSerialization);\n        _properties.put(implName, prop);\n    }\n    return prop;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 672,
+      "functionName": "_property",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,8 @@\n protected POJOPropertyBuilder _property(String implName) {\n     POJOPropertyBuilder prop \u003d _properties.get(implName);\n     if (prop \u003d\u003d null) {\n-        prop \u003d new POJOPropertyBuilder(implName);\n+        prop \u003d new POJOPropertyBuilder(implName, _annotationIntrospector, _forSerialization);\n         _properties.put(implName, prop);\n     }\n     return prop;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+protected POJOPropertyBuilder _property(String implName) {\n+    POJOPropertyBuilder prop \u003d _properties.get(implName);\n+    if (prop \u003d\u003d null) {\n+        prop \u003d new POJOPropertyBuilder(implName);\n+        _properties.put(implName, prop);\n+    }\n+    return prop;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected POJOPropertyBuilder _property(String implName) {\n    POJOPropertyBuilder prop \u003d _properties.get(implName);\n    if (prop \u003d\u003d null) {\n        prop \u003d new POJOPropertyBuilder(implName);\n        _properties.put(implName, prop);\n    }\n    return prop;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 674,
+      "functionName": "_property",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

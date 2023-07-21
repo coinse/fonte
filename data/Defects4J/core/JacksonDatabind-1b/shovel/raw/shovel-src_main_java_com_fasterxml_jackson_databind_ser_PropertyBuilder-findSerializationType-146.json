@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PropertyBuilder.java",
+  "functionName": "findSerializationType",
+  "functionId": "findSerializationType___a-Annotated__useStaticTyping-boolean__declaredType-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that will try to determine statically defined type of property\nbeing serialized, based on annotations (for overrides), and alternatively\ndeclared type (if static typing for serialization is enabled).\nIf neither can be used (no annotations, dynamic typing), returns null.\n",
+  "functionStartLine": 146,
+  "functionEndLine": 190,
+  "numCommitsSeen": 18,
+  "timeTaken": 602,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,27 @@\n+protected JavaType findSerializationType(Annotated a, boolean useStaticTyping, JavaType declaredType) {\n+    Class\u003c?\u003e serClass \u003d _annotationIntrospector.findSerializationType(a);\n+    if (serClass !\u003d null) {\n+        Class\u003c?\u003e rawDeclared \u003d declaredType.getRawClass();\n+        if (serClass.isAssignableFrom(rawDeclared)) {\n+            declaredType \u003d declaredType.widenBy(serClass);\n+        } else {\n+            if (!rawDeclared.isAssignableFrom(serClass)) {\n+                throw new IllegalArgumentException(\"Illegal concrete-type annotation for method \u0027\" + a.getName() + \"\u0027: class \" + serClass.getName() + \" not a super-type of (declared) class \" + rawDeclared.getName());\n+            }\n+            declaredType \u003d _config.constructSpecializedType(declaredType, serClass);\n+        }\n+        useStaticTyping \u003d true;\n+    }\n+    JavaType secondary \u003d BeanSerializerFactory.modifySecondaryTypesByAnnotation(_config, a, declaredType);\n+    if (secondary !\u003d declaredType) {\n+        useStaticTyping \u003d true;\n+        declaredType \u003d secondary;\n+    }\n+    if (!useStaticTyping) {\n+        JsonSerialize.Typing typing \u003d _annotationIntrospector.findSerializationTyping(a);\n+        if (typing !\u003d null) {\n+            useStaticTyping \u003d (typing \u003d\u003d JsonSerialize.Typing.STATIC);\n+        }\n+    }\n+    return useStaticTyping ? declaredType : null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JavaType findSerializationType(Annotated a, boolean useStaticTyping, JavaType declaredType) {\n    Class\u003c?\u003e serClass \u003d _annotationIntrospector.findSerializationType(a);\n    if (serClass !\u003d null) {\n        Class\u003c?\u003e rawDeclared \u003d declaredType.getRawClass();\n        if (serClass.isAssignableFrom(rawDeclared)) {\n            declaredType \u003d declaredType.widenBy(serClass);\n        } else {\n            if (!rawDeclared.isAssignableFrom(serClass)) {\n                throw new IllegalArgumentException(\"Illegal concrete-type annotation for method \u0027\" + a.getName() + \"\u0027: class \" + serClass.getName() + \" not a super-type of (declared) class \" + rawDeclared.getName());\n            }\n            declaredType \u003d _config.constructSpecializedType(declaredType, serClass);\n        }\n        useStaticTyping \u003d true;\n    }\n    JavaType secondary \u003d BeanSerializerFactory.modifySecondaryTypesByAnnotation(_config, a, declaredType);\n    if (secondary !\u003d declaredType) {\n        useStaticTyping \u003d true;\n        declaredType \u003d secondary;\n    }\n    if (!useStaticTyping) {\n        JsonSerialize.Typing typing \u003d _annotationIntrospector.findSerializationTyping(a);\n        if (typing !\u003d null) {\n            useStaticTyping \u003d (typing \u003d\u003d JsonSerialize.Typing.STATIC);\n        }\n    }\n    return useStaticTyping ? declaredType : null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java",
+      "functionStartLine": 161,
+      "functionName": "findSerializationType",
+      "functionAnnotation": "",
+      "functionDoc": "Method that will try to determine statically defined type of property\nbeing serialized, based on annotations (for overrides), and alternatively\ndeclared type (if static typing for serialization is enabled).\nIf neither can be used (no annotations, dynamic typing), returns null.\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanAsArraySerializer.java",
+  "functionName": "serialize",
+  "functionId": "serialize___bean-Object__jgen-JsonGenerator__provider-SerializerProvider",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/impl/BeanAsArraySerializer.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Main serialization method that will delegate actual output to\nconfigured\n{@link BeanPropertyWriter} instances.\n",
+  "functionStartLine": 133,
+  "functionEndLine": 149,
+  "numCommitsSeen": 6,
+  "timeTaken": 461,
+  "changeHistory": [
+    "27d9cd8e9d881ad906b1804ef6daf5431c9cedfe",
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7"
+  ],
+  "changeHistoryShort": {
+    "27d9cd8e9d881ad906b1804ef6daf5431c9cedfe": "Ybodychange",
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "27d9cd8e9d881ad906b1804ef6daf5431c9cedfe": {
+      "type": "Ybodychange",
+      "commitMessage": "Added handling for JACKSON-805 in the case of POJO as array.\n",
+      "commitDate": "9/19/12, 1:36 PM",
+      "commitName": "27d9cd8e9d881ad906b1804ef6daf5431c9cedfe",
+      "commitAuthor": "Pascal Gelinas",
+      "commitDateOld": "8/1/12, 8:27 AM",
+      "commitNameOld": "5fba9abafee7c4726ddbbcd2ecf382f3fe8a2c21",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 49.21,
+      "commitsBetweenForRepo": 96,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic final void serialize(Object bean, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonGenerationException {\n    if (provider.isEnabled(SerializationFeature.WRITE_SINGLE_ELEM_ARRAYS_UNWRAPPED) \u0026\u0026 hasSingleElement(provider)) {\n        serializeAsArray(bean, jgen, provider);\n        return;\n    }\n    jgen.writeStartArray();\n    serializeAsArray(bean, jgen, provider);\n    jgen.writeEndArray();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/BeanAsArraySerializer.java",
+      "functionStartLine": 133,
+      "functionName": "serialize",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Main serialization method that will delegate actual output to\nconfigured\n{@link BeanPropertyWriter} instances.\n",
+      "diff": "@@ -1,6 +1,10 @@\n @Override\n public final void serialize(Object bean, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonGenerationException {\n+    if (provider.isEnabled(SerializationFeature.WRITE_SINGLE_ELEM_ARRAYS_UNWRAPPED) \u0026\u0026 hasSingleElement(provider)) {\n+        serializeAsArray(bean, jgen, provider);\n+        return;\n+    }\n     jgen.writeStartArray();\n     serializeAsArray(bean, jgen, provider);\n     jgen.writeEndArray();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7": {
+      "type": "Yintroduced",
+      "commitMessage": "Start work on \"POJOs-as-arrays\" serialization\n",
+      "commitDate": "6/28/12, 10:23 PM",
+      "commitName": "dc65cc043479dd03dad878b22a9e5864e2e53bd7",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+@Override\n+public final void serialize(Object bean, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonGenerationException {\n+    jgen.writeStartArray();\n+    serializeAsArray(bean, jgen, provider);\n+    jgen.writeEndArray();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic final void serialize(Object bean, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonGenerationException {\n    jgen.writeStartArray();\n    serializeAsArray(bean, jgen, provider);\n    jgen.writeEndArray();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/BeanAsArraySerializer.java",
+      "functionStartLine": 132,
+      "functionName": "serialize",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Main serialization method that will delegate actual output to\nconfigured\n{@link BeanPropertyWriter} instances.\n"
+    }
+  }
+}

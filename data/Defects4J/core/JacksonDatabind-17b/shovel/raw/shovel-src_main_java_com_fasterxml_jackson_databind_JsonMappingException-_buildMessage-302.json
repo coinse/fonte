@@ -1,0 +1,166 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonMappingException.java",
+  "functionName": "_buildMessage",
+  "functionId": "_buildMessage",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 302,
+  "functionEndLine": 321,
+  "numCommitsSeen": 8,
+  "timeTaken": 469,
+  "changeHistory": [
+    "05fce93ce799a3fa402c269ed04ca32ec957d665",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "05fce93ce799a3fa402c269ed04ca32ec957d665": "Ymultichange(Yrename,Ymodifierchange,Ybodychange,Yannotationchange,Ydocchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "05fce93ce799a3fa402c269ed04ca32ec957d665": {
+      "type": "Ymultichange(Yrename,Ymodifierchange,Ybodychange,Yannotationchange,Ydocchange)",
+      "commitMessage": "Minor improvement to UnrecognizedPropertyException: list name of known properties to help user see what might be going wrong\n",
+      "commitDate": "3/19/12, 5:14 PM",
+      "commitName": "05fce93ce799a3fa402c269ed04ca32ec957d665",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Minor improvement to UnrecognizedPropertyException: list name of known properties to help user see what might be going wrong\n",
+          "commitDate": "3/19/12, 5:14 PM",
+          "commitName": "05fce93ce799a3fa402c269ed04ca32ec957d665",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/23/11, 12:31 AM",
+          "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 87.65,
+          "commitsBetweenForRepo": 298,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected String _buildMessage() {\n    String msg \u003d super.getMessage();\n    if (_path \u003d\u003d null) {\n        return msg;\n    }\n    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n    sb.append(\" (through reference chain: \");\n    sb \u003d getPathReference(sb);\n    sb.append(\u0027)\u0027);\n    return sb.toString();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+          "functionStartLine": 310,
+          "functionName": "_buildMessage",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,11 @@\n-@Override\n-public String getMessage() {\n+protected String _buildMessage() {\n     String msg \u003d super.getMessage();\n     if (_path \u003d\u003d null) {\n         return msg;\n     }\n     StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n     sb.append(\" (through reference chain: \");\n-    _appendPathDesc(sb);\n+    sb \u003d getPathReference(sb);\n     sb.append(\u0027)\u0027);\n     return sb.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "getMessage",
+            "newValue": "_buildMessage"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Minor improvement to UnrecognizedPropertyException: list name of known properties to help user see what might be going wrong\n",
+          "commitDate": "3/19/12, 5:14 PM",
+          "commitName": "05fce93ce799a3fa402c269ed04ca32ec957d665",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/23/11, 12:31 AM",
+          "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 87.65,
+          "commitsBetweenForRepo": 298,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected String _buildMessage() {\n    String msg \u003d super.getMessage();\n    if (_path \u003d\u003d null) {\n        return msg;\n    }\n    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n    sb.append(\" (through reference chain: \");\n    sb \u003d getPathReference(sb);\n    sb.append(\u0027)\u0027);\n    return sb.toString();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+          "functionStartLine": 310,
+          "functionName": "_buildMessage",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,11 @@\n-@Override\n-public String getMessage() {\n+protected String _buildMessage() {\n     String msg \u003d super.getMessage();\n     if (_path \u003d\u003d null) {\n         return msg;\n     }\n     StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n     sb.append(\" (through reference chain: \");\n-    _appendPathDesc(sb);\n+    sb \u003d getPathReference(sb);\n     sb.append(\u0027)\u0027);\n     return sb.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[protected]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Minor improvement to UnrecognizedPropertyException: list name of known properties to help user see what might be going wrong\n",
+          "commitDate": "3/19/12, 5:14 PM",
+          "commitName": "05fce93ce799a3fa402c269ed04ca32ec957d665",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/23/11, 12:31 AM",
+          "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 87.65,
+          "commitsBetweenForRepo": 298,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected String _buildMessage() {\n    String msg \u003d super.getMessage();\n    if (_path \u003d\u003d null) {\n        return msg;\n    }\n    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n    sb.append(\" (through reference chain: \");\n    sb \u003d getPathReference(sb);\n    sb.append(\u0027)\u0027);\n    return sb.toString();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+          "functionStartLine": 310,
+          "functionName": "_buildMessage",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,11 @@\n-@Override\n-public String getMessage() {\n+protected String _buildMessage() {\n     String msg \u003d super.getMessage();\n     if (_path \u003d\u003d null) {\n         return msg;\n     }\n     StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n     sb.append(\" (through reference chain: \");\n-    _appendPathDesc(sb);\n+    sb \u003d getPathReference(sb);\n     sb.append(\u0027)\u0027);\n     return sb.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Minor improvement to UnrecognizedPropertyException: list name of known properties to help user see what might be going wrong\n",
+          "commitDate": "3/19/12, 5:14 PM",
+          "commitName": "05fce93ce799a3fa402c269ed04ca32ec957d665",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/23/11, 12:31 AM",
+          "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 87.65,
+          "commitsBetweenForRepo": 298,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected String _buildMessage() {\n    String msg \u003d super.getMessage();\n    if (_path \u003d\u003d null) {\n        return msg;\n    }\n    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n    sb.append(\" (through reference chain: \");\n    sb \u003d getPathReference(sb);\n    sb.append(\u0027)\u0027);\n    return sb.toString();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+          "functionStartLine": 310,
+          "functionName": "_buildMessage",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,11 @@\n-@Override\n-public String getMessage() {\n+protected String _buildMessage() {\n     String msg \u003d super.getMessage();\n     if (_path \u003d\u003d null) {\n         return msg;\n     }\n     StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n     sb.append(\" (through reference chain: \");\n-    _appendPathDesc(sb);\n+    sb \u003d getPathReference(sb);\n     sb.append(\u0027)\u0027);\n     return sb.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Minor improvement to UnrecognizedPropertyException: list name of known properties to help user see what might be going wrong\n",
+          "commitDate": "3/19/12, 5:14 PM",
+          "commitName": "05fce93ce799a3fa402c269ed04ca32ec957d665",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/23/11, 12:31 AM",
+          "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 87.65,
+          "commitsBetweenForRepo": 298,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected String _buildMessage() {\n    String msg \u003d super.getMessage();\n    if (_path \u003d\u003d null) {\n        return msg;\n    }\n    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n    sb.append(\" (through reference chain: \");\n    sb \u003d getPathReference(sb);\n    sb.append(\u0027)\u0027);\n    return sb.toString();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+          "functionStartLine": 310,
+          "functionName": "_buildMessage",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,11 @@\n-@Override\n-public String getMessage() {\n+protected String _buildMessage() {\n     String msg \u003d super.getMessage();\n     if (_path \u003d\u003d null) {\n         return msg;\n     }\n     StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n     sb.append(\" (through reference chain: \");\n-    _appendPathDesc(sb);\n+    sb \u003d getPathReference(sb);\n     sb.append(\u0027)\u0027);\n     return sb.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Method is overridden so that we can properly inject description\nof problem path, if such is defined.\n",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+@Override\n+public String getMessage() {\n+    String msg \u003d super.getMessage();\n+    if (_path \u003d\u003d null) {\n+        return msg;\n+    }\n+    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n+    sb.append(\" (through reference chain: \");\n+    _appendPathDesc(sb);\n+    sb.append(\u0027)\u0027);\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String getMessage() {\n    String msg \u003d super.getMessage();\n    if (_path \u003d\u003d null) {\n        return msg;\n    }\n    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n    sb.append(\" (through reference chain: \");\n    _appendPathDesc(sb);\n    sb.append(\u0027)\u0027);\n    return sb.toString();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+      "functionStartLine": 282,
+      "functionName": "getMessage",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method is overridden so that we can properly inject description\nof problem path, if such is defined.\n"
+    }
+  }
+}

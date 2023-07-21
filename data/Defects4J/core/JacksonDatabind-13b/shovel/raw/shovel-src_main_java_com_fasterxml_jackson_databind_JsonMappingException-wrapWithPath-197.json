@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonMappingException.java",
+  "functionName": "wrapWithPath",
+  "functionId": "wrapWithPath___src-Throwable__ref-Reference",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that can be called to either create a new JsonMappingException\n(if underlying exception is not a JsonMappingException), or augment\ngiven exception with given path/reference information.\n",
+  "functionStartLine": 197,
+  "functionEndLine": 214,
+  "numCommitsSeen": 7,
+  "timeTaken": 304,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,14 @@\n+public static JsonMappingException wrapWithPath(Throwable src, Reference ref) {\n+    JsonMappingException jme;\n+    if (src instanceof JsonMappingException) {\n+        jme \u003d (JsonMappingException) src;\n+    } else {\n+        String msg \u003d src.getMessage();\n+        if (msg \u003d\u003d null || msg.length() \u003d\u003d 0) {\n+            msg \u003d \"(was \" + src.getClass().getName() + \")\";\n+        }\n+        jme \u003d new JsonMappingException(msg, null, src);\n+    }\n+    jme.prependPath(ref);\n+    return jme;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static JsonMappingException wrapWithPath(Throwable src, Reference ref) {\n    JsonMappingException jme;\n    if (src instanceof JsonMappingException) {\n        jme \u003d (JsonMappingException) src;\n    } else {\n        String msg \u003d src.getMessage();\n        if (msg \u003d\u003d null || msg.length() \u003d\u003d 0) {\n            msg \u003d \"(was \" + src.getClass().getName() + \")\";\n        }\n        jme \u003d new JsonMappingException(msg, null, src);\n    }\n    jme.prependPath(ref);\n    return jme;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+      "functionStartLine": 205,
+      "functionName": "wrapWithPath",
+      "functionAnnotation": "",
+      "functionDoc": "Method that can be called to either create a new JsonMappingException\n(if underlying exception is not a JsonMappingException), or augment\ngiven exception with given path/reference information.\n"
+    }
+  }
+}

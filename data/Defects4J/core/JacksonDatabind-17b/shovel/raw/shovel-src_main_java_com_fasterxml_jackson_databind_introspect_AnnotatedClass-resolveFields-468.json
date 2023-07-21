@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "resolveFields",
+  "functionId": "resolveFields",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that will collect all member (non-static) fields\nthat are either public, or have at least a single annotation\nassociated with them.\n",
+  "functionStartLine": 468,
+  "functionEndLine": 477,
+  "numCommitsSeen": 20,
+  "timeTaken": 1225,
+  "changeHistory": [
+    "cad988161f95e549ba352037223574a90a5a255a",
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "cad988161f95e549ba352037223574a90a5a255a": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cad988161f95e549ba352037223574a90a5a255a": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/22/12, 9:49 PM",
+      "commitName": "cad988161f95e549ba352037223574a90a5a255a",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "refactoring\n",
+          "commitDate": "1/22/12, 9:49 PM",
+          "commitName": "cad988161f95e549ba352037223574a90a5a255a",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/22/12, 9:44 PM",
+          "commitNameOld": "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void resolveFields() {\n    Map\u003cString, AnnotatedField\u003e foundFields \u003d _findFields(_class, null);\n    if (foundFields \u003d\u003d null || foundFields.size() \u003d\u003d 0) {\n        _fields \u003d Collections.emptyList();\n    } else {\n        _fields \u003d new ArrayList\u003cAnnotatedField\u003e(foundFields.size());\n        _fields.addAll(foundFields.values());\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+          "functionStartLine": 454,
+          "functionName": "resolveFields",
+          "functionAnnotation": "",
+          "functionDoc": "Method that will collect all member (non-static) fields\nthat are either public, or have at least a single annotation\nassociated with them.\n",
+          "diff": "@@ -1,10 +1,9 @@\n-public void resolveFields() {\n-    LinkedHashMap\u003cString, AnnotatedField\u003e foundFields \u003d new LinkedHashMap\u003cString, AnnotatedField\u003e();\n-    _addFields(foundFields, _class);\n-    if (foundFields.isEmpty()) {\n+private void resolveFields() {\n+    Map\u003cString, AnnotatedField\u003e foundFields \u003d _findFields(_class, null);\n+    if (foundFields \u003d\u003d null || foundFields.size() \u003d\u003d 0) {\n         _fields \u003d Collections.emptyList();\n     } else {\n         _fields \u003d new ArrayList\u003cAnnotatedField\u003e(foundFields.size());\n         _fields.addAll(foundFields.values());\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "refactoring\n",
+          "commitDate": "1/22/12, 9:49 PM",
+          "commitName": "cad988161f95e549ba352037223574a90a5a255a",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/22/12, 9:44 PM",
+          "commitNameOld": "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void resolveFields() {\n    Map\u003cString, AnnotatedField\u003e foundFields \u003d _findFields(_class, null);\n    if (foundFields \u003d\u003d null || foundFields.size() \u003d\u003d 0) {\n        _fields \u003d Collections.emptyList();\n    } else {\n        _fields \u003d new ArrayList\u003cAnnotatedField\u003e(foundFields.size());\n        _fields.addAll(foundFields.values());\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+          "functionStartLine": 454,
+          "functionName": "resolveFields",
+          "functionAnnotation": "",
+          "functionDoc": "Method that will collect all member (non-static) fields\nthat are either public, or have at least a single annotation\nassociated with them.\n",
+          "diff": "@@ -1,10 +1,9 @@\n-public void resolveFields() {\n-    LinkedHashMap\u003cString, AnnotatedField\u003e foundFields \u003d new LinkedHashMap\u003cString, AnnotatedField\u003e();\n-    _addFields(foundFields, _class);\n-    if (foundFields.isEmpty()) {\n+private void resolveFields() {\n+    Map\u003cString, AnnotatedField\u003e foundFields \u003d _findFields(_class, null);\n+    if (foundFields \u003d\u003d null || foundFields.size() \u003d\u003d 0) {\n         _fields \u003d Collections.emptyList();\n     } else {\n         _fields \u003d new ArrayList\u003cAnnotatedField\u003e(foundFields.size());\n         _fields.addAll(foundFields.values());\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b": {
+      "type": "Ydocchange",
+      "commitMessage": "Start work on [JACKSON-754], \"annotation bundles\"\n",
+      "commitDate": "1/16/12, 5:24 PM",
+      "commitName": "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/29/11, 3:12 PM",
+      "commitNameOld": "0344ce08eb33d9d3aeb6478ce0391368596eac04",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 18.09,
+      "commitsBetweenForRepo": 30,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void resolveFields() {\n    LinkedHashMap\u003cString, AnnotatedField\u003e foundFields \u003d new LinkedHashMap\u003cString, AnnotatedField\u003e();\n    _addFields(foundFields, _class);\n    if (foundFields.isEmpty()) {\n        _fields \u003d Collections.emptyList();\n    } else {\n        _fields \u003d new ArrayList\u003cAnnotatedField\u003e(foundFields.size());\n        _fields.addAll(foundFields.values());\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 437,
+      "functionName": "resolveFields",
+      "functionAnnotation": "",
+      "functionDoc": "Method that will collect all member (non-static) fields\nthat are either public, or have at least a single annotation\nassociated with them.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method that will collect all member (non-static) fields\nthat are either public, or have at least a single annotation\nassociated with them.\n\n@since 1.9\n",
+        "newValue": "Method that will collect all member (non-static) fields\nthat are either public, or have at least a single annotation\nassociated with them.\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+public void resolveFields() {\n+    LinkedHashMap\u003cString, AnnotatedField\u003e foundFields \u003d new LinkedHashMap\u003cString, AnnotatedField\u003e();\n+    _addFields(foundFields, _class);\n+    if (foundFields.isEmpty()) {\n+        _fields \u003d Collections.emptyList();\n+    } else {\n+        _fields \u003d new ArrayList\u003cAnnotatedField\u003e(foundFields.size());\n+        _fields.addAll(foundFields.values());\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void resolveFields() {\n    LinkedHashMap\u003cString, AnnotatedField\u003e foundFields \u003d new LinkedHashMap\u003cString, AnnotatedField\u003e();\n    _addFields(foundFields, _class);\n    if (foundFields.isEmpty()) {\n        _fields \u003d Collections.emptyList();\n    } else {\n        _fields \u003d new ArrayList\u003cAnnotatedField\u003e(foundFields.size());\n        _fields.addAll(foundFields.values());\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 454,
+      "functionName": "resolveFields",
+      "functionAnnotation": "",
+      "functionDoc": "Method that will collect all member (non-static) fields\nthat are either public, or have at least a single annotation\nassociated with them.\n\n@since 1.9\n"
+    }
+  }
+}

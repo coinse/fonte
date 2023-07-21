@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanDeserializerFactory.java",
+  "functionName": "materializeAbstractType",
+  "functionId": "materializeAbstractType___ctxt-DeserializationContext__type-JavaType__beanDesc-BeanDescription",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 180,
+  "functionEndLine": 194,
+  "numCommitsSeen": 147,
+  "timeTaken": 4271,
+  "changeHistory": [
+    "10dc5c9268b6a7536e2b9e69ff96438698c6bbad",
+    "28bde0726d83be7f70ca4586abee6f536bfc8885",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "10dc5c9268b6a7536e2b9e69ff96438698c6bbad": "Ymultichange(Yparameterchange,Ybodychange)",
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": "Yparameterchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "10dc5c9268b6a7536e2b9e69ff96438698c6bbad": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Implement #199, support for deserializing Iterable\n",
+      "commitDate": "4/7/13, 4:11 PM",
+      "commitName": "10dc5c9268b6a7536e2b9e69ff96438698c6bbad",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Implement #199, support for deserializing Iterable\n",
+          "commitDate": "4/7/13, 4:11 PM",
+          "commitName": "10dc5c9268b6a7536e2b9e69ff96438698c6bbad",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/13/13, 3:56 PM",
+          "commitNameOld": "8d53c22404fbd066cf3f81d1248e188dba5caebd",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 25.01,
+          "commitsBetweenForRepo": 14,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JavaType materializeAbstractType(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    final JavaType abstractType \u003d beanDesc.getType();\n    for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n        JavaType concrete \u003d r.resolveAbstractType(ctxt.getConfig(), abstractType);\n        if (concrete !\u003d null) {\n            return concrete;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+          "functionStartLine": 220,
+          "functionName": "materializeAbstractType",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-protected JavaType materializeAbstractType(DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n+protected JavaType materializeAbstractType(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n     final JavaType abstractType \u003d beanDesc.getType();\n     for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n-        JavaType concrete \u003d r.resolveAbstractType(config, abstractType);\n+        JavaType concrete \u003d r.resolveAbstractType(ctxt.getConfig(), abstractType);\n         if (concrete !\u003d null) {\n             return concrete;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[config-DeserializationConfig, beanDesc-BeanDescription]",
+            "newValue": "[ctxt-DeserializationContext, type-JavaType, beanDesc-BeanDescription]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implement #199, support for deserializing Iterable\n",
+          "commitDate": "4/7/13, 4:11 PM",
+          "commitName": "10dc5c9268b6a7536e2b9e69ff96438698c6bbad",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/13/13, 3:56 PM",
+          "commitNameOld": "8d53c22404fbd066cf3f81d1248e188dba5caebd",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 25.01,
+          "commitsBetweenForRepo": 14,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JavaType materializeAbstractType(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    final JavaType abstractType \u003d beanDesc.getType();\n    for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n        JavaType concrete \u003d r.resolveAbstractType(ctxt.getConfig(), abstractType);\n        if (concrete !\u003d null) {\n            return concrete;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+          "functionStartLine": 220,
+          "functionName": "materializeAbstractType",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-protected JavaType materializeAbstractType(DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n+protected JavaType materializeAbstractType(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n     final JavaType abstractType \u003d beanDesc.getType();\n     for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n-        JavaType concrete \u003d r.resolveAbstractType(config, abstractType);\n+        JavaType concrete \u003d r.resolveAbstractType(ctxt.getConfig(), abstractType);\n         if (concrete !\u003d null) {\n             return concrete;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": {
+      "type": "Yparameterchange",
+      "commitMessage": "Refactoring: eliminate exposure of BasicBeanDescription (now just base class. BeanDescription)\n",
+      "commitDate": "1/22/12, 10:57 PM",
+      "commitName": "28bde0726d83be7f70ca4586abee6f536bfc8885",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/19/12, 3:58 PM",
+      "commitNameOld": "9e6c28f2ec520cc669e05c6d2f13b4486fa3f026",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 3.29,
+      "commitsBetweenForRepo": 21,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JavaType materializeAbstractType(DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n    final JavaType abstractType \u003d beanDesc.getType();\n    for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n        JavaType concrete \u003d r.resolveAbstractType(config, abstractType);\n        if (concrete !\u003d null) {\n            return concrete;\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 559,
+      "functionName": "materializeAbstractType",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,10 @@\n-protected JavaType materializeAbstractType(DeserializationConfig config, BasicBeanDescription beanDesc) throws JsonMappingException {\n+protected JavaType materializeAbstractType(DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n     final JavaType abstractType \u003d beanDesc.getType();\n     for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n         JavaType concrete \u003d r.resolveAbstractType(config, abstractType);\n         if (concrete !\u003d null) {\n             return concrete;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[config-DeserializationConfig, beanDesc-BasicBeanDescription]",
+        "newValue": "[config-DeserializationConfig, beanDesc-BeanDescription]"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+protected JavaType materializeAbstractType(DeserializationConfig config, BasicBeanDescription beanDesc) throws JsonMappingException {\n+    final JavaType abstractType \u003d beanDesc.getType();\n+    for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n+        JavaType concrete \u003d r.resolveAbstractType(config, abstractType);\n+        if (concrete !\u003d null) {\n+            return concrete;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JavaType materializeAbstractType(DeserializationConfig config, BasicBeanDescription beanDesc) throws JsonMappingException {\n    final JavaType abstractType \u003d beanDesc.getType();\n    for (AbstractTypeResolver r : _factoryConfig.abstractTypeResolvers()) {\n        JavaType concrete \u003d r.resolveAbstractType(config, abstractType);\n        if (concrete !\u003d null) {\n            return concrete;\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 606,
+      "functionName": "materializeAbstractType",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

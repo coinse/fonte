@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicSerializerFactory.java",
+  "functionName": "modifySecondaryTypesByAnnotation",
+  "functionId": "modifySecondaryTypesByAnnotation___config-SerializationConfig__a-Annotated__type-T",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+  "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+  "functionDoc": "",
+  "functionStartLine": 966,
+  "functionEndLine": 996,
+  "numCommitsSeen": 81,
+  "timeTaken": 3577,
+  "changeHistory": [
+    "a03e0ebf5825d587230093436b6db53f368185a0",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "a03e0ebf5825d587230093436b6db53f368185a0": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a03e0ebf5825d587230093436b6db53f368185a0": {
+      "type": "Ydocchange",
+      "commitMessage": "Implemented [JACKSON-732] for 2.0\n",
+      "commitDate": "1/14/12, 2:01 PM",
+      "commitName": "a03e0ebf5825d587230093436b6db53f368185a0",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/11/12, 10:14 PM",
+      "commitNameOld": "703bf4a104193e8098f904fe33531c58c6e7f359",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.66,
+      "commitsBetweenForRepo": 13,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nprotected static \u003cT extends JavaType\u003e T modifySecondaryTypesByAnnotation(SerializationConfig config, Annotated a, T type) {\n    AnnotationIntrospector intr \u003d config.getAnnotationIntrospector();\n    if (type.isContainerType()) {\n        Class\u003c?\u003e keyClass \u003d intr.findSerializationKeyType(a, type.getKeyType());\n        if (keyClass !\u003d null) {\n            if (!(type instanceof MapType)) {\n                throw new IllegalArgumentException(\"Illegal key-type annotation: type \" + type + \" is not a Map type\");\n            }\n            try {\n                type \u003d (T) ((MapType) type).widenKey(keyClass);\n            } catch (IllegalArgumentException iae) {\n                throw new IllegalArgumentException(\"Failed to narrow key type \" + type + \" with key-type annotation (\" + keyClass.getName() + \"): \" + iae.getMessage());\n            }\n        }\n        Class\u003c?\u003e cc \u003d intr.findSerializationContentType(a, type.getContentType());\n        if (cc !\u003d null) {\n            try {\n                type \u003d (T) type.widenContentsBy(cc);\n            } catch (IllegalArgumentException iae) {\n                throw new IllegalArgumentException(\"Failed to narrow content type \" + type + \" with content-type annotation (\" + cc.getName() + \"): \" + iae.getMessage());\n            }\n        }\n    }\n    return type;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+      "functionStartLine": 661,
+      "functionName": "modifySecondaryTypesByAnnotation",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\n@since 1.8\n",
+        "newValue": ""
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,26 @@\n+@SuppressWarnings(\"unchecked\")\n+protected static \u003cT extends JavaType\u003e T modifySecondaryTypesByAnnotation(SerializationConfig config, Annotated a, T type) {\n+    AnnotationIntrospector intr \u003d config.getAnnotationIntrospector();\n+    if (type.isContainerType()) {\n+        Class\u003c?\u003e keyClass \u003d intr.findSerializationKeyType(a, type.getKeyType());\n+        if (keyClass !\u003d null) {\n+            if (!(type instanceof MapType)) {\n+                throw new IllegalArgumentException(\"Illegal key-type annotation: type \" + type + \" is not a Map type\");\n+            }\n+            try {\n+                type \u003d (T) ((MapType) type).widenKey(keyClass);\n+            } catch (IllegalArgumentException iae) {\n+                throw new IllegalArgumentException(\"Failed to narrow key type \" + type + \" with key-type annotation (\" + keyClass.getName() + \"): \" + iae.getMessage());\n+            }\n+        }\n+        Class\u003c?\u003e cc \u003d intr.findSerializationContentType(a, type.getContentType());\n+        if (cc !\u003d null) {\n+            try {\n+                type \u003d (T) type.widenContentsBy(cc);\n+            } catch (IllegalArgumentException iae) {\n+                throw new IllegalArgumentException(\"Failed to narrow content type \" + type + \" with content-type annotation (\" + cc.getName() + \"): \" + iae.getMessage());\n+            }\n+        }\n+    }\n+    return type;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nprotected static \u003cT extends JavaType\u003e T modifySecondaryTypesByAnnotation(SerializationConfig config, Annotated a, T type) {\n    AnnotationIntrospector intr \u003d config.getAnnotationIntrospector();\n    if (type.isContainerType()) {\n        Class\u003c?\u003e keyClass \u003d intr.findSerializationKeyType(a, type.getKeyType());\n        if (keyClass !\u003d null) {\n            if (!(type instanceof MapType)) {\n                throw new IllegalArgumentException(\"Illegal key-type annotation: type \" + type + \" is not a Map type\");\n            }\n            try {\n                type \u003d (T) ((MapType) type).widenKey(keyClass);\n            } catch (IllegalArgumentException iae) {\n                throw new IllegalArgumentException(\"Failed to narrow key type \" + type + \" with key-type annotation (\" + keyClass.getName() + \"): \" + iae.getMessage());\n            }\n        }\n        Class\u003c?\u003e cc \u003d intr.findSerializationContentType(a, type.getContentType());\n        if (cc !\u003d null) {\n            try {\n                type \u003d (T) type.widenContentsBy(cc);\n            } catch (IllegalArgumentException iae) {\n                throw new IllegalArgumentException(\"Failed to narrow content type \" + type + \" with content-type annotation (\" + cc.getName() + \"): \" + iae.getMessage());\n            }\n        }\n    }\n    return type;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+      "functionStartLine": 677,
+      "functionName": "modifySecondaryTypesByAnnotation",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "\n@since 1.8\n"
+    }
+  }
+}

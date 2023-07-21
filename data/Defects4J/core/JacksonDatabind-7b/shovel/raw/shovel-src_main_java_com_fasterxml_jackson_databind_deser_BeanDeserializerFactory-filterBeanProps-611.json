@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanDeserializerFactory.java",
+  "functionName": "filterBeanProps",
+  "functionId": "filterBeanProps___ctxt-DeserializationContext__beanDesc-BeanDescription__builder-BeanDeserializerBuilder__propDefsIn-List__BeanPropertyDefinition____ignored-Set__String__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method called to filter out explicit ignored properties,\nas well as properties that have \"ignorable types\".\nNote that this will not remove properties that have no\nsetters.\n",
+  "functionStartLine": 611,
+  "functionEndLine": 645,
+  "numCommitsSeen": 71,
+  "timeTaken": 2341,
+  "changeHistory": [
+    "fbd795bbbe05709b4164e2c5ec4731990091f5f2"
+  ],
+  "changeHistoryShort": {
+    "fbd795bbbe05709b4164e2c5ec4731990091f5f2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fbd795bbbe05709b4164e2c5ec4731990091f5f2": {
+      "type": "Yintroduced",
+      "commitMessage": "...\n",
+      "commitDate": "1/26/12, 10:02 PM",
+      "commitName": "fbd795bbbe05709b4164e2c5ec4731990091f5f2",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,24 @@\n+protected List\u003cBeanPropertyDefinition\u003e filterBeanProps(DeserializationContext ctxt, BeanDescription beanDesc, BeanDeserializerBuilder builder, List\u003cBeanPropertyDefinition\u003e propDefsIn, Set\u003cString\u003e ignored) throws JsonMappingException {\n+    ArrayList\u003cBeanPropertyDefinition\u003e result \u003d new ArrayList\u003cBeanPropertyDefinition\u003e(Math.max(4, propDefsIn.size()));\n+    HashMap\u003cClass\u003c?\u003e, Boolean\u003e ignoredTypes \u003d new HashMap\u003cClass\u003c?\u003e, Boolean\u003e();\n+    for (BeanPropertyDefinition property : propDefsIn) {\n+        String name \u003d property.getName();\n+        if (ignored.contains(name)) {\n+            continue;\n+        }\n+        if (!property.hasConstructorParameter()) {\n+            Class\u003c?\u003e rawPropertyType \u003d null;\n+            if (property.hasSetter()) {\n+                rawPropertyType \u003d property.getSetter().getRawParameterType(0);\n+            } else if (property.hasField()) {\n+                rawPropertyType \u003d property.getField().getRawType();\n+            }\n+            if ((rawPropertyType !\u003d null) \u0026\u0026 (isIgnorableType(ctxt.getConfig(), beanDesc, rawPropertyType, ignoredTypes))) {\n+                builder.addIgnorable(name);\n+                continue;\n+            }\n+        }\n+        result.add(property);\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected List\u003cBeanPropertyDefinition\u003e filterBeanProps(DeserializationContext ctxt, BeanDescription beanDesc, BeanDeserializerBuilder builder, List\u003cBeanPropertyDefinition\u003e propDefsIn, Set\u003cString\u003e ignored) throws JsonMappingException {\n    ArrayList\u003cBeanPropertyDefinition\u003e result \u003d new ArrayList\u003cBeanPropertyDefinition\u003e(Math.max(4, propDefsIn.size()));\n    HashMap\u003cClass\u003c?\u003e, Boolean\u003e ignoredTypes \u003d new HashMap\u003cClass\u003c?\u003e, Boolean\u003e();\n    for (BeanPropertyDefinition property : propDefsIn) {\n        String name \u003d property.getName();\n        if (ignored.contains(name)) {\n            continue;\n        }\n        if (!property.hasConstructorParameter()) {\n            Class\u003c?\u003e rawPropertyType \u003d null;\n            if (property.hasSetter()) {\n                rawPropertyType \u003d property.getSetter().getRawParameterType(0);\n            } else if (property.hasField()) {\n                rawPropertyType \u003d property.getField().getRawType();\n            }\n            if ((rawPropertyType !\u003d null) \u0026\u0026 (isIgnorableType(ctxt.getConfig(), beanDesc, rawPropertyType, ignoredTypes))) {\n                builder.addIgnorable(name);\n                continue;\n            }\n        }\n        result.add(property);\n    }\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 454,
+      "functionName": "filterBeanProps",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method called to filter out explicit ignored properties,\nas well as properties that have \"ignorable types\".\nNote that this will not remove properties that have no\nsetters.\n"
+    }
+  }
+}

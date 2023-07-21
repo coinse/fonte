@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-3b",
+  "repositoryPath": "/tmp/JacksonDatabind-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringArrayDeserializer.java",
+  "functionName": "deserialize",
+  "functionId": "deserialize___jp-JsonParser__ctxt-DeserializationContext",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 44,
+  "functionEndLine": 79,
+  "numCommitsSeen": 6,
+  "timeTaken": 645,
+  "changeHistory": [
+    "b0cfd4388bc250f1e263c55485c5596cea404ceb",
+    "845897f6970c70f35ddd880d538765ec5a2956f4",
+    "f2a2d4d24b6b1176117940f5e4c75eae550d742b"
+  ],
+  "changeHistoryShort": {
+    "b0cfd4388bc250f1e263c55485c5596cea404ceb": "Ybodychange",
+    "845897f6970c70f35ddd880d538765ec5a2956f4": "Yexceptionschange",
+    "f2a2d4d24b6b1176117940f5e4c75eae550d742b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b0cfd4388bc250f1e263c55485c5596cea404ceb": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix deserialization of null values for collection/array type deserializers\n* All of these deserializers should ask the encapsulated valueDeserializer for its nullValue when `VALUE_NULL` is encountered, rather than assuming a return value of `null`.\n* This is a bug that affects the ser/deser of `Collection[Option[_]]` in scala, as `None` values are serialized to `null` and deserialized back to `null` rather than `None`, which is correctly overriden in `OptionDeserializer`\n* Note I am a first time committer and happy to sign any release. Thanks!\n",
+      "commitDate": "2/13/14, 5:48 PM",
+      "commitName": "b0cfd4388bc250f1e263c55485c5596cea404ceb",
+      "commitAuthor": "Will Palmeri",
+      "commitDateOld": "1/1/14, 12:56 PM",
+      "commitNameOld": "845897f6970c70f35ddd880d538765ec5a2956f4",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 43.2,
+      "commitsBetweenForRepo": 62,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String[] deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {\n    if (!jp.isExpectedStartArrayToken()) {\n        return handleNonArray(jp, ctxt);\n    }\n    if (_elementDeserializer !\u003d null) {\n        return _deserializeCustom(jp, ctxt);\n    }\n    final ObjectBuffer buffer \u003d ctxt.leaseObjectBuffer();\n    Object[] chunk \u003d buffer.resetAndStart();\n    int ix \u003d 0;\n    JsonToken t;\n    while ((t \u003d jp.nextToken()) !\u003d JsonToken.END_ARRAY) {\n        String value;\n        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n            value \u003d jp.getText();\n        } else if (t \u003d\u003d JsonToken.VALUE_NULL) {\n            value \u003d _elementDeserializer.getNullValue();\n        } else {\n            value \u003d _parseString(jp, ctxt);\n        }\n        if (ix \u003e\u003d chunk.length) {\n            chunk \u003d buffer.appendCompletedChunk(chunk);\n            ix \u003d 0;\n        }\n        chunk[ix++] \u003d value;\n    }\n    String[] result \u003d buffer.completeAndClearBuffer(chunk, ix, String.class);\n    ctxt.returnObjectBuffer(buffer);\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java",
+      "functionStartLine": 44,
+      "functionName": "deserialize",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,31 +1,31 @@\n @Override\n public String[] deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {\n     if (!jp.isExpectedStartArrayToken()) {\n         return handleNonArray(jp, ctxt);\n     }\n     if (_elementDeserializer !\u003d null) {\n         return _deserializeCustom(jp, ctxt);\n     }\n     final ObjectBuffer buffer \u003d ctxt.leaseObjectBuffer();\n     Object[] chunk \u003d buffer.resetAndStart();\n     int ix \u003d 0;\n     JsonToken t;\n     while ((t \u003d jp.nextToken()) !\u003d JsonToken.END_ARRAY) {\n         String value;\n         if (t \u003d\u003d JsonToken.VALUE_STRING) {\n             value \u003d jp.getText();\n         } else if (t \u003d\u003d JsonToken.VALUE_NULL) {\n-            value \u003d null;\n+            value \u003d _elementDeserializer.getNullValue();\n         } else {\n             value \u003d _parseString(jp, ctxt);\n         }\n         if (ix \u003e\u003d chunk.length) {\n             chunk \u003d buffer.appendCompletedChunk(chunk);\n             ix \u003d 0;\n         }\n         chunk[ix++] \u003d value;\n     }\n     String[] result \u003d buffer.completeAndClearBuffer(chunk, ix, String.class);\n     ctxt.returnObjectBuffer(buffer);\n     return result;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "845897f6970c70f35ddd880d538765ec5a2956f4": {
+      "type": "Yexceptionschange",
+      "commitMessage": "Combine a bunch of simple \"from-string\" deserialziers\n",
+      "commitDate": "1/1/14, 12:56 PM",
+      "commitName": "845897f6970c70f35ddd880d538765ec5a2956f4",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/5/13, 9:45 PM",
+      "commitNameOld": "4f90dbca87b680cb10abdb0df5129491da3486d2",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 117.67,
+      "commitsBetweenForRepo": 134,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String[] deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {\n    if (!jp.isExpectedStartArrayToken()) {\n        return handleNonArray(jp, ctxt);\n    }\n    if (_elementDeserializer !\u003d null) {\n        return _deserializeCustom(jp, ctxt);\n    }\n    final ObjectBuffer buffer \u003d ctxt.leaseObjectBuffer();\n    Object[] chunk \u003d buffer.resetAndStart();\n    int ix \u003d 0;\n    JsonToken t;\n    while ((t \u003d jp.nextToken()) !\u003d JsonToken.END_ARRAY) {\n        String value;\n        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n            value \u003d jp.getText();\n        } else if (t \u003d\u003d JsonToken.VALUE_NULL) {\n            value \u003d null;\n        } else {\n            value \u003d _parseString(jp, ctxt);\n        }\n        if (ix \u003e\u003d chunk.length) {\n            chunk \u003d buffer.appendCompletedChunk(chunk);\n            ix \u003d 0;\n        }\n        chunk[ix++] \u003d value;\n    }\n    String[] result \u003d buffer.completeAndClearBuffer(chunk, ix, String.class);\n    ctxt.returnObjectBuffer(buffer);\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java",
+      "functionStartLine": 44,
+      "functionName": "deserialize",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,31 +1,31 @@\n @Override\n-public String[] deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {\n+public String[] deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {\n     if (!jp.isExpectedStartArrayToken()) {\n         return handleNonArray(jp, ctxt);\n     }\n     if (_elementDeserializer !\u003d null) {\n         return _deserializeCustom(jp, ctxt);\n     }\n     final ObjectBuffer buffer \u003d ctxt.leaseObjectBuffer();\n     Object[] chunk \u003d buffer.resetAndStart();\n     int ix \u003d 0;\n     JsonToken t;\n     while ((t \u003d jp.nextToken()) !\u003d JsonToken.END_ARRAY) {\n         String value;\n         if (t \u003d\u003d JsonToken.VALUE_STRING) {\n             value \u003d jp.getText();\n         } else if (t \u003d\u003d JsonToken.VALUE_NULL) {\n             value \u003d null;\n         } else {\n             value \u003d _parseString(jp, ctxt);\n         }\n         if (ix \u003e\u003d chunk.length) {\n             chunk \u003d buffer.appendCompletedChunk(chunk);\n             ix \u003d 0;\n         }\n         chunk[ix++] \u003d value;\n     }\n     String[] result \u003d buffer.completeAndClearBuffer(chunk, ix, String.class);\n     ctxt.returnObjectBuffer(buffer);\n     return result;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[IOException, JsonProcessingException]",
+        "newValue": "[IOException]"
+      }
+    },
+    "f2a2d4d24b6b1176117940f5e4c75eae550d742b": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix handling of String[] deserializer, to allow customization as expected.\n",
+      "commitDate": "3/2/13, 6:41 PM",
+      "commitName": "f2a2d4d24b6b1176117940f5e4c75eae550d742b",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,31 @@\n+@Override\n+public String[] deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {\n+    if (!jp.isExpectedStartArrayToken()) {\n+        return handleNonArray(jp, ctxt);\n+    }\n+    if (_elementDeserializer !\u003d null) {\n+        return _deserializeCustom(jp, ctxt);\n+    }\n+    final ObjectBuffer buffer \u003d ctxt.leaseObjectBuffer();\n+    Object[] chunk \u003d buffer.resetAndStart();\n+    int ix \u003d 0;\n+    JsonToken t;\n+    while ((t \u003d jp.nextToken()) !\u003d JsonToken.END_ARRAY) {\n+        String value;\n+        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n+            value \u003d jp.getText();\n+        } else if (t \u003d\u003d JsonToken.VALUE_NULL) {\n+            value \u003d null;\n+        } else {\n+            value \u003d _parseString(jp, ctxt);\n+        }\n+        if (ix \u003e\u003d chunk.length) {\n+            chunk \u003d buffer.appendCompletedChunk(chunk);\n+            ix \u003d 0;\n+        }\n+        chunk[ix++] \u003d value;\n+    }\n+    String[] result \u003d buffer.completeAndClearBuffer(chunk, ix, String.class);\n+    ctxt.returnObjectBuffer(buffer);\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String[] deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {\n    if (!jp.isExpectedStartArrayToken()) {\n        return handleNonArray(jp, ctxt);\n    }\n    if (_elementDeserializer !\u003d null) {\n        return _deserializeCustom(jp, ctxt);\n    }\n    final ObjectBuffer buffer \u003d ctxt.leaseObjectBuffer();\n    Object[] chunk \u003d buffer.resetAndStart();\n    int ix \u003d 0;\n    JsonToken t;\n    while ((t \u003d jp.nextToken()) !\u003d JsonToken.END_ARRAY) {\n        String value;\n        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n            value \u003d jp.getText();\n        } else if (t \u003d\u003d JsonToken.VALUE_NULL) {\n            value \u003d null;\n        } else {\n            value \u003d _parseString(jp, ctxt);\n        }\n        if (ix \u003e\u003d chunk.length) {\n            chunk \u003d buffer.appendCompletedChunk(chunk);\n            ix \u003d 0;\n        }\n        chunk[ix++] \u003d value;\n    }\n    String[] result \u003d buffer.completeAndClearBuffer(chunk, ix, String.class);\n    ctxt.returnObjectBuffer(buffer);\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java",
+      "functionStartLine": 42,
+      "functionName": "deserialize",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

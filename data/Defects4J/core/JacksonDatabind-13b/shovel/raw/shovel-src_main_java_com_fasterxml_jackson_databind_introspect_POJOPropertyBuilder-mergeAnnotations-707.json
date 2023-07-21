@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "mergeAnnotations",
+  "functionId": "mergeAnnotations___forSerialization-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+  "functionDoc": "",
+  "functionStartLine": 707,
+  "functionEndLine": 729,
+  "numCommitsSeen": 49,
+  "timeTaken": 2146,
+  "changeHistory": [
+    "b009194c5f68fa4d773723113beeed3ae9308b9d",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "b009194c5f68fa4d773723113beeed3ae9308b9d": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b009194c5f68fa4d773723113beeed3ae9308b9d": {
+      "type": "Ybodychange",
+      "commitMessage": "Full fix for #318\n",
+      "commitDate": "10/18/13, 11:52 PM",
+      "commitName": "b009194c5f68fa4d773723113beeed3ae9308b9d",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "7/29/13, 11:42 PM",
+      "commitNameOld": "38912fd333f7856df0ec4d8ec42aa63dce55c5bd",
+      "commitAuthorOld": "Christopher Currie",
+      "daysBetweenCommits": 81.01,
+      "commitsBetweenForRepo": 122,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"unchecked\")\npublic void mergeAnnotations(boolean forSerialization) {\n    if (forSerialization) {\n        if (_getters !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _getters, _fields, _ctorParameters, _setters);\n            _getters \u003d _getters.withValue(_getters.value.withAnnotations(ann));\n        } else if (_fields !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _fields, _ctorParameters, _setters);\n            _fields \u003d _fields.withValue(_fields.value.withAnnotations(ann));\n        }\n    } else {\n        if (_ctorParameters !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _ctorParameters, _setters, _fields, _getters);\n            _ctorParameters \u003d _ctorParameters.withValue(_ctorParameters.value.withAnnotations(ann));\n        } else if (_setters !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _setters, _fields, _getters);\n            _setters \u003d _setters.withValue(_setters.value.withAnnotations(ann));\n        } else if (_fields !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _fields, _getters);\n            _fields \u003d _fields.withValue(_fields.value.withAnnotations(ann));\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 550,
+      "functionName": "mergeAnnotations",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,23 @@\n+@SuppressWarnings(\"unchecked\")\n+public void mergeAnnotations(boolean forSerialization) {\n+    if (forSerialization) {\n+        if (_getters !\u003d null) {\n+            AnnotationMap ann \u003d _mergeAnnotations(0, _getters, _fields, _ctorParameters, _setters);\n+            _getters \u003d _getters.withValue(_getters.value.withAnnotations(ann));\n+        } else if (_fields !\u003d null) {\n+            AnnotationMap ann \u003d _mergeAnnotations(0, _fields, _ctorParameters, _setters);\n+            _fields \u003d _fields.withValue(_fields.value.withAnnotations(ann));\n+        }\n+    } else {\n+        if (_ctorParameters !\u003d null) {\n+            AnnotationMap ann \u003d _mergeAnnotations(0, _ctorParameters, _setters, _fields, _getters);\n+            _ctorParameters \u003d _ctorParameters.withValue(_ctorParameters.value.withAnnotations(ann));\n+        } else if (_setters !\u003d null) {\n+            AnnotationMap ann \u003d _mergeAnnotations(0, _setters, _fields, _getters);\n+            _setters \u003d _setters.withValue(_setters.value.withAnnotations(ann));\n+        } else if (_fields !\u003d null) {\n+            AnnotationMap ann \u003d _mergeAnnotations(0, _fields, _getters);\n+            _fields \u003d _fields.withValue(_fields.value.withAnnotations(ann));\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\npublic void mergeAnnotations(boolean forSerialization) {\n    if (forSerialization) {\n        if (_getters !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _getters, _fields, _ctorParameters, _setters);\n            _getters \u003d _getters.withValue(_getters.value.withAnnotations(ann));\n        } else if (_fields !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _fields, _ctorParameters, _setters);\n            _fields \u003d _fields.withValue(_fields.value.withAnnotations(ann));\n        }\n    } else {\n        if (_ctorParameters !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _ctorParameters, _setters, _fields, _getters);\n            _ctorParameters \u003d _ctorParameters.withValue(_ctorParameters.value.withAnnotations(ann));\n        } else if (_setters !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _setters, _fields, _getters);\n            _setters \u003d _setters.withValue(_setters.value.withAnnotations(ann));\n        } else if (_fields !\u003d null) {\n            AnnotationMap ann \u003d _mergeAnnotations(0, _fields, _getters);\n            _fields \u003d _fields.withValue(_fields.value.withAnnotations(ann));\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 346,
+      "functionName": "mergeAnnotations",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": ""
+    }
+  }
+}

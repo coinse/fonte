@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-3b",
+  "repositoryPath": "/tmp/JacksonDatabind-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectBuffer.java",
+  "functionName": "_copyTo",
+  "functionId": "_copyTo___resultArray-Object__totalSize-int__lastChunk-Object[]__lastChunkEntries-int",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ObjectBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 192,
+  "functionEndLine": 210,
+  "numCommitsSeen": 3,
+  "timeTaken": 274,
+  "changeHistory": [
+    "328215a912721ecf054f53544ef27047984fc574",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "328215a912721ecf054f53544ef27047984fc574": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "328215a912721ecf054f53544ef27047984fc574": {
+      "type": "Ybodychange",
+      "commitMessage": "Remove a duplicate LinkedNode class\n",
+      "commitDate": "4/26/14, 1:55 PM",
+      "commitName": "328215a912721ecf054f53544ef27047984fc574",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/20/12, 8:16 PM",
+      "commitNameOld": "b2a9ca7bb27c21b12ccd8d17314e83275381027c",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 826.69,
+      "commitsBetweenForRepo": 1206,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected final void _copyTo(Object resultArray, int totalSize, Object[] lastChunk, int lastChunkEntries) {\n    int ptr \u003d 0;\n    for (LinkedNode\u003cObject[]\u003e n \u003d _head; n !\u003d null; n \u003d n.next()) {\n        Object[] curr \u003d n.value();\n        int len \u003d curr.length;\n        System.arraycopy(curr, 0, resultArray, ptr, len);\n        ptr +\u003d len;\n    }\n    System.arraycopy(lastChunk, 0, resultArray, ptr, lastChunkEntries);\n    ptr +\u003d lastChunkEntries;\n    if (ptr !\u003d totalSize) {\n        throw new IllegalStateException(\"Should have gotten \" + totalSize + \" entries, got \" + ptr);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ObjectBuffer.java",
+      "functionStartLine": 192,
+      "functionName": "_copyTo",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,14 +1,14 @@\n protected final void _copyTo(Object resultArray, int totalSize, Object[] lastChunk, int lastChunkEntries) {\n     int ptr \u003d 0;\n-    for (Node n \u003d _bufferHead; n !\u003d null; n \u003d n.next()) {\n-        Object[] curr \u003d n.getData();\n+    for (LinkedNode\u003cObject[]\u003e n \u003d _head; n !\u003d null; n \u003d n.next()) {\n+        Object[] curr \u003d n.value();\n         int len \u003d curr.length;\n         System.arraycopy(curr, 0, resultArray, ptr, len);\n         ptr +\u003d len;\n     }\n     System.arraycopy(lastChunk, 0, resultArray, ptr, lastChunkEntries);\n     ptr +\u003d lastChunkEntries;\n     if (ptr !\u003d totalSize) {\n         throw new IllegalStateException(\"Should have gotten \" + totalSize + \" entries, got \" + ptr);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,14 @@\n+protected final void _copyTo(Object resultArray, int totalSize, Object[] lastChunk, int lastChunkEntries) {\n+    int ptr \u003d 0;\n+    for (Node n \u003d _bufferHead; n !\u003d null; n \u003d n.next()) {\n+        Object[] curr \u003d n.getData();\n+        int len \u003d curr.length;\n+        System.arraycopy(curr, 0, resultArray, ptr, len);\n+        ptr +\u003d len;\n+    }\n+    System.arraycopy(lastChunk, 0, resultArray, ptr, lastChunkEntries);\n+    ptr +\u003d lastChunkEntries;\n+    if (ptr !\u003d totalSize) {\n+        throw new IllegalStateException(\"Should have gotten \" + totalSize + \" entries, got \" + ptr);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected final void _copyTo(Object resultArray, int totalSize, Object[] lastChunk, int lastChunkEntries) {\n    int ptr \u003d 0;\n    for (Node n \u003d _bufferHead; n !\u003d null; n \u003d n.next()) {\n        Object[] curr \u003d n.getData();\n        int len \u003d curr.length;\n        System.arraycopy(curr, 0, resultArray, ptr, len);\n        ptr +\u003d len;\n    }\n    System.arraycopy(lastChunk, 0, resultArray, ptr, lastChunkEntries);\n    ptr +\u003d lastChunkEntries;\n    if (ptr !\u003d totalSize) {\n        throw new IllegalStateException(\"Should have gotten \" + totalSize + \" entries, got \" + ptr);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ObjectBuffer.java",
+      "functionStartLine": 203,
+      "functionName": "_copyTo",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

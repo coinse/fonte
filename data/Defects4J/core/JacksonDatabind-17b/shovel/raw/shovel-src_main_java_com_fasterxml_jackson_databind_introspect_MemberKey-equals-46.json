@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MemberKey.java",
+  "functionName": "equals",
+  "functionId": "equals___o-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/MemberKey.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 46,
+  "functionEndLine": 88,
+  "numCommitsSeen": 2,
+  "timeTaken": 213,
+  "changeHistory": [
+    "bfbb661eb1bddb11297eb5fa9cf12e523fdc3ae2",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "bfbb661eb1bddb11297eb5fa9cf12e523fdc3ae2": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bfbb661eb1bddb11297eb5fa9cf12e523fdc3ae2": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix jackson-core#158: \"Setter confusion on assignable types\"; wrong equals() in MemberKey.java\n",
+      "commitDate": "10/14/14, 11:26 AM",
+      "commitName": "bfbb661eb1bddb11297eb5fa9cf12e523fdc3ae2",
+      "commitAuthor": "Cowtowncoder",
+      "commitDateOld": "12/23/11, 12:31 AM",
+      "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1026.41,
+      "commitsBetweenForRepo": 1449,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (o \u003d\u003d this)\n        return true;\n    if (o \u003d\u003d null)\n        return false;\n    if (o.getClass() !\u003d getClass()) {\n        return false;\n    }\n    MemberKey other \u003d (MemberKey) o;\n    if (!_name.equals(other._name)) {\n        return false;\n    }\n    Class\u003c?\u003e[] otherArgs \u003d other._argTypes;\n    int len \u003d _argTypes.length;\n    if (otherArgs.length !\u003d len) {\n        return false;\n    }\n    for (int i \u003d 0; i \u003c len; ++i) {\n        Class\u003c?\u003e type1 \u003d otherArgs[i];\n        Class\u003c?\u003e type2 \u003d _argTypes[i];\n        if (type1 \u003d\u003d type2) {\n            continue;\n        }\n        return false;\n    }\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/MemberKey.java",
+      "functionStartLine": 46,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,31 +1,28 @@\n @Override\n public boolean equals(Object o) {\n     if (o \u003d\u003d this)\n         return true;\n     if (o \u003d\u003d null)\n         return false;\n     if (o.getClass() !\u003d getClass()) {\n         return false;\n     }\n     MemberKey other \u003d (MemberKey) o;\n     if (!_name.equals(other._name)) {\n         return false;\n     }\n     Class\u003c?\u003e[] otherArgs \u003d other._argTypes;\n     int len \u003d _argTypes.length;\n     if (otherArgs.length !\u003d len) {\n         return false;\n     }\n     for (int i \u003d 0; i \u003c len; ++i) {\n         Class\u003c?\u003e type1 \u003d otherArgs[i];\n         Class\u003c?\u003e type2 \u003d _argTypes[i];\n         if (type1 \u003d\u003d type2) {\n             continue;\n         }\n-        if (type1.isAssignableFrom(type2) || type2.isAssignableFrom(type1)) {\n-            continue;\n-        }\n         return false;\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,31 @@\n+@Override\n+public boolean equals(Object o) {\n+    if (o \u003d\u003d this)\n+        return true;\n+    if (o \u003d\u003d null)\n+        return false;\n+    if (o.getClass() !\u003d getClass()) {\n+        return false;\n+    }\n+    MemberKey other \u003d (MemberKey) o;\n+    if (!_name.equals(other._name)) {\n+        return false;\n+    }\n+    Class\u003c?\u003e[] otherArgs \u003d other._argTypes;\n+    int len \u003d _argTypes.length;\n+    if (otherArgs.length !\u003d len) {\n+        return false;\n+    }\n+    for (int i \u003d 0; i \u003c len; ++i) {\n+        Class\u003c?\u003e type1 \u003d otherArgs[i];\n+        Class\u003c?\u003e type2 \u003d _argTypes[i];\n+        if (type1 \u003d\u003d type2) {\n+            continue;\n+        }\n+        if (type1.isAssignableFrom(type2) || type2.isAssignableFrom(type1)) {\n+            continue;\n+        }\n+        return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (o \u003d\u003d this)\n        return true;\n    if (o \u003d\u003d null)\n        return false;\n    if (o.getClass() !\u003d getClass()) {\n        return false;\n    }\n    MemberKey other \u003d (MemberKey) o;\n    if (!_name.equals(other._name)) {\n        return false;\n    }\n    Class\u003c?\u003e[] otherArgs \u003d other._argTypes;\n    int len \u003d _argTypes.length;\n    if (otherArgs.length !\u003d len) {\n        return false;\n    }\n    for (int i \u003d 0; i \u003c len; ++i) {\n        Class\u003c?\u003e type1 \u003d otherArgs[i];\n        Class\u003c?\u003e type2 \u003d _argTypes[i];\n        if (type1 \u003d\u003d type2) {\n            continue;\n        }\n        if (type1.isAssignableFrom(type2) || type2.isAssignableFrom(type1)) {\n            continue;\n        }\n        return false;\n    }\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/MemberKey.java",
+      "functionStartLine": 46,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

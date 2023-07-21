@@ -1,0 +1,209 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "MapperConfig.java",
+  "functionName": "collectFeatureDefaults",
+  "functionId": "collectFeatureDefaults___enumClass-Class__F__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfig.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n",
+  "functionStartLine": 73,
+  "functionEndLine": 82,
+  "numCommitsSeen": 52,
+  "timeTaken": 2637,
+  "changeHistory": [
+    "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+    "eaedfb7677e74c1a610928655f464c454176d1c0",
+    "c733a7f1e744121343da2851df27b581aab79e68",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+    "eaedfb7677e74c1a610928655f464c454176d1c0": "Ymovefromfile",
+    "c733a7f1e744121343da2851df27b581aab79e68": "Ymultichange(Ymovefromfile,Ymodifierchange,Yformatchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+      "commitMessage": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig\n",
+      "commitDate": "1/19/12, 12:31 PM",
+      "commitName": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig\n",
+          "commitDate": "1/19/12, 12:31 PM",
+          "commitName": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/18/12, 10:41 PM",
+          "commitNameOld": "3108d85c7ca25507a10bd6d4b49b7a2fb807329b",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.58,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n    int flags \u003d 0;\n    for (F value : enumClass.getEnumConstants()) {\n        if (value.enabledByDefault()) {\n            flags |\u003d value.getMask();\n        }\n    }\n    return flags;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfig.java",
+          "functionStartLine": 306,
+          "functionName": "collectFeatureDefaults",
+          "functionAnnotation": "",
+          "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-protected static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n+public static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n     int flags \u003d 0;\n     for (F value : enumClass.getEnumConstants()) {\n         if (value.enabledByDefault()) {\n             flags |\u003d value.getMask();\n         }\n     }\n     return flags;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfig.java",
+            "oldMethodName": "collectFeatureDefaults",
+            "newMethodName": "collectFeatureDefaults"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig\n",
+          "commitDate": "1/19/12, 12:31 PM",
+          "commitName": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/18/12, 10:41 PM",
+          "commitNameOld": "3108d85c7ca25507a10bd6d4b49b7a2fb807329b",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.58,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n    int flags \u003d 0;\n    for (F value : enumClass.getEnumConstants()) {\n        if (value.enabledByDefault()) {\n            flags |\u003d value.getMask();\n        }\n    }\n    return flags;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfig.java",
+          "functionStartLine": 306,
+          "functionName": "collectFeatureDefaults",
+          "functionAnnotation": "",
+          "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-protected static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n+public static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n     int flags \u003d 0;\n     for (F value : enumClass.getEnumConstants()) {\n         if (value.enabledByDefault()) {\n             flags |\u003d value.getMask();\n         }\n     }\n     return flags;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[protected, static]",
+            "newValue": "[public, static]"
+          }
+        }
+      ]
+    },
+    "eaedfb7677e74c1a610928655f464c454176d1c0": {
+      "type": "Ymovefromfile",
+      "commitMessage": "Still more config changes\n",
+      "commitDate": "1/18/12, 9:55 PM",
+      "commitName": "eaedfb7677e74c1a610928655f464c454176d1c0",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/18/12, 9:36 PM",
+      "commitNameOld": "5087f976953ef5ce9f0fb8b27c564bca71da9bd2",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n    int flags \u003d 0;\n    for (F value : enumClass.getEnumConstants()) {\n        if (value.enabledByDefault()) {\n            flags |\u003d value.getMask();\n        }\n    }\n    return flags;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 425,
+      "functionName": "collectFeatureDefaults",
+      "functionAnnotation": "",
+      "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n",
+      "diff": "@@ -1,9 +1,9 @@\n-protected static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n+protected static \u003cF extends Enum\u003cF\u003e \u0026 ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n     int flags \u003d 0;\n     for (F value : enumClass.getEnumConstants()) {\n         if (value.enabledByDefault()) {\n             flags |\u003d value.getMask();\n         }\n     }\n     return flags;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfigBase.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+        "oldMethodName": "collectFeatureDefaults",
+        "newMethodName": "collectFeatureDefaults"
+      }
+    },
+    "c733a7f1e744121343da2851df27b581aab79e68": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange,Yformatchange)",
+      "commitMessage": "Yet more config refactoring\n",
+      "commitDate": "1/18/12, 8:25 PM",
+      "commitName": "c733a7f1e744121343da2851df27b581aab79e68",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Yet more config refactoring\n",
+          "commitDate": "1/18/12, 8:25 PM",
+          "commitName": "c733a7f1e744121343da2851df27b581aab79e68",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/18/12, 8:24 PM",
+          "commitNameOld": "4beb90c7e1e42df733c8514ec38395d556c2d574",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n    int flags \u003d 0;\n    for (F value : enumClass.getEnumConstants()) {\n        if (value.enabledByDefault()) {\n            flags |\u003d value.getMask();\n        }\n    }\n    return flags;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfigBase.java",
+          "functionStartLine": 57,
+          "functionName": "collectFeatureDefaults",
+          "functionAnnotation": "",
+          "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n+protected static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n     int flags \u003d 0;\n     for (F value : enumClass.getEnumConstants()) {\n         if (value.enabledByDefault()) {\n             flags |\u003d value.getMask();\n         }\n     }\n     return flags;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/MapperConfig.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfigBase.java",
+            "oldMethodName": "collectFeatureDefaults",
+            "newMethodName": "collectFeatureDefaults"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Yet more config refactoring\n",
+          "commitDate": "1/18/12, 8:25 PM",
+          "commitName": "c733a7f1e744121343da2851df27b581aab79e68",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/18/12, 8:24 PM",
+          "commitNameOld": "4beb90c7e1e42df733c8514ec38395d556c2d574",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n    int flags \u003d 0;\n    for (F value : enumClass.getEnumConstants()) {\n        if (value.enabledByDefault()) {\n            flags |\u003d value.getMask();\n        }\n    }\n    return flags;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfigBase.java",
+          "functionStartLine": 57,
+          "functionName": "collectFeatureDefaults",
+          "functionAnnotation": "",
+          "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n+protected static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n     int flags \u003d 0;\n     for (F value : enumClass.getEnumConstants()) {\n         if (value.enabledByDefault()) {\n             flags |\u003d value.getMask();\n         }\n     }\n     return flags;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[static]",
+            "newValue": "[protected, static]"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "Yet more config refactoring\n",
+          "commitDate": "1/18/12, 8:25 PM",
+          "commitName": "c733a7f1e744121343da2851df27b581aab79e68",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/18/12, 8:24 PM",
+          "commitNameOld": "4beb90c7e1e42df733c8514ec38395d556c2d574",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n    int flags \u003d 0;\n    for (F value : enumClass.getEnumConstants()) {\n        if (value.enabledByDefault()) {\n            flags |\u003d value.getMask();\n        }\n    }\n    return flags;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/cfg/MapperConfigBase.java",
+          "functionStartLine": 57,
+          "functionName": "collectFeatureDefaults",
+          "functionAnnotation": "",
+          "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n",
+          "diff": "@@ -1,9 +1,9 @@\n-static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n+protected static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n     int flags \u003d 0;\n     for (F value : enumClass.getEnumConstants()) {\n         if (value.enabledByDefault()) {\n             flags |\u003d value.getMask();\n         }\n     }\n     return flags;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n+    int flags \u003d 0;\n+    for (F value : enumClass.getEnumConstants()) {\n+        if (value.enabledByDefault()) {\n+            flags |\u003d value.getMask();\n+        }\n+    }\n+    return flags;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static \u003cF extends Enum\u003cF\u003e \u0026 MapperConfig.ConfigFeature\u003e int collectFeatureDefaults(Class\u003cF\u003e enumClass) {\n    int flags \u003d 0;\n    for (F value : enumClass.getEnumConstants()) {\n        if (value.enabledByDefault()) {\n            flags |\u003d value.getMask();\n        }\n    }\n    return flags;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/MapperConfig.java",
+      "functionStartLine": 1052,
+      "functionName": "collectFeatureDefaults",
+      "functionAnnotation": "",
+      "functionDoc": "Method that calculates bit set (flags) of all features that\nare enabled by default.\n"
+    }
+  }
+}

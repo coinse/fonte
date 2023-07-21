@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "hasAsValueAnnotation",
+  "functionId": "hasAsValueAnnotation___am-AnnotatedMethod",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 647,
+  "functionEndLine": 651,
+  "numCommitsSeen": 73,
+  "timeTaken": 2881,
+  "changeHistory": [
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9": {
+      "type": "Ybodychange",
+      "commitMessage": "Implement #133\n",
+      "commitDate": "9/25/14, 5:28 PM",
+      "commitName": "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+      "commitAuthor": "Cowtowncoder",
+      "commitDateOld": "5/19/14, 11:42 PM",
+      "commitNameOld": "46c6679d0b88035e0083e27890a421e8a8466242",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 128.74,
+      "commitsBetweenForRepo": 127,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean hasAsValueAnnotation(AnnotatedMethod am) {\n    JsonValue ann \u003d _findAnnotation(am, JsonValue.class);\n    return (ann !\u003d null \u0026\u0026 ann.value());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 539,
+      "functionName": "hasAsValueAnnotation",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n @Override\n public boolean hasAsValueAnnotation(AnnotatedMethod am) {\n-    JsonValue ann \u003d am.getAnnotation(JsonValue.class);\n+    JsonValue ann \u003d _findAnnotation(am, JsonValue.class);\n     return (ann !\u003d null \u0026\u0026 ann.value());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public boolean hasAsValueAnnotation(AnnotatedMethod am) {\n+    JsonValue ann \u003d am.getAnnotation(JsonValue.class);\n+    return (ann !\u003d null \u0026\u0026 ann.value());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean hasAsValueAnnotation(AnnotatedMethod am) {\n    JsonValue ann \u003d am.getAnnotation(JsonValue.class);\n    return (ann !\u003d null \u0026\u0026 ann.value());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 465,
+      "functionName": "hasAsValueAnnotation",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

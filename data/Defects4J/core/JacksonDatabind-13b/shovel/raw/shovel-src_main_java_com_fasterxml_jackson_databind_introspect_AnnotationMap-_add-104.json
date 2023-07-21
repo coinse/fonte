@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotationMap.java",
+  "functionName": "_add",
+  "functionId": "_add___ann-Annotation",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 104,
+  "functionEndLine": 110,
+  "numCommitsSeen": 7,
+  "timeTaken": 352,
+  "changeHistory": [
+    "3ec253707dcfba4055e99d6af97d0d3877d0999a",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "3ec253707dcfba4055e99d6af97d0d3877d0999a": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3ec253707dcfba4055e99d6af97d0d3877d0999a": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "keep bundle annotations and prevent simple cycles\n\nI don\u0027t see any downsides and this makes it easier to manipulate\ncustom annotations, introspectors, serializers, and other parts\nthat interact with annotated objects. The cycle detection is a\nbonus.\n",
+      "commitDate": "8/15/14, 4:28 PM",
+      "commitName": "3ec253707dcfba4055e99d6af97d0d3877d0999a",
+      "commitAuthor": "ian",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "keep bundle annotations and prevent simple cycles\n\nI don\u0027t see any downsides and this makes it easier to manipulate\ncustom annotations, introspectors, serializers, and other parts\nthat interact with annotated objects. The cycle detection is a\nbonus.\n",
+          "commitDate": "8/15/14, 4:28 PM",
+          "commitName": "3ec253707dcfba4055e99d6af97d0d3877d0999a",
+          "commitAuthor": "ian",
+          "commitDateOld": "4/22/14, 7:17 PM",
+          "commitNameOld": "d0b0273b9a04649cbc044ac092cc0eab0dc698f9",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 114.88,
+          "commitsBetweenForRepo": 143,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected final boolean _add(Annotation ann) {\n    if (_annotations \u003d\u003d null) {\n        _annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n    }\n    Annotation previous \u003d _annotations.put(ann.annotationType(), ann);\n    return (previous !\u003d null) \u0026\u0026 previous.equals(ann);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java",
+          "functionStartLine": 104,
+          "functionName": "_add",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,6 +1,7 @@\n-protected final void _add(Annotation ann) {\n+protected final boolean _add(Annotation ann) {\n     if (_annotations \u003d\u003d null) {\n         _annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n     }\n-    _annotations.put(ann.annotationType(), ann);\n+    Annotation previous \u003d _annotations.put(ann.annotationType(), ann);\n+    return (previous !\u003d null) \u0026\u0026 previous.equals(ann);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "void",
+            "newValue": "boolean"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "keep bundle annotations and prevent simple cycles\n\nI don\u0027t see any downsides and this makes it easier to manipulate\ncustom annotations, introspectors, serializers, and other parts\nthat interact with annotated objects. The cycle detection is a\nbonus.\n",
+          "commitDate": "8/15/14, 4:28 PM",
+          "commitName": "3ec253707dcfba4055e99d6af97d0d3877d0999a",
+          "commitAuthor": "ian",
+          "commitDateOld": "4/22/14, 7:17 PM",
+          "commitNameOld": "d0b0273b9a04649cbc044ac092cc0eab0dc698f9",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 114.88,
+          "commitsBetweenForRepo": 143,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected final boolean _add(Annotation ann) {\n    if (_annotations \u003d\u003d null) {\n        _annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n    }\n    Annotation previous \u003d _annotations.put(ann.annotationType(), ann);\n    return (previous !\u003d null) \u0026\u0026 previous.equals(ann);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java",
+          "functionStartLine": 104,
+          "functionName": "_add",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,6 +1,7 @@\n-protected final void _add(Annotation ann) {\n+protected final boolean _add(Annotation ann) {\n     if (_annotations \u003d\u003d null) {\n         _annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n     }\n-    _annotations.put(ann.annotationType(), ann);\n+    Annotation previous \u003d _annotations.put(ann.annotationType(), ann);\n+    return (previous !\u003d null) \u0026\u0026 previous.equals(ann);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+protected final void _add(Annotation ann) {\n+    if (_annotations \u003d\u003d null) {\n+        _annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n+    }\n+    _annotations.put(ann.annotationType(), ann);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected final void _add(Annotation ann) {\n    if (_annotations \u003d\u003d null) {\n        _annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n    }\n    _annotations.put(ann.annotationType(), ann);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java",
+      "functionStartLine": 92,
+      "functionName": "_add",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

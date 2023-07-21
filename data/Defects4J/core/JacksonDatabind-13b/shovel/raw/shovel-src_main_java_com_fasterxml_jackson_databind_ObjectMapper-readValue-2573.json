@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectMapper.java",
+  "functionName": "readValue",
+  "functionId": "readValue___content-String__valueType-Class__T__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+  "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+  "functionDoc": "Method to deserialize JSON content from given JSON content String.\n\n@throws IOException if a low-level I/O problem (unexpected end-of-input,\n  network error) occurs (passed through as-is without additional wrapping -- note\n  that this is one case where {@link DeserializationFeature#WRAP_EXCEPTIONS}\n  does NOT result in wrapping of exception even if enabled)\n@throws JsonParseException if underlying input contains invalid content\n   of type {@link JsonParser} supports (JSON for default case)\n@throws JsonMappingException if the input JSON structure does not match structure\n  expected for result type (or has other mismatch issues)\n",
+  "functionStartLine": 2573,
+  "functionEndLine": 2579,
+  "numCommitsSeen": 158,
+  "timeTaken": 12811,
+  "changeHistory": [
+    "53d4c4cae9900c781ed19a35943ffccd2b0dc67e",
+    "d06026f73b52bafc7cc1a44ae86e5405d97f8350",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "53d4c4cae9900c781ed19a35943ffccd2b0dc67e": "Ydocchange",
+    "d06026f73b52bafc7cc1a44ae86e5405d97f8350": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "53d4c4cae9900c781ed19a35943ffccd2b0dc67e": {
+      "type": "Ydocchange",
+      "commitMessage": "Slightly improved javadoco for `ObjectMapper.readValue()`\n",
+      "commitDate": "12/26/14, 8:54 PM",
+      "commitName": "53d4c4cae9900c781ed19a35943ffccd2b0dc67e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/14, 9:53 PM",
+      "commitNameOld": "442a26a8f48336cb78e305162a85cddcb8283201",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.96,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"unchecked\")\npublic \u003cT\u003e T readValue(String content, Class\u003cT\u003e valueType) throws IOException, JsonParseException, JsonMappingException {\n    return (T) _readMapAndClose(_jsonFactory.createParser(content), _typeFactory.constructType(valueType));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 2571,
+      "functionName": "readValue",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "Method to deserialize JSON content from given JSON content String.\n\n@throws IOException if a low-level I/O problem (unexpected end-of-input,\n  network error) occurs (passed through as-is without additional wrapping -- note\n  that this is one case where {@link DeserializationFeature#WRAP_EXCEPTIONS}\n  does NOT result in wrapping of exception even if enabled)\n@throws JsonParseException if underlying input contains invalid content\n   of type {@link JsonParser} supports (JSON for default case)\n@throws JsonMappingException if the input JSON structure does not match structure\n  expected for result type (or has other mismatch issues)\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "Method to deserialize JSON content from given JSON content String.\n\n@throws IOException if a low-level I/O problem (unexpected end-of-input,\n  network error) occurs (passed through as-is without additional wrapping -- note\n  that this is one case where {@link DeserializationFeature#WRAP_EXCEPTIONS}\n  does NOT result in wrapping of exception even if enabled)\n@throws JsonParseException if underlying input contains invalid content\n   of type {@link JsonParser} supports (JSON for default case)\n@throws JsonMappingException if the input JSON structure does not match structure\n  expected for result type (or has other mismatch issues)\n"
+      }
+    },
+    "d06026f73b52bafc7cc1a44ae86e5405d97f8350": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix compilation problem (due to Collections.emptyIterator()), upgrade to \u0027createParser\u0027 etc (from \u0027createJsonParser\u0027)\n",
+      "commitDate": "11/15/12, 6:18 PM",
+      "commitName": "d06026f73b52bafc7cc1a44ae86e5405d97f8350",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "11/12/12, 4:33 PM",
+      "commitNameOld": "5b772b1f1e97c80c394765e8f4443ac0f9dea637",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 3.07,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"unchecked\")\npublic \u003cT\u003e T readValue(String content, Class\u003cT\u003e valueType) throws IOException, JsonParseException, JsonMappingException {\n    return (T) _readMapAndClose(_jsonFactory.createParser(content), _typeFactory.constructType(valueType));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 1937,
+      "functionName": "readValue",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n @SuppressWarnings(\"unchecked\")\n public \u003cT\u003e T readValue(String content, Class\u003cT\u003e valueType) throws IOException, JsonParseException, JsonMappingException {\n-    return (T) _readMapAndClose(_jsonFactory.createJsonParser(content), _typeFactory.constructType(valueType));\n+    return (T) _readMapAndClose(_jsonFactory.createParser(content), _typeFactory.constructType(valueType));\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+@SuppressWarnings(\"unchecked\")\n+public \u003cT\u003e T readValue(String content, Class\u003cT\u003e valueType) throws IOException, JsonParseException, JsonMappingException {\n+    return (T) _readMapAndClose(_jsonFactory.createJsonParser(content), _typeFactory.constructType(valueType));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\npublic \u003cT\u003e T readValue(String content, Class\u003cT\u003e valueType) throws IOException, JsonParseException, JsonMappingException {\n    return (T) _readMapAndClose(_jsonFactory.createJsonParser(content), _typeFactory.constructType(valueType));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 1859,
+      "functionName": "readValue",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": ""
+    }
+  }
+}

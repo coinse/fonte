@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DatabindContext.java",
+  "functionName": "objectIdResolverInstance",
+  "functionId": "objectIdResolverInstance___annotated-Annotated__objectIdInfo-ObjectIdInfo",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 162,
+  "functionEndLine": 173,
+  "numCommitsSeen": 7,
+  "timeTaken": 1279,
+  "changeHistory": [
+    "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d"
+  ],
+  "changeHistoryShort": {
+    "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d": {
+      "type": "Yintroduced",
+      "commitMessage": "Implementation of custom object id resolution.\n",
+      "commitDate": "2/10/14, 7:59 AM",
+      "commitName": "184cae3c98f8af8813afebe875b5a9bc2b2bbe4d",
+      "commitAuthor": "Pascal Gélinas",
+      "diff": "@@ -0,0 +1,10 @@\n+public ObjectIdResolver objectIdResolverInstance(Annotated annotated, ObjectIdInfo objectIdInfo) {\n+    Class\u003c? extends ObjectIdResolver\u003e implClass \u003d objectIdInfo.getResolverType();\n+    final MapperConfig\u003c?\u003e config \u003d getConfig();\n+    HandlerInstantiator hi \u003d config.getHandlerInstantiator();\n+    ObjectIdResolver resolver \u003d (hi \u003d\u003d null) ? null : hi.resolverIdGeneratorInstance(config, annotated, implClass);\n+    if (resolver \u003d\u003d null) {\n+        resolver \u003d ClassUtil.createInstance(implClass, config.canOverrideAccessModifiers());\n+    }\n+    return resolver;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public ObjectIdResolver objectIdResolverInstance(Annotated annotated, ObjectIdInfo objectIdInfo) {\n    Class\u003c? extends ObjectIdResolver\u003e implClass \u003d objectIdInfo.getResolverType();\n    final MapperConfig\u003c?\u003e config \u003d getConfig();\n    HandlerInstantiator hi \u003d config.getHandlerInstantiator();\n    ObjectIdResolver resolver \u003d (hi \u003d\u003d null) ? null : hi.resolverIdGeneratorInstance(config, annotated, implClass);\n    if (resolver \u003d\u003d null) {\n        resolver \u003d ClassUtil.createInstance(implClass, config.canOverrideAccessModifiers());\n    }\n    return resolver;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+      "functionStartLine": 163,
+      "functionName": "objectIdResolverInstance",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

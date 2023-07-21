@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanUtil.java",
+  "functionName": "manglePropertyName",
+  "functionId": "manglePropertyName___basename-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to figure out name of the property, given \ncorresponding suggested name based on a method or field name.\n\n@param basename Name of accessor/mutator method, not including prefix\n (\"get\"/\"is\"/\"set\")\n",
+  "functionStartLine": 171,
+  "functionEndLine": 193,
+  "numCommitsSeen": 6,
+  "timeTaken": 235,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,19 @@\n+protected static String manglePropertyName(String basename) {\n+    int len \u003d basename.length();\n+    if (len \u003d\u003d 0) {\n+        return null;\n+    }\n+    StringBuilder sb \u003d null;\n+    for (int i \u003d 0; i \u003c len; ++i) {\n+        char upper \u003d basename.charAt(i);\n+        char lower \u003d Character.toLowerCase(upper);\n+        if (upper \u003d\u003d lower) {\n+            break;\n+        }\n+        if (sb \u003d\u003d null) {\n+            sb \u003d new StringBuilder(basename);\n+        }\n+        sb.setCharAt(i, lower);\n+    }\n+    return (sb \u003d\u003d null) ? basename : sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected static String manglePropertyName(String basename) {\n    int len \u003d basename.length();\n    if (len \u003d\u003d 0) {\n        return null;\n    }\n    StringBuilder sb \u003d null;\n    for (int i \u003d 0; i \u003c len; ++i) {\n        char upper \u003d basename.charAt(i);\n        char lower \u003d Character.toLowerCase(upper);\n        if (upper \u003d\u003d lower) {\n            break;\n        }\n        if (sb \u003d\u003d null) {\n            sb \u003d new StringBuilder(basename);\n        }\n        sb.setCharAt(i, lower);\n    }\n    return (sb \u003d\u003d null) ? basename : sb.toString();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+      "functionStartLine": 237,
+      "functionName": "manglePropertyName",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to figure out name of the property, given \ncorresponding suggested name based on a method or field name.\n\n@param basename Name of accessor/mutator method, not including prefix\n (\"get\"/\"is\"/\"set\")\n"
+    }
+  }
+}

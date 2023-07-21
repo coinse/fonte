@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertiesCollector.java",
+  "functionName": "_findNamingStrategy",
+  "functionId": "_findNamingStrategy",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 907,
+  "functionEndLine": 938,
+  "numCommitsSeen": 49,
+  "timeTaken": 2192,
+  "changeHistory": [
+    "88ae9dc8de0f5327a7c0ca72232dd8e3da6e5446",
+    "023d8bd40ce8dfec4899cd4e42fb374bd9143dc2"
+  ],
+  "changeHistoryShort": {
+    "88ae9dc8de0f5327a7c0ca72232dd8e3da6e5446": "Ybodychange",
+    "023d8bd40ce8dfec4899cd4e42fb374bd9143dc2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "88ae9dc8de0f5327a7c0ca72232dd8e3da6e5446": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix [Issue#117]\n",
+      "commitDate": "11/21/12, 12:07 PM",
+      "commitName": "88ae9dc8de0f5327a7c0ca72232dd8e3da6e5446",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/11/12, 10:05 PM",
+      "commitNameOld": "f412e85aee296fdfdbbc7f3c40ed11af248c88c9",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 70.63,
+      "commitsBetweenForRepo": 107,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private PropertyNamingStrategy _findNamingStrategy() {\n    Object namingDef \u003d (_annotationIntrospector \u003d\u003d null) ? null : _annotationIntrospector.findNamingStrategy(_classDef);\n    if (namingDef \u003d\u003d null) {\n        return _config.getPropertyNamingStrategy();\n    }\n    if (namingDef instanceof PropertyNamingStrategy) {\n        return (PropertyNamingStrategy) namingDef;\n    }\n    if (!(namingDef instanceof Class)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned PropertyNamingStrategy definition of type \" + namingDef.getClass().getName() + \"; expected type PropertyNamingStrategy or Class\u003cPropertyNamingStrategy\u003e instead\");\n    }\n    Class\u003c?\u003e namingClass \u003d (Class\u003c?\u003e) namingDef;\n    if (!PropertyNamingStrategy.class.isAssignableFrom(namingClass)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + namingClass.getName() + \"; expected Class\u003cPropertyNamingStrategy\u003e\");\n    }\n    HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n    if (hi !\u003d null) {\n        PropertyNamingStrategy pns \u003d hi.namingStrategyInstance(_config, _classDef, namingClass);\n        if (pns !\u003d null) {\n            return pns;\n        }\n    }\n    return (PropertyNamingStrategy) ClassUtil.createInstance(namingClass, _config.canOverrideAccessModifiers());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 778,
+      "functionName": "_findNamingStrategy",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,21 +1,24 @@\n private PropertyNamingStrategy _findNamingStrategy() {\n     Object namingDef \u003d (_annotationIntrospector \u003d\u003d null) ? null : _annotationIntrospector.findNamingStrategy(_classDef);\n     if (namingDef \u003d\u003d null) {\n         return _config.getPropertyNamingStrategy();\n     }\n     if (namingDef instanceof PropertyNamingStrategy) {\n         return (PropertyNamingStrategy) namingDef;\n     }\n     if (!(namingDef instanceof Class)) {\n         throw new IllegalStateException(\"AnnotationIntrospector returned PropertyNamingStrategy definition of type \" + namingDef.getClass().getName() + \"; expected type PropertyNamingStrategy or Class\u003cPropertyNamingStrategy\u003e instead\");\n     }\n     Class\u003c?\u003e namingClass \u003d (Class\u003c?\u003e) namingDef;\n     if (!PropertyNamingStrategy.class.isAssignableFrom(namingClass)) {\n         throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + namingClass.getName() + \"; expected Class\u003cPropertyNamingStrategy\u003e\");\n     }\n     HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n     if (hi !\u003d null) {\n-        return hi.namingStrategyInstance(_config, _classDef, namingClass);\n+        PropertyNamingStrategy pns \u003d hi.namingStrategyInstance(_config, _classDef, namingClass);\n+        if (pns !\u003d null) {\n+            return pns;\n+        }\n     }\n     return (PropertyNamingStrategy) ClassUtil.createInstance(namingClass, _config.canOverrideAccessModifiers());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "023d8bd40ce8dfec4899cd4e42fb374bd9143dc2": {
+      "type": "Yintroduced",
+      "commitMessage": "Trying ONCE MORE (f*ck you git) to undo earlier json-schema changes, but keep @JsonNaming changes\n",
+      "commitDate": "8/13/12, 10:17 PM",
+      "commitName": "023d8bd40ce8dfec4899cd4e42fb374bd9143dc2",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,21 @@\n+private PropertyNamingStrategy _findNamingStrategy() {\n+    Object namingDef \u003d (_annotationIntrospector \u003d\u003d null) ? null : _annotationIntrospector.findNamingStrategy(_classDef);\n+    if (namingDef \u003d\u003d null) {\n+        return _config.getPropertyNamingStrategy();\n+    }\n+    if (namingDef instanceof PropertyNamingStrategy) {\n+        return (PropertyNamingStrategy) namingDef;\n+    }\n+    if (!(namingDef instanceof Class)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned PropertyNamingStrategy definition of type \" + namingDef.getClass().getName() + \"; expected type PropertyNamingStrategy or Class\u003cPropertyNamingStrategy\u003e instead\");\n+    }\n+    Class\u003c?\u003e namingClass \u003d (Class\u003c?\u003e) namingDef;\n+    if (!PropertyNamingStrategy.class.isAssignableFrom(namingClass)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + namingClass.getName() + \"; expected Class\u003cPropertyNamingStrategy\u003e\");\n+    }\n+    HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n+    if (hi !\u003d null) {\n+        return hi.namingStrategyInstance(_config, _classDef, namingClass);\n+    }\n+    return (PropertyNamingStrategy) ClassUtil.createInstance(namingClass, _config.canOverrideAccessModifiers());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private PropertyNamingStrategy _findNamingStrategy() {\n    Object namingDef \u003d (_annotationIntrospector \u003d\u003d null) ? null : _annotationIntrospector.findNamingStrategy(_classDef);\n    if (namingDef \u003d\u003d null) {\n        return _config.getPropertyNamingStrategy();\n    }\n    if (namingDef instanceof PropertyNamingStrategy) {\n        return (PropertyNamingStrategy) namingDef;\n    }\n    if (!(namingDef instanceof Class)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned PropertyNamingStrategy definition of type \" + namingDef.getClass().getName() + \"; expected type PropertyNamingStrategy or Class\u003cPropertyNamingStrategy\u003e instead\");\n    }\n    Class\u003c?\u003e namingClass \u003d (Class\u003c?\u003e) namingDef;\n    if (!PropertyNamingStrategy.class.isAssignableFrom(namingClass)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + namingClass.getName() + \"; expected Class\u003cPropertyNamingStrategy\u003e\");\n    }\n    HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n    if (hi !\u003d null) {\n        return hi.namingStrategyInstance(_config, _classDef, namingClass);\n    }\n    return (PropertyNamingStrategy) ClassUtil.createInstance(namingClass, _config.canOverrideAccessModifiers());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 714,
+      "functionName": "_findNamingStrategy",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

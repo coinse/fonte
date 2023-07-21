@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonMappingException.java",
+  "functionName": "getMessage",
+  "functionId": "getMessage",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Method is overridden so that we can properly inject description\nof problem path, if such is defined.\n",
+  "functionStartLine": 298,
+  "functionEndLine": 300,
+  "numCommitsSeen": 7,
+  "timeTaken": 333,
+  "changeHistory": [
+    "05fce93ce799a3fa402c269ed04ca32ec957d665",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "05fce93ce799a3fa402c269ed04ca32ec957d665": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "05fce93ce799a3fa402c269ed04ca32ec957d665": {
+      "type": "Ybodychange",
+      "commitMessage": "Minor improvement to UnrecognizedPropertyException: list name of known properties to help user see what might be going wrong\n",
+      "commitDate": "3/19/12, 5:14 PM",
+      "commitName": "05fce93ce799a3fa402c269ed04ca32ec957d665",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 12:31 AM",
+      "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 87.65,
+      "commitsBetweenForRepo": 298,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String getMessage() {\n    return _buildMessage();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+      "functionStartLine": 306,
+      "functionName": "getMessage",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method is overridden so that we can properly inject description\nof problem path, if such is defined.\n",
+      "diff": "@@ -1,12 +1,4 @@\n @Override\n public String getMessage() {\n-    String msg \u003d super.getMessage();\n-    if (_path \u003d\u003d null) {\n-        return msg;\n-    }\n-    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n-    sb.append(\" (through reference chain: \");\n-    _appendPathDesc(sb);\n-    sb.append(\u0027)\u0027);\n-    return sb.toString();\n+    return _buildMessage();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+@Override\n+public String getMessage() {\n+    String msg \u003d super.getMessage();\n+    if (_path \u003d\u003d null) {\n+        return msg;\n+    }\n+    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n+    sb.append(\" (through reference chain: \");\n+    _appendPathDesc(sb);\n+    sb.append(\u0027)\u0027);\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String getMessage() {\n    String msg \u003d super.getMessage();\n    if (_path \u003d\u003d null) {\n        return msg;\n    }\n    StringBuilder sb \u003d (msg \u003d\u003d null) ? new StringBuilder() : new StringBuilder(msg);\n    sb.append(\" (through reference chain: \");\n    _appendPathDesc(sb);\n    sb.append(\u0027)\u0027);\n    return sb.toString();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+      "functionStartLine": 282,
+      "functionName": "getMessage",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method is overridden so that we can properly inject description\nof problem path, if such is defined.\n"
+    }
+  }
+}

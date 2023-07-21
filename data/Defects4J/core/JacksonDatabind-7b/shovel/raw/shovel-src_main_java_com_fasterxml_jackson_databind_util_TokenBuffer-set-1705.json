@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokenBuffer.java",
+  "functionName": "set",
+  "functionId": "$set___index-int__tokenType-JsonToken__value-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1705,
+  "functionEndLine": 1713,
+  "numCommitsSeen": 34,
+  "timeTaken": 3234,
+  "changeHistory": [
+    "bc38763d9ce4058b8354fbe8e6476d3affa74946",
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17"
+  ],
+  "changeHistoryShort": {
+    "bc38763d9ce4058b8354fbe8e6476d3affa74946": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc38763d9ce4058b8354fbe8e6476d3affa74946": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "Implemented #277\n",
+      "commitDate": "8/10/13, 9:37 AM",
+      "commitName": "bc38763d9ce4058b8354fbe8e6476d3affa74946",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Implemented #277\n",
+          "commitDate": "8/10/13, 9:37 AM",
+          "commitName": "bc38763d9ce4058b8354fbe8e6476d3affa74946",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "8/7/13, 7:21 PM",
+          "commitNameOld": "f6315d8e540ec5665dfa0cd2ba52920ff69c8ef3",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 2.59,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void set(int index, JsonToken tokenType, Object value) {\n    _tokens[index] \u003d value;\n    long typeCode \u003d tokenType.ordinal();\n    if (index \u003e 0) {\n        typeCode \u003c\u003c\u003d (index \u003c\u003c 2);\n    }\n    _tokenTypes |\u003d typeCode;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+          "functionStartLine": 1683,
+          "functionName": "set",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,8 @@\n-public void set(int index, JsonToken tokenType, Object value) {\n+private void set(int index, JsonToken tokenType, Object value) {\n     _tokens[index] \u003d value;\n     long typeCode \u003d tokenType.ordinal();\n     if (index \u003e 0) {\n         typeCode \u003c\u003c\u003d (index \u003c\u003c 2);\n     }\n     _tokenTypes |\u003d typeCode;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implemented #277\n",
+          "commitDate": "8/10/13, 9:37 AM",
+          "commitName": "bc38763d9ce4058b8354fbe8e6476d3affa74946",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "8/7/13, 7:21 PM",
+          "commitNameOld": "f6315d8e540ec5665dfa0cd2ba52920ff69c8ef3",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 2.59,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void set(int index, JsonToken tokenType, Object value) {\n    _tokens[index] \u003d value;\n    long typeCode \u003d tokenType.ordinal();\n    if (index \u003e 0) {\n        typeCode \u003c\u003c\u003d (index \u003c\u003c 2);\n    }\n    _tokenTypes |\u003d typeCode;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+          "functionStartLine": 1683,
+          "functionName": "set",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,8 @@\n-public void set(int index, JsonToken tokenType, Object value) {\n+private void set(int index, JsonToken tokenType, Object value) {\n     _tokens[index] \u003d value;\n     long typeCode \u003d tokenType.ordinal();\n     if (index \u003e 0) {\n         typeCode \u003c\u003c\u003d (index \u003c\u003c 2);\n     }\n     _tokenTypes |\u003d typeCode;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": {
+      "type": "Yintroduced",
+      "commitMessage": "Yet more clean up\n",
+      "commitDate": "12/23/11, 8:38 AM",
+      "commitName": "a342c0eef8c4abc3eba5568c52af73e59e1b6c17",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+public void set(int index, JsonToken tokenType, Object value) {\n+    _tokens[index] \u003d value;\n+    long typeCode \u003d tokenType.ordinal();\n+    if (index \u003e 0) {\n+        typeCode \u003c\u003c\u003d (index \u003c\u003c 2);\n+    }\n+    _tokenTypes |\u003d typeCode;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void set(int index, JsonToken tokenType, Object value) {\n    _tokens[index] \u003d value;\n    long typeCode \u003d tokenType.ordinal();\n    if (index \u003e 0) {\n        typeCode \u003c\u003c\u003d (index \u003c\u003c 2);\n    }\n    _tokenTypes |\u003d typeCode;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+      "functionStartLine": 1209,
+      "functionName": "set",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

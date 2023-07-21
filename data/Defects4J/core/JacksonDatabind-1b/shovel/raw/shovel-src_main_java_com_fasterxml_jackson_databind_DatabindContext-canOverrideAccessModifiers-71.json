@@ -1,0 +1,96 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DatabindContext.java",
+  "functionName": "canOverrideAccessModifiers",
+  "functionId": "canOverrideAccessModifiers",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "Convenience method for accessing serialization view in use (if any); equivalent to:\n\u003cpre\u003e\n  getConfig().canOverrideAccessModifiers();\n\u003c/pre\u003e\n",
+  "functionStartLine": 71,
+  "functionEndLine": 73,
+  "numCommitsSeen": 35,
+  "timeTaken": 2452,
+  "changeHistory": [
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96",
+    "aaba9c105d557bdbb4e94a1e3927cbdd61bd2807"
+  ],
+  "changeHistoryShort": {
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": "Ymultichange(Ymovefromfile,Ybodychange)",
+    "aaba9c105d557bdbb4e94a1e3927cbdd61bd2807": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": {
+      "type": "Ymultichange(Ymovefromfile,Ybodychange)",
+      "commitMessage": "More work on converters for deserialization; now passes 2/6 of new tests. Also adding \u0027DatabindContext\u0027, shared base class for DeserializationContext, SerializerProvider\n",
+      "commitDate": "3/2/13, 1:13 PM",
+      "commitName": "9439a310c169a00cd01a4e9b64fb9f5441297b96",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "More work on converters for deserialization; now passes 2/6 of new tests. Also adding \u0027DatabindContext\u0027, shared base class for DeserializationContext, SerializerProvider\n",
+          "commitDate": "3/2/13, 1:13 PM",
+          "commitName": "9439a310c169a00cd01a4e9b64fb9f5441297b96",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/1/13, 8:29 PM",
+          "commitNameOld": "56e8445fc1cb296e7b9c995f3db3a63c4220a014",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.7,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final boolean canOverrideAccessModifiers() {\n    return getConfig().canOverrideAccessModifiers();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+          "functionStartLine": 63,
+          "functionName": "canOverrideAccessModifiers",
+          "functionAnnotation": "",
+          "functionDoc": "Convenience method for accessing serialization view in use (if any); equivalent to:\n\u003cpre\u003e\n  getConfig().canOverrideAccessModifiers();\n\u003c/pre\u003e\n",
+          "diff": "@@ -1,3 +1,3 @@\n public final boolean canOverrideAccessModifiers() {\n-    return _config.canOverrideAccessModifiers();\n+    return getConfig().canOverrideAccessModifiers();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+            "oldMethodName": "canOverrideAccessModifiers",
+            "newMethodName": "canOverrideAccessModifiers"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "More work on converters for deserialization; now passes 2/6 of new tests. Also adding \u0027DatabindContext\u0027, shared base class for DeserializationContext, SerializerProvider\n",
+          "commitDate": "3/2/13, 1:13 PM",
+          "commitName": "9439a310c169a00cd01a4e9b64fb9f5441297b96",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/1/13, 8:29 PM",
+          "commitNameOld": "56e8445fc1cb296e7b9c995f3db3a63c4220a014",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.7,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final boolean canOverrideAccessModifiers() {\n    return getConfig().canOverrideAccessModifiers();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+          "functionStartLine": 63,
+          "functionName": "canOverrideAccessModifiers",
+          "functionAnnotation": "",
+          "functionDoc": "Convenience method for accessing serialization view in use (if any); equivalent to:\n\u003cpre\u003e\n  getConfig().canOverrideAccessModifiers();\n\u003c/pre\u003e\n",
+          "diff": "@@ -1,3 +1,3 @@\n public final boolean canOverrideAccessModifiers() {\n-    return _config.canOverrideAccessModifiers();\n+    return getConfig().canOverrideAccessModifiers();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "aaba9c105d557bdbb4e94a1e3927cbdd61bd2807": {
+      "type": "Yintroduced",
+      "commitMessage": "Completed (?) major refactoring to give necessary context for Resolvable Serializers, Deserializers.\n",
+      "commitDate": "1/24/12, 6:51 PM",
+      "commitName": "aaba9c105d557bdbb4e94a1e3927cbdd61bd2807",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+public final boolean canOverrideAccessModifiers() {\n+    return _config.canOverrideAccessModifiers();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final boolean canOverrideAccessModifiers() {\n    return _config.canOverrideAccessModifiers();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+      "functionStartLine": 170,
+      "functionName": "canOverrideAccessModifiers",
+      "functionAnnotation": "",
+      "functionDoc": "Convenience method for accessing serialization view in use (if any); equivalent to:\n\u003cpre\u003e\n  getConfig().canOverrideAccessModifiers();\n\u003c/pre\u003e\n"
+    }
+  }
+}

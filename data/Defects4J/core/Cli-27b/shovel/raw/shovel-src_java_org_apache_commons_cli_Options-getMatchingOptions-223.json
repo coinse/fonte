@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-27b",
+  "repositoryPath": "/tmp/Cli-27b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Options.java",
+  "functionName": "getMatchingOptions",
+  "functionId": "getMatchingOptions___opt-String",
+  "sourceFilePath": "src/java/org/apache/commons/cli/Options.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the options with a long name starting with the name specified.\n\n@param opt the partial name of the option\n@return the options matching the partial name specified, or an empty list if none matches\n@since 1.3\n",
+  "functionStartLine": 223,
+  "functionEndLine": 240,
+  "numCommitsSeen": 29,
+  "timeTaken": 537,
+  "changeHistory": [
+    "e366a69318c97c70bd3278ffd8c61fad3c4a4456"
+  ],
+  "changeHistoryShort": {
+    "e366a69318c97c70bd3278ffd8c61fad3c4a4456": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e366a69318c97c70bd3278ffd8c61fad3c4a4456": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented the partial matching for long options in the PosixParser (CLI-160)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@778664 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/26/09, 4:48 AM",
+      "commitName": "e366a69318c97c70bd3278ffd8c61fad3c4a4456",
+      "commitAuthor": "Emmanuel Bourg",
+      "diff": "@@ -0,0 +1,12 @@\n+public List getMatchingOptions(String opt) {\n+    opt \u003d Util.stripLeadingHyphens(opt);\n+    List matchingOpts \u003d new ArrayList();\n+    Iterator it \u003d longOpts.keySet().iterator();\n+    while (it.hasNext()) {\n+        String longOpt \u003d (String) it.next();\n+        if (longOpt.startsWith(opt)) {\n+            matchingOpts.add(longOpt);\n+        }\n+    }\n+    return matchingOpts;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public List getMatchingOptions(String opt) {\n    opt \u003d Util.stripLeadingHyphens(opt);\n    List matchingOpts \u003d new ArrayList();\n    Iterator it \u003d longOpts.keySet().iterator();\n    while (it.hasNext()) {\n        String longOpt \u003d (String) it.next();\n        if (longOpt.startsWith(opt)) {\n            matchingOpts.add(longOpt);\n        }\n    }\n    return matchingOpts;\n}",
+      "path": "src/java/org/apache/commons/cli/Options.java",
+      "functionStartLine": 223,
+      "functionName": "getMatchingOptions",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the options with a long name starting with the name specified.\n\n@param opt the partial name of the option\n@return the options matching the partial name specified, or an empty list if none matches\n@since 1.3\n"
+    }
+  }
+}

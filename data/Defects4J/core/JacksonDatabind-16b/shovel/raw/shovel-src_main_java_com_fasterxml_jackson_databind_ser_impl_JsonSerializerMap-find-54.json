@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonSerializerMap.java",
+  "functionName": "find",
+  "functionId": "find___key-TypeKey",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/impl/JsonSerializerMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 54,
+  "functionEndLine": 74,
+  "numCommitsSeen": 4,
+  "timeTaken": 177,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,16 @@\n+public JsonSerializer\u003cObject\u003e find(TypeKey key) {\n+    int index \u003d key.hashCode() \u0026 (_buckets.length - 1);\n+    Bucket bucket \u003d _buckets[index];\n+    if (bucket \u003d\u003d null) {\n+        return null;\n+    }\n+    if (key.equals(bucket.key)) {\n+        return bucket.value;\n+    }\n+    while ((bucket \u003d bucket.next) !\u003d null) {\n+        if (key.equals(bucket.key)) {\n+            return bucket.value;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JsonSerializer\u003cObject\u003e find(TypeKey key) {\n    int index \u003d key.hashCode() \u0026 (_buckets.length - 1);\n    Bucket bucket \u003d _buckets[index];\n    if (bucket \u003d\u003d null) {\n        return null;\n    }\n    if (key.equals(bucket.key)) {\n        return bucket.value;\n    }\n    while ((bucket \u003d bucket.next) !\u003d null) {\n        if (key.equals(bucket.key)) {\n            return bucket.value;\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/JsonSerializerMap.java",
+      "functionStartLine": 52,
+      "functionName": "find",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

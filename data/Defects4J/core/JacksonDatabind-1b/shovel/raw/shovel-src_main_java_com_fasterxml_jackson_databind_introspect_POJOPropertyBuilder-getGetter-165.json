@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "getGetter",
+  "functionId": "getGetter",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 165,
+  "functionEndLine": 194,
+  "numCommitsSeen": 21,
+  "timeTaken": 1084,
+  "changeHistory": [
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Ybodychange",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/26/12, 10:26 PM",
+      "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.93,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedMethod getGetter() {\n    if (_getters \u003d\u003d null) {\n        return null;\n    }\n    AnnotatedMethod getter \u003d _getters.value;\n    Linked\u003cAnnotatedMethod\u003e next \u003d _getters.next;\n    for (; next !\u003d null; next \u003d next.next) {\n        AnnotatedMethod nextGetter \u003d next.value;\n        Class\u003c?\u003e getterClass \u003d getter.getDeclaringClass();\n        Class\u003c?\u003e nextClass \u003d nextGetter.getDeclaringClass();\n        if (getterClass !\u003d nextClass) {\n            if (getterClass.isAssignableFrom(nextClass)) {\n                getter \u003d nextGetter;\n                continue;\n            }\n            if (nextClass.isAssignableFrom(getterClass)) {\n                continue;\n            }\n        }\n        throw new IllegalArgumentException(\"Conflicting getter definitions for property \\\"\" + getName() + \"\\\": \" + getter.getFullName() + \" vs \" + nextGetter.getFullName());\n    }\n    return getter;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 130,
+      "functionName": "getGetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,24 +1,24 @@\n @Override\n public AnnotatedMethod getGetter() {\n     if (_getters \u003d\u003d null) {\n         return null;\n     }\n     AnnotatedMethod getter \u003d _getters.value;\n-    Node\u003cAnnotatedMethod\u003e next \u003d _getters.next;\n+    Linked\u003cAnnotatedMethod\u003e next \u003d _getters.next;\n     for (; next !\u003d null; next \u003d next.next) {\n         AnnotatedMethod nextGetter \u003d next.value;\n         Class\u003c?\u003e getterClass \u003d getter.getDeclaringClass();\n         Class\u003c?\u003e nextClass \u003d nextGetter.getDeclaringClass();\n         if (getterClass !\u003d nextClass) {\n             if (getterClass.isAssignableFrom(nextClass)) {\n                 getter \u003d nextGetter;\n                 continue;\n             }\n             if (nextClass.isAssignableFrom(getterClass)) {\n                 continue;\n             }\n         }\n         throw new IllegalArgumentException(\"Conflicting getter definitions for property \\\"\" + getName() + \"\\\": \" + getter.getFullName() + \" vs \" + nextGetter.getFullName());\n     }\n     return getter;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,24 @@\n+@Override\n+public AnnotatedMethod getGetter() {\n+    if (_getters \u003d\u003d null) {\n+        return null;\n+    }\n+    AnnotatedMethod getter \u003d _getters.value;\n+    Node\u003cAnnotatedMethod\u003e next \u003d _getters.next;\n+    for (; next !\u003d null; next \u003d next.next) {\n+        AnnotatedMethod nextGetter \u003d next.value;\n+        Class\u003c?\u003e getterClass \u003d getter.getDeclaringClass();\n+        Class\u003c?\u003e nextClass \u003d nextGetter.getDeclaringClass();\n+        if (getterClass !\u003d nextClass) {\n+            if (getterClass.isAssignableFrom(nextClass)) {\n+                getter \u003d nextGetter;\n+                continue;\n+            }\n+            if (nextClass.isAssignableFrom(getterClass)) {\n+                continue;\n+            }\n+        }\n+        throw new IllegalArgumentException(\"Conflicting getter definitions for property \\\"\" + getName() + \"\\\": \" + getter.getFullName() + \" vs \" + nextGetter.getFullName());\n+    }\n+    return getter;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic AnnotatedMethod getGetter() {\n    if (_getters \u003d\u003d null) {\n        return null;\n    }\n    AnnotatedMethod getter \u003d _getters.value;\n    Node\u003cAnnotatedMethod\u003e next \u003d _getters.next;\n    for (; next !\u003d null; next \u003d next.next) {\n        AnnotatedMethod nextGetter \u003d next.value;\n        Class\u003c?\u003e getterClass \u003d getter.getDeclaringClass();\n        Class\u003c?\u003e nextClass \u003d nextGetter.getDeclaringClass();\n        if (getterClass !\u003d nextClass) {\n            if (getterClass.isAssignableFrom(nextClass)) {\n                getter \u003d nextGetter;\n                continue;\n            }\n            if (nextClass.isAssignableFrom(getterClass)) {\n                continue;\n            }\n        }\n        throw new IllegalArgumentException(\"Conflicting getter definitions for property \\\"\" + getName() + \"\\\": \" + getter.getFullName() + \" vs \" + nextGetter.getFullName());\n    }\n    return getter;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 137,
+      "functionName": "getGetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

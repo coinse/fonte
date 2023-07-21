@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SerializerCache.java",
+  "functionName": "getReadOnlyLookupMap",
+  "functionId": "getReadOnlyLookupMap",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that can be called to get a read-only instance populated from the\nmost recent version of the shared lookup Map.\n",
+  "functionStartLine": 44,
+  "functionEndLine": 56,
+  "numCommitsSeen": 10,
+  "timeTaken": 510,
+  "changeHistory": [
+    "0c8c763e431d3c923f3db04b9ecd32aef1b94450",
+    "82b474d51545919cb38a49485f56fd29d6ed199b",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "0c8c763e431d3c923f3db04b9ecd32aef1b94450": "Ybodychange",
+    "82b474d51545919cb38a49485f56fd29d6ed199b": "Yfilerename",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0c8c763e431d3c923f3db04b9ecd32aef1b94450": {
+      "type": "Ybodychange",
+      "commitMessage": "Use double checked locking to remove sync block\n",
+      "commitDate": "12/3/13, 7:13 AM",
+      "commitName": "0c8c763e431d3c923f3db04b9ecd32aef1b94450",
+      "commitAuthor": "Stuart Douglas",
+      "commitDateOld": "11/13/12, 10:14 AM",
+      "commitNameOld": "705d834d94148b652a2c1851c6129f054876e63f",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 384.87,
+      "commitsBetweenForRepo": 465,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public ReadOnlyClassToSerializerMap getReadOnlyLookupMap() {\n    ReadOnlyClassToSerializerMap m \u003d _readOnlyMap;\n    if (m \u003d\u003d null) {\n        synchronized (this) {\n            m \u003d _readOnlyMap;\n            if (m \u003d\u003d null) {\n                _readOnlyMap \u003d m \u003d ReadOnlyClassToSerializerMap.from(_sharedMap);\n            }\n        }\n    }\n    return m.instance();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java",
+      "functionStartLine": 44,
+      "functionName": "getReadOnlyLookupMap",
+      "functionAnnotation": "",
+      "functionDoc": "Method that can be called to get a read-only instance populated from the\nmost recent version of the shared lookup Map.\n",
+      "diff": "@@ -1,10 +1,12 @@\n public ReadOnlyClassToSerializerMap getReadOnlyLookupMap() {\n-    ReadOnlyClassToSerializerMap m;\n-    synchronized (this) {\n-        m \u003d _readOnlyMap;\n-        if (m \u003d\u003d null) {\n-            _readOnlyMap \u003d m \u003d ReadOnlyClassToSerializerMap.from(_sharedMap);\n+    ReadOnlyClassToSerializerMap m \u003d _readOnlyMap;\n+    if (m \u003d\u003d null) {\n+        synchronized (this) {\n+            m \u003d _readOnlyMap;\n+            if (m \u003d\u003d null) {\n+                _readOnlyMap \u003d m \u003d ReadOnlyClassToSerializerMap.from(_sharedMap);\n+            }\n         }\n     }\n     return m.instance();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "82b474d51545919cb38a49485f56fd29d6ed199b": {
+      "type": "Yfilerename",
+      "commitMessage": "Fix 3 unit test failures\n",
+      "commitDate": "2/2/12, 5:33 PM",
+      "commitName": "82b474d51545919cb38a49485f56fd29d6ed199b",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "2/2/12, 1:00 PM",
+      "commitNameOld": "69afdff1fac0fc4a472a0b04d5bc01df49a427c5",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.19,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public ReadOnlyClassToSerializerMap getReadOnlyLookupMap() {\n    ReadOnlyClassToSerializerMap m;\n    synchronized (this) {\n        m \u003d _readOnlyMap;\n        if (m \u003d\u003d null) {\n            _readOnlyMap \u003d m \u003d ReadOnlyClassToSerializerMap.from(_sharedMap);\n        }\n    }\n    return m.instance();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java",
+      "functionStartLine": 44,
+      "functionName": "getReadOnlyLookupMap",
+      "functionAnnotation": "",
+      "functionDoc": "Method that can be called to get a read-only instance populated from the\nmost recent version of the shared lookup Map.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/ser/impl/SerializerCache.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+public ReadOnlyClassToSerializerMap getReadOnlyLookupMap() {\n+    ReadOnlyClassToSerializerMap m;\n+    synchronized (this) {\n+        m \u003d _readOnlyMap;\n+        if (m \u003d\u003d null) {\n+            _readOnlyMap \u003d m \u003d ReadOnlyClassToSerializerMap.from(_sharedMap);\n+        }\n+    }\n+    return m.instance();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public ReadOnlyClassToSerializerMap getReadOnlyLookupMap() {\n    ReadOnlyClassToSerializerMap m;\n    synchronized (this) {\n        m \u003d _readOnlyMap;\n        if (m \u003d\u003d null) {\n            _readOnlyMap \u003d m \u003d ReadOnlyClassToSerializerMap.from(_sharedMap);\n        }\n    }\n    return m.instance();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/SerializerCache.java",
+      "functionStartLine": 49,
+      "functionName": "getReadOnlyLookupMap",
+      "functionAnnotation": "",
+      "functionDoc": "Method that can be called to get a read-only instance populated from the\nmost recent version of the shared lookup Map.\n"
+    }
+  }
+}

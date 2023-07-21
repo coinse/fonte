@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanPropertyWriter.java",
+  "functionName": "serializeAsColumn",
+  "functionId": "serializeAsColumn___bean-Object__jgen-JsonGenerator__prov-SerializerProvider",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Alternative to {@link #serializeAsField} that is used when a POJO\nis serialized as JSON Array; the difference is that no field names\nare written.\n\n@since 2.1\n",
+  "functionStartLine": 582,
+  "functionEndLine": 624,
+  "numCommitsSeen": 25,
+  "timeTaken": 745,
+  "changeHistory": [
+    "f0650ba80825c50c3c1b27e64a94b3d21cea452c",
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7"
+  ],
+  "changeHistoryShort": {
+    "f0650ba80825c50c3c1b27e64a94b3d21cea452c": "Ybodychange",
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f0650ba80825c50c3c1b27e64a94b3d21cea452c": {
+      "type": "Ybodychange",
+      "commitMessage": "Solidify POJOs-as-array functionality\n",
+      "commitDate": "7/23/12, 8:39 PM",
+      "commitName": "f0650ba80825c50c3c1b27e64a94b3d21cea452c",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "6/28/12, 10:23 PM",
+      "commitNameOld": "dc65cc043479dd03dad878b22a9e5864e2e53bd7",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 24.93,
+      "commitsBetweenForRepo": 25,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void serializeAsColumn(Object bean, JsonGenerator jgen, SerializerProvider prov) throws Exception {\n    Object value \u003d get(bean);\n    if (value \u003d\u003d null) {\n        if (_nullSerializer !\u003d null) {\n            _nullSerializer.serialize(null, jgen, prov);\n        } else {\n            jgen.writeNull();\n        }\n    }\n    JsonSerializer\u003cObject\u003e ser \u003d _serializer;\n    if (ser \u003d\u003d null) {\n        Class\u003c?\u003e cls \u003d value.getClass();\n        PropertySerializerMap map \u003d _dynamicSerializers;\n        ser \u003d map.serializerFor(cls);\n        if (ser \u003d\u003d null) {\n            ser \u003d _findAndAddDynamic(map, cls, prov);\n        }\n    }\n    if (_suppressableValue !\u003d null) {\n        if (MARKER_FOR_EMPTY \u003d\u003d _suppressableValue) {\n            if (ser.isEmpty(value)) {\n                serializeAsPlaceholder(bean, jgen, prov);\n                return;\n            }\n        } else if (_suppressableValue.equals(value)) {\n            serializeAsPlaceholder(bean, jgen, prov);\n            return;\n        }\n    }\n    if (value \u003d\u003d bean) {\n        _handleSelfReference(bean, ser);\n    }\n    if (_typeSerializer \u003d\u003d null) {\n        ser.serialize(value, jgen, prov);\n    } else {\n        ser.serializeWithType(value, jgen, prov, _typeSerializer);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+      "functionStartLine": 477,
+      "functionName": "serializeAsColumn",
+      "functionAnnotation": "",
+      "functionDoc": "Alternative to {@link #serializeAsField} that is used when a POJO\nis serialized as JSON Array; the difference is that no field names\nare written.\n\n@since 2.1\n",
+      "diff": "@@ -1,35 +1,38 @@\n public void serializeAsColumn(Object bean, JsonGenerator jgen, SerializerProvider prov) throws Exception {\n     Object value \u003d get(bean);\n     if (value \u003d\u003d null) {\n         if (_nullSerializer !\u003d null) {\n             _nullSerializer.serialize(null, jgen, prov);\n+        } else {\n+            jgen.writeNull();\n         }\n-        return;\n     }\n     JsonSerializer\u003cObject\u003e ser \u003d _serializer;\n     if (ser \u003d\u003d null) {\n         Class\u003c?\u003e cls \u003d value.getClass();\n         PropertySerializerMap map \u003d _dynamicSerializers;\n         ser \u003d map.serializerFor(cls);\n         if (ser \u003d\u003d null) {\n             ser \u003d _findAndAddDynamic(map, cls, prov);\n         }\n     }\n     if (_suppressableValue !\u003d null) {\n         if (MARKER_FOR_EMPTY \u003d\u003d _suppressableValue) {\n             if (ser.isEmpty(value)) {\n+                serializeAsPlaceholder(bean, jgen, prov);\n                 return;\n             }\n         } else if (_suppressableValue.equals(value)) {\n+            serializeAsPlaceholder(bean, jgen, prov);\n             return;\n         }\n     }\n     if (value \u003d\u003d bean) {\n         _handleSelfReference(bean, ser);\n     }\n     if (_typeSerializer \u003d\u003d null) {\n         ser.serialize(value, jgen, prov);\n     } else {\n         ser.serializeWithType(value, jgen, prov, _typeSerializer);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "dc65cc043479dd03dad878b22a9e5864e2e53bd7": {
+      "type": "Yintroduced",
+      "commitMessage": "Start work on \"POJOs-as-arrays\" serialization\n",
+      "commitDate": "6/28/12, 10:23 PM",
+      "commitName": "dc65cc043479dd03dad878b22a9e5864e2e53bd7",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,35 @@\n+public void serializeAsColumn(Object bean, JsonGenerator jgen, SerializerProvider prov) throws Exception {\n+    Object value \u003d get(bean);\n+    if (value \u003d\u003d null) {\n+        if (_nullSerializer !\u003d null) {\n+            _nullSerializer.serialize(null, jgen, prov);\n+        }\n+        return;\n+    }\n+    JsonSerializer\u003cObject\u003e ser \u003d _serializer;\n+    if (ser \u003d\u003d null) {\n+        Class\u003c?\u003e cls \u003d value.getClass();\n+        PropertySerializerMap map \u003d _dynamicSerializers;\n+        ser \u003d map.serializerFor(cls);\n+        if (ser \u003d\u003d null) {\n+            ser \u003d _findAndAddDynamic(map, cls, prov);\n+        }\n+    }\n+    if (_suppressableValue !\u003d null) {\n+        if (MARKER_FOR_EMPTY \u003d\u003d _suppressableValue) {\n+            if (ser.isEmpty(value)) {\n+                return;\n+            }\n+        } else if (_suppressableValue.equals(value)) {\n+            return;\n+        }\n+    }\n+    if (value \u003d\u003d bean) {\n+        _handleSelfReference(bean, ser);\n+    }\n+    if (_typeSerializer \u003d\u003d null) {\n+        ser.serialize(value, jgen, prov);\n+    } else {\n+        ser.serializeWithType(value, jgen, prov, _typeSerializer);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void serializeAsColumn(Object bean, JsonGenerator jgen, SerializerProvider prov) throws Exception {\n    Object value \u003d get(bean);\n    if (value \u003d\u003d null) {\n        if (_nullSerializer !\u003d null) {\n            _nullSerializer.serialize(null, jgen, prov);\n        }\n        return;\n    }\n    JsonSerializer\u003cObject\u003e ser \u003d _serializer;\n    if (ser \u003d\u003d null) {\n        Class\u003c?\u003e cls \u003d value.getClass();\n        PropertySerializerMap map \u003d _dynamicSerializers;\n        ser \u003d map.serializerFor(cls);\n        if (ser \u003d\u003d null) {\n            ser \u003d _findAndAddDynamic(map, cls, prov);\n        }\n    }\n    if (_suppressableValue !\u003d null) {\n        if (MARKER_FOR_EMPTY \u003d\u003d _suppressableValue) {\n            if (ser.isEmpty(value)) {\n                return;\n            }\n        } else if (_suppressableValue.equals(value)) {\n            return;\n        }\n    }\n    if (value \u003d\u003d bean) {\n        _handleSelfReference(bean, ser);\n    }\n    if (_typeSerializer \u003d\u003d null) {\n        ser.serialize(value, jgen, prov);\n    } else {\n        ser.serializeWithType(value, jgen, prov, _typeSerializer);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+      "functionStartLine": 477,
+      "functionName": "serializeAsColumn",
+      "functionAnnotation": "",
+      "functionDoc": "Alternative to {@link #serializeAsField} that is used when a POJO\nis serialized as JSON Array; the difference is that no field names\nare written.\n\n@since 2.1\n"
+    }
+  }
+}

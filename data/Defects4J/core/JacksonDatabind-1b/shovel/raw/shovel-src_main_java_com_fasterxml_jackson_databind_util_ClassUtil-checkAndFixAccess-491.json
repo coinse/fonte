@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassUtil.java",
+  "functionName": "checkAndFixAccess",
+  "functionId": "checkAndFixAccess___member-Member",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to check if we can use the passed method or constructor\n(wrt access restriction -- public methods can be called, others\nusually not); and if not, if there is a work-around for\nthe problem.\n",
+  "functionStartLine": 491,
+  "functionEndLine": 514,
+  "numCommitsSeen": 7,
+  "timeTaken": 474,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+public static void checkAndFixAccess(Member member) {\n+    AccessibleObject ao \u003d (AccessibleObject) member;\n+    try {\n+        ao.setAccessible(true);\n+    } catch (SecurityException se) {\n+        if (!ao.isAccessible()) {\n+            Class\u003c?\u003e declClass \u003d member.getDeclaringClass();\n+            throw new IllegalArgumentException(\"Can not access \" + member + \" (from class \" + declClass.getName() + \"; failed to set access: \" + se.getMessage());\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static void checkAndFixAccess(Member member) {\n    AccessibleObject ao \u003d (AccessibleObject) member;\n    try {\n        ao.setAccessible(true);\n    } catch (SecurityException se) {\n        if (!ao.isAccessible()) {\n            Class\u003c?\u003e declClass \u003d member.getDeclaringClass();\n            throw new IllegalArgumentException(\"Can not access \" + member + \" (from class \" + declClass.getName() + \"; failed to set access: \" + se.getMessage());\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 464,
+      "functionName": "checkAndFixAccess",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to check if we can use the passed method or constructor\n(wrt access restriction -- public methods can be called, others\nusually not); and if not, if there is a work-around for\nthe problem.\n"
+    }
+  }
+}

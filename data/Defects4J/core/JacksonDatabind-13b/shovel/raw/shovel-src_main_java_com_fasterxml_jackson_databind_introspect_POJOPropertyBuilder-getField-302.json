@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "getField",
+  "functionId": "getField",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 302,
+  "functionEndLine": 327,
+  "numCommitsSeen": 49,
+  "timeTaken": 2083,
+  "changeHistory": [
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Ybodychange",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/26/12, 10:26 PM",
+      "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.93,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedField getField() {\n    if (_fields \u003d\u003d null) {\n        return null;\n    }\n    AnnotatedField field \u003d _fields.value;\n    Linked\u003cAnnotatedField\u003e next \u003d _fields.next;\n    for (; next !\u003d null; next \u003d next.next) {\n        AnnotatedField nextField \u003d next.value;\n        Class\u003c?\u003e fieldClass \u003d field.getDeclaringClass();\n        Class\u003c?\u003e nextClass \u003d nextField.getDeclaringClass();\n        if (fieldClass !\u003d nextClass) {\n            if (fieldClass.isAssignableFrom(nextClass)) {\n                field \u003d nextField;\n                continue;\n            }\n            if (nextClass.isAssignableFrom(fieldClass)) {\n                continue;\n            }\n        }\n        throw new IllegalArgumentException(\"Multiple fields representing property \\\"\" + getName() + \"\\\": \" + field.getFullName() + \" vs \" + nextField.getFullName());\n    }\n    return field;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 194,
+      "functionName": "getField",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,24 +1,24 @@\n @Override\n public AnnotatedField getField() {\n     if (_fields \u003d\u003d null) {\n         return null;\n     }\n     AnnotatedField field \u003d _fields.value;\n-    Node\u003cAnnotatedField\u003e next \u003d _fields.next;\n+    Linked\u003cAnnotatedField\u003e next \u003d _fields.next;\n     for (; next !\u003d null; next \u003d next.next) {\n         AnnotatedField nextField \u003d next.value;\n         Class\u003c?\u003e fieldClass \u003d field.getDeclaringClass();\n         Class\u003c?\u003e nextClass \u003d nextField.getDeclaringClass();\n         if (fieldClass !\u003d nextClass) {\n             if (fieldClass.isAssignableFrom(nextClass)) {\n                 field \u003d nextField;\n                 continue;\n             }\n             if (nextClass.isAssignableFrom(fieldClass)) {\n                 continue;\n             }\n         }\n         throw new IllegalArgumentException(\"Multiple fields representing property \\\"\" + getName() + \"\\\": \" + field.getFullName() + \" vs \" + nextField.getFullName());\n     }\n     return field;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,24 @@\n+@Override\n+public AnnotatedField getField() {\n+    if (_fields \u003d\u003d null) {\n+        return null;\n+    }\n+    AnnotatedField field \u003d _fields.value;\n+    Node\u003cAnnotatedField\u003e next \u003d _fields.next;\n+    for (; next !\u003d null; next \u003d next.next) {\n+        AnnotatedField nextField \u003d next.value;\n+        Class\u003c?\u003e fieldClass \u003d field.getDeclaringClass();\n+        Class\u003c?\u003e nextClass \u003d nextField.getDeclaringClass();\n+        if (fieldClass !\u003d nextClass) {\n+            if (fieldClass.isAssignableFrom(nextClass)) {\n+                field \u003d nextField;\n+                continue;\n+            }\n+            if (nextClass.isAssignableFrom(fieldClass)) {\n+                continue;\n+            }\n+        }\n+        throw new IllegalArgumentException(\"Multiple fields representing property \\\"\" + getName() + \"\\\": \" + field.getFullName() + \" vs \" + nextField.getFullName());\n+    }\n+    return field;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic AnnotatedField getField() {\n    if (_fields \u003d\u003d null) {\n        return null;\n    }\n    AnnotatedField field \u003d _fields.value;\n    Node\u003cAnnotatedField\u003e next \u003d _fields.next;\n    for (; next !\u003d null; next \u003d next.next) {\n        AnnotatedField nextField \u003d next.value;\n        Class\u003c?\u003e fieldClass \u003d field.getDeclaringClass();\n        Class\u003c?\u003e nextClass \u003d nextField.getDeclaringClass();\n        if (fieldClass !\u003d nextClass) {\n            if (fieldClass.isAssignableFrom(nextClass)) {\n                field \u003d nextField;\n                continue;\n            }\n            if (nextClass.isAssignableFrom(fieldClass)) {\n                continue;\n            }\n        }\n        throw new IllegalArgumentException(\"Multiple fields representing property \\\"\" + getName() + \"\\\": \" + field.getFullName() + \" vs \" + nextField.getFullName());\n    }\n    return field;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 201,
+      "functionName": "getField",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

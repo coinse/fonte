@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanDeserializerBuilder.java",
+  "functionName": "addProperty",
+  "functionId": "addProperty___prop-SettableBeanProperty",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method to add a property setter. Will ensure that there is no\nunexpected override; if one is found will throw a\n{@link IllegalArgumentException}.\n",
+  "functionStartLine": 160,
+  "functionEndLine": 166,
+  "numCommitsSeen": 30,
+  "timeTaken": 629,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+public void addProperty(SettableBeanProperty prop) {\n+    SettableBeanProperty old \u003d _properties.put(prop.getName(), prop);\n+    if (old !\u003d null \u0026\u0026 old !\u003d prop) {\n+        throw new IllegalArgumentException(\"Duplicate property \u0027\" + prop.getName() + \"\u0027 for \" + _beanDesc.getType());\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void addProperty(SettableBeanProperty prop) {\n    SettableBeanProperty old \u003d _properties.put(prop.getName(), prop);\n    if (old !\u003d null \u0026\u0026 old !\u003d prop) {\n        throw new IllegalArgumentException(\"Duplicate property \u0027\" + prop.getName() + \"\u0027 for \" + _beanDesc.getType());\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBuilder.java",
+      "functionStartLine": 141,
+      "functionName": "addProperty",
+      "functionAnnotation": "",
+      "functionDoc": "Method to add a property setter. Will ensure that there is no\nunexpected override; if one is found will throw a\n{@link IllegalArgumentException}.\n"
+    }
+  }
+}

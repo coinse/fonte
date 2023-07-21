@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassUtil.java",
+  "functionName": "_addSuperTypes",
+  "functionId": "_addSuperTypes___cls-Class__?____endBefore-Class__?____result-Collection__Class__?______addClassItself-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 39,
+  "functionEndLine": 54,
+  "numCommitsSeen": 7,
+  "timeTaken": 565,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+private static void _addSuperTypes(Class\u003c?\u003e cls, Class\u003c?\u003e endBefore, Collection\u003cClass\u003c?\u003e\u003e result, boolean addClassItself) {\n+    if (cls \u003d\u003d endBefore || cls \u003d\u003d null || cls \u003d\u003d Object.class) {\n+        return;\n+    }\n+    if (addClassItself) {\n+        if (result.contains(cls)) {\n+            return;\n+        }\n+        result.add(cls);\n+    }\n+    for (Class\u003c?\u003e intCls : cls.getInterfaces()) {\n+        _addSuperTypes(intCls, endBefore, result, true);\n+    }\n+    _addSuperTypes(cls.getSuperclass(), endBefore, result, true);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void _addSuperTypes(Class\u003c?\u003e cls, Class\u003c?\u003e endBefore, Collection\u003cClass\u003c?\u003e\u003e result, boolean addClassItself) {\n    if (cls \u003d\u003d endBefore || cls \u003d\u003d null || cls \u003d\u003d Object.class) {\n        return;\n    }\n    if (addClassItself) {\n        if (result.contains(cls)) {\n            return;\n        }\n        result.add(cls);\n    }\n    for (Class\u003c?\u003e intCls : cls.getInterfaces()) {\n        _addSuperTypes(intCls, endBefore, result, true);\n    }\n    _addSuperTypes(cls.getSuperclass(), endBefore, result, true);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 37,
+      "functionName": "_addSuperTypes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "_mapAbstractType2",
+  "functionId": "_mapAbstractType2___config-DeserializationConfig__type-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that will find abstract type mapping for specified type, doing a single\nlookup through registered abstract type resolvers; will not do recursive lookups.\n",
+  "functionStartLine": 220,
+  "functionEndLine": 233,
+  "numCommitsSeen": 118,
+  "timeTaken": 7354,
+  "changeHistory": [
+    "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+      "commitMessage": "Further refactoring for DeserializerFactories\n",
+      "commitDate": "1/26/12, 1:22 PM",
+      "commitName": "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Further refactoring for DeserializerFactories\n",
+          "commitDate": "1/26/12, 1:22 PM",
+          "commitName": "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/26/12, 1:07 PM",
+          "commitNameOld": "9db4d99c6c425b779f1bb79ad4db667702657600",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    Class\u003c?\u003e currClass \u003d type.getRawClass();\n    if (_factoryConfig.hasAbstractTypeResolvers()) {\n        for (AbstractTypeResolver resolver : _factoryConfig.abstractTypeResolvers()) {\n            JavaType concrete \u003d resolver.findTypeMapping(config, type);\n            if (concrete !\u003d null \u0026\u0026 concrete.getRawClass() !\u003d currClass) {\n                return concrete;\n            }\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 324,
+          "functionName": "_mapAbstractType2",
+          "functionAnnotation": "",
+          "functionDoc": "Method that will find abstract type mapping for specified type, doing a single\nlookup through registered abstract type resolvers; will not do recursive lookups.\n",
+          "diff": "@@ -1,12 +1,12 @@\n-protected JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n+private JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n     Class\u003c?\u003e currClass \u003d type.getRawClass();\n     if (_factoryConfig.hasAbstractTypeResolvers()) {\n         for (AbstractTypeResolver resolver : _factoryConfig.abstractTypeResolvers()) {\n             JavaType concrete \u003d resolver.findTypeMapping(config, type);\n             if (concrete !\u003d null \u0026\u0026 concrete.getRawClass() !\u003d currClass) {\n                 return concrete;\n             }\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+            "oldMethodName": "_mapAbstractType2",
+            "newMethodName": "_mapAbstractType2"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Further refactoring for DeserializerFactories\n",
+          "commitDate": "1/26/12, 1:22 PM",
+          "commitName": "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/26/12, 1:07 PM",
+          "commitNameOld": "9db4d99c6c425b779f1bb79ad4db667702657600",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    Class\u003c?\u003e currClass \u003d type.getRawClass();\n    if (_factoryConfig.hasAbstractTypeResolvers()) {\n        for (AbstractTypeResolver resolver : _factoryConfig.abstractTypeResolvers()) {\n            JavaType concrete \u003d resolver.findTypeMapping(config, type);\n            if (concrete !\u003d null \u0026\u0026 concrete.getRawClass() !\u003d currClass) {\n                return concrete;\n            }\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 324,
+          "functionName": "_mapAbstractType2",
+          "functionAnnotation": "",
+          "functionDoc": "Method that will find abstract type mapping for specified type, doing a single\nlookup through registered abstract type resolvers; will not do recursive lookups.\n",
+          "diff": "@@ -1,12 +1,12 @@\n-protected JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n+private JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n     Class\u003c?\u003e currClass \u003d type.getRawClass();\n     if (_factoryConfig.hasAbstractTypeResolvers()) {\n         for (AbstractTypeResolver resolver : _factoryConfig.abstractTypeResolvers()) {\n             JavaType concrete \u003d resolver.findTypeMapping(config, type);\n             if (concrete !\u003d null \u0026\u0026 concrete.getRawClass() !\u003d currClass) {\n                 return concrete;\n             }\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[protected]",
+            "newValue": "[private]"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+protected JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n+    Class\u003c?\u003e currClass \u003d type.getRawClass();\n+    if (_factoryConfig.hasAbstractTypeResolvers()) {\n+        for (AbstractTypeResolver resolver : _factoryConfig.abstractTypeResolvers()) {\n+            JavaType concrete \u003d resolver.findTypeMapping(config, type);\n+            if (concrete !\u003d null \u0026\u0026 concrete.getRawClass() !\u003d currClass) {\n+                return concrete;\n+            }\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JavaType _mapAbstractType2(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    Class\u003c?\u003e currClass \u003d type.getRawClass();\n    if (_factoryConfig.hasAbstractTypeResolvers()) {\n        for (AbstractTypeResolver resolver : _factoryConfig.abstractTypeResolvers()) {\n            JavaType concrete \u003d resolver.findTypeMapping(config, type);\n            if (concrete !\u003d null \u0026\u0026 concrete.getRawClass() !\u003d currClass) {\n                return concrete;\n            }\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 591,
+      "functionName": "_mapAbstractType2",
+      "functionAnnotation": "",
+      "functionDoc": "Method that will find abstract type mapping for specified type, doing a single\nlookup through registered abstract type resolvers; will not do recursive lookups.\n"
+    }
+  }
+}

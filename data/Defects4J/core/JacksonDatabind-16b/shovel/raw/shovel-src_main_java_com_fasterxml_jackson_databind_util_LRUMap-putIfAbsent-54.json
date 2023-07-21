@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LRUMap.java",
+  "functionName": "putIfAbsent",
+  "functionId": "putIfAbsent___key-K__value-V",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@since 2.5\n",
+  "functionStartLine": 54,
+  "functionEndLine": 65,
+  "numCommitsSeen": 10,
+  "timeTaken": 721,
+  "changeHistory": [
+    "3eb74af17d39f5d6017e579590174c3941210d82"
+  ],
+  "changeHistoryShort": {
+    "3eb74af17d39f5d6017e579590174c3941210d82": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3eb74af17d39f5d6017e579590174c3941210d82": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement #550\n",
+      "commitDate": "9/23/14, 2:04 PM",
+      "commitName": "3eb74af17d39f5d6017e579590174c3941210d82",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,10 @@\n+public V putIfAbsent(K key, V value) {\n+    if (_map.size() \u003e\u003d _maxEntries) {\n+        synchronized (this) {\n+            if (_map.size() \u003e\u003d _maxEntries) {\n+                clear();\n+            }\n+        }\n+    }\n+    return _map.putIfAbsent(key, value);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public V putIfAbsent(K key, V value) {\n    if (_map.size() \u003e\u003d _maxEntries) {\n        synchronized (this) {\n            if (_map.size() \u003e\u003d _maxEntries) {\n                clear();\n            }\n        }\n    }\n    return _map.putIfAbsent(key, value);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+      "functionStartLine": 54,
+      "functionName": "putIfAbsent",
+      "functionAnnotation": "",
+      "functionDoc": "\n@since 2.5\n"
+    }
+  }
+}

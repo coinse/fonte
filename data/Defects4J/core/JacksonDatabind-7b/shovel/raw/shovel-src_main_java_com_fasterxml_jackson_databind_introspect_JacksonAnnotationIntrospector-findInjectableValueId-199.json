@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "findInjectableValueId",
+  "functionId": "findInjectableValueId___m-AnnotatedMember",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 199,
+  "functionEndLine": 221,
+  "numCommitsSeen": 60,
+  "timeTaken": 2304,
+  "changeHistory": [
+    "1dcce980954c9acef708aa9a0a128f04564bdd25",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "1dcce980954c9acef708aa9a0a128f04564bdd25": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1dcce980954c9acef708aa9a0a128f04564bdd25": {
+      "type": "Ybodychange",
+      "commitMessage": "Bit more renaming for consistency\n",
+      "commitDate": "1/26/12, 12:33 PM",
+      "commitName": "1dcce980954c9acef708aa9a0a128f04564bdd25",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "1/25/12, 4:24 PM",
+      "commitNameOld": "f0929aca5a75fa6de54507e400d168a86e42b77a",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.84,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Object findInjectableValueId(AnnotatedMember m) {\n    JacksonInject ann \u003d m.getAnnotation(JacksonInject.class);\n    if (ann \u003d\u003d null) {\n        return null;\n    }\n    String id \u003d ann.value();\n    if (id.length() \u003d\u003d 0) {\n        if (!(m instanceof AnnotatedMethod)) {\n            return m.getRawType().getName();\n        }\n        AnnotatedMethod am \u003d (AnnotatedMethod) m;\n        if (am.getParameterCount() \u003d\u003d 0) {\n            return m.getRawType().getName();\n        }\n        return am.getRawParameterType(0).getName();\n    }\n    return id;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 168,
+      "functionName": "findInjectableValueId",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,19 +1,19 @@\n @Override\n public Object findInjectableValueId(AnnotatedMember m) {\n     JacksonInject ann \u003d m.getAnnotation(JacksonInject.class);\n     if (ann \u003d\u003d null) {\n         return null;\n     }\n     String id \u003d ann.value();\n     if (id.length() \u003d\u003d 0) {\n         if (!(m instanceof AnnotatedMethod)) {\n             return m.getRawType().getName();\n         }\n         AnnotatedMethod am \u003d (AnnotatedMethod) m;\n         if (am.getParameterCount() \u003d\u003d 0) {\n             return m.getRawType().getName();\n         }\n-        return am.getParameterClass(0).getName();\n+        return am.getRawParameterType(0).getName();\n     }\n     return id;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,19 @@\n+@Override\n+public Object findInjectableValueId(AnnotatedMember m) {\n+    JacksonInject ann \u003d m.getAnnotation(JacksonInject.class);\n+    if (ann \u003d\u003d null) {\n+        return null;\n+    }\n+    String id \u003d ann.value();\n+    if (id.length() \u003d\u003d 0) {\n+        if (!(m instanceof AnnotatedMethod)) {\n+            return m.getRawType().getName();\n+        }\n+        AnnotatedMethod am \u003d (AnnotatedMethod) m;\n+        if (am.getParameterCount() \u003d\u003d 0) {\n+            return m.getRawType().getName();\n+        }\n+        return am.getParameterClass(0).getName();\n+    }\n+    return id;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Object findInjectableValueId(AnnotatedMember m) {\n    JacksonInject ann \u003d m.getAnnotation(JacksonInject.class);\n    if (ann \u003d\u003d null) {\n        return null;\n    }\n    String id \u003d ann.value();\n    if (id.length() \u003d\u003d 0) {\n        if (!(m instanceof AnnotatedMethod)) {\n            return m.getRawType().getName();\n        }\n        AnnotatedMethod am \u003d (AnnotatedMethod) m;\n        if (am.getParameterCount() \u003d\u003d 0) {\n            return m.getRawType().getName();\n        }\n        return am.getParameterClass(0).getName();\n    }\n    return id;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 166,
+      "functionName": "findInjectableValueId",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

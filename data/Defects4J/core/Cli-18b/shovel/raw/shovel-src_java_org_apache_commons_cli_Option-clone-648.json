@@ -1,0 +1,144 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-18b",
+  "repositoryPath": "/tmp/Cli-18b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Option.java",
+  "functionName": "clone",
+  "functionId": "clone",
+  "sourceFilePath": "src/java/org/apache/commons/cli/Option.java",
+  "functionAnnotation": "",
+  "functionDoc": "A rather odd clone method - due to incorrect code in 1.0 it is public \nand in 1.1 rather than throwing a CloneNotSupportedException it throws \na RuntimeException so as to maintain backwards compat at the API level. \n\nAfter calling this method, it is very likely you will want to call \nclearValues().\n\n@throws RuntimeException\n",
+  "functionStartLine": 648,
+  "functionEndLine": 656,
+  "numCommitsSeen": 37,
+  "timeTaken": 440,
+  "changeHistory": [
+    "53ed91258ae02f21edd9aadd53e57cb1c1f5cfaa",
+    "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e",
+    "1545ae48a67ad7f2c18942f4c2dfaf9ab8f7eccd"
+  ],
+  "changeHistoryShort": {
+    "53ed91258ae02f21edd9aadd53e57cb1c1f5cfaa": "Ydocchange",
+    "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e": "Ymultichange(Ymodifierchange,Yexceptionschange,Ybodychange)",
+    "1545ae48a67ad7f2c18942f4c2dfaf9ab8f7eccd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "53ed91258ae02f21edd9aadd53e57cb1c1f5cfaa": {
+      "type": "Ydocchange",
+      "commitMessage": "Adding some javadoc\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@551821 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/29/07, 12:29 AM",
+      "commitName": "53ed91258ae02f21edd9aadd53e57cb1c1f5cfaa",
+      "commitAuthor": "Henri Yandell",
+      "commitDateOld": "6/29/07, 12:16 AM",
+      "commitNameOld": "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Object clone() {\n    try {\n        Option option \u003d (Option) super.clone();\n        option.values \u003d new ArrayList(values);\n        return option;\n    } catch (CloneNotSupportedException cnse) {\n        throw new RuntimeException(\"A CloneNotSupportedException was thrown: \" + cnse.getMessage());\n    }\n}",
+      "path": "src/java/org/apache/commons/cli/Option.java",
+      "functionStartLine": 645,
+      "functionName": "clone",
+      "functionAnnotation": "",
+      "functionDoc": "A rather odd clone method - due to incorrect code in 1.0 it is public \nand in 1.1 rather than throwing a CloneNotSupportedException it throws \na RuntimeException so as to maintain backwards compat at the API level. \n\nAfter calling this method, it is very likely you will want to call \nclearValues().\n\n@throws RuntimeException\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "A rather odd clone method - due to incorrect code in 1.0 it is public \nand in 1.1 rather than throwing a CloneNotSupportedException it throws \na RuntimeException so as to maintain backwards compat at the API level. \n\nAfter calling this method, it is very likely you will want to call \nclearValues().\n\n@throws RuntimeException\n"
+      }
+    },
+    "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e": {
+      "type": "Ymultichange(Ymodifierchange,Yexceptionschange,Ybodychange)",
+      "commitMessage": "Applying the second patch from CLI-21 - moving the clone method back to public and hiding the exception. \n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@551819 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/29/07, 12:16 AM",
+      "commitName": "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e",
+      "commitAuthor": "Henri Yandell",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Applying the second patch from CLI-21 - moving the clone method back to public and hiding the exception. \n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@551819 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "6/29/07, 12:16 AM",
+          "commitName": "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e",
+          "commitAuthor": "Henri Yandell",
+          "commitDateOld": "6/29/07, 12:10 AM",
+          "commitNameOld": "bfe6bd8634895645aa71d6a6dc668545297d7413",
+          "commitAuthorOld": "Henri Yandell",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Object clone() {\n    try {\n        Option option \u003d (Option) super.clone();\n        option.values \u003d new ArrayList(values);\n        return option;\n    } catch (CloneNotSupportedException cnse) {\n        throw new RuntimeException(\"A CloneNotSupportedException was thrown: \" + cnse.getMessage());\n    }\n}",
+          "path": "src/java/org/apache/commons/cli/Option.java",
+          "functionStartLine": 635,
+          "functionName": "clone",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,9 @@\n-protected Object clone() throws CloneNotSupportedException {\n-    Option option \u003d (Option) super.clone();\n-    option.values \u003d new ArrayList(values);\n-    return option;\n+public Object clone() {\n+    try {\n+        Option option \u003d (Option) super.clone();\n+        option.values \u003d new ArrayList(values);\n+        return option;\n+    } catch (CloneNotSupportedException cnse) {\n+        throw new RuntimeException(\"A CloneNotSupportedException was thrown: \" + cnse.getMessage());\n+    }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[protected]",
+            "newValue": "[public]"
+          }
+        },
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "Applying the second patch from CLI-21 - moving the clone method back to public and hiding the exception. \n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@551819 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "6/29/07, 12:16 AM",
+          "commitName": "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e",
+          "commitAuthor": "Henri Yandell",
+          "commitDateOld": "6/29/07, 12:10 AM",
+          "commitNameOld": "bfe6bd8634895645aa71d6a6dc668545297d7413",
+          "commitAuthorOld": "Henri Yandell",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Object clone() {\n    try {\n        Option option \u003d (Option) super.clone();\n        option.values \u003d new ArrayList(values);\n        return option;\n    } catch (CloneNotSupportedException cnse) {\n        throw new RuntimeException(\"A CloneNotSupportedException was thrown: \" + cnse.getMessage());\n    }\n}",
+          "path": "src/java/org/apache/commons/cli/Option.java",
+          "functionStartLine": 635,
+          "functionName": "clone",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,9 @@\n-protected Object clone() throws CloneNotSupportedException {\n-    Option option \u003d (Option) super.clone();\n-    option.values \u003d new ArrayList(values);\n-    return option;\n+public Object clone() {\n+    try {\n+        Option option \u003d (Option) super.clone();\n+        option.values \u003d new ArrayList(values);\n+        return option;\n+    } catch (CloneNotSupportedException cnse) {\n+        throw new RuntimeException(\"A CloneNotSupportedException was thrown: \" + cnse.getMessage());\n+    }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[CloneNotSupportedException]",
+            "newValue": "[]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Applying the second patch from CLI-21 - moving the clone method back to public and hiding the exception. \n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@551819 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "6/29/07, 12:16 AM",
+          "commitName": "4cf1b71f9f9b7a102fafaa6e03825aa3eaffca7e",
+          "commitAuthor": "Henri Yandell",
+          "commitDateOld": "6/29/07, 12:10 AM",
+          "commitNameOld": "bfe6bd8634895645aa71d6a6dc668545297d7413",
+          "commitAuthorOld": "Henri Yandell",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Object clone() {\n    try {\n        Option option \u003d (Option) super.clone();\n        option.values \u003d new ArrayList(values);\n        return option;\n    } catch (CloneNotSupportedException cnse) {\n        throw new RuntimeException(\"A CloneNotSupportedException was thrown: \" + cnse.getMessage());\n    }\n}",
+          "path": "src/java/org/apache/commons/cli/Option.java",
+          "functionStartLine": 635,
+          "functionName": "clone",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,9 @@\n-protected Object clone() throws CloneNotSupportedException {\n-    Option option \u003d (Option) super.clone();\n-    option.values \u003d new ArrayList(values);\n-    return option;\n+public Object clone() {\n+    try {\n+        Option option \u003d (Option) super.clone();\n+        option.values \u003d new ArrayList(values);\n+        return option;\n+    } catch (CloneNotSupportedException cnse) {\n+        throw new RuntimeException(\"A CloneNotSupportedException was thrown: \" + cnse.getMessage());\n+    }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "1545ae48a67ad7f2c18942f4c2dfaf9ab8f7eccd": {
+      "type": "Yintroduced",
+      "commitMessage": "Applying Brian Egge\u0027s patch to CLI-21 that resurrects the clone() method\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@547721 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/15/07, 8:51 AM",
+      "commitName": "1545ae48a67ad7f2c18942f4c2dfaf9ab8f7eccd",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,5 @@\n+protected Object clone() throws CloneNotSupportedException {\n+    Option option \u003d (Option) super.clone();\n+    option.values \u003d new ArrayList(values);\n+    return option;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Object clone() throws CloneNotSupportedException {\n    Option option \u003d (Option) super.clone();\n    option.values \u003d new ArrayList(values);\n    return option;\n}",
+      "path": "src/java/org/apache/commons/cli/Option.java",
+      "functionStartLine": 635,
+      "functionName": "clone",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

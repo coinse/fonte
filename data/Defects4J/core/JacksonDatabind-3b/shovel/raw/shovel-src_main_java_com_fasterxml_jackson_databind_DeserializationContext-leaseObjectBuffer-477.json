@@ -1,0 +1,123 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-3b",
+  "repositoryPath": "/tmp/JacksonDatabind-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializationContext.java",
+  "functionName": "leaseObjectBuffer",
+  "functionId": "leaseObjectBuffer",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that can be used to get access to a reusable ObjectBuffer,\nuseful for efficiently constructing Object arrays and Lists.\nNote that leased buffers should be returned once deserializer\nis done, to allow for reuse during same round of deserialization.\n",
+  "functionStartLine": 477,
+  "functionEndLine": 486,
+  "numCommitsSeen": 67,
+  "timeTaken": 1809,
+  "changeHistory": [
+    "06c20b1814a497cda59d46609ca03bfac20f64f1",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "06c20b1814a497cda59d46609ca03bfac20f64f1": "Ymultichange(Ymovefromfile,Yannotationchange,Ydocchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "06c20b1814a497cda59d46609ca03bfac20f64f1": {
+      "type": "Ymultichange(Ymovefromfile,Yannotationchange,Ydocchange)",
+      "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+      "commitDate": "1/29/12, 9:36 PM",
+      "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+          "commitDate": "1/29/12, 9:36 PM",
+          "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/29/12, 4:44 PM",
+          "commitNameOld": "f0e232d14f4085bac5b5c40eb5efae2aaad5fbec",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final ObjectBuffer leaseObjectBuffer() {\n    ObjectBuffer buf \u003d _objectBuffer;\n    if (buf \u003d\u003d null) {\n        buf \u003d new ObjectBuffer();\n    } else {\n        _objectBuffer \u003d null;\n    }\n    return buf;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 314,
+          "functionName": "leaseObjectBuffer",
+          "functionAnnotation": "",
+          "functionDoc": "Method that can be used to get access to a reusable ObjectBuffer,\nuseful for efficiently constructing Object arrays and Lists.\nNote that leased buffers should be returned once deserializer\nis done, to allow for reuse during same round of deserialization.\n",
+          "diff": "@@ -1,10 +1,9 @@\n-@Override\n public final ObjectBuffer leaseObjectBuffer() {\n     ObjectBuffer buf \u003d _objectBuffer;\n     if (buf \u003d\u003d null) {\n         buf \u003d new ObjectBuffer();\n     } else {\n         _objectBuffer \u003d null;\n     }\n     return buf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/StdDeserializationContext.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+            "oldMethodName": "leaseObjectBuffer",
+            "newMethodName": "leaseObjectBuffer"
+          }
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+          "commitDate": "1/29/12, 9:36 PM",
+          "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/29/12, 4:44 PM",
+          "commitNameOld": "f0e232d14f4085bac5b5c40eb5efae2aaad5fbec",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final ObjectBuffer leaseObjectBuffer() {\n    ObjectBuffer buf \u003d _objectBuffer;\n    if (buf \u003d\u003d null) {\n        buf \u003d new ObjectBuffer();\n    } else {\n        _objectBuffer \u003d null;\n    }\n    return buf;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 314,
+          "functionName": "leaseObjectBuffer",
+          "functionAnnotation": "",
+          "functionDoc": "Method that can be used to get access to a reusable ObjectBuffer,\nuseful for efficiently constructing Object arrays and Lists.\nNote that leased buffers should be returned once deserializer\nis done, to allow for reuse during same round of deserialization.\n",
+          "diff": "@@ -1,10 +1,9 @@\n-@Override\n public final ObjectBuffer leaseObjectBuffer() {\n     ObjectBuffer buf \u003d _objectBuffer;\n     if (buf \u003d\u003d null) {\n         buf \u003d new ObjectBuffer();\n     } else {\n         _objectBuffer \u003d null;\n     }\n     return buf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+          "commitDate": "1/29/12, 9:36 PM",
+          "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/29/12, 4:44 PM",
+          "commitNameOld": "f0e232d14f4085bac5b5c40eb5efae2aaad5fbec",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final ObjectBuffer leaseObjectBuffer() {\n    ObjectBuffer buf \u003d _objectBuffer;\n    if (buf \u003d\u003d null) {\n        buf \u003d new ObjectBuffer();\n    } else {\n        _objectBuffer \u003d null;\n    }\n    return buf;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 314,
+          "functionName": "leaseObjectBuffer",
+          "functionAnnotation": "",
+          "functionDoc": "Method that can be used to get access to a reusable ObjectBuffer,\nuseful for efficiently constructing Object arrays and Lists.\nNote that leased buffers should be returned once deserializer\nis done, to allow for reuse during same round of deserialization.\n",
+          "diff": "@@ -1,10 +1,9 @@\n-@Override\n public final ObjectBuffer leaseObjectBuffer() {\n     ObjectBuffer buf \u003d _objectBuffer;\n     if (buf \u003d\u003d null) {\n         buf \u003d new ObjectBuffer();\n     } else {\n         _objectBuffer \u003d null;\n     }\n     return buf;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "Method that can be used to get access to a reusable ObjectBuffer,\nuseful for efficiently constructing Object arrays and Lists.\nNote that leased buffers should be returned once deserializer\nis done, to allow for reuse during same round of deserialization.\n"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+public final ObjectBuffer leaseObjectBuffer() {\n+    ObjectBuffer buf \u003d _objectBuffer;\n+    if (buf \u003d\u003d null) {\n+        buf \u003d new ObjectBuffer();\n+    } else {\n+        _objectBuffer \u003d null;\n+    }\n+    return buf;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic final ObjectBuffer leaseObjectBuffer() {\n    ObjectBuffer buf \u003d _objectBuffer;\n    if (buf \u003d\u003d null) {\n        buf \u003d new ObjectBuffer();\n    } else {\n        _objectBuffer \u003d null;\n    }\n    return buf;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/StdDeserializationContext.java",
+      "functionStartLine": 112,
+      "functionName": "leaseObjectBuffer",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

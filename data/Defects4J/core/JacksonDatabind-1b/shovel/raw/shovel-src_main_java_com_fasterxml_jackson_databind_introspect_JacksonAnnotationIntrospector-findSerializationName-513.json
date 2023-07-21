@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "findSerializationName",
+  "functionId": "findSerializationName___af-AnnotatedField",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 513,
+  "functionEndLine": 525,
+  "numCommitsSeen": 56,
+  "timeTaken": 1690,
+  "changeHistory": [
+    "de0c33f113d1ba64cec81ba118dc1c84d3cd70a5",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "de0c33f113d1ba64cec81ba118dc1c84d3cd70a5": "Yrename",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "de0c33f113d1ba64cec81ba118dc1c84d3cd70a5": {
+      "type": "Yrename",
+      "commitMessage": "Renaming of AnnotationIntrospector methods to be (more) consistent\n",
+      "commitDate": "1/19/12, 2:36 PM",
+      "commitName": "de0c33f113d1ba64cec81ba118dc1c84d3cd70a5",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "1/18/12, 8:25 PM",
+      "commitNameOld": "c733a7f1e744121343da2851df27b581aab79e68",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.76,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String findSerializationName(AnnotatedField af) {\n    JsonProperty pann \u003d af.getAnnotation(JsonProperty.class);\n    if (pann !\u003d null) {\n        return pann.value();\n    }\n    if (af.hasAnnotation(JsonSerialize.class) || af.hasAnnotation(JsonView.class)) {\n        return \"\";\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 450,
+      "functionName": "findSerializationName",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n @Override\n-public String findSerializablePropertyName(AnnotatedField af) {\n+public String findSerializationName(AnnotatedField af) {\n     JsonProperty pann \u003d af.getAnnotation(JsonProperty.class);\n     if (pann !\u003d null) {\n         return pann.value();\n     }\n     if (af.hasAnnotation(JsonSerialize.class) || af.hasAnnotation(JsonView.class)) {\n         return \"\";\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "findSerializablePropertyName",
+        "newValue": "findSerializationName"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+public String findSerializablePropertyName(AnnotatedField af) {\n+    JsonProperty pann \u003d af.getAnnotation(JsonProperty.class);\n+    if (pann !\u003d null) {\n+        return pann.value();\n+    }\n+    if (af.hasAnnotation(JsonSerialize.class) || af.hasAnnotation(JsonView.class)) {\n+        return \"\";\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String findSerializablePropertyName(AnnotatedField af) {\n    JsonProperty pann \u003d af.getAnnotation(JsonProperty.class);\n    if (pann !\u003d null) {\n        return pann.value();\n    }\n    if (af.hasAnnotation(JsonSerialize.class) || af.hasAnnotation(JsonView.class)) {\n        return \"\";\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 479,
+      "functionName": "findSerializablePropertyName",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

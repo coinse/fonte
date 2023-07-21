@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "_collectRelevantAnnotations",
+  "functionId": "_collectRelevantAnnotations___anns-Annotation[][]",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 885,
+  "functionEndLine": 893,
+  "numCommitsSeen": 18,
+  "timeTaken": 1177,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+protected AnnotationMap[] _collectRelevantAnnotations(Annotation[][] anns) {\n+    int len \u003d anns.length;\n+    AnnotationMap[] result \u003d new AnnotationMap[len];\n+    for (int i \u003d 0; i \u003c len; ++i) {\n+        result[i] \u003d _collectRelevantAnnotations(anns[i]);\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected AnnotationMap[] _collectRelevantAnnotations(Annotation[][] anns) {\n    int len \u003d anns.length;\n    AnnotationMap[] result \u003d new AnnotationMap[len];\n    for (int i \u003d 0; i \u003c len; ++i) {\n        result[i] \u003d _collectRelevantAnnotations(anns[i]);\n    }\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 816,
+      "functionName": "_collectRelevantAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

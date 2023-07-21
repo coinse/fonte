@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeFactory.java",
+  "functionName": "findTypeParameters",
+  "functionId": "findTypeParameters___type-JavaType__expType-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that is to figure out actual type parameters that given\nclass binds to generic types defined by given (generic)\ninterface or class.\nThis could mean, for example, trying to figure out\nkey and value types for Map implementations.\n\n@param type Sub-type (leaf type) that implements \u003ccode\u003eexpType\u003c/code\u003e\n",
+  "functionStartLine": 248,
+  "functionEndLine": 276,
+  "numCommitsSeen": 27,
+  "timeTaken": 1726,
+  "changeHistory": [
+    "29446171c4157d3f9404f7855842e78e8893e420",
+    "463614bbdcda0afcc680b924fd473476f862d274",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "29446171c4157d3f9404f7855842e78e8893e420": "Ybodychange",
+    "463614bbdcda0afcc680b924fd473476f862d274": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "29446171c4157d3f9404f7855842e78e8893e420": {
+      "type": "Ybodychange",
+      "commitMessage": "Initial work to support Map.Entry; now serialization works, some improvements to type handling as well\n",
+      "commitDate": "9/29/14, 4:52 PM",
+      "commitName": "29446171c4157d3f9404f7855842e78e8893e420",
+      "commitAuthor": "Cowtowncoder",
+      "commitDateOld": "6/15/14, 3:43 PM",
+      "commitNameOld": "54fd6d6ea32bf24eaa770919d42f42709efe9f3a",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 106.05,
+      "commitsBetweenForRepo": 87,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JavaType[] findTypeParameters(JavaType type, Class\u003c?\u003e expType) {\n    if (expType \u003d\u003d type.getParameterSource()) {\n        int count \u003d type.containedTypeCount();\n        if (count \u003d\u003d 0)\n            return null;\n        JavaType[] result \u003d new JavaType[count];\n        for (int i \u003d 0; i \u003c count; ++i) {\n            result[i] \u003d type.containedType(i);\n        }\n        return result;\n    }\n    Class\u003c?\u003e raw \u003d type.getRawClass();\n    return findTypeParameters(raw, expType, new TypeBindings(this, type));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 248,
+      "functionName": "findTypeParameters",
+      "functionAnnotation": "",
+      "functionDoc": "Method that is to figure out actual type parameters that given\nclass binds to generic types defined by given (generic)\ninterface or class.\nThis could mean, for example, trying to figure out\nkey and value types for Map implementations.\n\n@param type Sub-type (leaf type) that implements \u003ccode\u003eexpType\u003c/code\u003e\n",
+      "diff": "@@ -1,14 +1,14 @@\n public JavaType[] findTypeParameters(JavaType type, Class\u003c?\u003e expType) {\n-    Class\u003c?\u003e raw \u003d type.getRawClass();\n-    if (raw \u003d\u003d expType) {\n+    if (expType \u003d\u003d type.getParameterSource()) {\n         int count \u003d type.containedTypeCount();\n         if (count \u003d\u003d 0)\n             return null;\n         JavaType[] result \u003d new JavaType[count];\n         for (int i \u003d 0; i \u003c count; ++i) {\n             result[i] \u003d type.containedType(i);\n         }\n         return result;\n     }\n+    Class\u003c?\u003e raw \u003d type.getRawClass();\n     return findTypeParameters(raw, expType, new TypeBindings(this, type));\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "463614bbdcda0afcc680b924fd473476f862d274": {
+      "type": "Ydocchange",
+      "commitMessage": "javadoc cleanup\n",
+      "commitDate": "12/28/11, 1:02 AM",
+      "commitName": "463614bbdcda0afcc680b924fd473476f862d274",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 6:23 PM",
+      "commitNameOld": "d92c1ed454e8474103e7eb698b0a855e7850dbb5",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 4.28,
+      "commitsBetweenForRepo": 19,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JavaType[] findTypeParameters(JavaType type, Class\u003c?\u003e expType) {\n    Class\u003c?\u003e raw \u003d type.getRawClass();\n    if (raw \u003d\u003d expType) {\n        int count \u003d type.containedTypeCount();\n        if (count \u003d\u003d 0)\n            return null;\n        JavaType[] result \u003d new JavaType[count];\n        for (int i \u003d 0; i \u003c count; ++i) {\n            result[i] \u003d type.containedType(i);\n        }\n        return result;\n    }\n    return findTypeParameters(raw, expType, new TypeBindings(this, type));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 194,
+      "functionName": "findTypeParameters",
+      "functionAnnotation": "",
+      "functionDoc": "Method that is to figure out actual type parameters that given\nclass binds to generic types defined by given (generic)\ninterface or class.\nThis could mean, for example, trying to figure out\nkey and value types for Map implementations.\n\n@param type Sub-type (leaf type) that implements \u003ccode\u003eexpType\u003c/code\u003e\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method that is to figure out actual type parameters that given\nclass binds to generic types defined by given (generic)\ninterface or class.\nThis could mean, for example, trying to figure out\nkey and value types for Map implementations.\n\n@param type Sub-type (leaf type) that implements \u003ccode\u003eexpType\u003c/code\u003e\n@since 1.6\n",
+        "newValue": "Method that is to figure out actual type parameters that given\nclass binds to generic types defined by given (generic)\ninterface or class.\nThis could mean, for example, trying to figure out\nkey and value types for Map implementations.\n\n@param type Sub-type (leaf type) that implements \u003ccode\u003eexpType\u003c/code\u003e\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,14 @@\n+public JavaType[] findTypeParameters(JavaType type, Class\u003c?\u003e expType) {\n+    Class\u003c?\u003e raw \u003d type.getRawClass();\n+    if (raw \u003d\u003d expType) {\n+        int count \u003d type.containedTypeCount();\n+        if (count \u003d\u003d 0)\n+            return null;\n+        JavaType[] result \u003d new JavaType[count];\n+        for (int i \u003d 0; i \u003c count; ++i) {\n+            result[i] \u003d type.containedType(i);\n+        }\n+        return result;\n+    }\n+    return findTypeParameters(raw, expType, new TypeBindings(this, type));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JavaType[] findTypeParameters(JavaType type, Class\u003c?\u003e expType) {\n    Class\u003c?\u003e raw \u003d type.getRawClass();\n    if (raw \u003d\u003d expType) {\n        int count \u003d type.containedTypeCount();\n        if (count \u003d\u003d 0)\n            return null;\n        JavaType[] result \u003d new JavaType[count];\n        for (int i \u003d 0; i \u003c count; ++i) {\n            result[i] \u003d type.containedType(i);\n        }\n        return result;\n    }\n    return findTypeParameters(raw, expType, new TypeBindings(this, type));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 369,
+      "functionName": "findTypeParameters",
+      "functionAnnotation": "",
+      "functionDoc": "Method that is to figure out actual type parameters that given\nclass binds to generic types defined by given (generic)\ninterface or class.\nThis could mean, for example, trying to figure out\nkey and value types for Map implementations.\n\n@param type Sub-type (leaf type) that implements \u003ccode\u003eexpType\u003c/code\u003e\n@since 1.6\n"
+    }
+  }
+}

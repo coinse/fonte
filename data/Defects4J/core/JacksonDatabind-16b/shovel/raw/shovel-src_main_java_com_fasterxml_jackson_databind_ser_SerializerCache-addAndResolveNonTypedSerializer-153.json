@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SerializerCache.java",
+  "functionName": "addAndResolveNonTypedSerializer",
+  "functionId": "addAndResolveNonTypedSerializer___type-JavaType__ser-JsonSerializer__Object____provider-SerializerProvider",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 153,
+  "functionEndLine": 173,
+  "numCommitsSeen": 10,
+  "timeTaken": 471,
+  "changeHistory": [
+    "82b474d51545919cb38a49485f56fd29d6ed199b",
+    "b2a9ca7bb27c21b12ccd8d17314e83275381027c",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "82b474d51545919cb38a49485f56fd29d6ed199b": "Yfilerename",
+    "b2a9ca7bb27c21b12ccd8d17314e83275381027c": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "82b474d51545919cb38a49485f56fd29d6ed199b": {
+      "type": "Yfilerename",
+      "commitMessage": "Fix 3 unit test failures\n",
+      "commitDate": "2/2/12, 5:33 PM",
+      "commitName": "82b474d51545919cb38a49485f56fd29d6ed199b",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "2/2/12, 1:00 PM",
+      "commitNameOld": "69afdff1fac0fc4a472a0b04d5bc01df49a427c5",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.19,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void addAndResolveNonTypedSerializer(JavaType type, JsonSerializer\u003cObject\u003e ser, SerializerProvider provider) throws JsonMappingException {\n    synchronized (this) {\n        if (_sharedMap.put(new TypeKey(type, false), ser) \u003d\u003d null) {\n            _readOnlyMap \u003d null;\n        }\n        if (ser instanceof ResolvableSerializer) {\n            ((ResolvableSerializer) ser).resolve(provider);\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java",
+      "functionStartLine": 151,
+      "functionName": "addAndResolveNonTypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/ser/impl/SerializerCache.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java"
+      }
+    },
+    "b2a9ca7bb27c21b12ccd8d17314e83275381027c": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc cleanup, removing pre-2.0 @since annotations\n",
+      "commitDate": "1/20/12, 8:16 PM",
+      "commitName": "b2a9ca7bb27c21b12ccd8d17314e83275381027c",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 8:05 PM",
+      "commitNameOld": "df6302f807bb230ae985a35100cbcc30af523bd1",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 28.01,
+      "commitsBetweenForRepo": 84,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void addAndResolveNonTypedSerializer(JavaType type, JsonSerializer\u003cObject\u003e ser, SerializerProvider provider) throws JsonMappingException {\n    synchronized (this) {\n        if (_sharedMap.put(new TypeKey(type, false), ser) \u003d\u003d null) {\n            _readOnlyMap \u003d null;\n        }\n        if (ser instanceof ResolvableSerializer) {\n            ((ResolvableSerializer) ser).resolve(provider);\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/SerializerCache.java",
+      "functionStartLine": 156,
+      "functionName": "addAndResolveNonTypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\n@since 1.8\n",
+        "newValue": ""
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+public void addAndResolveNonTypedSerializer(JavaType type, JsonSerializer\u003cObject\u003e ser, SerializerProvider provider) throws JsonMappingException {\n+    synchronized (this) {\n+        if (_sharedMap.put(new TypeKey(type, false), ser) \u003d\u003d null) {\n+            _readOnlyMap \u003d null;\n+        }\n+        if (ser instanceof ResolvableSerializer) {\n+            ((ResolvableSerializer) ser).resolve(provider);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void addAndResolveNonTypedSerializer(JavaType type, JsonSerializer\u003cObject\u003e ser, SerializerProvider provider) throws JsonMappingException {\n    synchronized (this) {\n        if (_sharedMap.put(new TypeKey(type, false), ser) \u003d\u003d null) {\n            _readOnlyMap \u003d null;\n        }\n        if (ser instanceof ResolvableSerializer) {\n            ((ResolvableSerializer) ser).resolve(provider);\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/SerializerCache.java",
+      "functionStartLine": 168,
+      "functionName": "addAndResolveNonTypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "\n@since 1.8\n"
+    }
+  }
+}

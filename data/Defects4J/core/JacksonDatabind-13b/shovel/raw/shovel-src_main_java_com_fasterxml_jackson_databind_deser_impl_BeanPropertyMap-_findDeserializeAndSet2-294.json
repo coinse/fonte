@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanPropertyMap.java",
+  "functionName": "_findDeserializeAndSet2",
+  "functionId": "_findDeserializeAndSet2___p-JsonParser__ctxt-DeserializationContext__bean-Object__key-String__index-int",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 294,
+  "functionEndLine": 318,
+  "numCommitsSeen": 19,
+  "timeTaken": 618,
+  "changeHistory": [
+    "b478c792e0e68039224109129350dd71f768ddc1",
+    "24a10cc4aba626a137f776f282ab37625ece5f74"
+  ],
+  "changeHistoryShort": {
+    "b478c792e0e68039224109129350dd71f768ddc1": "Ybodychange",
+    "24a10cc4aba626a137f776f282ab37625ece5f74": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b478c792e0e68039224109129350dd71f768ddc1": {
+      "type": "Ybodychange",
+      "commitMessage": "Still tweaking bean property handling for deser\n",
+      "commitDate": "12/13/14, 3:20 PM",
+      "commitName": "b478c792e0e68039224109129350dd71f768ddc1",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/12/14, 9:27 PM",
+      "commitNameOld": "e440b71e95ae8f79f95b14bbd2e4305ed77b2d30",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.75,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private final boolean _findDeserializeAndSet2(JsonParser p, DeserializationContext ctxt, Object bean, String key, int index) throws IOException {\n    SettableBeanProperty prop \u003d null;\n    Bucket bucket \u003d _buckets[index];\n    while (true) {\n        if ((bucket \u003d bucket.next) \u003d\u003d null) {\n            prop \u003d _findWithEquals(key, index);\n            if (prop \u003d\u003d null) {\n                return false;\n            }\n            break;\n        }\n        if (bucket.key \u003d\u003d key) {\n            prop \u003d bucket.value;\n            break;\n        }\n    }\n    try {\n        prop.deserializeAndSet(p, ctxt, bean);\n    } catch (Exception e) {\n        wrapAndThrow(e, bean, key, ctxt);\n    }\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+      "functionStartLine": 294,
+      "functionName": "_findDeserializeAndSet2",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,15 +1,23 @@\n private final boolean _findDeserializeAndSet2(JsonParser p, DeserializationContext ctxt, Object bean, String key, int index) throws IOException {\n+    SettableBeanProperty prop \u003d null;\n     Bucket bucket \u003d _buckets[index];\n-    while ((bucket \u003d bucket.next) !\u003d null) {\n+    while (true) {\n+        if ((bucket \u003d bucket.next) \u003d\u003d null) {\n+            prop \u003d _findWithEquals(key, index);\n+            if (prop \u003d\u003d null) {\n+                return false;\n+            }\n+            break;\n+        }\n         if (bucket.key \u003d\u003d key) {\n-            bucket.value.deserializeAndSet(p, ctxt, bean);\n-            return true;\n+            prop \u003d bucket.value;\n+            break;\n         }\n     }\n-    SettableBeanProperty prop \u003d _findWithEquals(key, index);\n-    if (prop \u003d\u003d null) {\n-        return false;\n+    try {\n+        prop.deserializeAndSet(p, ctxt, bean);\n+    } catch (Exception e) {\n+        wrapAndThrow(e, bean, key, ctxt);\n     }\n-    prop.deserializeAndSet(p, ctxt, bean);\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "24a10cc4aba626a137f776f282ab37625ece5f74": {
+      "type": "Yintroduced",
+      "commitMessage": "small performance optimization\n",
+      "commitDate": "12/11/14, 2:05 PM",
+      "commitName": "24a10cc4aba626a137f776f282ab37625ece5f74",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,15 @@\n+private final boolean _findDeserializeAndSet2(JsonParser p, DeserializationContext ctxt, Object bean, String key, int index) throws IOException {\n+    Bucket bucket \u003d _buckets[index];\n+    while ((bucket \u003d bucket.next) !\u003d null) {\n+        if (bucket.key \u003d\u003d key) {\n+            bucket.value.deserializeAndSet(p, ctxt, bean);\n+            return true;\n+        }\n+    }\n+    SettableBeanProperty prop \u003d _findWithEquals(key, index);\n+    if (prop \u003d\u003d null) {\n+        return false;\n+    }\n+    prop.deserializeAndSet(p, ctxt, bean);\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final boolean _findDeserializeAndSet2(JsonParser p, DeserializationContext ctxt, Object bean, String key, int index) throws IOException {\n    Bucket bucket \u003d _buckets[index];\n    while ((bucket \u003d bucket.next) !\u003d null) {\n        if (bucket.key \u003d\u003d key) {\n            bucket.value.deserializeAndSet(p, ctxt, bean);\n            return true;\n        }\n    }\n    SettableBeanProperty prop \u003d _findWithEquals(key, index);\n    if (prop \u003d\u003d null) {\n        return false;\n    }\n    prop.deserializeAndSet(p, ctxt, bean);\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+      "functionStartLine": 261,
+      "functionName": "_findDeserializeAndSet2",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

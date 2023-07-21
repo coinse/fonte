@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SerializerCache.java",
+  "functionName": "addTypedSerializer",
+  "functionId": "addTypedSerializer___cls-Class__?____ser-JsonSerializer__Object__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 121,
+  "functionEndLine": 129,
+  "numCommitsSeen": 10,
+  "timeTaken": 460,
+  "changeHistory": [
+    "82b474d51545919cb38a49485f56fd29d6ed199b",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "82b474d51545919cb38a49485f56fd29d6ed199b": "Yfilerename",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "82b474d51545919cb38a49485f56fd29d6ed199b": {
+      "type": "Yfilerename",
+      "commitMessage": "Fix 3 unit test failures\n",
+      "commitDate": "2/2/12, 5:33 PM",
+      "commitName": "82b474d51545919cb38a49485f56fd29d6ed199b",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "2/2/12, 1:00 PM",
+      "commitNameOld": "69afdff1fac0fc4a472a0b04d5bc01df49a427c5",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.19,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void addTypedSerializer(Class\u003c?\u003e cls, JsonSerializer\u003cObject\u003e ser) {\n    synchronized (this) {\n        if (_sharedMap.put(new TypeKey(cls, true), ser) \u003d\u003d null) {\n            _readOnlyMap \u003d null;\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java",
+      "functionStartLine": 119,
+      "functionName": "addTypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/ser/impl/SerializerCache.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/ser/SerializerCache.java"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+public void addTypedSerializer(Class\u003c?\u003e cls, JsonSerializer\u003cObject\u003e ser) {\n+    synchronized (this) {\n+        if (_sharedMap.put(new TypeKey(cls, true), ser) \u003d\u003d null) {\n+            _readOnlyMap \u003d null;\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void addTypedSerializer(Class\u003c?\u003e cls, JsonSerializer\u003cObject\u003e ser) {\n    synchronized (this) {\n        if (_sharedMap.put(new TypeKey(cls, true), ser) \u003d\u003d null) {\n            _readOnlyMap \u003d null;\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/SerializerCache.java",
+      "functionStartLine": 130,
+      "functionName": "addTypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

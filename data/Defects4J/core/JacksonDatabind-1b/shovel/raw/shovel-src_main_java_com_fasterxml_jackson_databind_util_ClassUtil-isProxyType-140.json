@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassUtil.java",
+  "functionName": "isProxyType",
+  "functionId": "isProxyType___type-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to weed out dynamic Proxy types; types that do\nnot expose concrete method API that we could use to figure out\nautomatic Bean (property) based serialization.\n",
+  "functionStartLine": 140,
+  "functionEndLine": 157,
+  "numCommitsSeen": 7,
+  "timeTaken": 538,
+  "changeHistory": [
+    "e2bb0ee2088fa7f8d487669630999d7dcbe5de08",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e2bb0ee2088fa7f8d487669630999d7dcbe5de08": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e2bb0ee2088fa7f8d487669630999d7dcbe5de08": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix [Issue#57] in master\n",
+      "commitDate": "8/26/12, 11:16 AM",
+      "commitName": "e2bb0ee2088fa7f8d487669630999d7dcbe5de08",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "4/28/12, 12:43 AM",
+      "commitNameOld": "1b30b1a9acc9e267a22ed0c8e0372d9d158b257c",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 120.44,
+      "commitsBetweenForRepo": 137,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean isProxyType(Class\u003c?\u003e type) {\n    String name \u003d type.getName();\n    if (name.startsWith(\"net.sf.cglib.proxy.\") || name.startsWith(\"org.hibernate.proxy.\")) {\n        return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 140,
+      "functionName": "isProxyType",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to weed out dynamic Proxy types; types that do\nnot expose concrete method API that we could use to figure out\nautomatic Bean (property) based serialization.\n",
+      "diff": "@@ -1,10 +1,7 @@\n public static boolean isProxyType(Class\u003c?\u003e type) {\n-    if (Proxy.isProxyClass(type)) {\n-        return true;\n-    }\n     String name \u003d type.getName();\n     if (name.startsWith(\"net.sf.cglib.proxy.\") || name.startsWith(\"org.hibernate.proxy.\")) {\n         return true;\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+public static boolean isProxyType(Class\u003c?\u003e type) {\n+    if (Proxy.isProxyClass(type)) {\n+        return true;\n+    }\n+    String name \u003d type.getName();\n+    if (name.startsWith(\"net.sf.cglib.proxy.\") || name.startsWith(\"org.hibernate.proxy.\")) {\n+        return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean isProxyType(Class\u003c?\u003e type) {\n    if (Proxy.isProxyClass(type)) {\n        return true;\n    }\n    String name \u003d type.getName();\n    if (name.startsWith(\"net.sf.cglib.proxy.\") || name.startsWith(\"org.hibernate.proxy.\")) {\n        return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 151,
+      "functionName": "isProxyType",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to weed out dynamic Proxy types; types that do\nnot expose concrete method API that we could use to figure out\nautomatic Bean (property) based serialization.\n"
+    }
+  }
+}

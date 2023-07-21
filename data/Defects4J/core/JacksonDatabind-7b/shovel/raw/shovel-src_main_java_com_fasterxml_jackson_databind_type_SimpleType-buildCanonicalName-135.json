@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimpleType.java",
+  "functionName": "buildCanonicalName",
+  "functionId": "buildCanonicalName",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 135,
+  "functionEndLine": 153,
+  "numCommitsSeen": 5,
+  "timeTaken": 257,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,19 @@\n+@Override\n+protected String buildCanonicalName() {\n+    StringBuilder sb \u003d new StringBuilder();\n+    sb.append(_class.getName());\n+    if (_typeParameters !\u003d null \u0026\u0026 _typeParameters.length \u003e 0) {\n+        sb.append(\u0027\u003c\u0027);\n+        boolean first \u003d true;\n+        for (JavaType t : _typeParameters) {\n+            if (first) {\n+                first \u003d false;\n+            } else {\n+                sb.append(\u0027,\u0027);\n+            }\n+            sb.append(t.toCanonical());\n+        }\n+        sb.append(\u0027\u003e\u0027);\n+    }\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nprotected String buildCanonicalName() {\n    StringBuilder sb \u003d new StringBuilder();\n    sb.append(_class.getName());\n    if (_typeParameters !\u003d null \u0026\u0026 _typeParameters.length \u003e 0) {\n        sb.append(\u0027\u003c\u0027);\n        boolean first \u003d true;\n        for (JavaType t : _typeParameters) {\n            if (first) {\n                first \u003d false;\n            } else {\n                sb.append(\u0027,\u0027);\n            }\n            sb.append(t.toCanonical());\n        }\n        sb.append(\u0027\u003e\u0027);\n    }\n    return sb.toString();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java",
+      "functionStartLine": 136,
+      "functionName": "buildCanonicalName",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

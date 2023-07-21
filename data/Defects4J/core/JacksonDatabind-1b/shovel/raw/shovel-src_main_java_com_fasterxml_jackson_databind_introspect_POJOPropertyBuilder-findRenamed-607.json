@@ -1,0 +1,97 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "findRenamed",
+  "functionId": "findRenamed___node-Linked__? extends AnnotatedMember____renamed-Linked__? extends AnnotatedMember__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 607,
+  "functionEndLine": 631,
+  "numCommitsSeen": 26,
+  "timeTaken": 1030,
+  "changeHistory": [
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Ymultichange(Yparameterchange,Yreturntypechange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Ymultichange(Yparameterchange,Yreturntypechange)",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "refactoring\n",
+          "commitDate": "1/27/12, 8:44 PM",
+          "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/12, 10:26 PM",
+          "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.93,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Linked\u003c? extends AnnotatedMember\u003e findRenamed(Linked\u003c? extends AnnotatedMember\u003e node, Linked\u003c? extends AnnotatedMember\u003e renamed) {\n    for (; node !\u003d null; node \u003d node.next) {\n        String explName \u003d node.explicitName;\n        if (explName \u003d\u003d null) {\n            continue;\n        }\n        if (explName.equals(_name)) {\n            continue;\n        }\n        if (renamed \u003d\u003d null) {\n            renamed \u003d node;\n        } else {\n            if (!explName.equals(renamed.explicitName)) {\n                throw new IllegalStateException(\"Conflicting property name definitions: \u0027\" + renamed.explicitName + \"\u0027 (for \" + renamed.value + \") vs \u0027\" + node.explicitName + \"\u0027 (for \" + node.value + \")\");\n            }\n        }\n    }\n    return renamed;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 519,
+          "functionName": "findRenamed",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,19 +1,19 @@\n-private Node\u003c? extends AnnotatedMember\u003e findRenamed(Node\u003c? extends AnnotatedMember\u003e node, Node\u003c? extends AnnotatedMember\u003e renamed) {\n+private Linked\u003c? extends AnnotatedMember\u003e findRenamed(Linked\u003c? extends AnnotatedMember\u003e node, Linked\u003c? extends AnnotatedMember\u003e renamed) {\n     for (; node !\u003d null; node \u003d node.next) {\n         String explName \u003d node.explicitName;\n         if (explName \u003d\u003d null) {\n             continue;\n         }\n         if (explName.equals(_name)) {\n             continue;\n         }\n         if (renamed \u003d\u003d null) {\n             renamed \u003d node;\n         } else {\n             if (!explName.equals(renamed.explicitName)) {\n                 throw new IllegalStateException(\"Conflicting property name definitions: \u0027\" + renamed.explicitName + \"\u0027 (for \" + renamed.value + \") vs \u0027\" + node.explicitName + \"\u0027 (for \" + node.value + \")\");\n             }\n         }\n     }\n     return renamed;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[node-Node\u003c? extends AnnotatedMember\u003e, renamed-Node\u003c? extends AnnotatedMember\u003e]",
+            "newValue": "[node-Linked\u003c? extends AnnotatedMember\u003e, renamed-Linked\u003c? extends AnnotatedMember\u003e]"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "refactoring\n",
+          "commitDate": "1/27/12, 8:44 PM",
+          "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/12, 10:26 PM",
+          "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.93,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Linked\u003c? extends AnnotatedMember\u003e findRenamed(Linked\u003c? extends AnnotatedMember\u003e node, Linked\u003c? extends AnnotatedMember\u003e renamed) {\n    for (; node !\u003d null; node \u003d node.next) {\n        String explName \u003d node.explicitName;\n        if (explName \u003d\u003d null) {\n            continue;\n        }\n        if (explName.equals(_name)) {\n            continue;\n        }\n        if (renamed \u003d\u003d null) {\n            renamed \u003d node;\n        } else {\n            if (!explName.equals(renamed.explicitName)) {\n                throw new IllegalStateException(\"Conflicting property name definitions: \u0027\" + renamed.explicitName + \"\u0027 (for \" + renamed.value + \") vs \u0027\" + node.explicitName + \"\u0027 (for \" + node.value + \")\");\n            }\n        }\n    }\n    return renamed;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 519,
+          "functionName": "findRenamed",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,19 +1,19 @@\n-private Node\u003c? extends AnnotatedMember\u003e findRenamed(Node\u003c? extends AnnotatedMember\u003e node, Node\u003c? extends AnnotatedMember\u003e renamed) {\n+private Linked\u003c? extends AnnotatedMember\u003e findRenamed(Linked\u003c? extends AnnotatedMember\u003e node, Linked\u003c? extends AnnotatedMember\u003e renamed) {\n     for (; node !\u003d null; node \u003d node.next) {\n         String explName \u003d node.explicitName;\n         if (explName \u003d\u003d null) {\n             continue;\n         }\n         if (explName.equals(_name)) {\n             continue;\n         }\n         if (renamed \u003d\u003d null) {\n             renamed \u003d node;\n         } else {\n             if (!explName.equals(renamed.explicitName)) {\n                 throw new IllegalStateException(\"Conflicting property name definitions: \u0027\" + renamed.explicitName + \"\u0027 (for \" + renamed.value + \") vs \u0027\" + node.explicitName + \"\u0027 (for \" + node.value + \")\");\n             }\n         }\n     }\n     return renamed;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Node\u003c? extends AnnotatedMember\u003e",
+            "newValue": "Linked\u003c? extends AnnotatedMember\u003e"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,19 @@\n+private Node\u003c? extends AnnotatedMember\u003e findRenamed(Node\u003c? extends AnnotatedMember\u003e node, Node\u003c? extends AnnotatedMember\u003e renamed) {\n+    for (; node !\u003d null; node \u003d node.next) {\n+        String explName \u003d node.explicitName;\n+        if (explName \u003d\u003d null) {\n+            continue;\n+        }\n+        if (explName.equals(_name)) {\n+            continue;\n+        }\n+        if (renamed \u003d\u003d null) {\n+            renamed \u003d node;\n+        } else {\n+            if (!explName.equals(renamed.explicitName)) {\n+                throw new IllegalStateException(\"Conflicting property name definitions: \u0027\" + renamed.explicitName + \"\u0027 (for \" + renamed.value + \") vs \u0027\" + node.explicitName + \"\u0027 (for \" + node.value + \")\");\n+            }\n+        }\n+    }\n+    return renamed;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Node\u003c? extends AnnotatedMember\u003e findRenamed(Node\u003c? extends AnnotatedMember\u003e node, Node\u003c? extends AnnotatedMember\u003e renamed) {\n    for (; node !\u003d null; node \u003d node.next) {\n        String explName \u003d node.explicitName;\n        if (explName \u003d\u003d null) {\n            continue;\n        }\n        if (explName.equals(_name)) {\n            continue;\n        }\n        if (renamed \u003d\u003d null) {\n            renamed \u003d node;\n        } else {\n            if (!explName.equals(renamed.explicitName)) {\n                throw new IllegalStateException(\"Conflicting property name definitions: \u0027\" + renamed.explicitName + \"\u0027 (for \" + renamed.value + \") vs \u0027\" + node.explicitName + \"\u0027 (for \" + node.value + \")\");\n            }\n        }\n    }\n    return renamed;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 481,
+      "functionName": "findRenamed",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

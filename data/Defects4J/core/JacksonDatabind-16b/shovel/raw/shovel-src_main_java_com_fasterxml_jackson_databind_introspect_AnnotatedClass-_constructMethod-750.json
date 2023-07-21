@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "_constructMethod",
+  "functionId": "_constructMethod___m-Method",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 750,
+  "functionEndLine": 760,
+  "numCommitsSeen": 23,
+  "timeTaken": 1403,
+  "changeHistory": [
+    "c15e779d55627fe19e50390ff8cbef6c247338fc",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "c15e779d55627fe19e50390ff8cbef6c247338fc": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c15e779d55627fe19e50390ff8cbef6c247338fc": {
+      "type": "Ybodychange",
+      "commitMessage": "Add `AnnotatedMember.getContext()` to help in access of class annotations, from within `AnnotatedMember`\n",
+      "commitDate": "12/19/14, 3:41 PM",
+      "commitName": "c15e779d55627fe19e50390ff8cbef6c247338fc",
+      "commitAuthor": "Cowtowncoder",
+      "commitDateOld": "9/24/14, 7:40 PM",
+      "commitNameOld": "b23ede184b119aa89e7704429b8940b36eb1e165",
+      "commitAuthorOld": "Cowtowncoder",
+      "daysBetweenCommits": 85.88,
+      "commitsBetweenForRepo": 214,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected AnnotatedMethod _constructMethod(Method m) {\n    if (_annotationIntrospector \u003d\u003d null) {\n        return new AnnotatedMethod(this, m, _emptyAnnotationMap(), null);\n    }\n    return new AnnotatedMethod(this, m, _collectRelevantAnnotations(m.getDeclaredAnnotations()), null);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 748,
+      "functionName": "_constructMethod",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n protected AnnotatedMethod _constructMethod(Method m) {\n     if (_annotationIntrospector \u003d\u003d null) {\n-        return new AnnotatedMethod(m, _emptyAnnotationMap(), null);\n+        return new AnnotatedMethod(this, m, _emptyAnnotationMap(), null);\n     }\n-    return new AnnotatedMethod(m, _collectRelevantAnnotations(m.getDeclaredAnnotations()), null);\n+    return new AnnotatedMethod(this, m, _collectRelevantAnnotations(m.getDeclaredAnnotations()), null);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+protected AnnotatedMethod _constructMethod(Method m) {\n+    if (_annotationIntrospector \u003d\u003d null) {\n+        return new AnnotatedMethod(m, _emptyAnnotationMap(), null);\n+    }\n+    return new AnnotatedMethod(m, _collectRelevantAnnotations(m.getDeclaredAnnotations()), null);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected AnnotatedMethod _constructMethod(Method m) {\n    if (_annotationIntrospector \u003d\u003d null) {\n        return new AnnotatedMethod(m, _emptyAnnotationMap(), null);\n    }\n    return new AnnotatedMethod(m, _collectRelevantAnnotations(m.getDeclaredAnnotations()), null);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 752,
+      "functionName": "_constructMethod",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

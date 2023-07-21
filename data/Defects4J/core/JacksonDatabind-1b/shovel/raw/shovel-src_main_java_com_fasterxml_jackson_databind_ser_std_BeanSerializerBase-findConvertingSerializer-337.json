@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanSerializerBase.java",
+  "functionName": "findConvertingSerializer",
+  "functionId": "findConvertingSerializer___provider-SerializerProvider__prop-BeanPropertyWriter",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method that can be used to see if specified property is annotated\nto indicate use of a converter for property value (in case of container types,\nit is container type itself, not key or content type).\n\n@since 2.2\n",
+  "functionStartLine": 337,
+  "functionEndLine": 352,
+  "numCommitsSeen": 68,
+  "timeTaken": 1593,
+  "changeHistory": [
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e",
+    "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f"
+  ],
+  "changeHistoryShort": {
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e": "Ybodychange",
+    "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e": {
+      "type": "Ybodychange",
+      "commitMessage": "Improvements to Converter, added StdConverter base class\n",
+      "commitDate": "3/3/13, 1:11 PM",
+      "commitName": "cc737528660b99e71865096e3cd0c4c4a2b3871e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/2/13, 6:04 PM",
+      "commitNameOld": "9fb0c8df13778d37a0b6b2e1de2b513950c21224",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.8,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonSerializer\u003cObject\u003e findConvertingSerializer(SerializerProvider provider, BeanPropertyWriter prop) throws JsonMappingException {\n    final AnnotationIntrospector intr \u003d provider.getAnnotationIntrospector();\n    if (intr !\u003d null) {\n        Object convDef \u003d intr.findSerializationConverter(prop.getMember());\n        if (convDef !\u003d null) {\n            Converter\u003cObject, Object\u003e conv \u003d provider.converterInstance(prop.getMember(), convDef);\n            JavaType delegateType \u003d conv.getOutputType(provider.getTypeFactory());\n            JsonSerializer\u003c?\u003e ser \u003d provider.findValueSerializer(delegateType, prop);\n            return new StdDelegatingSerializer(conv, delegateType, ser);\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java",
+      "functionStartLine": 337,
+      "functionName": "findConvertingSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method that can be used to see if specified property is annotated\nto indicate use of a converter for property value (in case of container types,\nit is container type itself, not key or content type).\n\n@since 2.2\n",
+      "diff": "@@ -1,19 +1,13 @@\n protected JsonSerializer\u003cObject\u003e findConvertingSerializer(SerializerProvider provider, BeanPropertyWriter prop) throws JsonMappingException {\n     final AnnotationIntrospector intr \u003d provider.getAnnotationIntrospector();\n     if (intr !\u003d null) {\n         Object convDef \u003d intr.findSerializationConverter(prop.getMember());\n         if (convDef !\u003d null) {\n             Converter\u003cObject, Object\u003e conv \u003d provider.converterInstance(prop.getMember(), convDef);\n-            TypeFactory tf \u003d provider.getTypeFactory();\n-            JavaType converterType \u003d tf.constructType(conv.getClass());\n-            JavaType[] params \u003d tf.findTypeParameters(converterType, Converter.class);\n-            if (params \u003d\u003d null || params.length !\u003d 2) {\n-                throw new JsonMappingException(\"Could not determine Converter parameterization for \" + converterType);\n-            }\n-            JavaType delegateType \u003d params[1];\n+            JavaType delegateType \u003d conv.getOutputType(provider.getTypeFactory());\n             JsonSerializer\u003c?\u003e ser \u003d provider.findValueSerializer(delegateType, prop);\n             return new StdDelegatingSerializer(conv, delegateType, ser);\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f": {
+      "type": "Yintroduced",
+      "commitMessage": "Working on #124, serializer converters\n",
+      "commitDate": "2/18/13, 9:25 PM",
+      "commitName": "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,19 @@\n+protected JsonSerializer\u003cObject\u003e findConvertingSerializer(SerializerProvider provider, BeanPropertyWriter prop) throws JsonMappingException {\n+    final AnnotationIntrospector intr \u003d provider.getAnnotationIntrospector();\n+    if (intr !\u003d null) {\n+        Object convDef \u003d intr.findSerializationConverter(prop.getMember());\n+        if (convDef !\u003d null) {\n+            Converter\u003cObject, Object\u003e conv \u003d provider.converterInstance(prop.getMember(), convDef);\n+            TypeFactory tf \u003d provider.getTypeFactory();\n+            JavaType converterType \u003d tf.constructType(conv.getClass());\n+            JavaType[] params \u003d tf.findTypeParameters(converterType, Converter.class);\n+            if (params \u003d\u003d null || params.length !\u003d 2) {\n+                throw new JsonMappingException(\"Could not determine Converter parameterization for \" + converterType);\n+            }\n+            JavaType delegateType \u003d params[1];\n+            JsonSerializer\u003c?\u003e ser \u003d provider.findValueSerializer(delegateType, prop);\n+            return new StdDelegatingSerializer(conv, delegateType, ser);\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonSerializer\u003cObject\u003e findConvertingSerializer(SerializerProvider provider, BeanPropertyWriter prop) throws JsonMappingException {\n    final AnnotationIntrospector intr \u003d provider.getAnnotationIntrospector();\n    if (intr !\u003d null) {\n        Object convDef \u003d intr.findSerializationConverter(prop.getMember());\n        if (convDef !\u003d null) {\n            Converter\u003cObject, Object\u003e conv \u003d provider.converterInstance(prop.getMember(), convDef);\n            TypeFactory tf \u003d provider.getTypeFactory();\n            JavaType converterType \u003d tf.constructType(conv.getClass());\n            JavaType[] params \u003d tf.findTypeParameters(converterType, Converter.class);\n            if (params \u003d\u003d null || params.length !\u003d 2) {\n                throw new JsonMappingException(\"Could not determine Converter parameterization for \" + converterType);\n            }\n            JavaType delegateType \u003d params[1];\n            JsonSerializer\u003c?\u003e ser \u003d provider.findValueSerializer(delegateType, prop);\n            return new StdDelegatingSerializer(conv, delegateType, ser);\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java",
+      "functionStartLine": 338,
+      "functionName": "findConvertingSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method that can be used to see if specified property is annotated\nto indicate use of a converter for property value (in case of container types,\nit is container type itself, not key or content type).\n\n@since 2.2\n"
+    }
+  }
+}

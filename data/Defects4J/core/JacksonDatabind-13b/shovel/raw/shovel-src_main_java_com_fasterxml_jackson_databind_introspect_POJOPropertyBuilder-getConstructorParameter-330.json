@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "getConstructorParameter",
+  "functionId": "getConstructorParameter",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 330,
+  "functionEndLine": 351,
+  "numCommitsSeen": 49,
+  "timeTaken": 2164,
+  "changeHistory": [
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Ybodychange",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/26/12, 10:26 PM",
+      "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.93,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedParameter getConstructorParameter() {\n    if (_ctorParameters \u003d\u003d null) {\n        return null;\n    }\n    Linked\u003cAnnotatedParameter\u003e curr \u003d _ctorParameters;\n    do {\n        if (curr.value.getOwner() instanceof AnnotatedConstructor) {\n            return curr.value;\n        }\n        curr \u003d curr.next;\n    } while (curr !\u003d null);\n    return _ctorParameters.value;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 222,
+      "functionName": "getConstructorParameter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,14 +1,14 @@\n @Override\n public AnnotatedParameter getConstructorParameter() {\n     if (_ctorParameters \u003d\u003d null) {\n         return null;\n     }\n-    Node\u003cAnnotatedParameter\u003e curr \u003d _ctorParameters;\n+    Linked\u003cAnnotatedParameter\u003e curr \u003d _ctorParameters;\n     do {\n         if (curr.value.getOwner() instanceof AnnotatedConstructor) {\n             return curr.value;\n         }\n         curr \u003d curr.next;\n     } while (curr !\u003d null);\n     return _ctorParameters.value;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,14 @@\n+@Override\n+public AnnotatedParameter getConstructorParameter() {\n+    if (_ctorParameters \u003d\u003d null) {\n+        return null;\n+    }\n+    Node\u003cAnnotatedParameter\u003e curr \u003d _ctorParameters;\n+    do {\n+        if (curr.value.getOwner() instanceof AnnotatedConstructor) {\n+            return curr.value;\n+        }\n+        curr \u003d curr.next;\n+    } while (curr !\u003d null);\n+    return _ctorParameters.value;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic AnnotatedParameter getConstructorParameter() {\n    if (_ctorParameters \u003d\u003d null) {\n        return null;\n    }\n    Node\u003cAnnotatedParameter\u003e curr \u003d _ctorParameters;\n    do {\n        if (curr.value.getOwner() instanceof AnnotatedConstructor) {\n            return curr.value;\n        }\n        curr \u003d curr.next;\n    } while (curr !\u003d null);\n    return _ctorParameters.value;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 229,
+      "functionName": "getConstructorParameter",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

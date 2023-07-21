@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanUtil.java",
+  "functionName": "okNameForRegularGetter",
+  "functionId": "okNameForRegularGetter___am-AnnotatedMethod__name-String__stdNaming-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@since 2.5\n",
+  "functionStartLine": 32,
+  "functionEndLine": 58,
+  "numCommitsSeen": 16,
+  "timeTaken": 733,
+  "changeHistory": [
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "Fixed #653\n",
+      "commitDate": "12/18/14, 8:45 PM",
+      "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fixed #653\n",
+          "commitDate": "12/18/14, 8:45 PM",
+          "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/17/14, 10:03 PM",
+          "commitNameOld": "cb13a6fbbb4140c2ad2003b7f130ae852ccfc556",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static String okNameForRegularGetter(AnnotatedMethod am, String name, boolean stdNaming) {\n    if (name.startsWith(\"get\")) {\n        if (\"getCallbacks\".equals(name)) {\n            if (isCglibGetCallbacks(am)) {\n                return null;\n            }\n        } else if (\"getMetaClass\".equals(name)) {\n            if (isGroovyMetaClassGetter(am)) {\n                return null;\n            }\n        }\n        return stdNaming ? stdManglePropertyName(name, 3) : legacyManglePropertyName(name, 3);\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+          "functionStartLine": 32,
+          "functionName": "okNameForRegularGetter",
+          "functionAnnotation": "",
+          "functionDoc": "\n@since 2.5\n",
+          "diff": "@@ -1,15 +1,15 @@\n-public static String okNameForRegularGetter(AnnotatedMethod am, String name) {\n+public static String okNameForRegularGetter(AnnotatedMethod am, String name, boolean stdNaming) {\n     if (name.startsWith(\"get\")) {\n         if (\"getCallbacks\".equals(name)) {\n             if (isCglibGetCallbacks(am)) {\n                 return null;\n             }\n         } else if (\"getMetaClass\".equals(name)) {\n             if (isGroovyMetaClassGetter(am)) {\n                 return null;\n             }\n         }\n-        return manglePropertyName(name.substring(3));\n+        return stdNaming ? stdManglePropertyName(name, 3) : legacyManglePropertyName(name, 3);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[am-AnnotatedMethod, name-String]",
+            "newValue": "[am-AnnotatedMethod, name-String, stdNaming-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fixed #653\n",
+          "commitDate": "12/18/14, 8:45 PM",
+          "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/17/14, 10:03 PM",
+          "commitNameOld": "cb13a6fbbb4140c2ad2003b7f130ae852ccfc556",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static String okNameForRegularGetter(AnnotatedMethod am, String name, boolean stdNaming) {\n    if (name.startsWith(\"get\")) {\n        if (\"getCallbacks\".equals(name)) {\n            if (isCglibGetCallbacks(am)) {\n                return null;\n            }\n        } else if (\"getMetaClass\".equals(name)) {\n            if (isGroovyMetaClassGetter(am)) {\n                return null;\n            }\n        }\n        return stdNaming ? stdManglePropertyName(name, 3) : legacyManglePropertyName(name, 3);\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+          "functionStartLine": 32,
+          "functionName": "okNameForRegularGetter",
+          "functionAnnotation": "",
+          "functionDoc": "\n@since 2.5\n",
+          "diff": "@@ -1,15 +1,15 @@\n-public static String okNameForRegularGetter(AnnotatedMethod am, String name) {\n+public static String okNameForRegularGetter(AnnotatedMethod am, String name, boolean stdNaming) {\n     if (name.startsWith(\"get\")) {\n         if (\"getCallbacks\".equals(name)) {\n             if (isCglibGetCallbacks(am)) {\n                 return null;\n             }\n         } else if (\"getMetaClass\".equals(name)) {\n             if (isGroovyMetaClassGetter(am)) {\n                 return null;\n             }\n         }\n-        return manglePropertyName(name.substring(3));\n+        return stdNaming ? stdManglePropertyName(name, 3) : legacyManglePropertyName(name, 3);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Fixed #653\n",
+          "commitDate": "12/18/14, 8:45 PM",
+          "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/17/14, 10:03 PM",
+          "commitNameOld": "cb13a6fbbb4140c2ad2003b7f130ae852ccfc556",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.95,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static String okNameForRegularGetter(AnnotatedMethod am, String name, boolean stdNaming) {\n    if (name.startsWith(\"get\")) {\n        if (\"getCallbacks\".equals(name)) {\n            if (isCglibGetCallbacks(am)) {\n                return null;\n            }\n        } else if (\"getMetaClass\".equals(name)) {\n            if (isGroovyMetaClassGetter(am)) {\n                return null;\n            }\n        }\n        return stdNaming ? stdManglePropertyName(name, 3) : legacyManglePropertyName(name, 3);\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+          "functionStartLine": 32,
+          "functionName": "okNameForRegularGetter",
+          "functionAnnotation": "",
+          "functionDoc": "\n@since 2.5\n",
+          "diff": "@@ -1,15 +1,15 @@\n-public static String okNameForRegularGetter(AnnotatedMethod am, String name) {\n+public static String okNameForRegularGetter(AnnotatedMethod am, String name, boolean stdNaming) {\n     if (name.startsWith(\"get\")) {\n         if (\"getCallbacks\".equals(name)) {\n             if (isCglibGetCallbacks(am)) {\n                 return null;\n             }\n         } else if (\"getMetaClass\".equals(name)) {\n             if (isGroovyMetaClassGetter(am)) {\n                 return null;\n             }\n         }\n-        return manglePropertyName(name.substring(3));\n+        return stdNaming ? stdManglePropertyName(name, 3) : legacyManglePropertyName(name, 3);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "\n@since 2.5\n"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+public static String okNameForRegularGetter(AnnotatedMethod am, String name) {\n+    if (name.startsWith(\"get\")) {\n+        if (\"getCallbacks\".equals(name)) {\n+            if (isCglibGetCallbacks(am)) {\n+                return null;\n+            }\n+        } else if (\"getMetaClass\".equals(name)) {\n+            if (isGroovyMetaClassGetter(am)) {\n+                return null;\n+            }\n+        }\n+        return manglePropertyName(name.substring(3));\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String okNameForRegularGetter(AnnotatedMethod am, String name) {\n    if (name.startsWith(\"get\")) {\n        if (\"getCallbacks\".equals(name)) {\n            if (isCglibGetCallbacks(am)) {\n                return null;\n            }\n        } else if (\"getMetaClass\".equals(name)) {\n            if (isGroovyMetaClassGetter(am)) {\n                return null;\n            }\n        }\n        return manglePropertyName(name.substring(3));\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+      "functionStartLine": 98,
+      "functionName": "okNameForRegularGetter",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

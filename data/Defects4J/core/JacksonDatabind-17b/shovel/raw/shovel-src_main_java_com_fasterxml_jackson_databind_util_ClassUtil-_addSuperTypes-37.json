@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassUtil.java",
+  "functionName": "_addSuperTypes",
+  "functionId": "_addSuperTypes___cls-Class__?____endBefore-Class__?____result-Collection__Class__?______addClassItself-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 37,
+  "functionEndLine": 49,
+  "numCommitsSeen": 10,
+  "timeTaken": 706,
+  "changeHistory": [
+    "6a8b73a0ab695a15dda17603e9b22d58dc866eb5",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "6a8b73a0ab695a15dda17603e9b22d58dc866eb5": "Yformatchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6a8b73a0ab695a15dda17603e9b22d58dc866eb5": {
+      "type": "Yformatchange",
+      "commitMessage": "Yet more pruning\n",
+      "commitDate": "1/2/14, 10:07 PM",
+      "commitName": "6a8b73a0ab695a15dda17603e9b22d58dc866eb5",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "8/26/12, 11:16 AM",
+      "commitNameOld": "e2bb0ee2088fa7f8d487669630999d7dcbe5de08",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 494.49,
+      "commitsBetweenForRepo": 625,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void _addSuperTypes(Class\u003c?\u003e cls, Class\u003c?\u003e endBefore, Collection\u003cClass\u003c?\u003e\u003e result, boolean addClassItself) {\n    if (cls \u003d\u003d endBefore || cls \u003d\u003d null || cls \u003d\u003d Object.class) {\n        return;\n    }\n    if (addClassItself) {\n        if (result.contains(cls)) {\n            return;\n        }\n        result.add(cls);\n    }\n    for (Class\u003c?\u003e intCls : cls.getInterfaces()) {\n        _addSuperTypes(intCls, endBefore, result, true);\n    }\n    _addSuperTypes(cls.getSuperclass(), endBefore, result, true);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 37,
+      "functionName": "_addSuperTypes",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+private static void _addSuperTypes(Class\u003c?\u003e cls, Class\u003c?\u003e endBefore, Collection\u003cClass\u003c?\u003e\u003e result, boolean addClassItself) {\n+    if (cls \u003d\u003d endBefore || cls \u003d\u003d null || cls \u003d\u003d Object.class) {\n+        return;\n+    }\n+    if (addClassItself) {\n+        if (result.contains(cls)) {\n+            return;\n+        }\n+        result.add(cls);\n+    }\n+    for (Class\u003c?\u003e intCls : cls.getInterfaces()) {\n+        _addSuperTypes(intCls, endBefore, result, true);\n+    }\n+    _addSuperTypes(cls.getSuperclass(), endBefore, result, true);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void _addSuperTypes(Class\u003c?\u003e cls, Class\u003c?\u003e endBefore, Collection\u003cClass\u003c?\u003e\u003e result, boolean addClassItself) {\n    if (cls \u003d\u003d endBefore || cls \u003d\u003d null || cls \u003d\u003d Object.class) {\n        return;\n    }\n    if (addClassItself) {\n        if (result.contains(cls)) {\n            return;\n        }\n        result.add(cls);\n    }\n    for (Class\u003c?\u003e intCls : cls.getInterfaces()) {\n        _addSuperTypes(intCls, endBefore, result, true);\n    }\n    _addSuperTypes(cls.getSuperclass(), endBefore, result, true);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 37,
+      "functionName": "_addSuperTypes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

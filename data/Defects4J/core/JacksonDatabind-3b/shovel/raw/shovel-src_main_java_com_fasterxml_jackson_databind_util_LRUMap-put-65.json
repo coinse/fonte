@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-3b",
+  "repositoryPath": "/tmp/JacksonDatabind-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LRUMap.java",
+  "functionName": "put",
+  "functionId": "put___key-K__value-V",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 65,
+  "functionEndLine": 72,
+  "numCommitsSeen": 5,
+  "timeTaken": 636,
+  "changeHistory": [
+    "2f58c932645751a53835110ef2bf5a90fc652ef3"
+  ],
+  "changeHistoryShort": {
+    "2f58c932645751a53835110ef2bf5a90fc652ef3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2f58c932645751a53835110ef2bf5a90fc652ef3": {
+      "type": "Yintroduced",
+      "commitMessage": "Attempt to fix #435\n",
+      "commitDate": "4/9/14, 6:46 PM",
+      "commitName": "2f58c932645751a53835110ef2bf5a90fc652ef3",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public V put(K key, V value) {\n+    _writeLock.lock();\n+    try {\n+        return super.put(key, value);\n+    } finally {\n+        _writeLock.unlock();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic V put(K key, V value) {\n    _writeLock.lock();\n    try {\n        return super.put(key, value);\n    } finally {\n        _writeLock.unlock();\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+      "functionStartLine": 65,
+      "functionName": "put",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

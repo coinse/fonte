@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "hasRequiredMarker",
+  "functionId": "hasRequiredMarker___m-AnnotatedMember",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 182,
+  "functionEndLine": 189,
+  "numCommitsSeen": 41,
+  "timeTaken": 2186,
+  "changeHistory": [
+    "2fd4ffd9963545ce735a58957a84afb90809561e"
+  ],
+  "changeHistoryShort": {
+    "2fd4ffd9963545ce735a58957a84afb90809561e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2fd4ffd9963545ce735a58957a84afb90809561e": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement Builder-based deserializer; fix a few ObjectId issues\n",
+      "commitDate": "2/17/12, 10:40 PM",
+      "commitName": "2fd4ffd9963545ce735a58957a84afb90809561e",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public Boolean hasRequiredMarker(AnnotatedMember m) {\n+    JsonProperty ann \u003d m.getAnnotation(JsonProperty.class);\n+    if (ann !\u003d null) {\n+        return ann.required();\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Boolean hasRequiredMarker(AnnotatedMember m) {\n    JsonProperty ann \u003d m.getAnnotation(JsonProperty.class);\n    if (ann !\u003d null) {\n        return ann.required();\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 169,
+      "functionName": "hasRequiredMarker",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

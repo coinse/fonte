@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokenBuffer.java",
+  "functionName": "nextToken",
+  "functionId": "$nextToken",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 1194,
+  "functionEndLine": 1227,
+  "numCommitsSeen": 34,
+  "timeTaken": 3164,
+  "changeHistory": [
+    "e83097055900a2d5cc223756e15ebf0a36703f77",
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17"
+  ],
+  "changeHistoryShort": {
+    "e83097055900a2d5cc223756e15ebf0a36703f77": "Ybodychange",
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e83097055900a2d5cc223756e15ebf0a36703f77": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix a problem b/w TokenBuffer, new dup checking in core\n",
+      "commitDate": "9/24/13, 10:06 PM",
+      "commitName": "e83097055900a2d5cc223756e15ebf0a36703f77",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/24/13, 3:35 PM",
+      "commitNameOld": "81b47350f3056180e16e43c41ce8b1230afc1dc8",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.27,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic JsonToken nextToken() throws IOException, JsonParseException {\n    if (_closed || (_segment \u003d\u003d null))\n        return null;\n    if (++_segmentPtr \u003e\u003d Segment.TOKENS_PER_SEGMENT) {\n        _segmentPtr \u003d 0;\n        _segment \u003d _segment.next();\n        if (_segment \u003d\u003d null) {\n            return null;\n        }\n    }\n    _currToken \u003d _segment.type(_segmentPtr);\n    if (_currToken \u003d\u003d JsonToken.FIELD_NAME) {\n        Object ob \u003d _currentObject();\n        String name \u003d (ob instanceof String) ? ((String) ob) : ob.toString();\n        _parsingContext.setCurrentName(name);\n    } else if (_currToken \u003d\u003d JsonToken.START_OBJECT) {\n        _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n    } else if (_currToken \u003d\u003d JsonToken.START_ARRAY) {\n        _parsingContext \u003d _parsingContext.createChildArrayContext(-1, -1);\n    } else if (_currToken \u003d\u003d JsonToken.END_OBJECT || _currToken \u003d\u003d JsonToken.END_ARRAY) {\n        _parsingContext \u003d _parsingContext.getParent();\n        if (_parsingContext \u003d\u003d null) {\n            _parsingContext \u003d JsonReadContext.createRootContext(null);\n        }\n    }\n    return _currToken;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+      "functionStartLine": 1173,
+      "functionName": "nextToken",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,28 +1,28 @@\n @Override\n public JsonToken nextToken() throws IOException, JsonParseException {\n     if (_closed || (_segment \u003d\u003d null))\n         return null;\n     if (++_segmentPtr \u003e\u003d Segment.TOKENS_PER_SEGMENT) {\n         _segmentPtr \u003d 0;\n         _segment \u003d _segment.next();\n         if (_segment \u003d\u003d null) {\n             return null;\n         }\n     }\n     _currToken \u003d _segment.type(_segmentPtr);\n     if (_currToken \u003d\u003d JsonToken.FIELD_NAME) {\n         Object ob \u003d _currentObject();\n         String name \u003d (ob instanceof String) ? ((String) ob) : ob.toString();\n         _parsingContext.setCurrentName(name);\n     } else if (_currToken \u003d\u003d JsonToken.START_OBJECT) {\n         _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n     } else if (_currToken \u003d\u003d JsonToken.START_ARRAY) {\n         _parsingContext \u003d _parsingContext.createChildArrayContext(-1, -1);\n     } else if (_currToken \u003d\u003d JsonToken.END_OBJECT || _currToken \u003d\u003d JsonToken.END_ARRAY) {\n         _parsingContext \u003d _parsingContext.getParent();\n         if (_parsingContext \u003d\u003d null) {\n-            _parsingContext \u003d JsonReadContext.createRootContext(-1, -1);\n+            _parsingContext \u003d JsonReadContext.createRootContext(null);\n         }\n     }\n     return _currToken;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": {
+      "type": "Yintroduced",
+      "commitMessage": "Yet more clean up\n",
+      "commitDate": "12/23/11, 8:38 AM",
+      "commitName": "a342c0eef8c4abc3eba5568c52af73e59e1b6c17",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,28 @@\n+@Override\n+public JsonToken nextToken() throws IOException, JsonParseException {\n+    if (_closed || (_segment \u003d\u003d null))\n+        return null;\n+    if (++_segmentPtr \u003e\u003d Segment.TOKENS_PER_SEGMENT) {\n+        _segmentPtr \u003d 0;\n+        _segment \u003d _segment.next();\n+        if (_segment \u003d\u003d null) {\n+            return null;\n+        }\n+    }\n+    _currToken \u003d _segment.type(_segmentPtr);\n+    if (_currToken \u003d\u003d JsonToken.FIELD_NAME) {\n+        Object ob \u003d _currentObject();\n+        String name \u003d (ob instanceof String) ? ((String) ob) : ob.toString();\n+        _parsingContext.setCurrentName(name);\n+    } else if (_currToken \u003d\u003d JsonToken.START_OBJECT) {\n+        _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n+    } else if (_currToken \u003d\u003d JsonToken.START_ARRAY) {\n+        _parsingContext \u003d _parsingContext.createChildArrayContext(-1, -1);\n+    } else if (_currToken \u003d\u003d JsonToken.END_OBJECT || _currToken \u003d\u003d JsonToken.END_ARRAY) {\n+        _parsingContext \u003d _parsingContext.getParent();\n+        if (_parsingContext \u003d\u003d null) {\n+            _parsingContext \u003d JsonReadContext.createRootContext(-1, -1);\n+        }\n+    }\n+    return _currToken;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JsonToken nextToken() throws IOException, JsonParseException {\n    if (_closed || (_segment \u003d\u003d null))\n        return null;\n    if (++_segmentPtr \u003e\u003d Segment.TOKENS_PER_SEGMENT) {\n        _segmentPtr \u003d 0;\n        _segment \u003d _segment.next();\n        if (_segment \u003d\u003d null) {\n            return null;\n        }\n    }\n    _currToken \u003d _segment.type(_segmentPtr);\n    if (_currToken \u003d\u003d JsonToken.FIELD_NAME) {\n        Object ob \u003d _currentObject();\n        String name \u003d (ob instanceof String) ? ((String) ob) : ob.toString();\n        _parsingContext.setCurrentName(name);\n    } else if (_currToken \u003d\u003d JsonToken.START_OBJECT) {\n        _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n    } else if (_currToken \u003d\u003d JsonToken.START_ARRAY) {\n        _parsingContext \u003d _parsingContext.createChildArrayContext(-1, -1);\n    } else if (_currToken \u003d\u003d JsonToken.END_OBJECT || _currToken \u003d\u003d JsonToken.END_ARRAY) {\n        _parsingContext \u003d _parsingContext.getParent();\n        if (_parsingContext \u003d\u003d null) {\n            _parsingContext \u003d JsonReadContext.createRootContext(-1, -1);\n        }\n    }\n    return _currToken;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+      "functionStartLine": 856,
+      "functionName": "nextToken",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

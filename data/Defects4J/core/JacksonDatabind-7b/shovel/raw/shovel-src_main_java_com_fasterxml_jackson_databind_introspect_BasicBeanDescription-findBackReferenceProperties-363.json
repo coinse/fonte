@@ -1,0 +1,123 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicBeanDescription.java",
+  "functionName": "findBackReferenceProperties",
+  "functionId": "findBackReferenceProperties",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 363,
+  "functionEndLine": 383,
+  "numCommitsSeen": 26,
+  "timeTaken": 975,
+  "changeHistory": [
+    "28bde0726d83be7f70ca4586abee6f536bfc8885",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": "Ymultichange(Yannotationchange,Ydocchange)",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": {
+      "type": "Ymultichange(Yannotationchange,Ydocchange)",
+      "commitMessage": "Refactoring: eliminate exposure of BasicBeanDescription (now just base class. BeanDescription)\n",
+      "commitDate": "1/22/12, 10:57 PM",
+      "commitName": "28bde0726d83be7f70ca4586abee6f536bfc8885",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Refactoring: eliminate exposure of BasicBeanDescription (now just base class. BeanDescription)\n",
+          "commitDate": "1/22/12, 10:57 PM",
+          "commitName": "28bde0726d83be7f70ca4586abee6f536bfc8885",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/19/12, 2:36 PM",
+          "commitNameOld": "de0c33f113d1ba64cec81ba118dc1c84d3cd70a5",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 3.35,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Map\u003cString, AnnotatedMember\u003e findBackReferenceProperties() {\n    HashMap\u003cString, AnnotatedMember\u003e result \u003d null;\n    for (BeanPropertyDefinition property : _properties) {\n        AnnotatedMember am \u003d property.getMutator();\n        if (am \u003d\u003d null) {\n            continue;\n        }\n        AnnotationIntrospector.ReferenceProperty refDef \u003d _annotationIntrospector.findReferenceType(am);\n        if (refDef !\u003d null \u0026\u0026 refDef.isBackReference()) {\n            if (result \u003d\u003d null) {\n                result \u003d new HashMap\u003cString, AnnotatedMember\u003e();\n            }\n            String refName \u003d refDef.getName();\n            if (result.put(refName, am) !\u003d null) {\n                throw new IllegalArgumentException(\"Multiple back-reference properties with name \u0027\" + refName + \"\u0027\");\n            }\n        }\n    }\n    return result;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+          "functionStartLine": 414,
+          "functionName": "findBackReferenceProperties",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,20 +1,21 @@\n+@Override\n public Map\u003cString, AnnotatedMember\u003e findBackReferenceProperties() {\n     HashMap\u003cString, AnnotatedMember\u003e result \u003d null;\n     for (BeanPropertyDefinition property : _properties) {\n         AnnotatedMember am \u003d property.getMutator();\n         if (am \u003d\u003d null) {\n             continue;\n         }\n         AnnotationIntrospector.ReferenceProperty refDef \u003d _annotationIntrospector.findReferenceType(am);\n         if (refDef !\u003d null \u0026\u0026 refDef.isBackReference()) {\n             if (result \u003d\u003d null) {\n                 result \u003d new HashMap\u003cString, AnnotatedMember\u003e();\n             }\n             String refName \u003d refDef.getName();\n             if (result.put(refName, am) !\u003d null) {\n                 throw new IllegalArgumentException(\"Multiple back-reference properties with name \u0027\" + refName + \"\u0027\");\n             }\n         }\n     }\n     return result;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "@Override"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Refactoring: eliminate exposure of BasicBeanDescription (now just base class. BeanDescription)\n",
+          "commitDate": "1/22/12, 10:57 PM",
+          "commitName": "28bde0726d83be7f70ca4586abee6f536bfc8885",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/19/12, 2:36 PM",
+          "commitNameOld": "de0c33f113d1ba64cec81ba118dc1c84d3cd70a5",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 3.35,
+          "commitsBetweenForRepo": 22,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic Map\u003cString, AnnotatedMember\u003e findBackReferenceProperties() {\n    HashMap\u003cString, AnnotatedMember\u003e result \u003d null;\n    for (BeanPropertyDefinition property : _properties) {\n        AnnotatedMember am \u003d property.getMutator();\n        if (am \u003d\u003d null) {\n            continue;\n        }\n        AnnotationIntrospector.ReferenceProperty refDef \u003d _annotationIntrospector.findReferenceType(am);\n        if (refDef !\u003d null \u0026\u0026 refDef.isBackReference()) {\n            if (result \u003d\u003d null) {\n                result \u003d new HashMap\u003cString, AnnotatedMember\u003e();\n            }\n            String refName \u003d refDef.getName();\n            if (result.put(refName, am) !\u003d null) {\n                throw new IllegalArgumentException(\"Multiple back-reference properties with name \u0027\" + refName + \"\u0027\");\n            }\n        }\n    }\n    return result;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+          "functionStartLine": 414,
+          "functionName": "findBackReferenceProperties",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,20 +1,21 @@\n+@Override\n public Map\u003cString, AnnotatedMember\u003e findBackReferenceProperties() {\n     HashMap\u003cString, AnnotatedMember\u003e result \u003d null;\n     for (BeanPropertyDefinition property : _properties) {\n         AnnotatedMember am \u003d property.getMutator();\n         if (am \u003d\u003d null) {\n             continue;\n         }\n         AnnotationIntrospector.ReferenceProperty refDef \u003d _annotationIntrospector.findReferenceType(am);\n         if (refDef !\u003d null \u0026\u0026 refDef.isBackReference()) {\n             if (result \u003d\u003d null) {\n                 result \u003d new HashMap\u003cString, AnnotatedMember\u003e();\n             }\n             String refName \u003d refDef.getName();\n             if (result.put(refName, am) !\u003d null) {\n                 throw new IllegalArgumentException(\"Multiple back-reference properties with name \u0027\" + refName + \"\u0027\");\n             }\n         }\n     }\n     return result;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Method for locating all back-reference properties (setters, fields) bean has\n",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": {
+      "type": "Ydocchange",
+      "commitMessage": "Clean up, to get rid of deprecated stuff\n",
+      "commitDate": "12/24/11, 10:07 PM",
+      "commitName": "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 8:25 PM",
+      "commitNameOld": "2f823444ac34d14ab976b15e70ac82f2168ac7f8",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.07,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Map\u003cString, AnnotatedMember\u003e findBackReferenceProperties() {\n    HashMap\u003cString, AnnotatedMember\u003e result \u003d null;\n    for (BeanPropertyDefinition property : _properties) {\n        AnnotatedMember am \u003d property.getMutator();\n        if (am \u003d\u003d null) {\n            continue;\n        }\n        AnnotationIntrospector.ReferenceProperty refDef \u003d _annotationIntrospector.findReferenceType(am);\n        if (refDef !\u003d null \u0026\u0026 refDef.isBackReference()) {\n            if (result \u003d\u003d null) {\n                result \u003d new HashMap\u003cString, AnnotatedMember\u003e();\n            }\n            String refName \u003d refDef.getName();\n            if (result.put(refName, am) !\u003d null) {\n                throw new IllegalArgumentException(\"Multiple back-reference properties with name \u0027\" + refName + \"\u0027\");\n            }\n        }\n    }\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 483,
+      "functionName": "findBackReferenceProperties",
+      "functionAnnotation": "",
+      "functionDoc": "Method for locating all back-reference properties (setters, fields) bean has\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method for locating all back-reference properties (setters, fields) bean has\n\n@since 1.6\n",
+        "newValue": "Method for locating all back-reference properties (setters, fields) bean has\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,20 @@\n+public Map\u003cString, AnnotatedMember\u003e findBackReferenceProperties() {\n+    HashMap\u003cString, AnnotatedMember\u003e result \u003d null;\n+    for (BeanPropertyDefinition property : _properties) {\n+        AnnotatedMember am \u003d property.getMutator();\n+        if (am \u003d\u003d null) {\n+            continue;\n+        }\n+        AnnotationIntrospector.ReferenceProperty refDef \u003d _annotationIntrospector.findReferenceType(am);\n+        if (refDef !\u003d null \u0026\u0026 refDef.isBackReference()) {\n+            if (result \u003d\u003d null) {\n+                result \u003d new HashMap\u003cString, AnnotatedMember\u003e();\n+            }\n+            String refName \u003d refDef.getName();\n+            if (result.put(refName, am) !\u003d null) {\n+                throw new IllegalArgumentException(\"Multiple back-reference properties with name \u0027\" + refName + \"\u0027\");\n+            }\n+        }\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Map\u003cString, AnnotatedMember\u003e findBackReferenceProperties() {\n    HashMap\u003cString, AnnotatedMember\u003e result \u003d null;\n    for (BeanPropertyDefinition property : _properties) {\n        AnnotatedMember am \u003d property.getMutator();\n        if (am \u003d\u003d null) {\n            continue;\n        }\n        AnnotationIntrospector.ReferenceProperty refDef \u003d _annotationIntrospector.findReferenceType(am);\n        if (refDef !\u003d null \u0026\u0026 refDef.isBackReference()) {\n            if (result \u003d\u003d null) {\n                result \u003d new HashMap\u003cString, AnnotatedMember\u003e();\n            }\n            String refName \u003d refDef.getName();\n            if (result.put(refName, am) !\u003d null) {\n                throw new IllegalArgumentException(\"Multiple back-reference properties with name \u0027\" + refName + \"\u0027\");\n            }\n        }\n    }\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 493,
+      "functionName": "findBackReferenceProperties",
+      "functionAnnotation": "",
+      "functionDoc": "Method for locating all back-reference properties (setters, fields) bean has\n\n@since 1.6\n"
+    }
+  }
+}

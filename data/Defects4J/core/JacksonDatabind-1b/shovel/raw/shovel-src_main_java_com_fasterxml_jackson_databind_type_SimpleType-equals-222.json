@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimpleType.java",
+  "functionName": "equals",
+  "functionId": "equals___o-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 222,
+  "functionEndLine": 248,
+  "numCommitsSeen": 5,
+  "timeTaken": 296,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,27 @@\n+@Override\n+public boolean equals(Object o) {\n+    if (o \u003d\u003d this)\n+        return true;\n+    if (o \u003d\u003d null)\n+        return false;\n+    if (o.getClass() !\u003d getClass())\n+        return false;\n+    SimpleType other \u003d (SimpleType) o;\n+    if (other._class !\u003d this._class)\n+        return false;\n+    JavaType[] p1 \u003d _typeParameters;\n+    JavaType[] p2 \u003d other._typeParameters;\n+    if (p1 \u003d\u003d null) {\n+        return (p2 \u003d\u003d null) || p2.length \u003d\u003d 0;\n+    }\n+    if (p2 \u003d\u003d null)\n+        return false;\n+    if (p1.length !\u003d p2.length)\n+        return false;\n+    for (int i \u003d 0, len \u003d p1.length; i \u003c len; ++i) {\n+        if (!p1[i].equals(p2[i])) {\n+            return false;\n+        }\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (o \u003d\u003d this)\n        return true;\n    if (o \u003d\u003d null)\n        return false;\n    if (o.getClass() !\u003d getClass())\n        return false;\n    SimpleType other \u003d (SimpleType) o;\n    if (other._class !\u003d this._class)\n        return false;\n    JavaType[] p1 \u003d _typeParameters;\n    JavaType[] p2 \u003d other._typeParameters;\n    if (p1 \u003d\u003d null) {\n        return (p2 \u003d\u003d null) || p2.length \u003d\u003d 0;\n    }\n    if (p2 \u003d\u003d null)\n        return false;\n    if (p1.length !\u003d p2.length)\n        return false;\n    for (int i \u003d 0, len \u003d p1.length; i \u003c len; ++i) {\n        if (!p1[i].equals(p2[i])) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java",
+      "functionStartLine": 223,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

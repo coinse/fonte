@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializerCache.java",
+  "functionName": "_hasCustomValueHandler",
+  "functionId": "_hasCustomValueHandler___t-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to prevent both caching and cache lookups for structured\ntypes that have custom value handlers\n\n@since 2.4.6\n",
+  "functionStartLine": 557,
+  "functionEndLine": 565,
+  "numCommitsSeen": 32,
+  "timeTaken": 647,
+  "changeHistory": [
+    "c5a5f53185d5736544625d5361e8c7e9ab9b2adb",
+    "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e"
+  ],
+  "changeHistoryShort": {
+    "c5a5f53185d5736544625d5361e8c7e9ab9b2adb": "Ybodychange",
+    "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c5a5f53185d5736544625d5361e8c7e9ab9b2adb": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix #676\n",
+      "commitDate": "5/7/15, 8:09 PM",
+      "commitName": "c5a5f53185d5736544625d5361e8c7e9ab9b2adb",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/27/15, 1:09 PM",
+      "commitNameOld": "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e",
+      "commitAuthorOld": "Cowtowncoder",
+      "daysBetweenCommits": 41.29,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean _hasCustomValueHandler(JavaType t) {\n    if (t.isContainerType()) {\n        JavaType ct \u003d t.getContentType();\n        if (ct !\u003d null) {\n            return (ct.getValueHandler() !\u003d null) || (ct.getTypeHandler() !\u003d null);\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+      "functionStartLine": 557,
+      "functionName": "_hasCustomValueHandler",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to prevent both caching and cache lookups for structured\ntypes that have custom value handlers\n\n@since 2.4.6\n",
+      "diff": "@@ -1,7 +1,9 @@\n private boolean _hasCustomValueHandler(JavaType t) {\n     if (t.isContainerType()) {\n         JavaType ct \u003d t.getContentType();\n-        return (ct !\u003d null) \u0026\u0026 (ct.getValueHandler() !\u003d null);\n+        if (ct !\u003d null) {\n+            return (ct.getValueHandler() !\u003d null) || (ct.getTypeHandler() !\u003d null);\n+        }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e": {
+      "type": "Yintroduced",
+      "commitMessage": "More complete fix for #735\n",
+      "commitDate": "3/27/15, 1:09 PM",
+      "commitName": "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,7 @@\n+private boolean _hasCustomValueHandler(JavaType t) {\n+    if (t.isContainerType()) {\n+        JavaType ct \u003d t.getContentType();\n+        return (ct !\u003d null) \u0026\u0026 (ct.getValueHandler() !\u003d null);\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean _hasCustomValueHandler(JavaType t) {\n    if (t.isContainerType()) {\n        JavaType ct \u003d t.getContentType();\n        return (ct !\u003d null) \u0026\u0026 (ct.getValueHandler() !\u003d null);\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+      "functionStartLine": 557,
+      "functionName": "_hasCustomValueHandler",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to prevent both caching and cache lookups for structured\ntypes that have custom value handlers\n\n@since 2.4.6\n"
+    }
+  }
+}

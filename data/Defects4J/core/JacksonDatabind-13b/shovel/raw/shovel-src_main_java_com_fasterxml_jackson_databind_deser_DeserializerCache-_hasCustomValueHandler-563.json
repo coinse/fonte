@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializerCache.java",
+  "functionName": "_hasCustomValueHandler",
+  "functionId": "_hasCustomValueHandler___t-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to prevent both caching and cache lookups for structured\ntypes that have custom value handlers\n\n@since 2.4.6\n",
+  "functionStartLine": 563,
+  "functionEndLine": 569,
+  "numCommitsSeen": 33,
+  "timeTaken": 566,
+  "changeHistory": [
+    "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e"
+  ],
+  "changeHistoryShort": {
+    "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e": {
+      "type": "Yintroduced",
+      "commitMessage": "More complete fix for #735\n",
+      "commitDate": "3/27/15, 1:09 PM",
+      "commitName": "7ff745c4a8c66769fc50b3cdaeb2e1d35327909e",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,7 @@\n+private boolean _hasCustomValueHandler(JavaType t) {\n+    if (t.isContainerType()) {\n+        JavaType ct \u003d t.getContentType();\n+        return (ct !\u003d null) \u0026\u0026 (ct.getValueHandler() !\u003d null);\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean _hasCustomValueHandler(JavaType t) {\n    if (t.isContainerType()) {\n        JavaType ct \u003d t.getContentType();\n        return (ct !\u003d null) \u0026\u0026 (ct.getValueHandler() !\u003d null);\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+      "functionStartLine": 557,
+      "functionName": "_hasCustomValueHandler",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to prevent both caching and cache lookups for structured\ntypes that have custom value handlers\n\n@since 2.4.6\n"
+    }
+  }
+}

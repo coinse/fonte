@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertiesCollector.java",
+  "functionName": "_renameProperties",
+  "functionId": "_renameProperties",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 657,
+  "functionEndLine": 698,
+  "numCommitsSeen": 24,
+  "timeTaken": 1183,
+  "changeHistory": [
+    "4c0ef09ee3144ca4c447a63547f5a3d282cabed0",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "4c0ef09ee3144ca4c447a63547f5a3d282cabed0": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4c0ef09ee3144ca4c447a63547f5a3d282cabed0": {
+      "type": "Ybodychange",
+      "commitMessage": "Rename creator properties in _renameProperties()\n",
+      "commitDate": "1/12/13, 11:07 AM",
+      "commitName": "4c0ef09ee3144ca4c447a63547f5a3d282cabed0",
+      "commitAuthor": "Christopher Currie",
+      "commitDateOld": "11/21/12, 12:07 PM",
+      "commitNameOld": "88ae9dc8de0f5327a7c0ca72232dd8e3da6e5446",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 51.96,
+      "commitsBetweenForRepo": 37,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void _renameProperties() {\n    Iterator\u003cMap.Entry\u003cString, POJOPropertyBuilder\u003e\u003e it \u003d _properties.entrySet().iterator();\n    LinkedList\u003cPOJOPropertyBuilder\u003e renamed \u003d null;\n    while (it.hasNext()) {\n        Map.Entry\u003cString, POJOPropertyBuilder\u003e entry \u003d it.next();\n        POJOPropertyBuilder prop \u003d entry.getValue();\n        String newName \u003d prop.findNewName();\n        if (newName !\u003d null) {\n            if (renamed \u003d\u003d null) {\n                renamed \u003d new LinkedList\u003cPOJOPropertyBuilder\u003e();\n            }\n            prop \u003d prop.withName(newName);\n            renamed.add(prop);\n            it.remove();\n        }\n    }\n    if (renamed !\u003d null) {\n        for (POJOPropertyBuilder prop : renamed) {\n            String name \u003d prop.getName();\n            POJOPropertyBuilder old \u003d _properties.get(name);\n            if (old \u003d\u003d null) {\n                _properties.put(name, prop);\n            } else {\n                old.addAll(prop);\n            }\n            if (_creatorProperties !\u003d null) {\n                for (int i \u003d 0; i \u003c _creatorProperties.size(); ++i) {\n                    if (_creatorProperties.get(i).getInternalName() \u003d\u003d prop.getInternalName()) {\n                        _creatorProperties.set(i, prop);\n                        break;\n                    }\n                }\n            }\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 640,
+      "functionName": "_renameProperties",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,28 +1,36 @@\n protected void _renameProperties() {\n     Iterator\u003cMap.Entry\u003cString, POJOPropertyBuilder\u003e\u003e it \u003d _properties.entrySet().iterator();\n     LinkedList\u003cPOJOPropertyBuilder\u003e renamed \u003d null;\n     while (it.hasNext()) {\n         Map.Entry\u003cString, POJOPropertyBuilder\u003e entry \u003d it.next();\n         POJOPropertyBuilder prop \u003d entry.getValue();\n         String newName \u003d prop.findNewName();\n         if (newName !\u003d null) {\n             if (renamed \u003d\u003d null) {\n                 renamed \u003d new LinkedList\u003cPOJOPropertyBuilder\u003e();\n             }\n             prop \u003d prop.withName(newName);\n             renamed.add(prop);\n             it.remove();\n         }\n     }\n     if (renamed !\u003d null) {\n         for (POJOPropertyBuilder prop : renamed) {\n             String name \u003d prop.getName();\n             POJOPropertyBuilder old \u003d _properties.get(name);\n             if (old \u003d\u003d null) {\n                 _properties.put(name, prop);\n             } else {\n                 old.addAll(prop);\n             }\n+            if (_creatorProperties !\u003d null) {\n+                for (int i \u003d 0; i \u003c _creatorProperties.size(); ++i) {\n+                    if (_creatorProperties.get(i).getInternalName() \u003d\u003d prop.getInternalName()) {\n+                        _creatorProperties.set(i, prop);\n+                        break;\n+                    }\n+                }\n+            }\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,28 @@\n+protected void _renameProperties() {\n+    Iterator\u003cMap.Entry\u003cString, POJOPropertyBuilder\u003e\u003e it \u003d _properties.entrySet().iterator();\n+    LinkedList\u003cPOJOPropertyBuilder\u003e renamed \u003d null;\n+    while (it.hasNext()) {\n+        Map.Entry\u003cString, POJOPropertyBuilder\u003e entry \u003d it.next();\n+        POJOPropertyBuilder prop \u003d entry.getValue();\n+        String newName \u003d prop.findNewName();\n+        if (newName !\u003d null) {\n+            if (renamed \u003d\u003d null) {\n+                renamed \u003d new LinkedList\u003cPOJOPropertyBuilder\u003e();\n+            }\n+            prop \u003d prop.withName(newName);\n+            renamed.add(prop);\n+            it.remove();\n+        }\n+    }\n+    if (renamed !\u003d null) {\n+        for (POJOPropertyBuilder prop : renamed) {\n+            String name \u003d prop.getName();\n+            POJOPropertyBuilder old \u003d _properties.get(name);\n+            if (old \u003d\u003d null) {\n+                _properties.put(name, prop);\n+            } else {\n+                old.addAll(prop);\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void _renameProperties() {\n    Iterator\u003cMap.Entry\u003cString, POJOPropertyBuilder\u003e\u003e it \u003d _properties.entrySet().iterator();\n    LinkedList\u003cPOJOPropertyBuilder\u003e renamed \u003d null;\n    while (it.hasNext()) {\n        Map.Entry\u003cString, POJOPropertyBuilder\u003e entry \u003d it.next();\n        POJOPropertyBuilder prop \u003d entry.getValue();\n        String newName \u003d prop.findNewName();\n        if (newName !\u003d null) {\n            if (renamed \u003d\u003d null) {\n                renamed \u003d new LinkedList\u003cPOJOPropertyBuilder\u003e();\n            }\n            prop \u003d prop.withName(newName);\n            renamed.add(prop);\n            it.remove();\n        }\n    }\n    if (renamed !\u003d null) {\n        for (POJOPropertyBuilder prop : renamed) {\n            String name \u003d prop.getName();\n            POJOPropertyBuilder old \u003d _properties.get(name);\n            if (old \u003d\u003d null) {\n                _properties.put(name, prop);\n            } else {\n                old.addAll(prop);\n            }\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 590,
+      "functionName": "_renameProperties",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

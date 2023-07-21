@@ -1,0 +1,89 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "findOptionalStdDeserializer",
+  "functionId": "findOptionalStdDeserializer___ctxt-DeserializationContext__type-JavaType__beanDesc-BeanDescription",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Overridable method called after checking all other types.\n\n@since 2.2\n",
+  "functionStartLine": 1271,
+  "functionEndLine": 1276,
+  "numCommitsSeen": 178,
+  "timeTaken": 2806,
+  "changeHistory": [
+    "10f44221fa0e8ffbfbc39384581b190f5f0cc106",
+    "0251775c9a6dc8bec151e3461051ef46fd0378ff",
+    "afda778afc8016e16d364748eb7d0d4500bc0dca"
+  ],
+  "changeHistoryShort": {
+    "10f44221fa0e8ffbfbc39384581b190f5f0cc106": "Ymovefromfile",
+    "0251775c9a6dc8bec151e3461051ef46fd0378ff": "Ybodychange",
+    "afda778afc8016e16d364748eb7d0d4500bc0dca": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "10f44221fa0e8ffbfbc39384581b190f5f0cc106": {
+      "type": "Ymovefromfile",
+      "commitMessage": "Fix #565: add support for `Map.Entry`\n",
+      "commitDate": "9/29/14, 6:20 PM",
+      "commitName": "10f44221fa0e8ffbfbc39384581b190f5f0cc106",
+      "commitAuthor": "Cowtowncoder",
+      "commitDateOld": "9/29/14, 4:52 PM",
+      "commitNameOld": "29446171c4157d3f9404f7855842e78e8893e420",
+      "commitAuthorOld": "Cowtowncoder",
+      "daysBetweenCommits": 0.06,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonDeserializer\u003c?\u003e findOptionalStdDeserializer(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    return OptionalHandlerFactory.instance.findDeserializer(type, ctxt.getConfig(), beanDesc);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 1237,
+      "functionName": "findOptionalStdDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Overridable method called after checking all other types.\n\n@since 2.2\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+        "oldMethodName": "findOptionalStdDeserializer",
+        "newMethodName": "findOptionalStdDeserializer"
+      }
+    },
+    "0251775c9a6dc8bec151e3461051ef46fd0378ff": {
+      "type": "Ybodychange",
+      "commitMessage": "Refactoring optional XML handlers to reduce startup time, code duplication\n",
+      "commitDate": "4/16/13, 5:34 PM",
+      "commitName": "0251775c9a6dc8bec151e3461051ef46fd0378ff",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "4/15/13, 8:36 PM",
+      "commitNameOld": "afda778afc8016e16d364748eb7d0d4500bc0dca",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.87,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonDeserializer\u003c?\u003e findOptionalStdDeserializer(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    return OptionalHandlerFactory.instance.findDeserializer(type, ctxt.getConfig(), beanDesc);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 220,
+      "functionName": "findOptionalStdDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Overridable method called after checking all other types.\n\n@since 2.2\n",
+      "diff": "@@ -1,3 +1,3 @@\n protected JsonDeserializer\u003c?\u003e findOptionalStdDeserializer(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n-    return OptionalHandlerFactory.instance.findDeserializer(type, ctxt.getConfig());\n+    return OptionalHandlerFactory.instance.findDeserializer(type, ctxt.getConfig(), beanDesc);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "afda778afc8016e16d364748eb7d0d4500bc0dca": {
+      "type": "Yintroduced",
+      "commitMessage": "More simplification, remove ref to optional handler factory\n",
+      "commitDate": "4/15/13, 8:36 PM",
+      "commitName": "afda778afc8016e16d364748eb7d0d4500bc0dca",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+protected JsonDeserializer\u003c?\u003e findOptionalStdDeserializer(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n+    return OptionalHandlerFactory.instance.findDeserializer(type, ctxt.getConfig());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonDeserializer\u003c?\u003e findOptionalStdDeserializer(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) throws JsonMappingException {\n    return OptionalHandlerFactory.instance.findDeserializer(type, ctxt.getConfig());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 220,
+      "functionName": "findOptionalStdDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Overridable method called after checking all other types.\n\n@since 2.2\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "_findParamName",
+  "functionId": "_findParamName___param-AnnotatedParameter__intr-AnnotationIntrospector",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 712,
+  "functionEndLine": 728,
+  "numCommitsSeen": 94,
+  "timeTaken": 1458,
+  "changeHistory": [
+    "4e387c241b7c92f2e4d862f6217189e55472125e",
+    "41484009964b69f81c91defe22b970f8f2dc5cd5"
+  ],
+  "changeHistoryShort": {
+    "4e387c241b7c92f2e4d862f6217189e55472125e": "Ybodychange",
+    "41484009964b69f81c91defe22b970f8f2dc5cd5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4e387c241b7c92f2e4d862f6217189e55472125e": {
+      "type": "Ybodychange",
+      "commitMessage": "change \u0027findParameter\n",
+      "commitDate": "5/7/14, 10:51 PM",
+      "commitName": "4e387c241b7c92f2e4d862f6217189e55472125e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "5/4/14, 11:28 PM",
+      "commitNameOld": "0583b3a55de91d9c7f816233dca8690393f5e698",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.97,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected PropertyName _findParamName(AnnotatedParameter param, AnnotationIntrospector intr) {\n    if (param !\u003d null \u0026\u0026 intr !\u003d null) {\n        PropertyName name \u003d intr.findNameForDeserialization(param);\n        if (name !\u003d null) {\n            return name;\n        }\n        String str \u003d intr.findImplicitPropertyName(param);\n        if (str !\u003d null \u0026\u0026 !str.isEmpty()) {\n            return new PropertyName(str);\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 709,
+      "functionName": "_findParamName",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,13 @@\n protected PropertyName _findParamName(AnnotatedParameter param, AnnotationIntrospector intr) {\n     if (param !\u003d null \u0026\u0026 intr !\u003d null) {\n         PropertyName name \u003d intr.findNameForDeserialization(param);\n         if (name !\u003d null) {\n             return name;\n         }\n-        String str \u003d intr.findParameterSourceName(param);\n+        String str \u003d intr.findImplicitPropertyName(param);\n         if (str !\u003d null \u0026\u0026 !str.isEmpty()) {\n             return new PropertyName(str);\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "41484009964b69f81c91defe22b970f8f2dc5cd5": {
+      "type": "Yintroduced",
+      "commitMessage": "Minor fixes to parameter name discovery/introspection\n",
+      "commitDate": "4/14/14, 10:19 PM",
+      "commitName": "41484009964b69f81c91defe22b970f8f2dc5cd5",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+protected PropertyName _findParamName(AnnotatedParameter param, AnnotationIntrospector intr) {\n+    if (param !\u003d null \u0026\u0026 intr !\u003d null) {\n+        PropertyName name \u003d intr.findNameForDeserialization(param);\n+        if (name !\u003d null) {\n+            return name;\n+        }\n+        String str \u003d intr.findParameterSourceName(param);\n+        if (str !\u003d null \u0026\u0026 !str.isEmpty()) {\n+            return new PropertyName(str);\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected PropertyName _findParamName(AnnotatedParameter param, AnnotationIntrospector intr) {\n    if (param !\u003d null \u0026\u0026 intr !\u003d null) {\n        PropertyName name \u003d intr.findNameForDeserialization(param);\n        if (name !\u003d null) {\n            return name;\n        }\n        String str \u003d intr.findParameterSourceName(param);\n        if (str !\u003d null \u0026\u0026 !str.isEmpty()) {\n            return new PropertyName(str);\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 709,
+      "functionName": "_findParamName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

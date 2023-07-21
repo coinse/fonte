@@ -1,0 +1,174 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LRUMap.java",
+  "functionName": "put",
+  "functionId": "put___key-K__value-V",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 39,
+  "functionEndLine": 49,
+  "numCommitsSeen": 10,
+  "timeTaken": 1007,
+  "changeHistory": [
+    "9e9e0b6f9aae654e7c9671643a2ea129d3ff5542",
+    "585f3097147cbdcfda2b5221ea76679e8915a029",
+    "2f58c932645751a53835110ef2bf5a90fc652ef3"
+  ],
+  "changeHistoryShort": {
+    "9e9e0b6f9aae654e7c9671643a2ea129d3ff5542": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "585f3097147cbdcfda2b5221ea76679e8915a029": "Ymultichange(Yreturntypechange,Ybodychange,Yannotationchange)",
+    "2f58c932645751a53835110ef2bf5a90fc652ef3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9e9e0b6f9aae654e7c9671643a2ea129d3ff5542": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "One more fix wrt LRUMap compatibility\n",
+      "commitDate": "7/14/14, 10:29 PM",
+      "commitName": "9e9e0b6f9aae654e7c9671643a2ea129d3ff5542",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "One more fix wrt LRUMap compatibility\n",
+          "commitDate": "7/14/14, 10:29 PM",
+          "commitName": "9e9e0b6f9aae654e7c9671643a2ea129d3ff5542",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "7/14/14, 9:57 PM",
+          "commitNameOld": "e029d72dfb7500dc9314dc119854f0d2983a5580",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public V put(K key, V value) {\n    if (_map.size() \u003e\u003d _maxEntries) {\n        synchronized (this) {\n            if (_map.size() \u003e\u003d _maxEntries) {\n                clear();\n            }\n        }\n    }\n    return _map.put(key, value);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 34,
+          "functionName": "put",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-public void put(K key, V value) {\n+public V put(K key, V value) {\n     if (_map.size() \u003e\u003d _maxEntries) {\n         synchronized (this) {\n             if (_map.size() \u003e\u003d _maxEntries) {\n                 clear();\n             }\n         }\n     }\n-    _map.put(key, value);\n+    return _map.put(key, value);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "void",
+            "newValue": "V"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "One more fix wrt LRUMap compatibility\n",
+          "commitDate": "7/14/14, 10:29 PM",
+          "commitName": "9e9e0b6f9aae654e7c9671643a2ea129d3ff5542",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "7/14/14, 9:57 PM",
+          "commitNameOld": "e029d72dfb7500dc9314dc119854f0d2983a5580",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public V put(K key, V value) {\n    if (_map.size() \u003e\u003d _maxEntries) {\n        synchronized (this) {\n            if (_map.size() \u003e\u003d _maxEntries) {\n                clear();\n            }\n        }\n    }\n    return _map.put(key, value);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 34,
+          "functionName": "put",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-public void put(K key, V value) {\n+public V put(K key, V value) {\n     if (_map.size() \u003e\u003d _maxEntries) {\n         synchronized (this) {\n             if (_map.size() \u003e\u003d _maxEntries) {\n                 clear();\n             }\n         }\n     }\n-    _map.put(key, value);\n+    return _map.put(key, value);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "585f3097147cbdcfda2b5221ea76679e8915a029": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange,Yannotationchange)",
+      "commitMessage": "Fixed #503\n",
+      "commitDate": "7/11/14, 3:56 PM",
+      "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Fixed #503\n",
+          "commitDate": "7/11/14, 3:56 PM",
+          "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/15/14, 3:43 PM",
+          "commitNameOld": "54fd6d6ea32bf24eaa770919d42f42709efe9f3a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 26.01,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void put(K key, V value) {\n    if (_map.size() \u003e\u003d _maxEntries) {\n        synchronized (this) {\n            if (_map.size() \u003e\u003d _maxEntries) {\n                clear();\n            }\n        }\n    }\n    _map.put(key, value);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 34,
+          "functionName": "put",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-@Override\n-public V put(K key, V value) {\n-    _writeLock.lock();\n-    try {\n-        return super.put(key, value);\n-    } finally {\n-        _writeLock.unlock();\n+public void put(K key, V value) {\n+    if (_map.size() \u003e\u003d _maxEntries) {\n+        synchronized (this) {\n+            if (_map.size() \u003e\u003d _maxEntries) {\n+                clear();\n+            }\n+        }\n     }\n+    _map.put(key, value);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "V",
+            "newValue": "void"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fixed #503\n",
+          "commitDate": "7/11/14, 3:56 PM",
+          "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/15/14, 3:43 PM",
+          "commitNameOld": "54fd6d6ea32bf24eaa770919d42f42709efe9f3a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 26.01,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void put(K key, V value) {\n    if (_map.size() \u003e\u003d _maxEntries) {\n        synchronized (this) {\n            if (_map.size() \u003e\u003d _maxEntries) {\n                clear();\n            }\n        }\n    }\n    _map.put(key, value);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 34,
+          "functionName": "put",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-@Override\n-public V put(K key, V value) {\n-    _writeLock.lock();\n-    try {\n-        return super.put(key, value);\n-    } finally {\n-        _writeLock.unlock();\n+public void put(K key, V value) {\n+    if (_map.size() \u003e\u003d _maxEntries) {\n+        synchronized (this) {\n+            if (_map.size() \u003e\u003d _maxEntries) {\n+                clear();\n+            }\n+        }\n     }\n+    _map.put(key, value);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Fixed #503\n",
+          "commitDate": "7/11/14, 3:56 PM",
+          "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/15/14, 3:43 PM",
+          "commitNameOld": "54fd6d6ea32bf24eaa770919d42f42709efe9f3a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 26.01,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void put(K key, V value) {\n    if (_map.size() \u003e\u003d _maxEntries) {\n        synchronized (this) {\n            if (_map.size() \u003e\u003d _maxEntries) {\n                clear();\n            }\n        }\n    }\n    _map.put(key, value);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 34,
+          "functionName": "put",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-@Override\n-public V put(K key, V value) {\n-    _writeLock.lock();\n-    try {\n-        return super.put(key, value);\n-    } finally {\n-        _writeLock.unlock();\n+public void put(K key, V value) {\n+    if (_map.size() \u003e\u003d _maxEntries) {\n+        synchronized (this) {\n+            if (_map.size() \u003e\u003d _maxEntries) {\n+                clear();\n+            }\n+        }\n     }\n+    _map.put(key, value);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "2f58c932645751a53835110ef2bf5a90fc652ef3": {
+      "type": "Yintroduced",
+      "commitMessage": "Attempt to fix #435\n",
+      "commitDate": "4/9/14, 6:46 PM",
+      "commitName": "2f58c932645751a53835110ef2bf5a90fc652ef3",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public V put(K key, V value) {\n+    _writeLock.lock();\n+    try {\n+        return super.put(key, value);\n+    } finally {\n+        _writeLock.unlock();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic V put(K key, V value) {\n    _writeLock.lock();\n    try {\n        return super.put(key, value);\n    } finally {\n        _writeLock.unlock();\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+      "functionStartLine": 65,
+      "functionName": "put",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}
