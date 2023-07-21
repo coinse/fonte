@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicBeanDescription.java",
+  "functionName": "_createConverter",
+  "functionId": "_createConverter___converterDef-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+  "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+  "functionDoc": "",
+  "functionStartLine": 629,
+  "functionEndLine": 657,
+  "numCommitsSeen": 31,
+  "timeTaken": 1957,
+  "changeHistory": [
+    "46c6679d0b88035e0083e27890a421e8a8466242",
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96"
+  ],
+  "changeHistoryShort": {
+    "46c6679d0b88035e0083e27890a421e8a8466242": "Ybodychange",
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "46c6679d0b88035e0083e27890a421e8a8466242": {
+      "type": "Ybodychange",
+      "commitMessage": "Working on #425\n",
+      "commitDate": "5/19/14, 11:42 PM",
+      "commitName": "46c6679d0b88035e0083e27890a421e8a8466242",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "5/7/14, 10:51 PM",
+      "commitNameOld": "4e387c241b7c92f2e4d862f6217189e55472125e",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 12.04,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"unchecked\")\npublic Converter\u003cObject, Object\u003e _createConverter(Object converterDef) {\n    if (converterDef \u003d\u003d null) {\n        return null;\n    }\n    if (converterDef instanceof Converter\u003c?, ?\u003e) {\n        return (Converter\u003cObject, Object\u003e) converterDef;\n    }\n    if (!(converterDef instanceof Class)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Converter definition of type \" + converterDef.getClass().getName() + \"; expected type Converter or Class\u003cConverter\u003e instead\");\n    }\n    Class\u003c?\u003e converterClass \u003d (Class\u003c?\u003e) converterDef;\n    if (converterClass \u003d\u003d Converter.None.class || ClassUtil.isBogusClass(converterClass)) {\n        return null;\n    }\n    if (!Converter.class.isAssignableFrom(converterClass)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + converterClass.getName() + \"; expected Class\u003cConverter\u003e\");\n    }\n    HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n    Converter\u003c?, ?\u003e conv \u003d (hi \u003d\u003d null) ? null : hi.converterInstance(_config, _classInfo, converterClass);\n    if (conv \u003d\u003d null) {\n        conv \u003d (Converter\u003c?, ?\u003e) ClassUtil.createInstance(converterClass, _config.canOverrideAccessModifiers());\n    }\n    return (Converter\u003cObject, Object\u003e) conv;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 616,
+      "functionName": "_createConverter",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "",
+      "diff": "@@ -1,25 +1,25 @@\n @SuppressWarnings(\"unchecked\")\n public Converter\u003cObject, Object\u003e _createConverter(Object converterDef) {\n     if (converterDef \u003d\u003d null) {\n         return null;\n     }\n     if (converterDef instanceof Converter\u003c?, ?\u003e) {\n         return (Converter\u003cObject, Object\u003e) converterDef;\n     }\n     if (!(converterDef instanceof Class)) {\n         throw new IllegalStateException(\"AnnotationIntrospector returned Converter definition of type \" + converterDef.getClass().getName() + \"; expected type Converter or Class\u003cConverter\u003e instead\");\n     }\n     Class\u003c?\u003e converterClass \u003d (Class\u003c?\u003e) converterDef;\n-    if (converterClass \u003d\u003d Converter.None.class || converterClass \u003d\u003d NoClass.class) {\n+    if (converterClass \u003d\u003d Converter.None.class || ClassUtil.isBogusClass(converterClass)) {\n         return null;\n     }\n     if (!Converter.class.isAssignableFrom(converterClass)) {\n         throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + converterClass.getName() + \"; expected Class\u003cConverter\u003e\");\n     }\n     HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n     Converter\u003c?, ?\u003e conv \u003d (hi \u003d\u003d null) ? null : hi.converterInstance(_config, _classInfo, converterClass);\n     if (conv \u003d\u003d null) {\n         conv \u003d (Converter\u003c?, ?\u003e) ClassUtil.createInstance(converterClass, _config.canOverrideAccessModifiers());\n     }\n     return (Converter\u003cObject, Object\u003e) conv;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": {
+      "type": "Yintroduced",
+      "commitMessage": "More work on converters for deserialization; now passes 2/6 of new tests. Also adding \u0027DatabindContext\u0027, shared base class for DeserializationContext, SerializerProvider\n",
+      "commitDate": "3/2/13, 1:13 PM",
+      "commitName": "9439a310c169a00cd01a4e9b64fb9f5441297b96",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,25 @@\n+@SuppressWarnings(\"unchecked\")\n+public Converter\u003cObject, Object\u003e _createConverter(Object converterDef) {\n+    if (converterDef \u003d\u003d null) {\n+        return null;\n+    }\n+    if (converterDef instanceof Converter\u003c?, ?\u003e) {\n+        return (Converter\u003cObject, Object\u003e) converterDef;\n+    }\n+    if (!(converterDef instanceof Class)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned Converter definition of type \" + converterDef.getClass().getName() + \"; expected type Converter or Class\u003cConverter\u003e instead\");\n+    }\n+    Class\u003c?\u003e converterClass \u003d (Class\u003c?\u003e) converterDef;\n+    if (converterClass \u003d\u003d Converter.None.class || converterClass \u003d\u003d NoClass.class) {\n+        return null;\n+    }\n+    if (!Converter.class.isAssignableFrom(converterClass)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + converterClass.getName() + \"; expected Class\u003cConverter\u003e\");\n+    }\n+    HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n+    Converter\u003c?, ?\u003e conv \u003d (hi \u003d\u003d null) ? null : hi.converterInstance(_config, _classInfo, converterClass);\n+    if (conv \u003d\u003d null) {\n+        conv \u003d (Converter\u003c?, ?\u003e) ClassUtil.createInstance(converterClass, _config.canOverrideAccessModifiers());\n+    }\n+    return (Converter\u003cObject, Object\u003e) conv;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\npublic Converter\u003cObject, Object\u003e _createConverter(Object converterDef) {\n    if (converterDef \u003d\u003d null) {\n        return null;\n    }\n    if (converterDef instanceof Converter\u003c?, ?\u003e) {\n        return (Converter\u003cObject, Object\u003e) converterDef;\n    }\n    if (!(converterDef instanceof Class)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Converter definition of type \" + converterDef.getClass().getName() + \"; expected type Converter or Class\u003cConverter\u003e instead\");\n    }\n    Class\u003c?\u003e converterClass \u003d (Class\u003c?\u003e) converterDef;\n    if (converterClass \u003d\u003d Converter.None.class || converterClass \u003d\u003d NoClass.class) {\n        return null;\n    }\n    if (!Converter.class.isAssignableFrom(converterClass)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + converterClass.getName() + \"; expected Class\u003cConverter\u003e\");\n    }\n    HandlerInstantiator hi \u003d _config.getHandlerInstantiator();\n    Converter\u003c?, ?\u003e conv \u003d (hi \u003d\u003d null) ? null : hi.converterInstance(_config, _classInfo, converterClass);\n    if (conv \u003d\u003d null) {\n        conv \u003d (Converter\u003c?, ?\u003e) ClassUtil.createInstance(converterClass, _config.canOverrideAccessModifiers());\n    }\n    return (Converter\u003cObject, Object\u003e) conv;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 582,
+      "functionName": "_createConverter",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": ""
+    }
+  }
+}

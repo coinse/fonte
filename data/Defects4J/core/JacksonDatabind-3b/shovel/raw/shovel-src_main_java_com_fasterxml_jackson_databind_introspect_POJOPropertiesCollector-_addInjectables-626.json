@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-3b",
+  "repositoryPath": "/tmp/JacksonDatabind-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertiesCollector.java",
+  "functionName": "_addInjectables",
+  "functionId": "_addInjectables",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 626,
+  "functionEndLine": 647,
+  "numCommitsSeen": 49,
+  "timeTaken": 2114,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+protected void _addInjectables() {\n+    final AnnotationIntrospector ai \u003d _annotationIntrospector;\n+    if (ai \u003d\u003d null) {\n+        return;\n+    }\n+    for (AnnotatedField f : _classDef.fields()) {\n+        _doAddInjectable(ai.findInjectableValueId(f), f);\n+    }\n+    for (AnnotatedMethod m : _classDef.memberMethods()) {\n+        if (m.getParameterCount() !\u003d 1) {\n+            continue;\n+        }\n+        _doAddInjectable(ai.findInjectableValueId(m), m);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void _addInjectables() {\n    final AnnotationIntrospector ai \u003d _annotationIntrospector;\n    if (ai \u003d\u003d null) {\n        return;\n    }\n    for (AnnotatedField f : _classDef.fields()) {\n        _doAddInjectable(ai.findInjectableValueId(f), f);\n    }\n    for (AnnotatedMethod m : _classDef.memberMethods()) {\n        if (m.getParameterCount() !\u003d 1) {\n            continue;\n        }\n        _doAddInjectable(ai.findInjectableValueId(m), m);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 494,
+      "functionName": "_addInjectables",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

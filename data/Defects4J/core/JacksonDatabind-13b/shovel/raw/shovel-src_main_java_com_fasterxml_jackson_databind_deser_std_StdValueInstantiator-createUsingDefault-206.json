@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StdValueInstantiator.java",
+  "functionName": "createUsingDefault",
+  "functionId": "createUsingDefault___ctxt-DeserializationContext",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 206,
+  "functionEndLine": 218,
+  "numCommitsSeen": 24,
+  "timeTaken": 851,
+  "changeHistory": [
+    "079690a03ebc46c725088ffd0a4b295fcf25266f",
+    "7555fa2b7e070b2bc50bfc0bd4e18526e3962b1f",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "079690a03ebc46c725088ffd0a4b295fcf25266f": "Yexceptionschange",
+    "7555fa2b7e070b2bc50bfc0bd4e18526e3962b1f": "Yparameterchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "079690a03ebc46c725088ffd0a4b295fcf25266f": {
+      "type": "Yexceptionschange",
+      "commitMessage": "Add a test for #580\n",
+      "commitDate": "10/14/14, 4:26 PM",
+      "commitName": "079690a03ebc46c725088ffd0a4b295fcf25266f",
+      "commitAuthor": "Cowtowncoder",
+      "commitDateOld": "5/20/14, 2:35 PM",
+      "commitNameOld": "50a8c416286786d216b0fed551e18f9f32f6f52c",
+      "commitAuthorOld": "Andy Clayton",
+      "daysBetweenCommits": 147.08,
+      "commitsBetweenForRepo": 183,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Object createUsingDefault(DeserializationContext ctxt) throws IOException {\n    if (_defaultCreator \u003d\u003d null) {\n        throw new IllegalStateException(\"No default constructor for \" + getValueTypeDesc());\n    }\n    try {\n        return _defaultCreator.call();\n    } catch (ExceptionInInitializerError e) {\n        throw wrapException(e);\n    } catch (Exception e) {\n        throw wrapException(e);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java",
+      "functionStartLine": 207,
+      "functionName": "createUsingDefault",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,13 @@\n @Override\n-public Object createUsingDefault(DeserializationContext ctxt) throws IOException, JsonProcessingException {\n+public Object createUsingDefault(DeserializationContext ctxt) throws IOException {\n     if (_defaultCreator \u003d\u003d null) {\n         throw new IllegalStateException(\"No default constructor for \" + getValueTypeDesc());\n     }\n     try {\n         return _defaultCreator.call();\n     } catch (ExceptionInInitializerError e) {\n         throw wrapException(e);\n     } catch (Exception e) {\n         throw wrapException(e);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[IOException, JsonProcessingException]",
+        "newValue": "[IOException]"
+      }
+    },
+    "7555fa2b7e070b2bc50bfc0bd4e18526e3962b1f": {
+      "type": "Yparameterchange",
+      "commitMessage": "Implemented [JACKSON-690]: pass DeserializationContext to ValueInstantiator.createXxx methods\n",
+      "commitDate": "1/14/12, 11:03 PM",
+      "commitName": "7555fa2b7e070b2bc50bfc0bd4e18526e3962b1f",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/28/11, 10:35 AM",
+      "commitNameOld": "530067bb8db8fc31c27c6075c64c1c075c3ea671",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 17.52,
+      "commitsBetweenForRepo": 28,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Object createUsingDefault(DeserializationContext ctxt) throws IOException, JsonProcessingException {\n    if (_defaultCreator \u003d\u003d null) {\n        throw new IllegalStateException(\"No default constructor for \" + getValueTypeDesc());\n    }\n    try {\n        return _defaultCreator.call();\n    } catch (ExceptionInInitializerError e) {\n        throw wrapException(e);\n    } catch (Exception e) {\n        throw wrapException(e);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java",
+      "functionStartLine": 210,
+      "functionName": "createUsingDefault",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,13 @@\n @Override\n-public Object createUsingDefault() throws IOException, JsonProcessingException {\n+public Object createUsingDefault(DeserializationContext ctxt) throws IOException, JsonProcessingException {\n     if (_defaultCreator \u003d\u003d null) {\n         throw new IllegalStateException(\"No default constructor for \" + getValueTypeDesc());\n     }\n     try {\n         return _defaultCreator.call();\n     } catch (ExceptionInInitializerError e) {\n         throw wrapException(e);\n     } catch (Exception e) {\n         throw wrapException(e);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[]",
+        "newValue": "[ctxt-DeserializationContext]"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+@Override\n+public Object createUsingDefault() throws IOException, JsonProcessingException {\n+    if (_defaultCreator \u003d\u003d null) {\n+        throw new IllegalStateException(\"No default constructor for \" + getValueTypeDesc());\n+    }\n+    try {\n+        return _defaultCreator.call();\n+    } catch (ExceptionInInitializerError e) {\n+        throw wrapException(e);\n+    } catch (Exception e) {\n+        throw wrapException(e);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Object createUsingDefault() throws IOException, JsonProcessingException {\n    if (_defaultCreator \u003d\u003d null) {\n        throw new IllegalStateException(\"No default constructor for \" + getValueTypeDesc());\n    }\n    try {\n        return _defaultCreator.call();\n    } catch (ExceptionInInitializerError e) {\n        throw wrapException(e);\n    } catch (Exception e) {\n        throw wrapException(e);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java",
+      "functionStartLine": 206,
+      "functionName": "createUsingDefault",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

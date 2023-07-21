@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "_checkIfCreatorPropertyBased",
+  "functionId": "_checkIfCreatorPropertyBased___intr-AnnotationIntrospector__creator-AnnotatedWithParams__propDef-BeanPropertyDefinition",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 515,
+  "functionEndLine": 543,
+  "numCommitsSeen": 105,
+  "timeTaken": 1292,
+  "changeHistory": [
+    "ef4115cacf4526a69c0613a61b80317a676955df"
+  ],
+  "changeHistoryShort": {
+    "ef4115cacf4526a69c0613a61b80317a676955df": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ef4115cacf4526a69c0613a61b80317a676955df": {
+      "type": "Yintroduced",
+      "commitMessage": "Last tweaks wrt #614\n",
+      "commitDate": "11/16/14, 11:43 PM",
+      "commitName": "ef4115cacf4526a69c0613a61b80317a676955df",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,21 @@\n+protected boolean _checkIfCreatorPropertyBased(AnnotationIntrospector intr, AnnotatedWithParams creator, BeanPropertyDefinition propDef) {\n+    JsonCreator.Mode mode \u003d intr.findCreatorBinding(creator);\n+    if (mode \u003d\u003d JsonCreator.Mode.PROPERTIES) {\n+        return true;\n+    }\n+    if (mode \u003d\u003d JsonCreator.Mode.DELEGATING) {\n+        return false;\n+    }\n+    if (((propDef !\u003d null) \u0026\u0026 propDef.isExplicitlyNamed()) || (intr.findInjectableValueId(creator.getParameter(0)) !\u003d null)) {\n+        return true;\n+    }\n+    if (propDef !\u003d null) {\n+        String implName \u003d propDef.getName();\n+        if (implName !\u003d null \u0026\u0026 !implName.isEmpty()) {\n+            if (propDef.couldSerialize()) {\n+                return true;\n+            }\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected boolean _checkIfCreatorPropertyBased(AnnotationIntrospector intr, AnnotatedWithParams creator, BeanPropertyDefinition propDef) {\n    JsonCreator.Mode mode \u003d intr.findCreatorBinding(creator);\n    if (mode \u003d\u003d JsonCreator.Mode.PROPERTIES) {\n        return true;\n    }\n    if (mode \u003d\u003d JsonCreator.Mode.DELEGATING) {\n        return false;\n    }\n    if (((propDef !\u003d null) \u0026\u0026 propDef.isExplicitlyNamed()) || (intr.findInjectableValueId(creator.getParameter(0)) !\u003d null)) {\n        return true;\n    }\n    if (propDef !\u003d null) {\n        String implName \u003d propDef.getName();\n        if (implName !\u003d null \u0026\u0026 !implName.isEmpty()) {\n            if (propDef.couldSerialize()) {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 521,
+      "functionName": "_checkIfCreatorPropertyBased",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

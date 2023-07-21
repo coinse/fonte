@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonMappingException.java",
+  "functionName": "toString",
+  "functionId": "$toString",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 95,
+  "functionEndLine": 121,
+  "numCommitsSeen": 7,
+  "timeTaken": 376,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,23 @@\n+@Override\n+public String toString() {\n+    StringBuilder sb \u003d new StringBuilder();\n+    Class\u003c?\u003e cls \u003d (_from instanceof Class\u003c?\u003e) ? ((Class\u003c?\u003e) _from) : _from.getClass();\n+    Package pkg \u003d cls.getPackage();\n+    if (pkg !\u003d null) {\n+        sb.append(pkg.getName());\n+        sb.append(\u0027.\u0027);\n+    }\n+    sb.append(cls.getSimpleName());\n+    sb.append(\u0027[\u0027);\n+    if (_fieldName !\u003d null) {\n+        sb.append(\u0027\"\u0027);\n+        sb.append(_fieldName);\n+        sb.append(\u0027\"\u0027);\n+    } else if (_index \u003e\u003d 0) {\n+        sb.append(_index);\n+    } else {\n+        sb.append(\u0027?\u0027);\n+    }\n+    sb.append(\u0027]\u0027);\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String toString() {\n    StringBuilder sb \u003d new StringBuilder();\n    Class\u003c?\u003e cls \u003d (_from instanceof Class\u003c?\u003e) ? ((Class\u003c?\u003e) _from) : _from.getClass();\n    Package pkg \u003d cls.getPackage();\n    if (pkg !\u003d null) {\n        sb.append(pkg.getName());\n        sb.append(\u0027.\u0027);\n    }\n    sb.append(cls.getSimpleName());\n    sb.append(\u0027[\u0027);\n    if (_fieldName !\u003d null) {\n        sb.append(\u0027\"\u0027);\n        sb.append(_fieldName);\n        sb.append(\u0027\"\u0027);\n    } else if (_index \u003e\u003d 0) {\n        sb.append(_index);\n    } else {\n        sb.append(\u0027?\u0027);\n    }\n    sb.append(\u0027]\u0027);\n    return sb.toString();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+      "functionStartLine": 94,
+      "functionName": "toString",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

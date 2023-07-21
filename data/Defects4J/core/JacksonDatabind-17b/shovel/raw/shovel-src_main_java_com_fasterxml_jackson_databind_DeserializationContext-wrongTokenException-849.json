@@ -1,0 +1,235 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializationContext.java",
+  "functionName": "wrongTokenException",
+  "functionId": "wrongTokenException___p-JsonParser__expToken-JsonToken__msg0-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+  "functionStartLine": 849,
+  "functionEndLine": 855,
+  "numCommitsSeen": 182,
+  "timeTaken": 2081,
+  "changeHistory": [
+    "953eab22634e3bd019ef33813769873aa9758c72",
+    "478d4a4deb34daee3a35d70666966a46b77fac67",
+    "06c20b1814a497cda59d46609ca03bfac20f64f1",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "953eab22634e3bd019ef33813769873aa9758c72": "Ymultichange(Yparameterchange,Ybodychange)",
+    "478d4a4deb34daee3a35d70666966a46b77fac67": "Ymultichange(Yparameterchange,Ybodychange)",
+    "06c20b1814a497cda59d46609ca03bfac20f64f1": "Ymultichange(Ymovefromfile,Yannotationchange,Ydocchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "953eab22634e3bd019ef33813769873aa9758c72": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "minor cleanup\n",
+      "commitDate": "5/15/14, 9:35 PM",
+      "commitName": "953eab22634e3bd019ef33813769873aa9758c72",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "minor cleanup\n",
+          "commitDate": "5/15/14, 9:35 PM",
+          "commitName": "953eab22634e3bd019ef33813769873aa9758c72",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/16/14, 10:26 PM",
+          "commitNameOld": "301ea2d804e95710395cc0c52dcb5ed3afae1888",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 59.96,
+          "commitsBetweenForRepo": 119,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg0) {\n    String msg \u003d \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken;\n    if (msg0 !\u003d null) {\n        msg \u003d msg + \": \" + msg0;\n    }\n    return JsonMappingException.from(p, msg);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 836,
+          "functionName": "wrongTokenException",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+          "diff": "@@ -1,3 +1,7 @@\n-public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg) {\n-    return JsonMappingException.from(p, \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n+public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg0) {\n+    String msg \u003d \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken;\n+    if (msg0 !\u003d null) {\n+        msg \u003d msg + \": \" + msg0;\n+    }\n+    return JsonMappingException.from(p, msg);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[p-JsonParser, expToken-JsonToken, msg-String]",
+            "newValue": "[p-JsonParser, expToken-JsonToken, msg0-String]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "minor cleanup\n",
+          "commitDate": "5/15/14, 9:35 PM",
+          "commitName": "953eab22634e3bd019ef33813769873aa9758c72",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/16/14, 10:26 PM",
+          "commitNameOld": "301ea2d804e95710395cc0c52dcb5ed3afae1888",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 59.96,
+          "commitsBetweenForRepo": 119,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg0) {\n    String msg \u003d \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken;\n    if (msg0 !\u003d null) {\n        msg \u003d msg + \": \" + msg0;\n    }\n    return JsonMappingException.from(p, msg);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 836,
+          "functionName": "wrongTokenException",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+          "diff": "@@ -1,3 +1,7 @@\n-public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg) {\n-    return JsonMappingException.from(p, \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n+public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg0) {\n+    String msg \u003d \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken;\n+    if (msg0 !\u003d null) {\n+        msg \u003d msg + \": \" + msg0;\n+    }\n+    return JsonMappingException.from(p, msg);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "478d4a4deb34daee3a35d70666966a46b77fac67": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Implement #375\n",
+      "commitDate": "3/16/14, 9:53 PM",
+      "commitName": "478d4a4deb34daee3a35d70666966a46b77fac67",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Implement #375\n",
+          "commitDate": "3/16/14, 9:53 PM",
+          "commitName": "478d4a4deb34daee3a35d70666966a46b77fac67",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/1/14, 4:08 PM",
+          "commitNameOld": "95a9ccc779a8c039deee4e5ddec6df411c2e3cc9",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 15.2,
+          "commitsBetweenForRepo": 21,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg) {\n    return JsonMappingException.from(p, \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 836,
+          "functionName": "wrongTokenException",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n-    return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n+public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg) {\n+    return JsonMappingException.from(p, \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[jp-JsonParser, expToken-JsonToken, msg-String]",
+            "newValue": "[p-JsonParser, expToken-JsonToken, msg-String]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implement #375\n",
+          "commitDate": "3/16/14, 9:53 PM",
+          "commitName": "478d4a4deb34daee3a35d70666966a46b77fac67",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/1/14, 4:08 PM",
+          "commitNameOld": "95a9ccc779a8c039deee4e5ddec6df411c2e3cc9",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 15.2,
+          "commitsBetweenForRepo": 21,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg) {\n    return JsonMappingException.from(p, \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 836,
+          "functionName": "wrongTokenException",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+          "diff": "@@ -1,3 +1,3 @@\n-public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n-    return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n+public JsonMappingException wrongTokenException(JsonParser p, JsonToken expToken, String msg) {\n+    return JsonMappingException.from(p, \"Unexpected token (\" + p.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "06c20b1814a497cda59d46609ca03bfac20f64f1": {
+      "type": "Ymultichange(Ymovefromfile,Yannotationchange,Ydocchange)",
+      "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+      "commitDate": "1/29/12, 9:36 PM",
+      "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+          "commitDate": "1/29/12, 9:36 PM",
+          "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/29/12, 4:44 PM",
+          "commitNameOld": "f0e232d14f4085bac5b5c40eb5efae2aaad5fbec",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n    return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 507,
+          "functionName": "wrongTokenException",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+          "diff": "@@ -1,4 +1,3 @@\n-@Override\n public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n     return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/StdDeserializationContext.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+            "oldMethodName": "wrongTokenException",
+            "newMethodName": "wrongTokenException"
+          }
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+          "commitDate": "1/29/12, 9:36 PM",
+          "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/29/12, 4:44 PM",
+          "commitNameOld": "f0e232d14f4085bac5b5c40eb5efae2aaad5fbec",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n    return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 507,
+          "functionName": "wrongTokenException",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+          "diff": "@@ -1,4 +1,3 @@\n-@Override\n public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n     return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt\n",
+          "commitDate": "1/29/12, 9:36 PM",
+          "commitName": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/29/12, 4:44 PM",
+          "commitNameOld": "f0e232d14f4085bac5b5c40eb5efae2aaad5fbec",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.2,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n    return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+          "functionStartLine": 507,
+          "functionName": "wrongTokenException",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method for indicating that the current token was expected to be another\ntoken.\n",
+          "diff": "@@ -1,4 +1,3 @@\n-@Override\n public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n     return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "Helper method for indicating that the current token was expected to be another\ntoken.\n"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n+    return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JsonMappingException wrongTokenException(JsonParser jp, JsonToken expToken, String msg) {\n    return JsonMappingException.from(jp, \"Unexpected token (\" + jp.getCurrentToken() + \"), expected \" + expToken + \": \" + msg);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/StdDeserializationContext.java",
+      "functionStartLine": 258,
+      "functionName": "wrongTokenException",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

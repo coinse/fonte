@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicBeanDescription.java",
+  "functionName": "findDeserializationConverter",
+  "functionId": "findDeserializationConverter",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 566,
+  "functionEndLine": 572,
+  "numCommitsSeen": 26,
+  "timeTaken": 1775,
+  "changeHistory": [
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96"
+  ],
+  "changeHistoryShort": {
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9439a310c169a00cd01a4e9b64fb9f5441297b96": {
+      "type": "Yintroduced",
+      "commitMessage": "More work on converters for deserialization; now passes 2/6 of new tests. Also adding \u0027DatabindContext\u0027, shared base class for DeserializationContext, SerializerProvider\n",
+      "commitDate": "3/2/13, 1:13 PM",
+      "commitName": "9439a310c169a00cd01a4e9b64fb9f5441297b96",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public Converter\u003cObject, Object\u003e findDeserializationConverter() {\n+    if (_annotationIntrospector \u003d\u003d null) {\n+        return null;\n+    }\n+    return _createConverter(_annotationIntrospector.findDeserializationConverter(_classInfo));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Converter\u003cObject, Object\u003e findDeserializationConverter() {\n    if (_annotationIntrospector \u003d\u003d null) {\n        return null;\n    }\n    return _createConverter(_annotationIntrospector.findDeserializationConverter(_classInfo));\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 532,
+      "functionName": "findDeserializationConverter",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

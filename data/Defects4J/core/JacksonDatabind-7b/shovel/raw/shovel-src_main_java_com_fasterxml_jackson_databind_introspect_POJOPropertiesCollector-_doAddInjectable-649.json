@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertiesCollector.java",
+  "functionName": "_doAddInjectable",
+  "functionId": "_doAddInjectable___id-Object__m-AnnotatedMember",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 649,
+  "functionEndLine": 663,
+  "numCommitsSeen": 49,
+  "timeTaken": 2159,
+  "changeHistory": [
+    "fcbbccccff541e3492ebf5425ed5223581f77641",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "fcbbccccff541e3492ebf5425ed5223581f77641": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fcbbccccff541e3492ebf5425ed5223581f77641": {
+      "type": "Ybodychange",
+      "commitMessage": "cleanup\n",
+      "commitDate": "7/25/13, 10:42 PM",
+      "commitName": "fcbbccccff541e3492ebf5425ed5223581f77641",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "7/15/13, 7:52 AM",
+      "commitNameOld": "8b1d92eecd03c7b234e9de1be6138e14cdff142f",
+      "commitAuthorOld": "Sebastian Schuberth",
+      "daysBetweenCommits": 10.62,
+      "commitsBetweenForRepo": 11,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void _doAddInjectable(Object id, AnnotatedMember m) {\n    if (id \u003d\u003d null) {\n        return;\n    }\n    if (_injectables \u003d\u003d null) {\n        _injectables \u003d new LinkedHashMap\u003cObject, AnnotatedMember\u003e();\n    }\n    AnnotatedMember prev \u003d _injectables.put(id, m);\n    if (prev !\u003d null) {\n        String type \u003d id.getClass().getName();\n        throw new IllegalArgumentException(\"Duplicate injectable value with id \u0027\" + String.valueOf(id) + \"\u0027 (of type \" + type + \")\");\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 582,
+      "functionName": "_doAddInjectable",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,13 @@\n protected void _doAddInjectable(Object id, AnnotatedMember m) {\n     if (id \u003d\u003d null) {\n         return;\n     }\n     if (_injectables \u003d\u003d null) {\n         _injectables \u003d new LinkedHashMap\u003cObject, AnnotatedMember\u003e();\n     }\n     AnnotatedMember prev \u003d _injectables.put(id, m);\n     if (prev !\u003d null) {\n-        String type \u003d (id \u003d\u003d null) ? \"[null]\" : id.getClass().getName();\n+        String type \u003d id.getClass().getName();\n         throw new IllegalArgumentException(\"Duplicate injectable value with id \u0027\" + String.valueOf(id) + \"\u0027 (of type \" + type + \")\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+protected void _doAddInjectable(Object id, AnnotatedMember m) {\n+    if (id \u003d\u003d null) {\n+        return;\n+    }\n+    if (_injectables \u003d\u003d null) {\n+        _injectables \u003d new LinkedHashMap\u003cObject, AnnotatedMember\u003e();\n+    }\n+    AnnotatedMember prev \u003d _injectables.put(id, m);\n+    if (prev !\u003d null) {\n+        String type \u003d (id \u003d\u003d null) ? \"[null]\" : id.getClass().getName();\n+        throw new IllegalArgumentException(\"Duplicate injectable value with id \u0027\" + String.valueOf(id) + \"\u0027 (of type \" + type + \")\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void _doAddInjectable(Object id, AnnotatedMember m) {\n    if (id \u003d\u003d null) {\n        return;\n    }\n    if (_injectables \u003d\u003d null) {\n        _injectables \u003d new LinkedHashMap\u003cObject, AnnotatedMember\u003e();\n    }\n    AnnotatedMember prev \u003d _injectables.put(id, m);\n    if (prev !\u003d null) {\n        String type \u003d (id \u003d\u003d null) ? \"[null]\" : id.getClass().getName();\n        throw new IllegalArgumentException(\"Duplicate injectable value with id \u0027\" + String.valueOf(id) + \"\u0027 (of type \" + type + \")\");\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+      "functionStartLine": 517,
+      "functionName": "_doAddInjectable",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

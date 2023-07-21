@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanPropertyMap.java",
+  "functionName": "wrapAndThrow",
+  "functionId": "wrapAndThrow___t-Throwable__bean-Object__fieldName-String__ctxt-DeserializationContext",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@since 2.5\n",
+  "functionStartLine": 416,
+  "functionEndLine": 440,
+  "numCommitsSeen": 19,
+  "timeTaken": 500,
+  "changeHistory": [
+    "b478c792e0e68039224109129350dd71f768ddc1"
+  ],
+  "changeHistoryShort": {
+    "b478c792e0e68039224109129350dd71f768ddc1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b478c792e0e68039224109129350dd71f768ddc1": {
+      "type": "Yintroduced",
+      "commitMessage": "Still tweaking bean property handling for deser\n",
+      "commitDate": "12/13/14, 3:20 PM",
+      "commitName": "b478c792e0e68039224109129350dd71f768ddc1",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,19 @@\n+protected void wrapAndThrow(Throwable t, Object bean, String fieldName, DeserializationContext ctxt) throws IOException {\n+    while (t instanceof InvocationTargetException \u0026\u0026 t.getCause() !\u003d null) {\n+        t \u003d t.getCause();\n+    }\n+    if (t instanceof Error) {\n+        throw (Error) t;\n+    }\n+    boolean wrap \u003d (ctxt \u003d\u003d null) || ctxt.isEnabled(DeserializationFeature.WRAP_EXCEPTIONS);\n+    if (t instanceof IOException) {\n+        if (!wrap || !(t instanceof JsonProcessingException)) {\n+            throw (IOException) t;\n+        }\n+    } else if (!wrap) {\n+        if (t instanceof RuntimeException) {\n+            throw (RuntimeException) t;\n+        }\n+    }\n+    throw JsonMappingException.wrapWithPath(t, bean, fieldName);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void wrapAndThrow(Throwable t, Object bean, String fieldName, DeserializationContext ctxt) throws IOException {\n    while (t instanceof InvocationTargetException \u0026\u0026 t.getCause() !\u003d null) {\n        t \u003d t.getCause();\n    }\n    if (t instanceof Error) {\n        throw (Error) t;\n    }\n    boolean wrap \u003d (ctxt \u003d\u003d null) || ctxt.isEnabled(DeserializationFeature.WRAP_EXCEPTIONS);\n    if (t instanceof IOException) {\n        if (!wrap || !(t instanceof JsonProcessingException)) {\n            throw (IOException) t;\n        }\n    } else if (!wrap) {\n        if (t instanceof RuntimeException) {\n            throw (RuntimeException) t;\n        }\n    }\n    throw JsonMappingException.wrapWithPath(t, bean, fieldName);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+      "functionStartLine": 416,
+      "functionName": "wrapAndThrow",
+      "functionAnnotation": "",
+      "functionDoc": "\n@since 2.5\n"
+    }
+  }
+}

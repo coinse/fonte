@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-28b",
+  "repositoryPath": "/tmp/Cli-28b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "OptionBuilder.java",
+  "functionName": "withValueSeparator",
+  "functionId": "withValueSeparator___sep-char",
+  "sourceFilePath": "src/java/org/apache/commons/cli/OptionBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "The next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n",
+  "functionStartLine": 168,
+  "functionEndLine": 173,
+  "numCommitsSeen": 22,
+  "timeTaken": 670,
+  "changeHistory": [
+    "a8a8ec06a85a1090d560dc6cf236663da580863e",
+    "8f95e4a724350f9f80429c2af1c3ac9bb2b2c2db",
+    "9b2b8038b52be022e42c8c7fdf26e236888f94c5",
+    "1060ee73965dc30d92afbad80525bd4cdabe9153"
+  ],
+  "changeHistoryShort": {
+    "a8a8ec06a85a1090d560dc6cf236663da580863e": "Ybodychange",
+    "8f95e4a724350f9f80429c2af1c3ac9bb2b2c2db": "Ydocchange",
+    "9b2b8038b52be022e42c8c7fdf26e236888f94c5": "Ymultichange(Ydocchange,Yformatchange)",
+    "1060ee73965dc30d92afbad80525bd4cdabe9153": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a8a8ec06a85a1090d560dc6cf236663da580863e": {
+      "type": "Ybodychange",
+      "commitMessage": "Lots of minor refactoring and tidying to avoid compiler warnings\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/trunk@155293 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/24/05, 7:21 PM",
+      "commitName": "a8a8ec06a85a1090d560dc6cf236663da580863e",
+      "commitAuthor": "Robert James Oxspring",
+      "commitDateOld": "4/22/04, 4:00 PM",
+      "commitNameOld": "8f95e4a724350f9f80429c2af1c3ac9bb2b2c2db",
+      "commitAuthorOld": "Robert James Oxspring",
+      "daysBetweenCommits": 308.18,
+      "commitsBetweenForRepo": 57,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static OptionBuilder withValueSeparator(char sep) {\n    OptionBuilder.valuesep \u003d sep;\n    return instance;\n}",
+      "path": "src/java/org/apache/commons/cli/OptionBuilder.java",
+      "functionStartLine": 166,
+      "functionName": "withValueSeparator",
+      "functionAnnotation": "",
+      "functionDoc": "The next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n",
+      "diff": "@@ -1,4 +1,4 @@\n public static OptionBuilder withValueSeparator(char sep) {\n-    instance.valuesep \u003d sep;\n+    OptionBuilder.valuesep \u003d sep;\n     return instance;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8f95e4a724350f9f80429c2af1c3ac9bb2b2c2db": {
+      "type": "Ydocchange",
+      "commitMessage": "Merged RESEARCH_CLI_2_ROXSPRING branch back to HEAD\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/trunk@130066 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/22/04, 4:00 PM",
+      "commitName": "8f95e4a724350f9f80429c2af1c3ac9bb2b2c2db",
+      "commitAuthor": "Robert James Oxspring",
+      "commitDateOld": "2/29/04, 8:30 AM",
+      "commitNameOld": "213c137b7515e71abf006611d8927b4fa68bd62b",
+      "commitAuthorOld": "Yoav Shapira",
+      "daysBetweenCommits": 53.27,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static OptionBuilder withValueSeparator(char sep) {\n    instance.valuesep \u003d sep;\n    return instance;\n}",
+      "path": "src/java/org/apache/commons/cli/OptionBuilder.java",
+      "functionStartLine": 165,
+      "functionName": "withValueSeparator",
+      "functionAnnotation": "",
+      "functionDoc": "The next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\u003cp\u003eThe next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\u003c/p\u003e\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n",
+        "newValue": "The next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n"
+      }
+    },
+    "9b2b8038b52be022e42c8c7fdf26e236888f94c5": {
+      "type": "Ymultichange(Ydocchange,Yformatchange)",
+      "commitMessage": "checkstyle fixes\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/trunk@129857 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/9/02, 3:47 PM",
+      "commitName": "9b2b8038b52be022e42c8c7fdf26e236888f94c5",
+      "commitAuthor": "John Keyes",
+      "subchanges": [
+        {
+          "type": "Ydocchange",
+          "commitMessage": "checkstyle fixes\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/trunk@129857 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/9/02, 3:47 PM",
+          "commitName": "9b2b8038b52be022e42c8c7fdf26e236888f94c5",
+          "commitAuthor": "John Keyes",
+          "commitDateOld": "11/19/02, 2:54 PM",
+          "commitNameOld": "beb276cf237cd5d21286f522b56338ee6d31199f",
+          "commitAuthorOld": "John Keyes",
+          "daysBetweenCommits": 20.04,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static OptionBuilder withValueSeparator(char sep) {\n    instance.valuesep \u003d sep;\n    return instance;\n}",
+          "path": "src/java/org/apache/commons/cli/OptionBuilder.java",
+          "functionStartLine": 210,
+          "functionName": "withValueSeparator",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eThe next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\u003c/p\u003e\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "\u003cp\u003eThe next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\u003c/p\u003e\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator( \u0027:\u0027 )\n                          .create( \u0027D\u0027 );\n\nCommandLine line \u003d parser.parse( args );\nString propertyName \u003d opt.getValue( 0 );\nString propertyValue \u003d opt.getValue( 1 );\n\u003c/pre\u003e\n\n@return the OptionBuilder instance\n",
+            "newValue": "\u003cp\u003eThe next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\u003c/p\u003e\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "checkstyle fixes\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/trunk@129857 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/9/02, 3:47 PM",
+          "commitName": "9b2b8038b52be022e42c8c7fdf26e236888f94c5",
+          "commitAuthor": "John Keyes",
+          "commitDateOld": "11/19/02, 2:54 PM",
+          "commitNameOld": "beb276cf237cd5d21286f522b56338ee6d31199f",
+          "commitAuthorOld": "John Keyes",
+          "daysBetweenCommits": 20.04,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static OptionBuilder withValueSeparator(char sep) {\n    instance.valuesep \u003d sep;\n    return instance;\n}",
+          "path": "src/java/org/apache/commons/cli/OptionBuilder.java",
+          "functionStartLine": 210,
+          "functionName": "withValueSeparator",
+          "functionAnnotation": "",
+          "functionDoc": "\u003cp\u003eThe next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\u003c/p\u003e\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator(\u0027:\u0027)\n                          .create(\u0027D\u0027);\n\nCommandLine line \u003d parser.parse(args);\nString propertyName \u003d opt.getValue(0);\nString propertyValue \u003d opt.getValue(1);\n\u003c/pre\u003e\n\n@param sep The value separator to be used for the argument values.\n@return the OptionBuilder instance\n",
+          "diff": "",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "1060ee73965dc30d92afbad80525bd4cdabe9153": {
+      "type": "Yintroduced",
+      "commitMessage": "bug 11458 fixed\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/trunk@129796 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/4/02, 4:04 PM",
+      "commitName": "1060ee73965dc30d92afbad80525bd4cdabe9153",
+      "commitAuthor": "John Keyes",
+      "diff": "@@ -0,0 +1,4 @@\n+public static OptionBuilder withValueSeparator(char sep) {\n+    instance.valuesep \u003d sep;\n+    return instance;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static OptionBuilder withValueSeparator(char sep) {\n    instance.valuesep \u003d sep;\n    return instance;\n}",
+      "path": "src/java/org/apache/commons/cli/OptionBuilder.java",
+      "functionStartLine": 165,
+      "functionName": "withValueSeparator",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eThe next Option created uses \u003ccode\u003esep\u003c/code\u003e as a means to\nseparate argument values.\u003c/p\u003e\n\n\u003cb\u003eExample:\u003c/b\u003e\n\u003cpre\u003e\nOption opt \u003d OptionBuilder.withValueSeparator( \u0027:\u0027 )\n                          .create( \u0027D\u0027 );\n\nCommandLine line \u003d parser.parse( args );\nString propertyName \u003d opt.getValue( 0 );\nString propertyValue \u003d opt.getValue( 1 );\n\u003c/pre\u003e\n\n@return the OptionBuilder instance\n"
+    }
+  }
+}

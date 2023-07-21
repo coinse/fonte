@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanSerializerFactory.java",
+  "functionName": "findFilterId",
+  "functionId": "findFilterId___config-SerializationConfig__beanDesc-BeanDescription",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to find filter that is configured to be used with bean\nserializer being built, if any.\n",
+  "functionStartLine": 521,
+  "functionEndLine": 524,
+  "numCommitsSeen": 70,
+  "timeTaken": 2335,
+  "changeHistory": [
+    "28bde0726d83be7f70ca4586abee6f536bfc8885",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": "Yparameterchange",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "28bde0726d83be7f70ca4586abee6f536bfc8885": {
+      "type": "Yparameterchange",
+      "commitMessage": "Refactoring: eliminate exposure of BasicBeanDescription (now just base class. BeanDescription)\n",
+      "commitDate": "1/22/12, 10:57 PM",
+      "commitName": "28bde0726d83be7f70ca4586abee6f536bfc8885",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/20/12, 8:16 PM",
+      "commitNameOld": "b2a9ca7bb27c21b12ccd8d17314e83275381027c",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.11,
+      "commitsBetweenForRepo": 12,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected Object findFilterId(SerializationConfig config, BeanDescription beanDesc) {\n    return config.getAnnotationIntrospector().findFilterId(beanDesc.getClassInfo());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+      "functionStartLine": 469,
+      "functionName": "findFilterId",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to find filter that is configured to be used with bean\nserializer being built, if any.\n",
+      "diff": "@@ -1,3 +1,3 @@\n-protected Object findFilterId(SerializationConfig config, BasicBeanDescription beanDesc) {\n+protected Object findFilterId(SerializationConfig config, BeanDescription beanDesc) {\n     return config.getAnnotationIntrospector().findFilterId(beanDesc.getClassInfo());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[config-SerializationConfig, beanDesc-BasicBeanDescription]",
+        "newValue": "[config-SerializationConfig, beanDesc-BeanDescription]"
+      }
+    },
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": {
+      "type": "Ydocchange",
+      "commitMessage": "Clean up, to get rid of deprecated stuff\n",
+      "commitDate": "12/24/11, 10:07 PM",
+      "commitName": "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 8:05 PM",
+      "commitNameOld": "df6302f807bb230ae985a35100cbcc30af523bd1",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.08,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected Object findFilterId(SerializationConfig config, BasicBeanDescription beanDesc) {\n    return config.getAnnotationIntrospector().findFilterId(beanDesc.getClassInfo());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+      "functionStartLine": 515,
+      "functionName": "findFilterId",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to find filter that is configured to be used with bean\nserializer being built, if any.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method called to find filter that is configured to be used with bean\nserializer being built, if any.\n\n@since 1.7\n",
+        "newValue": "Method called to find filter that is configured to be used with bean\nserializer being built, if any.\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+protected Object findFilterId(SerializationConfig config, BasicBeanDescription beanDesc) {\n+    return config.getAnnotationIntrospector().findFilterId(beanDesc.getClassInfo());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Object findFilterId(SerializationConfig config, BasicBeanDescription beanDesc) {\n    return config.getAnnotationIntrospector().findFilterId(beanDesc.getClassInfo());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+      "functionStartLine": 524,
+      "functionName": "findFilterId",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to find filter that is configured to be used with bean\nserializer being built, if any.\n\n@since 1.7\n"
+    }
+  }
+}

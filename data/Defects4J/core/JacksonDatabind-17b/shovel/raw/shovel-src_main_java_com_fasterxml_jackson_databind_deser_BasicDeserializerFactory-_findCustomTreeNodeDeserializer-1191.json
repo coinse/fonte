@@ -1,0 +1,200 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "_findCustomTreeNodeDeserializer",
+  "functionId": "_findCustomTreeNodeDeserializer___type-Class__? extends JsonNode____config-DeserializationConfig__beanDesc-BeanDescription",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1191,
+  "functionEndLine": 1202,
+  "numCommitsSeen": 144,
+  "timeTaken": 7320,
+  "changeHistory": [
+    "e5d31900983a1e187c1fe5eb737353ddb74909d0",
+    "857ddd27198f3dd9fb95800b3728ea26fa47130b",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e5d31900983a1e187c1fe5eb737353ddb74909d0": "Ymultichange(Yparameterchange,Ybodychange)",
+    "857ddd27198f3dd9fb95800b3728ea26fa47130b": "Ymultichange(Ymovefromfile,Ybodychange,Yannotationchange,Yparameterchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e5d31900983a1e187c1fe5eb737353ddb74909d0": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Remove BeanProperty from being passed to Deserializers\n",
+      "commitDate": "1/30/12, 3:55 PM",
+      "commitName": "e5d31900983a1e187c1fe5eb737353ddb74909d0",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Remove BeanProperty from being passed to Deserializers\n",
+          "commitDate": "1/30/12, 3:55 PM",
+          "commitName": "e5d31900983a1e187c1fe5eb737353ddb74909d0",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/30/12, 9:05 AM",
+          "commitNameOld": "082511bd55135d237757dbee3eb7246e6b786f27",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.29,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n    for (Deserializers d : _factoryConfig.deserializers()) {\n        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc);\n        if (deser !\u003d null) {\n            return deser;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 1050,
+          "functionName": "_findCustomTreeNodeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,9 @@\n-protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n     for (Deserializers d : _factoryConfig.deserializers()) {\n-        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n+        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc);\n         if (deser !\u003d null) {\n             return deser;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[type-Class\u003c? extends JsonNode\u003e, config-DeserializationConfig, beanDesc-BeanDescription, property-BeanProperty]",
+            "newValue": "[type-Class\u003c? extends JsonNode\u003e, config-DeserializationConfig, beanDesc-BeanDescription]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Remove BeanProperty from being passed to Deserializers\n",
+          "commitDate": "1/30/12, 3:55 PM",
+          "commitName": "e5d31900983a1e187c1fe5eb737353ddb74909d0",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/30/12, 9:05 AM",
+          "commitNameOld": "082511bd55135d237757dbee3eb7246e6b786f27",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.29,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n    for (Deserializers d : _factoryConfig.deserializers()) {\n        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc);\n        if (deser !\u003d null) {\n            return deser;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 1050,
+          "functionName": "_findCustomTreeNodeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,9 @@\n-protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {\n     for (Deserializers d : _factoryConfig.deserializers()) {\n-        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n+        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc);\n         if (deser !\u003d null) {\n             return deser;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "857ddd27198f3dd9fb95800b3728ea26fa47130b": {
+      "type": "Ymultichange(Ymovefromfile,Ybodychange,Yannotationchange,Yparameterchange)",
+      "commitMessage": "Cosmetic refactoring: making Deserializers callbacks more similar, passing same common args\n",
+      "commitDate": "1/24/12, 4:51 PM",
+      "commitName": "857ddd27198f3dd9fb95800b3728ea26fa47130b",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Cosmetic refactoring: making Deserializers callbacks more similar, passing same common args\n",
+          "commitDate": "1/24/12, 4:51 PM",
+          "commitName": "857ddd27198f3dd9fb95800b3728ea26fa47130b",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 4:19 PM",
+          "commitNameOld": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n    for (Deserializers d : _factoryConfig.deserializers()) {\n        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n        if (deser !\u003d null) {\n            return deser;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 277,
+          "functionName": "_findCustomTreeNodeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,9 @@\n-@Override\n-protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n     for (Deserializers d : _factoryConfig.deserializers()) {\n-        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, property);\n+        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n         if (deser !\u003d null) {\n             return deser;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+            "oldMethodName": "_findCustomTreeNodeDeserializer",
+            "newMethodName": "_findCustomTreeNodeDeserializer"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Cosmetic refactoring: making Deserializers callbacks more similar, passing same common args\n",
+          "commitDate": "1/24/12, 4:51 PM",
+          "commitName": "857ddd27198f3dd9fb95800b3728ea26fa47130b",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 4:19 PM",
+          "commitNameOld": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n    for (Deserializers d : _factoryConfig.deserializers()) {\n        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n        if (deser !\u003d null) {\n            return deser;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 277,
+          "functionName": "_findCustomTreeNodeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,9 @@\n-@Override\n-protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n     for (Deserializers d : _factoryConfig.deserializers()) {\n-        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, property);\n+        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n         if (deser !\u003d null) {\n             return deser;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Cosmetic refactoring: making Deserializers callbacks more similar, passing same common args\n",
+          "commitDate": "1/24/12, 4:51 PM",
+          "commitName": "857ddd27198f3dd9fb95800b3728ea26fa47130b",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 4:19 PM",
+          "commitNameOld": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n    for (Deserializers d : _factoryConfig.deserializers()) {\n        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n        if (deser !\u003d null) {\n            return deser;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 277,
+          "functionName": "_findCustomTreeNodeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,9 @@\n-@Override\n-protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n     for (Deserializers d : _factoryConfig.deserializers()) {\n-        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, property);\n+        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n         if (deser !\u003d null) {\n             return deser;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Cosmetic refactoring: making Deserializers callbacks more similar, passing same common args\n",
+          "commitDate": "1/24/12, 4:51 PM",
+          "commitName": "857ddd27198f3dd9fb95800b3728ea26fa47130b",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 4:19 PM",
+          "commitNameOld": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n    for (Deserializers d : _factoryConfig.deserializers()) {\n        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n        if (deser !\u003d null) {\n            return deser;\n        }\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 277,
+          "functionName": "_findCustomTreeNodeDeserializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,9 @@\n-@Override\n-protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanDescription beanDesc, BeanProperty property) throws JsonMappingException {\n     for (Deserializers d : _factoryConfig.deserializers()) {\n-        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, property);\n+        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, beanDesc, property);\n         if (deser !\u003d null) {\n             return deser;\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[type-Class\u003c? extends JsonNode\u003e, config-DeserializationConfig, property-BeanProperty]",
+            "newValue": "[type-Class\u003c? extends JsonNode\u003e, config-DeserializationConfig, beanDesc-BeanDescription, property-BeanProperty]"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+protected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanProperty property) throws JsonMappingException {\n+    for (Deserializers d : _factoryConfig.deserializers()) {\n+        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, property);\n+        if (deser !\u003d null) {\n+            return deser;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nprotected JsonDeserializer\u003c?\u003e _findCustomTreeNodeDeserializer(Class\u003c? extends JsonNode\u003e type, DeserializationConfig config, BeanProperty property) throws JsonMappingException {\n    for (Deserializers d : _factoryConfig.deserializers()) {\n        JsonDeserializer\u003c?\u003e deser \u003d d.findTreeNodeDeserializer(type, config, property);\n        if (deser !\u003d null) {\n            return deser;\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 410,
+      "functionName": "_findCustomTreeNodeDeserializer",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

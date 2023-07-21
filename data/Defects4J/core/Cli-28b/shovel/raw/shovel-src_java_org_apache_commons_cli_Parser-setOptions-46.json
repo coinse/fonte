@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-28b",
+  "repositoryPath": "/tmp/Cli-28b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Parser.java",
+  "functionName": "setOptions",
+  "functionId": "setOptions___options-Options(modifiers-final)",
+  "sourceFilePath": "src/java/org/apache/commons/cli/Parser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 46,
+  "functionEndLine": 50,
+  "numCommitsSeen": 37,
+  "timeTaken": 536,
+  "changeHistory": [
+    "d72a578a8949e4b1c437ec55997d8786836f139c",
+    "298804b71d4e5f8b621f48a300f421229a3f5c86"
+  ],
+  "changeHistoryShort": {
+    "d72a578a8949e4b1c437ec55997d8786836f139c": "Ybodychange",
+    "298804b71d4e5f8b621f48a300f421229a3f5c86": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d72a578a8949e4b1c437ec55997d8786836f139c": {
+      "type": "Ybodychange",
+      "commitMessage": "Parser no longer removes the required options from the Options instance (CLI-156)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@661332 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/29/08, 6:35 AM",
+      "commitName": "d72a578a8949e4b1c437ec55997d8786836f139c",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "5/7/08, 11:56 PM",
+      "commitNameOld": "fea35870b69c0d37ab36ab6783edbc7aacc0842c",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 21.28,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void setOptions(final Options options) {\n    this.options \u003d options;\n    this.requiredOptions \u003d new ArrayList(options.getRequiredOptions());\n}",
+      "path": "src/java/org/apache/commons/cli/Parser.java",
+      "functionStartLine": 45,
+      "functionName": "setOptions",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n protected void setOptions(final Options options) {\n     this.options \u003d options;\n-    this.requiredOptions \u003d options.getRequiredOptions();\n+    this.requiredOptions \u003d new ArrayList(options.getRequiredOptions());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "298804b71d4e5f8b621f48a300f421229a3f5c86": {
+      "type": "Yintroduced",
+      "commitMessage": "Applying Henning\u0027s patch to make the Parser more extendable - CLI-142\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@654429 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/7/08, 11:43 PM",
+      "commitName": "298804b71d4e5f8b621f48a300f421229a3f5c86",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,4 @@\n+protected void setOptions(final Options options) {\n+    this.options \u003d options;\n+    this.requiredOptions \u003d options.getRequiredOptions();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void setOptions(final Options options) {\n    this.options \u003d options;\n    this.requiredOptions \u003d options.getRequiredOptions();\n}",
+      "path": "src/java/org/apache/commons/cli/Parser.java",
+      "functionStartLine": 44,
+      "functionName": "setOptions",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

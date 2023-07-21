@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-27b",
+  "repositoryPath": "/tmp/Cli-27b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CommandLine.java",
+  "functionName": "resolveOption",
+  "functionId": "resolveOption___opt-String",
+  "sourceFilePath": "src/java/org/apache/commons/cli/CommandLine.java",
+  "functionAnnotation": "",
+  "functionDoc": "Retrieves the option object given the long or short option as a String\n\n@param opt short or long name of the option\n@return Canonicalized option\n",
+  "functionStartLine": 191,
+  "functionEndLine": 209,
+  "numCommitsSeen": 31,
+  "timeTaken": 450,
+  "changeHistory": [
+    "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+    "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e"
+  ],
+  "changeHistoryShort": {
+    "147df44faa4eb12ffd4a0063fc3284f784ea67c8": "Ymultichange(Ydocchange,Yformatchange)",
+    "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "147df44faa4eb12ffd4a0063fc3284f784ea67c8": {
+      "type": "Ymultichange(Ydocchange,Yformatchange)",
+      "commitMessage": "Style update\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@680644 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/29/08, 1:13 AM",
+      "commitName": "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+      "commitAuthor": "Emmanuel Bourg",
+      "subchanges": [
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Style update\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@680644 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/29/08, 1:13 AM",
+          "commitName": "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+          "commitAuthor": "Emmanuel Bourg",
+          "commitDateOld": "7/22/08, 5:56 AM",
+          "commitNameOld": "c49b5fe1cbce7809a20535ef2e2910e10d485756",
+          "commitAuthorOld": "Emmanuel Bourg",
+          "daysBetweenCommits": 6.8,
+          "commitsBetweenForRepo": 12,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Option resolveOption(String opt) {\n    opt \u003d Util.stripLeadingHyphens(opt);\n    for (Iterator it \u003d options.iterator(); it.hasNext(); ) {\n        Option option \u003d (Option) it.next();\n        if (opt.equals(option.getOpt())) {\n            return option;\n        }\n        if (opt.equals(option.getLongOpt())) {\n            return option;\n        }\n    }\n    return null;\n}",
+          "path": "src/java/org/apache/commons/cli/CommandLine.java",
+          "functionStartLine": 170,
+          "functionName": "resolveOption",
+          "functionAnnotation": "",
+          "functionDoc": "Retrieves the option object given the long or short option as a String\n\n@param opt short or long name of the option\n@return Canonicalized option\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "\u003cp\u003eRetrieves the option object given the long or short option as a String\u003c/p\u003e\n\n@param opt short or long name of the option\n@return Canonicalized option\n",
+            "newValue": "Retrieves the option object given the long or short option as a String\n\n@param opt short or long name of the option\n@return Canonicalized option\n"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "Style update\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@680644 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "7/29/08, 1:13 AM",
+          "commitName": "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+          "commitAuthor": "Emmanuel Bourg",
+          "commitDateOld": "7/22/08, 5:56 AM",
+          "commitNameOld": "c49b5fe1cbce7809a20535ef2e2910e10d485756",
+          "commitAuthorOld": "Emmanuel Bourg",
+          "daysBetweenCommits": 6.8,
+          "commitsBetweenForRepo": 12,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Option resolveOption(String opt) {\n    opt \u003d Util.stripLeadingHyphens(opt);\n    for (Iterator it \u003d options.iterator(); it.hasNext(); ) {\n        Option option \u003d (Option) it.next();\n        if (opt.equals(option.getOpt())) {\n            return option;\n        }\n        if (opt.equals(option.getLongOpt())) {\n            return option;\n        }\n    }\n    return null;\n}",
+          "path": "src/java/org/apache/commons/cli/CommandLine.java",
+          "functionStartLine": 170,
+          "functionName": "resolveOption",
+          "functionAnnotation": "",
+          "functionDoc": "Retrieves the option object given the long or short option as a String\n\n@param opt short or long name of the option\n@return Canonicalized option\n",
+          "diff": "",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e": {
+      "type": "Yintroduced",
+      "commitMessage": "Applying Brian Egge\u0027s fix and unit test from CLI-13. \n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@538031 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/14/07, 5:47 PM",
+      "commitName": "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,13 @@\n+private Option resolveOption(String opt) {\n+    opt \u003d Util.stripLeadingHyphens(opt);\n+    for (Iterator it \u003d options.iterator(); it.hasNext(); ) {\n+        Option option \u003d (Option) it.next();\n+        if (opt.equals(option.getOpt())) {\n+            return option;\n+        }\n+        if (opt.equals(option.getLongOpt())) {\n+            return option;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Option resolveOption(String opt) {\n    opt \u003d Util.stripLeadingHyphens(opt);\n    for (Iterator it \u003d options.iterator(); it.hasNext(); ) {\n        Option option \u003d (Option) it.next();\n        if (opt.equals(option.getOpt())) {\n            return option;\n        }\n        if (opt.equals(option.getLongOpt())) {\n            return option;\n        }\n    }\n    return null;\n}",
+      "path": "src/java/org/apache/commons/cli/CommandLine.java",
+      "functionStartLine": 163,
+      "functionName": "resolveOption",
+      "functionAnnotation": "",
+      "functionDoc": "\u003cp\u003eRetrieves the option object given the long or short option as a String\u003c/p\u003e\n\n@param opt short or long name of the option\n@return Canonicalized option\n"
+    }
+  }
+}

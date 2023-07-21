@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-38b",
+  "repositoryPath": "/tmp/Cli-38b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Option.java",
+  "functionName": "equals",
+  "functionId": "equals___o-Object",
+  "sourceFilePath": "src/main/java/org/apache/commons/cli/Option.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 633,
+  "functionEndLine": 657,
+  "numCommitsSeen": 68,
+  "timeTaken": 1317,
+  "changeHistory": [
+    "445ddaaa89bdcd003645b02b600fde1d3730d715",
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df",
+    "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+    "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e"
+  ],
+  "changeHistoryShort": {
+    "445ddaaa89bdcd003645b02b600fde1d3730d715": "Yannotationchange",
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df": "Yfilerename",
+    "147df44faa4eb12ffd4a0063fc3284f784ea67c8": "Yformatchange",
+    "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "445ddaaa89bdcd003645b02b600fde1d3730d715": {
+      "type": "Yannotationchange",
+      "commitMessage": "Missing @Override\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@1440517 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/30/13, 8:51 AM",
+      "commitName": "445ddaaa89bdcd003645b02b600fde1d3730d715",
+      "commitAuthor": "Sebastian Bazley",
+      "commitDateOld": "1/30/13, 1:14 AM",
+      "commitNameOld": "5ff94c7daec3bea08f151df7cfe5b203e4d5be76",
+      "commitAuthorOld": "Thomas Neidhart",
+      "daysBetweenCommits": 0.32,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (this \u003d\u003d o) {\n        return true;\n    }\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass()) {\n        return false;\n    }\n    Option option \u003d (Option) o;\n    if (opt !\u003d null ? !opt.equals(option.opt) : option.opt !\u003d null) {\n        return false;\n    }\n    if (longOpt !\u003d null ? !longOpt.equals(option.longOpt) : option.longOpt !\u003d null) {\n        return false;\n    }\n    return true;\n}",
+      "path": "src/main/java/org/apache/commons/cli/Option.java",
+      "functionStartLine": 609,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,16 +1,17 @@\n+@Override\n public boolean equals(Object o) {\n     if (this \u003d\u003d o) {\n         return true;\n     }\n     if (o \u003d\u003d null || getClass() !\u003d o.getClass()) {\n         return false;\n     }\n     Option option \u003d (Option) o;\n     if (opt !\u003d null ? !opt.equals(option.opt) : option.opt !\u003d null) {\n         return false;\n     }\n     if (longOpt !\u003d null ? !longOpt.equals(option.longOpt) : option.longOpt !\u003d null) {\n         return false;\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df": {
+      "type": "Yfilerename",
+      "commitMessage": "Switched to the Maven 2 default directory layout (part 3)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@955173 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/16/10, 2:45 AM",
+      "commitName": "1596f3bbe57986361da4ac1a23634dd5b00d10df",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "6/16/10, 2:42 AM",
+      "commitNameOld": "406a35f1a128944b7c51dcbc4a1f04c3f8bec3e6",
+      "commitAuthorOld": "Emmanuel Bourg",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean equals(Object o) {\n    if (this \u003d\u003d o) {\n        return true;\n    }\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass()) {\n        return false;\n    }\n    Option option \u003d (Option) o;\n    if (opt !\u003d null ? !opt.equals(option.opt) : option.opt !\u003d null) {\n        return false;\n    }\n    if (longOpt !\u003d null ? !longOpt.equals(option.longOpt) : option.longOpt !\u003d null) {\n        return false;\n    }\n    return true;\n}",
+      "path": "src/main/java/org/apache/commons/cli/Option.java",
+      "functionStartLine": 593,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/cli/Option.java",
+        "newPath": "src/main/java/org/apache/commons/cli/Option.java"
+      }
+    },
+    "147df44faa4eb12ffd4a0063fc3284f784ea67c8": {
+      "type": "Yformatchange",
+      "commitMessage": "Style update\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/branches/cli-1.x@680644 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/29/08, 1:13 AM",
+      "commitName": "147df44faa4eb12ffd4a0063fc3284f784ea67c8",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "7/22/08, 12:55 AM",
+      "commitNameOld": "8ee0ed532e4ddbf2746d802f9926b9e3d0116cc5",
+      "commitAuthorOld": "Emmanuel Bourg",
+      "daysBetweenCommits": 7.01,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean equals(Object o) {\n    if (this \u003d\u003d o) {\n        return true;\n    }\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass()) {\n        return false;\n    }\n    Option option \u003d (Option) o;\n    if (opt !\u003d null ? !opt.equals(option.opt) : option.opt !\u003d null) {\n        return false;\n    }\n    if (longOpt !\u003d null ? !longOpt.equals(option.longOpt) : option.longOpt !\u003d null) {\n        return false;\n    }\n    return true;\n}",
+      "path": "src/java/org/apache/commons/cli/Option.java",
+      "functionStartLine": 593,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e": {
+      "type": "Yintroduced",
+      "commitMessage": "Applying Brian Egge\u0027s fix and unit test from CLI-13. \n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/cli/branches/cli-1.0.x@538031 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/14/07, 5:47 PM",
+      "commitName": "b0e1b80b6d4a10a9c9f46539bc4c7a3cce55886e",
+      "commitAuthor": "Henri Yandell",
+      "diff": "@@ -0,0 +1,16 @@\n+public boolean equals(Object o) {\n+    if (this \u003d\u003d o) {\n+        return true;\n+    }\n+    if (o \u003d\u003d null || getClass() !\u003d o.getClass()) {\n+        return false;\n+    }\n+    Option option \u003d (Option) o;\n+    if (opt !\u003d null ? !opt.equals(option.opt) : option.opt !\u003d null) {\n+        return false;\n+    }\n+    if (longOpt !\u003d null ? !longOpt.equals(option.longOpt) : option.longOpt !\u003d null) {\n+        return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean equals(Object o) {\n    if (this \u003d\u003d o) {\n        return true;\n    }\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass()) {\n        return false;\n    }\n    Option option \u003d (Option) o;\n    if (opt !\u003d null ? !opt.equals(option.opt) : option.opt !\u003d null) {\n        return false;\n    }\n    if (longOpt !\u003d null ? !longOpt.equals(option.longOpt) : option.longOpt !\u003d null) {\n        return false;\n    }\n    return true;\n}",
+      "path": "src/java/org/apache/commons/cli/Option.java",
+      "functionStartLine": 600,
+      "functionName": "equals",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

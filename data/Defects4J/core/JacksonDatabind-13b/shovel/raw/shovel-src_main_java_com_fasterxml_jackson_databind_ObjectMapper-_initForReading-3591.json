@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectMapper.java",
+  "functionName": "_initForReading",
+  "functionId": "_initForReading___p-JsonParser",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to ensure that given parser is ready for reading\ncontent for data binding.\n\n@return First token to be used for data binding after this call:\n can never be null as exception will be thrown if parser can not\n provide more tokens.\n@throws IOException if the underlying input source has problems during\n  parsing\n@throws JsonParseException if parser has problems parsing content\n@throws JsonMappingException if the parser does not have any more\n  content to map (note: Json \"null\" value is considered content;\n  enf-of-stream not)\n",
+  "functionStartLine": 3591,
+  "functionEndLine": 3611,
+  "numCommitsSeen": 306,
+  "timeTaken": 12937,
+  "changeHistory": [
+    "203f23ce6463674c06a99b24647c3bafa45ecf0c",
+    "28ff1a967d2b047813feb525d656ce3c81d389fc",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "203f23ce6463674c06a99b24647c3bafa45ecf0c": "Ymultichange(Yparameterchange,Yexceptionschange,Ybodychange)",
+    "28ff1a967d2b047813feb525d656ce3c81d389fc": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "203f23ce6463674c06a99b24647c3bafa45ecf0c": {
+      "type": "Ymultichange(Yparameterchange,Yexceptionschange,Ybodychange)",
+      "commitMessage": "add bit more missing init wrt parser features\n",
+      "commitDate": "11/7/14, 9:20 PM",
+      "commitName": "203f23ce6463674c06a99b24647c3bafa45ecf0c",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "add bit more missing init wrt parser features\n",
+          "commitDate": "11/7/14, 9:20 PM",
+          "commitName": "203f23ce6463674c06a99b24647c3bafa45ecf0c",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "10/29/14, 10:29 PM",
+          "commitNameOld": "655d2a1c4b7d45b7d3c25e484f94e47d4d47f477",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 8.99,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonToken _initForReading(JsonParser p) throws IOException {\n    _deserializationConfig.initialize(p);\n    JsonToken t \u003d p.getCurrentToken();\n    if (t \u003d\u003d null) {\n        t \u003d p.nextToken();\n        if (t \u003d\u003d null) {\n            throw JsonMappingException.from(p, \"No content to map due to end-of-input\");\n        }\n    }\n    return t;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+          "functionStartLine": 3223,
+          "functionName": "_initForReading",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to ensure that given parser is ready for reading\ncontent for data binding.\n\n@return First token to be used for data binding after this call:\n can never be null as exception will be thrown if parser can not\n provide more tokens.\n@throws IOException if the underlying input source has problems during\n  parsing\n@throws JsonParseException if parser has problems parsing content\n@throws JsonMappingException if the parser does not have any more\n  content to map (note: Json \"null\" value is considered content;\n  enf-of-stream not)\n",
+          "diff": "@@ -1,10 +1,11 @@\n-protected JsonToken _initForReading(JsonParser jp) throws IOException, JsonParseException, JsonMappingException {\n-    JsonToken t \u003d jp.getCurrentToken();\n+protected JsonToken _initForReading(JsonParser p) throws IOException {\n+    _deserializationConfig.initialize(p);\n+    JsonToken t \u003d p.getCurrentToken();\n     if (t \u003d\u003d null) {\n-        t \u003d jp.nextToken();\n+        t \u003d p.nextToken();\n         if (t \u003d\u003d null) {\n-            throw JsonMappingException.from(jp, \"No content to map due to end-of-input\");\n+            throw JsonMappingException.from(p, \"No content to map due to end-of-input\");\n         }\n     }\n     return t;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[jp-JsonParser]",
+            "newValue": "[p-JsonParser]"
+          }
+        },
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "add bit more missing init wrt parser features\n",
+          "commitDate": "11/7/14, 9:20 PM",
+          "commitName": "203f23ce6463674c06a99b24647c3bafa45ecf0c",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "10/29/14, 10:29 PM",
+          "commitNameOld": "655d2a1c4b7d45b7d3c25e484f94e47d4d47f477",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 8.99,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonToken _initForReading(JsonParser p) throws IOException {\n    _deserializationConfig.initialize(p);\n    JsonToken t \u003d p.getCurrentToken();\n    if (t \u003d\u003d null) {\n        t \u003d p.nextToken();\n        if (t \u003d\u003d null) {\n            throw JsonMappingException.from(p, \"No content to map due to end-of-input\");\n        }\n    }\n    return t;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+          "functionStartLine": 3223,
+          "functionName": "_initForReading",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to ensure that given parser is ready for reading\ncontent for data binding.\n\n@return First token to be used for data binding after this call:\n can never be null as exception will be thrown if parser can not\n provide more tokens.\n@throws IOException if the underlying input source has problems during\n  parsing\n@throws JsonParseException if parser has problems parsing content\n@throws JsonMappingException if the parser does not have any more\n  content to map (note: Json \"null\" value is considered content;\n  enf-of-stream not)\n",
+          "diff": "@@ -1,10 +1,11 @@\n-protected JsonToken _initForReading(JsonParser jp) throws IOException, JsonParseException, JsonMappingException {\n-    JsonToken t \u003d jp.getCurrentToken();\n+protected JsonToken _initForReading(JsonParser p) throws IOException {\n+    _deserializationConfig.initialize(p);\n+    JsonToken t \u003d p.getCurrentToken();\n     if (t \u003d\u003d null) {\n-        t \u003d jp.nextToken();\n+        t \u003d p.nextToken();\n         if (t \u003d\u003d null) {\n-            throw JsonMappingException.from(jp, \"No content to map due to end-of-input\");\n+            throw JsonMappingException.from(p, \"No content to map due to end-of-input\");\n         }\n     }\n     return t;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[IOException, JsonParseException, JsonMappingException]",
+            "newValue": "[IOException]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "add bit more missing init wrt parser features\n",
+          "commitDate": "11/7/14, 9:20 PM",
+          "commitName": "203f23ce6463674c06a99b24647c3bafa45ecf0c",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "10/29/14, 10:29 PM",
+          "commitNameOld": "655d2a1c4b7d45b7d3c25e484f94e47d4d47f477",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 8.99,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonToken _initForReading(JsonParser p) throws IOException {\n    _deserializationConfig.initialize(p);\n    JsonToken t \u003d p.getCurrentToken();\n    if (t \u003d\u003d null) {\n        t \u003d p.nextToken();\n        if (t \u003d\u003d null) {\n            throw JsonMappingException.from(p, \"No content to map due to end-of-input\");\n        }\n    }\n    return t;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+          "functionStartLine": 3223,
+          "functionName": "_initForReading",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to ensure that given parser is ready for reading\ncontent for data binding.\n\n@return First token to be used for data binding after this call:\n can never be null as exception will be thrown if parser can not\n provide more tokens.\n@throws IOException if the underlying input source has problems during\n  parsing\n@throws JsonParseException if parser has problems parsing content\n@throws JsonMappingException if the parser does not have any more\n  content to map (note: Json \"null\" value is considered content;\n  enf-of-stream not)\n",
+          "diff": "@@ -1,10 +1,11 @@\n-protected JsonToken _initForReading(JsonParser jp) throws IOException, JsonParseException, JsonMappingException {\n-    JsonToken t \u003d jp.getCurrentToken();\n+protected JsonToken _initForReading(JsonParser p) throws IOException {\n+    _deserializationConfig.initialize(p);\n+    JsonToken t \u003d p.getCurrentToken();\n     if (t \u003d\u003d null) {\n-        t \u003d jp.nextToken();\n+        t \u003d p.nextToken();\n         if (t \u003d\u003d null) {\n-            throw JsonMappingException.from(jp, \"No content to map due to end-of-input\");\n+            throw JsonMappingException.from(p, \"No content to map due to end-of-input\");\n         }\n     }\n     return t;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "28ff1a967d2b047813feb525d656ce3c81d389fc": {
+      "type": "Ybodychange",
+      "commitMessage": "Implement [JACKSON-546]\n",
+      "commitDate": "1/17/12, 5:54 PM",
+      "commitName": "28ff1a967d2b047813feb525d656ce3c81d389fc",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/14/12, 10:25 PM",
+      "commitNameOld": "2aa648459c1ecc29603f1917f5f91be686d764d0",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.81,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonToken _initForReading(JsonParser jp) throws IOException, JsonParseException, JsonMappingException {\n    JsonToken t \u003d jp.getCurrentToken();\n    if (t \u003d\u003d null) {\n        t \u003d jp.nextToken();\n        if (t \u003d\u003d null) {\n            throw JsonMappingException.from(jp, \"No content to map due to end-of-input\");\n        }\n    }\n    return t;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 2503,
+      "functionName": "_initForReading",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to ensure that given parser is ready for reading\ncontent for data binding.\n\n@return First token to be used for data binding after this call:\n can never be null as exception will be thrown if parser can not\n provide more tokens.\n@throws IOException if the underlying input source has problems during\n  parsing\n@throws JsonParseException if parser has problems parsing content\n@throws JsonMappingException if the parser does not have any more\n  content to map (note: Json \"null\" value is considered content;\n  enf-of-stream not)\n",
+      "diff": "@@ -1,10 +1,10 @@\n protected JsonToken _initForReading(JsonParser jp) throws IOException, JsonParseException, JsonMappingException {\n     JsonToken t \u003d jp.getCurrentToken();\n     if (t \u003d\u003d null) {\n         t \u003d jp.nextToken();\n         if (t \u003d\u003d null) {\n-            throw new EOFException(\"No content to map to Object due to end of input\");\n+            throw JsonMappingException.from(jp, \"No content to map due to end-of-input\");\n         }\n     }\n     return t;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+protected JsonToken _initForReading(JsonParser jp) throws IOException, JsonParseException, JsonMappingException {\n+    JsonToken t \u003d jp.getCurrentToken();\n+    if (t \u003d\u003d null) {\n+        t \u003d jp.nextToken();\n+        if (t \u003d\u003d null) {\n+            throw new EOFException(\"No content to map to Object due to end of input\");\n+        }\n+    }\n+    return t;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonToken _initForReading(JsonParser jp) throws IOException, JsonParseException, JsonMappingException {\n    JsonToken t \u003d jp.getCurrentToken();\n    if (t \u003d\u003d null) {\n        t \u003d jp.nextToken();\n        if (t \u003d\u003d null) {\n            throw new EOFException(\"No content to map to Object due to end of input\");\n        }\n    }\n    return t;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 2761,
+      "functionName": "_initForReading",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to ensure that given parser is ready for reading\ncontent for data binding.\n\n@return First token to be used for data binding after this call:\n can never be null as exception will be thrown if parser can not\n provide more tokens.\n@throws IOException if the underlying input source has problems during\n  parsing\n@throws JsonParseException if parser has problems parsing content\n@throws JsonMappingException if the parser does not have any more\n  content to map (note: Json \"null\" value is considered content;\n  enf-of-stream not)\n"
+    }
+  }
+}

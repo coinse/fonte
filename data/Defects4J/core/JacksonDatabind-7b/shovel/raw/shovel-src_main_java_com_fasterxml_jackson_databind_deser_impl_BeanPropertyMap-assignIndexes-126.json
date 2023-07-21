@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanPropertyMap.java",
+  "functionName": "assignIndexes",
+  "functionId": "assignIndexes",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 126,
+  "functionEndLine": 137,
+  "numCommitsSeen": 15,
+  "timeTaken": 583,
+  "changeHistory": [
+    "0a0ce59a9800a6532048eaf52a2d2c6a276116e3",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "0a0ce59a9800a6532048eaf52a2d2c6a276116e3": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0a0ce59a9800a6532048eaf52a2d2c6a276116e3": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "First working version of prefix-for-unwrapped; may want to generalize to allow other kinds of name mangling strategies\n",
+      "commitDate": "1/13/12, 9:49 PM",
+      "commitName": "0a0ce59a9800a6532048eaf52a2d2c6a276116e3",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "First working version of prefix-for-unwrapped; may want to generalize to allow other kinds of name mangling strategies\n",
+          "commitDate": "1/13/12, 9:49 PM",
+          "commitName": "0a0ce59a9800a6532048eaf52a2d2c6a276116e3",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/23/11, 12:31 AM",
+          "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 21.89,
+          "commitsBetweenForRepo": 44,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public BeanPropertyMap assignIndexes() {\n    int index \u003d 0;\n    for (Bucket bucket : _buckets) {\n        while (bucket !\u003d null) {\n            bucket.value.assignIndex(index++);\n            bucket \u003d bucket.next;\n        }\n    }\n    return this;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+          "functionStartLine": 57,
+          "functionName": "assignIndexes",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-public void assignIndexes() {\n+public BeanPropertyMap assignIndexes() {\n     int index \u003d 0;\n     for (Bucket bucket : _buckets) {\n         while (bucket !\u003d null) {\n             bucket.value.assignIndex(index++);\n             bucket \u003d bucket.next;\n         }\n     }\n+    return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "void",
+            "newValue": "BeanPropertyMap"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "First working version of prefix-for-unwrapped; may want to generalize to allow other kinds of name mangling strategies\n",
+          "commitDate": "1/13/12, 9:49 PM",
+          "commitName": "0a0ce59a9800a6532048eaf52a2d2c6a276116e3",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/23/11, 12:31 AM",
+          "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 21.89,
+          "commitsBetweenForRepo": 44,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public BeanPropertyMap assignIndexes() {\n    int index \u003d 0;\n    for (Bucket bucket : _buckets) {\n        while (bucket !\u003d null) {\n            bucket.value.assignIndex(index++);\n            bucket \u003d bucket.next;\n        }\n    }\n    return this;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+          "functionStartLine": 57,
+          "functionName": "assignIndexes",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-public void assignIndexes() {\n+public BeanPropertyMap assignIndexes() {\n     int index \u003d 0;\n     for (Bucket bucket : _buckets) {\n         while (bucket !\u003d null) {\n             bucket.value.assignIndex(index++);\n             bucket \u003d bucket.next;\n         }\n     }\n+    return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+public void assignIndexes() {\n+    int index \u003d 0;\n+    for (Bucket bucket : _buckets) {\n+        while (bucket !\u003d null) {\n+            bucket.value.assignIndex(index++);\n+            bucket \u003d bucket.next;\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void assignIndexes() {\n    int index \u003d 0;\n    for (Bucket bucket : _buckets) {\n        while (bucket !\u003d null) {\n            bucket.value.assignIndex(index++);\n            bucket \u003d bucket.next;\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+      "functionStartLine": 40,
+      "functionName": "assignIndexes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

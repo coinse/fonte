@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-3b",
+  "repositoryPath": "/tmp/JacksonDatabind-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassUtil.java",
+  "functionName": "isJacksonStdImpl",
+  "functionId": "isJacksonStdImpl___impl-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that can be called to determine if given Object is the default\nimplementation Jackson uses; as opposed to a custom serializer installed by\na module or calling application. Determination is done using\n{@link JacksonStdImpl} annotation on handler (serializer, deserializer etc)\nclass.\n",
+  "functionStartLine": 594,
+  "functionEndLine": 596,
+  "numCommitsSeen": 10,
+  "timeTaken": 1158,
+  "changeHistory": [
+    "52a924401ffedeb1170401e760443e184692cbb1"
+  ],
+  "changeHistoryShort": {
+    "52a924401ffedeb1170401e760443e184692cbb1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "52a924401ffedeb1170401e760443e184692cbb1": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed issues uncovered with handling of contextual serializers (was not always resolving ContextualSerializers properly)\n",
+      "commitDate": "1/14/12, 7:08 PM",
+      "commitName": "52a924401ffedeb1170401e760443e184692cbb1",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+public static boolean isJacksonStdImpl(Object impl) {\n+    return (impl !\u003d null) \u0026\u0026 isJacksonStdImpl(impl.getClass());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean isJacksonStdImpl(Object impl) {\n    return (impl !\u003d null) \u0026\u0026 isJacksonStdImpl(impl.getClass());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 552,
+      "functionName": "isJacksonStdImpl",
+      "functionAnnotation": "",
+      "functionDoc": "Method that can be called to determine if given Object is the default\nimplementation Jackson uses; as opposed to a custom serializer installed by\na module or calling application. Determination is done using\n{@link JacksonStdImpl} annotation on handler (serializer, deserializer etc)\nclass.\n"
+    }
+  }
+}

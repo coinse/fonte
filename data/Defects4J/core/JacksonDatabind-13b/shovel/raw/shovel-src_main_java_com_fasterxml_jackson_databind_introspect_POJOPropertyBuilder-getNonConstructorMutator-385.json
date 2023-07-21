@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "getNonConstructorMutator",
+  "functionId": "getNonConstructorMutator",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 385,
+  "functionEndLine": 391,
+  "numCommitsSeen": 49,
+  "timeTaken": 2118,
+  "changeHistory": [
+    "b009194c5f68fa4d773723113beeed3ae9308b9d"
+  ],
+  "changeHistoryShort": {
+    "b009194c5f68fa4d773723113beeed3ae9308b9d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b009194c5f68fa4d773723113beeed3ae9308b9d": {
+      "type": "Yintroduced",
+      "commitMessage": "Full fix for #318\n",
+      "commitDate": "10/18/13, 11:52 PM",
+      "commitName": "b009194c5f68fa4d773723113beeed3ae9308b9d",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public AnnotatedMember getNonConstructorMutator() {\n+    AnnotatedMember m \u003d getSetter();\n+    if (m \u003d\u003d null) {\n+        m \u003d getField();\n+    }\n+    return m;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic AnnotatedMember getNonConstructorMutator() {\n    AnnotatedMember m \u003d getSetter();\n    if (m \u003d\u003d null) {\n        m \u003d getField();\n    }\n    return m;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 347,
+      "functionName": "getNonConstructorMutator",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

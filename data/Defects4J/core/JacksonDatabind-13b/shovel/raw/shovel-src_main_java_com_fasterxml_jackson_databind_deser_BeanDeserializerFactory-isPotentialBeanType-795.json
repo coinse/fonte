@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanDeserializerFactory.java",
+  "functionName": "isPotentialBeanType",
+  "functionId": "isPotentialBeanType___type-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to skip processing for types that we know\ncan not be (i.e. are never consider to be) beans: \nthings like primitives, Arrays, Enums, and proxy types.\n\u003cp\u003e\nNote that usually we shouldn\u0027t really be getting these sort of\ntypes anyway; but better safe than sorry.\n",
+  "functionStartLine": 795,
+  "functionEndLine": 812,
+  "numCommitsSeen": 77,
+  "timeTaken": 4046,
+  "changeHistory": [
+    "d672b186bc549227afc210d481fa3dfde197b961",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "d672b186bc549227afc210d481fa3dfde197b961": "Yformatchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d672b186bc549227afc210d481fa3dfde197b961": {
+      "type": "Yformatchange",
+      "commitMessage": "Implemented #599, ability to skip duplicate module registrations\n",
+      "commitDate": "11/18/14, 10:36 PM",
+      "commitName": "d672b186bc549227afc210d481fa3dfde197b961",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/29/14, 6:20 PM",
+      "commitNameOld": "10f44221fa0e8ffbfbc39384581b190f5f0cc106",
+      "commitAuthorOld": "Cowtowncoder",
+      "daysBetweenCommits": 50.22,
+      "commitsBetweenForRepo": 104,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected boolean isPotentialBeanType(Class\u003c?\u003e type) {\n    String typeStr \u003d ClassUtil.canBeABeanType(type);\n    if (typeStr !\u003d null) {\n        throw new IllegalArgumentException(\"Can not deserialize Class \" + type.getName() + \" (of type \" + typeStr + \") as a Bean\");\n    }\n    if (ClassUtil.isProxyType(type)) {\n        throw new IllegalArgumentException(\"Can not deserialize Proxy class \" + type.getName() + \" as a Bean\");\n    }\n    typeStr \u003d ClassUtil.isLocalType(type, true);\n    if (typeStr !\u003d null) {\n        throw new IllegalArgumentException(\"Can not deserialize Class \" + type.getName() + \" (of type \" + typeStr + \") as a Bean\");\n    }\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 794,
+      "functionName": "isPotentialBeanType",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to skip processing for types that we know\ncan not be (i.e. are never consider to be) beans: \nthings like primitives, Arrays, Enums, and proxy types.\n\u003cp\u003e\nNote that usually we shouldn\u0027t really be getting these sort of\ntypes anyway; but better safe than sorry.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,14 @@\n+protected boolean isPotentialBeanType(Class\u003c?\u003e type) {\n+    String typeStr \u003d ClassUtil.canBeABeanType(type);\n+    if (typeStr !\u003d null) {\n+        throw new IllegalArgumentException(\"Can not deserialize Class \" + type.getName() + \" (of type \" + typeStr + \") as a Bean\");\n+    }\n+    if (ClassUtil.isProxyType(type)) {\n+        throw new IllegalArgumentException(\"Can not deserialize Proxy class \" + type.getName() + \" as a Bean\");\n+    }\n+    typeStr \u003d ClassUtil.isLocalType(type, true);\n+    if (typeStr !\u003d null) {\n+        throw new IllegalArgumentException(\"Can not deserialize Class \" + type.getName() + \" (of type \" + typeStr + \") as a Bean\");\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected boolean isPotentialBeanType(Class\u003c?\u003e type) {\n    String typeStr \u003d ClassUtil.canBeABeanType(type);\n    if (typeStr !\u003d null) {\n        throw new IllegalArgumentException(\"Can not deserialize Class \" + type.getName() + \" (of type \" + typeStr + \") as a Bean\");\n    }\n    if (ClassUtil.isProxyType(type)) {\n        throw new IllegalArgumentException(\"Can not deserialize Proxy class \" + type.getName() + \" as a Bean\");\n    }\n    typeStr \u003d ClassUtil.isLocalType(type, true);\n    if (typeStr !\u003d null) {\n        throw new IllegalArgumentException(\"Can not deserialize Class \" + type.getName() + \" (of type \" + typeStr + \") as a Bean\");\n    }\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 1380,
+      "functionName": "isPotentialBeanType",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to skip processing for types that we know\ncan not be (i.e. are never consider to be) beans: \nthings like primitives, Arrays, Enums, and proxy types.\n\u003cp\u003e\nNote that usually we shouldn\u0027t really be getting these sort of\ntypes anyway; but better safe than sorry.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "OptionalHandlerFactory.java",
+  "functionName": "doesImplement",
+  "functionId": "doesImplement___actualType-Class__?____classNameToImplement-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ext/OptionalHandlerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 105,
+  "functionEndLine": 117,
+  "numCommitsSeen": 14,
+  "timeTaken": 432,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+private boolean doesImplement(Class\u003c?\u003e actualType, String classNameToImplement) {\n+    for (Class\u003c?\u003e type \u003d actualType; type !\u003d null; type \u003d type.getSuperclass()) {\n+        if (type.getName().equals(classNameToImplement)) {\n+            return true;\n+        }\n+        if (hasInterface(type, classNameToImplement)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean doesImplement(Class\u003c?\u003e actualType, String classNameToImplement) {\n    for (Class\u003c?\u003e type \u003d actualType; type !\u003d null; type \u003d type.getSuperclass()) {\n        if (type.getName().equals(classNameToImplement)) {\n            return true;\n        }\n        if (hasInterface(type, classNameToImplement)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ext/OptionalHandlerFactory.java",
+      "functionStartLine": 153,
+      "functionName": "doesImplement",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

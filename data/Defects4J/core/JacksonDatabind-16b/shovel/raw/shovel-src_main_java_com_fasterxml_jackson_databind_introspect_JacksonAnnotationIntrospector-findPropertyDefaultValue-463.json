@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "findPropertyDefaultValue",
+  "functionId": "findPropertyDefaultValue___ann-Annotated",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 463,
+  "functionEndLine": 471,
+  "numCommitsSeen": 73,
+  "timeTaken": 914,
+  "changeHistory": [
+    "2b917fcf24354272e93305afe6ecc66d4b12ea1a",
+    "f0a3a8614e7e666ddba8efc3106a3a3d3f8fabe7"
+  ],
+  "changeHistoryShort": {
+    "2b917fcf24354272e93305afe6ecc66d4b12ea1a": "Ybodychange",
+    "f0a3a8614e7e666ddba8efc3106a3a3d3f8fabe7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2b917fcf24354272e93305afe6ecc66d4b12ea1a": {
+      "type": "Ybodychange",
+      "commitMessage": "Implement #596\n",
+      "commitDate": "12/23/14, 9:45 PM",
+      "commitName": "2b917fcf24354272e93305afe6ecc66d4b12ea1a",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/14, 5:49 PM",
+      "commitNameOld": "f0a3a8614e7e666ddba8efc3106a3a3d3f8fabe7",
+      "commitAuthorOld": "Cowtowncoder",
+      "daysBetweenCommits": 0.16,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String findPropertyDefaultValue(Annotated ann) {\n    JsonProperty prop \u003d _findAnnotation(ann, JsonProperty.class);\n    if (prop \u003d\u003d null) {\n        return null;\n    }\n    String str \u003d prop.defaultValue();\n    return str.isEmpty() ? null : str;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 463,
+      "functionName": "findPropertyDefaultValue",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,9 @@\n @Override\n public String findPropertyDefaultValue(Annotated ann) {\n     JsonProperty prop \u003d _findAnnotation(ann, JsonProperty.class);\n-    return (prop \u003d\u003d null) ? null : prop.defaultValue();\n+    if (prop \u003d\u003d null) {\n+        return null;\n+    }\n+    String str \u003d prop.defaultValue();\n+    return str.isEmpty() ? null : str;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f0a3a8614e7e666ddba8efc3106a3a3d3f8fabe7": {
+      "type": "Yintroduced",
+      "commitMessage": "Start work on #596 to get in 2.5.0\n",
+      "commitDate": "12/23/14, 5:49 PM",
+      "commitName": "f0a3a8614e7e666ddba8efc3106a3a3d3f8fabe7",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public String findPropertyDefaultValue(Annotated ann) {\n+    JsonProperty prop \u003d _findAnnotation(ann, JsonProperty.class);\n+    return (prop \u003d\u003d null) ? null : prop.defaultValue();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String findPropertyDefaultValue(Annotated ann) {\n    JsonProperty prop \u003d _findAnnotation(ann, JsonProperty.class);\n    return (prop \u003d\u003d null) ? null : prop.defaultValue();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 463,
+      "functionName": "findPropertyDefaultValue",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

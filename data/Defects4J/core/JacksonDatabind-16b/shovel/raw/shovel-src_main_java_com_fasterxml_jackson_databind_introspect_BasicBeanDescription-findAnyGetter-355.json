@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicBeanDescription.java",
+  "functionName": "findAnyGetter",
+  "functionId": "findAnyGetter",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n",
+  "functionStartLine": 355,
+  "functionEndLine": 367,
+  "numCommitsSeen": 31,
+  "timeTaken": 1110,
+  "changeHistory": [
+    "886ca96f608a1a3e9a72b1cb2d86a2b45c5eae40",
+    "20c80806d3542abc0d159ec7a4a1a8351bd5d063",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "886ca96f608a1a3e9a72b1cb2d86a2b45c5eae40": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "20c80806d3542abc0d159ec7a4a1a8351bd5d063": "Ybodychange",
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "886ca96f608a1a3e9a72b1cb2d86a2b45c5eae40": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "...\n",
+      "commitDate": "1/31/12, 8:42 PM",
+      "commitName": "886ca96f608a1a3e9a72b1cb2d86a2b45c5eae40",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "...\n",
+          "commitDate": "1/31/12, 8:42 PM",
+          "commitName": "886ca96f608a1a3e9a72b1cb2d86a2b45c5eae40",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/12, 12:33 PM",
+          "commitNameOld": "1dcce980954c9acef708aa9a0a128f04564bdd25",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 5.34,
+          "commitsBetweenForRepo": 47,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic AnnotatedMember findAnyGetter() throws IllegalArgumentException {\n    if (_anyGetter !\u003d null) {\n        Class\u003c?\u003e type \u003d _anyGetter.getRawType();\n        if (!Map.class.isAssignableFrom(type)) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetter.getName() + \"(): return type is not instance of java.util.Map\");\n        }\n    }\n    return _anyGetter;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+          "functionStartLine": 399,
+          "functionName": "findAnyGetter",
+          "functionAnnotation": "@Override",
+          "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n",
+          "diff": "@@ -1,10 +1,10 @@\n @Override\n-public AnnotatedMethod findAnyGetter() throws IllegalArgumentException {\n-    if (_anyGetterMethod !\u003d null) {\n-        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawReturnType();\n+public AnnotatedMember findAnyGetter() throws IllegalArgumentException {\n+    if (_anyGetter !\u003d null) {\n+        Class\u003c?\u003e type \u003d _anyGetter.getRawType();\n         if (!Map.class.isAssignableFrom(type)) {\n-            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetterMethod.getName() + \"(): return type is not instance of java.util.Map\");\n+            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetter.getName() + \"(): return type is not instance of java.util.Map\");\n         }\n     }\n-    return _anyGetterMethod;\n+    return _anyGetter;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "AnnotatedMethod",
+            "newValue": "AnnotatedMember"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "...\n",
+          "commitDate": "1/31/12, 8:42 PM",
+          "commitName": "886ca96f608a1a3e9a72b1cb2d86a2b45c5eae40",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/26/12, 12:33 PM",
+          "commitNameOld": "1dcce980954c9acef708aa9a0a128f04564bdd25",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 5.34,
+          "commitsBetweenForRepo": 47,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic AnnotatedMember findAnyGetter() throws IllegalArgumentException {\n    if (_anyGetter !\u003d null) {\n        Class\u003c?\u003e type \u003d _anyGetter.getRawType();\n        if (!Map.class.isAssignableFrom(type)) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetter.getName() + \"(): return type is not instance of java.util.Map\");\n        }\n    }\n    return _anyGetter;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+          "functionStartLine": 399,
+          "functionName": "findAnyGetter",
+          "functionAnnotation": "@Override",
+          "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n",
+          "diff": "@@ -1,10 +1,10 @@\n @Override\n-public AnnotatedMethod findAnyGetter() throws IllegalArgumentException {\n-    if (_anyGetterMethod !\u003d null) {\n-        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawReturnType();\n+public AnnotatedMember findAnyGetter() throws IllegalArgumentException {\n+    if (_anyGetter !\u003d null) {\n+        Class\u003c?\u003e type \u003d _anyGetter.getRawType();\n         if (!Map.class.isAssignableFrom(type)) {\n-            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetterMethod.getName() + \"(): return type is not instance of java.util.Map\");\n+            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetter.getName() + \"(): return type is not instance of java.util.Map\");\n         }\n     }\n-    return _anyGetterMethod;\n+    return _anyGetter;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "20c80806d3542abc0d159ec7a4a1a8351bd5d063": {
+      "type": "Ybodychange",
+      "commitMessage": "trying to unify handling\n",
+      "commitDate": "1/26/12, 11:35 AM",
+      "commitName": "20c80806d3542abc0d159ec7a4a1a8351bd5d063",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "1/22/12, 10:57 PM",
+      "commitNameOld": "28bde0726d83be7f70ca4586abee6f536bfc8885",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 3.53,
+      "commitsBetweenForRepo": 31,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedMethod findAnyGetter() throws IllegalArgumentException {\n    if (_anyGetterMethod !\u003d null) {\n        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawReturnType();\n        if (!Map.class.isAssignableFrom(type)) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetterMethod.getName() + \"(): return type is not instance of java.util.Map\");\n        }\n    }\n    return _anyGetterMethod;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 399,
+      "functionName": "findAnyGetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n",
+      "diff": "@@ -1,10 +1,10 @@\n @Override\n public AnnotatedMethod findAnyGetter() throws IllegalArgumentException {\n     if (_anyGetterMethod !\u003d null) {\n-        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawType();\n+        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawReturnType();\n         if (!Map.class.isAssignableFrom(type)) {\n             throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetterMethod.getName() + \"(): return type is not instance of java.util.Map\");\n         }\n     }\n     return _anyGetterMethod;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210": {
+      "type": "Ydocchange",
+      "commitMessage": "Clean up, to get rid of deprecated stuff\n",
+      "commitDate": "12/24/11, 10:07 PM",
+      "commitName": "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 8:25 PM",
+      "commitNameOld": "2f823444ac34d14ab976b15e70ac82f2168ac7f8",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.07,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic AnnotatedMethod findAnyGetter() throws IllegalArgumentException {\n    if (_anyGetterMethod !\u003d null) {\n        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawType();\n        if (!Map.class.isAssignableFrom(type)) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetterMethod.getName() + \"(): return type is not instance of java.util.Map\");\n        }\n    }\n    return _anyGetterMethod;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 466,
+      "functionName": "findAnyGetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Method used to locate the method of introspected class that\nimplements {@link org.codehaus.jackson.annotate.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n\n@since 1.6\n",
+        "newValue": "Method used to locate the method of introspected class that\nimplements {@link com.fasterxml.jackson.annotation.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+public AnnotatedMethod findAnyGetter() throws IllegalArgumentException {\n+    if (_anyGetterMethod !\u003d null) {\n+        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawType();\n+        if (!Map.class.isAssignableFrom(type)) {\n+            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetterMethod.getName() + \"(): return type is not instance of java.util.Map\");\n+        }\n+    }\n+    return _anyGetterMethod;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic AnnotatedMethod findAnyGetter() throws IllegalArgumentException {\n    if (_anyGetterMethod !\u003d null) {\n        Class\u003c?\u003e type \u003d _anyGetterMethod.getRawType();\n        if (!Map.class.isAssignableFrom(type)) {\n            throw new IllegalArgumentException(\"Invalid \u0027any-getter\u0027 annotation on method \" + _anyGetterMethod.getName() + \"(): return type is not instance of java.util.Map\");\n        }\n    }\n    return _anyGetterMethod;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 474,
+      "functionName": "findAnyGetter",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method used to locate the method of introspected class that\nimplements {@link org.codehaus.jackson.annotate.JsonAnyGetter}.\nIf no such method exists null is returned.\nIf more than one are found, an exception is thrown.\n\n@since 1.6\n"
+    }
+  }
+}

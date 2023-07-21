@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassUtil.java",
+  "functionName": "isLocalType",
+  "functionId": "isLocalType___type-Class__?____allowNonStatic-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 81,
+  "functionEndLine": 108,
+  "numCommitsSeen": 12,
+  "timeTaken": 692,
+  "changeHistory": [
+    "8ac635b4cdc251a48ad24c4ef6a3398ed4902f18",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "8ac635b4cdc251a48ad24c4ef6a3398ed4902f18": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8ac635b4cdc251a48ad24c4ef6a3398ed4902f18": {
+      "type": "Ydocchange",
+      "commitMessage": "...\n",
+      "commitDate": "12/23/11, 9:05 AM",
+      "commitName": "8ac635b4cdc251a48ad24c4ef6a3398ed4902f18",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 12:31 AM",
+      "commitNameOld": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.36,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String isLocalType(Class\u003c?\u003e type, boolean allowNonStatic) {\n    try {\n        if (type.getEnclosingMethod() !\u003d null) {\n            return \"local/anonymous\";\n        }\n        if (!allowNonStatic) {\n            if (type.getEnclosingClass() !\u003d null) {\n                if (!Modifier.isStatic(type.getModifiers())) {\n                    return \"non-static member class\";\n                }\n            }\n        }\n    } catch (SecurityException e) {\n    } catch (NullPointerException e) {\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 84,
+      "functionName": "isLocalType",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\n@since 1.9\n",
+        "newValue": ""
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,17 @@\n+public static String isLocalType(Class\u003c?\u003e type, boolean allowNonStatic) {\n+    try {\n+        if (type.getEnclosingMethod() !\u003d null) {\n+            return \"local/anonymous\";\n+        }\n+        if (!allowNonStatic) {\n+            if (type.getEnclosingClass() !\u003d null) {\n+                if (!Modifier.isStatic(type.getModifiers())) {\n+                    return \"non-static member class\";\n+                }\n+            }\n+        }\n+    } catch (SecurityException e) {\n+    } catch (NullPointerException e) {\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String isLocalType(Class\u003c?\u003e type, boolean allowNonStatic) {\n    try {\n        if (type.getEnclosingMethod() !\u003d null) {\n            return \"local/anonymous\";\n        }\n        if (!allowNonStatic) {\n            if (type.getEnclosingClass() !\u003d null) {\n                if (!Modifier.isStatic(type.getModifiers())) {\n                    return \"non-static member class\";\n                }\n            }\n        }\n    } catch (SecurityException e) {\n    } catch (NullPointerException e) {\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 95,
+      "functionName": "isLocalType",
+      "functionAnnotation": "",
+      "functionDoc": "\n@since 1.9\n"
+    }
+  }
+}

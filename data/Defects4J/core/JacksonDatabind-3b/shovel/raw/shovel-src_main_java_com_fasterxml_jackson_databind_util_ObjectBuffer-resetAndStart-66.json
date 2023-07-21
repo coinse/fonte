@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-3b",
+  "repositoryPath": "/tmp/JacksonDatabind-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectBuffer.java",
+  "functionName": "resetAndStart",
+  "functionId": "resetAndStart",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ObjectBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to start buffering process. Will ensure that the buffer\nis empty, and then return an object array to start chunking content on\n",
+  "functionStartLine": 66,
+  "functionEndLine": 73,
+  "numCommitsSeen": 3,
+  "timeTaken": 262,
+  "changeHistory": [
+    "328215a912721ecf054f53544ef27047984fc574",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "328215a912721ecf054f53544ef27047984fc574": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "328215a912721ecf054f53544ef27047984fc574": {
+      "type": "Ybodychange",
+      "commitMessage": "Remove a duplicate LinkedNode class\n",
+      "commitDate": "4/26/14, 1:55 PM",
+      "commitName": "328215a912721ecf054f53544ef27047984fc574",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/20/12, 8:16 PM",
+      "commitNameOld": "b2a9ca7bb27c21b12ccd8d17314e83275381027c",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 826.69,
+      "commitsBetweenForRepo": 1206,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Object[] resetAndStart() {\n    _reset();\n    if (_freeBuffer \u003d\u003d null) {\n        return new Object[12];\n    }\n    return _freeBuffer;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ObjectBuffer.java",
+      "functionStartLine": 66,
+      "functionName": "resetAndStart",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to start buffering process. Will ensure that the buffer\nis empty, and then return an object array to start chunking content on\n",
+      "diff": "@@ -1,7 +1,7 @@\n public Object[] resetAndStart() {\n     _reset();\n     if (_freeBuffer \u003d\u003d null) {\n-        return new Object[INITIAL_CHUNK_SIZE];\n+        return new Object[12];\n     }\n     return _freeBuffer;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+public Object[] resetAndStart() {\n+    _reset();\n+    if (_freeBuffer \u003d\u003d null) {\n+        return new Object[INITIAL_CHUNK_SIZE];\n+    }\n+    return _freeBuffer;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Object[] resetAndStart() {\n    _reset();\n    if (_freeBuffer \u003d\u003d null) {\n        return new Object[INITIAL_CHUNK_SIZE];\n    }\n    return _freeBuffer;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ObjectBuffer.java",
+      "functionStartLine": 71,
+      "functionName": "resetAndStart",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to start buffering process. Will ensure that the buffer\nis empty, and then return an object array to start chunking content on\n"
+    }
+  }
+}

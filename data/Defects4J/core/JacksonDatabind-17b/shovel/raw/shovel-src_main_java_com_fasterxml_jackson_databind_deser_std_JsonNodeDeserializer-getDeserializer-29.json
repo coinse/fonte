@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonNodeDeserializer.java",
+  "functionName": "getDeserializer",
+  "functionId": "getDeserializer___nodeClass-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Factory method for accessing deserializer for specific node type\n",
+  "functionStartLine": 29,
+  "functionEndLine": 39,
+  "numCommitsSeen": 18,
+  "timeTaken": 641,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+public static JsonDeserializer\u003c? extends JsonNode\u003e getDeserializer(Class\u003c?\u003e nodeClass) {\n+    if (nodeClass \u003d\u003d ObjectNode.class) {\n+        return ObjectDeserializer.getInstance();\n+    }\n+    if (nodeClass \u003d\u003d ArrayNode.class) {\n+        return ArrayDeserializer.getInstance();\n+    }\n+    return instance;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static JsonDeserializer\u003c? extends JsonNode\u003e getDeserializer(Class\u003c?\u003e nodeClass) {\n    if (nodeClass \u003d\u003d ObjectNode.class) {\n        return ObjectDeserializer.getInstance();\n    }\n    if (nodeClass \u003d\u003d ArrayNode.class) {\n        return ArrayDeserializer.getInstance();\n    }\n    return instance;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java",
+      "functionStartLine": 30,
+      "functionName": "getDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Factory method for accessing deserializer for specific node type\n"
+    }
+  }
+}

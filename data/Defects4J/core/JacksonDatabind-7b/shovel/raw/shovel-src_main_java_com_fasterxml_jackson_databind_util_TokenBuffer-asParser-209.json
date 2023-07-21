@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokenBuffer.java",
+  "functionName": "asParser",
+  "functionId": "asParser___codec-ObjectCodec",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method used to create a {@link JsonParser} that can read contents\nstored in this buffer.\n\u003cp\u003e\nNote: instances are not synchronized, that is, they are not thread-safe\nif there are concurrent appends to the underlying buffer.\n\n@param codec Object codec to use for stream-based object\n  conversion through parser/generator interfaces. If null,\n  such methods can not be used.\n@return Parser that can be used for reading contents stored in this buffer\n",
+  "functionStartLine": 209,
+  "functionEndLine": 212,
+  "numCommitsSeen": 34,
+  "timeTaken": 3296,
+  "changeHistory": [
+    "bc38763d9ce4058b8354fbe8e6476d3affa74946",
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17"
+  ],
+  "changeHistoryShort": {
+    "bc38763d9ce4058b8354fbe8e6476d3affa74946": "Ybodychange",
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc38763d9ce4058b8354fbe8e6476d3affa74946": {
+      "type": "Ybodychange",
+      "commitMessage": "Implemented #277\n",
+      "commitDate": "8/10/13, 9:37 AM",
+      "commitName": "bc38763d9ce4058b8354fbe8e6476d3affa74946",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "8/7/13, 7:21 PM",
+      "commitNameOld": "f6315d8e540ec5665dfa0cd2ba52920ff69c8ef3",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.59,
+      "commitsBetweenForRepo": 6,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JsonParser asParser(ObjectCodec codec) {\n    return new Parser(_first, codec, _hasNativeTypeIds, _hasNativeObjectIds);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+      "functionStartLine": 209,
+      "functionName": "asParser",
+      "functionAnnotation": "",
+      "functionDoc": "Method used to create a {@link JsonParser} that can read contents\nstored in this buffer.\n\u003cp\u003e\nNote: instances are not synchronized, that is, they are not thread-safe\nif there are concurrent appends to the underlying buffer.\n\n@param codec Object codec to use for stream-based object\n  conversion through parser/generator interfaces. If null,\n  such methods can not be used.\n@return Parser that can be used for reading contents stored in this buffer\n",
+      "diff": "@@ -1,3 +1,3 @@\n public JsonParser asParser(ObjectCodec codec) {\n-    return new Parser(_first, codec);\n+    return new Parser(_first, codec, _hasNativeTypeIds, _hasNativeObjectIds);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": {
+      "type": "Yintroduced",
+      "commitMessage": "Yet more clean up\n",
+      "commitDate": "12/23/11, 8:38 AM",
+      "commitName": "a342c0eef8c4abc3eba5568c52af73e59e1b6c17",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+public JsonParser asParser(ObjectCodec codec) {\n+    return new Parser(_first, codec);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JsonParser asParser(ObjectCodec codec) {\n    return new Parser(_first, codec);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+      "functionStartLine": 137,
+      "functionName": "asParser",
+      "functionAnnotation": "",
+      "functionDoc": "Method used to create a {@link JsonParser} that can read contents\nstored in this buffer.\n\u003cp\u003e\nNote: instances are not synchronized, that is, they are not thread-safe\nif there are concurrent appends to the underlying buffer.\n\n@param codec Object codec to use for stream-based object\n  conversion through parser/generator interfaces. If null,\n  such methods can not be used.\n@return Parser that can be used for reading contents stored in this buffer\n"
+    }
+  }
+}

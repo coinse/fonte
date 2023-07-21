@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokenBuffer.java",
+  "functionName": "append",
+  "functionId": "$append___index-int__tokenType-JsonToken__value-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1636,
+  "functionEndLine": 1645,
+  "numCommitsSeen": 34,
+  "timeTaken": 3186,
+  "changeHistory": [
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17"
+  ],
+  "changeHistoryShort": {
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a342c0eef8c4abc3eba5568c52af73e59e1b6c17": {
+      "type": "Yintroduced",
+      "commitMessage": "Yet more clean up\n",
+      "commitDate": "12/23/11, 8:38 AM",
+      "commitName": "a342c0eef8c4abc3eba5568c52af73e59e1b6c17",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+public Segment append(int index, JsonToken tokenType, Object value) {\n+    if (index \u003c TOKENS_PER_SEGMENT) {\n+        set(index, tokenType, value);\n+        return null;\n+    }\n+    _next \u003d new Segment();\n+    _next.set(0, tokenType, value);\n+    return _next;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Segment append(int index, JsonToken tokenType, Object value) {\n    if (index \u003c TOKENS_PER_SEGMENT) {\n        set(index, tokenType, value);\n        return null;\n    }\n    _next \u003d new Segment();\n    _next.set(0, tokenType, value);\n    return _next;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+      "functionStartLine": 1186,
+      "functionName": "append",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SerializerProvider.java",
+  "functionName": "_createAndCacheUntypedSerializer",
+  "functionId": "_createAndCacheUntypedSerializer___type-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 847,
+  "functionEndLine": 864,
+  "numCommitsSeen": 80,
+  "timeTaken": 2137,
+  "changeHistory": [
+    "ab511e5576579139951022c2085662904ad85b07",
+    "6679caeac9198802d271f8659017bb63eebd615f",
+    "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "ab511e5576579139951022c2085662904ad85b07": "Ymultichange(Yparameterchange,Ybodychange)",
+    "6679caeac9198802d271f8659017bb63eebd615f": "Ymovefromfile",
+    "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ab511e5576579139951022c2085662904ad85b07": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Completed SerializerFactory clean up; factories now should not get or expect BeanProperty, as that is only applicable for contextualSerializers\n",
+      "commitDate": "9/30/12, 12:56 PM",
+      "commitName": "ab511e5576579139951022c2085662904ad85b07",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Completed SerializerFactory clean up; factories now should not get or expect BeanProperty, as that is only applicable for contextualSerializers\n",
+          "commitDate": "9/30/12, 12:56 PM",
+          "commitName": "ab511e5576579139951022c2085662904ad85b07",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "8/28/12, 10:38 AM",
+          "commitNameOld": "91c7b7450f396a0130e74e60f455d4fc1bacb7cd",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 33.1,
+          "commitsBetweenForRepo": 57,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type) throws JsonMappingException {\n    JsonSerializer\u003cObject\u003e ser;\n    try {\n        ser \u003d _createUntypedSerializer(type);\n    } catch (IllegalArgumentException iae) {\n        throw new JsonMappingException(iae.getMessage(), null, iae);\n    }\n    if (ser !\u003d null) {\n        _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n    }\n    return ser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+          "functionStartLine": 906,
+          "functionName": "_createAndCacheUntypedSerializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,12 @@\n-protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type, BeanProperty property) throws JsonMappingException {\n+protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type) throws JsonMappingException {\n     JsonSerializer\u003cObject\u003e ser;\n     try {\n-        ser \u003d _createUntypedSerializer(type, property);\n+        ser \u003d _createUntypedSerializer(type);\n     } catch (IllegalArgumentException iae) {\n         throw new JsonMappingException(iae.getMessage(), null, iae);\n     }\n     if (ser !\u003d null) {\n         _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n     }\n     return ser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[type-JavaType, property-BeanProperty]",
+            "newValue": "[type-JavaType]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Completed SerializerFactory clean up; factories now should not get or expect BeanProperty, as that is only applicable for contextualSerializers\n",
+          "commitDate": "9/30/12, 12:56 PM",
+          "commitName": "ab511e5576579139951022c2085662904ad85b07",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "8/28/12, 10:38 AM",
+          "commitNameOld": "91c7b7450f396a0130e74e60f455d4fc1bacb7cd",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 33.1,
+          "commitsBetweenForRepo": 57,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type) throws JsonMappingException {\n    JsonSerializer\u003cObject\u003e ser;\n    try {\n        ser \u003d _createUntypedSerializer(type);\n    } catch (IllegalArgumentException iae) {\n        throw new JsonMappingException(iae.getMessage(), null, iae);\n    }\n    if (ser !\u003d null) {\n        _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n    }\n    return ser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+          "functionStartLine": 906,
+          "functionName": "_createAndCacheUntypedSerializer",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,12 +1,12 @@\n-protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type, BeanProperty property) throws JsonMappingException {\n+protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type) throws JsonMappingException {\n     JsonSerializer\u003cObject\u003e ser;\n     try {\n-        ser \u003d _createUntypedSerializer(type, property);\n+        ser \u003d _createUntypedSerializer(type);\n     } catch (IllegalArgumentException iae) {\n         throw new JsonMappingException(iae.getMessage(), null, iae);\n     }\n     if (ser !\u003d null) {\n         _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n     }\n     return ser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6679caeac9198802d271f8659017bb63eebd615f": {
+      "type": "Ymovefromfile",
+      "commitMessage": "Further simplification; eliminated StdSerializerProvider\n",
+      "commitDate": "2/1/12, 5:32 PM",
+      "commitName": "6679caeac9198802d271f8659017bb63eebd615f",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "2/1/12, 3:26 PM",
+      "commitNameOld": "a57eca7f47d03b26320348520e926dde0da68509",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.09,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type, BeanProperty property) throws JsonMappingException {\n    JsonSerializer\u003cObject\u003e ser;\n    try {\n        ser \u003d _createUntypedSerializer(type, property);\n    } catch (IllegalArgumentException iae) {\n        throw new JsonMappingException(iae.getMessage(), null, iae);\n    }\n    if (ser !\u003d null) {\n        _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n    }\n    return ser;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+      "functionStartLine": 1142,
+      "functionName": "_createAndCacheUntypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/ser/StdSerializerProvider.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+        "oldMethodName": "_createAndCacheUntypedSerializer",
+        "newMethodName": "_createAndCacheUntypedSerializer"
+      }
+    },
+    "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57": {
+      "type": "Ydocchange",
+      "commitMessage": "Starting to add support for customizable \u0027is-empty\u0027 handling\n",
+      "commitDate": "1/12/12, 4:09 PM",
+      "commitName": "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "12/24/11, 10:07 PM",
+      "commitNameOld": "c3fbb3ad1e0b83ccc56a876fe9c7a2adfd4dd210",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 18.75,
+      "commitsBetweenForRepo": 26,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type, BeanProperty property) throws JsonMappingException {\n    JsonSerializer\u003cObject\u003e ser;\n    try {\n        ser \u003d _createUntypedSerializer(type, property);\n    } catch (IllegalArgumentException iae) {\n        throw new JsonMappingException(iae.getMessage(), null, iae);\n    }\n    if (ser !\u003d null) {\n        _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n    }\n    return ser;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/StdSerializerProvider.java",
+      "functionStartLine": 740,
+      "functionName": "_createAndCacheUntypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\n@since 1.5\n]\n",
+        "newValue": ""
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type, BeanProperty property) throws JsonMappingException {\n+    JsonSerializer\u003cObject\u003e ser;\n+    try {\n+        ser \u003d _createUntypedSerializer(type, property);\n+    } catch (IllegalArgumentException iae) {\n+        throw new JsonMappingException(iae.getMessage(), null, iae);\n+    }\n+    if (ser !\u003d null) {\n+        _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n+    }\n+    return ser;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonSerializer\u003cObject\u003e _createAndCacheUntypedSerializer(JavaType type, BeanProperty property) throws JsonMappingException {\n    JsonSerializer\u003cObject\u003e ser;\n    try {\n        ser \u003d _createUntypedSerializer(type, property);\n    } catch (IllegalArgumentException iae) {\n        throw new JsonMappingException(iae.getMessage(), null, iae);\n    }\n    if (ser !\u003d null) {\n        _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);\n    }\n    return ser;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/StdSerializerProvider.java",
+      "functionStartLine": 753,
+      "functionName": "_createAndCacheUntypedSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "\n@since 1.5\n]\n"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicClassIntrospector.java",
+  "functionName": "forSerialization",
+  "functionId": "forSerialization___cfg-SerializationConfig__type-JavaType__r-MixInResolver",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicClassIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 62,
+  "functionEndLine": 72,
+  "numCommitsSeen": 16,
+  "timeTaken": 461,
+  "changeHistory": [
+    "2fd4ffd9963545ce735a58957a84afb90809561e",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "2fd4ffd9963545ce735a58957a84afb90809561e": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2fd4ffd9963545ce735a58957a84afb90809561e": {
+      "type": "Ybodychange",
+      "commitMessage": "Implement Builder-based deserializer; fix a few ObjectId issues\n",
+      "commitDate": "2/17/12, 10:40 PM",
+      "commitName": "2fd4ffd9963545ce735a58957a84afb90809561e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/3/12, 9:50 PM",
+      "commitNameOld": "eafafffda5d43e4ae2b2d6eb3a06c89575224b94",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 14.03,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic BasicBeanDescription forSerialization(SerializationConfig cfg, JavaType type, MixInResolver r) {\n    BasicBeanDescription desc \u003d _findCachedDesc(type);\n    if (desc \u003d\u003d null) {\n        desc \u003d BasicBeanDescription.forSerialization(collectProperties(cfg, type, r, true, \"set\"));\n    }\n    return desc;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicClassIntrospector.java",
+      "functionStartLine": 59,
+      "functionName": "forSerialization",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,8 @@\n @Override\n public BasicBeanDescription forSerialization(SerializationConfig cfg, JavaType type, MixInResolver r) {\n     BasicBeanDescription desc \u003d _findCachedDesc(type);\n     if (desc \u003d\u003d null) {\n-        desc \u003d BasicBeanDescription.forSerialization(collectProperties(cfg, type, r, true));\n+        desc \u003d BasicBeanDescription.forSerialization(collectProperties(cfg, type, r, true, \"set\"));\n     }\n     return desc;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public BasicBeanDescription forSerialization(SerializationConfig cfg, JavaType type, MixInResolver r) {\n+    BasicBeanDescription desc \u003d _findCachedDesc(type);\n+    if (desc \u003d\u003d null) {\n+        desc \u003d BasicBeanDescription.forSerialization(collectProperties(cfg, type, r, true));\n+    }\n+    return desc;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic BasicBeanDescription forSerialization(SerializationConfig cfg, JavaType type, MixInResolver r) {\n    BasicBeanDescription desc \u003d _findCachedDesc(type);\n    if (desc \u003d\u003d null) {\n        desc \u003d BasicBeanDescription.forSerialization(collectProperties(cfg, type, r, true));\n    }\n    return desc;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicClassIntrospector.java",
+      "functionStartLine": 91,
+      "functionName": "forSerialization",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

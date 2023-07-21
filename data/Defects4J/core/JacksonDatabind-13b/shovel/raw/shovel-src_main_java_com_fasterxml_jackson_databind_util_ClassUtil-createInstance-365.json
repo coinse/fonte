@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassUtil.java",
+  "functionName": "createInstance",
+  "functionId": "createInstance___cls-Class__T____canFixAccess-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that can be called to try to create an instantiate of\nspecified type. Instantiation is done using default no-argument\nconstructor.\n\n@param canFixAccess Whether it is possible to try to change access\n  rights of the default constructor (in case it is not publicly\n  accessible) or not.\n@throws IllegalArgumentException If instantiation fails for any reason;\n   except for cases where constructor throws an unchecked exception\n   (which will be passed as is)\n",
+  "functionStartLine": 365,
+  "functionEndLine": 378,
+  "numCommitsSeen": 12,
+  "timeTaken": 726,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+public static \u003cT\u003e T createInstance(Class\u003cT\u003e cls, boolean canFixAccess) throws IllegalArgumentException {\n+    Constructor\u003cT\u003e ctor \u003d findConstructor(cls, canFixAccess);\n+    if (ctor \u003d\u003d null) {\n+        throw new IllegalArgumentException(\"Class \" + cls.getName() + \" has no default (no arg) constructor\");\n+    }\n+    try {\n+        return ctor.newInstance();\n+    } catch (Exception e) {\n+        ClassUtil.unwrapAndThrowAsIAE(e, \"Failed to instantiate class \" + cls.getName() + \", problem: \" + e.getMessage());\n+        return null;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static \u003cT\u003e T createInstance(Class\u003cT\u003e cls, boolean canFixAccess) throws IllegalArgumentException {\n    Constructor\u003cT\u003e ctor \u003d findConstructor(cls, canFixAccess);\n    if (ctor \u003d\u003d null) {\n        throw new IllegalArgumentException(\"Class \" + cls.getName() + \" has no default (no arg) constructor\");\n    }\n    try {\n        return ctor.newInstance();\n    } catch (Exception e) {\n        ClassUtil.unwrapAndThrowAsIAE(e, \"Failed to instantiate class \" + cls.getName() + \", problem: \" + e.getMessage());\n        return null;\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+      "functionStartLine": 339,
+      "functionName": "createInstance",
+      "functionAnnotation": "",
+      "functionDoc": "Method that can be called to try to create an instantiate of\nspecified type. Instantiation is done using default no-argument\nconstructor.\n\n@param canFixAccess Whether it is possible to try to change access\n  rights of the default constructor (in case it is not publicly\n  accessible) or not.\n@throws IllegalArgumentException If instantiation fails for any reason;\n   except for cases where constructor throws an unchecked exception\n   (which will be passed as is)\n"
+    }
+  }
+}

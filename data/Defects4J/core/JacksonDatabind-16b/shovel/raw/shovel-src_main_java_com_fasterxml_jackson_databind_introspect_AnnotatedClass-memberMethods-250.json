@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "memberMethods",
+  "functionId": "memberMethods",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 250,
+  "functionEndLine": 256,
+  "numCommitsSeen": 23,
+  "timeTaken": 1391,
+  "changeHistory": [
+    "920bb4e447b7ff1419c926277ebac4c9406de0f5",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "920bb4e447b7ff1419c926277ebac4c9406de0f5": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "920bb4e447b7ff1419c926277ebac4c9406de0f5": {
+      "type": "Ybodychange",
+      "commitMessage": "Completed refactoring of AnnotatedClass, now fully lazily initialized\n",
+      "commitDate": "1/22/12, 10:00 PM",
+      "commitName": "920bb4e447b7ff1419c926277ebac4c9406de0f5",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/22/12, 9:49 PM",
+      "commitNameOld": "cad988161f95e549ba352037223574a90a5a255a",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Iterable\u003cAnnotatedMethod\u003e memberMethods() {\n    if (_memberMethods \u003d\u003d null) {\n        resolveMemberMethods();\n    }\n    return _memberMethods;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 240,
+      "functionName": "memberMethods",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,6 @@\n public Iterable\u003cAnnotatedMethod\u003e memberMethods() {\n+    if (_memberMethods \u003d\u003d null) {\n+        resolveMemberMethods();\n+    }\n     return _memberMethods;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+public Iterable\u003cAnnotatedMethod\u003e memberMethods() {\n+    return _memberMethods;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Iterable\u003cAnnotatedMethod\u003e memberMethods() {\n    return _memberMethods;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 222,
+      "functionName": "memberMethods",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NumberSerializers.java",
+  "functionName": "addAll",
+  "functionId": "addAll___allDeserializers-Map__String,JsonSerializer__?____",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 26,
+  "functionEndLine": 43,
+  "numCommitsSeen": 25,
+  "timeTaken": 685,
+  "changeHistory": [
+    "56ecb7e4840dab20b04df0bb60ee98c92bfe9b29",
+    "197c58d39c8c797a64b31a8ad5f5c4444fa0e2e2"
+  ],
+  "changeHistoryShort": {
+    "56ecb7e4840dab20b04df0bb60ee98c92bfe9b29": "Ybodychange",
+    "197c58d39c8c797a64b31a8ad5f5c4444fa0e2e2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "56ecb7e4840dab20b04df0bb60ee98c92bfe9b29": {
+      "type": "Ybodychange",
+      "commitMessage": "Improved support for shorts\n\n* Relies on the existance of JsonParser.NumberType.SHORT\n* JSONGenerator writeNumber(short v)",
+      "commitDate": "4/9/13, 12:14 PM",
+      "commitName": "56ecb7e4840dab20b04df0bb60ee98c92bfe9b29",
+      "commitAuthor": "Martin Steiger",
+      "commitDateOld": "1/5/13, 10:29 AM",
+      "commitNameOld": "8a8322b493fe67059d8a46718dde8185266c8c0c",
+      "commitAuthorOld": "Mark van Cuijk",
+      "daysBetweenCommits": 94.03,
+      "commitsBetweenForRepo": 121,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static void addAll(Map\u003cString, JsonSerializer\u003c?\u003e\u003e allDeserializers) {\n    final JsonSerializer\u003c?\u003e intS \u003d new IntegerSerializer();\n    allDeserializers.put(Integer.class.getName(), intS);\n    allDeserializers.put(Integer.TYPE.getName(), intS);\n    allDeserializers.put(Long.class.getName(), LongSerializer.instance);\n    allDeserializers.put(Long.TYPE.getName(), LongSerializer.instance);\n    allDeserializers.put(Byte.class.getName(), IntLikeSerializer.instance);\n    allDeserializers.put(Byte.TYPE.getName(), IntLikeSerializer.instance);\n    allDeserializers.put(Short.class.getName(), ShortSerializer.instance);\n    allDeserializers.put(Short.TYPE.getName(), ShortSerializer.instance);\n    allDeserializers.put(Float.class.getName(), FloatSerializer.instance);\n    allDeserializers.put(Float.TYPE.getName(), FloatSerializer.instance);\n    allDeserializers.put(Double.class.getName(), DoubleSerializer.instance);\n    allDeserializers.put(Double.TYPE.getName(), DoubleSerializer.instance);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java",
+      "functionStartLine": 23,
+      "functionName": "addAll",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,15 +1,15 @@\n public static void addAll(Map\u003cString, JsonSerializer\u003c?\u003e\u003e allDeserializers) {\n     final JsonSerializer\u003c?\u003e intS \u003d new IntegerSerializer();\n     allDeserializers.put(Integer.class.getName(), intS);\n     allDeserializers.put(Integer.TYPE.getName(), intS);\n     allDeserializers.put(Long.class.getName(), LongSerializer.instance);\n     allDeserializers.put(Long.TYPE.getName(), LongSerializer.instance);\n     allDeserializers.put(Byte.class.getName(), IntLikeSerializer.instance);\n     allDeserializers.put(Byte.TYPE.getName(), IntLikeSerializer.instance);\n-    allDeserializers.put(Short.class.getName(), IntLikeSerializer.instance);\n-    allDeserializers.put(Short.TYPE.getName(), IntLikeSerializer.instance);\n+    allDeserializers.put(Short.class.getName(), ShortSerializer.instance);\n+    allDeserializers.put(Short.TYPE.getName(), ShortSerializer.instance);\n     allDeserializers.put(Float.class.getName(), FloatSerializer.instance);\n     allDeserializers.put(Float.TYPE.getName(), FloatSerializer.instance);\n     allDeserializers.put(Double.class.getName(), DoubleSerializer.instance);\n     allDeserializers.put(Double.TYPE.getName(), DoubleSerializer.instance);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "197c58d39c8c797a64b31a8ad5f5c4444fa0e2e2": {
+      "type": "Yintroduced",
+      "commitMessage": "Serializer-side refactoring\n",
+      "commitDate": "1/21/12, 10:53 AM",
+      "commitName": "197c58d39c8c797a64b31a8ad5f5c4444fa0e2e2",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+public static void addAll(Map\u003cString, JsonSerializer\u003c?\u003e\u003e allDeserializers) {\n+    final JsonSerializer\u003c?\u003e intS \u003d new IntegerSerializer();\n+    allDeserializers.put(Integer.class.getName(), intS);\n+    allDeserializers.put(Integer.TYPE.getName(), intS);\n+    allDeserializers.put(Long.class.getName(), LongSerializer.instance);\n+    allDeserializers.put(Long.TYPE.getName(), LongSerializer.instance);\n+    allDeserializers.put(Byte.class.getName(), IntLikeSerializer.instance);\n+    allDeserializers.put(Byte.TYPE.getName(), IntLikeSerializer.instance);\n+    allDeserializers.put(Short.class.getName(), IntLikeSerializer.instance);\n+    allDeserializers.put(Short.TYPE.getName(), IntLikeSerializer.instance);\n+    allDeserializers.put(Float.class.getName(), FloatSerializer.instance);\n+    allDeserializers.put(Float.TYPE.getName(), FloatSerializer.instance);\n+    allDeserializers.put(Double.class.getName(), DoubleSerializer.instance);\n+    allDeserializers.put(Double.TYPE.getName(), DoubleSerializer.instance);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static void addAll(Map\u003cString, JsonSerializer\u003c?\u003e\u003e allDeserializers) {\n    final JsonSerializer\u003c?\u003e intS \u003d new IntegerSerializer();\n    allDeserializers.put(Integer.class.getName(), intS);\n    allDeserializers.put(Integer.TYPE.getName(), intS);\n    allDeserializers.put(Long.class.getName(), LongSerializer.instance);\n    allDeserializers.put(Long.TYPE.getName(), LongSerializer.instance);\n    allDeserializers.put(Byte.class.getName(), IntLikeSerializer.instance);\n    allDeserializers.put(Byte.TYPE.getName(), IntLikeSerializer.instance);\n    allDeserializers.put(Short.class.getName(), IntLikeSerializer.instance);\n    allDeserializers.put(Short.TYPE.getName(), IntLikeSerializer.instance);\n    allDeserializers.put(Float.class.getName(), FloatSerializer.instance);\n    allDeserializers.put(Float.TYPE.getName(), FloatSerializer.instance);\n    allDeserializers.put(Double.class.getName(), DoubleSerializer.instance);\n    allDeserializers.put(Double.TYPE.getName(), DoubleSerializer.instance);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java",
+      "functionStartLine": 20,
+      "functionName": "addAll",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

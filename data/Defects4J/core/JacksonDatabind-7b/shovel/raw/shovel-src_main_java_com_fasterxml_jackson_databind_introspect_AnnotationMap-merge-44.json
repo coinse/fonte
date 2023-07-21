@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotationMap.java",
+  "functionName": "merge",
+  "functionId": "merge___primary-AnnotationMap__secondary-AnnotationMap",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 44,
+  "functionEndLine": 63,
+  "numCommitsSeen": 6,
+  "timeTaken": 194,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,16 @@\n+public static AnnotationMap merge(AnnotationMap primary, AnnotationMap secondary) {\n+    if (primary \u003d\u003d null || primary._annotations \u003d\u003d null || primary._annotations.isEmpty()) {\n+        return secondary;\n+    }\n+    if (secondary \u003d\u003d null || secondary._annotations \u003d\u003d null || secondary._annotations.isEmpty()) {\n+        return primary;\n+    }\n+    HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n+    for (Annotation ann : secondary._annotations.values()) {\n+        annotations.put(ann.annotationType(), ann);\n+    }\n+    for (Annotation ann : primary._annotations.values()) {\n+        annotations.put(ann.annotationType(), ann);\n+    }\n+    return new AnnotationMap(annotations);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static AnnotationMap merge(AnnotationMap primary, AnnotationMap secondary) {\n    if (primary \u003d\u003d null || primary._annotations \u003d\u003d null || primary._annotations.isEmpty()) {\n        return secondary;\n    }\n    if (secondary \u003d\u003d null || secondary._annotations \u003d\u003d null || secondary._annotations.isEmpty()) {\n        return primary;\n    }\n    HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e annotations \u003d new HashMap\u003cClass\u003c? extends Annotation\u003e, Annotation\u003e();\n    for (Annotation ann : secondary._annotations.values()) {\n        annotations.put(ann.annotationType(), ann);\n    }\n    for (Annotation ann : primary._annotations.values()) {\n        annotations.put(ann.annotationType(), ann);\n    }\n    return new AnnotationMap(annotations);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java",
+      "functionStartLine": 33,
+      "functionName": "merge",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

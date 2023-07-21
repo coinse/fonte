@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "_findCreatorsFromProperties",
+  "functionId": "_findCreatorsFromProperties___ctxt-DeserializationContext__beanDesc-BeanDescription",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 330,
+  "functionEndLine": 358,
+  "numCommitsSeen": 105,
+  "timeTaken": 1774,
+  "changeHistory": [
+    "c717c2ff7ef92ef1c5a4e6970408efec1074b546"
+  ],
+  "changeHistoryShort": {
+    "c717c2ff7ef92ef1c5a4e6970408efec1074b546": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c717c2ff7ef92ef1c5a4e6970408efec1074b546": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix #556 (minor regression during 2.5.0-SNAPSHOT, not included in any of released versions)\n",
+      "commitDate": "9/25/14, 4:52 PM",
+      "commitName": "c717c2ff7ef92ef1c5a4e6970408efec1074b546",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,25 @@\n+protected Map\u003cAnnotatedWithParams, BeanPropertyDefinition[]\u003e _findCreatorsFromProperties(DeserializationContext ctxt, BeanDescription beanDesc) throws JsonMappingException {\n+    Map\u003cAnnotatedWithParams, BeanPropertyDefinition[]\u003e result \u003d Collections.emptyMap();\n+    for (BeanPropertyDefinition propDef : beanDesc.findProperties()) {\n+        Iterator\u003cAnnotatedParameter\u003e it \u003d propDef.getConstructorParameters();\n+        while (it.hasNext()) {\n+            AnnotatedParameter param \u003d it.next();\n+            AnnotatedWithParams owner \u003d param.getOwner();\n+            BeanPropertyDefinition[] defs \u003d result.get(owner);\n+            final int index \u003d param.getIndex();\n+            if (defs \u003d\u003d null) {\n+                if (result.isEmpty()) {\n+                    result \u003d new LinkedHashMap\u003cAnnotatedWithParams, BeanPropertyDefinition[]\u003e();\n+                }\n+                defs \u003d new BeanPropertyDefinition[owner.getParameterCount()];\n+                result.put(owner, defs);\n+            } else {\n+                if (defs[index] !\u003d null) {\n+                    throw new IllegalStateException(\"Conflict: parameter #\" + index + \" of \" + owner + \" bound to more than one property; \" + defs[index] + \" vs \" + propDef);\n+                }\n+            }\n+            defs[index] \u003d propDef;\n+        }\n+    }\n+    return result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Map\u003cAnnotatedWithParams, BeanPropertyDefinition[]\u003e _findCreatorsFromProperties(DeserializationContext ctxt, BeanDescription beanDesc) throws JsonMappingException {\n    Map\u003cAnnotatedWithParams, BeanPropertyDefinition[]\u003e result \u003d Collections.emptyMap();\n    for (BeanPropertyDefinition propDef : beanDesc.findProperties()) {\n        Iterator\u003cAnnotatedParameter\u003e it \u003d propDef.getConstructorParameters();\n        while (it.hasNext()) {\n            AnnotatedParameter param \u003d it.next();\n            AnnotatedWithParams owner \u003d param.getOwner();\n            BeanPropertyDefinition[] defs \u003d result.get(owner);\n            final int index \u003d param.getIndex();\n            if (defs \u003d\u003d null) {\n                if (result.isEmpty()) {\n                    result \u003d new LinkedHashMap\u003cAnnotatedWithParams, BeanPropertyDefinition[]\u003e();\n                }\n                defs \u003d new BeanPropertyDefinition[owner.getParameterCount()];\n                result.put(owner, defs);\n            } else {\n                if (defs[index] !\u003d null) {\n                    throw new IllegalStateException(\"Conflict: parameter #\" + index + \" of \" + owner + \" bound to more than one property; \" + defs[index] + \" vs \" + propDef);\n                }\n            }\n            defs[index] \u003d propDef;\n        }\n    }\n    return result;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 338,
+      "functionName": "_findCreatorsFromProperties",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

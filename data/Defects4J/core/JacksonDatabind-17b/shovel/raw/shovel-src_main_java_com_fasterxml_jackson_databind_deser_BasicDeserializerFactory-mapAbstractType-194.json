@@ -1,0 +1,172 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "mapAbstractType",
+  "functionId": "mapAbstractType___config-DeserializationConfig__type-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 194,
+  "functionEndLine": 214,
+  "numCommitsSeen": 118,
+  "timeTaken": 7177,
+  "changeHistory": [
+    "e268dd573d6b6bf789d4f36e856e72716875cd0c",
+    "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+    "bf355caa0821e58968df3bf6c12f612639224e47",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e268dd573d6b6bf789d4f36e856e72716875cd0c": "Yannotationchange",
+    "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25": "Ymultichange(Ymovefromfile,Yannotationchange,Ydocchange)",
+    "bf355caa0821e58968df3bf6c12f612639224e47": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e268dd573d6b6bf789d4f36e856e72716875cd0c": {
+      "type": "Yannotationchange",
+      "commitMessage": "Resolving Eclipse warnings (missing overrides etc)\n",
+      "commitDate": "8/16/12, 3:03 PM",
+      "commitName": "e268dd573d6b6bf789d4f36e856e72716875cd0c",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "7/22/12, 10:33 PM",
+      "commitNameOld": "11cec4de94b8de50670e4b0be2d8d5d1e4d6b1f7",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 24.69,
+      "commitsBetweenForRepo": 52,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    while (true) {\n        JavaType next \u003d _mapAbstractType2(config, type);\n        if (next \u003d\u003d null) {\n            return type;\n        }\n        Class\u003c?\u003e prevCls \u003d type.getRawClass();\n        Class\u003c?\u003e nextCls \u003d next.getRawClass();\n        if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n            throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n        }\n        type \u003d next;\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 227,
+      "functionName": "mapAbstractType",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,14 +1,15 @@\n+@Override\n public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n     while (true) {\n         JavaType next \u003d _mapAbstractType2(config, type);\n         if (next \u003d\u003d null) {\n             return type;\n         }\n         Class\u003c?\u003e prevCls \u003d type.getRawClass();\n         Class\u003c?\u003e nextCls \u003d next.getRawClass();\n         if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n             throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n         }\n         type \u003d next;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@Override"
+      }
+    },
+    "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25": {
+      "type": "Ymultichange(Ymovefromfile,Yannotationchange,Ydocchange)",
+      "commitMessage": "Further refactoring for DeserializerFactories\n",
+      "commitDate": "1/26/12, 1:22 PM",
+      "commitName": "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Further refactoring for DeserializerFactories\n",
+          "commitDate": "1/26/12, 1:22 PM",
+          "commitName": "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/26/12, 1:07 PM",
+          "commitNameOld": "9db4d99c6c425b779f1bb79ad4db667702657600",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    while (true) {\n        JavaType next \u003d _mapAbstractType2(config, type);\n        if (next \u003d\u003d null) {\n            return type;\n        }\n        Class\u003c?\u003e prevCls \u003d type.getRawClass();\n        Class\u003c?\u003e nextCls \u003d next.getRawClass();\n        if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n            throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n        }\n        type \u003d next;\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 298,
+          "functionName": "mapAbstractType",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,15 +1,14 @@\n-@Override\n public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n     while (true) {\n         JavaType next \u003d _mapAbstractType2(config, type);\n         if (next \u003d\u003d null) {\n             return type;\n         }\n         Class\u003c?\u003e prevCls \u003d type.getRawClass();\n         Class\u003c?\u003e nextCls \u003d next.getRawClass();\n         if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n             throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n         }\n         type \u003d next;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+            "newPath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+            "oldMethodName": "mapAbstractType",
+            "newMethodName": "mapAbstractType"
+          }
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Further refactoring for DeserializerFactories\n",
+          "commitDate": "1/26/12, 1:22 PM",
+          "commitName": "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/26/12, 1:07 PM",
+          "commitNameOld": "9db4d99c6c425b779f1bb79ad4db667702657600",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    while (true) {\n        JavaType next \u003d _mapAbstractType2(config, type);\n        if (next \u003d\u003d null) {\n            return type;\n        }\n        Class\u003c?\u003e prevCls \u003d type.getRawClass();\n        Class\u003c?\u003e nextCls \u003d next.getRawClass();\n        if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n            throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n        }\n        type \u003d next;\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 298,
+          "functionName": "mapAbstractType",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,15 +1,14 @@\n-@Override\n public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n     while (true) {\n         JavaType next \u003d _mapAbstractType2(config, type);\n         if (next \u003d\u003d null) {\n             return type;\n         }\n         Class\u003c?\u003e prevCls \u003d type.getRawClass();\n         Class\u003c?\u003e nextCls \u003d next.getRawClass();\n         if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n             throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n         }\n         type \u003d next;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Further refactoring for DeserializerFactories\n",
+          "commitDate": "1/26/12, 1:22 PM",
+          "commitName": "ce32b8a2e134d6a0590c56ee2d6798e2eeb8bb25",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/26/12, 1:07 PM",
+          "commitNameOld": "9db4d99c6c425b779f1bb79ad4db667702657600",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    while (true) {\n        JavaType next \u003d _mapAbstractType2(config, type);\n        if (next \u003d\u003d null) {\n            return type;\n        }\n        Class\u003c?\u003e prevCls \u003d type.getRawClass();\n        Class\u003c?\u003e nextCls \u003d next.getRawClass();\n        if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n            throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n        }\n        type \u003d next;\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 298,
+          "functionName": "mapAbstractType",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,15 +1,14 @@\n-@Override\n public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n     while (true) {\n         JavaType next \u003d _mapAbstractType2(config, type);\n         if (next \u003d\u003d null) {\n             return type;\n         }\n         Class\u003c?\u003e prevCls \u003d type.getRawClass();\n         Class\u003c?\u003e nextCls \u003d next.getRawClass();\n         if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n             throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n         }\n         type \u003d next;\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Method that will find complete abstract type mapping for specified type, doing as\nmany resolution steps as necessary.\n",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "bf355caa0821e58968df3bf6c12f612639224e47": {
+      "type": "Ybodychange",
+      "commitMessage": "Yet more refactoring, trying to remove back-refs from DeserializerFactory to context/cache\n",
+      "commitDate": "1/24/12, 2:46 PM",
+      "commitName": "bf355caa0821e58968df3bf6c12f612639224e47",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "1/24/12, 1:27 PM",
+      "commitNameOld": "f0b28a96644b3dc22c997a05975de335dfed0418",
+      "commitAuthorOld": "Tatu",
+      "daysBetweenCommits": 0.05,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    while (true) {\n        JavaType next \u003d _mapAbstractType2(config, type);\n        if (next \u003d\u003d null) {\n            return type;\n        }\n        Class\u003c?\u003e prevCls \u003d type.getRawClass();\n        Class\u003c?\u003e nextCls \u003d next.getRawClass();\n        if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n            throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n        }\n        type \u003d next;\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 397,
+      "functionName": "mapAbstractType",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method that will find complete abstract type mapping for specified type, doing as\nmany resolution steps as necessary.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+@Override\n+public JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n+    while (true) {\n+        JavaType next \u003d _mapAbstractType2(config, type);\n+        if (next \u003d\u003d null) {\n+            return type;\n+        }\n+        Class\u003c?\u003e prevCls \u003d type.getRawClass();\n+        Class\u003c?\u003e nextCls \u003d next.getRawClass();\n+        if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n+            throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n+        }\n+        type \u003d next;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JavaType mapAbstractType(DeserializationConfig config, JavaType type) throws JsonMappingException {\n    while (true) {\n        JavaType next \u003d _mapAbstractType2(config, type);\n        if (next \u003d\u003d null) {\n            return type;\n        }\n        Class\u003c?\u003e prevCls \u003d type.getRawClass();\n        Class\u003c?\u003e nextCls \u003d next.getRawClass();\n        if ((prevCls \u003d\u003d nextCls) || !prevCls.isAssignableFrom(nextCls)) {\n            throw new IllegalArgumentException(\"Invalid abstract type resolution from \" + type + \" to \" + next + \": latter is not a subtype of former\");\n        }\n        type \u003d next;\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+      "functionStartLine": 449,
+      "functionName": "mapAbstractType",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method that will find complete abstract type mapping for specified type, doing as\nmany resolution steps as necessary.\n"
+    }
+  }
+}

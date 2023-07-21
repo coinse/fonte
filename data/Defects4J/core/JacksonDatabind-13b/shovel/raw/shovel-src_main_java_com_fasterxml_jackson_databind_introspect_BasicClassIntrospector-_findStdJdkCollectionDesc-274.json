@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicClassIntrospector.java",
+  "functionName": "_findStdJdkCollectionDesc",
+  "functionId": "_findStdJdkCollectionDesc___cfg-MapperConfig__?____type-JavaType__r-MixInResolver",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicClassIntrospector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 274,
+  "functionEndLine": 283,
+  "numCommitsSeen": 18,
+  "timeTaken": 674,
+  "changeHistory": [
+    "3eb74af17d39f5d6017e579590174c3941210d82"
+  ],
+  "changeHistoryShort": {
+    "3eb74af17d39f5d6017e579590174c3941210d82": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3eb74af17d39f5d6017e579590174c3941210d82": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement #550\n",
+      "commitDate": "9/23/14, 2:04 PM",
+      "commitName": "3eb74af17d39f5d6017e579590174c3941210d82",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,7 @@\n+protected BasicBeanDescription _findStdJdkCollectionDesc(MapperConfig\u003c?\u003e cfg, JavaType type, MixInResolver r) {\n+    if (_isStdJDKCollection(type)) {\n+        AnnotatedClass ac \u003d AnnotatedClass.construct(type.getRawClass(), (cfg.isAnnotationProcessingEnabled() ? cfg.getAnnotationIntrospector() : null), r);\n+        return BasicBeanDescription.forOtherUse(cfg, type, ac);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected BasicBeanDescription _findStdJdkCollectionDesc(MapperConfig\u003c?\u003e cfg, JavaType type, MixInResolver r) {\n    if (_isStdJDKCollection(type)) {\n        AnnotatedClass ac \u003d AnnotatedClass.construct(type.getRawClass(), (cfg.isAnnotationProcessingEnabled() ? cfg.getAnnotationIntrospector() : null), r);\n        return BasicBeanDescription.forOtherUse(cfg, type, ac);\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicClassIntrospector.java",
+      "functionStartLine": 274,
+      "functionName": "_findStdJdkCollectionDesc",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LRUMap.java",
+  "functionName": "get",
+  "functionId": "get___key-Object",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 68,
+  "functionEndLine": 68,
+  "numCommitsSeen": 23,
+  "timeTaken": 974,
+  "changeHistory": [
+    "e029d72dfb7500dc9314dc119854f0d2983a5580",
+    "585f3097147cbdcfda2b5221ea76679e8915a029",
+    "2f58c932645751a53835110ef2bf5a90fc652ef3"
+  ],
+  "changeHistoryShort": {
+    "e029d72dfb7500dc9314dc119854f0d2983a5580": "Yparameterchange",
+    "585f3097147cbdcfda2b5221ea76679e8915a029": "Ymultichange(Yparameterchange,Ybodychange,Yannotationchange)",
+    "2f58c932645751a53835110ef2bf5a90fc652ef3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e029d72dfb7500dc9314dc119854f0d2983a5580": {
+      "type": "Yparameterchange",
+      "commitMessage": "Minor change to improve binary-compatibility of LRUMap\n",
+      "commitDate": "7/14/14, 9:57 PM",
+      "commitName": "e029d72dfb7500dc9314dc119854f0d2983a5580",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "7/11/14, 3:56 PM",
+      "commitNameOld": "585f3097147cbdcfda2b5221ea76679e8915a029",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 3.25,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public V get(Object key) {\n    return _map.get(key);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+      "functionStartLine": 47,
+      "functionName": "get",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n-public V get(K key) {\n+public V get(Object key) {\n     return _map.get(key);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[key-K]",
+        "newValue": "[key-Object]"
+      }
+    },
+    "585f3097147cbdcfda2b5221ea76679e8915a029": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Yannotationchange)",
+      "commitMessage": "Fixed #503\n",
+      "commitDate": "7/11/14, 3:56 PM",
+      "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fixed #503\n",
+          "commitDate": "7/11/14, 3:56 PM",
+          "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/15/14, 3:43 PM",
+          "commitNameOld": "54fd6d6ea32bf24eaa770919d42f42709efe9f3a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 26.01,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public V get(K key) {\n    return _map.get(key);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 46,
+          "functionName": "get",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,3 @@\n-@Override\n-public V get(Object key) {\n-    _readLock.lock();\n-    try {\n-        return super.get(key);\n-    } finally {\n-        _readLock.unlock();\n-    }\n+public V get(K key) {\n+    return _map.get(key);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[key-Object]",
+            "newValue": "[key-K]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fixed #503\n",
+          "commitDate": "7/11/14, 3:56 PM",
+          "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/15/14, 3:43 PM",
+          "commitNameOld": "54fd6d6ea32bf24eaa770919d42f42709efe9f3a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 26.01,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public V get(K key) {\n    return _map.get(key);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 46,
+          "functionName": "get",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,3 @@\n-@Override\n-public V get(Object key) {\n-    _readLock.lock();\n-    try {\n-        return super.get(key);\n-    } finally {\n-        _readLock.unlock();\n-    }\n+public V get(K key) {\n+    return _map.get(key);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Fixed #503\n",
+          "commitDate": "7/11/14, 3:56 PM",
+          "commitName": "585f3097147cbdcfda2b5221ea76679e8915a029",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/15/14, 3:43 PM",
+          "commitNameOld": "54fd6d6ea32bf24eaa770919d42f42709efe9f3a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 26.01,
+          "commitsBetweenForRepo": 11,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public V get(K key) {\n    return _map.get(key);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+          "functionStartLine": 46,
+          "functionName": "get",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,3 @@\n-@Override\n-public V get(Object key) {\n-    _readLock.lock();\n-    try {\n-        return super.get(key);\n-    } finally {\n-        _readLock.unlock();\n-    }\n+public V get(K key) {\n+    return _map.get(key);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@Override",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "2f58c932645751a53835110ef2bf5a90fc652ef3": {
+      "type": "Yintroduced",
+      "commitMessage": "Attempt to fix #435\n",
+      "commitDate": "4/9/14, 6:46 PM",
+      "commitName": "2f58c932645751a53835110ef2bf5a90fc652ef3",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+@Override\n+public V get(Object key) {\n+    _readLock.lock();\n+    try {\n+        return super.get(key);\n+    } finally {\n+        _readLock.unlock();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic V get(Object key) {\n    _readLock.lock();\n    try {\n        return super.get(key);\n    } finally {\n        _readLock.unlock();\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java",
+      "functionStartLine": 55,
+      "functionName": "get",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

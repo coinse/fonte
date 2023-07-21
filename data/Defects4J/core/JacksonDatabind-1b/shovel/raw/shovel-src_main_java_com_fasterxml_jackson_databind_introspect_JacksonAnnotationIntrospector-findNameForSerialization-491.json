@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "findNameForSerialization",
+  "functionId": "findNameForSerialization___a-Annotated",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 491,
+  "functionEndLine": 510,
+  "numCommitsSeen": 41,
+  "timeTaken": 883,
+  "changeHistory": [
+    "257da8e4ce33fe77a05f9867ce3e187e522a1b8e"
+  ],
+  "changeHistoryShort": {
+    "257da8e4ce33fe77a05f9867ce3e187e522a1b8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "257da8e4ce33fe77a05f9867ce3e187e522a1b8e": {
+      "type": "Yintroduced",
+      "commitMessage": "Starting to implement [Issue#69], upgrade to using PropertyName (to make xml support easier)\n",
+      "commitDate": "9/4/12, 9:46 PM",
+      "commitName": "257da8e4ce33fe77a05f9867ce3e187e522a1b8e",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,18 @@\n+@Override\n+public PropertyName findNameForSerialization(Annotated a) {\n+    String name;\n+    if (a instanceof AnnotatedField) {\n+        name \u003d findSerializationName((AnnotatedField) a);\n+    } else if (a instanceof AnnotatedMethod) {\n+        name \u003d findSerializationName((AnnotatedMethod) a);\n+    } else {\n+        name \u003d null;\n+    }\n+    if (name !\u003d null) {\n+        if (name.length() \u003d\u003d 0) {\n+            return PropertyName.USE_DEFAULT;\n+        }\n+        return new PropertyName(name);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic PropertyName findNameForSerialization(Annotated a) {\n    String name;\n    if (a instanceof AnnotatedField) {\n        name \u003d findSerializationName((AnnotatedField) a);\n    } else if (a instanceof AnnotatedMethod) {\n        name \u003d findSerializationName((AnnotatedMethod) a);\n    } else {\n        name \u003d null;\n    }\n    if (name !\u003d null) {\n        if (name.length() \u003d\u003d 0) {\n            return PropertyName.USE_DEFAULT;\n        }\n        return new PropertyName(name);\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 463,
+      "functionName": "findNameForSerialization",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

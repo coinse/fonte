@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "findObjectReferenceInfo",
+  "functionId": "findObjectReferenceInfo___ann-Annotated__objectIdInfo-ObjectIdInfo",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 448,
+  "functionEndLine": 454,
+  "numCommitsSeen": 73,
+  "timeTaken": 2692,
+  "changeHistory": [
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+    "88040e2fa32c3bff2ce18e40a55807a3fca3d2d2"
+  ],
+  "changeHistoryShort": {
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9": "Ybodychange",
+    "88040e2fa32c3bff2ce18e40a55807a3fca3d2d2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9": {
+      "type": "Ybodychange",
+      "commitMessage": "Implement #133\n",
+      "commitDate": "9/25/14, 5:28 PM",
+      "commitName": "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+      "commitAuthor": "Cowtowncoder",
+      "commitDateOld": "5/19/14, 11:42 PM",
+      "commitNameOld": "46c6679d0b88035e0083e27890a421e8a8466242",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 128.74,
+      "commitsBetweenForRepo": 127,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic ObjectIdInfo findObjectReferenceInfo(Annotated ann, ObjectIdInfo objectIdInfo) {\n    JsonIdentityReference ref \u003d _findAnnotation(ann, JsonIdentityReference.class);\n    if (ref !\u003d null) {\n        objectIdInfo \u003d objectIdInfo.withAlwaysAsId(ref.alwaysAsId());\n    }\n    return objectIdInfo;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 441,
+      "functionName": "findObjectReferenceInfo",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,8 @@\n @Override\n public ObjectIdInfo findObjectReferenceInfo(Annotated ann, ObjectIdInfo objectIdInfo) {\n-    JsonIdentityReference ref \u003d ann.getAnnotation(JsonIdentityReference.class);\n+    JsonIdentityReference ref \u003d _findAnnotation(ann, JsonIdentityReference.class);\n     if (ref !\u003d null) {\n         objectIdInfo \u003d objectIdInfo.withAlwaysAsId(ref.alwaysAsId());\n     }\n     return objectIdInfo;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "88040e2fa32c3bff2ce18e40a55807a3fca3d2d2": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved handling of \"always-as-id\" references; might now actually be useful\n",
+      "commitDate": "8/24/12, 1:33 PM",
+      "commitName": "88040e2fa32c3bff2ce18e40a55807a3fca3d2d2",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public ObjectIdInfo findObjectReferenceInfo(Annotated ann, ObjectIdInfo objectIdInfo) {\n+    JsonIdentityReference ref \u003d ann.getAnnotation(JsonIdentityReference.class);\n+    if (ref !\u003d null) {\n+        objectIdInfo \u003d objectIdInfo.withAlwaysAsId(ref.alwaysAsId());\n+    }\n+    return objectIdInfo;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic ObjectIdInfo findObjectReferenceInfo(Annotated ann, ObjectIdInfo objectIdInfo) {\n    JsonIdentityReference ref \u003d ann.getAnnotation(JsonIdentityReference.class);\n    if (ref !\u003d null) {\n        objectIdInfo \u003d objectIdInfo.withAlwaysAsId(ref.alwaysAsId());\n    }\n    return objectIdInfo;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 417,
+      "functionName": "findObjectReferenceInfo",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

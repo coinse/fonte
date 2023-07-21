@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanDeserializerBase.java",
+  "functionName": "_resolvedObjectIdProperty",
+  "functionId": "_resolvedObjectIdProperty___ctxt-DeserializationContext__prop-SettableBeanProperty",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that wraps given property with {@link ObjectIdReferenceProperty}\nin case where object id resolution is required.\n",
+  "functionStartLine": 680,
+  "functionEndLine": 690,
+  "numCommitsSeen": 78,
+  "timeTaken": 1878,
+  "changeHistory": [
+    "d823407ab82164afdd14832fe5159c44d42d89ef"
+  ],
+  "changeHistoryShort": {
+    "d823407ab82164afdd14832fe5159c44d42d89ef": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d823407ab82164afdd14832fe5159c44d42d89ef": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented forward reference resolution for general property based deserialization.\n",
+      "commitDate": "1/13/14, 7:07 AM",
+      "commitName": "d823407ab82164afdd14832fe5159c44d42d89ef",
+      "commitAuthor": "Pascal Gélinas",
+      "diff": "@@ -0,0 +1,9 @@\n+protected SettableBeanProperty _resolvedObjectIdProperty(DeserializationContext ctxt, SettableBeanProperty prop) {\n+    ObjectIdInfo objectIdInfo \u003d prop.getObjectIdInfo();\n+    JsonDeserializer\u003cObject\u003e valueDeser \u003d prop.getValueDeserializer();\n+    ObjectIdReader objectIdReader \u003d valueDeser.getObjectIdReader();\n+    if (objectIdInfo \u003d\u003d null \u0026\u0026 objectIdReader \u003d\u003d null) {\n+        return prop;\n+    }\n+    return new ObjectIdReferenceProperty(prop, objectIdInfo);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected SettableBeanProperty _resolvedObjectIdProperty(DeserializationContext ctxt, SettableBeanProperty prop) {\n    ObjectIdInfo objectIdInfo \u003d prop.getObjectIdInfo();\n    JsonDeserializer\u003cObject\u003e valueDeser \u003d prop.getValueDeserializer();\n    ObjectIdReader objectIdReader \u003d valueDeser.getObjectIdReader();\n    if (objectIdInfo \u003d\u003d null \u0026\u0026 objectIdReader \u003d\u003d null) {\n        return prop;\n    }\n    return new ObjectIdReferenceProperty(prop, objectIdInfo);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+      "functionStartLine": 665,
+      "functionName": "_resolvedObjectIdProperty",
+      "functionAnnotation": "",
+      "functionDoc": "Method that wraps given property with {@link ObjectIdReferenceProperty}\nin case where object id resolution is required.\n"
+    }
+  }
+}

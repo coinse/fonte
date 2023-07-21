@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "_mergeAnnotations",
+  "functionId": "_mergeAnnotations___index-int__nodes-Linked__? extends AnnotatedMember__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 504,
+  "functionEndLine": 514,
+  "numCommitsSeen": 26,
+  "timeTaken": 1118,
+  "changeHistory": [
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Yparameterchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Yparameterchange",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/26/12, 10:26 PM",
+      "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.93,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private AnnotationMap _mergeAnnotations(int index, Linked\u003c? extends AnnotatedMember\u003e... nodes) {\n    AnnotationMap ann \u003d nodes[index].value.getAllAnnotations();\n    ++index;\n    for (; index \u003c nodes.length; ++index) {\n        if (nodes[index] !\u003d null) {\n            return AnnotationMap.merge(ann, _mergeAnnotations(index, nodes));\n        }\n    }\n    return ann;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 408,
+      "functionName": "_mergeAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,10 @@\n-private AnnotationMap _mergeAnnotations(int index, Node\u003c? extends AnnotatedMember\u003e... nodes) {\n+private AnnotationMap _mergeAnnotations(int index, Linked\u003c? extends AnnotatedMember\u003e... nodes) {\n     AnnotationMap ann \u003d nodes[index].value.getAllAnnotations();\n     ++index;\n     for (; index \u003c nodes.length; ++index) {\n         if (nodes[index] !\u003d null) {\n             return AnnotationMap.merge(ann, _mergeAnnotations(index, nodes));\n         }\n     }\n     return ann;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[index-int, nodes-Node\u003c? extends AnnotatedMember\u003e]",
+        "newValue": "[index-int, nodes-Linked\u003c? extends AnnotatedMember\u003e]"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+private AnnotationMap _mergeAnnotations(int index, Node\u003c? extends AnnotatedMember\u003e... nodes) {\n+    AnnotationMap ann \u003d nodes[index].value.getAllAnnotations();\n+    ++index;\n+    for (; index \u003c nodes.length; ++index) {\n+        if (nodes[index] !\u003d null) {\n+            return AnnotationMap.merge(ann, _mergeAnnotations(index, nodes));\n+        }\n+    }\n+    return ann;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private AnnotationMap _mergeAnnotations(int index, Node\u003c? extends AnnotatedMember\u003e... nodes) {\n    AnnotationMap ann \u003d nodes[index].value.getAllAnnotations();\n    ++index;\n    for (; index \u003c nodes.length; ++index) {\n        if (nodes[index] !\u003d null) {\n            return AnnotationMap.merge(ann, _mergeAnnotations(index, nodes));\n        }\n    }\n    return ann;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 370,
+      "functionName": "_mergeAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

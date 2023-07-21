@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonMappingException.java",
+  "functionName": "_appendPathDesc",
+  "functionId": "_appendPathDesc___sb-StringBuilder",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 335,
+  "functionEndLine": 347,
+  "numCommitsSeen": 7,
+  "timeTaken": 352,
+  "changeHistory": [
+    "5044e7d5436704fde4f95412e5af1ef5211f1eee",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "5044e7d5436704fde4f95412e5af1ef5211f1eee": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5044e7d5436704fde4f95412e5af1ef5211f1eee": {
+      "type": "Ybodychange",
+      "commitMessage": "Update src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java\n\nFixed a NullPointerException when trying to call getPathReference() when no path has been prepended.",
+      "commitDate": "2/23/13, 4:48 PM",
+      "commitName": "5044e7d5436704fde4f95412e5af1ef5211f1eee",
+      "commitAuthor": "Andrew Brampton",
+      "commitDateOld": "8/1/12, 7:49 PM",
+      "commitNameOld": "ac1f2abbbc73dd40b3205a79ad546add80130d78",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 205.92,
+      "commitsBetweenForRepo": 312,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void _appendPathDesc(StringBuilder sb) {\n    if (_path \u003d\u003d null) {\n        return;\n    }\n    Iterator\u003cReference\u003e it \u003d _path.iterator();\n    while (it.hasNext()) {\n        sb.append(it.next().toString());\n        if (it.hasNext()) {\n            sb.append(\"-\u003e\");\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+      "functionStartLine": 357,
+      "functionName": "_appendPathDesc",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,12 @@\n protected void _appendPathDesc(StringBuilder sb) {\n+    if (_path \u003d\u003d null) {\n+        return;\n+    }\n     Iterator\u003cReference\u003e it \u003d _path.iterator();\n     while (it.hasNext()) {\n         sb.append(it.next().toString());\n         if (it.hasNext()) {\n             sb.append(\"-\u003e\");\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+protected void _appendPathDesc(StringBuilder sb) {\n+    Iterator\u003cReference\u003e it \u003d _path.iterator();\n+    while (it.hasNext()) {\n+        sb.append(it.next().toString());\n+        if (it.hasNext()) {\n+            sb.append(\"-\u003e\");\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void _appendPathDesc(StringBuilder sb) {\n    Iterator\u003cReference\u003e it \u003d _path.iterator();\n    while (it.hasNext()) {\n        sb.append(it.next().toString());\n        if (it.hasNext()) {\n            sb.append(\"-\u003e\");\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+      "functionStartLine": 319,
+      "functionName": "_appendPathDesc",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

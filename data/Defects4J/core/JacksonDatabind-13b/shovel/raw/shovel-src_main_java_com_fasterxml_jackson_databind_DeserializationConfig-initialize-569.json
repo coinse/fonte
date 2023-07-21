@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializationConfig.java",
+  "functionName": "initialize",
+  "functionId": "initialize___p-JsonParser",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called by {@link ObjectMapper} and {@link ObjectReader}\nto modify those {@link com.fasterxml.jackson.core.JsonParser.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n",
+  "functionStartLine": 569,
+  "functionEndLine": 577,
+  "numCommitsSeen": 45,
+  "timeTaken": 833,
+  "changeHistory": [
+    "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd",
+    "caf798492ea0067a4a0552e6bb64a3ad2294f392"
+  ],
+  "changeHistoryShort": {
+    "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd": "Ymultichange(Ybodychange,Ydocchange)",
+    "caf798492ea0067a4a0552e6bb64a3ad2294f392": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Implemented #607, #608\n",
+      "commitDate": "11/8/14, 3:47 PM",
+      "commitName": "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implemented #607, #608\n",
+          "commitDate": "11/8/14, 3:47 PM",
+          "commitName": "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "11/7/14, 9:13 PM",
+          "commitNameOld": "caf798492ea0067a4a0552e6bb64a3ad2294f392",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.77,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void initialize(JsonParser p) {\n    if (_parserFeaturesToChange !\u003d 0) {\n        int orig \u003d p.getFeatureMask();\n        int newFlags \u003d (orig \u0026 ~_parserFeaturesToChange) | _parserFeatures;\n        if (orig !\u003d newFlags) {\n            p.setFeatureMask(newFlags);\n        }\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+          "functionStartLine": 569,
+          "functionName": "initialize",
+          "functionAnnotation": "",
+          "functionDoc": "Method called by {@link ObjectMapper} and {@link ObjectReader}\nto modify those {@link com.fasterxml.jackson.core.JsonParser.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n",
+          "diff": "@@ -1,9 +1,9 @@\n public void initialize(JsonParser p) {\n-    if (_parserFeatureMask !\u003d 0) {\n+    if (_parserFeaturesToChange !\u003d 0) {\n         int orig \u003d p.getFeatureMask();\n-        int newFlags \u003d (orig \u0026 ~_parserFeatureMask) | _parserFeatures;\n+        int newFlags \u003d (orig \u0026 ~_parserFeaturesToChange) | _parserFeatures;\n         if (orig !\u003d newFlags) {\n             p.setFeatureMask(newFlags);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Implemented #607, #608\n",
+          "commitDate": "11/8/14, 3:47 PM",
+          "commitName": "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "11/7/14, 9:13 PM",
+          "commitNameOld": "caf798492ea0067a4a0552e6bb64a3ad2294f392",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.77,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void initialize(JsonParser p) {\n    if (_parserFeaturesToChange !\u003d 0) {\n        int orig \u003d p.getFeatureMask();\n        int newFlags \u003d (orig \u0026 ~_parserFeaturesToChange) | _parserFeatures;\n        if (orig !\u003d newFlags) {\n            p.setFeatureMask(newFlags);\n        }\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+          "functionStartLine": 569,
+          "functionName": "initialize",
+          "functionAnnotation": "",
+          "functionDoc": "Method called by {@link ObjectMapper} and {@link ObjectReader}\nto modify those {@link com.fasterxml.jackson.core.JsonParser.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n",
+          "diff": "@@ -1,9 +1,9 @@\n public void initialize(JsonParser p) {\n-    if (_parserFeatureMask !\u003d 0) {\n+    if (_parserFeaturesToChange !\u003d 0) {\n         int orig \u003d p.getFeatureMask();\n-        int newFlags \u003d (orig \u0026 ~_parserFeatureMask) | _parserFeatures;\n+        int newFlags \u003d (orig \u0026 ~_parserFeaturesToChange) | _parserFeatures;\n         if (orig !\u003d newFlags) {\n             p.setFeatureMask(newFlags);\n         }\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Method called by {@link ObjectMapper} and {@link ObjectWriter}\nto modify those {@link com.fasterxml.jackson.core.JsonGenerator.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n",
+            "newValue": "Method called by {@link ObjectMapper} and {@link ObjectReader}\nto modify those {@link com.fasterxml.jackson.core.JsonParser.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n"
+          }
+        }
+      ]
+    },
+    "caf798492ea0067a4a0552e6bb64a3ad2294f392": {
+      "type": "Yintroduced",
+      "commitMessage": "Add support for-reader (re)configuration of JsonParser.Features\n",
+      "commitDate": "11/7/14, 9:13 PM",
+      "commitName": "caf798492ea0067a4a0552e6bb64a3ad2294f392",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+public void initialize(JsonParser p) {\n+    if (_parserFeatureMask !\u003d 0) {\n+        int orig \u003d p.getFeatureMask();\n+        int newFlags \u003d (orig \u0026 ~_parserFeatureMask) | _parserFeatures;\n+        if (orig !\u003d newFlags) {\n+            p.setFeatureMask(newFlags);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void initialize(JsonParser p) {\n    if (_parserFeatureMask !\u003d 0) {\n        int orig \u003d p.getFeatureMask();\n        int newFlags \u003d (orig \u0026 ~_parserFeatureMask) | _parserFeatures;\n        if (orig !\u003d newFlags) {\n            p.setFeatureMask(newFlags);\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+      "functionStartLine": 561,
+      "functionName": "initialize",
+      "functionAnnotation": "",
+      "functionDoc": "Method called by {@link ObjectMapper} and {@link ObjectWriter}\nto modify those {@link com.fasterxml.jackson.core.JsonGenerator.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n"
+    }
+  }
+}

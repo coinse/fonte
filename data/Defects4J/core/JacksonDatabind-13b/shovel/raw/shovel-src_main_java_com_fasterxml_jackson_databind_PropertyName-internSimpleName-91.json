@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "PropertyName.java",
+  "functionName": "internSimpleName",
+  "functionId": "internSimpleName",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/PropertyName.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 91,
+  "functionEndLine": 101,
+  "numCommitsSeen": 13,
+  "timeTaken": 360,
+  "changeHistory": [
+    "907524b411aea758d1f388bd286f0ee312221a39"
+  ],
+  "changeHistoryShort": {
+    "907524b411aea758d1f388bd286f0ee312221a39": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "907524b411aea758d1f388bd286f0ee312221a39": {
+      "type": "Yintroduced",
+      "commitMessage": "Start working on passing full property names\n",
+      "commitDate": "7/25/13, 10:22 PM",
+      "commitName": "907524b411aea758d1f388bd286f0ee312221a39",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+public PropertyName internSimpleName() {\n+    if (_simpleName.length() \u003d\u003d 0) {\n+        return this;\n+    }\n+    String interned \u003d InternCache.instance.intern(_simpleName);\n+    if (interned \u003d\u003d _simpleName) {\n+        return this;\n+    }\n+    return new PropertyName(interned, _namespace);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public PropertyName internSimpleName() {\n    if (_simpleName.length() \u003d\u003d 0) {\n        return this;\n    }\n    String interned \u003d InternCache.instance.intern(_simpleName);\n    if (interned \u003d\u003d _simpleName) {\n        return this;\n    }\n    return new PropertyName(interned, _namespace);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/PropertyName.java",
+      "functionStartLine": 77,
+      "functionName": "internSimpleName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

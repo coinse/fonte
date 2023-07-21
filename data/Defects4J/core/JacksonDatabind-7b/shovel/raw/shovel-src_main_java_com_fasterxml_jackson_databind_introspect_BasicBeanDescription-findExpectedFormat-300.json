@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicBeanDescription.java",
+  "functionName": "findExpectedFormat",
+  "functionId": "findExpectedFormat___defValue-JsonFormat.Value",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 300,
+  "functionEndLine": 309,
+  "numCommitsSeen": 26,
+  "timeTaken": 1294,
+  "changeHistory": [
+    "d14fb0772edb682a1ee97e07c8b2e71bc39e845b"
+  ],
+  "changeHistoryShort": {
+    "d14fb0772edb682a1ee97e07c8b2e71bc39e845b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d14fb0772edb682a1ee97e07c8b2e71bc39e845b": {
+      "type": "Yintroduced",
+      "commitMessage": "Completing [Issue-29], ability to (de)serialize POJOs to/from JSON Arrays, to condense output\n",
+      "commitDate": "7/17/12, 6:49 PM",
+      "commitName": "d14fb0772edb682a1ee97e07c8b2e71bc39e845b",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,10 @@\n+@Override\n+public JsonFormat.Value findExpectedFormat(JsonFormat.Value defValue) {\n+    if (_annotationIntrospector !\u003d null) {\n+        JsonFormat.Value v \u003d _annotationIntrospector.findFormat(_classInfo);\n+        if (v !\u003d null) {\n+            return v;\n+        }\n+    }\n+    return defValue;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JsonFormat.Value findExpectedFormat(JsonFormat.Value defValue) {\n    if (_annotationIntrospector !\u003d null) {\n        JsonFormat.Value v \u003d _annotationIntrospector.findFormat(_classInfo);\n        if (v !\u003d null) {\n            return v;\n        }\n    }\n    return defValue;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java",
+      "functionStartLine": 271,
+      "functionName": "findExpectedFormat",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

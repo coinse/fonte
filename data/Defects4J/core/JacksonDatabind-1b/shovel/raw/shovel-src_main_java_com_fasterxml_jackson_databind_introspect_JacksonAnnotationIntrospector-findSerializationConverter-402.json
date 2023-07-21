@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "findSerializationConverter",
+  "functionId": "findSerializationConverter___a-Annotated",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 402,
+  "functionEndLine": 411,
+  "numCommitsSeen": 41,
+  "timeTaken": 1329,
+  "changeHistory": [
+    "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f"
+  ],
+  "changeHistoryShort": {
+    "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f": {
+      "type": "Yintroduced",
+      "commitMessage": "Working on #124, serializer converters\n",
+      "commitDate": "2/18/13, 9:25 PM",
+      "commitName": "d5daa45d6fd13867bca1e7dfe8c027436ae0d92f",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+public Object findSerializationConverter(Annotated a) {\n+    JsonSerialize ann \u003d a.getAnnotation(JsonSerialize.class);\n+    if (ann !\u003d null) {\n+        Class\u003c?\u003e def \u003d ann.converter();\n+        if (def !\u003d Converter.None.class) {\n+            return def;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Object findSerializationConverter(Annotated a) {\n    JsonSerialize ann \u003d a.getAnnotation(JsonSerialize.class);\n    if (ann !\u003d null) {\n        Class\u003c?\u003e def \u003d ann.converter();\n        if (def !\u003d Converter.None.class) {\n            return def;\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 402,
+      "functionName": "findSerializationConverter",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

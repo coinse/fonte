@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "addSetter",
+  "functionId": "addSetter___a-AnnotatedMethod__name-PropertyName__explName-boolean__visible-boolean__ignored-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 536,
+  "functionEndLine": 538,
+  "numCommitsSeen": 102,
+  "timeTaken": 2058,
+  "changeHistory": [
+    "26a052b3b473f22c6573c2f10aa30625a5cb407f",
+    "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333",
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "26a052b3b473f22c6573c2f10aa30625a5cb407f": "Yparameterchange",
+    "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333": "Ymultichange(Yparameterchange,Ybodychange)",
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "26a052b3b473f22c6573c2f10aa30625a5cb407f": {
+      "type": "Yparameterchange",
+      "commitMessage": "Trying to refactor property introspection to use PropertyName, to help with namespaced names handling (-\u003e xml)\n",
+      "commitDate": "3/30/14, 8:48 PM",
+      "commitName": "26a052b3b473f22c6573c2f10aa30625a5cb407f",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/30/14, 7:22 PM",
+      "commitNameOld": "a00cdd8d237dae9f06d3c0d65738322d7d37fbd0",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.06,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void addSetter(AnnotatedMethod a, PropertyName name, boolean explName, boolean visible, boolean ignored) {\n    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, name, explName, visible, ignored);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 473,
+      "functionName": "addSetter",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n-public void addSetter(AnnotatedMethod a, String name, boolean explName, boolean visible, boolean ignored) {\n+public void addSetter(AnnotatedMethod a, PropertyName name, boolean explName, boolean visible, boolean ignored) {\n     _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, name, explName, visible, ignored);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[a-AnnotatedMethod, name-String, explName-boolean, visible-boolean, ignored-boolean]",
+        "newValue": "[a-AnnotatedMethod, name-PropertyName, explName-boolean, visible-boolean, ignored-boolean]"
+      }
+    },
+    "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Groundwork for addressing renaming of explicit names with PropertyNamingStrategy\n",
+      "commitDate": "3/28/14, 3:51 PM",
+      "commitName": "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Groundwork for addressing renaming of explicit names with PropertyNamingStrategy\n",
+          "commitDate": "3/28/14, 3:51 PM",
+          "commitName": "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "3/14/14, 8:55 PM",
+          "commitNameOld": "11f78112961d71b2123ffd8aebb650671f1989a9",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 13.79,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void addSetter(AnnotatedMethod a, String name, boolean explName, boolean visible, boolean ignored) {\n    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, name, explName, visible, ignored);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 471,
+          "functionName": "addSetter",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-public void addSetter(AnnotatedMethod a, String ename, boolean visible, boolean ignored) {\n-    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, ename, visible, ignored);\n+public void addSetter(AnnotatedMethod a, String name, boolean explName, boolean visible, boolean ignored) {\n+    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, name, explName, visible, ignored);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[a-AnnotatedMethod, ename-String, visible-boolean, ignored-boolean]",
+            "newValue": "[a-AnnotatedMethod, name-String, explName-boolean, visible-boolean, ignored-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Groundwork for addressing renaming of explicit names with PropertyNamingStrategy\n",
+          "commitDate": "3/28/14, 3:51 PM",
+          "commitName": "365c29bd6ef5d69fe7cd07bc01340c9bb2ba8333",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "3/14/14, 8:55 PM",
+          "commitNameOld": "11f78112961d71b2123ffd8aebb650671f1989a9",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 13.79,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void addSetter(AnnotatedMethod a, String name, boolean explName, boolean visible, boolean ignored) {\n    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, name, explName, visible, ignored);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 471,
+          "functionName": "addSetter",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-public void addSetter(AnnotatedMethod a, String ename, boolean visible, boolean ignored) {\n-    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, ename, visible, ignored);\n+public void addSetter(AnnotatedMethod a, String name, boolean explName, boolean visible, boolean ignored) {\n+    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, name, explName, visible, ignored);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Ybodychange",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/26/12, 10:26 PM",
+      "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.93,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void addSetter(AnnotatedMethod a, String ename, boolean visible, boolean ignored) {\n    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, ename, visible, ignored);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 308,
+      "functionName": "addSetter",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n public void addSetter(AnnotatedMethod a, String ename, boolean visible, boolean ignored) {\n-    _setters \u003d new Node\u003cAnnotatedMethod\u003e(a, _setters, ename, visible, ignored);\n+    _setters \u003d new Linked\u003cAnnotatedMethod\u003e(a, _setters, ename, visible, ignored);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+public void addSetter(AnnotatedMethod a, String ename, boolean visible, boolean ignored) {\n+    _setters \u003d new Node\u003cAnnotatedMethod\u003e(a, _setters, ename, visible, ignored);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void addSetter(AnnotatedMethod a, String ename, boolean visible, boolean ignored) {\n    _setters \u003d new Node\u003cAnnotatedMethod\u003e(a, _setters, ename, visible, ignored);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 270,
+      "functionName": "addSetter",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedMethod.java",
+  "functionName": "hasReturnType",
+  "functionId": "hasReturnType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedMethod.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method that can be used to check whether method returns\na value or not; if return type declared as \u003ccode\u003evoid\u003c/code\u003e, returns\nfalse, otherwise true\n\n@since 2.4\n",
+  "functionStartLine": 225,
+  "functionEndLine": 228,
+  "numCommitsSeen": 15,
+  "timeTaken": 685,
+  "changeHistory": [
+    "8a5ec37974ee58aabd68ed13fa15e052598d2136"
+  ],
+  "changeHistoryShort": {
+    "8a5ec37974ee58aabd68ed13fa15e052598d2136": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8a5ec37974ee58aabd68ed13fa15e052598d2136": {
+      "type": "Yintroduced",
+      "commitMessage": "Minor optimization to avoid including non-value-returning methods as possible getters\n",
+      "commitDate": "5/31/14, 8:28 PM",
+      "commitName": "8a5ec37974ee58aabd68ed13fa15e052598d2136",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+public boolean hasReturnType() {\n+    Class\u003c?\u003e rt \u003d getRawReturnType();\n+    return (rt !\u003d Void.TYPE \u0026\u0026 rt !\u003d Void.class);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean hasReturnType() {\n    Class\u003c?\u003e rt \u003d getRawReturnType();\n    return (rt !\u003d Void.TYPE \u0026\u0026 rt !\u003d Void.class);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedMethod.java",
+      "functionStartLine": 226,
+      "functionName": "hasReturnType",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method that can be used to check whether method returns\na value or not; if return type declared as \u003ccode\u003evoid\u003c/code\u003e, returns\nfalse, otherwise true\n\n@since 2.4\n"
+    }
+  }
+}

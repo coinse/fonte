@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "OptionalHandlerFactory.java",
+  "functionName": "hasSupertypeStartingWith",
+  "functionId": "hasSupertypeStartingWith___rawType-Class__?____prefix-String",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ext/OptionalHandlerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 140,
+  "functionEndLine": 155,
+  "numCommitsSeen": 13,
+  "timeTaken": 381,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+private boolean hasSupertypeStartingWith(Class\u003c?\u003e rawType, String prefix) {\n+    for (Class\u003c?\u003e supertype \u003d rawType.getSuperclass(); supertype !\u003d null; supertype \u003d supertype.getSuperclass()) {\n+        if (supertype.getName().startsWith(prefix)) {\n+            return true;\n+        }\n+    }\n+    for (Class\u003c?\u003e cls \u003d rawType; cls !\u003d null; cls \u003d cls.getSuperclass()) {\n+        if (hasInterfaceStartingWith(cls, prefix)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean hasSupertypeStartingWith(Class\u003c?\u003e rawType, String prefix) {\n    for (Class\u003c?\u003e supertype \u003d rawType.getSuperclass(); supertype !\u003d null; supertype \u003d supertype.getSuperclass()) {\n        if (supertype.getName().startsWith(prefix)) {\n            return true;\n        }\n    }\n    for (Class\u003c?\u003e cls \u003d rawType; cls !\u003d null; cls \u003d cls.getSuperclass()) {\n        if (hasInterfaceStartingWith(cls, prefix)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ext/OptionalHandlerFactory.java",
+      "functionStartLine": 184,
+      "functionName": "hasSupertypeStartingWith",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

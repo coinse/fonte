@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanPropertyWriter.java",
+  "functionName": "assignNullSerializer",
+  "functionId": "assignNullSerializer___nullSer-JsonSerializer__Object__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to assign null value serializer for property\n\n@since 2.0\n",
+  "functionStartLine": 349,
+  "functionEndLine": 355,
+  "numCommitsSeen": 58,
+  "timeTaken": 2074,
+  "changeHistory": [
+    "418a239a360683f065ea18fb4d1cb8d40c646c8e"
+  ],
+  "changeHistoryShort": {
+    "418a239a360683f065ea18fb4d1cb8d40c646c8e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "418a239a360683f065ea18fb4d1cb8d40c646c8e": {
+      "type": "Yintroduced",
+      "commitMessage": "Adding unit tests for verifying \u0027isEmpty()\u0027, custom null value serialization\n",
+      "commitDate": "1/12/12, 9:52 PM",
+      "commitName": "418a239a360683f065ea18fb4d1cb8d40c646c8e",
+      "commitAuthor": "Tatu",
+      "diff": "@@ -0,0 +1,6 @@\n+public void assignNullSerializer(JsonSerializer\u003cObject\u003e nullSer) {\n+    if (_nullSerializer !\u003d null \u0026\u0026 _nullSerializer !\u003d nullSer) {\n+        throw new IllegalStateException(\"Can not override null serializer\");\n+    }\n+    _nullSerializer \u003d nullSer;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void assignNullSerializer(JsonSerializer\u003cObject\u003e nullSer) {\n    if (_nullSerializer !\u003d null \u0026\u0026 _nullSerializer !\u003d nullSer) {\n        throw new IllegalStateException(\"Can not override null serializer\");\n    }\n    _nullSerializer \u003d nullSer;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+      "functionStartLine": 239,
+      "functionName": "assignNullSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to assign null value serializer for property\n\n@since 2.0\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedWithParams.java",
+  "functionName": "getType",
+  "functionId": "getType___bindings-TypeBindings__typeParams-TypeVariable__?__[]",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedWithParams.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 71,
+  "functionEndLine": 88,
+  "numCommitsSeen": 9,
+  "timeTaken": 263,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,13 @@\n+protected JavaType getType(TypeBindings bindings, TypeVariable\u003c?\u003e[] typeParams) {\n+    if (typeParams !\u003d null \u0026\u0026 typeParams.length \u003e 0) {\n+        bindings \u003d bindings.childInstance();\n+        for (TypeVariable\u003c?\u003e var : typeParams) {\n+            String name \u003d var.getName();\n+            bindings._addPlaceholder(name);\n+            Type lowerBound \u003d var.getBounds()[0];\n+            JavaType type \u003d (lowerBound \u003d\u003d null) ? TypeFactory.unknownType() : bindings.resolveType(lowerBound);\n+            bindings.addBinding(var.getName(), type);\n+        }\n+    }\n+    return bindings.resolveType(getGenericType());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JavaType getType(TypeBindings bindings, TypeVariable\u003c?\u003e[] typeParams) {\n    if (typeParams !\u003d null \u0026\u0026 typeParams.length \u003e 0) {\n        bindings \u003d bindings.childInstance();\n        for (TypeVariable\u003c?\u003e var : typeParams) {\n            String name \u003d var.getName();\n            bindings._addPlaceholder(name);\n            Type lowerBound \u003d var.getBounds()[0];\n            JavaType type \u003d (lowerBound \u003d\u003d null) ? TypeFactory.unknownType() : bindings.resolveType(lowerBound);\n            bindings.addBinding(var.getName(), type);\n        }\n    }\n    return bindings.resolveType(getGenericType());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedWithParams.java",
+      "functionStartLine": 91,
+      "functionName": "getType",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeFactory.java",
+  "functionName": "findTypeParameters",
+  "functionId": "findTypeParameters___clz-Class__?____expType-Class__?____bindings-TypeBindings",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 282,
+  "functionEndLine": 315,
+  "numCommitsSeen": 27,
+  "timeTaken": 1573,
+  "changeHistory": [
+    "73d3831389f9da93a82a04401f9431bddfac7133",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "73d3831389f9da93a82a04401f9431bddfac7133": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "73d3831389f9da93a82a04401f9431bddfac7133": {
+      "type": "Ybodychange",
+      "commitMessage": "remove accidental use of \u0027instance\u0027 in TypeFactory\n",
+      "commitDate": "9/22/12, 11:00 AM",
+      "commitName": "73d3831389f9da93a82a04401f9431bddfac7133",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/3/12, 9:50 PM",
+      "commitNameOld": "eafafffda5d43e4ae2b2d6eb3a06c89575224b94",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 231.51,
+      "commitsBetweenForRepo": 326,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JavaType[] findTypeParameters(Class\u003c?\u003e clz, Class\u003c?\u003e expType, TypeBindings bindings) {\n    HierarchicType subType \u003d _findSuperTypeChain(clz, expType);\n    if (subType \u003d\u003d null) {\n        throw new IllegalArgumentException(\"Class \" + clz.getName() + \" is not a subtype of \" + expType.getName());\n    }\n    HierarchicType superType \u003d subType;\n    while (superType.getSuperType() !\u003d null) {\n        superType \u003d superType.getSuperType();\n        Class\u003c?\u003e raw \u003d superType.getRawClass();\n        TypeBindings newBindings \u003d new TypeBindings(this, raw);\n        if (superType.isGeneric()) {\n            ParameterizedType pt \u003d superType.asGeneric();\n            Type[] actualTypes \u003d pt.getActualTypeArguments();\n            TypeVariable\u003c?\u003e[] vars \u003d raw.getTypeParameters();\n            int len \u003d actualTypes.length;\n            for (int i \u003d 0; i \u003c len; ++i) {\n                String name \u003d vars[i].getName();\n                JavaType type \u003d _constructType(actualTypes[i], bindings);\n                newBindings.addBinding(name, type);\n            }\n        }\n        bindings \u003d newBindings;\n    }\n    if (!superType.isGeneric()) {\n        return null;\n    }\n    return bindings.typesAsArray();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 258,
+      "functionName": "findTypeParameters",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,28 +1,28 @@\n public JavaType[] findTypeParameters(Class\u003c?\u003e clz, Class\u003c?\u003e expType, TypeBindings bindings) {\n     HierarchicType subType \u003d _findSuperTypeChain(clz, expType);\n     if (subType \u003d\u003d null) {\n         throw new IllegalArgumentException(\"Class \" + clz.getName() + \" is not a subtype of \" + expType.getName());\n     }\n     HierarchicType superType \u003d subType;\n     while (superType.getSuperType() !\u003d null) {\n         superType \u003d superType.getSuperType();\n         Class\u003c?\u003e raw \u003d superType.getRawClass();\n         TypeBindings newBindings \u003d new TypeBindings(this, raw);\n         if (superType.isGeneric()) {\n             ParameterizedType pt \u003d superType.asGeneric();\n             Type[] actualTypes \u003d pt.getActualTypeArguments();\n             TypeVariable\u003c?\u003e[] vars \u003d raw.getTypeParameters();\n             int len \u003d actualTypes.length;\n             for (int i \u003d 0; i \u003c len; ++i) {\n                 String name \u003d vars[i].getName();\n-                JavaType type \u003d instance._constructType(actualTypes[i], bindings);\n+                JavaType type \u003d _constructType(actualTypes[i], bindings);\n                 newBindings.addBinding(name, type);\n             }\n         }\n         bindings \u003d newBindings;\n     }\n     if (!superType.isGeneric()) {\n         return null;\n     }\n     return bindings.typesAsArray();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,28 @@\n+public JavaType[] findTypeParameters(Class\u003c?\u003e clz, Class\u003c?\u003e expType, TypeBindings bindings) {\n+    HierarchicType subType \u003d _findSuperTypeChain(clz, expType);\n+    if (subType \u003d\u003d null) {\n+        throw new IllegalArgumentException(\"Class \" + clz.getName() + \" is not a subtype of \" + expType.getName());\n+    }\n+    HierarchicType superType \u003d subType;\n+    while (superType.getSuperType() !\u003d null) {\n+        superType \u003d superType.getSuperType();\n+        Class\u003c?\u003e raw \u003d superType.getRawClass();\n+        TypeBindings newBindings \u003d new TypeBindings(this, raw);\n+        if (superType.isGeneric()) {\n+            ParameterizedType pt \u003d superType.asGeneric();\n+            Type[] actualTypes \u003d pt.getActualTypeArguments();\n+            TypeVariable\u003c?\u003e[] vars \u003d raw.getTypeParameters();\n+            int len \u003d actualTypes.length;\n+            for (int i \u003d 0; i \u003c len; ++i) {\n+                String name \u003d vars[i].getName();\n+                JavaType type \u003d instance._constructType(actualTypes[i], bindings);\n+                newBindings.addBinding(name, type);\n+            }\n+        }\n+        bindings \u003d newBindings;\n+    }\n+    if (!superType.isGeneric()) {\n+        return null;\n+    }\n+    return bindings.typesAsArray();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JavaType[] findTypeParameters(Class\u003c?\u003e clz, Class\u003c?\u003e expType, TypeBindings bindings) {\n    HierarchicType subType \u003d _findSuperTypeChain(clz, expType);\n    if (subType \u003d\u003d null) {\n        throw new IllegalArgumentException(\"Class \" + clz.getName() + \" is not a subtype of \" + expType.getName());\n    }\n    HierarchicType superType \u003d subType;\n    while (superType.getSuperType() !\u003d null) {\n        superType \u003d superType.getSuperType();\n        Class\u003c?\u003e raw \u003d superType.getRawClass();\n        TypeBindings newBindings \u003d new TypeBindings(this, raw);\n        if (superType.isGeneric()) {\n            ParameterizedType pt \u003d superType.asGeneric();\n            Type[] actualTypes \u003d pt.getActualTypeArguments();\n            TypeVariable\u003c?\u003e[] vars \u003d raw.getTypeParameters();\n            int len \u003d actualTypes.length;\n            for (int i \u003d 0; i \u003c len; ++i) {\n                String name \u003d vars[i].getName();\n                JavaType type \u003d instance._constructType(actualTypes[i], bindings);\n                newBindings.addBinding(name, type);\n            }\n        }\n        bindings \u003d newBindings;\n    }\n    if (!superType.isGeneric()) {\n        return null;\n    }\n    return bindings.typesAsArray();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 403,
+      "functionName": "findTypeParameters",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

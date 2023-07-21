@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "_addConstructorMixIns",
+  "functionId": "_addConstructorMixIns___mixin-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 527,
+  "functionEndLine": 554,
+  "numCommitsSeen": 23,
+  "timeTaken": 1334,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,26 @@\n+protected void _addConstructorMixIns(Class\u003c?\u003e mixin) {\n+    MemberKey[] ctorKeys \u003d null;\n+    int ctorCount \u003d (_constructors \u003d\u003d null) ? 0 : _constructors.size();\n+    for (Constructor\u003c?\u003e ctor : mixin.getDeclaredConstructors()) {\n+        if (ctor.getParameterTypes().length \u003d\u003d 0) {\n+            if (_defaultConstructor !\u003d null) {\n+                _addMixOvers(ctor, _defaultConstructor, false);\n+            }\n+        } else {\n+            if (ctorKeys \u003d\u003d null) {\n+                ctorKeys \u003d new MemberKey[ctorCount];\n+                for (int i \u003d 0; i \u003c ctorCount; ++i) {\n+                    ctorKeys[i] \u003d new MemberKey(_constructors.get(i).getAnnotated());\n+                }\n+            }\n+            MemberKey key \u003d new MemberKey(ctor);\n+            for (int i \u003d 0; i \u003c ctorCount; ++i) {\n+                if (!key.equals(ctorKeys[i])) {\n+                    continue;\n+                }\n+                _addMixOvers(ctor, _constructors.get(i), true);\n+                break;\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void _addConstructorMixIns(Class\u003c?\u003e mixin) {\n    MemberKey[] ctorKeys \u003d null;\n    int ctorCount \u003d (_constructors \u003d\u003d null) ? 0 : _constructors.size();\n    for (Constructor\u003c?\u003e ctor : mixin.getDeclaredConstructors()) {\n        if (ctor.getParameterTypes().length \u003d\u003d 0) {\n            if (_defaultConstructor !\u003d null) {\n                _addMixOvers(ctor, _defaultConstructor, false);\n            }\n        } else {\n            if (ctorKeys \u003d\u003d null) {\n                ctorKeys \u003d new MemberKey[ctorCount];\n                for (int i \u003d 0; i \u003c ctorCount; ++i) {\n                    ctorKeys[i] \u003d new MemberKey(_constructors.get(i).getAnnotated());\n                }\n            }\n            MemberKey key \u003d new MemberKey(ctor);\n            for (int i \u003d 0; i \u003c ctorCount; ++i) {\n                if (!key.equals(ctorKeys[i])) {\n                    continue;\n                }\n                _addMixOvers(ctor, _constructors.get(i), true);\n                break;\n            }\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 543,
+      "functionName": "_addConstructorMixIns",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

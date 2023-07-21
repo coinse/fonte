@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedConstructor.java",
+  "functionName": "getGenericParameterType",
+  "functionId": "getGenericParameterType___index-int",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedConstructor.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 112,
+  "functionEndLine": 116,
+  "numCommitsSeen": 10,
+  "timeTaken": 275,
+  "changeHistory": [
+    "1dcce980954c9acef708aa9a0a128f04564bdd25",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "1dcce980954c9acef708aa9a0a128f04564bdd25": "Yrename",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1dcce980954c9acef708aa9a0a128f04564bdd25": {
+      "type": "Yrename",
+      "commitMessage": "Bit more renaming for consistency\n",
+      "commitDate": "1/26/12, 12:33 PM",
+      "commitName": "1dcce980954c9acef708aa9a0a128f04564bdd25",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "1/25/12, 5:53 PM",
+      "commitNameOld": "ea95d70f86d6574b302faedfeacbf4ad2f0ae1af",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.78,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Type getGenericParameterType(int index) {\n    Type[] types \u003d _constructor.getGenericParameterTypes();\n    return (index \u003e\u003d types.length) ? null : types[index];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedConstructor.java",
+      "functionStartLine": 92,
+      "functionName": "getGenericParameterType",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n @Override\n-public Type getParameterType(int index) {\n+public Type getGenericParameterType(int index) {\n     Type[] types \u003d _constructor.getGenericParameterTypes();\n     return (index \u003e\u003d types.length) ? null : types[index];\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "getParameterType",
+        "newValue": "getGenericParameterType"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public Type getParameterType(int index) {\n+    Type[] types \u003d _constructor.getGenericParameterTypes();\n+    return (index \u003e\u003d types.length) ? null : types[index];\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Type getParameterType(int index) {\n    Type[] types \u003d _constructor.getGenericParameterTypes();\n    return (index \u003e\u003d types.length) ? null : types[index];\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedConstructor.java",
+      "functionStartLine": 92,
+      "functionName": "getParameterType",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

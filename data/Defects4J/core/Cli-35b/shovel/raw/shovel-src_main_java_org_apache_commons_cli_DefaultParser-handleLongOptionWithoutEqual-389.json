@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Cli-35b",
+  "repositoryPath": "/tmp/Cli-35b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DefaultParser.java",
+  "functionName": "handleLongOptionWithoutEqual",
+  "functionId": "handleLongOptionWithoutEqual___token-String",
+  "sourceFilePath": "src/main/java/org/apache/commons/cli/DefaultParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "Handles the following tokens:\n\n--L\n-L\n--l\n-l\n\n@param token the command line token to handle\n",
+  "functionStartLine": 389,
+  "functionEndLine": 404,
+  "numCommitsSeen": 15,
+  "timeTaken": 1113,
+  "changeHistory": [
+    "a1b5d44432c057cf675f051bb20379937565f4ef",
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df",
+    "f43698527ef2b5ba15fe85d46d2d505418f68243"
+  ],
+  "changeHistoryShort": {
+    "a1b5d44432c057cf675f051bb20379937565f4ef": "Ybodychange",
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df": "Yfilerename",
+    "f43698527ef2b5ba15fe85d46d2d505418f68243": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a1b5d44432c057cf675f051bb20379937565f4ef": {
+      "type": "Ybodychange",
+      "commitMessage": "Moving to Java 5\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@1091539 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/12/11, 11:57 AM",
+      "commitName": "a1b5d44432c057cf675f051bb20379937565f4ef",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "6/17/10, 12:57 AM",
+      "commitNameOld": "324b7f901b91614927926a5bab1d9e0e2325f018",
+      "commitAuthorOld": "Emmanuel Bourg",
+      "daysBetweenCommits": 299.46,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void handleLongOptionWithoutEqual(String token) throws ParseException {\n    List\u003cString\u003e matchingOpts \u003d options.getMatchingOptions(token);\n    if (matchingOpts.isEmpty()) {\n        handleUnknownToken(currentToken);\n    } else if (matchingOpts.size() \u003e 1) {\n        throw new AmbiguousOptionException(token, matchingOpts);\n    } else {\n        handleOption(options.getOption(matchingOpts.get(0)));\n    }\n}",
+      "path": "src/main/java/org/apache/commons/cli/DefaultParser.java",
+      "functionStartLine": 386,
+      "functionName": "handleLongOptionWithoutEqual",
+      "functionAnnotation": "",
+      "functionDoc": "Handles the following tokens:\n\n--L\n-L\n--l\n-l\n\n@param token the command line token to handle\n",
+      "diff": "@@ -1,10 +1,10 @@\n private void handleLongOptionWithoutEqual(String token) throws ParseException {\n-    List matchingOpts \u003d options.getMatchingOptions(token);\n+    List\u003cString\u003e matchingOpts \u003d options.getMatchingOptions(token);\n     if (matchingOpts.isEmpty()) {\n         handleUnknownToken(currentToken);\n     } else if (matchingOpts.size() \u003e 1) {\n         throw new AmbiguousOptionException(token, matchingOpts);\n     } else {\n-        handleOption(options.getOption((String) matchingOpts.get(0)));\n+        handleOption(options.getOption(matchingOpts.get(0)));\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "1596f3bbe57986361da4ac1a23634dd5b00d10df": {
+      "type": "Yfilerename",
+      "commitMessage": "Switched to the Maven 2 default directory layout (part 3)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@955173 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/16/10, 2:45 AM",
+      "commitName": "1596f3bbe57986361da4ac1a23634dd5b00d10df",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "6/16/10, 2:42 AM",
+      "commitNameOld": "406a35f1a128944b7c51dcbc4a1f04c3f8bec3e6",
+      "commitAuthorOld": "Emmanuel Bourg",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void handleLongOptionWithoutEqual(String token) throws ParseException {\n    List matchingOpts \u003d options.getMatchingOptions(token);\n    if (matchingOpts.isEmpty()) {\n        handleUnknownToken(currentToken);\n    } else if (matchingOpts.size() \u003e 1) {\n        throw new AmbiguousOptionException(token, matchingOpts);\n    } else {\n        handleOption(options.getOption((String) matchingOpts.get(0)));\n    }\n}",
+      "path": "src/main/java/org/apache/commons/cli/DefaultParser.java",
+      "functionStartLine": 379,
+      "functionName": "handleLongOptionWithoutEqual",
+      "functionAnnotation": "",
+      "functionDoc": "Handles the following tokens:\n\n--L\n-L\n--l\n-l\n\n@param token the command line token to handle\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/cli/DefaultParser.java",
+        "newPath": "src/main/java/org/apache/commons/cli/DefaultParser.java"
+      }
+    },
+    "f43698527ef2b5ba15fe85d46d2d505418f68243": {
+      "type": "Yintroduced",
+      "commitMessage": "New unified parser (CLI-181, also fixes CLI-160, CLI-161, CLI-167, CLI-184)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/cli/trunk@780264 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/30/09, 6:43 AM",
+      "commitName": "f43698527ef2b5ba15fe85d46d2d505418f68243",
+      "commitAuthor": "Emmanuel Bourg",
+      "diff": "@@ -0,0 +1,10 @@\n+private void handleLongOptionWithoutEqual(String token) throws ParseException {\n+    List matchingOpts \u003d options.getMatchingOptions(token);\n+    if (matchingOpts.isEmpty()) {\n+        handleUnknownToken(currentToken);\n+    } else if (matchingOpts.size() \u003e 1) {\n+        throw new AmbiguousOptionException(token, matchingOpts);\n+    } else {\n+        handleOption(options.getOption((String) matchingOpts.get(0)));\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void handleLongOptionWithoutEqual(String token) throws ParseException {\n    List matchingOpts \u003d options.getMatchingOptions(token);\n    if (matchingOpts.isEmpty()) {\n        handleUnknownToken(currentToken);\n    } else if (matchingOpts.size() \u003e 1) {\n        throw new AmbiguousOptionException(token, matchingOpts);\n    } else {\n        handleOption(options.getOption((String) matchingOpts.get(0)));\n    }\n}",
+      "path": "src/java/org/apache/commons/cli/DefaultParser.java",
+      "functionStartLine": 289,
+      "functionName": "handleLongOptionWithoutEqual",
+      "functionAnnotation": "",
+      "functionDoc": "Handles the following tokens:\n\n--L\n-L\n--l\n-l\n\n@param token the command line token to handle\n"
+    }
+  }
+}

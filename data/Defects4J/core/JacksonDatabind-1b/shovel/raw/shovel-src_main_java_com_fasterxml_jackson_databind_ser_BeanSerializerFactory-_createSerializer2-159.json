@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanSerializerFactory.java",
+  "functionName": "_createSerializer2",
+  "functionId": "_createSerializer2___prov-SerializerProvider__type-JavaType__beanDesc-BeanDescription__staticTyping-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 159,
+  "functionEndLine": 230,
+  "numCommitsSeen": 60,
+  "timeTaken": 904,
+  "changeHistory": [
+    "be97826b2c8702639503cc6c7f8398d84073aaf0"
+  ],
+  "changeHistoryShort": {
+    "be97826b2c8702639503cc6c7f8398d84073aaf0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "be97826b2c8702639503cc6c7f8398d84073aaf0": {
+      "type": "Yintroduced",
+      "commitMessage": "Completed (?) #124 implementation: now Converters seem to work ok\n",
+      "commitDate": "2/18/13, 10:28 PM",
+      "commitName": "be97826b2c8702639503cc6c7f8398d84073aaf0",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,43 @@\n+protected JsonSerializer\u003c?\u003e _createSerializer2(SerializerProvider prov, JavaType type, BeanDescription beanDesc, boolean staticTyping) throws JsonMappingException {\n+    JsonSerializer\u003c?\u003e ser \u003d findSerializerByAnnotations(prov, type, beanDesc);\n+    if (ser !\u003d null) {\n+        return ser;\n+    }\n+    final SerializationConfig config \u003d prov.getConfig();\n+    if (type.isContainerType()) {\n+        if (!staticTyping) {\n+            staticTyping \u003d usesStaticTyping(config, beanDesc, null);\n+        }\n+        ser \u003d buildContainerSerializer(prov, type, beanDesc, staticTyping);\n+        if (ser !\u003d null) {\n+            return ser;\n+        }\n+    } else {\n+        for (Serializers serializers : customSerializers()) {\n+            ser \u003d serializers.findSerializer(config, type, beanDesc);\n+            if (ser !\u003d null) {\n+                break;\n+            }\n+        }\n+    }\n+    if (ser \u003d\u003d null) {\n+        ser \u003d findSerializerByLookup(type, config, beanDesc, staticTyping);\n+        if (ser \u003d\u003d null) {\n+            ser \u003d findSerializerByPrimaryType(prov, type, beanDesc, staticTyping);\n+            if (ser \u003d\u003d null) {\n+                ser \u003d findBeanSerializer(prov, type, beanDesc);\n+                if (ser \u003d\u003d null) {\n+                    ser \u003d findSerializerByAddonType(config, type, beanDesc, staticTyping);\n+                }\n+            }\n+        }\n+    }\n+    if (ser !\u003d null) {\n+        if (_factoryConfig.hasSerializerModifiers()) {\n+            for (BeanSerializerModifier mod : _factoryConfig.serializerModifiers()) {\n+                ser \u003d mod.modifySerializer(config, beanDesc, ser);\n+            }\n+        }\n+    }\n+    return ser;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonSerializer\u003c?\u003e _createSerializer2(SerializerProvider prov, JavaType type, BeanDescription beanDesc, boolean staticTyping) throws JsonMappingException {\n    JsonSerializer\u003c?\u003e ser \u003d findSerializerByAnnotations(prov, type, beanDesc);\n    if (ser !\u003d null) {\n        return ser;\n    }\n    final SerializationConfig config \u003d prov.getConfig();\n    if (type.isContainerType()) {\n        if (!staticTyping) {\n            staticTyping \u003d usesStaticTyping(config, beanDesc, null);\n        }\n        ser \u003d buildContainerSerializer(prov, type, beanDesc, staticTyping);\n        if (ser !\u003d null) {\n            return ser;\n        }\n    } else {\n        for (Serializers serializers : customSerializers()) {\n            ser \u003d serializers.findSerializer(config, type, beanDesc);\n            if (ser !\u003d null) {\n                break;\n            }\n        }\n    }\n    if (ser \u003d\u003d null) {\n        ser \u003d findSerializerByLookup(type, config, beanDesc, staticTyping);\n        if (ser \u003d\u003d null) {\n            ser \u003d findSerializerByPrimaryType(prov, type, beanDesc, staticTyping);\n            if (ser \u003d\u003d null) {\n                ser \u003d findBeanSerializer(prov, type, beanDesc);\n                if (ser \u003d\u003d null) {\n                    ser \u003d findSerializerByAddonType(config, type, beanDesc, staticTyping);\n                }\n            }\n        }\n    }\n    if (ser !\u003d null) {\n        if (_factoryConfig.hasSerializerModifiers()) {\n            for (BeanSerializerModifier mod : _factoryConfig.serializerModifiers()) {\n                ser \u003d mod.modifySerializer(config, beanDesc, ser);\n            }\n        }\n    }\n    return ser;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+      "functionStartLine": 167,
+      "functionName": "_createSerializer2",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

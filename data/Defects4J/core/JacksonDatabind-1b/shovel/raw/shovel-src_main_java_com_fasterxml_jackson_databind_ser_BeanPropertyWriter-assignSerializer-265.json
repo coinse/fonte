@@ -1,0 +1,142 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanPropertyWriter.java",
+  "functionName": "assignSerializer",
+  "functionId": "assignSerializer___ser-JsonSerializer__Object__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to assign value serializer for property\n\n@since 2.0\n",
+  "functionStartLine": 265,
+  "functionEndLine": 272,
+  "numCommitsSeen": 29,
+  "timeTaken": 807,
+  "changeHistory": [
+    "418a239a360683f065ea18fb4d1cb8d40c646c8e",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "418a239a360683f065ea18fb4d1cb8d40c646c8e": "Ymultichange(Yrename,Yreturntypechange,Ybodychange,Ydocchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "418a239a360683f065ea18fb4d1cb8d40c646c8e": {
+      "type": "Ymultichange(Yrename,Yreturntypechange,Ybodychange,Ydocchange)",
+      "commitMessage": "Adding unit tests for verifying \u0027isEmpty()\u0027, custom null value serialization\n",
+      "commitDate": "1/12/12, 9:52 PM",
+      "commitName": "418a239a360683f065ea18fb4d1cb8d40c646c8e",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Adding unit tests for verifying \u0027isEmpty()\u0027, custom null value serialization\n",
+          "commitDate": "1/12/12, 9:52 PM",
+          "commitName": "418a239a360683f065ea18fb4d1cb8d40c646c8e",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/12/12, 4:09 PM",
+          "commitNameOld": "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.24,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n        throw new IllegalStateException(\"Can not override serializer\");\n    }\n    _serializer \u003d ser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+          "functionStartLine": 225,
+          "functionName": "assignSerializer",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to assign value serializer for property\n\n@since 2.0\n",
+          "diff": "@@ -1,6 +1,6 @@\n-public BeanPropertyWriter withSerializer(JsonSerializer\u003cObject\u003e ser) {\n-    if (getClass() !\u003d BeanPropertyWriter.class) {\n-        throw new IllegalStateException(\"BeanPropertyWriter sub-class does not override \u0027withSerializer()\u0027; needs to!\");\n+public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n+    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n+        throw new IllegalStateException(\"Can not override serializer\");\n     }\n-    return new BeanPropertyWriter(this, ser);\n+    _serializer \u003d ser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "withSerializer",
+            "newValue": "assignSerializer"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Adding unit tests for verifying \u0027isEmpty()\u0027, custom null value serialization\n",
+          "commitDate": "1/12/12, 9:52 PM",
+          "commitName": "418a239a360683f065ea18fb4d1cb8d40c646c8e",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/12/12, 4:09 PM",
+          "commitNameOld": "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.24,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n        throw new IllegalStateException(\"Can not override serializer\");\n    }\n    _serializer \u003d ser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+          "functionStartLine": 225,
+          "functionName": "assignSerializer",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to assign value serializer for property\n\n@since 2.0\n",
+          "diff": "@@ -1,6 +1,6 @@\n-public BeanPropertyWriter withSerializer(JsonSerializer\u003cObject\u003e ser) {\n-    if (getClass() !\u003d BeanPropertyWriter.class) {\n-        throw new IllegalStateException(\"BeanPropertyWriter sub-class does not override \u0027withSerializer()\u0027; needs to!\");\n+public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n+    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n+        throw new IllegalStateException(\"Can not override serializer\");\n     }\n-    return new BeanPropertyWriter(this, ser);\n+    _serializer \u003d ser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "BeanPropertyWriter",
+            "newValue": "void"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Adding unit tests for verifying \u0027isEmpty()\u0027, custom null value serialization\n",
+          "commitDate": "1/12/12, 9:52 PM",
+          "commitName": "418a239a360683f065ea18fb4d1cb8d40c646c8e",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/12/12, 4:09 PM",
+          "commitNameOld": "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.24,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n        throw new IllegalStateException(\"Can not override serializer\");\n    }\n    _serializer \u003d ser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+          "functionStartLine": 225,
+          "functionName": "assignSerializer",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to assign value serializer for property\n\n@since 2.0\n",
+          "diff": "@@ -1,6 +1,6 @@\n-public BeanPropertyWriter withSerializer(JsonSerializer\u003cObject\u003e ser) {\n-    if (getClass() !\u003d BeanPropertyWriter.class) {\n-        throw new IllegalStateException(\"BeanPropertyWriter sub-class does not override \u0027withSerializer()\u0027; needs to!\");\n+public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n+    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n+        throw new IllegalStateException(\"Can not override serializer\");\n     }\n-    return new BeanPropertyWriter(this, ser);\n+    _serializer \u003d ser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Adding unit tests for verifying \u0027isEmpty()\u0027, custom null value serialization\n",
+          "commitDate": "1/12/12, 9:52 PM",
+          "commitName": "418a239a360683f065ea18fb4d1cb8d40c646c8e",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/12/12, 4:09 PM",
+          "commitNameOld": "56e8e6c7d057e6acf2d3dce98e6802cbbee48c57",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.24,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n        throw new IllegalStateException(\"Can not override serializer\");\n    }\n    _serializer \u003d ser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+          "functionStartLine": 225,
+          "functionName": "assignSerializer",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to assign value serializer for property\n\n@since 2.0\n",
+          "diff": "@@ -1,6 +1,6 @@\n-public BeanPropertyWriter withSerializer(JsonSerializer\u003cObject\u003e ser) {\n-    if (getClass() !\u003d BeanPropertyWriter.class) {\n-        throw new IllegalStateException(\"BeanPropertyWriter sub-class does not override \u0027withSerializer()\u0027; needs to!\");\n+public void assignSerializer(JsonSerializer\u003cObject\u003e ser) {\n+    if (_serializer !\u003d null \u0026\u0026 _serializer !\u003d ser) {\n+        throw new IllegalStateException(\"Can not override serializer\");\n     }\n-    return new BeanPropertyWriter(this, ser);\n+    _serializer \u003d ser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Method that will construct and return a new writer that has\nsame properties as this writer, but uses specified serializer\ninstead of currently configured one (if any).\n",
+            "newValue": "Method called to assign value serializer for property\n\n@since 2.0\n"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+public BeanPropertyWriter withSerializer(JsonSerializer\u003cObject\u003e ser) {\n+    if (getClass() !\u003d BeanPropertyWriter.class) {\n+        throw new IllegalStateException(\"BeanPropertyWriter sub-class does not override \u0027withSerializer()\u0027; needs to!\");\n+    }\n+    return new BeanPropertyWriter(this, ser);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public BeanPropertyWriter withSerializer(JsonSerializer\u003cObject\u003e ser) {\n    if (getClass() !\u003d BeanPropertyWriter.class) {\n        throw new IllegalStateException(\"BeanPropertyWriter sub-class does not override \u0027withSerializer()\u0027; needs to!\");\n    }\n    return new BeanPropertyWriter(this, ser);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+      "functionStartLine": 231,
+      "functionName": "withSerializer",
+      "functionAnnotation": "",
+      "functionDoc": "Method that will construct and return a new writer that has\nsame properties as this writer, but uses specified serializer\ninstead of currently configured one (if any).\n"
+    }
+  }
+}

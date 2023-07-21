@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonAnnotationIntrospector.java",
+  "functionName": "findPropertyDescription",
+  "functionId": "findPropertyDescription___ann-Annotated",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 474,
+  "functionEndLine": 477,
+  "numCommitsSeen": 133,
+  "timeTaken": 2208,
+  "changeHistory": [
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+    "156487d56a9d7df9456eb049f7ebd9f70d1f8474"
+  ],
+  "changeHistoryShort": {
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9": "Ymultichange(Yparameterchange,Ybodychange)",
+    "156487d56a9d7df9456eb049f7ebd9f70d1f8474": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Implement #133\n",
+      "commitDate": "9/25/14, 5:28 PM",
+      "commitName": "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+      "commitAuthor": "Cowtowncoder",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Implement #133\n",
+          "commitDate": "9/25/14, 5:28 PM",
+          "commitName": "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+          "commitAuthor": "Cowtowncoder",
+          "commitDateOld": "5/19/14, 11:42 PM",
+          "commitNameOld": "46c6679d0b88035e0083e27890a421e8a8466242",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 128.74,
+          "commitsBetweenForRepo": 127,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic String findPropertyDescription(Annotated ann) {\n    JsonPropertyDescription desc \u003d _findAnnotation(ann, JsonPropertyDescription.class);\n    return (desc \u003d\u003d null) ? null : desc.value();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+          "functionStartLine": 456,
+          "functionName": "findPropertyDescription",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n @Override\n-public String findPropertyDescription(Annotated annotated) {\n-    JsonPropertyDescription desc \u003d annotated.getAnnotation(JsonPropertyDescription.class);\n+public String findPropertyDescription(Annotated ann) {\n+    JsonPropertyDescription desc \u003d _findAnnotation(ann, JsonPropertyDescription.class);\n     return (desc \u003d\u003d null) ? null : desc.value();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[annotated-Annotated]",
+            "newValue": "[ann-Annotated]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implement #133\n",
+          "commitDate": "9/25/14, 5:28 PM",
+          "commitName": "750ccda7e16494dd5ee8f9389a5aec7f74ae42a9",
+          "commitAuthor": "Cowtowncoder",
+          "commitDateOld": "5/19/14, 11:42 PM",
+          "commitNameOld": "46c6679d0b88035e0083e27890a421e8a8466242",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 128.74,
+          "commitsBetweenForRepo": 127,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic String findPropertyDescription(Annotated ann) {\n    JsonPropertyDescription desc \u003d _findAnnotation(ann, JsonPropertyDescription.class);\n    return (desc \u003d\u003d null) ? null : desc.value();\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+          "functionStartLine": 456,
+          "functionName": "findPropertyDescription",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n @Override\n-public String findPropertyDescription(Annotated annotated) {\n-    JsonPropertyDescription desc \u003d annotated.getAnnotation(JsonPropertyDescription.class);\n+public String findPropertyDescription(Annotated ann) {\n+    JsonPropertyDescription desc \u003d _findAnnotation(ann, JsonPropertyDescription.class);\n     return (desc \u003d\u003d null) ? null : desc.value();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "156487d56a9d7df9456eb049f7ebd9f70d1f8474": {
+      "type": "Yintroduced",
+      "commitMessage": "start adding support for bean property descriptions\n",
+      "commitDate": "7/25/13, 7:13 PM",
+      "commitName": "156487d56a9d7df9456eb049f7ebd9f70d1f8474",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public String findPropertyDescription(Annotated annotated) {\n+    JsonPropertyDescription desc \u003d annotated.getAnnotation(JsonPropertyDescription.class);\n+    return (desc \u003d\u003d null) ? null : desc.value();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String findPropertyDescription(Annotated annotated) {\n    JsonPropertyDescription desc \u003d annotated.getAnnotation(JsonPropertyDescription.class);\n    return (desc \u003d\u003d null) ? null : desc.value();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+      "functionStartLine": 456,
+      "functionName": "findPropertyDescription",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicClassIntrospector.java",
+  "functionName": "_isStdJDKCollection",
+  "functionId": "_isStdJDKCollection___type-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicClassIntrospector.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to decide whether we can omit introspection\nfor members (methods, fields, constructors); we may do so for\na limited number of container types JDK provides.\n",
+  "functionStartLine": 251,
+  "functionEndLine": 272,
+  "numCommitsSeen": 18,
+  "timeTaken": 786,
+  "changeHistory": [
+    "3eb74af17d39f5d6017e579590174c3941210d82"
+  ],
+  "changeHistoryShort": {
+    "3eb74af17d39f5d6017e579590174c3941210d82": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3eb74af17d39f5d6017e579590174c3941210d82": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement #550\n",
+      "commitDate": "9/23/14, 2:04 PM",
+      "commitName": "3eb74af17d39f5d6017e579590174c3941210d82",
+      "commitAuthor": "Cowtowncoder",
+      "diff": "@@ -0,0 +1,16 @@\n+protected boolean _isStdJDKCollection(JavaType type) {\n+    if (!type.isContainerType() || type.isArrayType()) {\n+        return false;\n+    }\n+    Class\u003c?\u003e raw \u003d type.getRawClass();\n+    Package pkg \u003d raw.getPackage();\n+    if (pkg !\u003d null) {\n+        String pkgName \u003d pkg.getName();\n+        if (pkgName.startsWith(\"java.lang\") || pkgName.startsWith(\"java.util\")) {\n+            if (Collection.class.isAssignableFrom(raw) || Map.class.isAssignableFrom(raw)) {\n+                return true;\n+            }\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected boolean _isStdJDKCollection(JavaType type) {\n    if (!type.isContainerType() || type.isArrayType()) {\n        return false;\n    }\n    Class\u003c?\u003e raw \u003d type.getRawClass();\n    Package pkg \u003d raw.getPackage();\n    if (pkg !\u003d null) {\n        String pkgName \u003d pkg.getName();\n        if (pkgName.startsWith(\"java.lang\") || pkgName.startsWith(\"java.util\")) {\n            if (Collection.class.isAssignableFrom(raw) || Map.class.isAssignableFrom(raw)) {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/BasicClassIntrospector.java",
+      "functionStartLine": 251,
+      "functionName": "_isStdJDKCollection",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to decide whether we can omit introspection\nfor members (methods, fields, constructors); we may do so for\na limited number of container types JDK provides.\n"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "removeNonVisible",
+  "functionId": "removeNonVisible___force-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 663,
+  "functionEndLine": 682,
+  "numCommitsSeen": 69,
+  "timeTaken": 2246,
+  "changeHistory": [
+    "930187bf135ea5519d2d70f24079ec0e39d797a6",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "930187bf135ea5519d2d70f24079ec0e39d797a6": "Ymultichange(Yparameterchange,Ybodychange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "930187bf135ea5519d2d70f24079ec0e39d797a6": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Implemented #195, ability to disable inference of mutators (inclusion of non-visible field/setter, if visible/annotated getter with same name is found)\n",
+      "commitDate": "3/28/13, 2:17 PM",
+      "commitName": "930187bf135ea5519d2d70f24079ec0e39d797a6",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Implemented #195, ability to disable inference of mutators (inclusion of non-visible field/setter, if visible/annotated getter with same name is found)\n",
+          "commitDate": "3/28/13, 2:17 PM",
+          "commitName": "930187bf135ea5519d2d70f24079ec0e39d797a6",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/13/13, 3:56 PM",
+          "commitNameOld": "8d53c22404fbd066cf3f81d1248e188dba5caebd",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 14.93,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void removeNonVisible(boolean force) {\n    _getters \u003d _removeNonVisible(_getters);\n    _ctorParameters \u003d _removeNonVisible(_ctorParameters);\n    if (force || (_getters \u003d\u003d null)) {\n        _fields \u003d _removeNonVisible(_fields);\n        _setters \u003d _removeNonVisible(_setters);\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 445,
+          "functionName": "removeNonVisible",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,8 @@\n-public void removeNonVisible() {\n+public void removeNonVisible(boolean force) {\n     _getters \u003d _removeNonVisible(_getters);\n     _ctorParameters \u003d _removeNonVisible(_ctorParameters);\n-    if (_getters \u003d\u003d null) {\n+    if (force || (_getters \u003d\u003d null)) {\n         _fields \u003d _removeNonVisible(_fields);\n         _setters \u003d _removeNonVisible(_setters);\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[]",
+            "newValue": "[force-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implemented #195, ability to disable inference of mutators (inclusion of non-visible field/setter, if visible/annotated getter with same name is found)\n",
+          "commitDate": "3/28/13, 2:17 PM",
+          "commitName": "930187bf135ea5519d2d70f24079ec0e39d797a6",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "3/13/13, 3:56 PM",
+          "commitNameOld": "8d53c22404fbd066cf3f81d1248e188dba5caebd",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 14.93,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public void removeNonVisible(boolean force) {\n    _getters \u003d _removeNonVisible(_getters);\n    _ctorParameters \u003d _removeNonVisible(_ctorParameters);\n    if (force || (_getters \u003d\u003d null)) {\n        _fields \u003d _removeNonVisible(_fields);\n        _setters \u003d _removeNonVisible(_setters);\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+          "functionStartLine": 445,
+          "functionName": "removeNonVisible",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,8 @@\n-public void removeNonVisible() {\n+public void removeNonVisible(boolean force) {\n     _getters \u003d _removeNonVisible(_getters);\n     _ctorParameters \u003d _removeNonVisible(_ctorParameters);\n-    if (_getters \u003d\u003d null) {\n+    if (force || (_getters \u003d\u003d null)) {\n         _fields \u003d _removeNonVisible(_fields);\n         _setters \u003d _removeNonVisible(_setters);\n     }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+public void removeNonVisible() {\n+    _getters \u003d _removeNonVisible(_getters);\n+    _ctorParameters \u003d _removeNonVisible(_ctorParameters);\n+    if (_getters \u003d\u003d null) {\n+        _fields \u003d _removeNonVisible(_fields);\n+        _setters \u003d _removeNonVisible(_setters);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void removeNonVisible() {\n    _getters \u003d _removeNonVisible(_getters);\n    _ctorParameters \u003d _removeNonVisible(_ctorParameters);\n    if (_getters \u003d\u003d null) {\n        _fields \u003d _removeNonVisible(_fields);\n        _setters \u003d _removeNonVisible(_setters);\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 315,
+      "functionName": "removeNonVisible",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

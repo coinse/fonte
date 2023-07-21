@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanSerializerFactory.java",
+  "functionName": "processViews",
+  "functionId": "processViews___config-SerializationConfig__builder-BeanSerializerBuilder",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to handle view information for constructed serializer,\nbased on bean property writers.\n\u003cp\u003e\nNote that this method is designed to be overridden by sub-classes\nif they want to provide custom view handling. As such it is not\nconsidered an internal implementation detail, and will be supported\nas part of API going forward.\n",
+  "functionStartLine": 612,
+  "functionEndLine": 638,
+  "numCommitsSeen": 79,
+  "timeTaken": 3145,
+  "changeHistory": [
+    "9610aff9eb922486478ab92ad5c4d02a11b2ad1f",
+    "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "9610aff9eb922486478ab92ad5c4d02a11b2ad1f": "Ybodychange",
+    "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2": "Ymultichange(Ybodychange,Ydocchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9610aff9eb922486478ab92ad5c4d02a11b2ad1f": {
+      "type": "Ybodychange",
+      "commitMessage": "Implemented [JACKSON-777] (renamed SerializationConfig.Feature, DeserializationConfig.Feature); various other restructure\n",
+      "commitDate": "2/2/12, 11:30 AM",
+      "commitName": "9610aff9eb922486478ab92ad5c4d02a11b2ad1f",
+      "commitAuthor": "Tatu",
+      "commitDateOld": "2/1/12, 8:01 PM",
+      "commitNameOld": "334892f4c5c0f346248eb6ebae306330e6512d93",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.64,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n    List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n    boolean includeByDefault \u003d config.isEnabled(MapperFeature.DEFAULT_VIEW_INCLUSION);\n    final int propCount \u003d props.size();\n    int viewsFound \u003d 0;\n    BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n    for (int i \u003d 0; i \u003c propCount; ++i) {\n        BeanPropertyWriter bpw \u003d props.get(i);\n        Class\u003c?\u003e[] views \u003d bpw.getViews();\n        if (views \u003d\u003d null) {\n            if (includeByDefault) {\n                filtered[i] \u003d bpw;\n            }\n        } else {\n            ++viewsFound;\n            filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n        }\n    }\n    if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n        return;\n    }\n    builder.setFilteredProperties(filtered);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+      "functionStartLine": 479,
+      "functionName": "processViews",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to handle view information for constructed serializer,\nbased on bean property writers.\n\u003cp\u003e\nNote that this method is designed to be overridden by sub-classes\nif they want to provide custom view handling. As such it is not\nconsidered an internal implementation detail, and will be supported\nas part of API going forward.\n",
+      "diff": "@@ -1,23 +1,23 @@\n protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n     List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n-    boolean includeByDefault \u003d config.isEnabled(MapperConfig.Feature.DEFAULT_VIEW_INCLUSION);\n+    boolean includeByDefault \u003d config.isEnabled(MapperFeature.DEFAULT_VIEW_INCLUSION);\n     final int propCount \u003d props.size();\n     int viewsFound \u003d 0;\n     BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n     for (int i \u003d 0; i \u003c propCount; ++i) {\n         BeanPropertyWriter bpw \u003d props.get(i);\n         Class\u003c?\u003e[] views \u003d bpw.getViews();\n         if (views \u003d\u003d null) {\n             if (includeByDefault) {\n                 filtered[i] \u003d bpw;\n             }\n         } else {\n             ++viewsFound;\n             filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n         }\n     }\n     if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n         return;\n     }\n     builder.setFilteredProperties(filtered);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig\n",
+      "commitDate": "1/19/12, 12:31 PM",
+      "commitName": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig\n",
+          "commitDate": "1/19/12, 12:31 PM",
+          "commitName": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/15/12, 4:12 PM",
+          "commitNameOld": "91965175e2fd0932c48d69ca2f37887bba6a1170",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 3.85,
+          "commitsBetweenForRepo": 24,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n    List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n    boolean includeByDefault \u003d config.isEnabled(MapperConfig.Feature.DEFAULT_VIEW_INCLUSION);\n    final int propCount \u003d props.size();\n    int viewsFound \u003d 0;\n    BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n    for (int i \u003d 0; i \u003c propCount; ++i) {\n        BeanPropertyWriter bpw \u003d props.get(i);\n        Class\u003c?\u003e[] views \u003d bpw.getViews();\n        if (views \u003d\u003d null) {\n            if (includeByDefault) {\n                filtered[i] \u003d bpw;\n            }\n        } else {\n            ++viewsFound;\n            filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n        }\n    }\n    if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n        return;\n    }\n    builder.setFilteredProperties(filtered);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+          "functionStartLine": 583,
+          "functionName": "processViews",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to handle view information for constructed serializer,\nbased on bean property writers.\n\u003cp\u003e\nNote that this method is designed to be overridden by sub-classes\nif they want to provide custom view handling. As such it is not\nconsidered an internal implementation detail, and will be supported\nas part of API going forward.\n",
+          "diff": "@@ -1,23 +1,23 @@\n protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n     List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n-    boolean includeByDefault \u003d config.isEnabled(SerializationConfig.Feature.DEFAULT_VIEW_INCLUSION);\n+    boolean includeByDefault \u003d config.isEnabled(MapperConfig.Feature.DEFAULT_VIEW_INCLUSION);\n     final int propCount \u003d props.size();\n     int viewsFound \u003d 0;\n     BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n     for (int i \u003d 0; i \u003c propCount; ++i) {\n         BeanPropertyWriter bpw \u003d props.get(i);\n         Class\u003c?\u003e[] views \u003d bpw.getViews();\n         if (views \u003d\u003d null) {\n             if (includeByDefault) {\n                 filtered[i] \u003d bpw;\n             }\n         } else {\n             ++viewsFound;\n             filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n         }\n     }\n     if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n         return;\n     }\n     builder.setFilteredProperties(filtered);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig\n",
+          "commitDate": "1/19/12, 12:31 PM",
+          "commitName": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/15/12, 4:12 PM",
+          "commitNameOld": "91965175e2fd0932c48d69ca2f37887bba6a1170",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 3.85,
+          "commitsBetweenForRepo": 24,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n    List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n    boolean includeByDefault \u003d config.isEnabled(MapperConfig.Feature.DEFAULT_VIEW_INCLUSION);\n    final int propCount \u003d props.size();\n    int viewsFound \u003d 0;\n    BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n    for (int i \u003d 0; i \u003c propCount; ++i) {\n        BeanPropertyWriter bpw \u003d props.get(i);\n        Class\u003c?\u003e[] views \u003d bpw.getViews();\n        if (views \u003d\u003d null) {\n            if (includeByDefault) {\n                filtered[i] \u003d bpw;\n            }\n        } else {\n            ++viewsFound;\n            filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n        }\n    }\n    if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n        return;\n    }\n    builder.setFilteredProperties(filtered);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+          "functionStartLine": 583,
+          "functionName": "processViews",
+          "functionAnnotation": "",
+          "functionDoc": "Method called to handle view information for constructed serializer,\nbased on bean property writers.\n\u003cp\u003e\nNote that this method is designed to be overridden by sub-classes\nif they want to provide custom view handling. As such it is not\nconsidered an internal implementation detail, and will be supported\nas part of API going forward.\n",
+          "diff": "@@ -1,23 +1,23 @@\n protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n     List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n-    boolean includeByDefault \u003d config.isEnabled(SerializationConfig.Feature.DEFAULT_VIEW_INCLUSION);\n+    boolean includeByDefault \u003d config.isEnabled(MapperConfig.Feature.DEFAULT_VIEW_INCLUSION);\n     final int propCount \u003d props.size();\n     int viewsFound \u003d 0;\n     BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n     for (int i \u003d 0; i \u003c propCount; ++i) {\n         BeanPropertyWriter bpw \u003d props.get(i);\n         Class\u003c?\u003e[] views \u003d bpw.getViews();\n         if (views \u003d\u003d null) {\n             if (includeByDefault) {\n                 filtered[i] \u003d bpw;\n             }\n         } else {\n             ++viewsFound;\n             filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n         }\n     }\n     if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n         return;\n     }\n     builder.setFilteredProperties(filtered);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Method called to handle view information for constructed serializer,\nbased on bean property writers.\n\u003cp\u003e\nNote that this method is designed to be overridden by sub-classes\nif they want to provide custom view handling. As such it is not\nconsidered an internal implementation detail, and will be supported\nas part of API going forward.\n\u003cp\u003e\nNOTE: signature of this method changed in 1.7, due to other significant\nchanges (esp. use of builder for serializer construction).\n",
+            "newValue": "Method called to handle view information for constructed serializer,\nbased on bean property writers.\n\u003cp\u003e\nNote that this method is designed to be overridden by sub-classes\nif they want to provide custom view handling. As such it is not\nconsidered an internal implementation detail, and will be supported\nas part of API going forward.\n"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,23 @@\n+protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n+    List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n+    boolean includeByDefault \u003d config.isEnabled(SerializationConfig.Feature.DEFAULT_VIEW_INCLUSION);\n+    final int propCount \u003d props.size();\n+    int viewsFound \u003d 0;\n+    BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n+    for (int i \u003d 0; i \u003c propCount; ++i) {\n+        BeanPropertyWriter bpw \u003d props.get(i);\n+        Class\u003c?\u003e[] views \u003d bpw.getViews();\n+        if (views \u003d\u003d null) {\n+            if (includeByDefault) {\n+                filtered[i] \u003d bpw;\n+            }\n+        } else {\n+            ++viewsFound;\n+            filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n+        }\n+    }\n+    if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n+        return;\n+    }\n+    builder.setFilteredProperties(filtered);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void processViews(SerializationConfig config, BeanSerializerBuilder builder) {\n    List\u003cBeanPropertyWriter\u003e props \u003d builder.getProperties();\n    boolean includeByDefault \u003d config.isEnabled(SerializationConfig.Feature.DEFAULT_VIEW_INCLUSION);\n    final int propCount \u003d props.size();\n    int viewsFound \u003d 0;\n    BeanPropertyWriter[] filtered \u003d new BeanPropertyWriter[propCount];\n    for (int i \u003d 0; i \u003c propCount; ++i) {\n        BeanPropertyWriter bpw \u003d props.get(i);\n        Class\u003c?\u003e[] views \u003d bpw.getViews();\n        if (views \u003d\u003d null) {\n            if (includeByDefault) {\n                filtered[i] \u003d bpw;\n            }\n        } else {\n            ++viewsFound;\n            filtered[i] \u003d constructFilteredBeanWriter(bpw, views);\n        }\n    }\n    if (includeByDefault \u0026\u0026 viewsFound \u003d\u003d 0) {\n        return;\n    }\n    builder.setFilteredProperties(filtered);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+      "functionStartLine": 661,
+      "functionName": "processViews",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to handle view information for constructed serializer,\nbased on bean property writers.\n\u003cp\u003e\nNote that this method is designed to be overridden by sub-classes\nif they want to provide custom view handling. As such it is not\nconsidered an internal implementation detail, and will be supported\nas part of API going forward.\n\u003cp\u003e\nNOTE: signature of this method changed in 1.7, due to other significant\nchanges (esp. use of builder for serializer construction).\n"
+    }
+  }
+}

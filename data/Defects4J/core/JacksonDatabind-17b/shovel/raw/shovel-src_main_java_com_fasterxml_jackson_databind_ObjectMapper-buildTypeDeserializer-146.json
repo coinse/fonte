@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ObjectMapper.java",
+  "functionName": "buildTypeDeserializer",
+  "functionId": "$buildTypeDeserializer___config-DeserializationConfig__baseType-JavaType__subtypes-Collection__NamedType__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 146,
+  "functionEndLine": 150,
+  "numCommitsSeen": 176,
+  "timeTaken": 10912,
+  "changeHistory": [
+    "49b712169c432100297164f6b5102f3578bd636c",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "49b712169c432100297164f6b5102f3578bd636c": "Ymultichange(Yparameterchange,Ybodychange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "49b712169c432100297164f6b5102f3578bd636c": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Removing BeanProperty from TypeDeserializer constructors, now added via fluent factories\n",
+      "commitDate": "1/30/12, 10:13 PM",
+      "commitName": "49b712169c432100297164f6b5102f3578bd636c",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Removing BeanProperty from TypeDeserializer constructors, now added via fluent factories\n",
+          "commitDate": "1/30/12, 10:13 PM",
+          "commitName": "49b712169c432100297164f6b5102f3578bd636c",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/30/12, 9:20 AM",
+          "commitNameOld": "9b9d04371fadb457e2f9b9d67f643c59d706aedc",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.54,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes) {\n    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes) : null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+          "functionStartLine": 135,
+          "functionName": "buildTypeDeserializer",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,4 @@\n @Override\n-public TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes, BeanProperty property) {\n-    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes, property) : null;\n+public TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes) {\n+    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes) : null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[config-DeserializationConfig, baseType-JavaType, subtypes-Collection\u003cNamedType\u003e, property-BeanProperty]",
+            "newValue": "[config-DeserializationConfig, baseType-JavaType, subtypes-Collection\u003cNamedType\u003e]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Removing BeanProperty from TypeDeserializer constructors, now added via fluent factories\n",
+          "commitDate": "1/30/12, 10:13 PM",
+          "commitName": "49b712169c432100297164f6b5102f3578bd636c",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/30/12, 9:20 AM",
+          "commitNameOld": "9b9d04371fadb457e2f9b9d67f643c59d706aedc",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.54,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes) {\n    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes) : null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+          "functionStartLine": 135,
+          "functionName": "buildTypeDeserializer",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,4 @@\n @Override\n-public TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes, BeanProperty property) {\n-    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes, property) : null;\n+public TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes) {\n+    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes) : null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes, BeanProperty property) {\n+    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes, property) : null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic TypeDeserializer buildTypeDeserializer(DeserializationConfig config, JavaType baseType, Collection\u003cNamedType\u003e subtypes, BeanProperty property) {\n    return useForType(baseType) ? super.buildTypeDeserializer(config, baseType, subtypes, property) : null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "functionStartLine": 134,
+      "functionName": "buildTypeDeserializer",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "_isIncludableMemberMethod",
+  "functionId": "_isIncludableMemberMethod___m-Method",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 845,
+  "functionEndLine": 860,
+  "numCommitsSeen": 29,
+  "timeTaken": 1273,
+  "changeHistory": [
+    "920bb4e447b7ff1419c926277ebac4c9406de0f5",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "920bb4e447b7ff1419c926277ebac4c9406de0f5": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "920bb4e447b7ff1419c926277ebac4c9406de0f5": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+      "commitMessage": "Completed refactoring of AnnotatedClass, now fully lazily initialized\n",
+      "commitDate": "1/22/12, 10:00 PM",
+      "commitName": "920bb4e447b7ff1419c926277ebac4c9406de0f5",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Completed refactoring of AnnotatedClass, now fully lazily initialized\n",
+          "commitDate": "1/22/12, 10:00 PM",
+          "commitName": "920bb4e447b7ff1419c926277ebac4c9406de0f5",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/22/12, 9:49 PM",
+          "commitNameOld": "cad988161f95e549ba352037223574a90a5a255a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected boolean _isIncludableMemberMethod(Method m) {\n    if (Modifier.isStatic(m.getModifiers())) {\n        return false;\n    }\n    if (m.isSynthetic() || m.isBridge()) {\n        return false;\n    }\n    int pcount \u003d m.getParameterTypes().length;\n    return (pcount \u003c\u003d 2);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+          "functionStartLine": 827,
+          "functionName": "_isIncludableMemberMethod",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-protected boolean _isIncludableMethod(Method m, MethodFilter filter) {\n-    if (filter !\u003d null \u0026\u0026 !filter.includeMethod(m)) {\n+protected boolean _isIncludableMemberMethod(Method m) {\n+    if (Modifier.isStatic(m.getModifiers())) {\n         return false;\n     }\n     if (m.isSynthetic() || m.isBridge()) {\n         return false;\n     }\n-    return true;\n+    int pcount \u003d m.getParameterTypes().length;\n+    return (pcount \u003c\u003d 2);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "_isIncludableMethod",
+            "newValue": "_isIncludableMemberMethod"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Completed refactoring of AnnotatedClass, now fully lazily initialized\n",
+          "commitDate": "1/22/12, 10:00 PM",
+          "commitName": "920bb4e447b7ff1419c926277ebac4c9406de0f5",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/22/12, 9:49 PM",
+          "commitNameOld": "cad988161f95e549ba352037223574a90a5a255a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected boolean _isIncludableMemberMethod(Method m) {\n    if (Modifier.isStatic(m.getModifiers())) {\n        return false;\n    }\n    if (m.isSynthetic() || m.isBridge()) {\n        return false;\n    }\n    int pcount \u003d m.getParameterTypes().length;\n    return (pcount \u003c\u003d 2);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+          "functionStartLine": 827,
+          "functionName": "_isIncludableMemberMethod",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-protected boolean _isIncludableMethod(Method m, MethodFilter filter) {\n-    if (filter !\u003d null \u0026\u0026 !filter.includeMethod(m)) {\n+protected boolean _isIncludableMemberMethod(Method m) {\n+    if (Modifier.isStatic(m.getModifiers())) {\n         return false;\n     }\n     if (m.isSynthetic() || m.isBridge()) {\n         return false;\n     }\n-    return true;\n+    int pcount \u003d m.getParameterTypes().length;\n+    return (pcount \u003c\u003d 2);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[m-Method, filter-MethodFilter]",
+            "newValue": "[m-Method]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Completed refactoring of AnnotatedClass, now fully lazily initialized\n",
+          "commitDate": "1/22/12, 10:00 PM",
+          "commitName": "920bb4e447b7ff1419c926277ebac4c9406de0f5",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/22/12, 9:49 PM",
+          "commitNameOld": "cad988161f95e549ba352037223574a90a5a255a",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected boolean _isIncludableMemberMethod(Method m) {\n    if (Modifier.isStatic(m.getModifiers())) {\n        return false;\n    }\n    if (m.isSynthetic() || m.isBridge()) {\n        return false;\n    }\n    int pcount \u003d m.getParameterTypes().length;\n    return (pcount \u003c\u003d 2);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+          "functionStartLine": 827,
+          "functionName": "_isIncludableMemberMethod",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,10 @@\n-protected boolean _isIncludableMethod(Method m, MethodFilter filter) {\n-    if (filter !\u003d null \u0026\u0026 !filter.includeMethod(m)) {\n+protected boolean _isIncludableMemberMethod(Method m) {\n+    if (Modifier.isStatic(m.getModifiers())) {\n         return false;\n     }\n     if (m.isSynthetic() || m.isBridge()) {\n         return false;\n     }\n-    return true;\n+    int pcount \u003d m.getParameterTypes().length;\n+    return (pcount \u003c\u003d 2);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+protected boolean _isIncludableMethod(Method m, MethodFilter filter) {\n+    if (filter !\u003d null \u0026\u0026 !filter.includeMethod(m)) {\n+        return false;\n+    }\n+    if (m.isSynthetic() || m.isBridge()) {\n+        return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected boolean _isIncludableMethod(Method m, MethodFilter filter) {\n    if (filter !\u003d null \u0026\u0026 !filter.includeMethod(m)) {\n        return false;\n    }\n    if (m.isSynthetic() || m.isBridge()) {\n        return false;\n    }\n    return true;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 860,
+      "functionName": "_isIncludableMethod",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

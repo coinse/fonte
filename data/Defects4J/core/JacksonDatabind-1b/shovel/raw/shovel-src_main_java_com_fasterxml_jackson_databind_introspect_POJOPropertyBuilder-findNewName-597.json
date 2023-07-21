@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "findNewName",
+  "functionId": "findNewName",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to check whether property represented by this collector\nshould be renamed from the implicit name; and also verify that there\nare no conflicting rename definitions.\n",
+  "functionStartLine": 597,
+  "functionEndLine": 605,
+  "numCommitsSeen": 21,
+  "timeTaken": 1042,
+  "changeHistory": [
+    "65c410c0c40724f763e0b4bce2db6d43bf078818",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "65c410c0c40724f763e0b4bce2db6d43bf078818": {
+      "type": "Ybodychange",
+      "commitMessage": "refactoring\n",
+      "commitDate": "1/27/12, 8:44 PM",
+      "commitName": "65c410c0c40724f763e0b4bce2db6d43bf078818",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/26/12, 10:26 PM",
+      "commitNameOld": "19ab5808eb8e47662f1d55408fdb186320061f13",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.93,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String findNewName() {\n    Linked\u003c? extends AnnotatedMember\u003e renamed \u003d null;\n    renamed \u003d findRenamed(_fields, renamed);\n    renamed \u003d findRenamed(_getters, renamed);\n    renamed \u003d findRenamed(_setters, renamed);\n    renamed \u003d findRenamed(_ctorParameters, renamed);\n    return (renamed \u003d\u003d null) ? null : renamed.explicitName;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 509,
+      "functionName": "findNewName",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to check whether property represented by this collector\nshould be renamed from the implicit name; and also verify that there\nare no conflicting rename definitions.\n",
+      "diff": "@@ -1,8 +1,8 @@\n public String findNewName() {\n-    Node\u003c? extends AnnotatedMember\u003e renamed \u003d null;\n+    Linked\u003c? extends AnnotatedMember\u003e renamed \u003d null;\n     renamed \u003d findRenamed(_fields, renamed);\n     renamed \u003d findRenamed(_getters, renamed);\n     renamed \u003d findRenamed(_setters, renamed);\n     renamed \u003d findRenamed(_ctorParameters, renamed);\n     return (renamed \u003d\u003d null) ? null : renamed.explicitName;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+public String findNewName() {\n+    Node\u003c? extends AnnotatedMember\u003e renamed \u003d null;\n+    renamed \u003d findRenamed(_fields, renamed);\n+    renamed \u003d findRenamed(_getters, renamed);\n+    renamed \u003d findRenamed(_setters, renamed);\n+    renamed \u003d findRenamed(_ctorParameters, renamed);\n+    return (renamed \u003d\u003d null) ? null : renamed.explicitName;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String findNewName() {\n    Node\u003c? extends AnnotatedMember\u003e renamed \u003d null;\n    renamed \u003d findRenamed(_fields, renamed);\n    renamed \u003d findRenamed(_getters, renamed);\n    renamed \u003d findRenamed(_setters, renamed);\n    renamed \u003d findRenamed(_ctorParameters, renamed);\n    return (renamed \u003d\u003d null) ? null : renamed.explicitName;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 471,
+      "functionName": "findNewName",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to check whether property represented by this collector\nshould be renamed from the implicit name; and also verify that there\nare no conflicting rename definitions.\n"
+    }
+  }
+}

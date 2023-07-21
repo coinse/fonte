@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeFactory.java",
+  "functionName": "_findSuperTypeChain",
+  "functionId": "_findSuperTypeChain___subtype-Class__?____supertype-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to find inheritance (implements, extends) path\nbetween given types, if one exists (caller generally checks before\ncalling this method). Returned type represents given \u003cb\u003esubtype\u003c/b\u003e,\nwith supertype linkage extending to \u003cb\u003esupertype\u003c/b\u003e.\n",
+  "functionStartLine": 1010,
+  "functionEndLine": 1017,
+  "numCommitsSeen": 27,
+  "timeTaken": 1710,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,6 @@\n+protected HierarchicType _findSuperTypeChain(Class\u003c?\u003e subtype, Class\u003c?\u003e supertype) {\n+    if (supertype.isInterface()) {\n+        return _findSuperInterfaceChain(subtype, supertype);\n+    }\n+    return _findSuperClassChain(subtype, supertype);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected HierarchicType _findSuperTypeChain(Class\u003c?\u003e subtype, Class\u003c?\u003e supertype) {\n    if (supertype.isInterface()) {\n        return _findSuperInterfaceChain(subtype, supertype);\n    }\n    return _findSuperClassChain(subtype, supertype);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 1059,
+      "functionName": "_findSuperTypeChain",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to find inheritance (implements, extends) path\nbetween given types, if one exists (caller generally checks before\ncalling this method). Returned type represents given \u003cb\u003esubtype\u003c/b\u003e,\nwith supertype linkage extending to \u003cb\u003esupertype\u003c/b\u003e.\n"
+    }
+  }
+}

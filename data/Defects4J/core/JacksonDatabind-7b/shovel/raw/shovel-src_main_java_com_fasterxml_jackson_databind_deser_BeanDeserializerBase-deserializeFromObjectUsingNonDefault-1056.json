@@ -1,0 +1,92 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanDeserializerBase.java",
+  "functionName": "deserializeFromObjectUsingNonDefault",
+  "functionId": "deserializeFromObjectUsingNonDefault___jp-JsonParser__ctxt-DeserializationContext",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1056,
+  "functionEndLine": 1073,
+  "numCommitsSeen": 77,
+  "timeTaken": 4799,
+  "changeHistory": [
+    "c7906ba19b9d69c62b29fd648e921c853bc2655f",
+    "e7d0a56902774041e70be12dd8acef38f326a253",
+    "2fd4ffd9963545ce735a58957a84afb90809561e"
+  ],
+  "changeHistoryShort": {
+    "c7906ba19b9d69c62b29fd648e921c853bc2655f": "Yexceptionschange",
+    "e7d0a56902774041e70be12dd8acef38f326a253": "Ymovefromfile",
+    "2fd4ffd9963545ce735a58957a84afb90809561e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c7906ba19b9d69c62b29fd648e921c853bc2655f": {
+      "type": "Yexceptionschange",
+      "commitMessage": "Fixing #486\n",
+      "commitDate": "8/7/14, 11:27 PM",
+      "commitName": "c7906ba19b9d69c62b29fd648e921c853bc2655f",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "7/24/14, 10:33 PM",
+      "commitNameOld": "9e080e298d8c0cfd7d77a56eb93d85a5da322555",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 14.04,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected Object deserializeFromObjectUsingNonDefault(JsonParser jp, DeserializationContext ctxt) throws IOException {\n    if (_delegateDeserializer !\u003d null) {\n        return _valueInstantiator.createUsingDelegate(ctxt, _delegateDeserializer.deserialize(jp, ctxt));\n    }\n    if (_propertyBasedCreator !\u003d null) {\n        return _deserializeUsingPropertyBased(jp, ctxt);\n    }\n    if (_beanType.isAbstract()) {\n        throw JsonMappingException.from(jp, \"Can not instantiate abstract type \" + _beanType + \" (need to add/enable type information?)\");\n    }\n    throw JsonMappingException.from(jp, \"No suitable constructor found for type \" + _beanType + \": can not instantiate from JSON object (need to add/enable type information?)\");\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+      "functionStartLine": 1048,
+      "functionName": "deserializeFromObjectUsingNonDefault",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,12 +1,12 @@\n-protected Object deserializeFromObjectUsingNonDefault(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {\n+protected Object deserializeFromObjectUsingNonDefault(JsonParser jp, DeserializationContext ctxt) throws IOException {\n     if (_delegateDeserializer !\u003d null) {\n         return _valueInstantiator.createUsingDelegate(ctxt, _delegateDeserializer.deserialize(jp, ctxt));\n     }\n     if (_propertyBasedCreator !\u003d null) {\n         return _deserializeUsingPropertyBased(jp, ctxt);\n     }\n     if (_beanType.isAbstract()) {\n         throw JsonMappingException.from(jp, \"Can not instantiate abstract type \" + _beanType + \" (need to add/enable type information?)\");\n     }\n     throw JsonMappingException.from(jp, \"No suitable constructor found for type \" + _beanType + \": can not instantiate from JSON object (need to add/enable type information?)\");\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[IOException, JsonProcessingException]",
+        "newValue": "[IOException]"
+      }
+    },
+    "e7d0a56902774041e70be12dd8acef38f326a253": {
+      "type": "Ymovefromfile",
+      "commitMessage": "Try to refactor BeanDeserializers to share more (i.e. demote to -Base)\n",
+      "commitDate": "11/17/12, 11:02 AM",
+      "commitName": "e7d0a56902774041e70be12dd8acef38f326a253",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "11/17/12, 10:34 AM",
+      "commitNameOld": "2fc85d0c0763465f6ce6a6f4379e8d835b4c1511",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.02,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected Object deserializeFromObjectUsingNonDefault(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {\n    if (_delegateDeserializer !\u003d null) {\n        return _valueInstantiator.createUsingDelegate(ctxt, _delegateDeserializer.deserialize(jp, ctxt));\n    }\n    if (_propertyBasedCreator !\u003d null) {\n        return _deserializeUsingPropertyBased(jp, ctxt);\n    }\n    if (_beanType.isAbstract()) {\n        throw JsonMappingException.from(jp, \"Can not instantiate abstract type \" + _beanType + \" (need to add/enable type information?)\");\n    }\n    throw JsonMappingException.from(jp, \"No suitable constructor found for type \" + _beanType + \": can not instantiate from JSON object (need to add/enable type information?)\");\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+      "functionStartLine": 870,
+      "functionName": "deserializeFromObjectUsingNonDefault",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+        "oldMethodName": "deserializeFromObjectUsingNonDefault",
+        "newMethodName": "deserializeFromObjectUsingNonDefault"
+      }
+    },
+    "2fd4ffd9963545ce735a58957a84afb90809561e": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement Builder-based deserializer; fix a few ObjectId issues\n",
+      "commitDate": "2/17/12, 10:40 PM",
+      "commitName": "2fd4ffd9963545ce735a58957a84afb90809561e",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+protected Object deserializeFromObjectUsingNonDefault(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {\n+    if (_delegateDeserializer !\u003d null) {\n+        return _valueInstantiator.createUsingDelegate(ctxt, _delegateDeserializer.deserialize(jp, ctxt));\n+    }\n+    if (_propertyBasedCreator !\u003d null) {\n+        return _deserializeUsingPropertyBased(jp, ctxt);\n+    }\n+    if (_beanType.isAbstract()) {\n+        throw JsonMappingException.from(jp, \"Can not instantiate abstract type \" + _beanType + \" (need to add/enable type information?)\");\n+    }\n+    throw JsonMappingException.from(jp, \"No suitable constructor found for type \" + _beanType + \": can not instantiate from JSON object (need to add/enable type information?)\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Object deserializeFromObjectUsingNonDefault(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {\n    if (_delegateDeserializer !\u003d null) {\n        return _valueInstantiator.createUsingDelegate(ctxt, _delegateDeserializer.deserialize(jp, ctxt));\n    }\n    if (_propertyBasedCreator !\u003d null) {\n        return _deserializeUsingPropertyBased(jp, ctxt);\n    }\n    if (_beanType.isAbstract()) {\n        throw JsonMappingException.from(jp, \"Can not instantiate abstract type \" + _beanType + \" (need to add/enable type information?)\");\n    }\n    throw JsonMappingException.from(jp, \"No suitable constructor found for type \" + _beanType + \": can not instantiate from JSON object (need to add/enable type information?)\");\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java",
+      "functionStartLine": 335,
+      "functionName": "deserializeFromObjectUsingNonDefault",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

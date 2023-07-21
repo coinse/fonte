@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeFactory.java",
+  "functionName": "_findSuperClassChain",
+  "functionId": "_findSuperClassChain___currentType-Type__target-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1019,
+  "functionEndLine": 1037,
+  "numCommitsSeen": 27,
+  "timeTaken": 1673,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,17 @@\n+protected HierarchicType _findSuperClassChain(Type currentType, Class\u003c?\u003e target) {\n+    HierarchicType current \u003d new HierarchicType(currentType);\n+    Class\u003c?\u003e raw \u003d current.getRawClass();\n+    if (raw \u003d\u003d target) {\n+        return current;\n+    }\n+    Type parent \u003d raw.getGenericSuperclass();\n+    if (parent !\u003d null) {\n+        HierarchicType sup \u003d _findSuperClassChain(parent, target);\n+        if (sup !\u003d null) {\n+            sup.setSubType(current);\n+            current.setSuperType(sup);\n+            return current;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected HierarchicType _findSuperClassChain(Type currentType, Class\u003c?\u003e target) {\n    HierarchicType current \u003d new HierarchicType(currentType);\n    Class\u003c?\u003e raw \u003d current.getRawClass();\n    if (raw \u003d\u003d target) {\n        return current;\n    }\n    Type parent \u003d raw.getGenericSuperclass();\n    if (parent !\u003d null) {\n        HierarchicType sup \u003d _findSuperClassChain(parent, target);\n        if (sup !\u003d null) {\n            sup.setSubType(current);\n            current.setSuperType(sup);\n            return current;\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+      "functionStartLine": 1068,
+      "functionName": "_findSuperClassChain",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

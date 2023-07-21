@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanSerializerFactory.java",
+  "functionName": "isPotentialBeanType",
+  "functionId": "isPotentialBeanType___type-Class__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method used to skip processing for types that we know\ncan not be (i.e. are never consider to be) beans: \nthings like primitives, Arrays, Enums, and proxy types.\n\u003cp\u003e\nNote that usually we shouldn\u0027t really be getting these sort of\ntypes anyway; but better safe than sorry.\n",
+  "functionStartLine": 540,
+  "functionEndLine": 543,
+  "numCommitsSeen": 60,
+  "timeTaken": 2197,
+  "changeHistory": [
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+protected boolean isPotentialBeanType(Class\u003c?\u003e type) {\n+    return (ClassUtil.canBeABeanType(type) \u003d\u003d null) \u0026\u0026 !ClassUtil.isProxyType(type);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected boolean isPotentialBeanType(Class\u003c?\u003e type) {\n    return (ClassUtil.canBeABeanType(type) \u003d\u003d null) \u0026\u0026 !ClassUtil.isProxyType(type);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+      "functionStartLine": 543,
+      "functionName": "isPotentialBeanType",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method used to skip processing for types that we know\ncan not be (i.e. are never consider to be) beans: \nthings like primitives, Arrays, Enums, and proxy types.\n\u003cp\u003e\nNote that usually we shouldn\u0027t really be getting these sort of\ntypes anyway; but better safe than sorry.\n"
+    }
+  }
+}

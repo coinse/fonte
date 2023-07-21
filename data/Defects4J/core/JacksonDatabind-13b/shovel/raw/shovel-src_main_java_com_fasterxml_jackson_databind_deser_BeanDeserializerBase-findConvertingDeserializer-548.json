@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanDeserializerBase.java",
+  "functionName": "findConvertingDeserializer",
+  "functionId": "findConvertingDeserializer___ctxt-DeserializationContext__prop-SettableBeanProperty",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method that can be used to see if specified property is annotated\nto indicate use of a converter for property value (in case of container types,\nit is container type itself, not key or content type).\n\n@since 2.2\n",
+  "functionStartLine": 548,
+  "functionEndLine": 563,
+  "numCommitsSeen": 78,
+  "timeTaken": 3511,
+  "changeHistory": [
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e",
+    "9fb0c8df13778d37a0b6b2e1de2b513950c21224"
+  ],
+  "changeHistoryShort": {
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e": "Ybodychange",
+    "9fb0c8df13778d37a0b6b2e1de2b513950c21224": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cc737528660b99e71865096e3cd0c4c4a2b3871e": {
+      "type": "Ybodychange",
+      "commitMessage": "Improvements to Converter, added StdConverter base class\n",
+      "commitDate": "3/3/13, 1:11 PM",
+      "commitName": "cc737528660b99e71865096e3cd0c4c4a2b3871e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "3/2/13, 6:16 PM",
+      "commitNameOld": "06bd7997b4a7adb4d95a21b37a626476ebfbe207",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.79,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected JsonDeserializer\u003cObject\u003e findConvertingDeserializer(DeserializationContext ctxt, SettableBeanProperty prop) throws JsonMappingException {\n    final AnnotationIntrospector intr \u003d ctxt.getAnnotationIntrospector();\n    if (intr !\u003d null) {\n        Object convDef \u003d intr.findDeserializationConverter(prop.getMember());\n        if (convDef !\u003d null) {\n            Converter\u003cObject, Object\u003e conv \u003d ctxt.converterInstance(prop.getMember(), convDef);\n            JavaType delegateType \u003d conv.getInputType(ctxt.getTypeFactory());\n            JsonDeserializer\u003c?\u003e ser \u003d ctxt.findContextualValueDeserializer(delegateType, prop);\n            return new StdDelegatingDeserializer\u003cObject\u003e(conv, delegateType, ser);\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+      "functionStartLine": 527,
+      "functionName": "findConvertingDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method that can be used to see if specified property is annotated\nto indicate use of a converter for property value (in case of container types,\nit is container type itself, not key or content type).\n\n@since 2.2\n",
+      "diff": "@@ -1,19 +1,13 @@\n protected JsonDeserializer\u003cObject\u003e findConvertingDeserializer(DeserializationContext ctxt, SettableBeanProperty prop) throws JsonMappingException {\n     final AnnotationIntrospector intr \u003d ctxt.getAnnotationIntrospector();\n     if (intr !\u003d null) {\n         Object convDef \u003d intr.findDeserializationConverter(prop.getMember());\n         if (convDef !\u003d null) {\n             Converter\u003cObject, Object\u003e conv \u003d ctxt.converterInstance(prop.getMember(), convDef);\n-            TypeFactory tf \u003d ctxt.getTypeFactory();\n-            JavaType converterType \u003d tf.constructType(conv.getClass());\n-            JavaType[] params \u003d tf.findTypeParameters(converterType, Converter.class);\n-            if (params \u003d\u003d null || params.length !\u003d 2) {\n-                throw new JsonMappingException(\"Could not determine Converter parameterization for \" + converterType);\n-            }\n-            JavaType delegateType \u003d params[0];\n+            JavaType delegateType \u003d conv.getInputType(ctxt.getTypeFactory());\n             JsonDeserializer\u003c?\u003e ser \u003d ctxt.findContextualValueDeserializer(delegateType, prop);\n             return new StdDelegatingDeserializer\u003cObject\u003e(conv, delegateType, ser);\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "9fb0c8df13778d37a0b6b2e1de2b513950c21224": {
+      "type": "Yintroduced",
+      "commitMessage": "Complete #125 implementation\n",
+      "commitDate": "3/2/13, 6:04 PM",
+      "commitName": "9fb0c8df13778d37a0b6b2e1de2b513950c21224",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,19 @@\n+protected JsonDeserializer\u003cObject\u003e findConvertingDeserializer(DeserializationContext ctxt, SettableBeanProperty prop) throws JsonMappingException {\n+    final AnnotationIntrospector intr \u003d ctxt.getAnnotationIntrospector();\n+    if (intr !\u003d null) {\n+        Object convDef \u003d intr.findDeserializationConverter(prop.getMember());\n+        if (convDef !\u003d null) {\n+            Converter\u003cObject, Object\u003e conv \u003d ctxt.converterInstance(prop.getMember(), convDef);\n+            TypeFactory tf \u003d ctxt.getTypeFactory();\n+            JavaType converterType \u003d tf.constructType(conv.getClass());\n+            JavaType[] params \u003d tf.findTypeParameters(converterType, Converter.class);\n+            if (params \u003d\u003d null || params.length !\u003d 2) {\n+                throw new JsonMappingException(\"Could not determine Converter parameterization for \" + converterType);\n+            }\n+            JavaType delegateType \u003d params[0];\n+            JsonDeserializer\u003c?\u003e ser \u003d ctxt.findContextualValueDeserializer(delegateType, prop);\n+            return new StdDelegatingDeserializer\u003cObject\u003e(conv, delegateType, ser);\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonDeserializer\u003cObject\u003e findConvertingDeserializer(DeserializationContext ctxt, SettableBeanProperty prop) throws JsonMappingException {\n    final AnnotationIntrospector intr \u003d ctxt.getAnnotationIntrospector();\n    if (intr !\u003d null) {\n        Object convDef \u003d intr.findDeserializationConverter(prop.getMember());\n        if (convDef !\u003d null) {\n            Converter\u003cObject, Object\u003e conv \u003d ctxt.converterInstance(prop.getMember(), convDef);\n            TypeFactory tf \u003d ctxt.getTypeFactory();\n            JavaType converterType \u003d tf.constructType(conv.getClass());\n            JavaType[] params \u003d tf.findTypeParameters(converterType, Converter.class);\n            if (params \u003d\u003d null || params.length !\u003d 2) {\n                throw new JsonMappingException(\"Could not determine Converter parameterization for \" + converterType);\n            }\n            JavaType delegateType \u003d params[0];\n            JsonDeserializer\u003c?\u003e ser \u003d ctxt.findContextualValueDeserializer(delegateType, prop);\n            return new StdDelegatingDeserializer\u003cObject\u003e(conv, delegateType, ser);\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+      "functionStartLine": 529,
+      "functionName": "findConvertingDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method that can be used to see if specified property is annotated\nto indicate use of a converter for property value (in case of container types,\nit is container type itself, not key or content type).\n\n@since 2.2\n"
+    }
+  }
+}

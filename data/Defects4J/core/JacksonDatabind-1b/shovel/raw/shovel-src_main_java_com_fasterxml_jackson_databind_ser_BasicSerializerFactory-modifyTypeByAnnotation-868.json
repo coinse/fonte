@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-1b",
+  "repositoryPath": "/tmp/JacksonDatabind-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicSerializerFactory.java",
+  "functionName": "modifyTypeByAnnotation",
+  "functionId": "modifyTypeByAnnotation___config-SerializationConfig__a-Annotated__type-T",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+  "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+  "functionDoc": "Helper method used to encapsulate details of annotation-based type coercion\n",
+  "functionStartLine": 868,
+  "functionEndLine": 881,
+  "numCommitsSeen": 58,
+  "timeTaken": 2528,
+  "changeHistory": [
+    "a03e0ebf5825d587230093436b6db53f368185a0",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "a03e0ebf5825d587230093436b6db53f368185a0": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a03e0ebf5825d587230093436b6db53f368185a0": {
+      "type": "Ydocchange",
+      "commitMessage": "Implemented [JACKSON-732] for 2.0\n",
+      "commitDate": "1/14/12, 2:01 PM",
+      "commitName": "a03e0ebf5825d587230093436b6db53f368185a0",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/11/12, 10:14 PM",
+      "commitNameOld": "703bf4a104193e8098f904fe33531c58c6e7f359",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 2.66,
+      "commitsBetweenForRepo": 13,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nprotected \u003cT extends JavaType\u003e T modifyTypeByAnnotation(SerializationConfig config, Annotated a, T type) {\n    Class\u003c?\u003e superclass \u003d config.getAnnotationIntrospector().findSerializationType(a);\n    if (superclass !\u003d null) {\n        try {\n            type \u003d (T) type.widenBy(superclass);\n        } catch (IllegalArgumentException iae) {\n            throw new IllegalArgumentException(\"Failed to widen type \" + type + \" with concrete-type annotation (value \" + superclass.getName() + \"), method \u0027\" + a.getName() + \"\u0027: \" + iae.getMessage());\n        }\n    }\n    return modifySecondaryTypesByAnnotation(config, a, type);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+      "functionStartLine": 646,
+      "functionName": "modifyTypeByAnnotation",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "Helper method used to encapsulate details of annotation-based type coercion\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Helper method used to encapsulate details of annotation-based type\ncoercion\n\n@since 1.8\n",
+        "newValue": "Helper method used to encapsulate details of annotation-based type coercion\n"
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,12 @@\n+@SuppressWarnings(\"unchecked\")\n+protected \u003cT extends JavaType\u003e T modifyTypeByAnnotation(SerializationConfig config, Annotated a, T type) {\n+    Class\u003c?\u003e superclass \u003d config.getAnnotationIntrospector().findSerializationType(a);\n+    if (superclass !\u003d null) {\n+        try {\n+            type \u003d (T) type.widenBy(superclass);\n+        } catch (IllegalArgumentException iae) {\n+            throw new IllegalArgumentException(\"Failed to widen type \" + type + \" with concrete-type annotation (value \" + superclass.getName() + \"), method \u0027\" + a.getName() + \"\u0027: \" + iae.getMessage());\n+        }\n+    }\n+    return modifySecondaryTypesByAnnotation(config, a, type);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nprotected \u003cT extends JavaType\u003e T modifyTypeByAnnotation(SerializationConfig config, Annotated a, T type) {\n    Class\u003c?\u003e superclass \u003d config.getAnnotationIntrospector().findSerializationType(a);\n    if (superclass !\u003d null) {\n        try {\n            type \u003d (T) type.widenBy(superclass);\n        } catch (IllegalArgumentException iae) {\n            throw new IllegalArgumentException(\"Failed to widen type \" + type + \" with concrete-type annotation (value \" + superclass.getName() + \"), method \u0027\" + a.getName() + \"\u0027: \" + iae.getMessage());\n        }\n    }\n    return modifySecondaryTypesByAnnotation(config, a, type);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+      "functionStartLine": 659,
+      "functionName": "modifyTypeByAnnotation",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": "Helper method used to encapsulate details of annotation-based type\ncoercion\n\n@since 1.8\n"
+    }
+  }
+}

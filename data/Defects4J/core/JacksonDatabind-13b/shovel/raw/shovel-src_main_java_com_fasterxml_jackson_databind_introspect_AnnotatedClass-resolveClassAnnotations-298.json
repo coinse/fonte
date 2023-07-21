@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "resolveClassAnnotations",
+  "functionId": "resolveClassAnnotations",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n",
+  "functionStartLine": 298,
+  "functionEndLine": 325,
+  "numCommitsSeen": 22,
+  "timeTaken": 1467,
+  "changeHistory": [
+    "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab",
+    "f7c45bfe1e0de039a06d8e9b326a4bf523cfce99",
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "f7c45bfe1e0de039a06d8e9b326a4bf523cfce99": "Ydocchange",
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "Cleaning up AnnotatedClass implementation\n",
+      "commitDate": "1/22/12, 9:44 PM",
+      "commitName": "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Cleaning up AnnotatedClass implementation\n",
+          "commitDate": "1/22/12, 9:44 PM",
+          "commitName": "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/17/12, 2:09 PM",
+          "commitNameOld": "3a7cf58e48ee6d7cd63c030002777d9ee1ca4446",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 5.32,
+          "commitsBetweenForRepo": 39,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void resolveClassAnnotations() {\n    _classAnnotations \u003d new AnnotationMap();\n    if (_annotationIntrospector !\u003d null) {\n        if (_primaryMixIn !\u003d null) {\n            _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n        }\n        _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n        for (Class\u003c?\u003e cls : _superTypes) {\n            _addClassMixIns(_classAnnotations, cls);\n            _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n        }\n        _addClassMixIns(_classAnnotations, Object.class);\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+          "functionStartLine": 278,
+          "functionName": "resolveClassAnnotations",
+          "functionAnnotation": "",
+          "functionDoc": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n",
+          "diff": "@@ -1,15 +1,14 @@\n-public void resolveClassAnnotations() {\n+private void resolveClassAnnotations() {\n     _classAnnotations \u003d new AnnotationMap();\n-    if (_annotationIntrospector \u003d\u003d null) {\n-        return;\n+    if (_annotationIntrospector !\u003d null) {\n+        if (_primaryMixIn !\u003d null) {\n+            _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n+        }\n+        _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n+        for (Class\u003c?\u003e cls : _superTypes) {\n+            _addClassMixIns(_classAnnotations, cls);\n+            _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n+        }\n+        _addClassMixIns(_classAnnotations, Object.class);\n     }\n-    if (_primaryMixIn !\u003d null) {\n-        _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n-    }\n-    _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n-    for (Class\u003c?\u003e cls : _superTypes) {\n-        _addClassMixIns(_classAnnotations, cls);\n-        _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n-    }\n-    _addClassMixIns(_classAnnotations, Object.class);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[private]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Cleaning up AnnotatedClass implementation\n",
+          "commitDate": "1/22/12, 9:44 PM",
+          "commitName": "4fdbd54e9e5c5d3cb5ce539f48ba6f1019decdab",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "1/17/12, 2:09 PM",
+          "commitNameOld": "3a7cf58e48ee6d7cd63c030002777d9ee1ca4446",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 5.32,
+          "commitsBetweenForRepo": 39,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private void resolveClassAnnotations() {\n    _classAnnotations \u003d new AnnotationMap();\n    if (_annotationIntrospector !\u003d null) {\n        if (_primaryMixIn !\u003d null) {\n            _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n        }\n        _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n        for (Class\u003c?\u003e cls : _superTypes) {\n            _addClassMixIns(_classAnnotations, cls);\n            _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n        }\n        _addClassMixIns(_classAnnotations, Object.class);\n    }\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+          "functionStartLine": 278,
+          "functionName": "resolveClassAnnotations",
+          "functionAnnotation": "",
+          "functionDoc": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n",
+          "diff": "@@ -1,15 +1,14 @@\n-public void resolveClassAnnotations() {\n+private void resolveClassAnnotations() {\n     _classAnnotations \u003d new AnnotationMap();\n-    if (_annotationIntrospector \u003d\u003d null) {\n-        return;\n+    if (_annotationIntrospector !\u003d null) {\n+        if (_primaryMixIn !\u003d null) {\n+            _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n+        }\n+        _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n+        for (Class\u003c?\u003e cls : _superTypes) {\n+            _addClassMixIns(_classAnnotations, cls);\n+            _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n+        }\n+        _addClassMixIns(_classAnnotations, Object.class);\n     }\n-    if (_primaryMixIn !\u003d null) {\n-        _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n-    }\n-    _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n-    for (Class\u003c?\u003e cls : _superTypes) {\n-        _addClassMixIns(_classAnnotations, cls);\n-        _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n-    }\n-    _addClassMixIns(_classAnnotations, Object.class);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f7c45bfe1e0de039a06d8e9b326a4bf523cfce99": {
+      "type": "Ydocchange",
+      "commitMessage": "Implemented [JACKSON-754]: Support for annotation bundles with @JacksonAnnotationsInside\n",
+      "commitDate": "1/16/12, 6:26 PM",
+      "commitName": "f7c45bfe1e0de039a06d8e9b326a4bf523cfce99",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "1/16/12, 5:24 PM",
+      "commitNameOld": "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.04,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void resolveClassAnnotations() {\n    _classAnnotations \u003d new AnnotationMap();\n    if (_annotationIntrospector \u003d\u003d null) {\n        return;\n    }\n    if (_primaryMixIn !\u003d null) {\n        _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n    }\n    _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n    for (Class\u003c?\u003e cls : _superTypes) {\n        _addClassMixIns(_classAnnotations, cls);\n        _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n    }\n    _addClassMixIns(_classAnnotations, Object.class);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 257,
+      "functionName": "resolveClassAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n\u003cp\u003e\nStarting with 1.2, it will also apply mix-in annotations,\nas per [JACKSON-76]\n",
+        "newValue": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n"
+      }
+    },
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b": {
+      "type": "Ybodychange",
+      "commitMessage": "Start work on [JACKSON-754], \"annotation bundles\"\n",
+      "commitDate": "1/16/12, 5:24 PM",
+      "commitName": "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/29/11, 3:12 PM",
+      "commitNameOld": "0344ce08eb33d9d3aeb6478ce0391368596eac04",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 18.09,
+      "commitsBetweenForRepo": 30,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void resolveClassAnnotations() {\n    _classAnnotations \u003d new AnnotationMap();\n    if (_annotationIntrospector \u003d\u003d null) {\n        return;\n    }\n    if (_primaryMixIn !\u003d null) {\n        _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n    }\n    _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n    for (Class\u003c?\u003e cls : _superTypes) {\n        _addClassMixIns(_classAnnotations, cls);\n        _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n    }\n    _addClassMixIns(_classAnnotations, Object.class);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 261,
+      "functionName": "resolveClassAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n\u003cp\u003e\nStarting with 1.2, it will also apply mix-in annotations,\nas per [JACKSON-76]\n",
+      "diff": "@@ -1,23 +1,15 @@\n public void resolveClassAnnotations() {\n     _classAnnotations \u003d new AnnotationMap();\n     if (_annotationIntrospector \u003d\u003d null) {\n         return;\n     }\n     if (_primaryMixIn !\u003d null) {\n         _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n     }\n-    for (Annotation a : _class.getDeclaredAnnotations()) {\n-        if (_annotationIntrospector.isHandled(a)) {\n-            _classAnnotations.addIfNotPresent(a);\n-        }\n-    }\n+    _addAnnotationsIfNotPresent(_classAnnotations, _class.getDeclaredAnnotations());\n     for (Class\u003c?\u003e cls : _superTypes) {\n         _addClassMixIns(_classAnnotations, cls);\n-        for (Annotation a : cls.getDeclaredAnnotations()) {\n-            if (_annotationIntrospector.isHandled(a)) {\n-                _classAnnotations.addIfNotPresent(a);\n-            }\n-        }\n+        _addAnnotationsIfNotPresent(_classAnnotations, cls.getDeclaredAnnotations());\n     }\n     _addClassMixIns(_classAnnotations, Object.class);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,23 @@\n+public void resolveClassAnnotations() {\n+    _classAnnotations \u003d new AnnotationMap();\n+    if (_annotationIntrospector \u003d\u003d null) {\n+        return;\n+    }\n+    if (_primaryMixIn !\u003d null) {\n+        _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n+    }\n+    for (Annotation a : _class.getDeclaredAnnotations()) {\n+        if (_annotationIntrospector.isHandled(a)) {\n+            _classAnnotations.addIfNotPresent(a);\n+        }\n+    }\n+    for (Class\u003c?\u003e cls : _superTypes) {\n+        _addClassMixIns(_classAnnotations, cls);\n+        for (Annotation a : cls.getDeclaredAnnotations()) {\n+            if (_annotationIntrospector.isHandled(a)) {\n+                _classAnnotations.addIfNotPresent(a);\n+            }\n+        }\n+    }\n+    _addClassMixIns(_classAnnotations, Object.class);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void resolveClassAnnotations() {\n    _classAnnotations \u003d new AnnotationMap();\n    if (_annotationIntrospector \u003d\u003d null) {\n        return;\n    }\n    if (_primaryMixIn !\u003d null) {\n        _addClassMixIns(_classAnnotations, _class, _primaryMixIn);\n    }\n    for (Annotation a : _class.getDeclaredAnnotations()) {\n        if (_annotationIntrospector.isHandled(a)) {\n            _classAnnotations.addIfNotPresent(a);\n        }\n    }\n    for (Class\u003c?\u003e cls : _superTypes) {\n        _addClassMixIns(_classAnnotations, cls);\n        for (Annotation a : cls.getDeclaredAnnotations()) {\n            if (_annotationIntrospector.isHandled(a)) {\n                _classAnnotations.addIfNotPresent(a);\n            }\n        }\n    }\n    _addClassMixIns(_classAnnotations, Object.class);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 263,
+      "functionName": "resolveClassAnnotations",
+      "functionAnnotation": "",
+      "functionDoc": "Initialization method that will recursively collect Jackson\nannotations for this class and all super classes and\ninterfaces.\n\u003cp\u003e\nStarting with 1.2, it will also apply mix-in annotations,\nas per [JACKSON-76]\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "POJOPropertyBuilder.java",
+  "functionName": "findInclusion",
+  "functionId": "findInclusion",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 527,
+  "functionEndLine": 533,
+  "numCommitsSeen": 49,
+  "timeTaken": 839,
+  "changeHistory": [
+    "80674feaf5a593194a3810aaa1781a52442696da"
+  ],
+  "changeHistoryShort": {
+    "80674feaf5a593194a3810aaa1781a52442696da": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "80674feaf5a593194a3810aaa1781a52442696da": {
+      "type": "Yintroduced",
+      "commitMessage": "Minor fixes to support inclusion criteria for attribute-backed props\n",
+      "commitDate": "12/3/14, 10:17 PM",
+      "commitName": "80674feaf5a593194a3810aaa1781a52442696da",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public JsonInclude.Include findInclusion() {\n+    if (_annotationIntrospector \u003d\u003d null) {\n+        return null;\n+    }\n+    AnnotatedMember am \u003d getAccessor();\n+    return _annotationIntrospector.findSerializationInclusion(am, null);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic JsonInclude.Include findInclusion() {\n    if (_annotationIntrospector \u003d\u003d null) {\n        return null;\n    }\n    AnnotatedMember am \u003d getAccessor();\n    return _annotationIntrospector.findSerializationInclusion(am, null);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java",
+      "functionStartLine": 517,
+      "functionName": "findInclusion",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

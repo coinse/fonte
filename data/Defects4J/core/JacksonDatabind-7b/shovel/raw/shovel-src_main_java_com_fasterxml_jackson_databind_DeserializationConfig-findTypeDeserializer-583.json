@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-7b",
+  "repositoryPath": "/tmp/JacksonDatabind-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DeserializationConfig.java",
+  "functionName": "findTypeDeserializer",
+  "functionId": "findTypeDeserializer___baseType-JavaType",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method that is needed to properly handle polymorphic referenced\ntypes, such as types referenced by {@link java.util.concurrent.atomic.AtomicReference},\nor various \"optional\" types.\n\n@since 2.4\n",
+  "functionStartLine": 583,
+  "functionEndLine": 616,
+  "numCommitsSeen": 40,
+  "timeTaken": 920,
+  "changeHistory": [
+    "0583b3a55de91d9c7f816233dca8690393f5e698"
+  ],
+  "changeHistoryShort": {
+    "0583b3a55de91d9c7f816233dca8690393f5e698": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0583b3a55de91d9c7f816233dca8690393f5e698": {
+      "type": "Yintroduced",
+      "commitMessage": "Add access to type deserializer construction via DeserializationConfig\n",
+      "commitDate": "5/4/14, 11:28 PM",
+      "commitName": "0583b3a55de91d9c7f816233dca8690393f5e698",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+public TypeDeserializer findTypeDeserializer(JavaType baseType) throws JsonMappingException {\n+    BeanDescription bean \u003d introspectClassAnnotations(baseType.getRawClass());\n+    AnnotatedClass ac \u003d bean.getClassInfo();\n+    TypeResolverBuilder\u003c?\u003e b \u003d getAnnotationIntrospector().findTypeResolver(this, ac, baseType);\n+    Collection\u003cNamedType\u003e subtypes \u003d null;\n+    if (b \u003d\u003d null) {\n+        b \u003d getDefaultTyper(baseType);\n+        if (b \u003d\u003d null) {\n+            return null;\n+        }\n+    } else {\n+        subtypes \u003d getSubtypeResolver().collectAndResolveSubtypes(ac, this, getAnnotationIntrospector());\n+    }\n+    return b.buildTypeDeserializer(this, baseType, subtypes);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public TypeDeserializer findTypeDeserializer(JavaType baseType) throws JsonMappingException {\n    BeanDescription bean \u003d introspectClassAnnotations(baseType.getRawClass());\n    AnnotatedClass ac \u003d bean.getClassInfo();\n    TypeResolverBuilder\u003c?\u003e b \u003d getAnnotationIntrospector().findTypeResolver(this, ac, baseType);\n    Collection\u003cNamedType\u003e subtypes \u003d null;\n    if (b \u003d\u003d null) {\n        b \u003d getDefaultTyper(baseType);\n        if (b \u003d\u003d null) {\n            return null;\n        }\n    } else {\n        subtypes \u003d getSubtypeResolver().collectAndResolveSubtypes(ac, this, getAnnotationIntrospector());\n    }\n    return b.buildTypeDeserializer(this, baseType, subtypes);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+      "functionStartLine": 583,
+      "functionName": "findTypeDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method that is needed to properly handle polymorphic referenced\ntypes, such as types referenced by {@link java.util.concurrent.atomic.AtomicReference},\nor various \"optional\" types.\n\n@since 2.4\n"
+    }
+  }
+}

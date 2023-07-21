@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SettableBeanProperty.java",
+  "functionName": "getValueDeserializer",
+  "functionId": "getValueDeserializer",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 413,
+  "functionEndLine": 419,
+  "numCommitsSeen": 47,
+  "timeTaken": 1258,
+  "changeHistory": [
+    "f480802a4f8dac8d406ec67d7106068fab8f43f7",
+    "a07e5485ebcd96fde24e71e023a7888deb74f70b",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "f480802a4f8dac8d406ec67d7106068fab8f43f7": "Ybodychange",
+    "a07e5485ebcd96fde24e71e023a7888deb74f70b": "Ydocchange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f480802a4f8dac8d406ec67d7106068fab8f43f7": {
+      "type": "Ybodychange",
+      "commitMessage": "Improved error reporting a bit for uninitialized deserializers\n",
+      "commitDate": "4/8/13, 3:28 PM",
+      "commitName": "f480802a4f8dac8d406ec67d7106068fab8f43f7",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "4/6/13, 7:10 PM",
+      "commitNameOld": "7724c8ae5e61153e550a1f0de2e79902256a60b7",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.85,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JsonDeserializer\u003cObject\u003e getValueDeserializer() {\n    JsonDeserializer\u003cObject\u003e deser \u003d _valueDeserializer;\n    if (deser \u003d\u003d MISSING_VALUE_DESERIALIZER) {\n        return null;\n    }\n    return deser;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java",
+      "functionStartLine": 332,
+      "functionName": "getValueDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,7 @@\n public JsonDeserializer\u003cObject\u003e getValueDeserializer() {\n-    return _valueDeserializer;\n+    JsonDeserializer\u003cObject\u003e deser \u003d _valueDeserializer;\n+    if (deser \u003d\u003d MISSING_VALUE_DESERIALIZER) {\n+        return null;\n+    }\n+    return deser;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a07e5485ebcd96fde24e71e023a7888deb74f70b": {
+      "type": "Ydocchange",
+      "commitMessage": "Removed last existing deprecated methods\n",
+      "commitDate": "12/24/11, 10:18 PM",
+      "commitName": "a07e5485ebcd96fde24e71e023a7888deb74f70b",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/23/11, 8:05 PM",
+      "commitNameOld": "df6302f807bb230ae985a35100cbcc30af523bd1",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 1.09,
+      "commitsBetweenForRepo": 9,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JsonDeserializer\u003cObject\u003e getValueDeserializer() {\n    return _valueDeserializer;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java",
+      "functionStartLine": 201,
+      "functionName": "getValueDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "\n@since 1.9\n",
+        "newValue": ""
+      }
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,3 @@\n+public JsonDeserializer\u003cObject\u003e getValueDeserializer() {\n+    return _valueDeserializer;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JsonDeserializer\u003cObject\u003e getValueDeserializer() {\n    return _valueDeserializer;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java",
+      "functionStartLine": 230,
+      "functionName": "getValueDeserializer",
+      "functionAnnotation": "",
+      "functionDoc": "\n@since 1.9\n"
+    }
+  }
+}

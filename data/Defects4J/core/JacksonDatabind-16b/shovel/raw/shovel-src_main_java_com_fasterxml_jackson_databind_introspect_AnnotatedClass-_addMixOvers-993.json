@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotatedClass.java",
+  "functionName": "_addMixOvers",
+  "functionId": "_addMixOvers___mixin-Method__target-AnnotatedMethod__addParamAnnotations-boolean",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+  "functionAnnotation": "",
+  "functionDoc": "\n@param addParamAnnotations Whether parameter annotations are to be\n  added as well\n",
+  "functionStartLine": 993,
+  "functionEndLine": 1005,
+  "numCommitsSeen": 23,
+  "timeTaken": 1360,
+  "changeHistory": [
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b": "Ybodychange",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b": {
+      "type": "Ybodychange",
+      "commitMessage": "Start work on [JACKSON-754], \"annotation bundles\"\n",
+      "commitDate": "1/16/12, 5:24 PM",
+      "commitName": "fd9690c47cc825ea8dbd3a01f8de99e91f35ee2b",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "12/29/11, 3:12 PM",
+      "commitNameOld": "0344ce08eb33d9d3aeb6478ce0391368596eac04",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 18.09,
+      "commitsBetweenForRepo": 30,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void _addMixOvers(Method mixin, AnnotatedMethod target, boolean addParamAnnotations) {\n    _addOrOverrideAnnotations(target, mixin.getDeclaredAnnotations());\n    if (addParamAnnotations) {\n        Annotation[][] pa \u003d mixin.getParameterAnnotations();\n        for (int i \u003d 0, len \u003d pa.length; i \u003c len; ++i) {\n            for (Annotation a : pa[i]) {\n                target.addOrOverrideParam(i, a);\n            }\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 925,
+      "functionName": "_addMixOvers",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param addParamAnnotations Whether parameter annotations are to be\n  added as well\n",
+      "diff": "@@ -1,15 +1,11 @@\n protected void _addMixOvers(Method mixin, AnnotatedMethod target, boolean addParamAnnotations) {\n-    for (Annotation a : mixin.getDeclaredAnnotations()) {\n-        if (_annotationIntrospector.isHandled(a)) {\n-            target.addOrOverride(a);\n-        }\n-    }\n+    _addOrOverrideAnnotations(target, mixin.getDeclaredAnnotations());\n     if (addParamAnnotations) {\n         Annotation[][] pa \u003d mixin.getParameterAnnotations();\n         for (int i \u003d 0, len \u003d pa.length; i \u003c len; ++i) {\n             for (Annotation a : pa[i]) {\n                 target.addOrOverrideParam(i, a);\n             }\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,15 @@\n+protected void _addMixOvers(Method mixin, AnnotatedMethod target, boolean addParamAnnotations) {\n+    for (Annotation a : mixin.getDeclaredAnnotations()) {\n+        if (_annotationIntrospector.isHandled(a)) {\n+            target.addOrOverride(a);\n+        }\n+    }\n+    if (addParamAnnotations) {\n+        Annotation[][] pa \u003d mixin.getParameterAnnotations();\n+        for (int i \u003d 0, len \u003d pa.length; i \u003c len; ++i) {\n+            for (Annotation a : pa[i]) {\n+                target.addOrOverrideParam(i, a);\n+            }\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void _addMixOvers(Method mixin, AnnotatedMethod target, boolean addParamAnnotations) {\n    for (Annotation a : mixin.getDeclaredAnnotations()) {\n        if (_annotationIntrospector.isHandled(a)) {\n            target.addOrOverride(a);\n        }\n    }\n    if (addParamAnnotations) {\n        Annotation[][] pa \u003d mixin.getParameterAnnotations();\n        for (int i \u003d 0, len \u003d pa.length; i \u003c len; ++i) {\n            for (Annotation a : pa[i]) {\n                target.addOrOverrideParam(i, a);\n            }\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java",
+      "functionStartLine": 923,
+      "functionName": "_addMixOvers",
+      "functionAnnotation": "",
+      "functionDoc": "\n@param addParamAnnotations Whether parameter annotations are to be\n  added as well\n"
+    }
+  }
+}

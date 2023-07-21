@@ -1,0 +1,230 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-13b",
+  "repositoryPath": "/tmp/JacksonDatabind-13b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicDeserializerFactory.java",
+  "functionName": "findDeserializerFromAnnotation",
+  "functionId": "findDeserializerFromAnnotation___ctxt-DeserializationContext__ann-Annotated",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+  "functionStartLine": 1644,
+  "functionEndLine": 1653,
+  "numCommitsSeen": 160,
+  "timeTaken": 7362,
+  "changeHistory": [
+    "c3a73d02ac74b9f0011b2fb8c5f4a764344a60ce",
+    "b37ff33bbc7885f21a208bee4f42126468f55d41",
+    "bf355caa0821e58968df3bf6c12f612639224e47",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373"
+  ],
+  "changeHistoryShort": {
+    "c3a73d02ac74b9f0011b2fb8c5f4a764344a60ce": "Ymultichange(Yparameterchange,Ybodychange)",
+    "b37ff33bbc7885f21a208bee4f42126468f55d41": "Ymultichange(Yparameterchange,Ybodychange,Yannotationchange)",
+    "bf355caa0821e58968df3bf6c12f612639224e47": "Ymultichange(Ybodychange,Yannotationchange)",
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c3a73d02ac74b9f0011b2fb8c5f4a764344a60ce": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "More elimination of BeanProperty passing, getting close: one new (transient) unit test failure to fix\n",
+      "commitDate": "1/31/12, 12:45 PM",
+      "commitName": "c3a73d02ac74b9f0011b2fb8c5f4a764344a60ce",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "More elimination of BeanProperty passing, getting close: one new (transient) unit test failure to fix\n",
+          "commitDate": "1/31/12, 12:45 PM",
+          "commitName": "c3a73d02ac74b9f0011b2fb8c5f4a764344a60ce",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/30/12, 10:13 PM",
+          "commitNameOld": "49b712169c432100297164f6b5102f3578bd636c",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.61,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann) throws JsonMappingException {\n    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef \u003d\u003d null) {\n        return null;\n    }\n    return ctxt.deserializerInstance(ann, deserDef);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 1260,
+          "functionName": "findDeserializerFromAnnotation",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann) throws JsonMappingException {\n     Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n     if (deserDef \u003d\u003d null) {\n         return null;\n     }\n-    return ctxt.deserializerInstance(ann, property, deserDef);\n+    return ctxt.deserializerInstance(ann, deserDef);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[ctxt-DeserializationContext, ann-Annotated, property-BeanProperty]",
+            "newValue": "[ctxt-DeserializationContext, ann-Annotated]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "More elimination of BeanProperty passing, getting close: one new (transient) unit test failure to fix\n",
+          "commitDate": "1/31/12, 12:45 PM",
+          "commitName": "c3a73d02ac74b9f0011b2fb8c5f4a764344a60ce",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/30/12, 10:13 PM",
+          "commitNameOld": "49b712169c432100297164f6b5102f3578bd636c",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.61,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann) throws JsonMappingException {\n    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef \u003d\u003d null) {\n        return null;\n    }\n    return ctxt.deserializerInstance(ann, deserDef);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 1260,
+          "functionName": "findDeserializerFromAnnotation",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+          "diff": "@@ -1,7 +1,7 @@\n-protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n+protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann) throws JsonMappingException {\n     Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n     if (deserDef \u003d\u003d null) {\n         return null;\n     }\n-    return ctxt.deserializerInstance(ann, property, deserDef);\n+    return ctxt.deserializerInstance(ann, deserDef);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "b37ff33bbc7885f21a208bee4f42126468f55d41": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Yannotationchange)",
+      "commitMessage": "Yet more refactoring, trying to be able to pass DeserializationContext to ContextualDeserializer\n",
+      "commitDate": "1/24/12, 4:19 PM",
+      "commitName": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Yet more refactoring, trying to be able to pass DeserializationContext to ContextualDeserializer\n",
+          "commitDate": "1/24/12, 4:19 PM",
+          "commitName": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 2:46 PM",
+          "commitNameOld": "bf355caa0821e58968df3bf6c12f612639224e47",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.06,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef \u003d\u003d null) {\n        return null;\n    }\n    return ctxt.deserializerInstance(ann, property, deserDef);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 731,
+          "functionName": "findDeserializerFromAnnotation",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+          "diff": "@@ -1,26 +1,7 @@\n-@SuppressWarnings(\"unchecked\")\n-protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n-    Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n+protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n+    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n     if (deserDef \u003d\u003d null) {\n         return null;\n     }\n-    if (deserDef instanceof JsonDeserializer) {\n-        JsonDeserializer\u003cObject\u003e deser \u003d (JsonDeserializer\u003cObject\u003e) deserDef;\n-        if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n-            deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n-        }\n-        return deser;\n-    }\n-    if (!(deserDef instanceof Class)) {\n-        throw new IllegalStateException(\"AnnotationIntrospector returned deserializer definition of type \" + deserDef.getClass().getName() + \"; expected type JsonDeserializer or Class\u003cJsonDeserializer\u003e instead\");\n-    }\n-    Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e deserClass \u003d (Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e) deserDef;\n-    if (!JsonDeserializer.class.isAssignableFrom(deserClass)) {\n-        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + deserClass.getName() + \"; expected Class\u003cJsonDeserializer\u003e\");\n-    }\n-    JsonDeserializer\u003cObject\u003e deser \u003d config.deserializerInstance(ann, deserClass);\n-    if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n-        deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n-    }\n-    return deser;\n+    return ctxt.deserializerInstance(ann, property, deserDef);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[config-DeserializationConfig, ann-Annotated, property-BeanProperty]",
+            "newValue": "[ctxt-DeserializationContext, ann-Annotated, property-BeanProperty]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Yet more refactoring, trying to be able to pass DeserializationContext to ContextualDeserializer\n",
+          "commitDate": "1/24/12, 4:19 PM",
+          "commitName": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 2:46 PM",
+          "commitNameOld": "bf355caa0821e58968df3bf6c12f612639224e47",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.06,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef \u003d\u003d null) {\n        return null;\n    }\n    return ctxt.deserializerInstance(ann, property, deserDef);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 731,
+          "functionName": "findDeserializerFromAnnotation",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+          "diff": "@@ -1,26 +1,7 @@\n-@SuppressWarnings(\"unchecked\")\n-protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n-    Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n+protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n+    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n     if (deserDef \u003d\u003d null) {\n         return null;\n     }\n-    if (deserDef instanceof JsonDeserializer) {\n-        JsonDeserializer\u003cObject\u003e deser \u003d (JsonDeserializer\u003cObject\u003e) deserDef;\n-        if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n-            deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n-        }\n-        return deser;\n-    }\n-    if (!(deserDef instanceof Class)) {\n-        throw new IllegalStateException(\"AnnotationIntrospector returned deserializer definition of type \" + deserDef.getClass().getName() + \"; expected type JsonDeserializer or Class\u003cJsonDeserializer\u003e instead\");\n-    }\n-    Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e deserClass \u003d (Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e) deserDef;\n-    if (!JsonDeserializer.class.isAssignableFrom(deserClass)) {\n-        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + deserClass.getName() + \"; expected Class\u003cJsonDeserializer\u003e\");\n-    }\n-    JsonDeserializer\u003cObject\u003e deser \u003d config.deserializerInstance(ann, deserClass);\n-    if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n-        deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n-    }\n-    return deser;\n+    return ctxt.deserializerInstance(ann, property, deserDef);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Yet more refactoring, trying to be able to pass DeserializationContext to ContextualDeserializer\n",
+          "commitDate": "1/24/12, 4:19 PM",
+          "commitName": "b37ff33bbc7885f21a208bee4f42126468f55d41",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 2:46 PM",
+          "commitNameOld": "bf355caa0821e58968df3bf6c12f612639224e47",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.06,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef \u003d\u003d null) {\n        return null;\n    }\n    return ctxt.deserializerInstance(ann, property, deserDef);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 731,
+          "functionName": "findDeserializerFromAnnotation",
+          "functionAnnotation": "",
+          "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+          "diff": "@@ -1,26 +1,7 @@\n-@SuppressWarnings(\"unchecked\")\n-protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n-    Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n+protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationContext ctxt, Annotated ann, BeanProperty property) throws JsonMappingException {\n+    Object deserDef \u003d ctxt.getAnnotationIntrospector().findDeserializer(ann);\n     if (deserDef \u003d\u003d null) {\n         return null;\n     }\n-    if (deserDef instanceof JsonDeserializer) {\n-        JsonDeserializer\u003cObject\u003e deser \u003d (JsonDeserializer\u003cObject\u003e) deserDef;\n-        if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n-            deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n-        }\n-        return deser;\n-    }\n-    if (!(deserDef instanceof Class)) {\n-        throw new IllegalStateException(\"AnnotationIntrospector returned deserializer definition of type \" + deserDef.getClass().getName() + \"; expected type JsonDeserializer or Class\u003cJsonDeserializer\u003e instead\");\n-    }\n-    Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e deserClass \u003d (Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e) deserDef;\n-    if (!JsonDeserializer.class.isAssignableFrom(deserClass)) {\n-        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + deserClass.getName() + \"; expected Class\u003cJsonDeserializer\u003e\");\n-    }\n-    JsonDeserializer\u003cObject\u003e deser \u003d config.deserializerInstance(ann, deserClass);\n-    if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n-        deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n-    }\n-    return deser;\n+    return ctxt.deserializerInstance(ann, property, deserDef);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@SuppressWarnings(\"unchecked\")",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "bf355caa0821e58968df3bf6c12f612639224e47": {
+      "type": "Ymultichange(Ybodychange,Yannotationchange)",
+      "commitMessage": "Yet more refactoring, trying to remove back-refs from DeserializerFactory to context/cache\n",
+      "commitDate": "1/24/12, 2:46 PM",
+      "commitName": "bf355caa0821e58968df3bf6c12f612639224e47",
+      "commitAuthor": "Tatu",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Yet more refactoring, trying to remove back-refs from DeserializerFactory to context/cache\n",
+          "commitDate": "1/24/12, 2:46 PM",
+          "commitName": "bf355caa0821e58968df3bf6c12f612639224e47",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 1:27 PM",
+          "commitNameOld": "f0b28a96644b3dc22c997a05975de335dfed0418",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.05,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@SuppressWarnings(\"unchecked\")\nprotected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n    Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef \u003d\u003d null) {\n        return null;\n    }\n    if (deserDef instanceof JsonDeserializer) {\n        JsonDeserializer\u003cObject\u003e deser \u003d (JsonDeserializer\u003cObject\u003e) deserDef;\n        if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n            deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n        }\n        return deser;\n    }\n    if (!(deserDef instanceof Class)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned deserializer definition of type \" + deserDef.getClass().getName() + \"; expected type JsonDeserializer or Class\u003cJsonDeserializer\u003e instead\");\n    }\n    Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e deserClass \u003d (Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e) deserDef;\n    if (!JsonDeserializer.class.isAssignableFrom(deserClass)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + deserClass.getName() + \"; expected Class\u003cJsonDeserializer\u003e\");\n    }\n    JsonDeserializer\u003cObject\u003e deser \u003d config.deserializerInstance(ann, deserClass);\n    if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n        deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n    }\n    return deser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 726,
+          "functionName": "findDeserializerFromAnnotation",
+          "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+          "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+          "diff": "@@ -1,7 +1,26 @@\n+@SuppressWarnings(\"unchecked\")\n protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n     Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n-    if (deserDef !\u003d null) {\n-        return _constructDeserializer(config, ann, property, deserDef);\n+    if (deserDef \u003d\u003d null) {\n+        return null;\n     }\n-    return null;\n+    if (deserDef instanceof JsonDeserializer) {\n+        JsonDeserializer\u003cObject\u003e deser \u003d (JsonDeserializer\u003cObject\u003e) deserDef;\n+        if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n+            deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n+        }\n+        return deser;\n+    }\n+    if (!(deserDef instanceof Class)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned deserializer definition of type \" + deserDef.getClass().getName() + \"; expected type JsonDeserializer or Class\u003cJsonDeserializer\u003e instead\");\n+    }\n+    Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e deserClass \u003d (Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e) deserDef;\n+    if (!JsonDeserializer.class.isAssignableFrom(deserClass)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + deserClass.getName() + \"; expected Class\u003cJsonDeserializer\u003e\");\n+    }\n+    JsonDeserializer\u003cObject\u003e deser \u003d config.deserializerInstance(ann, deserClass);\n+    if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n+        deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n+    }\n+    return deser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Yet more refactoring, trying to remove back-refs from DeserializerFactory to context/cache\n",
+          "commitDate": "1/24/12, 2:46 PM",
+          "commitName": "bf355caa0821e58968df3bf6c12f612639224e47",
+          "commitAuthor": "Tatu",
+          "commitDateOld": "1/24/12, 1:27 PM",
+          "commitNameOld": "f0b28a96644b3dc22c997a05975de335dfed0418",
+          "commitAuthorOld": "Tatu",
+          "daysBetweenCommits": 0.05,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@SuppressWarnings(\"unchecked\")\nprotected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n    Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef \u003d\u003d null) {\n        return null;\n    }\n    if (deserDef instanceof JsonDeserializer) {\n        JsonDeserializer\u003cObject\u003e deser \u003d (JsonDeserializer\u003cObject\u003e) deserDef;\n        if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n            deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n        }\n        return deser;\n    }\n    if (!(deserDef instanceof Class)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned deserializer definition of type \" + deserDef.getClass().getName() + \"; expected type JsonDeserializer or Class\u003cJsonDeserializer\u003e instead\");\n    }\n    Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e deserClass \u003d (Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e) deserDef;\n    if (!JsonDeserializer.class.isAssignableFrom(deserClass)) {\n        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + deserClass.getName() + \"; expected Class\u003cJsonDeserializer\u003e\");\n    }\n    JsonDeserializer\u003cObject\u003e deser \u003d config.deserializerInstance(ann, deserClass);\n    if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n        deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n    }\n    return deser;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+          "functionStartLine": 726,
+          "functionName": "findDeserializerFromAnnotation",
+          "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+          "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n",
+          "diff": "@@ -1,7 +1,26 @@\n+@SuppressWarnings(\"unchecked\")\n protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n     Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n-    if (deserDef !\u003d null) {\n-        return _constructDeserializer(config, ann, property, deserDef);\n+    if (deserDef \u003d\u003d null) {\n+        return null;\n     }\n-    return null;\n+    if (deserDef instanceof JsonDeserializer) {\n+        JsonDeserializer\u003cObject\u003e deser \u003d (JsonDeserializer\u003cObject\u003e) deserDef;\n+        if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n+            deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n+        }\n+        return deser;\n+    }\n+    if (!(deserDef instanceof Class)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned deserializer definition of type \" + deserDef.getClass().getName() + \"; expected type JsonDeserializer or Class\u003cJsonDeserializer\u003e instead\");\n+    }\n+    Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e deserClass \u003d (Class\u003c? extends JsonDeserializer\u003c?\u003e\u003e) deserDef;\n+    if (!JsonDeserializer.class.isAssignableFrom(deserClass)) {\n+        throw new IllegalStateException(\"AnnotationIntrospector returned Class \" + deserClass.getName() + \"; expected Class\u003cJsonDeserializer\u003e\");\n+    }\n+    JsonDeserializer\u003cObject\u003e deser \u003d config.deserializerInstance(ann, deserClass);\n+    if (deser instanceof ContextualDeserializer\u003c?\u003e) {\n+        deser \u003d (JsonDeserializer\u003cObject\u003e) ((ContextualDeserializer\u003c?\u003e) deser).createContextual(config, property);\n+    }\n+    return deser;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "@SuppressWarnings(\"unchecked\")"
+          }
+        }
+      ]
+    },
+    "e4f23bb6779d434d88a7c4335f92d13ea639b373": {
+      "type": "Yintroduced",
+      "commitMessage": "First check-in, tons of compilation errors to resolve\n",
+      "commitDate": "12/23/11, 12:31 AM",
+      "commitName": "e4f23bb6779d434d88a7c4335f92d13ea639b373",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n+    Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n+    if (deserDef !\u003d null) {\n+        return _constructDeserializer(config, ann, property, deserDef);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected JsonDeserializer\u003cObject\u003e findDeserializerFromAnnotation(DeserializationConfig config, Annotated ann, BeanProperty property) throws JsonMappingException {\n    Object deserDef \u003d config.getAnnotationIntrospector().findDeserializer(ann);\n    if (deserDef !\u003d null) {\n        return _constructDeserializer(config, ann, property, deserDef);\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+      "functionStartLine": 672,
+      "functionName": "findDeserializerFromAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "Helper method called to check if a class or method\nhas annotation that tells which class to use for deserialization.\nReturns null if no such annotation found.\n"
+    }
+  }
+}

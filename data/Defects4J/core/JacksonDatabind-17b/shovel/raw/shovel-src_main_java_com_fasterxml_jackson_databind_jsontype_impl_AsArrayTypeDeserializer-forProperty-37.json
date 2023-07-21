@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-17b",
+  "repositoryPath": "/tmp/JacksonDatabind-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AsArrayTypeDeserializer.java",
+  "functionName": "forProperty",
+  "functionId": "forProperty___prop-BeanProperty",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsArrayTypeDeserializer.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 37,
+  "functionEndLine": 40,
+  "numCommitsSeen": 15,
+  "timeTaken": 1365,
+  "changeHistory": [
+    "10af6d3a3e816f9717c112e97a912fef9a4eeadd",
+    "49b712169c432100297164f6b5102f3578bd636c"
+  ],
+  "changeHistoryShort": {
+    "10af6d3a3e816f9717c112e97a912fef9a4eeadd": "Ybodychange",
+    "49b712169c432100297164f6b5102f3578bd636c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "10af6d3a3e816f9717c112e97a912fef9a4eeadd": {
+      "type": "Ybodychange",
+      "commitMessage": "Yet more refactorign\n",
+      "commitDate": "12/31/13, 10:27 PM",
+      "commitName": "10af6d3a3e816f9717c112e97a912fef9a4eeadd",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "8/4/13, 5:17 PM",
+      "commitNameOld": "767ecb29a5a79f799113d13eb137389ff5a4c2c5",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 149.26,
+      "commitsBetweenForRepo": 189,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic TypeDeserializer forProperty(BeanProperty prop) {\n    return (prop \u003d\u003d _property) ? this : new AsArrayTypeDeserializer(this, prop);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsArrayTypeDeserializer.java",
+      "functionStartLine": 37,
+      "functionName": "forProperty",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,4 @@\n @Override\n public TypeDeserializer forProperty(BeanProperty prop) {\n-    if (prop \u003d\u003d _property) {\n-        return this;\n-    }\n-    return new AsArrayTypeDeserializer(this, prop);\n+    return (prop \u003d\u003d _property) ? this : new AsArrayTypeDeserializer(this, prop);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "49b712169c432100297164f6b5102f3578bd636c": {
+      "type": "Yintroduced",
+      "commitMessage": "Removing BeanProperty from TypeDeserializer constructors, now added via fluent factories\n",
+      "commitDate": "1/30/12, 10:13 PM",
+      "commitName": "49b712169c432100297164f6b5102f3578bd636c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+@Override\n+public TypeDeserializer forProperty(BeanProperty prop) {\n+    if (prop \u003d\u003d _property) {\n+        return this;\n+    }\n+    return new AsArrayTypeDeserializer(this, prop);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic TypeDeserializer forProperty(BeanProperty prop) {\n    if (prop \u003d\u003d _property) {\n        return this;\n    }\n    return new AsArrayTypeDeserializer(this, prop);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsArrayTypeDeserializer.java",
+      "functionStartLine": 36,
+      "functionName": "forProperty",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

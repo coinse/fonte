@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SerializationConfig.java",
+  "functionName": "initialize",
+  "functionId": "initialize___g-JsonGenerator",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called by {@link ObjectMapper} and {@link ObjectWriter}\nto modify those {@link com.fasterxml.jackson.core.JsonGenerator.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n",
+  "functionStartLine": 546,
+  "functionEndLine": 564,
+  "numCommitsSeen": 41,
+  "timeTaken": 1111,
+  "changeHistory": [
+    "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd"
+  ],
+  "changeHistoryShort": {
+    "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented #607, #608\n",
+      "commitDate": "11/8/14, 3:47 PM",
+      "commitName": "4fc7cb0cf03520ecf9ed4a872430e646e4d85abd",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,16 @@\n+public void initialize(JsonGenerator g) {\n+    if (SerializationFeature.INDENT_OUTPUT.enabledIn(_serFeatures)) {\n+        g.useDefaultPrettyPrinter();\n+    }\n+    @SuppressWarnings(\"deprecation\") boolean useBigDec \u003d SerializationFeature.WRITE_BIGDECIMAL_AS_PLAIN.enabledIn(_serFeatures);\n+    if ((_generatorFeaturesToChange !\u003d 0) || useBigDec) {\n+        int orig \u003d g.getFeatureMask();\n+        int newFlags \u003d (orig \u0026 ~_generatorFeaturesToChange) | _generatorFeatures;\n+        if (useBigDec) {\n+            newFlags |\u003d JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN.getMask();\n+        }\n+        if (orig !\u003d newFlags) {\n+            g.setFeatureMask(newFlags);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void initialize(JsonGenerator g) {\n    if (SerializationFeature.INDENT_OUTPUT.enabledIn(_serFeatures)) {\n        g.useDefaultPrettyPrinter();\n    }\n    @SuppressWarnings(\"deprecation\") boolean useBigDec \u003d SerializationFeature.WRITE_BIGDECIMAL_AS_PLAIN.enabledIn(_serFeatures);\n    if ((_generatorFeaturesToChange !\u003d 0) || useBigDec) {\n        int orig \u003d g.getFeatureMask();\n        int newFlags \u003d (orig \u0026 ~_generatorFeaturesToChange) | _generatorFeatures;\n        if (useBigDec) {\n            newFlags |\u003d JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN.getMask();\n        }\n        if (orig !\u003d newFlags) {\n            g.setFeatureMask(newFlags);\n        }\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java",
+      "functionStartLine": 546,
+      "functionName": "initialize",
+      "functionAnnotation": "",
+      "functionDoc": "Method called by {@link ObjectMapper} and {@link ObjectWriter}\nto modify those {@link com.fasterxml.jackson.core.JsonGenerator.Feature} settings\nthat have been configured via this config instance.\n\n@since 2.5\n"
+    }
+  }
+}

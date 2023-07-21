@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonDatabind-16b",
+  "repositoryPath": "/tmp/JacksonDatabind-16b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BeanUtil.java",
+  "functionName": "legacyManglePropertyName",
+  "functionId": "legacyManglePropertyName___basename-String(modifiers-final)__offset-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method called to figure out name of the property, given \ncorresponding suggested name based on a method or field name.\n\n@param basename Name of accessor/mutator method, not including prefix\n (\"get\"/\"is\"/\"set\")\n",
+  "functionStartLine": 222,
+  "functionEndLine": 244,
+  "numCommitsSeen": 9,
+  "timeTaken": 506,
+  "changeHistory": [
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771"
+  ],
+  "changeHistoryShort": {
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "42ef5bb69ba5945e6d588e0db8d6834b4febe771": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed #653\n",
+      "commitDate": "12/18/14, 8:45 PM",
+      "commitName": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,21 @@\n+protected static String legacyManglePropertyName(final String basename, final int offset) {\n+    final int end \u003d basename.length();\n+    if (end \u003d\u003d offset) {\n+        return null;\n+    }\n+    StringBuilder sb \u003d null;\n+    for (int i \u003d offset; i \u003c end; ++i) {\n+        char upper \u003d basename.charAt(i);\n+        char lower \u003d Character.toLowerCase(upper);\n+        if (upper \u003d\u003d lower) {\n+            break;\n+        }\n+        if (sb \u003d\u003d null) {\n+            int l \u003d end - offset;\n+            sb \u003d new StringBuilder(l);\n+            sb.append(basename, offset, end);\n+        }\n+        sb.setCharAt(i - offset, lower);\n+    }\n+    return (sb \u003d\u003d null) ? basename.substring(offset) : sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected static String legacyManglePropertyName(final String basename, final int offset) {\n    final int end \u003d basename.length();\n    if (end \u003d\u003d offset) {\n        return null;\n    }\n    StringBuilder sb \u003d null;\n    for (int i \u003d offset; i \u003c end; ++i) {\n        char upper \u003d basename.charAt(i);\n        char lower \u003d Character.toLowerCase(upper);\n        if (upper \u003d\u003d lower) {\n            break;\n        }\n        if (sb \u003d\u003d null) {\n            int l \u003d end - offset;\n            sb \u003d new StringBuilder(l);\n            sb.append(basename, offset, end);\n        }\n        sb.setCharAt(i - offset, lower);\n    }\n    return (sb \u003d\u003d null) ? basename.substring(offset) : sb.toString();\n}",
+      "path": "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+      "functionStartLine": 220,
+      "functionName": "legacyManglePropertyName",
+      "functionAnnotation": "",
+      "functionDoc": "Method called to figure out name of the property, given \ncorresponding suggested name based on a method or field name.\n\n@param basename Name of accessor/mutator method, not including prefix\n (\"get\"/\"is\"/\"set\")\n"
+    }
+  }
+}
