@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextNode.java",
+  "functionName": "createFromEncoded",
+  "functionId": "createFromEncoded___encodedText-String__baseUri-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/TextNode.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a new TextNode from HTML encoded (aka escaped) data.\n\n@param encodedText Text containing encoded HTML (e.g. \u0026amp;lt;)\n@return TextNode containing unencoded data (e.g. \u0026lt;)\n",
+  "functionStartLine": 94,
+  "functionEndLine": 97,
+  "numCommitsSeen": 31,
+  "timeTaken": 462,
+  "changeHistory": [
+    "57bce6dc8424637621f6b660855f23e72a08c4b3",
+    "d23db47db68a1b25b90e4ce255156e9758697ed2",
+    "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce"
+  ],
+  "changeHistoryShort": {
+    "57bce6dc8424637621f6b660855f23e72a08c4b3": "Ybodychange",
+    "d23db47db68a1b25b90e4ce255156e9758697ed2": "Ymultichange(Yparameterchange,Ybodychange)",
+    "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "57bce6dc8424637621f6b660855f23e72a08c4b3": {
+      "type": "Ybodychange",
+      "commitMessage": "Added ability to configure the document\u0027s output charset.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "57bce6dc8424637621f6b660855f23e72a08c4b3",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "10cfa0465c9d48f6a3ce3f5996259e77b43fa858",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 31,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static TextNode createFromEncoded(String encodedText, String baseUri) {\n    String text \u003d Entities.unescape(encodedText);\n    return new TextNode(text, baseUri);\n}",
+      "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+      "functionStartLine": 90,
+      "functionName": "createFromEncoded",
+      "functionAnnotation": "",
+      "functionDoc": "Create a new TextNode from HTML encoded (aka escaped) data.\n\n@param encodedText Text containing encoded HTML (e.g. \u0026amp;lt;)\n@return TextNode containing unencoded data (e.g. \u0026lt;)\n",
+      "diff": "@@ -1,4 +1,4 @@\n public static TextNode createFromEncoded(String encodedText, String baseUri) {\n-    String text \u003d StringEscapeUtils.unescapeHtml(encodedText);\n+    String text \u003d Entities.unescape(encodedText);\n     return new TextNode(text, baseUri);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d23db47db68a1b25b90e4ce255156e9758697ed2": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Implement baseURIs for all Nodes, and absolute URL attribute getter.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "d23db47db68a1b25b90e4ce255156e9758697ed2",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Implement baseURIs for all Nodes, and absolute URL attribute getter.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "d23db47db68a1b25b90e4ce255156e9758697ed2",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "0e4c8bf728d368fed47e458f5f91517c677f1d60",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static TextNode createFromEncoded(String encodedText, String baseUri) {\n    String text \u003d StringEscapeUtils.unescapeHtml(encodedText);\n    return new TextNode(text, baseUri);\n}",
+          "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+          "functionStartLine": 43,
+          "functionName": "createFromEncoded",
+          "functionAnnotation": "",
+          "functionDoc": "Create a new TextNode from HTML encoded (aka escaped) data.\n\n@param encodedText Text containing encoded HTML (e.g. \u0026amp;lt;)\n@return TextNode containing unencoded data (e.g. \u0026lt;)\n",
+          "diff": "@@ -1,4 +1,4 @@\n-public static TextNode createFromEncoded(String encodedText) {\n+public static TextNode createFromEncoded(String encodedText, String baseUri) {\n     String text \u003d StringEscapeUtils.unescapeHtml(encodedText);\n-    return new TextNode(text);\n+    return new TextNode(text, baseUri);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[encodedText-String]",
+            "newValue": "[encodedText-String, baseUri-String]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implement baseURIs for all Nodes, and absolute URL attribute getter.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "d23db47db68a1b25b90e4ce255156e9758697ed2",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "0e4c8bf728d368fed47e458f5f91517c677f1d60",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static TextNode createFromEncoded(String encodedText, String baseUri) {\n    String text \u003d StringEscapeUtils.unescapeHtml(encodedText);\n    return new TextNode(text, baseUri);\n}",
+          "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+          "functionStartLine": 43,
+          "functionName": "createFromEncoded",
+          "functionAnnotation": "",
+          "functionDoc": "Create a new TextNode from HTML encoded (aka escaped) data.\n\n@param encodedText Text containing encoded HTML (e.g. \u0026amp;lt;)\n@return TextNode containing unencoded data (e.g. \u0026lt;)\n",
+          "diff": "@@ -1,4 +1,4 @@\n-public static TextNode createFromEncoded(String encodedText) {\n+public static TextNode createFromEncoded(String encodedText, String baseUri) {\n     String text \u003d StringEscapeUtils.unescapeHtml(encodedText);\n-    return new TextNode(text);\n+    return new TextNode(text, baseUri);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce": {
+      "type": "Yintroduced",
+      "commitMessage": "Handle HTML encoded (escaped) data in text nodes and attributes.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+public static TextNode createFromEncoded(String encodedText) {\n+    String text \u003d StringEscapeUtils.unescapeHtml(encodedText);\n+    return new TextNode(text);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static TextNode createFromEncoded(String encodedText) {\n    String text \u003d StringEscapeUtils.unescapeHtml(encodedText);\n    return new TextNode(text);\n}",
+      "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+      "functionStartLine": 35,
+      "functionName": "createFromEncoded",
+      "functionAnnotation": "",
+      "functionDoc": "Create a new TextNode from HTML encoded (aka escaped) data.\n\n@param encodedText Text containing encoded HTML (e.g. \u0026amp;lt;)\n@return TextNode containing unencoded data (e.g. \u0026lt;)\n"
+    }
+  }
+}

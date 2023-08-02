@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-10b",
+  "repositoryPath": "/tmp/JxPath-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeUtils.java",
+  "functionName": "wrapPrimitive",
+  "functionId": "wrapPrimitive___p-Class",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/util/TypeUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Return the appropriate wrapper type for the specified class.\n\n@param p Class for which to retrieve a wrapper class.\n@return the wrapper if \u003ccode\u003ep\u003c/code\u003e is primitive, else \u003ccode\u003ep\u003c/code\u003e.\n@since JXPath 1.3\n",
+  "functionStartLine": 78,
+  "functionEndLine": 80,
+  "numCommitsSeen": 16,
+  "timeTaken": 330,
+  "changeHistory": [
+    "8778c3cbe1146ece404662cc9f2611a1c819b883"
+  ],
+  "changeHistoryShort": {
+    "8778c3cbe1146ece404662cc9f2611a1c819b883": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8778c3cbe1146ece404662cc9f2611a1c819b883": {
+      "type": "Yintroduced",
+      "commitMessage": "simplify BasicTypeConverter code; add support for untreated Number types + AtomicBoolean\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@552965 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/3/07, 1:07 PM",
+      "commitName": "8778c3cbe1146ece404662cc9f2611a1c819b883",
+      "commitAuthor": "Matthew Jason Benson",
+      "diff": "@@ -0,0 +1,3 @@\n+public static Class wrapPrimitive(Class p) {\n+    return p.isPrimitive() ? (Class) PRIMITIVE_TYPE_MAP.get(p) : p;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Class wrapPrimitive(Class p) {\n    return p.isPrimitive() ? (Class) PRIMITIVE_TYPE_MAP.get(p) : p;\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/TypeUtils.java",
+      "functionStartLine": 78,
+      "functionName": "wrapPrimitive",
+      "functionAnnotation": "",
+      "functionDoc": "Return the appropriate wrapper type for the specified class.\n\n@param p Class for which to retrieve a wrapper class.\n@return the wrapper if \u003ccode\u003ep\u003c/code\u003e is primitive, else \u003ccode\u003ep\u003c/code\u003e.\n@since JXPath 1.3\n"
+    }
+  }
+}

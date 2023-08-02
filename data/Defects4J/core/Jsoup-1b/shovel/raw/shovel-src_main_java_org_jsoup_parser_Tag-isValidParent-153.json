@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-1b",
+  "repositoryPath": "/tmp/Jsoup-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "isValidParent",
+  "functionId": "isValidParent___child-Tag",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 153,
+  "functionEndLine": 162,
+  "numCommitsSeen": 21,
+  "timeTaken": 525,
+  "changeHistory": [
+    "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556",
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d"
+  ],
+  "changeHistoryShort": {
+    "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556": "Ymodifierchange",
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Knock access down\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "40979c984d6ceebd50dab1ba516babb1570841a7",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 37,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean isValidParent(Tag child) {\n    if (child.ancestors.isEmpty())\n        return true;\n    for (Tag tag : child.ancestors) {\n        if (this.equals(tag))\n            return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 117,
+      "functionName": "isValidParent",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n-public boolean isValidParent(Tag child) {\n+boolean isValidParent(Tag child) {\n     if (child.ancestors.isEmpty())\n         return true;\n     for (Tag tag : child.ancestors) {\n         if (this.equals(tag))\n             return true;\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[public]",
+        "newValue": "[]"
+      }
+    },
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": {
+      "type": "Yintroduced",
+      "commitMessage": "Implicit parent creation for elements, more general document structure creation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean isValidParent(Tag child) {\n+    if (child.ancestors.isEmpty())\n+        return true;\n+    for (Tag tag : child.ancestors) {\n+        if (this.equals(tag))\n+            return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean isValidParent(Tag child) {\n    if (child.ancestors.isEmpty())\n        return true;\n    for (Tag tag : child.ancestors) {\n        if (this.equals(tag))\n            return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 119,
+      "functionName": "isValidParent",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

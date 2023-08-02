@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokeniserState.java",
+  "functionName": "handleDataEndTag",
+  "functionId": "handleDataEndTag___t-Tokeniser__r-CharacterReader__elseTransition-TokeniserState",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "functionAnnotation": "",
+  "functionDoc": "Handles RawtextEndTagName, ScriptDataEndTagName, and ScriptDataEscapedEndTagName. Same body impl, just\ndifferent else exit transitions.\n",
+  "functionStartLine": 1627,
+  "functionEndLine": 1665,
+  "numCommitsSeen": 30,
+  "timeTaken": 1919,
+  "changeHistory": [
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d",
+    "8e524450bbaf0eb3210f0f0d2fff3cc4d54cb0a7",
+    "07df0dea236d2fce4980dc3878bdb42920faf8b9"
+  ],
+  "changeHistoryShort": {
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d": "Ybodychange",
+    "8e524450bbaf0eb3210f0f0d2fff3cc4d54cb0a7": "Ymodifierchange",
+    "07df0dea236d2fce4980dc3878bdb42920faf8b9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d": {
+      "type": "Ybodychange",
+      "commitMessage": "Introduced ParseSettings for tag and attribute name case options.\n",
+      "commitDate": "8/5/16, 3:05 PM",
+      "commitName": "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "4/23/16, 12:37 PM",
+      "commitNameOld": "99286c8986c92ef12861710c0cbf5cd51b8c93f0",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 104.1,
+      "commitsBetweenForRepo": 13,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void handleDataEndTag(Tokeniser t, CharacterReader r, TokeniserState elseTransition) {\n    if (r.matchesLetter()) {\n        String name \u003d r.consumeLetterSequence();\n        t.tagPending.appendTagName(name);\n        t.dataBuffer.append(name);\n        return;\n    }\n    boolean needsExitTransition \u003d false;\n    if (t.isAppropriateEndTagToken() \u0026\u0026 !r.isEmpty()) {\n        char c \u003d r.consume();\n        switch(c) {\n            case \u0027\\t\u0027:\n            case \u0027\\n\u0027:\n            case \u0027\\r\u0027:\n            case \u0027\\f\u0027:\n            case \u0027 \u0027:\n                t.transition(BeforeAttributeName);\n                break;\n            case \u0027/\u0027:\n                t.transition(SelfClosingStartTag);\n                break;\n            case \u0027\u003e\u0027:\n                t.emitTagPending();\n                t.transition(Data);\n                break;\n            default:\n                t.dataBuffer.append(c);\n                needsExitTransition \u003d true;\n        }\n    } else {\n        needsExitTransition \u003d true;\n    }\n    if (needsExitTransition) {\n        t.emit(\"\u003c/\" + t.dataBuffer.toString());\n        t.transition(elseTransition);\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1622,
+      "functionName": "handleDataEndTag",
+      "functionAnnotation": "",
+      "functionDoc": "Handles RawtextEndTagName, ScriptDataEndTagName, and ScriptDataEscapedEndTagName. Same body impl, just\ndifferent else exit transitions.\n",
+      "diff": "@@ -1,37 +1,37 @@\n private static void handleDataEndTag(Tokeniser t, CharacterReader r, TokeniserState elseTransition) {\n     if (r.matchesLetter()) {\n         String name \u003d r.consumeLetterSequence();\n-        t.tagPending.appendTagName(name.toLowerCase());\n+        t.tagPending.appendTagName(name);\n         t.dataBuffer.append(name);\n         return;\n     }\n     boolean needsExitTransition \u003d false;\n     if (t.isAppropriateEndTagToken() \u0026\u0026 !r.isEmpty()) {\n         char c \u003d r.consume();\n         switch(c) {\n             case \u0027\\t\u0027:\n             case \u0027\\n\u0027:\n             case \u0027\\r\u0027:\n             case \u0027\\f\u0027:\n             case \u0027 \u0027:\n                 t.transition(BeforeAttributeName);\n                 break;\n             case \u0027/\u0027:\n                 t.transition(SelfClosingStartTag);\n                 break;\n             case \u0027\u003e\u0027:\n                 t.emitTagPending();\n                 t.transition(Data);\n                 break;\n             default:\n                 t.dataBuffer.append(c);\n                 needsExitTransition \u003d true;\n         }\n     } else {\n         needsExitTransition \u003d true;\n     }\n     if (needsExitTransition) {\n         t.emit(\"\u003c/\" + t.dataBuffer.toString());\n         t.transition(elseTransition);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8e524450bbaf0eb3210f0f0d2fff3cc4d54cb0a7": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Optimized character reference searches\n",
+      "commitDate": "10/26/14, 3:51 PM",
+      "commitName": "8e524450bbaf0eb3210f0f0d2fff3cc4d54cb0a7",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "9/27/14, 6:35 PM",
+      "commitNameOld": "97bd42868ba98bb9a757c729d8d6e259644117e4",
+      "commitAuthorOld": "",
+      "daysBetweenCommits": 28.89,
+      "commitsBetweenForRepo": 48,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void handleDataEndTag(Tokeniser t, CharacterReader r, TokeniserState elseTransition) {\n    if (r.matchesLetter()) {\n        String name \u003d r.consumeLetterSequence();\n        t.tagPending.appendTagName(name.toLowerCase());\n        t.dataBuffer.append(name);\n        return;\n    }\n    boolean needsExitTransition \u003d false;\n    if (t.isAppropriateEndTagToken() \u0026\u0026 !r.isEmpty()) {\n        char c \u003d r.consume();\n        switch(c) {\n            case \u0027\\t\u0027:\n            case \u0027\\n\u0027:\n            case \u0027\\r\u0027:\n            case \u0027\\f\u0027:\n            case \u0027 \u0027:\n                t.transition(BeforeAttributeName);\n                break;\n            case \u0027/\u0027:\n                t.transition(SelfClosingStartTag);\n                break;\n            case \u0027\u003e\u0027:\n                t.emitTagPending();\n                t.transition(Data);\n                break;\n            default:\n                t.dataBuffer.append(c);\n                needsExitTransition \u003d true;\n        }\n    } else {\n        needsExitTransition \u003d true;\n    }\n    if (needsExitTransition) {\n        t.emit(\"\u003c/\" + t.dataBuffer.toString());\n        t.transition(elseTransition);\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1670,
+      "functionName": "handleDataEndTag",
+      "functionAnnotation": "",
+      "functionDoc": "Handles RawtextEndTagName, ScriptDataEndTagName, and ScriptDataEscapedEndTagName. Same body impl, just\ndifferent else exit transitions.\n",
+      "diff": "@@ -1,37 +1,37 @@\n-private static final void handleDataEndTag(Tokeniser t, CharacterReader r, TokeniserState elseTransition) {\n+private static void handleDataEndTag(Tokeniser t, CharacterReader r, TokeniserState elseTransition) {\n     if (r.matchesLetter()) {\n         String name \u003d r.consumeLetterSequence();\n         t.tagPending.appendTagName(name.toLowerCase());\n         t.dataBuffer.append(name);\n         return;\n     }\n     boolean needsExitTransition \u003d false;\n     if (t.isAppropriateEndTagToken() \u0026\u0026 !r.isEmpty()) {\n         char c \u003d r.consume();\n         switch(c) {\n             case \u0027\\t\u0027:\n             case \u0027\\n\u0027:\n             case \u0027\\r\u0027:\n             case \u0027\\f\u0027:\n             case \u0027 \u0027:\n                 t.transition(BeforeAttributeName);\n                 break;\n             case \u0027/\u0027:\n                 t.transition(SelfClosingStartTag);\n                 break;\n             case \u0027\u003e\u0027:\n                 t.emitTagPending();\n                 t.transition(Data);\n                 break;\n             default:\n                 t.dataBuffer.append(c);\n                 needsExitTransition \u003d true;\n         }\n     } else {\n         needsExitTransition \u003d true;\n     }\n     if (needsExitTransition) {\n         t.emit(\"\u003c/\" + t.dataBuffer.toString());\n         t.transition(elseTransition);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private, static, final]",
+        "newValue": "[private, static]"
+      }
+    },
+    "07df0dea236d2fce4980dc3878bdb42920faf8b9": {
+      "type": "Yintroduced",
+      "commitMessage": "Removed code duplication in data end tag handlers\n",
+      "commitDate": "2/2/13, 1:35 PM",
+      "commitName": "07df0dea236d2fce4980dc3878bdb42920faf8b9",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,37 @@\n+private static final void handleDataEndTag(Tokeniser t, CharacterReader r, TokeniserState elseTransition) {\n+    if (r.matchesLetter()) {\n+        String name \u003d r.consumeLetterSequence();\n+        t.tagPending.appendTagName(name.toLowerCase());\n+        t.dataBuffer.append(name);\n+        return;\n+    }\n+    boolean needsExitTransition \u003d false;\n+    if (t.isAppropriateEndTagToken() \u0026\u0026 !r.isEmpty()) {\n+        char c \u003d r.consume();\n+        switch(c) {\n+            case \u0027\\t\u0027:\n+            case \u0027\\n\u0027:\n+            case \u0027\\r\u0027:\n+            case \u0027\\f\u0027:\n+            case \u0027 \u0027:\n+                t.transition(BeforeAttributeName);\n+                break;\n+            case \u0027/\u0027:\n+                t.transition(SelfClosingStartTag);\n+                break;\n+            case \u0027\u003e\u0027:\n+                t.emitTagPending();\n+                t.transition(Data);\n+                break;\n+            default:\n+                t.dataBuffer.append(c);\n+                needsExitTransition \u003d true;\n+        }\n+    } else {\n+        needsExitTransition \u003d true;\n+    }\n+    if (needsExitTransition) {\n+        t.emit(\"\u003c/\" + t.dataBuffer.toString());\n+        t.transition(elseTransition);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static final void handleDataEndTag(Tokeniser t, CharacterReader r, TokeniserState elseTransition) {\n    if (r.matchesLetter()) {\n        String name \u003d r.consumeLetterSequence();\n        t.tagPending.appendTagName(name.toLowerCase());\n        t.dataBuffer.append(name);\n        return;\n    }\n    boolean needsExitTransition \u003d false;\n    if (t.isAppropriateEndTagToken() \u0026\u0026 !r.isEmpty()) {\n        char c \u003d r.consume();\n        switch(c) {\n            case \u0027\\t\u0027:\n            case \u0027\\n\u0027:\n            case \u0027\\r\u0027:\n            case \u0027\\f\u0027:\n            case \u0027 \u0027:\n                t.transition(BeforeAttributeName);\n                break;\n            case \u0027/\u0027:\n                t.transition(SelfClosingStartTag);\n                break;\n            case \u0027\u003e\u0027:\n                t.emitTagPending();\n                t.transition(Data);\n                break;\n            default:\n                t.dataBuffer.append(c);\n                needsExitTransition \u003d true;\n        }\n    } else {\n        needsExitTransition \u003d true;\n    }\n    if (needsExitTransition) {\n        t.emit(\"\u003c/\" + t.dataBuffer.toString());\n        t.transition(elseTransition);\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1703,
+      "functionName": "handleDataEndTag",
+      "functionAnnotation": "",
+      "functionDoc": "Handles RawtextEndTagName, ScriptDataEndTagName, and ScriptDataEscapedEndTagName. Same body impl, just\ndifferent else exit transitions.\n"
+    }
+  }
+}

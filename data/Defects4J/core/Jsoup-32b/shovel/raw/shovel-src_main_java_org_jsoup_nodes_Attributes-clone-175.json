@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-32b",
+  "repositoryPath": "/tmp/Jsoup-32b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Attributes.java",
+  "functionName": "clone",
+  "functionId": "clone",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Attributes.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 175,
+  "functionEndLine": 189,
+  "numCommitsSeen": 20,
+  "timeTaken": 559,
+  "changeHistory": [
+    "8749726a79c22451b1f01b14fb2137f734e926b4",
+    "5ca6b4041d0605025f1a1582a605d2aee377bc1c"
+  ],
+  "changeHistoryShort": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Ybodychange",
+    "5ca6b4041d0605025f1a1582a605d2aee377bc1c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Ybodychange",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "5ca6b4041d0605025f1a1582a605d2aee377bc1c",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 81,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic Attributes clone() {\n    if (attributes \u003d\u003d null)\n        return new Attributes();\n    Attributes clone;\n    try {\n        clone \u003d (Attributes) super.clone();\n    } catch (CloneNotSupportedException e) {\n        throw new RuntimeException(e);\n    }\n    clone.attributes \u003d new LinkedHashMap\u003cString, Attribute\u003e(attributes.size());\n    for (Attribute attribute : this) clone.attributes.put(attribute.getKey(), attribute.clone());\n    return clone;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 175,
+      "functionName": "clone",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,12 +1,14 @@\n @Override\n public Attributes clone() {\n+    if (attributes \u003d\u003d null)\n+        return new Attributes();\n     Attributes clone;\n     try {\n         clone \u003d (Attributes) super.clone();\n     } catch (CloneNotSupportedException e) {\n         throw new RuntimeException(e);\n     }\n     clone.attributes \u003d new LinkedHashMap\u003cString, Attribute\u003e(attributes.size());\n     for (Attribute attribute : this) clone.attributes.put(attribute.getKey(), attribute.clone());\n     return clone;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "5ca6b4041d0605025f1a1582a605d2aee377bc1c": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented Node.clone() to create deep, independent copies of Nodes, Elements, and Documents.\n\nFixes #47\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "5ca6b4041d0605025f1a1582a605d2aee377bc1c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,12 @@\n+@Override\n+public Attributes clone() {\n+    Attributes clone;\n+    try {\n+        clone \u003d (Attributes) super.clone();\n+    } catch (CloneNotSupportedException e) {\n+        throw new RuntimeException(e);\n+    }\n+    clone.attributes \u003d new LinkedHashMap\u003cString, Attribute\u003e(attributes.size());\n+    for (Attribute attribute : this) clone.attributes.put(attribute.getKey(), attribute.clone());\n+    return clone;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Attributes clone() {\n    Attributes clone;\n    try {\n        clone \u003d (Attributes) super.clone();\n    } catch (CloneNotSupportedException e) {\n        throw new RuntimeException(e);\n    }\n    clone.attributes \u003d new LinkedHashMap\u003cString, Attribute\u003e(attributes.size());\n    for (Attribute attribute : this) clone.attributes.put(attribute.getKey(), attribute.clone());\n    return clone;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 155,
+      "functionName": "clone",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

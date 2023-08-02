@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-5b",
+  "repositoryPath": "/tmp/Jsoup-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "isValidAncestor",
+  "functionId": "isValidAncestor___child-Tag",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 188,
+  "functionEndLine": 197,
+  "numCommitsSeen": 52,
+  "timeTaken": 743,
+  "changeHistory": [
+    "09b0d1b6008ee7fa4fa7cf6dbaa798d967254a02",
+    "0081d162cca8ad23b500b53799195fec644f261b",
+    "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556",
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d"
+  ],
+  "changeHistoryShort": {
+    "09b0d1b6008ee7fa4fa7cf6dbaa798d967254a02": "Ybodychange",
+    "0081d162cca8ad23b500b53799195fec644f261b": "Yrename",
+    "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556": "Ymodifierchange",
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "09b0d1b6008ee7fa4fa7cf6dbaa798d967254a02": {
+      "type": "Ybodychange",
+      "commitMessage": "Micro-optimise tag ancestor\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "09b0d1b6008ee7fa4fa7cf6dbaa798d967254a02",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean isValidAncestor(Tag child) {\n    if (child.ancestors.isEmpty())\n        return true;\n    for (int i \u003d 0; i \u003c child.ancestors.size(); i++) if (this.equals(child.ancestors.get(i)))\n        return true;\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 188,
+      "functionName": "isValidAncestor",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,7 @@\n boolean isValidAncestor(Tag child) {\n     if (child.ancestors.isEmpty())\n         return true;\n-    for (Tag tag : child.ancestors) {\n-        if (this.equals(tag))\n-            return true;\n-    }\n+    for (int i \u003d 0; i \u003c child.ancestors.size(); i++) if (this.equals(child.ancestors.get(i)))\n+        return true;\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "0081d162cca8ad23b500b53799195fec644f261b": {
+      "type": "Yrename",
+      "commitMessage": "Improved implicit close tag heuristic detection when parsing malformed HTML.\n\nFixes an issue where appending / prepending rows to a table (or  to similar implicit\nelement structures) would create a redundant wrapping elements.\n\nFixes #21\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "0081d162cca8ad23b500b53799195fec644f261b",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "a52e669ca8bc48265accd57d610c0258f7891841",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 38,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean isValidAncestor(Tag child) {\n    if (child.ancestors.isEmpty())\n        return true;\n    for (Tag tag : child.ancestors) {\n        if (this.equals(tag))\n            return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 166,
+      "functionName": "isValidAncestor",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n-boolean isValidParent(Tag child) {\n+boolean isValidAncestor(Tag child) {\n     if (child.ancestors.isEmpty())\n         return true;\n     for (Tag tag : child.ancestors) {\n         if (this.equals(tag))\n             return true;\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "isValidParent",
+        "newValue": "isValidAncestor"
+      }
+    },
+    "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Knock access down\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "9c8969d48f776ce2f1bbcac73a2e0b4c85c71556",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "40979c984d6ceebd50dab1ba516babb1570841a7",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 37,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean isValidParent(Tag child) {\n    if (child.ancestors.isEmpty())\n        return true;\n    for (Tag tag : child.ancestors) {\n        if (this.equals(tag))\n            return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 117,
+      "functionName": "isValidParent",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n-public boolean isValidParent(Tag child) {\n+boolean isValidParent(Tag child) {\n     if (child.ancestors.isEmpty())\n         return true;\n     for (Tag tag : child.ancestors) {\n         if (this.equals(tag))\n             return true;\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[public]",
+        "newValue": "[]"
+      }
+    },
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": {
+      "type": "Yintroduced",
+      "commitMessage": "Implicit parent creation for elements, more general document structure creation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean isValidParent(Tag child) {\n+    if (child.ancestors.isEmpty())\n+        return true;\n+    for (Tag tag : child.ancestors) {\n+        if (this.equals(tag))\n+            return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean isValidParent(Tag child) {\n    if (child.ancestors.isEmpty())\n        return true;\n    for (Tag tag : child.ancestors) {\n        if (this.equals(tag))\n            return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 119,
+      "functionName": "isValidParent",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

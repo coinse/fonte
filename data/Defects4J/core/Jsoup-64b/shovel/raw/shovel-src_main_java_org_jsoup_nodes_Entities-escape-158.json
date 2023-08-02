@@ -1,0 +1,45 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Entities.java",
+  "functionName": "escape",
+  "functionId": "escape___accum-Appendable__string-String__out-Document.OutputSettings__inAttribute-boolean__normaliseWhite-boolean__stripLeadingWhite-boolean",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Entities.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 158,
+  "functionEndLine": 231,
+  "numCommitsSeen": 35,
+  "timeTaken": 408,
+  "changeHistory": [
+    "aa81e10c34f48a3c4ac7160aa90ee18af4f5c0c2"
+  ],
+  "changeHistoryShort": {
+    "aa81e10c34f48a3c4ac7160aa90ee18af4f5c0c2": "Ybodychange"
+  },
+  "changeHistoryDetails": {
+    "aa81e10c34f48a3c4ac7160aa90ee18af4f5c0c2": {
+      "type": "Ybodychange",
+      "commitMessage": "Improved HTML entity support\n\nFixes #602, #603\n",
+      "commitDate": "8/19/16, 12:04 PM",
+      "commitName": "aa81e10c34f48a3c4ac7160aa90ee18af4f5c0c2",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "4/14/16, 10:49 AM",
+      "commitNameOld": "c850608f18d6cf71d96713abed84def85f5bb8fe",
+      "commitAuthorOld": "",
+      "daysBetweenCommits": 127.05,
+      "commitsBetweenForRepo": 36,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static void escape(Appendable accum, String string, Document.OutputSettings out, boolean inAttribute, boolean normaliseWhite, boolean stripLeadingWhite) throws IOException {\n    boolean lastWasWhite \u003d false;\n    boolean reachedNonWhite \u003d false;\n    final EscapeMode escapeMode \u003d out.escapeMode();\n    final CharsetEncoder encoder \u003d out.encoder();\n    final CoreCharset coreCharset \u003d CoreCharset.byName(encoder.charset().name());\n    final int length \u003d string.length();\n    int codePoint;\n    for (int offset \u003d 0; offset \u003c length; offset +\u003d Character.charCount(codePoint)) {\n        codePoint \u003d string.codePointAt(offset);\n        if (normaliseWhite) {\n            if (StringUtil.isWhitespace(codePoint)) {\n                if ((stripLeadingWhite \u0026\u0026 !reachedNonWhite) || lastWasWhite)\n                    continue;\n                accum.append(\u0027 \u0027);\n                lastWasWhite \u003d true;\n                continue;\n            } else {\n                lastWasWhite \u003d false;\n                reachedNonWhite \u003d true;\n            }\n        }\n        if (codePoint \u003c Character.MIN_SUPPLEMENTARY_CODE_POINT) {\n            final char c \u003d (char) codePoint;\n            switch(c) {\n                case \u0027\u0026\u0027:\n                    accum.append(\"\u0026amp;\");\n                    break;\n                case 0xA0:\n                    if (escapeMode !\u003d EscapeMode.xhtml)\n                        accum.append(\"\u0026nbsp;\");\n                    else\n                        accum.append(\"\u0026#xa0;\");\n                    break;\n                case \u0027\u003c\u0027:\n                    if (!inAttribute || escapeMode \u003d\u003d EscapeMode.xhtml)\n                        accum.append(\"\u0026lt;\");\n                    else\n                        accum.append(c);\n                    break;\n                case \u0027\u003e\u0027:\n                    if (!inAttribute)\n                        accum.append(\"\u0026gt;\");\n                    else\n                        accum.append(c);\n                    break;\n                case \u0027\"\u0027:\n                    if (inAttribute)\n                        accum.append(\"\u0026quot;\");\n                    else\n                        accum.append(c);\n                    break;\n                default:\n                    if (canEncode(coreCharset, c, encoder))\n                        accum.append(c);\n                    else\n                        appendEncoded(accum, escapeMode, codePoint);\n            }\n        } else {\n            final String c \u003d new String(Character.toChars(codePoint));\n            if (encoder.canEncode(c))\n                accum.append(c);\n            else\n                appendEncoded(accum, escapeMode, codePoint);\n        }\n    }\n}",
+      "path": "src/main/java/org/jsoup/nodes/Entities.java",
+      "functionStartLine": 147,
+      "functionName": "escape",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,70 +1,67 @@\n static void escape(Appendable accum, String string, Document.OutputSettings out, boolean inAttribute, boolean normaliseWhite, boolean stripLeadingWhite) throws IOException {\n     boolean lastWasWhite \u003d false;\n     boolean reachedNonWhite \u003d false;\n     final EscapeMode escapeMode \u003d out.escapeMode();\n     final CharsetEncoder encoder \u003d out.encoder();\n     final CoreCharset coreCharset \u003d CoreCharset.byName(encoder.charset().name());\n-    final Map\u003cCharacter, String\u003e map \u003d escapeMode.getMap();\n     final int length \u003d string.length();\n     int codePoint;\n     for (int offset \u003d 0; offset \u003c length; offset +\u003d Character.charCount(codePoint)) {\n         codePoint \u003d string.codePointAt(offset);\n         if (normaliseWhite) {\n             if (StringUtil.isWhitespace(codePoint)) {\n                 if ((stripLeadingWhite \u0026\u0026 !reachedNonWhite) || lastWasWhite)\n                     continue;\n                 accum.append(\u0027 \u0027);\n                 lastWasWhite \u003d true;\n                 continue;\n             } else {\n                 lastWasWhite \u003d false;\n                 reachedNonWhite \u003d true;\n             }\n         }\n         if (codePoint \u003c Character.MIN_SUPPLEMENTARY_CODE_POINT) {\n             final char c \u003d (char) codePoint;\n             switch(c) {\n                 case \u0027\u0026\u0027:\n                     accum.append(\"\u0026amp;\");\n                     break;\n                 case 0xA0:\n                     if (escapeMode !\u003d EscapeMode.xhtml)\n                         accum.append(\"\u0026nbsp;\");\n                     else\n                         accum.append(\"\u0026#xa0;\");\n                     break;\n                 case \u0027\u003c\u0027:\n                     if (!inAttribute || escapeMode \u003d\u003d EscapeMode.xhtml)\n                         accum.append(\"\u0026lt;\");\n                     else\n                         accum.append(c);\n                     break;\n                 case \u0027\u003e\u0027:\n                     if (!inAttribute)\n                         accum.append(\"\u0026gt;\");\n                     else\n                         accum.append(c);\n                     break;\n                 case \u0027\"\u0027:\n                     if (inAttribute)\n                         accum.append(\"\u0026quot;\");\n                     else\n                         accum.append(c);\n                     break;\n                 default:\n                     if (canEncode(coreCharset, c, encoder))\n                         accum.append(c);\n-                    else if (map.containsKey(c))\n-                        accum.append(\u0027\u0026\u0027).append(map.get(c)).append(\u0027;\u0027);\n                     else\n-                        accum.append(\"\u0026#x\").append(Integer.toHexString(codePoint)).append(\u0027;\u0027);\n+                        appendEncoded(accum, escapeMode, codePoint);\n             }\n         } else {\n             final String c \u003d new String(Character.toChars(codePoint));\n             if (encoder.canEncode(c))\n                 accum.append(c);\n             else\n-                accum.append(\"\u0026#x\").append(Integer.toHexString(codePoint)).append(\u0027;\u0027);\n+                appendEncoded(accum, escapeMode, codePoint);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    }
+  }
+}

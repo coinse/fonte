@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "EvalContext.java",
+  "functionName": "performIteratorStep",
+  "functionId": "performIteratorStep",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/EvalContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "Moves the iterator forward by one position\n",
+  "functionStartLine": 148,
+  "functionEndLine": 162,
+  "numCommitsSeen": 38,
+  "timeTaken": 597,
+  "changeHistory": [
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+    "04d66747e69273ed8ed520ddfefb86d85755e4b1"
+  ],
+  "changeHistoryShort": {
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": "Yformatchange",
+    "04d66747e69273ed8ed520ddfefb86d85755e4b1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": {
+      "type": "Yformatchange",
+      "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/10/03, 9:41 PM",
+      "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "11/25/02, 5:20 PM",
+      "commitNameOld": "430fdd01e75a5e681274aa65adeb2d9826ee45a8",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 46.18,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void performIteratorStep() {\n    done \u003d true;\n    if (position !\u003d 0 \u0026\u0026 nextNode()) {\n        done \u003d false;\n    } else {\n        while (nextSet()) {\n            if (nextNode()) {\n                done \u003d false;\n                break;\n            }\n        }\n    }\n    hasPerformedIteratorStep \u003d true;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/EvalContext.java",
+      "functionStartLine": 184,
+      "functionName": "performIteratorStep",
+      "functionAnnotation": "",
+      "functionDoc": "Moves the iterator forward by one position\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "04d66747e69273ed8ed520ddfefb86d85755e4b1": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed a problem with iteration - calling hasNext() multiple times would mess up the iteration\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136818 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/19/02, 8:43 PM",
+      "commitName": "04d66747e69273ed8ed520ddfefb86d85755e4b1",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,14 @@\n+private void performIteratorStep() {\n+    done \u003d true;\n+    if (position !\u003d 0 \u0026\u0026 nextNode()) {\n+        done \u003d false;\n+    } else {\n+        while (nextSet()) {\n+            if (nextNode()) {\n+                done \u003d false;\n+                break;\n+            }\n+        }\n+    }\n+    hasPerformedIteratorStep \u003d true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void performIteratorStep() {\n    done \u003d true;\n    if (position !\u003d 0 \u0026\u0026 nextNode()) {\n        done \u003d false;\n    } else {\n        while (nextSet()) {\n            if (nextNode()) {\n                done \u003d false;\n                break;\n            }\n        }\n    }\n    hasPerformedIteratorStep \u003d true;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/EvalContext.java",
+      "functionStartLine": 180,
+      "functionName": "performIteratorStep",
+      "functionAnnotation": "",
+      "functionDoc": "Moves the iterator forward by one position\n"
+    }
+  }
+}

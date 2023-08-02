@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ValueUtils.java",
+  "functionName": "getValue",
+  "functionId": "getValue___object-Object",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "If the parameter is a container, opens the container and\nreturn the contents.  The method is recursive.\n\n@param object to read\n@return Object\n",
+  "functionStartLine": 523,
+  "functionEndLine": 528,
+  "numCommitsSeen": 35,
+  "timeTaken": 1261,
+  "changeHistory": [
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1",
+    "75548377c5f5821be2ca75eb247a6ddd4bbb6a88"
+  ],
+  "changeHistoryShort": {
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1": "Ydocchange",
+    "75548377c5f5821be2ca75eb247a6ddd4bbb6a88": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1": {
+      "type": "Ydocchange",
+      "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@618074 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/3/08, 12:19 PM",
+      "commitName": "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1",
+      "commitAuthor": "Matthew Jason Benson",
+      "commitDateOld": "12/16/07, 11:29 PM",
+      "commitNameOld": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+      "commitAuthorOld": "Matthew Jason Benson",
+      "daysBetweenCommits": 48.53,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Object getValue(Object object) {\n    while (object instanceof Container) {\n        object \u003d ((Container) object).getValue();\n    }\n    return object;\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+      "functionStartLine": 523,
+      "functionName": "getValue",
+      "functionAnnotation": "",
+      "functionDoc": "If the parameter is a container, opens the container and\nreturn the contents.  The method is recursive.\n\n@param object to read\n@return Object\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "If the parameter is a container, opens the container and\nreturn the contents.  The method is recursive.\n",
+        "newValue": "If the parameter is a container, opens the container and\nreturn the contents.  The method is recursive.\n\n@param object to read\n@return Object\n"
+      }
+    },
+    "75548377c5f5821be2ca75eb247a6ddd4bbb6a88": {
+      "type": "Yintroduced",
+      "commitMessage": "In some situations JXPath would not open containers during path traversal. \nMade the container opening consistent throughout RI.\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136905 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/4/04, 3:06 PM",
+      "commitName": "75548377c5f5821be2ca75eb247a6ddd4bbb6a88",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,6 @@\n+public static Object getValue(Object object) {\n+    while (object instanceof Container) {\n+        object \u003d ((Container) object).getValue();\n+    }\n+    return object;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Object getValue(Object object) {\n    while (object instanceof Container) {\n        object \u003d ((Container) object).getValue();\n    }\n    return object;\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+      "functionStartLine": 494,
+      "functionName": "getValue",
+      "functionAnnotation": "",
+      "functionDoc": "If the parameter is a container, opens the container and\nreturn the contents.  The method is recursive.\n"
+    }
+  }
+}

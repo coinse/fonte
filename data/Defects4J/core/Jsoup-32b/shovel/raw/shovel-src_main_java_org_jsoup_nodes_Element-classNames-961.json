@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-32b",
+  "repositoryPath": "/tmp/Jsoup-32b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "classNames",
+  "functionId": "classNames",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get all of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}. Note that modifications to this set are not pushed to\nthe backing {@code class} attribute; use the {@link #classNames(java.util.Set)} method to persist them.\n\n@return set of classnames, empty if no class attribute\n",
+  "functionStartLine": 961,
+  "functionEndLine": 967,
+  "numCommitsSeen": 79,
+  "timeTaken": 1999,
+  "changeHistory": [
+    "d2f4ea69702a20eb74cc0e43491fc156d0c88d6e",
+    "46e1e9780049f855ca60f2c32c594062358a3330",
+    "9bed789bfee6c6433945c0a3e2c710c897616888",
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2"
+  ],
+  "changeHistoryShort": {
+    "d2f4ea69702a20eb74cc0e43491fc156d0c88d6e": "Ymultichange(Ybodychange,Ydocchange)",
+    "46e1e9780049f855ca60f2c32c594062358a3330": "Ydocchange",
+    "9bed789bfee6c6433945c0a3e2c710c897616888": "Ydocchange",
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d2f4ea69702a20eb74cc0e43491fc156d0c88d6e": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Add addClass, removeClass, toggleClass, hasClass to Element and Elements.\n\nCloses #2\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "d2f4ea69702a20eb74cc0e43491fc156d0c88d6e",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Add addClass, removeClass, toggleClass, hasClass to Element and Elements.\n\nCloses #2\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "d2f4ea69702a20eb74cc0e43491fc156d0c88d6e",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "79c672355bb31aa69c23d2dd1ed8cc3f89dd2844",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 12,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Set\u003cString\u003e classNames() {\n    if (classNames \u003d\u003d null) {\n        String[] names \u003d className().split(\"\\\\s+\");\n        classNames \u003d new LinkedHashSet\u003cString\u003e(Arrays.asList(names));\n    }\n    return classNames;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 610,
+          "functionName": "classNames",
+          "functionAnnotation": "",
+          "functionDoc": "Get all of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}. Note that modifications to this set are not pushed to\nthe backing {@code class} attribute; use the {@link #classNames(java.util.Set)} method to persist them.\n\n@return set of classnames, empty if no class attribute\n",
+          "diff": "@@ -1,7 +1,7 @@\n public Set\u003cString\u003e classNames() {\n     if (classNames \u003d\u003d null) {\n         String[] names \u003d className().split(\"\\\\s+\");\n-        classNames \u003d new HashSet\u003cString\u003e(Arrays.asList(names));\n+        classNames \u003d new LinkedHashSet\u003cString\u003e(Arrays.asList(names));\n     }\n     return classNames;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Add addClass, removeClass, toggleClass, hasClass to Element and Elements.\n\nCloses #2\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "d2f4ea69702a20eb74cc0e43491fc156d0c88d6e",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "79c672355bb31aa69c23d2dd1ed8cc3f89dd2844",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 12,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Set\u003cString\u003e classNames() {\n    if (classNames \u003d\u003d null) {\n        String[] names \u003d className().split(\"\\\\s+\");\n        classNames \u003d new LinkedHashSet\u003cString\u003e(Arrays.asList(names));\n    }\n    return classNames;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 610,
+          "functionName": "classNames",
+          "functionAnnotation": "",
+          "functionDoc": "Get all of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}. Note that modifications to this set are not pushed to\nthe backing {@code class} attribute; use the {@link #classNames(java.util.Set)} method to persist them.\n\n@return set of classnames, empty if no class attribute\n",
+          "diff": "@@ -1,7 +1,7 @@\n public Set\u003cString\u003e classNames() {\n     if (classNames \u003d\u003d null) {\n         String[] names \u003d className().split(\"\\\\s+\");\n-        classNames \u003d new HashSet\u003cString\u003e(Arrays.asList(names));\n+        classNames \u003d new LinkedHashSet\u003cString\u003e(Arrays.asList(names));\n     }\n     return classNames;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Get all of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}.\n\n@return set of classnames, empty if no class attribute\n",
+            "newValue": "Get all of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}. Note that modifications to this set are not pushed to\nthe backing {@code class} attribute; use the {@link #classNames(java.util.Set)} method to persist them.\n\n@return set of classnames, empty if no class attribute\n"
+          }
+        }
+      ]
+    },
+    "46e1e9780049f855ca60f2c32c594062358a3330": {
+      "type": "Ydocchange",
+      "commitMessage": "Doc tidy.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "46e1e9780049f855ca60f2c32c594062358a3330",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "9bed789bfee6c6433945c0a3e2c710c897616888",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Set\u003cString\u003e classNames() {\n    if (classNames \u003d\u003d null) {\n        String[] names \u003d className().split(\"\\\\s+\");\n        classNames \u003d new HashSet\u003cString\u003e(Arrays.asList(names));\n    }\n    return classNames;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 492,
+      "functionName": "classNames",
+      "functionAnnotation": "",
+      "functionDoc": "Get all of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}.\n\n@return set of classnames, empty if no class attribute\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Get the set of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}.\n\n@return set of classnames, empty if no class attribute\n",
+        "newValue": "Get all of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}.\n\n@return set of classnames, empty if no class attribute\n"
+      }
+    },
+    "9bed789bfee6c6433945c0a3e2c710c897616888": {
+      "type": "Ydocchange",
+      "commitMessage": "Element documentation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "9bed789bfee6c6433945c0a3e2c710c897616888",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "abdf22714e557304d9f6782d30da9b7254ce017c",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Set\u003cString\u003e classNames() {\n    if (classNames \u003d\u003d null) {\n        String[] names \u003d className().split(\"\\\\s+\");\n        classNames \u003d new HashSet\u003cString\u003e(Arrays.asList(names));\n    }\n    return classNames;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 492,
+      "functionName": "classNames",
+      "functionAnnotation": "",
+      "functionDoc": "Get the set of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}.\n\n@return set of classnames, empty if no class attribute\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "Get the set of the element\u0027s class names. E.g. on element {@code \u003cdiv class\u003d\"header gray\"}\u003e},\nreturns a set of two elements {@code \"header\", \"gray\"}.\n\n@return set of classnames, empty if no class attribute\n"
+      }
+    },
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented:\n * Element.getElementsByClass\n * Element.getElementsWithAttribute\n * Element.getElementsWithAttributeValue\n * Element.className\n * Element.hasClass\n * Elmenet.classNames\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f435b791e193cfe771d7dbd28d2822c32a0889e2",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,7 @@\n+public Set\u003cString\u003e classNames() {\n+    if (classNames \u003d\u003d null) {\n+        String[] names \u003d className().split(\"\\\\s+\");\n+        classNames \u003d new HashSet\u003cString\u003e(Arrays.asList(names));\n+    }\n+    return classNames;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Set\u003cString\u003e classNames() {\n    if (classNames \u003d\u003d null) {\n        String[] names \u003d className().split(\"\\\\s+\");\n        classNames \u003d new HashSet\u003cString\u003e(Arrays.asList(names));\n    }\n    return classNames;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 192,
+      "functionName": "classNames",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

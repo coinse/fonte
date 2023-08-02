@@ -1,0 +1,168 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonXmlAnnotationIntrospector.java",
+  "functionName": "findRootName",
+  "functionId": "findRootName___ac-AnnotatedClass",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 70,
+  "functionEndLine": 83,
+  "numCommitsSeen": 31,
+  "timeTaken": 796,
+  "changeHistory": [
+    "7343f94f4494dfc16cf0d013f52c7f47397a2e71",
+    "948d377c7aafb0ed91a244415df07f3f6c106be2",
+    "06b9b243ce71748609181b6e9f9488621475b8b0"
+  ],
+  "changeHistoryShort": {
+    "7343f94f4494dfc16cf0d013f52c7f47397a2e71": "Ymultichange(Yrename,Yparameterchange,Yreturntypechange,Ybodychange)",
+    "948d377c7aafb0ed91a244415df07f3f6c106be2": "Yfilerename",
+    "06b9b243ce71748609181b6e9f9488621475b8b0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7343f94f4494dfc16cf0d013f52c7f47397a2e71": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Yreturntypechange,Ybodychange)",
+      "commitMessage": "Propagating PropertyName-changes to xml module as well\n",
+      "commitDate": "9/5/12, 1:42 PM",
+      "commitName": "7343f94f4494dfc16cf0d013f52c7f47397a2e71",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Propagating PropertyName-changes to xml module as well\n",
+          "commitDate": "9/5/12, 1:42 PM",
+          "commitName": "7343f94f4494dfc16cf0d013f52c7f47397a2e71",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "4/4/12, 3:15 PM",
+          "commitNameOld": "754187ee2c30e329e3a940f968103bce68693830",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 153.94,
+          "commitsBetweenForRepo": 49,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic PropertyName findRootName(AnnotatedClass ac) {\n    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n    if (root !\u003d null) {\n        String local \u003d root.localName();\n        String ns \u003d root.namespace();\n        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n            return PropertyName.USE_DEFAULT;\n        }\n        return new PropertyName(local, ns);\n    }\n    return super.findRootName(ac);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+          "functionStartLine": 29,
+          "functionName": "findRootName",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,13 @@\n @Override\n-public QName findRootElement(Annotated ann) {\n-    JacksonXmlRootElement root \u003d ann.getAnnotation(JacksonXmlRootElement.class);\n+public PropertyName findRootName(AnnotatedClass ac) {\n+    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n     if (root !\u003d null) {\n-        return new QName(root.namespace(), root.localName());\n+        String local \u003d root.localName();\n+        String ns \u003d root.namespace();\n+        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n+            return PropertyName.USE_DEFAULT;\n+        }\n+        return new PropertyName(local, ns);\n     }\n-    return null;\n+    return super.findRootName(ac);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "findRootElement",
+            "newValue": "findRootName"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Propagating PropertyName-changes to xml module as well\n",
+          "commitDate": "9/5/12, 1:42 PM",
+          "commitName": "7343f94f4494dfc16cf0d013f52c7f47397a2e71",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "4/4/12, 3:15 PM",
+          "commitNameOld": "754187ee2c30e329e3a940f968103bce68693830",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 153.94,
+          "commitsBetweenForRepo": 49,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic PropertyName findRootName(AnnotatedClass ac) {\n    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n    if (root !\u003d null) {\n        String local \u003d root.localName();\n        String ns \u003d root.namespace();\n        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n            return PropertyName.USE_DEFAULT;\n        }\n        return new PropertyName(local, ns);\n    }\n    return super.findRootName(ac);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+          "functionStartLine": 29,
+          "functionName": "findRootName",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,13 @@\n @Override\n-public QName findRootElement(Annotated ann) {\n-    JacksonXmlRootElement root \u003d ann.getAnnotation(JacksonXmlRootElement.class);\n+public PropertyName findRootName(AnnotatedClass ac) {\n+    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n     if (root !\u003d null) {\n-        return new QName(root.namespace(), root.localName());\n+        String local \u003d root.localName();\n+        String ns \u003d root.namespace();\n+        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n+            return PropertyName.USE_DEFAULT;\n+        }\n+        return new PropertyName(local, ns);\n     }\n-    return null;\n+    return super.findRootName(ac);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[ann-Annotated]",
+            "newValue": "[ac-AnnotatedClass]"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Propagating PropertyName-changes to xml module as well\n",
+          "commitDate": "9/5/12, 1:42 PM",
+          "commitName": "7343f94f4494dfc16cf0d013f52c7f47397a2e71",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "4/4/12, 3:15 PM",
+          "commitNameOld": "754187ee2c30e329e3a940f968103bce68693830",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 153.94,
+          "commitsBetweenForRepo": 49,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic PropertyName findRootName(AnnotatedClass ac) {\n    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n    if (root !\u003d null) {\n        String local \u003d root.localName();\n        String ns \u003d root.namespace();\n        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n            return PropertyName.USE_DEFAULT;\n        }\n        return new PropertyName(local, ns);\n    }\n    return super.findRootName(ac);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+          "functionStartLine": 29,
+          "functionName": "findRootName",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,13 @@\n @Override\n-public QName findRootElement(Annotated ann) {\n-    JacksonXmlRootElement root \u003d ann.getAnnotation(JacksonXmlRootElement.class);\n+public PropertyName findRootName(AnnotatedClass ac) {\n+    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n     if (root !\u003d null) {\n-        return new QName(root.namespace(), root.localName());\n+        String local \u003d root.localName();\n+        String ns \u003d root.namespace();\n+        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n+            return PropertyName.USE_DEFAULT;\n+        }\n+        return new PropertyName(local, ns);\n     }\n-    return null;\n+    return super.findRootName(ac);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "QName",
+            "newValue": "PropertyName"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Propagating PropertyName-changes to xml module as well\n",
+          "commitDate": "9/5/12, 1:42 PM",
+          "commitName": "7343f94f4494dfc16cf0d013f52c7f47397a2e71",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "4/4/12, 3:15 PM",
+          "commitNameOld": "754187ee2c30e329e3a940f968103bce68693830",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 153.94,
+          "commitsBetweenForRepo": 49,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic PropertyName findRootName(AnnotatedClass ac) {\n    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n    if (root !\u003d null) {\n        String local \u003d root.localName();\n        String ns \u003d root.namespace();\n        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n            return PropertyName.USE_DEFAULT;\n        }\n        return new PropertyName(local, ns);\n    }\n    return super.findRootName(ac);\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+          "functionStartLine": 29,
+          "functionName": "findRootName",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,8 +1,13 @@\n @Override\n-public QName findRootElement(Annotated ann) {\n-    JacksonXmlRootElement root \u003d ann.getAnnotation(JacksonXmlRootElement.class);\n+public PropertyName findRootName(AnnotatedClass ac) {\n+    JacksonXmlRootElement root \u003d ac.getAnnotation(JacksonXmlRootElement.class);\n     if (root !\u003d null) {\n-        return new QName(root.namespace(), root.localName());\n+        String local \u003d root.localName();\n+        String ns \u003d root.namespace();\n+        if (local.length() \u003d\u003d 0 \u0026\u0026 ns.length() \u003d\u003d 0) {\n+            return PropertyName.USE_DEFAULT;\n+        }\n+        return new PropertyName(local, ns);\n     }\n-    return null;\n+    return super.findRootName(ac);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "948d377c7aafb0ed91a244415df07f3f6c106be2": {
+      "type": "Yfilerename",
+      "commitMessage": "refactoring\n",
+      "commitDate": "2/19/12, 9:55 PM",
+      "commitName": "948d377c7aafb0ed91a244415df07f3f6c106be2",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/19/12, 9:53 PM",
+      "commitNameOld": "4eb1efdf62fa5efab2422803d0f821932dda5c5a",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic QName findRootElement(Annotated ann) {\n    JacksonXmlRootElement root \u003d ann.getAnnotation(JacksonXmlRootElement.class);\n    if (root !\u003d null) {\n        return new QName(root.namespace(), root.localName());\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+      "functionStartLine": 57,
+      "functionName": "findRootElement",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/xml/JacksonXmlAnnotationIntrospector.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java"
+      }
+    },
+    "06b9b243ce71748609181b6e9f9488621475b8b0": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed issue#2, addition of @JacksonXmlRootElement.\n",
+      "commitDate": "2/4/11, 9:56 PM",
+      "commitName": "06b9b243ce71748609181b6e9f9488621475b8b0",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public QName findRootElement(Annotated ann) {\n+    JacksonXmlRootElement root \u003d ann.getAnnotation(JacksonXmlRootElement.class);\n+    if (root !\u003d null) {\n+        return new QName(root.namespace(), root.localName());\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic QName findRootElement(Annotated ann) {\n    JacksonXmlRootElement root \u003d ann.getAnnotation(JacksonXmlRootElement.class);\n    if (root !\u003d null) {\n        return new QName(root.namespace(), root.localName());\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/xml/JacksonXmlAnnotationIntrospector.java",
+      "functionStartLine": 63,
+      "functionName": "findRootElement",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

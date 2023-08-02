@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-5b",
+  "repositoryPath": "/tmp/Jsoup-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "addChildren",
+  "functionId": "addChildren___children-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 265,
+  "functionEndLine": 272,
+  "numCommitsSeen": 59,
+  "timeTaken": 691,
+  "changeHistory": [
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9",
+    "05ea09d373e05aa538793ba042148f83859d1402",
+    "f992e41708287a8251dc9d92ce9db874e0e8f076"
+  ],
+  "changeHistoryShort": {
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9": "Ybodychange",
+    "05ea09d373e05aa538793ba042148f83859d1402": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+    "f992e41708287a8251dc9d92ce9db874e0e8f076": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9": {
+      "type": "Ybodychange",
+      "commitMessage": "Optimise adding nodes to end of childnode list.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "674dab0387c4bfad01465574c4be6ea4b3f4f6e9",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "57bce6dc8424637621f6b660855f23e72a08c4b3",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void addChildren(Node... children) {\n    for (Node child : children) {\n        reparentChild(child);\n        childNodes.add(child);\n        child.setSiblingIndex(childNodes.size() - 1);\n    }\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 257,
+      "functionName": "addChildren",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,7 @@\n protected void addChildren(Node... children) {\n-    addChildren(childNodes.size(), children);\n+    for (Node child : children) {\n+        reparentChild(child);\n+        childNodes.add(child);\n+        child.setSiblingIndex(childNodes.size() - 1);\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "05ea09d373e05aa538793ba042148f83859d1402": {
+      "type": "Ymultichange(Yrename,Yparameterchange,Ybodychange)",
+      "commitMessage": "Cleanup Element and Node add mechanism\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "05ea09d373e05aa538793ba042148f83859d1402",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Cleanup Element and Node add mechanism\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "05ea09d373e05aa538793ba042148f83859d1402",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "982e4f96560dadd33e627a1ecea7557f08745d98",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 17,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void addChildren(Node... children) {\n    addChildren(childNodes.size(), children);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Node.java",
+          "functionStartLine": 240,
+          "functionName": "addChildren",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,3 @@\n-protected void addChild(Node in) {\n-    Validate.notNull(in);\n-    if (in.parentNode !\u003d null)\n-        in.parentNode.removeChild(in);\n-    childNodes.add(in);\n-    in.parentNode \u003d this;\n+protected void addChildren(Node... children) {\n+    addChildren(childNodes.size(), children);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "addChild",
+            "newValue": "addChildren"
+          }
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Cleanup Element and Node add mechanism\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "05ea09d373e05aa538793ba042148f83859d1402",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "982e4f96560dadd33e627a1ecea7557f08745d98",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 17,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void addChildren(Node... children) {\n    addChildren(childNodes.size(), children);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Node.java",
+          "functionStartLine": 240,
+          "functionName": "addChildren",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,3 @@\n-protected void addChild(Node in) {\n-    Validate.notNull(in);\n-    if (in.parentNode !\u003d null)\n-        in.parentNode.removeChild(in);\n-    childNodes.add(in);\n-    in.parentNode \u003d this;\n+protected void addChildren(Node... children) {\n+    addChildren(childNodes.size(), children);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[in-Node]",
+            "newValue": "[children-Node]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Cleanup Element and Node add mechanism\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "05ea09d373e05aa538793ba042148f83859d1402",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "982e4f96560dadd33e627a1ecea7557f08745d98",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 17,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void addChildren(Node... children) {\n    addChildren(childNodes.size(), children);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Node.java",
+          "functionStartLine": 240,
+          "functionName": "addChildren",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,3 @@\n-protected void addChild(Node in) {\n-    Validate.notNull(in);\n-    if (in.parentNode !\u003d null)\n-        in.parentNode.removeChild(in);\n-    childNodes.add(in);\n-    in.parentNode \u003d this;\n+protected void addChildren(Node... children) {\n+    addChildren(childNodes.size(), children);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f992e41708287a8251dc9d92ce9db874e0e8f076": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented Element#wrap and #Elements#wrap\n\nAlso protected Node.replaceChild, removeChild, addChild.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f992e41708287a8251dc9d92ce9db874e0e8f076",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,7 @@\n+protected void addChild(Node in) {\n+    Validate.notNull(in);\n+    if (in.parentNode !\u003d null)\n+        in.parentNode.removeChild(in);\n+    childNodes.add(in);\n+    in.parentNode \u003d this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void addChild(Node in) {\n    Validate.notNull(in);\n    if (in.parentNode !\u003d null)\n        in.parentNode.removeChild(in);\n    childNodes.add(in);\n    in.parentNode \u003d this;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 217,
+      "functionName": "addChild",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

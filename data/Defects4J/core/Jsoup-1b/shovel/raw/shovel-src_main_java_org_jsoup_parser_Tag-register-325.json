@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-1b",
+  "repositoryPath": "/tmp/Jsoup-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "register",
+  "functionId": "register___tag-Tag",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 325,
+  "functionEndLine": 331,
+  "numCommitsSeen": 21,
+  "timeTaken": 504,
+  "changeHistory": [
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d",
+    "548ce13435a00bb447fbffdbca8c5ce3be752ee4"
+  ],
+  "changeHistoryShort": {
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": "Ybodychange",
+    "548ce13435a00bb447fbffdbca8c5ce3be752ee4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": {
+      "type": "Ybodychange",
+      "commitMessage": "Implicit parent creation for elements, more general document structure creation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "4bd743a3a5492d1d185bd21f421e49ce3a27af7c",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static Tag register(Tag tag) {\n    tag.setAncestor(defaultAncestor.tagName);\n    synchronized (tags) {\n        tags.put(tag.tagName, tag);\n    }\n    return tag;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 283,
+      "functionName": "register",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,7 @@\n private static Tag register(Tag tag) {\n+    tag.setAncestor(defaultAncestor.tagName);\n     synchronized (tags) {\n         tags.put(tag.tagName, tag);\n     }\n     return tag;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "548ce13435a00bb447fbffdbca8c5ce3be752ee4": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial implementation of Tag.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "548ce13435a00bb447fbffdbca8c5ce3be752ee4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+private static Tag register(Tag tag) {\n+    synchronized (tags) {\n+        tags.put(tag.tagName, tag);\n+    }\n+    return tag;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Tag register(Tag tag) {\n    synchronized (tags) {\n        tags.put(tag.tagName, tag);\n    }\n    return tag;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 231,
+      "functionName": "register",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

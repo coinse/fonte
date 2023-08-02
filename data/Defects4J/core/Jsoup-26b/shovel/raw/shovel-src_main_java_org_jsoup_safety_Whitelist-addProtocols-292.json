@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Whitelist.java",
+  "functionName": "addProtocols",
+  "functionId": "addProtocols___tag-String__key-String__protocols-String",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Whitelist.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Add allowed URL protocols for an element\u0027s URL attribute. This restricts the possible values of the attribute to\n     URLs with the defined protocol.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddProtocols(\"a\", \"href\", \"ftp\", \"http\", \"https\")\u003c/code\u003e\n\n@ @param tag       Tag the URL protocol is for\n     @param key       Attribute key\n     @param protocols List of valid protocols\n     @return this, for chaining\n",
+  "functionStartLine": 292,
+  "functionEndLine": 320,
+  "numCommitsSeen": 13,
+  "timeTaken": 440,
+  "changeHistory": [
+    "577b29272d3cefacef578ea035e90efd78a1360b"
+  ],
+  "changeHistoryShort": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,27 @@\n+public Whitelist addProtocols(String tag, String key, String... protocols) {\n+    Validate.notEmpty(tag);\n+    Validate.notEmpty(key);\n+    Validate.notNull(protocols);\n+    TagName tagName \u003d TagName.valueOf(tag);\n+    AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n+    Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrMap;\n+    Set\u003cProtocol\u003e protSet;\n+    if (this.protocols.containsKey(tagName)) {\n+        attrMap \u003d this.protocols.get(tagName);\n+    } else {\n+        attrMap \u003d new HashMap\u003cAttributeKey, Set\u003cProtocol\u003e\u003e();\n+        this.protocols.put(tagName, attrMap);\n+    }\n+    if (attrMap.containsKey(attrKey)) {\n+        protSet \u003d attrMap.get(attrKey);\n+    } else {\n+        protSet \u003d new HashSet\u003cProtocol\u003e();\n+        attrMap.put(attrKey, protSet);\n+    }\n+    for (String protocol : protocols) {\n+        Validate.notEmpty(protocol);\n+        Protocol prot \u003d Protocol.valueOf(protocol);\n+        protSet.add(prot);\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Whitelist addProtocols(String tag, String key, String... protocols) {\n    Validate.notEmpty(tag);\n    Validate.notEmpty(key);\n    Validate.notNull(protocols);\n    TagName tagName \u003d TagName.valueOf(tag);\n    AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n    Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrMap;\n    Set\u003cProtocol\u003e protSet;\n    if (this.protocols.containsKey(tagName)) {\n        attrMap \u003d this.protocols.get(tagName);\n    } else {\n        attrMap \u003d new HashMap\u003cAttributeKey, Set\u003cProtocol\u003e\u003e();\n        this.protocols.put(tagName, attrMap);\n    }\n    if (attrMap.containsKey(attrKey)) {\n        protSet \u003d attrMap.get(attrKey);\n    } else {\n        protSet \u003d new HashSet\u003cProtocol\u003e();\n        attrMap.put(attrKey, protSet);\n    }\n    for (String protocol : protocols) {\n        Validate.notEmpty(protocol);\n        Protocol prot \u003d Protocol.valueOf(protocol);\n        protSet.add(prot);\n    }\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+      "functionStartLine": 243,
+      "functionName": "addProtocols",
+      "functionAnnotation": "",
+      "functionDoc": "     Add allowed URL protocols for an element\u0027s URL attribute. This restricts the possible values of the attribute to\n     URLs with the defined protocol.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddProtocols(\"a\", \"href\", \"ftp\", \"http\", \"https\")\u003c/code\u003e\n\n@ @param tag       Tag the URL protocol is for\n     @param key       Attribute key\n     @param protocols List of valid protocols\n     @return this, for chaining\n"
+    }
+  }
+}

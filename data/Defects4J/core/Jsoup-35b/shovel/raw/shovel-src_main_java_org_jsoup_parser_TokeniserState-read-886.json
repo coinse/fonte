@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-35b",
+  "repositoryPath": "/tmp/Jsoup-35b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokeniserState.java",
+  "functionName": "read",
+  "functionId": "$read___t-Tokeniser__r-CharacterReader",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 886,
+  "functionEndLine": 913,
+  "numCommitsSeen": 17,
+  "timeTaken": 2331,
+  "changeHistory": [
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+void read(Tokeniser t, CharacterReader r) {\n+    String data \u003d r.consumeTo(\"]]\u003e\");\n+    t.emit(data);\n+    r.matchConsume(\"]]\u003e\");\n+    t.transition(Data);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void read(Tokeniser t, CharacterReader r) {\n    String data \u003d r.consumeTo(\"]]\u003e\");\n    t.emit(data);\n    r.matchConsume(\"]]\u003e\");\n    t.transition(Data);\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1764,
+      "functionName": "read",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

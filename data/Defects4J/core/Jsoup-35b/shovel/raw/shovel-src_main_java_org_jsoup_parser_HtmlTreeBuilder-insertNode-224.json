@@ -1,0 +1,89 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-35b",
+  "repositoryPath": "/tmp/Jsoup-35b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HtmlTreeBuilder.java",
+  "functionName": "insertNode",
+  "functionId": "insertNode___node-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 224,
+  "functionEndLine": 238,
+  "numCommitsSeen": 13,
+  "timeTaken": 1907,
+  "changeHistory": [
+    "c5792eb641b13f8a853b6f065b6998053d106b7d",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "c5792eb641b13f8a853b6f065b6998053d106b7d": "Ybodychange",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": "Ymovefromfile",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "c5792eb641b13f8a853b6f065b6998053d106b7d": {
+      "type": "Ybodychange",
+      "commitMessage": "First pass at a FomElement\n\nThe FormElement extends Element to provide ready access to a form\u0027s\ncontrols, and to allow the form to be submitted. It also connects forms\nto their controls in situations when the DOM tree created does not have\nthe form element be a parent of the control, like when the form tag is\nin a TR but the control in a TD. In that case the form tag gets\nreparented.\n",
+      "commitDate": "2/7/13, 5:38 PM",
+      "commitName": "c5792eb641b13f8a853b6f065b6998053d106b7d",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "1/26/13, 6:33 PM",
+      "commitNameOld": "c3c952e55f10b07dd9d4a9121db1b3828b0a1bc7",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 11.96,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void insertNode(Node node) {\n    if (stack.size() \u003d\u003d 0)\n        doc.appendChild(node);\n    else if (isFosterInserts())\n        insertInFosterParent(node);\n    else\n        currentElement().appendChild(node);\n    if (node instanceof Element \u0026\u0026 ((Element) node).tag().isFormListed()) {\n        if (formElement !\u003d null)\n            formElement.addElement((Element) node);\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 223,
+      "functionName": "insertNode",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,12 @@\n private void insertNode(Node node) {\n     if (stack.size() \u003d\u003d 0)\n         doc.appendChild(node);\n     else if (isFosterInserts())\n         insertInFosterParent(node);\n     else\n         currentElement().appendChild(node);\n+    if (node instanceof Element \u0026\u0026 ((Element) node).tag().isFormListed()) {\n+        if (formElement !\u003d null)\n+            formElement.addElement((Element) node);\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": {
+      "type": "Ymovefromfile",
+      "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+      "commitDate": "2/26/12, 5:23 PM",
+      "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "9/30/11, 6:13 PM",
+      "commitNameOld": "1e84edbe208aab0c9330eadc50f9773d81d70cd6",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 149.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void insertNode(Node node) {\n    if (stack.size() \u003d\u003d 0)\n        doc.appendChild(node);\n    else if (isFosterInserts())\n        insertInFosterParent(node);\n    else\n        currentElement().appendChild(node);\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 196,
+      "functionName": "insertNode",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+        "newPath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+        "oldMethodName": "insertNode",
+        "newMethodName": "insertNode"
+      }
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,8 @@\n+private void insertNode(Node node) {\n+    if (stack.size() \u003d\u003d 0)\n+        doc.appendChild(node);\n+    else if (isFosterInserts())\n+        insertInFosterParent(node);\n+    else\n+        currentElement().appendChild(node);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void insertNode(Node node) {\n    if (stack.size() \u003d\u003d 0)\n        doc.appendChild(node);\n    else if (isFosterInserts())\n        insertInFosterParent(node);\n    else\n        currentElement().appendChild(node);\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 223,
+      "functionName": "insertNode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

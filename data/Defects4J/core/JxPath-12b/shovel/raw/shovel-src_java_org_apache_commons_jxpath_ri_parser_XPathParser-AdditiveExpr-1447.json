@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-12b",
+  "repositoryPath": "/tmp/JxPath-12b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XPathParser.java",
+  "functionName": "AdditiveExpr",
+  "functionId": "AdditiveExpr",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1447,
+  "functionEndLine": 1474,
+  "numCommitsSeen": 7,
+  "timeTaken": 1416,
+  "changeHistory": [
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,30 @@\n+public final Object AdditiveExpr() throws ParseException {\n+    Object ex, r;\n+    ArrayList list \u003d null;\n+    ex \u003d SubtractiveExpr();\n+    label_12: while (true) {\n+        switch(jj_nt.kind) {\n+            case PLUS:\n+                ;\n+                break;\n+            default:\n+                jj_la1[30] \u003d jj_gen;\n+                break label_12;\n+        }\n+        jj_consume_token(PLUS);\n+        r \u003d SubtractiveExpr();\n+        if (list \u003d\u003d null) {\n+            list \u003d new ArrayList();\n+            list.add(ex);\n+        }\n+        list.add(r);\n+    }\n+    if (list !\u003d null) {\n+        ex \u003d compiler.sum(list.toArray());\n+    }\n+    {\n+        if (true)\n+            return ex;\n+    }\n+    throw new Error(\"Missing return statement in function\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final Object AdditiveExpr() throws ParseException {\n    Object ex, r;\n    ArrayList list \u003d null;\n    ex \u003d SubtractiveExpr();\n    label_12: while (true) {\n        switch(jj_nt.kind) {\n            case PLUS:\n                ;\n                break;\n            default:\n                jj_la1[30] \u003d jj_gen;\n                break label_12;\n        }\n        jj_consume_token(PLUS);\n        r \u003d SubtractiveExpr();\n        if (list \u003d\u003d null) {\n            list \u003d new ArrayList();\n            list.add(ex);\n        }\n        list.add(r);\n    }\n    if (list !\u003d null) {\n        ex \u003d compiler.sum(list.toArray());\n    }\n    {\n        if (true)\n            return ex;\n    }\n    throw new Error(\"Missing return statement in function\");\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+      "functionStartLine": 1406,
+      "functionName": "AdditiveExpr",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

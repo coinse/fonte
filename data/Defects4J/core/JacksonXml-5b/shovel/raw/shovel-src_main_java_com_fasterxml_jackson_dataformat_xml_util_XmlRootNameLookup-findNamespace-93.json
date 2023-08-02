@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XmlRootNameLookup.java",
+  "functionName": "findNamespace",
+  "functionId": "findNamespace___ai-AnnotationIntrospector__ann-AnnotatedClass",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/XmlRootNameLookup.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 93,
+  "functionEndLine": 104,
+  "numCommitsSeen": 10,
+  "timeTaken": 655,
+  "changeHistory": [
+    "948d377c7aafb0ed91a244415df07f3f6c106be2",
+    "ac97422c72402f2970e5d9eab7a727a308399d56"
+  ],
+  "changeHistoryShort": {
+    "948d377c7aafb0ed91a244415df07f3f6c106be2": "Yfilerename",
+    "ac97422c72402f2970e5d9eab7a727a308399d56": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "948d377c7aafb0ed91a244415df07f3f6c106be2": {
+      "type": "Yfilerename",
+      "commitMessage": "refactoring\n",
+      "commitDate": "2/19/12, 9:55 PM",
+      "commitName": "948d377c7aafb0ed91a244415df07f3f6c106be2",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/19/12, 9:53 PM",
+      "commitNameOld": "4eb1efdf62fa5efab2422803d0f821932dda5c5a",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private String findNamespace(AnnotationIntrospector ai, AnnotatedClass ann) {\n    for (AnnotationIntrospector intr : ai.allIntrospectors()) {\n        if (intr instanceof XmlAnnotationIntrospector) {\n            String ns \u003d ((XmlAnnotationIntrospector) intr).findNamespace(ann);\n            if (ns !\u003d null) {\n                return ns;\n            }\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/XmlRootNameLookup.java",
+      "functionStartLine": 75,
+      "functionName": "findNamespace",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/xml/util/XmlRootNameLookup.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/XmlRootNameLookup.java"
+      }
+    },
+    "ac97422c72402f2970e5d9eab7a727a308399d56": {
+      "type": "Yintroduced",
+      "commitMessage": "Added main codebase as well\n",
+      "commitDate": "12/30/10, 10:22 PM",
+      "commitName": "ac97422c72402f2970e5d9eab7a727a308399d56",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+private String findNamespace(AnnotationIntrospector ai, AnnotatedClass ann) {\n+    for (AnnotationIntrospector intr : ai.allIntrospectors()) {\n+        if (intr instanceof XmlAnnotationIntrospector) {\n+            String ns \u003d ((XmlAnnotationIntrospector) intr).findNamespace(ann);\n+            if (ns !\u003d null) {\n+                return ns;\n+            }\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String findNamespace(AnnotationIntrospector ai, AnnotatedClass ann) {\n    for (AnnotationIntrospector intr : ai.allIntrospectors()) {\n        if (intr instanceof XmlAnnotationIntrospector) {\n            String ns \u003d ((XmlAnnotationIntrospector) intr).findNamespace(ann);\n            if (ns !\u003d null) {\n                return ns;\n            }\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/xml/util/XmlRootNameLookup.java",
+      "functionStartLine": 66,
+      "functionName": "findNamespace",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

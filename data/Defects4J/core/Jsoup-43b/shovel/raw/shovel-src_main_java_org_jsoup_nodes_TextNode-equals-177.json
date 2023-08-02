@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextNode.java",
+  "functionName": "equals",
+  "functionId": "equals___o-Object",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/TextNode.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 177,
+  "functionEndLine": 185,
+  "numCommitsSeen": 35,
+  "timeTaken": 846,
+  "changeHistory": [
+    "8391b7231a2519557d41209d728acc4f422af381"
+  ],
+  "changeHistoryShort": {
+    "8391b7231a2519557d41209d728acc4f422af381": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8391b7231a2519557d41209d728acc4f422af381": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved hashcode and equals for Node\n\nFixes #537\n",
+      "commitDate": "3/29/15, 6:10 PM",
+      "commitName": "8391b7231a2519557d41209d728acc4f422af381",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+@Override\n+public boolean equals(Object o) {\n+    if (this \u003d\u003d o)\n+        return true;\n+    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n+        return false;\n+    if (!super.equals(o))\n+        return false;\n+    TextNode textNode \u003d (TextNode) o;\n+    return !(text !\u003d null ? !text.equals(textNode.text) : textNode.text !\u003d null);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (this \u003d\u003d o)\n        return true;\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n        return false;\n    if (!super.equals(o))\n        return false;\n    TextNode textNode \u003d (TextNode) o;\n    return !(text !\u003d null ? !text.equals(textNode.text) : textNode.text !\u003d null);\n}",
+      "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+      "functionStartLine": 177,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

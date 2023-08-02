@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-5b",
+  "repositoryPath": "/tmp/Gson-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonPrimitive.java",
+  "functionName": "getAsString",
+  "functionId": "getAsString",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "convenience method to get this element as a String.\n\n@return get this element as a String.\n",
+  "functionStartLine": 175,
+  "functionEndLine": 183,
+  "numCommitsSeen": 37,
+  "timeTaken": 747,
+  "changeHistory": [
+    "28567508ea50e15f63807277d1a72ec9060eb5ad",
+    "ea79cd6812bc2a81fdbbf9143d7aa0beec65ffd9",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b"
+  ],
+  "changeHistoryShort": {
+    "28567508ea50e15f63807277d1a72ec9060eb5ad": "Ydocchange",
+    "ea79cd6812bc2a81fdbbf9143d7aa0beec65ffd9": "Ybodychange",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "28567508ea50e15f63807277d1a72ec9060eb5ad": {
+      "type": "Ydocchange",
+      "commitMessage": "Corrected Javadocs to indicate that NumberFormatException gets thrown instead of ClassCastException while attempting to convert a JsonPrimitive to a number.\n",
+      "commitDate": "3/10/11, 4:14 PM",
+      "commitName": "28567508ea50e15f63807277d1a72ec9060eb5ad",
+      "commitAuthor": "Inderjeet Singh",
+      "commitDateOld": "2/14/11, 4:14 PM",
+      "commitNameOld": "3d006c90a2d2e53f786acdba64f48d9b12ab0ed3",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 24.0,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String getAsString() {\n    if (isNumber()) {\n        return getAsNumber().toString();\n    } else if (isBoolean()) {\n        return getAsBooleanWrapper().toString();\n    } else {\n        return (String) value;\n    }\n}",
+      "path": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+      "functionStartLine": 182,
+      "functionName": "getAsString",
+      "functionAnnotation": "@Override",
+      "functionDoc": "convenience method to get this element as a String.\n\n@return get this element as a String.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "convenience method to get this element as a String.\n\n@return get this element as a String.\n@throws ClassCastException if the value contained is not a valid String.\n",
+        "newValue": "convenience method to get this element as a String.\n\n@return get this element as a String.\n"
+      }
+    },
+    "ea79cd6812bc2a81fdbbf9143d7aa0beec65ffd9": {
+      "type": "Ybodychange",
+      "commitMessage": "Allow booleans and number to be deserialized into a \"String\" field/object.\n",
+      "commitDate": "12/13/08, 8:42 PM",
+      "commitName": "ea79cd6812bc2a81fdbbf9143d7aa0beec65ffd9",
+      "commitAuthor": "Joel Leitch",
+      "commitDateOld": "11/30/08, 3:36 PM",
+      "commitNameOld": "5ae7e1f8032ac2118e6b69dce9dd089286413846",
+      "commitAuthorOld": "Joel Leitch",
+      "daysBetweenCommits": 13.21,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic String getAsString() {\n    if (isNumber()) {\n        return getAsNumber().toString();\n    } else if (isBoolean()) {\n        return getAsBooleanWrapper().toString();\n    } else {\n        return (String) value;\n    }\n}",
+      "path": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+      "functionStartLine": 168,
+      "functionName": "getAsString",
+      "functionAnnotation": "@Override",
+      "functionDoc": "convenience method to get this element as a String.\n\n@return get this element as a String.\n@throws ClassCastException if the value contained is not a valid String.\n",
+      "diff": "@@ -1,4 +1,10 @@\n @Override\n public String getAsString() {\n-    return (String) value;\n+    if (isNumber()) {\n+        return getAsNumber().toString();\n+    } else if (isBoolean()) {\n+        return getAsBooleanWrapper().toString();\n+    } else {\n+        return (String) value;\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": {
+      "type": "Yintroduced",
+      "commitMessage": "moved gson as a project under trunk\n",
+      "commitDate": "8/31/08, 8:13 PM",
+      "commitName": "57d1f32de5bf3a7dd54613384cc7e979fba2660b",
+      "commitAuthor": "Inderjeet Singh",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public String getAsString() {\n+    return (String) value;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String getAsString() {\n    return (String) value;\n}",
+      "path": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+      "functionStartLine": 170,
+      "functionName": "getAsString",
+      "functionAnnotation": "@Override",
+      "functionDoc": "convenience method to get this element as a String.\n\n@return get this element as a String.\n@throws ClassCastException if the value contained is not a valid String.\n"
+    }
+  }
+}

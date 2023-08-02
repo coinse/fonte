@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "setAncestor",
+  "functionId": "setAncestor___tagNames-String",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 448,
+  "functionEndLine": 458,
+  "numCommitsSeen": 36,
+  "timeTaken": 778,
+  "changeHistory": [
+    "ba5d66010db39205e29289ae81122fc85299d145",
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d"
+  ],
+  "changeHistoryShort": {
+    "ba5d66010db39205e29289ae81122fc85299d145": "Ybodychange",
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ba5d66010db39205e29289ae81122fc85299d145": {
+      "type": "Ybodychange",
+      "commitMessage": "Improved tag definitions to allow limited children and excluded children.\nImproved implicit table element creation, particularly around tbody tags.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ba5d66010db39205e29289ae81122fc85299d145",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "7520dee7b688bdab536bfd76fca47a65316d2147",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Tag setAncestor(String... tagNames) {\n    if (tagNames \u003d\u003d null || tagNames.length \u003d\u003d 0) {\n        ancestors \u003d Collections.emptyList();\n    } else {\n        ancestors \u003d new ArrayList\u003cTag\u003e(tagNames.length);\n        for (String name : tagNames) {\n            ancestors.add(Tag.valueOf(name));\n        }\n    }\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 393,
+      "functionName": "setAncestor",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,11 @@\n private Tag setAncestor(String... tagNames) {\n-    if (tagNames \u003d\u003d null) {\n+    if (tagNames \u003d\u003d null || tagNames.length \u003d\u003d 0) {\n         ancestors \u003d Collections.emptyList();\n     } else {\n         ancestors \u003d new ArrayList\u003cTag\u003e(tagNames.length);\n         for (String name : tagNames) {\n             ancestors.add(Tag.valueOf(name));\n         }\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d": {
+      "type": "Yintroduced",
+      "commitMessage": "Implicit parent creation for elements, more general document structure creation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "e97f564d2450702d2b74ff35ecc5ad5c1e57fc0d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+private Tag setAncestor(String... tagNames) {\n+    if (tagNames \u003d\u003d null) {\n+        ancestors \u003d Collections.emptyList();\n+    } else {\n+        ancestors \u003d new ArrayList\u003cTag\u003e(tagNames.length);\n+        for (String name : tagNames) {\n+            ancestors.add(Tag.valueOf(name));\n+        }\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Tag setAncestor(String... tagNames) {\n    if (tagNames \u003d\u003d null) {\n        ancestors \u003d Collections.emptyList();\n    } else {\n        ancestors \u003d new ArrayList\u003cTag\u003e(tagNames.length);\n        for (String name : tagNames) {\n            ancestors.add(Tag.valueOf(name));\n        }\n    }\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 315,
+      "functionName": "setAncestor",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

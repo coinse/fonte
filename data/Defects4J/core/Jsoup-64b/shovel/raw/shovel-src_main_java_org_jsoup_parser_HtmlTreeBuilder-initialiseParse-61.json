@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HtmlTreeBuilder.java",
+  "functionName": "initialiseParse",
+  "functionId": "initialiseParse___input-Reader__baseUri-String__errors-ParseErrorList__settings-ParseSettings",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 61,
+  "functionEndLine": 77,
+  "numCommitsSeen": 54,
+  "timeTaken": 783,
+  "changeHistory": [
+    "654bc6f981587bd4b39b66702550bad33e1eacc9",
+    "e2ff399dfdb1d4cf4ebb639d1fc2689aa2f6f3eb",
+    "1203bd459fe137e78a2a6dc2969f3c4995b726ce"
+  ],
+  "changeHistoryShort": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": "Yparameterchange",
+    "e2ff399dfdb1d4cf4ebb639d1fc2689aa2f6f3eb": "Ybodychange",
+    "1203bd459fe137e78a2a6dc2969f3c4995b726ce": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": {
+      "type": "Yparameterchange",
+      "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+      "commitDate": "6/24/17, 11:47 PM",
+      "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "6/17/17, 3:49 PM",
+      "commitNameOld": "ad4a1bee132ee7d1167ac795407345f2bc6a1db8",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 7.33,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nprotected void initialiseParse(Reader input, String baseUri, ParseErrorList errors, ParseSettings settings) {\n    super.initialiseParse(input, baseUri, errors, settings);\n    state \u003d HtmlTreeBuilderState.Initial;\n    originalState \u003d null;\n    baseUriSetFromDoc \u003d false;\n    headElement \u003d null;\n    formElement \u003d null;\n    contextElement \u003d null;\n    formattingElements \u003d new ArrayList\u003c\u003e();\n    pendingTableCharacters \u003d new ArrayList\u003c\u003e();\n    emptyEnd \u003d new Token.EndTag();\n    framesetOk \u003d true;\n    fosterInserts \u003d false;\n    fragmentParsing \u003d false;\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 61,
+      "functionName": "initialiseParse",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,16 +1,16 @@\n @Override\n-protected void initialiseParse(String input, String baseUri, ParseErrorList errors, ParseSettings settings) {\n+protected void initialiseParse(Reader input, String baseUri, ParseErrorList errors, ParseSettings settings) {\n     super.initialiseParse(input, baseUri, errors, settings);\n     state \u003d HtmlTreeBuilderState.Initial;\n     originalState \u003d null;\n     baseUriSetFromDoc \u003d false;\n     headElement \u003d null;\n     formElement \u003d null;\n     contextElement \u003d null;\n     formattingElements \u003d new ArrayList\u003c\u003e();\n     pendingTableCharacters \u003d new ArrayList\u003c\u003e();\n     emptyEnd \u003d new Token.EndTag();\n     framesetOk \u003d true;\n     fosterInserts \u003d false;\n     fragmentParsing \u003d false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[input-String, baseUri-String, errors-ParseErrorList, settings-ParseSettings]",
+        "newValue": "[input-Reader, baseUri-String, errors-ParseErrorList, settings-ParseSettings]"
+      }
+    },
+    "e2ff399dfdb1d4cf4ebb639d1fc2689aa2f6f3eb": {
+      "type": "Ybodychange",
+      "commitMessage": "Updated from Java 5 to Java 7\n",
+      "commitDate": "6/17/17, 3:36 PM",
+      "commitName": "e2ff399dfdb1d4cf4ebb639d1fc2689aa2f6f3eb",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "6/12/17, 7:46 PM",
+      "commitNameOld": "1203bd459fe137e78a2a6dc2969f3c4995b726ce",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 4.83,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\nprotected void initialiseParse(String input, String baseUri, ParseErrorList errors, ParseSettings settings) {\n    super.initialiseParse(input, baseUri, errors, settings);\n    state \u003d HtmlTreeBuilderState.Initial;\n    originalState \u003d null;\n    baseUriSetFromDoc \u003d false;\n    headElement \u003d null;\n    formElement \u003d null;\n    contextElement \u003d null;\n    formattingElements \u003d new ArrayList\u003c\u003e();\n    pendingTableCharacters \u003d new ArrayList\u003c\u003e();\n    emptyEnd \u003d new Token.EndTag();\n    framesetOk \u003d true;\n    fosterInserts \u003d false;\n    fragmentParsing \u003d false;\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 59,
+      "functionName": "initialiseParse",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,16 +1,16 @@\n @Override\n protected void initialiseParse(String input, String baseUri, ParseErrorList errors, ParseSettings settings) {\n     super.initialiseParse(input, baseUri, errors, settings);\n     state \u003d HtmlTreeBuilderState.Initial;\n     originalState \u003d null;\n     baseUriSetFromDoc \u003d false;\n     headElement \u003d null;\n     formElement \u003d null;\n     contextElement \u003d null;\n-    formattingElements \u003d new ArrayList\u003cElement\u003e();\n-    pendingTableCharacters \u003d new ArrayList\u003cString\u003e();\n+    formattingElements \u003d new ArrayList\u003c\u003e();\n+    pendingTableCharacters \u003d new ArrayList\u003c\u003e();\n     emptyEnd \u003d new Token.EndTag();\n     framesetOk \u003d true;\n     fosterInserts \u003d false;\n     fragmentParsing \u003d false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "1203bd459fe137e78a2a6dc2969f3c4995b726ce": {
+      "type": "Yintroduced",
+      "commitMessage": "Make sure the HTML parser is correctly reset before reuse\n\nOtherwise the stack and current form element were stuffed if the\nDataUtil needed to reparse after switching content encoding.\n\nAlso, was needlessly redecoding when the character set was \"utf-8\"\nbecause the check was case sensitive.\n",
+      "commitDate": "6/12/17, 7:46 PM",
+      "commitName": "1203bd459fe137e78a2a6dc2969f3c4995b726ce",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,16 @@\n+@Override\n+protected void initialiseParse(String input, String baseUri, ParseErrorList errors, ParseSettings settings) {\n+    super.initialiseParse(input, baseUri, errors, settings);\n+    state \u003d HtmlTreeBuilderState.Initial;\n+    originalState \u003d null;\n+    baseUriSetFromDoc \u003d false;\n+    headElement \u003d null;\n+    formElement \u003d null;\n+    contextElement \u003d null;\n+    formattingElements \u003d new ArrayList\u003cElement\u003e();\n+    pendingTableCharacters \u003d new ArrayList\u003cString\u003e();\n+    emptyEnd \u003d new Token.EndTag();\n+    framesetOk \u003d true;\n+    fosterInserts \u003d false;\n+    fragmentParsing \u003d false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nprotected void initialiseParse(String input, String baseUri, ParseErrorList errors, ParseSettings settings) {\n    super.initialiseParse(input, baseUri, errors, settings);\n    state \u003d HtmlTreeBuilderState.Initial;\n    originalState \u003d null;\n    baseUriSetFromDoc \u003d false;\n    headElement \u003d null;\n    formElement \u003d null;\n    contextElement \u003d null;\n    formattingElements \u003d new ArrayList\u003cElement\u003e();\n    pendingTableCharacters \u003d new ArrayList\u003cString\u003e();\n    emptyEnd \u003d new Token.EndTag();\n    framesetOk \u003d true;\n    fosterInserts \u003d false;\n    fragmentParsing \u003d false;\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 59,
+      "functionName": "initialiseParse",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

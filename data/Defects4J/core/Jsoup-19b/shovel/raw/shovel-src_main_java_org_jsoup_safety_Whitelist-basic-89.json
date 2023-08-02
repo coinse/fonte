@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Whitelist.java",
+  "functionName": "basic",
+  "functionId": "basic",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Whitelist.java",
+  "functionAnnotation": "",
+  "functionDoc": "     This whitelist allows a fuller range of text nodes: \u003ccode\u003ea, b, blockquote, br, cite, code, dd, dl, dt, em, i, li,\n     ol, p, pre, q, small, strike, strong, sub, sup, u, ul\u003c/code\u003e, and appropriate attributes.\n     \u003cp/\u003e\n     Links (\u003ccode\u003ea\u003c/code\u003e elements) can point to \u003ccode\u003ehttp, https, ftp, mailto\u003c/code\u003e, and have an enforced\n     \u003ccode\u003erel\u003dnofollow\u003c/code\u003e attribute.\n     \u003cp/\u003e\n     Does not allow images.\n\n@ @return whitelist\n",
+  "functionStartLine": 89,
+  "functionEndLine": 107,
+  "numCommitsSeen": 10,
+  "timeTaken": 381,
+  "changeHistory": [
+    "577b29272d3cefacef578ea035e90efd78a1360b"
+  ],
+  "changeHistoryShort": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+public static Whitelist basic() {\n+    return new Whitelist().addTags(\"a\", \"b\", \"blockquote\", \"br\", \"cite\", \"code\", \"dd\", \"dl\", \"dt\", \"em\", \"i\", \"li\", \"ol\", \"p\", \"pre\", \"q\", \"small\", \"strike\", \"strong\", \"sub\", \"sup\", \"u\", \"ul\").addAttributes(\"a\", \"href\").addAttributes(\"blockquote\", \"cite\").addAttributes(\"q\", \"cite\").addProtocols(\"a\", \"href\", \"ftp\", \"http\", \"https\", \"mailto\").addProtocols(\"blockquote\", \"cite\", \"http\", \"https\").addProtocols(\"cite\", \"cite\", \"http\", \"https\").addEnforcedAttribute(\"a\", \"rel\", \"nofollow\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Whitelist basic() {\n    return new Whitelist().addTags(\"a\", \"b\", \"blockquote\", \"br\", \"cite\", \"code\", \"dd\", \"dl\", \"dt\", \"em\", \"i\", \"li\", \"ol\", \"p\", \"pre\", \"q\", \"small\", \"strike\", \"strong\", \"sub\", \"sup\", \"u\", \"ul\").addAttributes(\"a\", \"href\").addAttributes(\"blockquote\", \"cite\").addAttributes(\"q\", \"cite\").addProtocols(\"a\", \"href\", \"ftp\", \"http\", \"https\", \"mailto\").addProtocols(\"blockquote\", \"cite\", \"http\", \"https\").addProtocols(\"cite\", \"cite\", \"http\", \"https\").addEnforcedAttribute(\"a\", \"rel\", \"nofollow\");\n}",
+      "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+      "functionStartLine": 68,
+      "functionName": "basic",
+      "functionAnnotation": "",
+      "functionDoc": "     This whitelist allows a fuller range of text nodes: \u003ccode\u003ea, b, blockquote, br, cite, code, dd, dl, dt, em, i, li,\n     ol, p, pre, q, small, strike, strong, sub, sup, u, ul\u003c/code\u003e, and appropriate attributes.\n     \u003cp/\u003e\n     Links (\u003ccode\u003ea\u003c/code\u003e elements) can point to \u003ccode\u003ehttp, https, ftp, mailto\u003c/code\u003e, and have an enforced\n     \u003ccode\u003erel\u003dnofollow\u003c/code\u003e attribute.\n     \u003cp/\u003e\n     Does not allow images.\n\n@ @return whitelist\n"
+    }
+  }
+}

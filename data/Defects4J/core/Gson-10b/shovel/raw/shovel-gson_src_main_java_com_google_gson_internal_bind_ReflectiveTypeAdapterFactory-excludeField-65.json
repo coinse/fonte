@@ -1,0 +1,97 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ReflectiveTypeAdapterFactory.java",
+  "functionName": "excludeField",
+  "functionId": "excludeField___f-Field__serialize-boolean__excluder-Excluder",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 65,
+  "functionEndLine": 67,
+  "numCommitsSeen": 55,
+  "timeTaken": 1106,
+  "changeHistory": [
+    "b6a625fb6cb7e46a01938fef79ac6ea26c93a8dc",
+    "aa2f61b7d8defddc2a78de43b8042178241daedb"
+  ],
+  "changeHistoryShort": {
+    "b6a625fb6cb7e46a01938fef79ac6ea26c93a8dc": "Ymultichange(Yparameterchange,Ymodifierchange)",
+    "aa2f61b7d8defddc2a78de43b8042178241daedb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b6a625fb6cb7e46a01938fef79ac6ea26c93a8dc": {
+      "type": "Ymultichange(Yparameterchange,Ymodifierchange)",
+      "commitMessage": "fixed issue 469 by adding a TypeAdapterFactory for throwables that ignores cause if it is self-referencing\n",
+      "commitDate": "11/16/14, 2:25 PM",
+      "commitName": "b6a625fb6cb7e46a01938fef79ac6ea26c93a8dc",
+      "commitAuthor": "Inderjeet Singh",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "fixed issue 469 by adding a TypeAdapterFactory for throwables that ignores cause if it is self-referencing\n",
+          "commitDate": "11/16/14, 2:25 PM",
+          "commitName": "b6a625fb6cb7e46a01938fef79ac6ea26c93a8dc",
+          "commitAuthor": "Inderjeet Singh",
+          "commitDateOld": "8/4/14, 9:58 AM",
+          "commitNameOld": "117d8ea68ff953a271c492736ba3eed3bb209da2",
+          "commitAuthorOld": "Jake Wharton",
+          "daysBetweenCommits": 104.23,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean excludeField(Field f, boolean serialize, Excluder excluder) {\n    return !excluder.excludeClass(f.getType(), serialize) \u0026\u0026 !excluder.excludeField(f, serialize);\n}",
+          "path": "gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java",
+          "functionStartLine": 62,
+          "functionName": "excludeField",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-public boolean excludeField(Field f, boolean serialize) {\n+static boolean excludeField(Field f, boolean serialize, Excluder excluder) {\n     return !excluder.excludeClass(f.getType(), serialize) \u0026\u0026 !excluder.excludeField(f, serialize);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[f-Field, serialize-boolean]",
+            "newValue": "[f-Field, serialize-boolean, excluder-Excluder]"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "fixed issue 469 by adding a TypeAdapterFactory for throwables that ignores cause if it is self-referencing\n",
+          "commitDate": "11/16/14, 2:25 PM",
+          "commitName": "b6a625fb6cb7e46a01938fef79ac6ea26c93a8dc",
+          "commitAuthor": "Inderjeet Singh",
+          "commitDateOld": "8/4/14, 9:58 AM",
+          "commitNameOld": "117d8ea68ff953a271c492736ba3eed3bb209da2",
+          "commitAuthorOld": "Jake Wharton",
+          "daysBetweenCommits": 104.23,
+          "commitsBetweenForRepo": 18,
+          "commitsBetweenForFile": 1,
+          "actualSource": "static boolean excludeField(Field f, boolean serialize, Excluder excluder) {\n    return !excluder.excludeClass(f.getType(), serialize) \u0026\u0026 !excluder.excludeField(f, serialize);\n}",
+          "path": "gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java",
+          "functionStartLine": 62,
+          "functionName": "excludeField",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,3 @@\n-public boolean excludeField(Field f, boolean serialize) {\n+static boolean excludeField(Field f, boolean serialize, Excluder excluder) {\n     return !excluder.excludeClass(f.getType(), serialize) \u0026\u0026 !excluder.excludeField(f, serialize);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[static]"
+          }
+        }
+      ]
+    },
+    "aa2f61b7d8defddc2a78de43b8042178241daedb": {
+      "type": "Yintroduced",
+      "commitMessage": "Rename GsonExclusionStrategy to Excluder. The new class is its own factory, which simplifies its caller in GsonBuilder. It no longer implements ExclusionStrategy, which allows the callers to pass in a boolean for serialize/deserialize. This allows us to use one excluder for both code paths. The delegate ExclusionStrategy instances might end up not being shared so it has two lists internally.\n",
+      "commitDate": "11/21/11, 11:37 PM",
+      "commitName": "aa2f61b7d8defddc2a78de43b8042178241daedb",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,3 @@\n+public boolean excludeField(Field f, boolean serialize) {\n+    return !excluder.excludeClass(f.getType(), serialize) \u0026\u0026 !excluder.excludeField(f, serialize);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean excludeField(Field f, boolean serialize) {\n    return !excluder.excludeClass(f.getType(), serialize) \u0026\u0026 !excluder.excludeField(f, serialize);\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java",
+      "functionStartLine": 55,
+      "functionName": "excludeField",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

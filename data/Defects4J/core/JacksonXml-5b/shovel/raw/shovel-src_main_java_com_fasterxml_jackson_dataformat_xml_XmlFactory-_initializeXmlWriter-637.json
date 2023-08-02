@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XmlFactory.java",
+  "functionName": "_initializeXmlWriter",
+  "functionId": "_initializeXmlWriter___sw-XMLStreamWriter",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 637,
+  "functionEndLine": 647,
+  "numCommitsSeen": 39,
+  "timeTaken": 1571,
+  "changeHistory": [
+    "d2f70a03065d4fc7d040064abbbec4f66304c07e",
+    "06c4283e36375908d29af960e3cc834309df544b",
+    "948d377c7aafb0ed91a244415df07f3f6c106be2",
+    "ac97422c72402f2970e5d9eab7a727a308399d56"
+  ],
+  "changeHistoryShort": {
+    "d2f70a03065d4fc7d040064abbbec4f66304c07e": "Ybodychange",
+    "06c4283e36375908d29af960e3cc834309df544b": "Ymultichange(Yexceptionschange,Ybodychange)",
+    "948d377c7aafb0ed91a244415df07f3f6c106be2": "Yfilerename",
+    "ac97422c72402f2970e5d9eab7a727a308399d56": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d2f70a03065d4fc7d040064abbbec4f66304c07e": {
+      "type": "Ybodychange",
+      "commitMessage": "Further work to clean up exceptio unwrapping, propagation.\n",
+      "commitDate": "7/17/17, 4:49 PM",
+      "commitName": "d2f70a03065d4fc7d040064abbbec4f66304c07e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "7/17/17, 4:41 PM",
+      "commitNameOld": "4bce41423eb3b2b78264fad2e62e008420c66dc3",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException {\n    try {\n        sw.setDefaultNamespace(\"\");\n    } catch (XMLStreamException e) {\n        return StaxUtil.throwAsGenerationException(e, null);\n    }\n    return sw;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java",
+      "functionStartLine": 637,
+      "functionName": "_initializeXmlWriter",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,8 @@\n protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException {\n     try {\n         sw.setDefaultNamespace(\"\");\n     } catch (XMLStreamException e) {\n-        return StaxUtil.throwAsGenerationException(e);\n+        return StaxUtil.throwAsGenerationException(e, null);\n     }\n     return sw;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "06c4283e36375908d29af960e3cc834309df544b": {
+      "type": "Ymultichange(Yexceptionschange,Ybodychange)",
+      "commitMessage": "Test refactoring; initial work to address #236\n",
+      "commitDate": "7/17/17, 4:24 PM",
+      "commitName": "06c4283e36375908d29af960e3cc834309df544b",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "Test refactoring; initial work to address #236\n",
+          "commitDate": "7/17/17, 4:24 PM",
+          "commitName": "06c4283e36375908d29af960e3cc834309df544b",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/21/17, 10:55 PM",
+          "commitNameOld": "95e4b9a6fca43bab2db28323e6509bb670075ee1",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 25.73,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException {\n    try {\n        sw.setDefaultNamespace(\"\");\n    } catch (XMLStreamException e) {\n        return StaxUtil.throwAsGenerationException(e);\n    }\n    return sw;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java",
+          "functionStartLine": 637,
+          "functionName": "_initializeXmlWriter",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,8 @@\n-protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException, XMLStreamException {\n-    sw.setDefaultNamespace(\"\");\n+protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException {\n+    try {\n+        sw.setDefaultNamespace(\"\");\n+    } catch (XMLStreamException e) {\n+        return StaxUtil.throwAsGenerationException(e);\n+    }\n     return sw;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[IOException, XMLStreamException]",
+            "newValue": "[IOException]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Test refactoring; initial work to address #236\n",
+          "commitDate": "7/17/17, 4:24 PM",
+          "commitName": "06c4283e36375908d29af960e3cc834309df544b",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "6/21/17, 10:55 PM",
+          "commitNameOld": "95e4b9a6fca43bab2db28323e6509bb670075ee1",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 25.73,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException {\n    try {\n        sw.setDefaultNamespace(\"\");\n    } catch (XMLStreamException e) {\n        return StaxUtil.throwAsGenerationException(e);\n    }\n    return sw;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java",
+          "functionStartLine": 637,
+          "functionName": "_initializeXmlWriter",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,8 @@\n-protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException, XMLStreamException {\n-    sw.setDefaultNamespace(\"\");\n+protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException {\n+    try {\n+        sw.setDefaultNamespace(\"\");\n+    } catch (XMLStreamException e) {\n+        return StaxUtil.throwAsGenerationException(e);\n+    }\n     return sw;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "948d377c7aafb0ed91a244415df07f3f6c106be2": {
+      "type": "Yfilerename",
+      "commitMessage": "refactoring\n",
+      "commitDate": "2/19/12, 9:55 PM",
+      "commitName": "948d377c7aafb0ed91a244415df07f3f6c106be2",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "2/19/12, 9:53 PM",
+      "commitNameOld": "4eb1efdf62fa5efab2422803d0f821932dda5c5a",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException, XMLStreamException {\n    sw.setDefaultNamespace(\"\");\n    return sw;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java",
+      "functionStartLine": 362,
+      "functionName": "_initializeXmlWriter",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/com/fasterxml/jackson/xml/XmlFactory.java",
+        "newPath": "src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java"
+      }
+    },
+    "ac97422c72402f2970e5d9eab7a727a308399d56": {
+      "type": "Yintroduced",
+      "commitMessage": "Added main codebase as well\n",
+      "commitDate": "12/30/10, 10:22 PM",
+      "commitName": "ac97422c72402f2970e5d9eab7a727a308399d56",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException, XMLStreamException {\n+    sw.setDefaultNamespace(\"\");\n+    return sw;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected final XMLStreamWriter _initializeXmlWriter(XMLStreamWriter sw) throws IOException, XMLStreamException {\n    sw.setDefaultNamespace(\"\");\n    return sw;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/xml/XmlFactory.java",
+      "functionStartLine": 339,
+      "functionName": "_initializeXmlWriter",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

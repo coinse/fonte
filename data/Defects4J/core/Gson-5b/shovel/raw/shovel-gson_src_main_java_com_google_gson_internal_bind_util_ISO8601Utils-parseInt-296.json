@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-5b",
+  "repositoryPath": "/tmp/Gson-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ISO8601Utils.java",
+  "functionName": "parseInt",
+  "functionId": "parseInt___value-String__beginIndex-int__endIndex-int",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parse an integer located between 2 given offsets in a string\n\n@param value the string to parse\n@param beginIndex the start index for the integer in the string\n@param endIndex the end index for the integer in the string\n@return the int\n@throws NumberFormatException if the value is not a number\n",
+  "functionStartLine": 296,
+  "functionEndLine": 320,
+  "numCommitsSeen": 2,
+  "timeTaken": 235,
+  "changeHistory": [
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92"
+  ],
+  "changeHistoryShort": {
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92": {
+      "type": "Yintroduced",
+      "commitMessage": "Added ISO8601 complete support for date deserialization\n",
+      "commitDate": "11/22/15, 10:11 PM",
+      "commitName": "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92",
+      "commitAuthor": "Gorik",
+      "diff": "@@ -0,0 +1,24 @@\n+private static int parseInt(String value, int beginIndex, int endIndex) throws NumberFormatException {\n+    if (beginIndex \u003c 0 || endIndex \u003e value.length() || beginIndex \u003e endIndex) {\n+        throw new NumberFormatException(value);\n+    }\n+    int i \u003d beginIndex;\n+    int result \u003d 0;\n+    int digit;\n+    if (i \u003c endIndex) {\n+        digit \u003d Character.digit(value.charAt(i++), 10);\n+        if (digit \u003c 0) {\n+            throw new NumberFormatException(\"Invalid number: \" + value.substring(beginIndex, endIndex));\n+        }\n+        result \u003d -digit;\n+    }\n+    while (i \u003c endIndex) {\n+        digit \u003d Character.digit(value.charAt(i++), 10);\n+        if (digit \u003c 0) {\n+            throw new NumberFormatException(\"Invalid number: \" + value.substring(beginIndex, endIndex));\n+        }\n+        result *\u003d 10;\n+        result -\u003d digit;\n+    }\n+    return -result;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static int parseInt(String value, int beginIndex, int endIndex) throws NumberFormatException {\n    if (beginIndex \u003c 0 || endIndex \u003e value.length() || beginIndex \u003e endIndex) {\n        throw new NumberFormatException(value);\n    }\n    int i \u003d beginIndex;\n    int result \u003d 0;\n    int digit;\n    if (i \u003c endIndex) {\n        digit \u003d Character.digit(value.charAt(i++), 10);\n        if (digit \u003c 0) {\n            throw new NumberFormatException(\"Invalid number: \" + value.substring(beginIndex, endIndex));\n        }\n        result \u003d -digit;\n    }\n    while (i \u003c endIndex) {\n        digit \u003d Character.digit(value.charAt(i++), 10);\n        if (digit \u003c 0) {\n            throw new NumberFormatException(\"Invalid number: \" + value.substring(beginIndex, endIndex));\n        }\n        result *\u003d 10;\n        result -\u003d digit;\n    }\n    return -result;\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java",
+      "functionStartLine": 296,
+      "functionName": "parseInt",
+      "functionAnnotation": "",
+      "functionDoc": "Parse an integer located between 2 given offsets in a string\n\n@param value the string to parse\n@param beginIndex the start index for the integer in the string\n@param endIndex the end index for the integer in the string\n@return the int\n@throws NumberFormatException if the value is not a number\n"
+    }
+  }
+}

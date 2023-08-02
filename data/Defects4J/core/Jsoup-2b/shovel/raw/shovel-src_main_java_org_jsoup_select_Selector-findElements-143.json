@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-2b",
+  "repositoryPath": "/tmp/Jsoup-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Selector.java",
+  "functionName": "findElements",
+  "functionId": "findElements",
+  "sourceFilePath": "src/main/java/org/jsoup/select/Selector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 143,
+  "functionEndLine": 163,
+  "numCommitsSeen": 18,
+  "timeTaken": 418,
+  "changeHistory": [
+    "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0",
+    "72fe7662416118598bc0af126c15cba3ca09d9b4"
+  ],
+  "changeHistoryShort": {
+    "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0": "Ybodychange",
+    "72fe7662416118598bc0af126c15cba3ca09d9b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0": {
+      "type": "Ybodychange",
+      "commitMessage": "Added selector support for :eq, :lt, and gt\n\nCloses #16\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "3eb8a67876703682e4156b378871911870fcaad9",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Elements findElements() {\n    if (tq.matchChomp(\"#\")) {\n        return byId();\n    } else if (tq.matchChomp(\".\")) {\n        return byClass();\n    } else if (tq.matchesWord()) {\n        return byTag();\n    } else if (tq.matchChomp(\"[\")) {\n        return byAttribute();\n    } else if (tq.matchChomp(\"*\")) {\n        return allElements();\n    } else if (tq.matchChomp(\":lt(\")) {\n        return indexLessThan();\n    } else if (tq.matchChomp(\":gt(\")) {\n        return indexGreaterThan();\n    } else if (tq.matchChomp(\":eq(\")) {\n        return indexEquals();\n    } else {\n        throw new SelectorParseException(\"Could not parse query \" + query);\n    }\n}",
+      "path": "src/main/java/org/jsoup/select/Selector.java",
+      "functionStartLine": 143,
+      "functionName": "findElements",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,15 +1,21 @@\n private Elements findElements() {\n     if (tq.matchChomp(\"#\")) {\n         return byId();\n     } else if (tq.matchChomp(\".\")) {\n         return byClass();\n     } else if (tq.matchesWord()) {\n         return byTag();\n     } else if (tq.matchChomp(\"[\")) {\n         return byAttribute();\n     } else if (tq.matchChomp(\"*\")) {\n         return allElements();\n+    } else if (tq.matchChomp(\":lt(\")) {\n+        return indexLessThan();\n+    } else if (tq.matchChomp(\":gt(\")) {\n+        return indexGreaterThan();\n+    } else if (tq.matchChomp(\":eq(\")) {\n+        return indexEquals();\n     } else {\n         throw new SelectorParseException(\"Could not parse query \" + query);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "72fe7662416118598bc0af126c15cba3ca09d9b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed select parser for childs.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "72fe7662416118598bc0af126c15cba3ca09d9b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,15 @@\n+private Elements findElements() {\n+    if (tq.matchChomp(\"#\")) {\n+        return byId();\n+    } else if (tq.matchChomp(\".\")) {\n+        return byClass();\n+    } else if (tq.matchesWord()) {\n+        return byTag();\n+    } else if (tq.matchChomp(\"[\")) {\n+        return byAttribute();\n+    } else if (tq.matchChomp(\"*\")) {\n+        return allElements();\n+    } else {\n+        throw new SelectorParseException(\"Could not parse query \" + query);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Elements findElements() {\n    if (tq.matchChomp(\"#\")) {\n        return byId();\n    } else if (tq.matchChomp(\".\")) {\n        return byClass();\n    } else if (tq.matchesWord()) {\n        return byTag();\n    } else if (tq.matchChomp(\"[\")) {\n        return byAttribute();\n    } else if (tq.matchChomp(\"*\")) {\n        return allElements();\n    } else {\n        throw new SelectorParseException(\"Could not parse query \" + query);\n    }\n}",
+      "path": "src/main/java/org/jsoup/select/Selector.java",
+      "functionStartLine": 75,
+      "functionName": "findElements",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

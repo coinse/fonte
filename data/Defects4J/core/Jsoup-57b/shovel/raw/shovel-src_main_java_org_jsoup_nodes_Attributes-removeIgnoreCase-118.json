@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-57b",
+  "repositoryPath": "/tmp/Jsoup-57b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Attributes.java",
+  "functionName": "removeIgnoreCase",
+  "functionId": "removeIgnoreCase___key-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Attributes.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Remove an attribute by key. \u003cb\u003eCase insensitive.\u003c/b\u003e\n\n@ @param key attribute key to remove\n",
+  "functionStartLine": 118,
+  "functionEndLine": 126,
+  "numCommitsSeen": 31,
+  "timeTaken": 2036,
+  "changeHistory": [
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d"
+  ],
+  "changeHistoryShort": {
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d": {
+      "type": "Yintroduced",
+      "commitMessage": "Introduced ParseSettings for tag and attribute name case options.\n",
+      "commitDate": "8/5/16, 3:05 PM",
+      "commitName": "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+public void removeIgnoreCase(String key) {\n+    Validate.notEmpty(key);\n+    if (attributes \u003d\u003d null)\n+        return;\n+    for (String attrKey : attributes.keySet()) {\n+        if (attrKey.equalsIgnoreCase(key))\n+            attributes.remove(attrKey);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void removeIgnoreCase(String key) {\n    Validate.notEmpty(key);\n    if (attributes \u003d\u003d null)\n        return;\n    for (String attrKey : attributes.keySet()) {\n        if (attrKey.equalsIgnoreCase(key))\n            attributes.remove(attrKey);\n    }\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 118,
+      "functionName": "removeIgnoreCase",
+      "functionAnnotation": "",
+      "functionDoc": "     Remove an attribute by key. \u003cb\u003eCase insensitive.\u003c/b\u003e\n\n@ @param key attribute key to remove\n"
+    }
+  }
+}

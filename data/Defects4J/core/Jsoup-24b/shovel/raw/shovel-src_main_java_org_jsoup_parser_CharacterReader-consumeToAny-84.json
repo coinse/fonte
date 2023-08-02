@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-24b",
+  "repositoryPath": "/tmp/Jsoup-24b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "consumeToAny",
+  "functionId": "consumeToAny___seq-char",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 84,
+  "functionEndLine": 97,
+  "numCommitsSeen": 5,
+  "timeTaken": 1094,
+  "changeHistory": [
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,12 @@\n+String consumeToAny(char... seq) {\n+    int start \u003d pos;\n+    OUTER: while (!isEmpty()) {\n+        char c \u003d input.charAt(pos);\n+        for (char seek : seq) {\n+            if (seek \u003d\u003d c)\n+                break OUTER;\n+        }\n+        pos++;\n+    }\n+    return pos \u003e start ? input.substring(start, pos) : \"\";\n+}\n\\ No newline at end of file\n",
+      "actualSource": "String consumeToAny(char... seq) {\n    int start \u003d pos;\n    OUTER: while (!isEmpty()) {\n        char c \u003d input.charAt(pos);\n        for (char seek : seq) {\n            if (seek \u003d\u003d c)\n                break OUTER;\n        }\n        pos++;\n    }\n    return pos \u003e start ? input.substring(start, pos) : \"\";\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 77,
+      "functionName": "consumeToAny",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "QueryParser.java",
+  "functionName": "consumeSubQuery",
+  "functionId": "consumeSubQuery",
+  "sourceFilePath": "src/main/java/org/jsoup/select/QueryParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 127,
+  "functionEndLine": 140,
+  "numCommitsSeen": 41,
+  "timeTaken": 1139,
+  "changeHistory": [
+    "bbca7db20b9a45fb3d8efb29447349ed8593649c",
+    "d0a7e3a00350ea9bdca6a1f005ccc75e5b2d19d4"
+  ],
+  "changeHistoryShort": {
+    "bbca7db20b9a45fb3d8efb29447349ed8593649c": "Ymovefromfile",
+    "d0a7e3a00350ea9bdca6a1f005ccc75e5b2d19d4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bbca7db20b9a45fb3d8efb29447349ed8593649c": {
+      "type": "Ymovefromfile",
+      "commitMessage": "Integrated new single-pass selector evaluators, contributed by knz (Anton Kazennikov).\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "bbca7db20b9a45fb3d8efb29447349ed8593649c",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "08e2a7fc2f487328f1b514e07cc9f4c9ff3d3814",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private String consumeSubQuery() {\n    StringBuilder sq \u003d new StringBuilder();\n    while (!tq.isEmpty()) {\n        if (tq.matches(\"(\"))\n            sq.append(\"(\").append(tq.chompBalanced(\u0027(\u0027, \u0027)\u0027)).append(\")\");\n        else if (tq.matches(\"[\"))\n            sq.append(\"[\").append(tq.chompBalanced(\u0027[\u0027, \u0027]\u0027)).append(\"]\");\n        else if (tq.matchesAny(combinators))\n            break;\n        else\n            sq.append(tq.consume());\n    }\n    return sq.toString();\n}",
+      "path": "src/main/java/org/jsoup/select/QueryParser.java",
+      "functionStartLine": 106,
+      "functionName": "consumeSubQuery",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/jsoup/select/Selector.java",
+        "newPath": "src/main/java/org/jsoup/select/QueryParser.java",
+        "oldMethodName": "consumeSubQuery",
+        "newMethodName": "consumeSubQuery"
+      }
+    },
+    "d0a7e3a00350ea9bdca6a1f005ccc75e5b2d19d4": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed issue when using descendant regex attribute selectors.\n\nFixes #52\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "d0a7e3a00350ea9bdca6a1f005ccc75e5b2d19d4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,14 @@\n+private String consumeSubQuery() {\n+    StringBuilder sq \u003d new StringBuilder();\n+    while (!tq.isEmpty()) {\n+        if (tq.matches(\"(\"))\n+            sq.append(\"(\").append(tq.chompBalanced(\u0027(\u0027, \u0027)\u0027)).append(\")\");\n+        else if (tq.matches(\"[\"))\n+            sq.append(\"[\").append(tq.chompBalanced(\u0027[\u0027, \u0027]\u0027)).append(\"]\");\n+        else if (tq.matchesAny(combinators))\n+            break;\n+        else\n+            sq.append(tq.consume());\n+    }\n+    return sq.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String consumeSubQuery() {\n    StringBuilder sq \u003d new StringBuilder();\n    while (!tq.isEmpty()) {\n        if (tq.matches(\"(\"))\n            sq.append(\"(\").append(tq.chompBalanced(\u0027(\u0027, \u0027)\u0027)).append(\")\");\n        else if (tq.matches(\"[\"))\n            sq.append(\"[\").append(tq.chompBalanced(\u0027[\u0027, \u0027]\u0027)).append(\"]\");\n        else if (tq.matchesAny(combinators))\n            break;\n        else\n            sq.append(tq.consume());\n    }\n    return sq.toString();\n}",
+      "path": "src/main/java/org/jsoup/select/Selector.java",
+      "functionStartLine": 156,
+      "functionName": "consumeSubQuery",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

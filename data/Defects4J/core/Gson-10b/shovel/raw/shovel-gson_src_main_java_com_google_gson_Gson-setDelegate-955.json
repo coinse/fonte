@@ -1,0 +1,92 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Gson.java",
+  "functionName": "setDelegate",
+  "functionId": "$setDelegate___typeAdapter-TypeAdapter__T__",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/Gson.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 955,
+  "functionEndLine": 960,
+  "numCommitsSeen": 199,
+  "timeTaken": 2885,
+  "changeHistory": [
+    "7e760143fdc8b689daeebdee33ad6ea7d0a62a56",
+    "60e6ed912d52716f46a1ba71923ef203c4248857",
+    "041d499a7c4af1b70617001ded11dbc01732d97f"
+  ],
+  "changeHistoryShort": {
+    "7e760143fdc8b689daeebdee33ad6ea7d0a62a56": "Ymovefromfile",
+    "60e6ed912d52716f46a1ba71923ef203c4248857": "Yfilerename",
+    "041d499a7c4af1b70617001ded11dbc01732d97f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7e760143fdc8b689daeebdee33ad6ea7d0a62a56": {
+      "type": "Ymovefromfile",
+      "commitMessage": "Smash together MiniGson and Gson. This changes Gson to be the MiniGson rather than delegating to the MiniGson. It means that the MiniGson objects passed into streaming type adapters are now fully-capable \u0027Gson\u0027 objects. \n\nThe most notable impact of this change is that it adds several new public APIs:\n - The TypeAdapter abstract class\n - The TypeAdapter.Factory interface\n - Four new methods on GsonBuilder to register streaming TypeAdapters (via Factory, via Class, via TypeToken, and as a type hierarchy)\n - Three new methods on Gson to lookup streaming TypeAdapters (by type, by class, and to get the next type adapter) \n\nStill outstanding:\n - Write beautiful prose to document the new APIs above\n - Change GsonBuilder\u0027s precedence so that both old and new-style type adapters are registered in one lot\n",
+      "commitDate": "11/20/11, 7:23 AM",
+      "commitName": "7e760143fdc8b689daeebdee33ad6ea7d0a62a56",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "11/18/11, 8:07 AM",
+      "commitNameOld": "df31d2db16fe9ef85b7152d002880d5546070fb2",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 1.97,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void setDelegate(TypeAdapter\u003cT\u003e typeAdapter) {\n    if (delegate !\u003d null) {\n        throw new AssertionError();\n    }\n    delegate \u003d typeAdapter;\n}",
+      "path": "gson/src/main/java/com/google/gson/Gson.java",
+      "functionStartLine": 870,
+      "functionName": "setDelegate",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "gson/src/main/java/com/google/gson/internal/bind/MiniGson.java",
+        "newPath": "gson/src/main/java/com/google/gson/Gson.java",
+        "oldMethodName": "setDelegate",
+        "newMethodName": "setDelegate"
+      }
+    },
+    "60e6ed912d52716f46a1ba71923ef203c4248857": {
+      "type": "Yfilerename",
+      "commitMessage": "Promote MiniGson to gson.internal.bind\n",
+      "commitDate": "8/2/11, 5:25 PM",
+      "commitName": "60e6ed912d52716f46a1ba71923ef203c4248857",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "8/2/11, 5:17 PM",
+      "commitNameOld": "759eb8ede50f61fd525f5d703dd9fd45ddae1dcd",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void setDelegate(TypeAdapter\u003cT\u003e typeAdapter) {\n    if (delegate !\u003d null) {\n        throw new AssertionError();\n    }\n    delegate \u003d typeAdapter;\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/bind/MiniGson.java",
+      "functionStartLine": 118,
+      "functionName": "setDelegate",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "extras/src/main/java/com/google/gson/mini/MiniGson.java",
+        "newPath": "gson/src/main/java/com/google/gson/internal/bind/MiniGson.java"
+      }
+    },
+    "041d499a7c4af1b70617001ded11dbc01732d97f": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix serialization where one type depends (possibly indireclty) on itself!\n",
+      "commitDate": "7/12/11, 12:39 PM",
+      "commitName": "041d499a7c4af1b70617001ded11dbc01732d97f",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,6 @@\n+public void setDelegate(TypeAdapter\u003cT\u003e typeAdapter) {\n+    if (delegate !\u003d null) {\n+        throw new AssertionError();\n+    }\n+    delegate \u003d typeAdapter;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void setDelegate(TypeAdapter\u003cT\u003e typeAdapter) {\n    if (delegate !\u003d null) {\n        throw new AssertionError();\n    }\n    delegate \u003d typeAdapter;\n}",
+      "path": "extras/src/main/java/com/google/gson/mini/MiniGson.java",
+      "functionStartLine": 117,
+      "functionName": "setDelegate",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

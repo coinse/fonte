@@ -1,0 +1,170 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-2b",
+  "repositoryPath": "/tmp/Jsoup-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "children",
+  "functionId": "children",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return child elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n",
+  "functionStartLine": 134,
+  "functionEndLine": 142,
+  "numCommitsSeen": 43,
+  "timeTaken": 1138,
+  "changeHistory": [
+    "e5cd584705f746893f75e85cf7acdb2d7a0db1af",
+    "9bed789bfee6c6433945c0a3e2c710c897616888",
+    "b04c5412eb75a7a35925896db7121c3a2c67e1c4",
+    "a657d090e2f127ebdce131f1f97e7758a8ddc463"
+  ],
+  "changeHistoryShort": {
+    "e5cd584705f746893f75e85cf7acdb2d7a0db1af": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+    "9bed789bfee6c6433945c0a3e2c710c897616888": "Ydocchange",
+    "b04c5412eb75a7a35925896db7121c3a2c67e1c4": "Yrename",
+    "a657d090e2f127ebdce131f1f97e7758a8ddc463": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e5cd584705f746893f75e85cf7acdb2d7a0db1af": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+      "commitMessage": "Removed Element children list, and create on fly from nodes.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "e5cd584705f746893f75e85cf7acdb2d7a0db1af",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Removed Element children list, and create on fly from nodes.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "e5cd584705f746893f75e85cf7acdb2d7a0db1af",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "80c826dc46a5270826c411d3741bfab8c98eb42e",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Elements children() {\n    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n    for (Node node : childNodes) {\n        if (node instanceof Element)\n            elements.add((Element) node);\n    }\n    return new Elements(elements);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 133,
+          "functionName": "children",
+          "functionAnnotation": "",
+          "functionDoc": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return child elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n",
+          "diff": "@@ -1,3 +1,8 @@\n-public List\u003cElement\u003e children() {\n-    return Collections.unmodifiableList(elementChildren);\n+public Elements children() {\n+    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n+    for (Node node : childNodes) {\n+        if (node instanceof Element)\n+            elements.add((Element) node);\n+    }\n+    return new Elements(elements);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "List\u003cElement\u003e",
+            "newValue": "Elements"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Removed Element children list, and create on fly from nodes.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "e5cd584705f746893f75e85cf7acdb2d7a0db1af",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "80c826dc46a5270826c411d3741bfab8c98eb42e",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Elements children() {\n    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n    for (Node node : childNodes) {\n        if (node instanceof Element)\n            elements.add((Element) node);\n    }\n    return new Elements(elements);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 133,
+          "functionName": "children",
+          "functionAnnotation": "",
+          "functionDoc": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return child elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n",
+          "diff": "@@ -1,3 +1,8 @@\n-public List\u003cElement\u003e children() {\n-    return Collections.unmodifiableList(elementChildren);\n+public Elements children() {\n+    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n+    for (Node node : childNodes) {\n+        if (node instanceof Element)\n+            elements.add((Element) node);\n+    }\n+    return new Elements(elements);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Removed Element children list, and create on fly from nodes.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "e5cd584705f746893f75e85cf7acdb2d7a0db1af",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "80c826dc46a5270826c411d3741bfab8c98eb42e",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Elements children() {\n    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n    for (Node node : childNodes) {\n        if (node instanceof Element)\n            elements.add((Element) node);\n    }\n    return new Elements(elements);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 133,
+          "functionName": "children",
+          "functionAnnotation": "",
+          "functionDoc": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return child elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n",
+          "diff": "@@ -1,3 +1,8 @@\n-public List\u003cElement\u003e children() {\n-    return Collections.unmodifiableList(elementChildren);\n+public Elements children() {\n+    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n+    for (Node node : childNodes) {\n+        if (node instanceof Element)\n+            elements.add((Element) node);\n+    }\n+    return new Elements(elements);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return an unmodifiable list of children elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n",
+            "newValue": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return child elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n"
+          }
+        }
+      ]
+    },
+    "9bed789bfee6c6433945c0a3e2c710c897616888": {
+      "type": "Ydocchange",
+      "commitMessage": "Element documentation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "9bed789bfee6c6433945c0a3e2c710c897616888",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "abdf22714e557304d9f6782d30da9b7254ce017c",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public List\u003cElement\u003e children() {\n    return Collections.unmodifiableList(elementChildren);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 133,
+      "functionName": "children",
+      "functionAnnotation": "",
+      "functionDoc": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return an unmodifiable list of children elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "Get this element\u0027s child elements.\n\u003cp/\u003e\nThis is effectively a filter on {@link #childNodes()} to get Element nodes.\n\n@return an unmodifiable list of children elements. If this element has no children, returns an\nempty list.\n@see #childNodes()\n"
+      }
+    },
+    "b04c5412eb75a7a35925896db7121c3a2c67e1c4": {
+      "type": "Yrename",
+      "commitMessage": "Element child(int) method, attr(key) method\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "b04c5412eb75a7a35925896db7121c3a2c67e1c4",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "a657d090e2f127ebdce131f1f97e7758a8ddc463",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public List\u003cElement\u003e children() {\n    return Collections.unmodifiableList(elementChildren);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 47,
+      "functionName": "children",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n-public List\u003cElement\u003e getChildren() {\n+public List\u003cElement\u003e children() {\n     return Collections.unmodifiableList(elementChildren);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "getChildren",
+        "newValue": "children"
+      }
+    },
+    "a657d090e2f127ebdce131f1f97e7758a8ddc463": {
+      "type": "Yintroduced",
+      "commitMessage": "Draft implementation of Parser.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "a657d090e2f127ebdce131f1f97e7758a8ddc463",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+public List\u003cElement\u003e getChildren() {\n+    return Collections.unmodifiableList(elementChildren);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public List\u003cElement\u003e getChildren() {\n    return Collections.unmodifiableList(elementChildren);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 37,
+      "functionName": "getChildren",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

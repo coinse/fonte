@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XmlRootNameLookup.java",
+  "functionName": "_findRootName",
+  "functionId": "_findRootName___rootType-Class__?____config-MapperConfig__?__",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/XmlRootNameLookup.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 63,
+  "functionEndLine": 91,
+  "numCommitsSeen": 7,
+  "timeTaken": 227,
+  "changeHistory": [
+    "737105e583f803a54ebed0b987489676001bd607"
+  ],
+  "changeHistoryShort": {
+    "737105e583f803a54ebed0b987489676001bd607": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "737105e583f803a54ebed0b987489676001bd607": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix #171\n",
+      "commitDate": "12/6/15, 8:31 PM",
+      "commitName": "737105e583f803a54ebed0b987489676001bd607",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,23 @@\n+protected synchronized QName _findRootName(Class\u003c?\u003e rootType, MapperConfig\u003c?\u003e config) {\n+    BeanDescription beanDesc \u003d config.introspectClassAnnotations(rootType);\n+    AnnotationIntrospector intr \u003d config.getAnnotationIntrospector();\n+    AnnotatedClass ac \u003d beanDesc.getClassInfo();\n+    String localName \u003d null;\n+    String ns \u003d null;\n+    PropertyName root \u003d intr.findRootName(ac);\n+    if (root !\u003d null) {\n+        localName \u003d root.getSimpleName();\n+        ns \u003d root.getNamespace();\n+    }\n+    if (localName \u003d\u003d null || localName.length() \u003d\u003d 0) {\n+        localName \u003d StaxUtil.sanitizeXmlTypeName(rootType.getSimpleName());\n+        return new QName(\"\", localName);\n+    }\n+    if (ns \u003d\u003d null || ns.length() \u003d\u003d 0) {\n+        ns \u003d findNamespace(intr, ac);\n+    }\n+    if (ns \u003d\u003d null) {\n+        ns \u003d \"\";\n+    }\n+    return new QName(ns, localName);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected synchronized QName _findRootName(Class\u003c?\u003e rootType, MapperConfig\u003c?\u003e config) {\n    BeanDescription beanDesc \u003d config.introspectClassAnnotations(rootType);\n    AnnotationIntrospector intr \u003d config.getAnnotationIntrospector();\n    AnnotatedClass ac \u003d beanDesc.getClassInfo();\n    String localName \u003d null;\n    String ns \u003d null;\n    PropertyName root \u003d intr.findRootName(ac);\n    if (root !\u003d null) {\n        localName \u003d root.getSimpleName();\n        ns \u003d root.getNamespace();\n    }\n    if (localName \u003d\u003d null || localName.length() \u003d\u003d 0) {\n        localName \u003d StaxUtil.sanitizeXmlTypeName(rootType.getSimpleName());\n        return new QName(\"\", localName);\n    }\n    if (ns \u003d\u003d null || ns.length() \u003d\u003d 0) {\n        ns \u003d findNamespace(intr, ac);\n    }\n    if (ns \u003d\u003d null) {\n        ns \u003d \"\";\n    }\n    return new QName(ns, localName);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/XmlRootNameLookup.java",
+      "functionStartLine": 66,
+      "functionName": "_findRootName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

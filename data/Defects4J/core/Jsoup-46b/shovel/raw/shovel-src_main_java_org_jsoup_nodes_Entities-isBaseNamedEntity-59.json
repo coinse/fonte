@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Entities.java",
+  "functionName": "isBaseNamedEntity",
+  "functionId": "isBaseNamedEntity___name-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Entities.java",
+  "functionAnnotation": "",
+  "functionDoc": "Check if the input is a known named entity in the base entity set.\n\n@param name the possible entity name (e.g. \"lt\" or \"amp\")\n@return true if a known named entity in the base set\n@see #isNamedEntity(String)\n",
+  "functionStartLine": 59,
+  "functionEndLine": 61,
+  "numCommitsSeen": 25,
+  "timeTaken": 640,
+  "changeHistory": [
+    "a31ec08e102fd3832f3ff4449e9163440f0afb2c"
+  ],
+  "changeHistoryShort": {
+    "a31ec08e102fd3832f3ff4449e9163440f0afb2c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a31ec08e102fd3832f3ff4449e9163440f0afb2c": {
+      "type": "Yintroduced",
+      "commitMessage": "Refactored entity decoding.\n\nModified the heuristic entity decoder to be less greedy; does not\nrepeatedly chomp down the string until a match is found, and requires a\nsemicolon terminator for extended entities.\n\nUpdated Entities to use the entity decoder in Tokeniser, vs the legacy\ndecoder.\n\nFixes #224.\n",
+      "commitDate": "9/23/12, 12:16 PM",
+      "commitName": "a31ec08e102fd3832f3ff4449e9163440f0afb2c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+public static boolean isBaseNamedEntity(String name) {\n+    return base.containsKey(name);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean isBaseNamedEntity(String name) {\n    return base.containsKey(name);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Entities.java",
+      "functionStartLine": 62,
+      "functionName": "isBaseNamedEntity",
+      "functionAnnotation": "",
+      "functionDoc": "Check if the input is a known named entity in the base entity set.\n\n@param name the possible entity name (e.g. \"lt\" or \"amp\")\n@return true if a known named entity in the base set\n@see #isNamedEntity(String)\n"
+    }
+  }
+}

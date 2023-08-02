@@ -1,0 +1,125 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-12b",
+  "repositoryPath": "/tmp/JxPath-12b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimpleCharStream.java",
+  "functionName": "UpdateLineColumn",
+  "functionId": "UpdateLineColumn___c-char",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/SimpleCharStream.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 135,
+  "functionEndLine": 173,
+  "numCommitsSeen": 3,
+  "timeTaken": 1302,
+  "changeHistory": [
+    "6b424e974f9e68987125d1d489731366bee87031",
+    "e5a284c0486a8b2a4289605939074cc6ddf9df44",
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "6b424e974f9e68987125d1d489731366bee87031": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+    "e5a284c0486a8b2a4289605939074cc6ddf9df44": "Yfilerename",
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b424e974f9e68987125d1d489731366bee87031": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+      "commitMessage": "Upgraded to JavaCC 3.0, enabled optimizations\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136861 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/4/03, 4:48 PM",
+      "commitName": "6b424e974f9e68987125d1d489731366bee87031",
+      "commitAuthor": "Dmitri Plotnikov",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Upgraded to JavaCC 3.0, enabled optimizations\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136861 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "5/4/03, 4:48 PM",
+          "commitName": "6b424e974f9e68987125d1d489731366bee87031",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "3/24/03, 6:41 PM",
+          "commitNameOld": "77af585d9f0e629db4ecf8d468ef7b71c9d98e39",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 40.88,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void UpdateLineColumn(char c) {\n    column++;\n    if (prevCharIsLF) {\n        prevCharIsLF \u003d false;\n        line +\u003d (column \u003d 1);\n    } else if (prevCharIsCR) {\n        prevCharIsCR \u003d false;\n        if (c \u003d\u003d \u0027\\n\u0027) {\n            prevCharIsLF \u003d true;\n        } else\n            line +\u003d (column \u003d 1);\n    }\n    switch(c) {\n        case \u0027\\r\u0027:\n            prevCharIsCR \u003d true;\n            break;\n        case \u0027\\n\u0027:\n            prevCharIsLF \u003d true;\n            break;\n        case \u0027\\t\u0027:\n            column--;\n            column +\u003d (8 - (column \u0026 07));\n            break;\n        default:\n            break;\n    }\n    bufline[bufpos] \u003d line;\n    bufcolumn[bufpos] \u003d column;\n}",
+          "path": "src/java/org/apache/commons/jxpath/ri/parser/SimpleCharStream.java",
+          "functionStartLine": 135,
+          "functionName": "UpdateLineColumn",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,29 +1,29 @@\n-private final void UpdateLineColumn(char c) {\n+protected void UpdateLineColumn(char c) {\n     column++;\n     if (prevCharIsLF) {\n         prevCharIsLF \u003d false;\n         line +\u003d (column \u003d 1);\n     } else if (prevCharIsCR) {\n         prevCharIsCR \u003d false;\n         if (c \u003d\u003d \u0027\\n\u0027) {\n             prevCharIsLF \u003d true;\n         } else\n             line +\u003d (column \u003d 1);\n     }\n     switch(c) {\n         case \u0027\\r\u0027:\n             prevCharIsCR \u003d true;\n             break;\n         case \u0027\\n\u0027:\n             prevCharIsLF \u003d true;\n             break;\n         case \u0027\\t\u0027:\n             column--;\n             column +\u003d (8 - (column \u0026 07));\n             break;\n         default:\n             break;\n     }\n     bufline[bufpos] \u003d line;\n     bufcolumn[bufpos] \u003d column;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/java/org/apache/commons/jxpath/ri/parser/JavaCharStream.java",
+            "newPath": "src/java/org/apache/commons/jxpath/ri/parser/SimpleCharStream.java",
+            "oldMethodName": "UpdateLineColumn",
+            "newMethodName": "UpdateLineColumn"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Upgraded to JavaCC 3.0, enabled optimizations\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136861 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "5/4/03, 4:48 PM",
+          "commitName": "6b424e974f9e68987125d1d489731366bee87031",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "3/24/03, 6:41 PM",
+          "commitNameOld": "77af585d9f0e629db4ecf8d468ef7b71c9d98e39",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 40.88,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected void UpdateLineColumn(char c) {\n    column++;\n    if (prevCharIsLF) {\n        prevCharIsLF \u003d false;\n        line +\u003d (column \u003d 1);\n    } else if (prevCharIsCR) {\n        prevCharIsCR \u003d false;\n        if (c \u003d\u003d \u0027\\n\u0027) {\n            prevCharIsLF \u003d true;\n        } else\n            line +\u003d (column \u003d 1);\n    }\n    switch(c) {\n        case \u0027\\r\u0027:\n            prevCharIsCR \u003d true;\n            break;\n        case \u0027\\n\u0027:\n            prevCharIsLF \u003d true;\n            break;\n        case \u0027\\t\u0027:\n            column--;\n            column +\u003d (8 - (column \u0026 07));\n            break;\n        default:\n            break;\n    }\n    bufline[bufpos] \u003d line;\n    bufcolumn[bufpos] \u003d column;\n}",
+          "path": "src/java/org/apache/commons/jxpath/ri/parser/SimpleCharStream.java",
+          "functionStartLine": 135,
+          "functionName": "UpdateLineColumn",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,29 +1,29 @@\n-private final void UpdateLineColumn(char c) {\n+protected void UpdateLineColumn(char c) {\n     column++;\n     if (prevCharIsLF) {\n         prevCharIsLF \u003d false;\n         line +\u003d (column \u003d 1);\n     } else if (prevCharIsCR) {\n         prevCharIsCR \u003d false;\n         if (c \u003d\u003d \u0027\\n\u0027) {\n             prevCharIsLF \u003d true;\n         } else\n             line +\u003d (column \u003d 1);\n     }\n     switch(c) {\n         case \u0027\\r\u0027:\n             prevCharIsCR \u003d true;\n             break;\n         case \u0027\\n\u0027:\n             prevCharIsLF \u003d true;\n             break;\n         case \u0027\\t\u0027:\n             column--;\n             column +\u003d (8 - (column \u0026 07));\n             break;\n         default:\n             break;\n     }\n     bufline[bufpos] \u003d line;\n     bufcolumn[bufpos] \u003d column;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private, final]",
+            "newValue": "[protected]"
+          }
+        }
+      ]
+    },
+    "e5a284c0486a8b2a4289605939074cc6ddf9df44": {
+      "type": "Yfilerename",
+      "commitMessage": "Upgraded to JavaCC 2.1\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136843 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/24/03, 5:49 PM",
+      "commitName": "e5a284c0486a8b2a4289605939074cc6ddf9df44",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "1/19/03, 4:07 PM",
+      "commitNameOld": "d4c77d86319c20203256e83fd411329e908477da",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 5.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private final void UpdateLineColumn(char c) {\n    column++;\n    if (prevCharIsLF) {\n        prevCharIsLF \u003d false;\n        line +\u003d (column \u003d 1);\n    } else if (prevCharIsCR) {\n        prevCharIsCR \u003d false;\n        if (c \u003d\u003d \u0027\\n\u0027) {\n            prevCharIsLF \u003d true;\n        } else\n            line +\u003d (column \u003d 1);\n    }\n    switch(c) {\n        case \u0027\\r\u0027:\n            prevCharIsCR \u003d true;\n            break;\n        case \u0027\\n\u0027:\n            prevCharIsLF \u003d true;\n            break;\n        case \u0027\\t\u0027:\n            column--;\n            column +\u003d (8 - (column \u0026 07));\n            break;\n        default:\n            break;\n    }\n    bufline[bufpos] \u003d line;\n    bufcolumn[bufpos] \u003d column;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/JavaCharStream.java",
+      "functionStartLine": 207,
+      "functionName": "UpdateLineColumn",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/jxpath/ri/parser/ASCII_UCodeESC_CharStream.java",
+        "newPath": "src/java/org/apache/commons/jxpath/ri/parser/JavaCharStream.java"
+      }
+    },
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,29 @@\n+private final void UpdateLineColumn(char c) {\n+    column++;\n+    if (prevCharIsLF) {\n+        prevCharIsLF \u003d false;\n+        line +\u003d (column \u003d 1);\n+    } else if (prevCharIsCR) {\n+        prevCharIsCR \u003d false;\n+        if (c \u003d\u003d \u0027\\n\u0027) {\n+            prevCharIsLF \u003d true;\n+        } else\n+            line +\u003d (column \u003d 1);\n+    }\n+    switch(c) {\n+        case \u0027\\r\u0027:\n+            prevCharIsCR \u003d true;\n+            break;\n+        case \u0027\\n\u0027:\n+            prevCharIsLF \u003d true;\n+            break;\n+        case \u0027\\t\u0027:\n+            column--;\n+            column +\u003d (8 - (column \u0026 07));\n+            break;\n+        default:\n+            break;\n+    }\n+    bufline[bufpos] \u003d line;\n+    bufcolumn[bufpos] \u003d column;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final void UpdateLineColumn(char c) {\n    column++;\n    if (prevCharIsLF) {\n        prevCharIsLF \u003d false;\n        line +\u003d (column \u003d 1);\n    } else if (prevCharIsCR) {\n        prevCharIsCR \u003d false;\n        if (c \u003d\u003d \u0027\\n\u0027) {\n            prevCharIsLF \u003d true;\n        } else\n            line +\u003d (column \u003d 1);\n    }\n    switch(c) {\n        case \u0027\\r\u0027:\n            prevCharIsCR \u003d true;\n            break;\n        case \u0027\\n\u0027:\n            prevCharIsLF \u003d true;\n            break;\n        case \u0027\\t\u0027:\n            column--;\n            column +\u003d (8 - (column \u0026 07));\n            break;\n        default:\n            break;\n    }\n    bufline[bufpos] \u003d line;\n    bufcolumn[bufpos] \u003d column;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/ASCII_UCodeESC_CharStream.java",
+      "functionStartLine": 203,
+      "functionName": "UpdateLineColumn",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

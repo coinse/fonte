@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-6b",
+  "repositoryPath": "/tmp/Gson-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TypeToken.java",
+  "functionName": "hashCode",
+  "functionId": "hashCode",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/reflect/TypeToken.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 279,
+  "functionEndLine": 281,
+  "numCommitsSeen": 16,
+  "timeTaken": 589,
+  "changeHistory": [
+    "d1ddab2e6ffcd938ac0d133fd46caf5fb2417009",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b"
+  ],
+  "changeHistoryShort": {
+    "d1ddab2e6ffcd938ac0d133fd46caf5fb2417009": "Ymultichange(Ymodifierchange,Ybodychange,Ydocchange)",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d1ddab2e6ffcd938ac0d133fd46caf5fb2417009": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange,Ydocchange)",
+      "commitMessage": "Swap out GSON\u0027s type mechanics with the Type resolution code from Guice.\n\nThe most significant impact of this change is that fields whose types are type parameters should now GSONify just fine. For example, consider the class below.\n\nabstract class Foo\u003cA, B\u003e {\n   A a;\n   B b;\n   List\u003cA\u003e list;\n   Map\u003cA, List\u003cB\u003e\u003e map;\n}\nclass RealFoo extends Foo\u003cString, Integer\u003e {...}\n\nThis is a reasonable checkpoint but some work still needs to be done for this. In particular, the level of visibility of methods in TypeToken and Type should be reconsidered; we\u0027re exposing more than we need to!\n",
+      "commitDate": "12/3/10, 12:07 AM",
+      "commitName": "d1ddab2e6ffcd938ac0d133fd46caf5fb2417009",
+      "commitAuthor": "Jesse Wilson",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Swap out GSON\u0027s type mechanics with the Type resolution code from Guice.\n\nThe most significant impact of this change is that fields whose types are type parameters should now GSONify just fine. For example, consider the class below.\n\nabstract class Foo\u003cA, B\u003e {\n   A a;\n   B b;\n   List\u003cA\u003e list;\n   Map\u003cA, List\u003cB\u003e\u003e map;\n}\nclass RealFoo extends Foo\u003cString, Integer\u003e {...}\n\nThis is a reasonable checkpoint but some work still needs to be done for this. In particular, the level of visibility of methods in TypeToken and Type should be reconsidered; we\u0027re exposing more than we need to!\n",
+          "commitDate": "12/3/10, 12:07 AM",
+          "commitName": "d1ddab2e6ffcd938ac0d133fd46caf5fb2417009",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "9/23/09, 10:45 AM",
+          "commitNameOld": "3b0f8f4340c68d8fde0840befbc1b89afa14933f",
+          "commitAuthorOld": "Inderjeet Singh",
+          "daysBetweenCommits": 435.6,
+          "commitsBetweenForRepo": 227,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic final int hashCode() {\n    return this.hashCode;\n}",
+          "path": "gson/src/main/java/com/google/gson/reflect/TypeToken.java",
+          "functionStartLine": 307,
+          "functionName": "hashCode",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,4 @@\n @Override\n-public int hashCode() {\n-    return type.hashCode();\n+public final int hashCode() {\n+    return this.hashCode;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[public, final]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Swap out GSON\u0027s type mechanics with the Type resolution code from Guice.\n\nThe most significant impact of this change is that fields whose types are type parameters should now GSONify just fine. For example, consider the class below.\n\nabstract class Foo\u003cA, B\u003e {\n   A a;\n   B b;\n   List\u003cA\u003e list;\n   Map\u003cA, List\u003cB\u003e\u003e map;\n}\nclass RealFoo extends Foo\u003cString, Integer\u003e {...}\n\nThis is a reasonable checkpoint but some work still needs to be done for this. In particular, the level of visibility of methods in TypeToken and Type should be reconsidered; we\u0027re exposing more than we need to!\n",
+          "commitDate": "12/3/10, 12:07 AM",
+          "commitName": "d1ddab2e6ffcd938ac0d133fd46caf5fb2417009",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "9/23/09, 10:45 AM",
+          "commitNameOld": "3b0f8f4340c68d8fde0840befbc1b89afa14933f",
+          "commitAuthorOld": "Inderjeet Singh",
+          "daysBetweenCommits": 435.6,
+          "commitsBetweenForRepo": 227,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic final int hashCode() {\n    return this.hashCode;\n}",
+          "path": "gson/src/main/java/com/google/gson/reflect/TypeToken.java",
+          "functionStartLine": 307,
+          "functionName": "hashCode",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,4 @@\n @Override\n-public int hashCode() {\n-    return type.hashCode();\n+public final int hashCode() {\n+    return this.hashCode;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Swap out GSON\u0027s type mechanics with the Type resolution code from Guice.\n\nThe most significant impact of this change is that fields whose types are type parameters should now GSONify just fine. For example, consider the class below.\n\nabstract class Foo\u003cA, B\u003e {\n   A a;\n   B b;\n   List\u003cA\u003e list;\n   Map\u003cA, List\u003cB\u003e\u003e map;\n}\nclass RealFoo extends Foo\u003cString, Integer\u003e {...}\n\nThis is a reasonable checkpoint but some work still needs to be done for this. In particular, the level of visibility of methods in TypeToken and Type should be reconsidered; we\u0027re exposing more than we need to!\n",
+          "commitDate": "12/3/10, 12:07 AM",
+          "commitName": "d1ddab2e6ffcd938ac0d133fd46caf5fb2417009",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "9/23/09, 10:45 AM",
+          "commitNameOld": "3b0f8f4340c68d8fde0840befbc1b89afa14933f",
+          "commitAuthorOld": "Inderjeet Singh",
+          "daysBetweenCommits": 435.6,
+          "commitsBetweenForRepo": 227,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic final int hashCode() {\n    return this.hashCode;\n}",
+          "path": "gson/src/main/java/com/google/gson/reflect/TypeToken.java",
+          "functionStartLine": 307,
+          "functionName": "hashCode",
+          "functionAnnotation": "@Override",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,4 @@\n @Override\n-public int hashCode() {\n-    return type.hashCode();\n+public final int hashCode() {\n+    return this.hashCode;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Hashcode for this object.\n\n@return hashcode for this object.\n",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": {
+      "type": "Yintroduced",
+      "commitMessage": "moved gson as a project under trunk\n",
+      "commitDate": "8/31/08, 8:13 PM",
+      "commitName": "57d1f32de5bf3a7dd54613384cc7e979fba2660b",
+      "commitAuthor": "Inderjeet Singh",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public int hashCode() {\n+    return type.hashCode();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic int hashCode() {\n    return type.hashCode();\n}",
+      "path": "gson/src/main/java/com/google/gson/reflect/TypeToken.java",
+      "functionStartLine": 307,
+      "functionName": "hashCode",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Hashcode for this object.\n\n@return hashcode for this object.\n"
+    }
+  }
+}

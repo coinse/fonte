@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TreeBuilderState.java",
+  "functionName": "isWhitespace",
+  "functionId": "isWhitespace___t-Token",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TreeBuilderState.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1455,
+  "functionEndLine": 1467,
+  "numCommitsSeen": 5,
+  "timeTaken": 1570,
+  "changeHistory": [
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,12 @@\n+private static boolean isWhitespace(Token t) {\n+    if (t.isCharacter()) {\n+        String data \u003d t.asCharacter().getData();\n+        for (int i \u003d 0; i \u003c data.length(); i++) {\n+            char c \u003d data.charAt(i);\n+            if (!Character.isWhitespace(c))\n+                return false;\n+        }\n+        return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean isWhitespace(Token t) {\n    if (t.isCharacter()) {\n        String data \u003d t.asCharacter().getData();\n        for (int i \u003d 0; i \u003c data.length(); i++) {\n            char c \u003d data.charAt(i);\n            if (!Character.isWhitespace(c))\n                return false;\n        }\n        return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilderState.java",
+      "functionStartLine": 1455,
+      "functionName": "isWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -101,7 +101,9 @@ def run_bug2commit(pid, vid):
     return score_df
 
 if __name__ == "__main__":
-    GT = load_BIC_GT(BIC_GT_DIR)
-    for _, row in GT.iterrows():
-        pid, vid = row.pid, row.vid
+    for dirname in os.listdir(BASELINE_DATA_DIR):
+        try:
+            pid, vid = tuple(dirname[:-1].split("-"))
+        except:
+            continue
         score_df = run_bug2commit(pid, vid)

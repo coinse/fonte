@@ -1,0 +1,96 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-5b",
+  "repositoryPath": "/tmp/JxPath-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "BasicNodeSet.java",
+  "functionName": "getPointers",
+  "functionId": "getPointers",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/BasicNodeSet.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 44,
+  "functionEndLine": 49,
+  "numCommitsSeen": 28,
+  "timeTaken": 1293,
+  "changeHistory": [
+    "77af585d9f0e629db4ecf8d468ef7b71c9d98e39",
+    "4ab5b9e453d0e0ef51fc1d36a5e21aaf21b44c81"
+  ],
+  "changeHistoryShort": {
+    "77af585d9f0e629db4ecf8d468ef7b71c9d98e39": "Ymultichange(Ymovefromfile,Ybodychange)",
+    "4ab5b9e453d0e0ef51fc1d36a5e21aaf21b44c81": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "77af585d9f0e629db4ecf8d468ef7b71c9d98e39": {
+      "type": "Ymultichange(Ymovefromfile,Ybodychange)",
+      "commitMessage": "Fixed collection as return value of extension function\nReduced the amount of cloning\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136860 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/24/03, 6:41 PM",
+      "commitName": "77af585d9f0e629db4ecf8d468ef7b71c9d98e39",
+      "commitAuthor": "Dmitri Plotnikov",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Fixed collection as return value of extension function\nReduced the amount of cloning\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136860 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "3/24/03, 6:41 PM",
+          "commitName": "77af585d9f0e629db4ecf8d468ef7b71c9d98e39",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "3/24/03, 6:28 PM",
+          "commitNameOld": "5bbe586b1063ebafc02e20ca0b6b47465c9b9f06",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public List getPointers() {\n    if (readOnlyPointers \u003d\u003d null) {\n        readOnlyPointers \u003d Collections.unmodifiableList(pointers);\n    }\n    return readOnlyPointers;\n}",
+          "path": "src/java/org/apache/commons/jxpath/BasicNodeSet.java",
+          "functionStartLine": 89,
+          "functionName": "getPointers",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,6 @@\n public List getPointers() {\n-    return Collections.unmodifiableList(pointers);\n+    if (readOnlyPointers \u003d\u003d null) {\n+        readOnlyPointers \u003d Collections.unmodifiableList(pointers);\n+    }\n+    return readOnlyPointers;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/java/org/apache/commons/jxpath/ri/EvalContext.java",
+            "newPath": "src/java/org/apache/commons/jxpath/BasicNodeSet.java",
+            "oldMethodName": "getPointers",
+            "newMethodName": "getPointers"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fixed collection as return value of extension function\nReduced the amount of cloning\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136860 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "3/24/03, 6:41 PM",
+          "commitName": "77af585d9f0e629db4ecf8d468ef7b71c9d98e39",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "3/24/03, 6:28 PM",
+          "commitNameOld": "5bbe586b1063ebafc02e20ca0b6b47465c9b9f06",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public List getPointers() {\n    if (readOnlyPointers \u003d\u003d null) {\n        readOnlyPointers \u003d Collections.unmodifiableList(pointers);\n    }\n    return readOnlyPointers;\n}",
+          "path": "src/java/org/apache/commons/jxpath/BasicNodeSet.java",
+          "functionStartLine": 89,
+          "functionName": "getPointers",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,6 @@\n public List getPointers() {\n-    return Collections.unmodifiableList(pointers);\n+    if (readOnlyPointers \u003d\u003d null) {\n+        readOnlyPointers \u003d Collections.unmodifiableList(pointers);\n+    }\n+    return readOnlyPointers;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "4ab5b9e453d0e0ef51fc1d36a5e21aaf21b44c81": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved handling of collections as arguments of extension functions\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136850 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/6/03, 4:51 PM",
+      "commitName": "4ab5b9e453d0e0ef51fc1d36a5e21aaf21b44c81",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,3 @@\n+public List getPointers() {\n+    return Collections.unmodifiableList(pointers);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public List getPointers() {\n    return Collections.unmodifiableList(pointers);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/EvalContext.java",
+      "functionStartLine": 394,
+      "functionName": "getPointers",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

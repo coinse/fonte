@@ -1,0 +1,97 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-6b",
+  "repositoryPath": "/tmp/Gson-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Gson.java",
+  "functionName": "newJsonWriter",
+  "functionId": "newJsonWriter___writer-Writer",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/Gson.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a new JSON writer configured for the settings on this Gson instance.\n",
+  "functionStartLine": 704,
+  "functionEndLine": 714,
+  "numCommitsSeen": 177,
+  "timeTaken": 2683,
+  "changeHistory": [
+    "e81f3eba2731bac5b7b5a50e7218f9847a170d83",
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075"
+  ],
+  "changeHistoryShort": {
+    "e81f3eba2731bac5b7b5a50e7218f9847a170d83": "Ymultichange(Ymodifierchange,Ydocchange)",
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e81f3eba2731bac5b7b5a50e7218f9847a170d83": {
+      "type": "Ymultichange(Ymodifierchange,Ydocchange)",
+      "commitMessage": "Expose newJsonWriter wrapper instead of just options.\n\nThis is more future proof to ensure that consumers holding on to TypeAdapters for efficiency can always encode JSON in the same way as if the Gson instance was used directly.\n",
+      "commitDate": "9/26/15, 4:19 PM",
+      "commitName": "e81f3eba2731bac5b7b5a50e7218f9847a170d83",
+      "commitAuthor": "Jake Wharton",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Expose newJsonWriter wrapper instead of just options.\n\nThis is more future proof to ensure that consumers holding on to TypeAdapters for efficiency can always encode JSON in the same way as if the Gson instance was used directly.\n",
+          "commitDate": "9/26/15, 4:19 PM",
+          "commitName": "e81f3eba2731bac5b7b5a50e7218f9847a170d83",
+          "commitAuthor": "Jake Wharton",
+          "commitDateOld": "9/7/15, 7:44 PM",
+          "commitNameOld": "31f80d86590e523af1360a1a3d0f330989434286",
+          "commitAuthorOld": "",
+          "daysBetweenCommits": 18.86,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonWriter newJsonWriter(Writer writer) throws IOException {\n    if (generateNonExecutableJson) {\n        writer.write(JSON_NON_EXECUTABLE_PREFIX);\n    }\n    JsonWriter jsonWriter \u003d new JsonWriter(writer);\n    if (prettyPrinting) {\n        jsonWriter.setIndent(\"  \");\n    }\n    jsonWriter.setSerializeNulls(serializeNulls);\n    return jsonWriter;\n}",
+          "path": "gson/src/main/java/com/google/gson/Gson.java",
+          "functionStartLine": 648,
+          "functionName": "newJsonWriter",
+          "functionAnnotation": "",
+          "functionDoc": "Returns a new JSON writer configured for the settings on this Gson instance.\n",
+          "diff": "@@ -1,11 +1,11 @@\n-private JsonWriter newJsonWriter(Writer writer) throws IOException {\n+public JsonWriter newJsonWriter(Writer writer) throws IOException {\n     if (generateNonExecutableJson) {\n         writer.write(JSON_NON_EXECUTABLE_PREFIX);\n     }\n     JsonWriter jsonWriter \u003d new JsonWriter(writer);\n     if (prettyPrinting) {\n         jsonWriter.setIndent(\"  \");\n     }\n     jsonWriter.setSerializeNulls(serializeNulls);\n     return jsonWriter;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private]",
+            "newValue": "[public]"
+          }
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Expose newJsonWriter wrapper instead of just options.\n\nThis is more future proof to ensure that consumers holding on to TypeAdapters for efficiency can always encode JSON in the same way as if the Gson instance was used directly.\n",
+          "commitDate": "9/26/15, 4:19 PM",
+          "commitName": "e81f3eba2731bac5b7b5a50e7218f9847a170d83",
+          "commitAuthor": "Jake Wharton",
+          "commitDateOld": "9/7/15, 7:44 PM",
+          "commitNameOld": "31f80d86590e523af1360a1a3d0f330989434286",
+          "commitAuthorOld": "",
+          "daysBetweenCommits": 18.86,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public JsonWriter newJsonWriter(Writer writer) throws IOException {\n    if (generateNonExecutableJson) {\n        writer.write(JSON_NON_EXECUTABLE_PREFIX);\n    }\n    JsonWriter jsonWriter \u003d new JsonWriter(writer);\n    if (prettyPrinting) {\n        jsonWriter.setIndent(\"  \");\n    }\n    jsonWriter.setSerializeNulls(serializeNulls);\n    return jsonWriter;\n}",
+          "path": "gson/src/main/java/com/google/gson/Gson.java",
+          "functionStartLine": 648,
+          "functionName": "newJsonWriter",
+          "functionAnnotation": "",
+          "functionDoc": "Returns a new JSON writer configured for the settings on this Gson instance.\n",
+          "diff": "@@ -1,11 +1,11 @@\n-private JsonWriter newJsonWriter(Writer writer) throws IOException {\n+public JsonWriter newJsonWriter(Writer writer) throws IOException {\n     if (generateNonExecutableJson) {\n         writer.write(JSON_NON_EXECUTABLE_PREFIX);\n     }\n     JsonWriter jsonWriter \u003d new JsonWriter(writer);\n     if (prettyPrinting) {\n         jsonWriter.setIndent(\"  \");\n     }\n     jsonWriter.setSerializeNulls(serializeNulls);\n     return jsonWriter;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Returns a new JSON writer configured for this GSON and with the non-execute\nprefix if that is configured.\n",
+            "newValue": "Returns a new JSON writer configured for the settings on this Gson instance.\n"
+          }
+        }
+      ]
+    },
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075": {
+      "type": "Yintroduced",
+      "commitMessage": "Adopt JsonElementWriter in GSON.\nAdd setSerializeNulls() to JsonWriter, so nulls can be skipped from serialization. This does not yet impact JsonElementWriter.\n\nOne change in behavior: if the only value is skipped, we now emit \"null\" rather than \"\".\n",
+      "commitDate": "9/30/11, 12:08 AM",
+      "commitName": "bb7f0b6bb01b0e98e32229cb528772a66a9d6075",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,11 @@\n+private JsonWriter newJsonWriter(Writer writer) throws IOException {\n+    if (generateNonExecutableJson) {\n+        writer.write(JSON_NON_EXECUTABLE_PREFIX);\n+    }\n+    JsonWriter jsonWriter \u003d new JsonWriter(writer);\n+    if (prettyPrinting) {\n+        jsonWriter.setIndent(\"  \");\n+    }\n+    jsonWriter.setSerializeNulls(serializeNulls);\n+    return jsonWriter;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JsonWriter newJsonWriter(Writer writer) throws IOException {\n    if (generateNonExecutableJson) {\n        writer.write(JSON_NON_EXECUTABLE_PREFIX);\n    }\n    JsonWriter jsonWriter \u003d new JsonWriter(writer);\n    if (prettyPrinting) {\n        jsonWriter.setIndent(\"  \");\n    }\n    jsonWriter.setSerializeNulls(serializeNulls);\n    return jsonWriter;\n}",
+      "path": "gson/src/main/java/com/google/gson/Gson.java",
+      "functionStartLine": 555,
+      "functionName": "newJsonWriter",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a new JSON writer configured for this GSON and with the non-execute\nprefix if that is configured.\n"
+    }
+  }
+}

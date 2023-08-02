@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Whitelist.java",
+  "functionName": "addTags",
+  "functionId": "addTags___tags-String",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Whitelist.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Add a list of allowed elements to a whitelist. (If a tag is not allowed, it will be removed from the HTML.)\n\n@ @param tags tag names to allow\n     @return this (for chaining)\n",
+  "functionStartLine": 184,
+  "functionEndLine": 192,
+  "numCommitsSeen": 13,
+  "timeTaken": 437,
+  "changeHistory": [
+    "577b29272d3cefacef578ea035e90efd78a1360b",
+    "0eeefe41eef0c037f514965618e7f9c2d2129d7b"
+  ],
+  "changeHistoryShort": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": "Ymultichange(Ybodychange,Ydocchange)",
+    "0eeefe41eef0c037f514965618e7f9c2d2129d7b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "0eeefe41eef0c037f514965618e7f9c2d2129d7b",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Whitelist addTags(String... tags) {\n    Validate.notNull(tags);\n    for (String tagName : tags) {\n        Validate.notEmpty(tagName);\n        tagNames.add(TagName.valueOf(tagName));\n    }\n    return this;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 162,
+          "functionName": "addTags",
+          "functionAnnotation": "",
+          "functionDoc": "     Add a list of allowed elements to a whitelist. (If a tag is not allowed, it will be removed from the HTML.)\n\n@ @param tags tag names to allow\n     @return this (for chaining)\n",
+          "diff": "@@ -1,6 +1,8 @@\n public Whitelist addTags(String... tags) {\n+    Validate.notNull(tags);\n     for (String tagName : tags) {\n+        Validate.notEmpty(tagName);\n         tagNames.add(TagName.valueOf(tagName));\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "0eeefe41eef0c037f514965618e7f9c2d2129d7b",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Whitelist addTags(String... tags) {\n    Validate.notNull(tags);\n    for (String tagName : tags) {\n        Validate.notEmpty(tagName);\n        tagNames.add(TagName.valueOf(tagName));\n    }\n    return this;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 162,
+          "functionName": "addTags",
+          "functionAnnotation": "",
+          "functionDoc": "     Add a list of allowed elements to a whitelist. (If a tag is not allowed, it will be removed from the HTML.)\n\n@ @param tags tag names to allow\n     @return this (for chaining)\n",
+          "diff": "@@ -1,6 +1,8 @@\n public Whitelist addTags(String... tags) {\n+    Validate.notNull(tags);\n     for (String tagName : tags) {\n+        Validate.notEmpty(tagName);\n         tagNames.add(TagName.valueOf(tagName));\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "     Add a list of allowed elements to a whitelist. (If a tag is not allowed, it will be removed from the HTML.)\n\n@ @param tags tag names to allow\n     @return this (for chaining)\n"
+          }
+        }
+      ]
+    },
+    "0eeefe41eef0c037f514965618e7f9c2d2129d7b": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial bits of HTML cleaner.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "0eeefe41eef0c037f514965618e7f9c2d2129d7b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+public Whitelist addTags(String... tags) {\n+    for (String tagName : tags) {\n+        tagNames.add(TagName.valueOf(tagName));\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Whitelist addTags(String... tags) {\n    for (String tagName : tags) {\n        tagNames.add(TagName.valueOf(tagName));\n    }\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+      "functionStartLine": 23,
+      "functionName": "addTags",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "requiresSpecificParent",
+  "functionId": "requiresSpecificParent",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 181,
+  "functionEndLine": 183,
+  "numCommitsSeen": 36,
+  "timeTaken": 933,
+  "changeHistory": [
+    "ba5d66010db39205e29289ae81122fc85299d145",
+    "0081d162cca8ad23b500b53799195fec644f261b"
+  ],
+  "changeHistoryShort": {
+    "ba5d66010db39205e29289ae81122fc85299d145": "Ybodychange",
+    "0081d162cca8ad23b500b53799195fec644f261b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ba5d66010db39205e29289ae81122fc85299d145": {
+      "type": "Ybodychange",
+      "commitMessage": "Improved tag definitions to allow limited children and excluded children.\nImproved implicit table element creation, particularly around tbody tags.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ba5d66010db39205e29289ae81122fc85299d145",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "7520dee7b688bdab536bfd76fca47a65316d2147",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean requiresSpecificParent() {\n    return directDescendant;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 178,
+      "functionName": "requiresSpecificParent",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n boolean requiresSpecificParent() {\n-    return this.parent !\u003d null;\n+    return directDescendant;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "0081d162cca8ad23b500b53799195fec644f261b": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved implicit close tag heuristic detection when parsing malformed HTML.\n\nFixes an issue where appending / prepending rows to a table (or  to similar implicit\nelement structures) would create a redundant wrapping elements.\n\nFixes #21\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "0081d162cca8ad23b500b53799195fec644f261b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+boolean requiresSpecificParent() {\n+    return this.parent !\u003d null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean requiresSpecificParent() {\n    return this.parent !\u003d null;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 158,
+      "functionName": "requiresSpecificParent",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

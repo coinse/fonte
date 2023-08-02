@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-55b",
+  "repositoryPath": "/tmp/Jsoup-55b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tokeniser.java",
+  "functionName": "createTagPending",
+  "functionId": "createTagPending___start-boolean",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 200,
+  "functionEndLine": 203,
+  "numCommitsSeen": 22,
+  "timeTaken": 1217,
+  "changeHistory": [
+    "e99193605b688e923d20054c13db897cff751607",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "e99193605b688e923d20054c13db897cff751607": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e99193605b688e923d20054c13db897cff751607": {
+      "type": "Ybodychange",
+      "commitMessage": "Reuse Tokens, instead of creating all the time\n\nSaves an awful lot of GC. These are just data transfer objects, so not\nworth creating every time.\n",
+      "commitDate": "10/27/14, 9:29 PM",
+      "commitName": "e99193605b688e923d20054c13db897cff751607",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/26/14, 4:27 PM",
+      "commitNameOld": "4ec4cf2fc80c7faed010275d8a59f6e9decc33e2",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 1.21,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "Token.Tag createTagPending(boolean start) {\n    tagPending \u003d start ? startPending.reset() : endPending.reset();\n    return tagPending;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tokeniser.java",
+      "functionStartLine": 183,
+      "functionName": "createTagPending",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n Token.Tag createTagPending(boolean start) {\n-    tagPending \u003d start ? new Token.StartTag() : new Token.EndTag();\n+    tagPending \u003d start ? startPending.reset() : endPending.reset();\n     return tagPending;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+Token.Tag createTagPending(boolean start) {\n+    tagPending \u003d start ? new Token.StartTag() : new Token.EndTag();\n+    return tagPending;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Token.Tag createTagPending(boolean start) {\n    tagPending \u003d start ? new Token.StartTag() : new Token.EndTag();\n    return tagPending;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tokeniser.java",
+      "functionStartLine": 163,
+      "functionName": "createTagPending",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

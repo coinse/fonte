@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-32b",
+  "repositoryPath": "/tmp/Jsoup-32b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "className",
+  "functionId": "className",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the literal value of this element\u0027s \"class\" attribute, which may include multiple class names, space\nseparated. (E.g. on \u003ccode\u003e\u0026lt;div class\u003d\"header gray\"\u003e\u003c/code\u003e returns, \"\u003ccode\u003eheader gray\u003c/code\u003e\")\n\n@return The literal class attribute, or \u003cb\u003eempty string\u003c/b\u003e if no class attribute set.\n",
+  "functionStartLine": 951,
+  "functionEndLine": 953,
+  "numCommitsSeen": 79,
+  "timeTaken": 1937,
+  "changeHistory": [
+    "8749726a79c22451b1f01b14fb2137f734e926b4",
+    "46e1e9780049f855ca60f2c32c594062358a3330",
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2"
+  ],
+  "changeHistoryShort": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Ybodychange",
+    "46e1e9780049f855ca60f2c32c594062358a3330": "Ydocchange",
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Ybodychange",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "db9efbd54c6ff876768eb874f7e9fe84a6632729",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 6,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String className() {\n    return attr(\"class\");\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 872,
+      "functionName": "className",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the literal value of this element\u0027s \"class\" attribute, which may include multiple class names, space\nseparated. (E.g. on \u003ccode\u003e\u0026lt;div class\u003d\"header gray\"\u003e\u003c/code\u003e returns, \"\u003ccode\u003eheader gray\u003c/code\u003e\")\n\n@return The literal class attribute, or \u003cb\u003eempty string\u003c/b\u003e if no class attribute set.\n",
+      "diff": "@@ -1,3 +1,3 @@\n public String className() {\n-    return attributes.hasKey(\"class\") ? attributes.get(\"class\") : \"\";\n+    return attr(\"class\");\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "46e1e9780049f855ca60f2c32c594062358a3330": {
+      "type": "Ydocchange",
+      "commitMessage": "Doc tidy.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "46e1e9780049f855ca60f2c32c594062358a3330",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "9bed789bfee6c6433945c0a3e2c710c897616888",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String className() {\n    return attributes.hasKey(\"class\") ? attributes.get(\"class\") : \"\";\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 483,
+      "functionName": "className",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the literal value of this element\u0027s \"class\" attribute, which may include multiple class names, space\nseparated. (E.g. on \u003ccode\u003e\u0026lt;div class\u003d\"header gray\"\u003e\u003c/code\u003e returns, \"\u003ccode\u003eheader gray\u003c/code\u003e\")\n\n@return The literal class attribute, or \u003cb\u003eempty string\u003c/b\u003e if no class attribute set.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Gets the literal value of this element\u0027s \"class\" attribute, which may include multiple class names, space\nseparated (e.g. \u003ccode\u003e\u0026lt;div class\u003d\"header gray\"\u003e\u003c/code\u003e returns \"\u003ccode\u003eheader gray\u003c/code\u003e\")\n\n@return The literal class attribute, or \u003cb\u003eempty string\u003c/b\u003e if no class attribute set.\n",
+        "newValue": "Gets the literal value of this element\u0027s \"class\" attribute, which may include multiple class names, space\nseparated. (E.g. on \u003ccode\u003e\u0026lt;div class\u003d\"header gray\"\u003e\u003c/code\u003e returns, \"\u003ccode\u003eheader gray\u003c/code\u003e\")\n\n@return The literal class attribute, or \u003cb\u003eempty string\u003c/b\u003e if no class attribute set.\n"
+      }
+    },
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented:\n * Element.getElementsByClass\n * Element.getElementsWithAttribute\n * Element.getElementsWithAttributeValue\n * Element.className\n * Element.hasClass\n * Elmenet.classNames\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f435b791e193cfe771d7dbd28d2822c32a0889e2",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+public String className() {\n+    return attributes.hasKey(\"class\") ? attributes.get(\"class\") : \"\";\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String className() {\n    return attributes.hasKey(\"class\") ? attributes.get(\"class\") : \"\";\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 188,
+      "functionName": "className",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the literal value of this element\u0027s \"class\" attribute, which may include multiple class names, space\nseparated (e.g. \u003ccode\u003e\u0026lt;div class\u003d\"header gray\"\u003e\u003c/code\u003e returns \"\u003ccode\u003eheader gray\u003c/code\u003e\")\n\n@return The literal class attribute, or \u003cb\u003eempty string\u003c/b\u003e if no class attribute set.\n"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Attributes.java",
+  "functionName": "get",
+  "functionId": "get___key-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Attributes.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Get an attribute value by key.\n\n@ @param key the attribute key\n     @return the attribute value if set; or empty string if not set.\n     @see #hasKey(String)\n",
+  "functionStartLine": 29,
+  "functionEndLine": 34,
+  "numCommitsSeen": 19,
+  "timeTaken": 338,
+  "changeHistory": [
+    "28418f8335d2b359690e80e61d0081f4e892769c",
+    "5b4070635f916b7d9d99e306a4c3016473828db6",
+    "a29e8b5374c7ba0828752fe78b3cc3471532121b"
+  ],
+  "changeHistoryShort": {
+    "28418f8335d2b359690e80e61d0081f4e892769c": "Ydocchange",
+    "5b4070635f916b7d9d99e306a4c3016473828db6": "Ybodychange",
+    "a29e8b5374c7ba0828752fe78b3cc3471532121b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "28418f8335d2b359690e80e61d0081f4e892769c": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "28418f8335d2b359690e80e61d0081f4e892769c",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "d8dbde85408a685075e5cbec0709877317393497",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 23,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String get(String key) {\n    Validate.notEmpty(key);\n    Attribute attr \u003d attributes.get(key.toLowerCase());\n    return attr !\u003d null ? attr.getValue() : \"\";\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 27,
+      "functionName": "get",
+      "functionAnnotation": "",
+      "functionDoc": "     Get an attribute value by key.\n\n@ @param key the attribute key\n     @return the attribute value if set; or empty string if not set.\n     @see #hasKey(String)\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "     Get an attribute value by key.\n\n@ @param key the attribute key\n     @return the attribute value if set; or empty string if not set.\n     @see #hasKey(String)\n"
+      }
+    },
+    "5b4070635f916b7d9d99e306a4c3016473828db6": {
+      "type": "Ybodychange",
+      "commitMessage": "Attributes values back to Attribute\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "5b4070635f916b7d9d99e306a4c3016473828db6",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "1f3cfcfb08a5e7454e61513389b814c7da6072ac",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 68,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String get(String key) {\n    Validate.notEmpty(key);\n    Attribute attr \u003d attributes.get(key.toLowerCase());\n    return attr !\u003d null ? attr.getValue() : \"\";\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 18,
+      "functionName": "get",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,5 @@\n public String get(String key) {\n     Validate.notEmpty(key);\n-    return attributes.get(key.toLowerCase());\n+    Attribute attr \u003d attributes.get(key.toLowerCase());\n+    return attr !\u003d null ? attr.getValue() : \"\";\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a29e8b5374c7ba0828752fe78b3cc3471532121b": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial implementation of AttributeParser.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "a29e8b5374c7ba0828752fe78b3cc3471532121b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+public String get(String key) {\n+    Validate.notEmpty(key);\n+    return attributes.get(key.toLowerCase());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String get(String key) {\n    Validate.notEmpty(key);\n    return attributes.get(key.toLowerCase());\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 14,
+      "functionName": "get",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

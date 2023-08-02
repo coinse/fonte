@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonWriter.java",
+  "functionName": "endObject",
+  "functionId": "endObject",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Ends encoding the current object.\n\n@return this writer.\n",
+  "functionStartLine": 316,
+  "functionEndLine": 318,
+  "numCommitsSeen": 17,
+  "timeTaken": 600,
+  "changeHistory": [
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e"
+  ],
+  "changeHistoryShort": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": "Ybodychange",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": {
+      "type": "Ybodychange",
+      "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+      "commitDate": "8/14/12, 2:32 PM",
+      "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "6/29/12, 7:46 PM",
+      "commitNameOld": "1c7aee40f3d0d6f50b3d149e94a2b3b4627ca8a9",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 45.78,
+      "commitsBetweenForRepo": 19,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public JsonWriter endObject() throws IOException {\n    return close(EMPTY_OBJECT, NONEMPTY_OBJECT, \"}\");\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 316,
+      "functionName": "endObject",
+      "functionAnnotation": "",
+      "functionDoc": "Ends encoding the current object.\n\n@return this writer.\n",
+      "diff": "@@ -1,3 +1,3 @@\n public JsonWriter endObject() throws IOException {\n-    return close(JsonScope.EMPTY_OBJECT, JsonScope.NONEMPTY_OBJECT, \"}\");\n+    return close(EMPTY_OBJECT, NONEMPTY_OBJECT, \"}\");\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": {
+      "type": "Yintroduced",
+      "commitMessage": "Brand new classes for streaming JSON efficiently.\n\nNotable features:\n - Efficiency. The parser is faster than the current javacc parser. It\u0027s also faster than popular libraries for JSON streaming.\n - Toggle lenient/strict\n - Toggle pretty/compact\n - Friendly error messages on bad JSON\n - GSON-quality Javadoc\n - Non-execute prefix handling\n\nThis doesn\u0027t wire JsonReader up into Gson just yet. That\u0027s coming soon...\n",
+      "commitDate": "8/26/10, 1:44 AM",
+      "commitName": "765a9f1ecdfaf96f3587f488385111c9d6a4927e",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,3 @@\n+public JsonWriter endObject() throws IOException {\n+    return close(JsonScope.EMPTY_OBJECT, JsonScope.NONEMPTY_OBJECT, \"}\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JsonWriter endObject() throws IOException {\n    return close(JsonScope.EMPTY_OBJECT, JsonScope.NONEMPTY_OBJECT, \"}\");\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 207,
+      "functionName": "endObject",
+      "functionAnnotation": "",
+      "functionDoc": "Ends encoding the current object.\n\n@return this writer.\n"
+    }
+  }
+}

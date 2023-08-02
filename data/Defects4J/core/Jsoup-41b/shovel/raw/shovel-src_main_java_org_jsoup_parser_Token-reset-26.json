@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-41b",
+  "repositoryPath": "/tmp/Jsoup-41b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Token.java",
+  "functionName": "reset",
+  "functionId": "reset___sb-StringBuilder",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Token.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 26,
+  "functionEndLine": 30,
+  "numCommitsSeen": 16,
+  "timeTaken": 1222,
+  "changeHistory": [
+    "e99193605b688e923d20054c13db897cff751607"
+  ],
+  "changeHistoryShort": {
+    "e99193605b688e923d20054c13db897cff751607": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e99193605b688e923d20054c13db897cff751607": {
+      "type": "Yintroduced",
+      "commitMessage": "Reuse Tokens, instead of creating all the time\n\nSaves an awful lot of GC. These are just data transfer objects, so not\nworth creating every time.\n",
+      "commitDate": "10/27/14, 9:29 PM",
+      "commitName": "e99193605b688e923d20054c13db897cff751607",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,5 @@\n+static void reset(StringBuilder sb) {\n+    if (sb !\u003d null) {\n+        sb.delete(0, sb.length());\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static void reset(StringBuilder sb) {\n    if (sb !\u003d null) {\n        sb.delete(0, sb.length());\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/Token.java",
+      "functionStartLine": 26,
+      "functionName": "reset",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

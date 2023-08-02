@@ -1,0 +1,229 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-2b",
+  "repositoryPath": "/tmp/Jsoup-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokenQueue.java",
+  "functionName": "consumeToAny",
+  "functionId": "consumeToAny___seq-String",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Consumes to the first sequence provided, or to the end of the queue. Leaves the terminator on the queue.\n\n@ @param seq any number of terminators to consume to\n     @return consumed string\n",
+  "functionStartLine": 169,
+  "functionEndLine": 175,
+  "numCommitsSeen": 19,
+  "timeTaken": 558,
+  "changeHistory": [
+    "3f67316f30614c43d14533ccc5246f7d964db70e",
+    "04025259e96d3676097e84126fb55124b92c50ed",
+    "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+    "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268"
+  ],
+  "changeHistoryShort": {
+    "3f67316f30614c43d14533ccc5246f7d964db70e": "Ydocchange",
+    "04025259e96d3676097e84126fb55124b92c50ed": "Ymultichange(Yrename,Ymodifierchange,Ybodychange,Ydocchange)",
+    "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+    "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3f67316f30614c43d14533ccc5246f7d964db70e": {
+      "type": "Ydocchange",
+      "commitMessage": "Parser javadoc\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "3f67316f30614c43d14533ccc5246f7d964db70e",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "070396808fcb7cf41ff29ad52f7d1078aba99832",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 69,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String consumeToAny(String... seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n    return accum.toString();\n}",
+      "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+      "functionStartLine": 169,
+      "functionName": "consumeToAny",
+      "functionAnnotation": "",
+      "functionDoc": "     Consumes to the first sequence provided, or to the end of the queue. Leaves the terminator on the queue.\n\n@ @param seq any number of terminators to consume to\n     @return consumed string\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "     Consumes to the first sequence provided, or to the end of the queue. Leaves the terminator on the queue.\n\n@ @param seq any number of terminators to consume to\n     @return consumed string\n"
+      }
+    },
+    "04025259e96d3676097e84126fb55124b92c50ed": {
+      "type": "Ymultichange(Yrename,Ymodifierchange,Ybodychange,Ydocchange)",
+      "commitMessage": "Initial, partial implementation of Selector.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "04025259e96d3676097e84126fb55124b92c50ed",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yrename",
+          "commitMessage": "Initial, partial implementation of Selector.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "04025259e96d3676097e84126fb55124b92c50ed",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public String consumeToAny(String... seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+          "functionStartLine": 130,
+          "functionName": "consumeToAny",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n-String consumeTo(String seq) {\n+public String consumeToAny(String... seq) {\n     StringBuilder accum \u003d new StringBuilder();\n-    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n+    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "consumeTo",
+            "newValue": "consumeToAny"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Initial, partial implementation of Selector.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "04025259e96d3676097e84126fb55124b92c50ed",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public String consumeToAny(String... seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+          "functionStartLine": 130,
+          "functionName": "consumeToAny",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n-String consumeTo(String seq) {\n+public String consumeToAny(String... seq) {\n     StringBuilder accum \u003d new StringBuilder();\n-    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n+    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[]",
+            "newValue": "[public]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Initial, partial implementation of Selector.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "04025259e96d3676097e84126fb55124b92c50ed",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public String consumeToAny(String... seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+          "functionStartLine": 130,
+          "functionName": "consumeToAny",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n-String consumeTo(String seq) {\n+public String consumeToAny(String... seq) {\n     StringBuilder accum \u003d new StringBuilder();\n-    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n+    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Initial, partial implementation of Selector.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "04025259e96d3676097e84126fb55124b92c50ed",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public String consumeToAny(String... seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+          "functionStartLine": 130,
+          "functionName": "consumeToAny",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,5 +1,5 @@\n-String consumeTo(String seq) {\n+public String consumeToAny(String... seq) {\n     StringBuilder accum \u003d new StringBuilder();\n-    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n+    while (!queue.isEmpty() \u0026\u0026 !matchesAny(seq)) accum.append(consume());\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Pulls a string off the queue, up to but exclusive of the match sequence, or to the queue running out.\n\n@param seq String to end on (and not include in return, but leave on queue)\n@return The matched data consumed from queue.\n",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange)",
+      "commitMessage": "Pulled string matching stuff out of Parser ad into TokenQueue, for reuse in selector parser. Added som texts and corrected behaviour of parser.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Pulled string matching stuff out of Parser ad into TokenQueue, for reuse in selector parser. Added som texts and corrected behaviour of parser.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "String consumeTo(String seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+          "functionStartLine": 105,
+          "functionName": "consumeTo",
+          "functionAnnotation": "",
+          "functionDoc": "Pulls a string off the queue, up to but exclusive of the match sequence, or to the queue running out.\n\n@param seq String to end on (and not include in return, but leave on queue)\n@return The matched data consumed from queue.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-private String consumeTo(String seq) {\n+String consumeTo(String seq) {\n     StringBuilder accum \u003d new StringBuilder();\n     while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/org/jsoup/parser/Parser.java",
+            "newPath": "src/main/java/org/jsoup/parser/TokenQueue.java",
+            "oldMethodName": "consumeTo",
+            "newMethodName": "consumeTo"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Pulled string matching stuff out of Parser ad into TokenQueue, for reuse in selector parser. Added som texts and corrected behaviour of parser.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "03336ea9dd5d2aef2e31fe5e6402a04242f4d9f8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "String consumeTo(String seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n    return accum.toString();\n}",
+          "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+          "functionStartLine": 105,
+          "functionName": "consumeTo",
+          "functionAnnotation": "",
+          "functionDoc": "Pulls a string off the queue, up to but exclusive of the match sequence, or to the queue running out.\n\n@param seq String to end on (and not include in return, but leave on queue)\n@return The matched data consumed from queue.\n",
+          "diff": "@@ -1,5 +1,5 @@\n-private String consumeTo(String seq) {\n+String consumeTo(String seq) {\n     StringBuilder accum \u003d new StringBuilder();\n     while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n     return accum.toString();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private]",
+            "newValue": "[]"
+          }
+        }
+      ]
+    },
+    "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplemented parser.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,5 @@\n+private String consumeTo(String seq) {\n+    StringBuilder accum \u003d new StringBuilder();\n+    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n+    return accum.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String consumeTo(String seq) {\n    StringBuilder accum \u003d new StringBuilder();\n    while (!queue.isEmpty() \u0026\u0026 !matches(seq)) accum.append(consume());\n    return accum.toString();\n}",
+      "path": "src/main/java/org/jsoup/parser/Parser.java",
+      "functionStartLine": 187,
+      "functionName": "consumeTo",
+      "functionAnnotation": "",
+      "functionDoc": "Pulls a string off the queue, up to but exclusive of the match sequence, or to the queue running out.\n\n@param seq String to end on (and not include in return, but leave on queue)\n@return The matched data consumed from queue.\n"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Whitelist.java",
+  "functionName": "addEnforcedAttribute",
+  "functionId": "addEnforcedAttribute___tag-String__key-String__value-String",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Whitelist.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Add an enforced attribute to a tag. An enforced attribute will always be added to the element. If the element\n     already has the attribute set, it will be overridden.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddEnforcedAttribute(\"a\", \"rel\", \"nofollow\")\u003c/code\u003e will make all \u003ccode\u003ea\u003c/code\u003e tags output as\n     \u003ccode\u003e\u0026lt;a href\u003d\"...\" rel\u003d\"nofollow\"\u003e\u003c/code\u003e\n\n@ @param tag   The tag the enforced attribute is for. The tag will be added to the allowed tag list if necessary.\n     @param key   The attribute key\n     @param value The enforced attribute value\n     @return this (for chaining)\n",
+  "functionStartLine": 241,
+  "functionEndLine": 260,
+  "numCommitsSeen": 13,
+  "timeTaken": 641,
+  "changeHistory": [
+    "1e85878fe008f6c651c348dd1d5b2edf713f63bb",
+    "577b29272d3cefacef578ea035e90efd78a1360b"
+  ],
+  "changeHistoryShort": {
+    "1e85878fe008f6c651c348dd1d5b2edf713f63bb": "Ymultichange(Ybodychange,Ydocchange)",
+    "577b29272d3cefacef578ea035e90efd78a1360b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1e85878fe008f6c651c348dd1d5b2edf713f63bb": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "In HTML whitelists, when defining allowed attributes for a tag, automatically add the tag to the allowed list.\n\nFixes #192.\n",
+      "commitDate": "5/26/12, 2:40 PM",
+      "commitName": "1e85878fe008f6c651c348dd1d5b2edf713f63bb",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "In HTML whitelists, when defining allowed attributes for a tag, automatically add the tag to the allowed list.\n\nFixes #192.\n",
+          "commitDate": "5/26/12, 2:40 PM",
+          "commitName": "1e85878fe008f6c651c348dd1d5b2edf713f63bb",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "5/6/12, 12:50 AM",
+          "commitNameOld": "a97385eb2870d113427b0d9430e108236ae363b4",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 20.58,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Whitelist addEnforcedAttribute(String tag, String key, String value) {\n    Validate.notEmpty(tag);\n    Validate.notEmpty(key);\n    Validate.notEmpty(value);\n    TagName tagName \u003d TagName.valueOf(tag);\n    if (!tagNames.contains(tagName))\n        tagNames.add(tagName);\n    AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n    AttributeValue attrVal \u003d AttributeValue.valueOf(value);\n    if (enforcedAttributes.containsKey(tagName)) {\n        enforcedAttributes.get(tagName).put(attrKey, attrVal);\n    } else {\n        Map\u003cAttributeKey, AttributeValue\u003e attrMap \u003d new HashMap\u003cAttributeKey, AttributeValue\u003e();\n        attrMap.put(attrKey, attrVal);\n        enforcedAttributes.put(tagName, attrMap);\n    }\n    return this;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 241,
+          "functionName": "addEnforcedAttribute",
+          "functionAnnotation": "",
+          "functionDoc": "     Add an enforced attribute to a tag. An enforced attribute will always be added to the element. If the element\n     already has the attribute set, it will be overridden.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddEnforcedAttribute(\"a\", \"rel\", \"nofollow\")\u003c/code\u003e will make all \u003ccode\u003ea\u003c/code\u003e tags output as\n     \u003ccode\u003e\u0026lt;a href\u003d\"...\" rel\u003d\"nofollow\"\u003e\u003c/code\u003e\n\n@ @param tag   The tag the enforced attribute is for. The tag will be added to the allowed tag list if necessary.\n     @param key   The attribute key\n     @param value The enforced attribute value\n     @return this (for chaining)\n",
+          "diff": "@@ -1,16 +1,18 @@\n public Whitelist addEnforcedAttribute(String tag, String key, String value) {\n     Validate.notEmpty(tag);\n     Validate.notEmpty(key);\n     Validate.notEmpty(value);\n     TagName tagName \u003d TagName.valueOf(tag);\n+    if (!tagNames.contains(tagName))\n+        tagNames.add(tagName);\n     AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n     AttributeValue attrVal \u003d AttributeValue.valueOf(value);\n     if (enforcedAttributes.containsKey(tagName)) {\n         enforcedAttributes.get(tagName).put(attrKey, attrVal);\n     } else {\n         Map\u003cAttributeKey, AttributeValue\u003e attrMap \u003d new HashMap\u003cAttributeKey, AttributeValue\u003e();\n         attrMap.put(attrKey, attrVal);\n         enforcedAttributes.put(tagName, attrMap);\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "In HTML whitelists, when defining allowed attributes for a tag, automatically add the tag to the allowed list.\n\nFixes #192.\n",
+          "commitDate": "5/26/12, 2:40 PM",
+          "commitName": "1e85878fe008f6c651c348dd1d5b2edf713f63bb",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "5/6/12, 12:50 AM",
+          "commitNameOld": "a97385eb2870d113427b0d9430e108236ae363b4",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 20.58,
+          "commitsBetweenForRepo": 3,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Whitelist addEnforcedAttribute(String tag, String key, String value) {\n    Validate.notEmpty(tag);\n    Validate.notEmpty(key);\n    Validate.notEmpty(value);\n    TagName tagName \u003d TagName.valueOf(tag);\n    if (!tagNames.contains(tagName))\n        tagNames.add(tagName);\n    AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n    AttributeValue attrVal \u003d AttributeValue.valueOf(value);\n    if (enforcedAttributes.containsKey(tagName)) {\n        enforcedAttributes.get(tagName).put(attrKey, attrVal);\n    } else {\n        Map\u003cAttributeKey, AttributeValue\u003e attrMap \u003d new HashMap\u003cAttributeKey, AttributeValue\u003e();\n        attrMap.put(attrKey, attrVal);\n        enforcedAttributes.put(tagName, attrMap);\n    }\n    return this;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 241,
+          "functionName": "addEnforcedAttribute",
+          "functionAnnotation": "",
+          "functionDoc": "     Add an enforced attribute to a tag. An enforced attribute will always be added to the element. If the element\n     already has the attribute set, it will be overridden.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddEnforcedAttribute(\"a\", \"rel\", \"nofollow\")\u003c/code\u003e will make all \u003ccode\u003ea\u003c/code\u003e tags output as\n     \u003ccode\u003e\u0026lt;a href\u003d\"...\" rel\u003d\"nofollow\"\u003e\u003c/code\u003e\n\n@ @param tag   The tag the enforced attribute is for. The tag will be added to the allowed tag list if necessary.\n     @param key   The attribute key\n     @param value The enforced attribute value\n     @return this (for chaining)\n",
+          "diff": "@@ -1,16 +1,18 @@\n public Whitelist addEnforcedAttribute(String tag, String key, String value) {\n     Validate.notEmpty(tag);\n     Validate.notEmpty(key);\n     Validate.notEmpty(value);\n     TagName tagName \u003d TagName.valueOf(tag);\n+    if (!tagNames.contains(tagName))\n+        tagNames.add(tagName);\n     AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n     AttributeValue attrVal \u003d AttributeValue.valueOf(value);\n     if (enforcedAttributes.containsKey(tagName)) {\n         enforcedAttributes.get(tagName).put(attrKey, attrVal);\n     } else {\n         Map\u003cAttributeKey, AttributeValue\u003e attrMap \u003d new HashMap\u003cAttributeKey, AttributeValue\u003e();\n         attrMap.put(attrKey, attrVal);\n         enforcedAttributes.put(tagName, attrMap);\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "     Add an enforced attribute to a tag. An enforced attribute will always be added to the element. If the element\n     already has the attribute set, it will be overridden.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddEnforcedAttribute(\"a\", \"rel\", \"nofollow\")\u003c/code\u003e will make all \u003ccode\u003ea\u003c/code\u003e tags output as\n     \u003ccode\u003e\u0026lt;a href\u003d\"...\" rel\u003d\"nofollow\"\u003e\u003c/code\u003e\n\n@ @param tag   The tag the enforced attribute is for\n     @param key   The attribute key\n     @param value The enforced attribute value\n     @return this (for chaining)\n",
+            "newValue": "     Add an enforced attribute to a tag. An enforced attribute will always be added to the element. If the element\n     already has the attribute set, it will be overridden.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddEnforcedAttribute(\"a\", \"rel\", \"nofollow\")\u003c/code\u003e will make all \u003ccode\u003ea\u003c/code\u003e tags output as\n     \u003ccode\u003e\u0026lt;a href\u003d\"...\" rel\u003d\"nofollow\"\u003e\u003c/code\u003e\n\n@ @param tag   The tag the enforced attribute is for. The tag will be added to the allowed tag list if necessary.\n     @param key   The attribute key\n     @param value The enforced attribute value\n     @return this (for chaining)\n"
+          }
+        }
+      ]
+    },
+    "577b29272d3cefacef578ea035e90efd78a1360b": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,16 @@\n+public Whitelist addEnforcedAttribute(String tag, String key, String value) {\n+    Validate.notEmpty(tag);\n+    Validate.notEmpty(key);\n+    Validate.notEmpty(value);\n+    TagName tagName \u003d TagName.valueOf(tag);\n+    AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n+    AttributeValue attrVal \u003d AttributeValue.valueOf(value);\n+    if (enforcedAttributes.containsKey(tagName)) {\n+        enforcedAttributes.get(tagName).put(attrKey, attrVal);\n+    } else {\n+        Map\u003cAttributeKey, AttributeValue\u003e attrMap \u003d new HashMap\u003cAttributeKey, AttributeValue\u003e();\n+        attrMap.put(attrKey, attrVal);\n+        enforcedAttributes.put(tagName, attrMap);\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Whitelist addEnforcedAttribute(String tag, String key, String value) {\n    Validate.notEmpty(tag);\n    Validate.notEmpty(key);\n    Validate.notEmpty(value);\n    TagName tagName \u003d TagName.valueOf(tag);\n    AttributeKey attrKey \u003d AttributeKey.valueOf(key);\n    AttributeValue attrVal \u003d AttributeValue.valueOf(value);\n    if (enforcedAttributes.containsKey(tagName)) {\n        enforcedAttributes.get(tagName).put(attrKey, attrVal);\n    } else {\n        Map\u003cAttributeKey, AttributeValue\u003e attrMap \u003d new HashMap\u003cAttributeKey, AttributeValue\u003e();\n        attrMap.put(attrKey, attrVal);\n        enforcedAttributes.put(tagName, attrMap);\n    }\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+      "functionStartLine": 213,
+      "functionName": "addEnforcedAttribute",
+      "functionAnnotation": "",
+      "functionDoc": "     Add an enforced attribute to a tag. An enforced attribute will always be added to the element. If the element\n     already has the attribute set, it will be overridden.\n     \u003cp/\u003e\n     E.g.: \u003ccode\u003eaddEnforcedAttribute(\"a\", \"rel\", \"nofollow\")\u003c/code\u003e will make all \u003ccode\u003ea\u003c/code\u003e tags output as\n     \u003ccode\u003e\u0026lt;a href\u003d\"...\" rel\u003d\"nofollow\"\u003e\u003c/code\u003e\n\n@ @param tag   The tag the enforced attribute is for\n     @param key   The attribute key\n     @param value The enforced attribute value\n     @return this (for chaining)\n"
+    }
+  }
+}

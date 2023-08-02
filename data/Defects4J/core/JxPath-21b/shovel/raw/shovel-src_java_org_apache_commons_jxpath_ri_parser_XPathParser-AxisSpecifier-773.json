@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XPathParser.java",
+  "functionName": "AxisSpecifier",
+  "functionId": "AxisSpecifier",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 773,
+  "functionEndLine": 797,
+  "numCommitsSeen": 8,
+  "timeTaken": 1500,
+  "changeHistory": [
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,28 @@\n+public final int AxisSpecifier() throws ParseException {\n+    int axis;\n+    switch(jj_nt.kind) {\n+        case AXIS_SELF:\n+        case AXIS_CHILD:\n+        case AXIS_PARENT:\n+        case AXIS_ANCESTOR:\n+        case AXIS_ATTRIBUTE:\n+        case AXIS_NAMESPACE:\n+        case AXIS_PRECEDING:\n+        case AXIS_FOLLOWING:\n+        case AXIS_DESCENDANT:\n+        case AXIS_ANCESTOR_OR_SELF:\n+        case AXIS_FOLLOWING_SIBLING:\n+        case AXIS_PRECEDING_SIBLING:\n+        case AXIS_DESCENDANT_OR_SELF:\n+            axis \u003d AxisName();\n+            break;\n+        default:\n+            jj_la1[13] \u003d jj_gen;\n+            axis \u003d AbbreviatedAxisSpecifier();\n+    }\n+    {\n+        if (true)\n+            return axis;\n+    }\n+    throw new Error(\"Missing return statement in function\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final int AxisSpecifier() throws ParseException {\n    int axis;\n    switch(jj_nt.kind) {\n        case AXIS_SELF:\n        case AXIS_CHILD:\n        case AXIS_PARENT:\n        case AXIS_ANCESTOR:\n        case AXIS_ATTRIBUTE:\n        case AXIS_NAMESPACE:\n        case AXIS_PRECEDING:\n        case AXIS_FOLLOWING:\n        case AXIS_DESCENDANT:\n        case AXIS_ANCESTOR_OR_SELF:\n        case AXIS_FOLLOWING_SIBLING:\n        case AXIS_PRECEDING_SIBLING:\n        case AXIS_DESCENDANT_OR_SELF:\n            axis \u003d AxisName();\n            break;\n        default:\n            jj_la1[13] \u003d jj_gen;\n            axis \u003d AbbreviatedAxisSpecifier();\n    }\n    {\n        if (true)\n            return axis;\n    }\n    throw new Error(\"Missing return statement in function\");\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+      "functionStartLine": 731,
+      "functionName": "AxisSpecifier",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

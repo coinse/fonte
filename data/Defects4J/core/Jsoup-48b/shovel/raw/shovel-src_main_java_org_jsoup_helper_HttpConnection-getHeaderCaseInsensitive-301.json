@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-48b",
+  "repositoryPath": "/tmp/Jsoup-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HttpConnection.java",
+  "functionName": "getHeaderCaseInsensitive",
+  "functionId": "$getHeaderCaseInsensitive___name-String",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 301,
+  "functionEndLine": 313,
+  "numCommitsSeen": 56,
+  "timeTaken": 2080,
+  "changeHistory": [
+    "3091fd44859c3e5849fbc51fcab48342823276c2"
+  ],
+  "changeHistoryShort": {
+    "3091fd44859c3e5849fbc51fcab48342823276c2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3091fd44859c3e5849fbc51fcab48342823276c2": {
+      "type": "Yintroduced",
+      "commitMessage": "Treat HTTP headers as case insensitive in Jsoup.Connection. Improves compatibility for HTTP responses.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "3091fd44859c3e5849fbc51fcab48342823276c2",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,12 @@\n+private String getHeaderCaseInsensitive(String name) {\n+    Validate.notNull(name, \"Header name must not be null\");\n+    String value \u003d headers.get(name);\n+    if (value \u003d\u003d null)\n+        value \u003d headers.get(name.toLowerCase());\n+    if (value \u003d\u003d null) {\n+        Map.Entry\u003cString, String\u003e entry \u003d scanHeaders(name);\n+        if (entry !\u003d null)\n+            value \u003d entry.getValue();\n+    }\n+    return value;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String getHeaderCaseInsensitive(String name) {\n    Validate.notNull(name, \"Header name must not be null\");\n    String value \u003d headers.get(name);\n    if (value \u003d\u003d null)\n        value \u003d headers.get(name.toLowerCase());\n    if (value \u003d\u003d null) {\n        Map.Entry\u003cString, String\u003e entry \u003d scanHeaders(name);\n        if (entry !\u003d null)\n            value \u003d entry.getValue();\n    }\n    return value;\n}",
+      "path": "src/main/java/org/jsoup/helper/HttpConnection.java",
+      "functionStartLine": 224,
+      "functionName": "getHeaderCaseInsensitive",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

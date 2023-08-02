@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-10b",
+  "repositoryPath": "/tmp/JxPath-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimpleCharStream.java",
+  "functionName": "readChar",
+  "functionId": "readChar",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/SimpleCharStream.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 175,
+  "functionEndLine": 194,
+  "numCommitsSeen": 1,
+  "timeTaken": 1152,
+  "changeHistory": [
+    "6b424e974f9e68987125d1d489731366bee87031"
+  ],
+  "changeHistoryShort": {
+    "6b424e974f9e68987125d1d489731366bee87031": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b424e974f9e68987125d1d489731366bee87031": {
+      "type": "Yintroduced",
+      "commitMessage": "Upgraded to JavaCC 3.0, enabled optimizations\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136861 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/4/03, 4:48 PM",
+      "commitName": "6b424e974f9e68987125d1d489731366bee87031",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,13 @@\n+public char readChar() throws java.io.IOException {\n+    if (inBuf \u003e 0) {\n+        --inBuf;\n+        if (++bufpos \u003d\u003d bufsize)\n+            bufpos \u003d 0;\n+        return buffer[bufpos];\n+    }\n+    if (++bufpos \u003e\u003d maxNextCharInd)\n+        FillBuff();\n+    char c \u003d buffer[bufpos];\n+    UpdateLineColumn(c);\n+    return (c);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public char readChar() throws java.io.IOException {\n    if (inBuf \u003e 0) {\n        --inBuf;\n        if (++bufpos \u003d\u003d bufsize)\n            bufpos \u003d 0;\n        return buffer[bufpos];\n    }\n    if (++bufpos \u003e\u003d maxNextCharInd)\n        FillBuff();\n    char c \u003d buffer[bufpos];\n    UpdateLineColumn(c);\n    return (c);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/SimpleCharStream.java",
+      "functionStartLine": 175,
+      "functionName": "readChar",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

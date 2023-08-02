@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-54b",
+  "repositoryPath": "/tmp/Jsoup-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "W3CDom.java",
+  "functionName": "updateNamespaces",
+  "functionId": "$updateNamespaces___el-org.jsoup.nodes.Element",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/W3CDom.java",
+  "functionAnnotation": "",
+  "functionDoc": "Finds any namespaces defined in this element. Returns any tag prefix.\n",
+  "functionStartLine": 131,
+  "functionEndLine": 151,
+  "numCommitsSeen": 6,
+  "timeTaken": 287,
+  "changeHistory": [
+    "143ede68fe70e043ca8f73cc1fbe83af944fa14a"
+  ],
+  "changeHistoryShort": {
+    "143ede68fe70e043ca8f73cc1fbe83af944fa14a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "143ede68fe70e043ca8f73cc1fbe83af944fa14a": {
+      "type": "Yintroduced",
+      "commitMessage": "Make prefix namespaces work\n\nInitial PR only supported root xmlns, not prefixed tags and their\nnamespaces.\n",
+      "commitDate": "4/5/16, 10:53 AM",
+      "commitName": "143ede68fe70e043ca8f73cc1fbe83af944fa14a",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,17 @@\n+private String updateNamespaces(org.jsoup.nodes.Element el) {\n+    Attributes attributes \u003d el.attributes();\n+    for (Attribute attr : attributes) {\n+        String key \u003d attr.getKey();\n+        String prefix;\n+        if (key.equals(xmlnsKey)) {\n+            prefix \u003d \"\";\n+        } else if (key.startsWith(xmlnsPrefix)) {\n+            prefix \u003d key.substring(xmlnsPrefix.length());\n+        } else {\n+            continue;\n+        }\n+        namespaces.put(prefix, attr.getValue());\n+    }\n+    int pos \u003d el.tagName().indexOf(\":\");\n+    return pos \u003e 0 ? el.tagName().substring(0, pos) : \"\";\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String updateNamespaces(org.jsoup.nodes.Element el) {\n    Attributes attributes \u003d el.attributes();\n    for (Attribute attr : attributes) {\n        String key \u003d attr.getKey();\n        String prefix;\n        if (key.equals(xmlnsKey)) {\n            prefix \u003d \"\";\n        } else if (key.startsWith(xmlnsPrefix)) {\n            prefix \u003d key.substring(xmlnsPrefix.length());\n        } else {\n            continue;\n        }\n        namespaces.put(prefix, attr.getValue());\n    }\n    int pos \u003d el.tagName().indexOf(\":\");\n    return pos \u003e 0 ? el.tagName().substring(0, pos) : \"\";\n}",
+      "path": "src/main/java/org/jsoup/helper/W3CDom.java",
+      "functionStartLine": 131,
+      "functionName": "updateNamespaces",
+      "functionAnnotation": "",
+      "functionDoc": "Finds any namespaces defined in this element. Returns any tag prefix.\n"
+    }
+  }
+}

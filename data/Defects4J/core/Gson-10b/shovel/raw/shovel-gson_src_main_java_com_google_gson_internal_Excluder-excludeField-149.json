@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Excluder.java",
+  "functionName": "excludeField",
+  "functionId": "excludeField___field-Field__serialize-boolean",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/internal/Excluder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 149,
+  "functionEndLine": 189,
+  "numCommitsSeen": 8,
+  "timeTaken": 615,
+  "changeHistory": [
+    "aa2f61b7d8defddc2a78de43b8042178241daedb"
+  ],
+  "changeHistoryShort": {
+    "aa2f61b7d8defddc2a78de43b8042178241daedb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "aa2f61b7d8defddc2a78de43b8042178241daedb": {
+      "type": "Yintroduced",
+      "commitMessage": "Rename GsonExclusionStrategy to Excluder. The new class is its own factory, which simplifies its caller in GsonBuilder. It no longer implements ExclusionStrategy, which allows the callers to pass in a boolean for serialize/deserialize. This allows us to use one excluder for both code paths. The delegate ExclusionStrategy instances might end up not being shared so it has two lists internally.\n",
+      "commitDate": "11/21/11, 11:37 PM",
+      "commitName": "aa2f61b7d8defddc2a78de43b8042178241daedb",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,33 @@\n+public boolean excludeField(Field field, boolean serialize) {\n+    if ((modifiers \u0026 field.getModifiers()) !\u003d 0) {\n+        return true;\n+    }\n+    if (version !\u003d Excluder.IGNORE_VERSIONS \u0026\u0026 !isValidVersion(field.getAnnotation(Since.class), field.getAnnotation(Until.class))) {\n+        return true;\n+    }\n+    if (field.isSynthetic()) {\n+        return true;\n+    }\n+    if (requireExpose) {\n+        Expose annotation \u003d field.getAnnotation(Expose.class);\n+        if (annotation \u003d\u003d null || (serialize ? !annotation.serialize() : !annotation.deserialize())) {\n+            return true;\n+        }\n+    }\n+    if (!serializeInnerClasses \u0026\u0026 isInnerClass(field.getType())) {\n+        return true;\n+    }\n+    if (isAnonymousOrLocal(field.getType())) {\n+        return true;\n+    }\n+    List\u003cExclusionStrategy\u003e list \u003d serialize ? serializationStrategies : deserializationStrategies;\n+    if (!list.isEmpty()) {\n+        FieldAttributes fieldAttributes \u003d new FieldAttributes(field);\n+        for (ExclusionStrategy exclusionStrategy : list) {\n+            if (exclusionStrategy.shouldSkipField(fieldAttributes)) {\n+                return true;\n+            }\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean excludeField(Field field, boolean serialize) {\n    if ((modifiers \u0026 field.getModifiers()) !\u003d 0) {\n        return true;\n    }\n    if (version !\u003d Excluder.IGNORE_VERSIONS \u0026\u0026 !isValidVersion(field.getAnnotation(Since.class), field.getAnnotation(Until.class))) {\n        return true;\n    }\n    if (field.isSynthetic()) {\n        return true;\n    }\n    if (requireExpose) {\n        Expose annotation \u003d field.getAnnotation(Expose.class);\n        if (annotation \u003d\u003d null || (serialize ? !annotation.serialize() : !annotation.deserialize())) {\n            return true;\n        }\n    }\n    if (!serializeInnerClasses \u0026\u0026 isInnerClass(field.getType())) {\n        return true;\n    }\n    if (isAnonymousOrLocal(field.getType())) {\n        return true;\n    }\n    List\u003cExclusionStrategy\u003e list \u003d serialize ? serializationStrategies : deserializationStrategies;\n    if (!list.isEmpty()) {\n        FieldAttributes fieldAttributes \u003d new FieldAttributes(field);\n        for (ExclusionStrategy exclusionStrategy : list) {\n            if (exclusionStrategy.shouldSkipField(fieldAttributes)) {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/Excluder.java",
+      "functionStartLine": 148,
+      "functionName": "excludeField",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

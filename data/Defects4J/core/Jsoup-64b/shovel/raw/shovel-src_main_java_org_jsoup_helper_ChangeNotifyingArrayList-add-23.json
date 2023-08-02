@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ChangeNotifyingArrayList.java",
+  "functionName": "add",
+  "functionId": "add___e-E",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/ChangeNotifyingArrayList.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 23,
+  "functionEndLine": 26,
+  "numCommitsSeen": 1,
+  "timeTaken": 724,
+  "changeHistory": [
+    "38049ce2808cafce3884c25c4613aaaff9f2d0d8"
+  ],
+  "changeHistoryShort": {
+    "38049ce2808cafce3884c25c4613aaaff9f2d0d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "38049ce2808cafce3884c25c4613aaaff9f2d0d8": {
+      "type": "Yintroduced",
+      "commitMessage": "Memoize the child element list, so that sibling index queries are much faster\n\nMeasurement was 24 ops/s prior, now 450 ops/s. (When matching ~ 12K\nelements in a loop)\n",
+      "commitDate": "6/10/17, 12:25 PM",
+      "commitName": "38049ce2808cafce3884c25c4613aaaff9f2d0d8",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+public boolean add(E e) {\n+    onContentsChanged();\n+    return super.add(e);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean add(E e) {\n    onContentsChanged();\n    return super.add(e);\n}",
+      "path": "src/main/java/org/jsoup/helper/ChangeNotifyingArrayList.java",
+      "functionStartLine": 23,
+      "functionName": "add",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

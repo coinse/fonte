@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-3b",
+  "repositoryPath": "/tmp/JacksonXml-3b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "FromXmlParser.java",
+  "functionName": "nextTextValue",
+  "functionId": "nextTextValue",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Method overridden to support more reliable deserialization of\nString collections.\n",
+  "functionStartLine": 601,
+  "functionEndLine": 694,
+  "numCommitsSeen": 36,
+  "timeTaken": 896,
+  "changeHistory": [
+    "ac88d6619cbd9003444532219ff5f70f5273321f",
+    "7cebda943332cec620720fe47dd9ecd7c7edffa4"
+  ],
+  "changeHistoryShort": {
+    "ac88d6619cbd9003444532219ff5f70f5273321f": "Ymultichange(Yexceptionschange,Ybodychange)",
+    "7cebda943332cec620720fe47dd9ecd7c7edffa4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ac88d6619cbd9003444532219ff5f70f5273321f": {
+      "type": "Ymultichange(Yexceptionschange,Ybodychange)",
+      "commitMessage": "Fix #129\n",
+      "commitDate": "12/30/14, 8:28 PM",
+      "commitName": "ac88d6619cbd9003444532219ff5f70f5273321f",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yexceptionschange",
+          "commitMessage": "Fix #129\n",
+          "commitDate": "12/30/14, 8:28 PM",
+          "commitName": "ac88d6619cbd9003444532219ff5f70f5273321f",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/29/14, 10:19 PM",
+          "commitNameOld": "7cebda943332cec620720fe47dd9ecd7c7edffa4",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.92,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic String nextTextValue() throws IOException {\n    _binaryValue \u003d null;\n    if (_nextToken !\u003d null) {\n        JsonToken t \u003d _nextToken;\n        _currToken \u003d t;\n        _nextToken \u003d null;\n        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n            return _currText;\n        }\n        _updateState(t);\n        return null;\n    }\n    int token \u003d _xmlTokens.next();\n    while (token \u003d\u003d XmlTokenStream.XML_START_ELEMENT) {\n        if (_mayBeLeaf) {\n            _nextToken \u003d JsonToken.FIELD_NAME;\n            _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n            _currToken \u003d JsonToken.START_OBJECT;\n            return null;\n        }\n        if (_parsingContext.inArray()) {\n            token \u003d _xmlTokens.next();\n            _mayBeLeaf \u003d true;\n            continue;\n        }\n        String name \u003d _xmlTokens.getLocalName();\n        _parsingContext.setCurrentName(name);\n        if (_namesToWrap !\u003d null \u0026\u0026 _namesToWrap.contains(name)) {\n            _xmlTokens.repeatStartElement();\n        }\n        _mayBeLeaf \u003d true;\n        _currToken \u003d JsonToken.FIELD_NAME;\n        return null;\n    }\n    switch(token) {\n        case XmlTokenStream.XML_END_ELEMENT:\n            if (_mayBeLeaf) {\n                _mayBeLeaf \u003d false;\n                _currToken \u003d JsonToken.VALUE_STRING;\n                return (_currText \u003d \"\");\n            }\n            _currToken \u003d _parsingContext.inArray() ? JsonToken.END_ARRAY : JsonToken.END_OBJECT;\n            _parsingContext \u003d _parsingContext.getParent();\n            _namesToWrap \u003d _parsingContext.getNamesToWrap();\n            break;\n        case XmlTokenStream.XML_ATTRIBUTE_NAME:\n            if (_mayBeLeaf) {\n                _mayBeLeaf \u003d false;\n                _nextToken \u003d JsonToken.FIELD_NAME;\n                _currText \u003d _xmlTokens.getText();\n                _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n                _currToken \u003d JsonToken.START_OBJECT;\n            } else {\n                _parsingContext.setCurrentName(_xmlTokens.getLocalName());\n                _currToken \u003d JsonToken.FIELD_NAME;\n            }\n            break;\n        case XmlTokenStream.XML_ATTRIBUTE_VALUE:\n            _currText \u003d _xmlTokens.getText();\n            _currToken \u003d JsonToken.VALUE_STRING;\n            break;\n        case XmlTokenStream.XML_TEXT:\n            _currText \u003d _xmlTokens.getText();\n            if (_mayBeLeaf) {\n                _mayBeLeaf \u003d false;\n                _xmlTokens.skipEndElement();\n                _currToken \u003d JsonToken.VALUE_STRING;\n                return _currText;\n            }\n            _parsingContext.setCurrentName(_cfgNameForTextElement);\n            _nextToken \u003d JsonToken.VALUE_STRING;\n            _currToken \u003d JsonToken.FIELD_NAME;\n            break;\n        case XmlTokenStream.XML_END:\n            _currToken \u003d null;\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java",
+          "functionStartLine": 559,
+          "functionName": "nextTextValue",
+          "functionAnnotation": "@Override",
+          "functionDoc": "Method overridden to support more reliable deserialization of\nString collections.\n",
+          "diff": "@@ -1,4 +1,79 @@\n @Override\n-public String nextTextValue() throws IOException, JsonParseException {\n-    return (nextToken() \u003d\u003d JsonToken.VALUE_STRING) ? getText() : null;\n+public String nextTextValue() throws IOException {\n+    _binaryValue \u003d null;\n+    if (_nextToken !\u003d null) {\n+        JsonToken t \u003d _nextToken;\n+        _currToken \u003d t;\n+        _nextToken \u003d null;\n+        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n+            return _currText;\n+        }\n+        _updateState(t);\n+        return null;\n+    }\n+    int token \u003d _xmlTokens.next();\n+    while (token \u003d\u003d XmlTokenStream.XML_START_ELEMENT) {\n+        if (_mayBeLeaf) {\n+            _nextToken \u003d JsonToken.FIELD_NAME;\n+            _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n+            _currToken \u003d JsonToken.START_OBJECT;\n+            return null;\n+        }\n+        if (_parsingContext.inArray()) {\n+            token \u003d _xmlTokens.next();\n+            _mayBeLeaf \u003d true;\n+            continue;\n+        }\n+        String name \u003d _xmlTokens.getLocalName();\n+        _parsingContext.setCurrentName(name);\n+        if (_namesToWrap !\u003d null \u0026\u0026 _namesToWrap.contains(name)) {\n+            _xmlTokens.repeatStartElement();\n+        }\n+        _mayBeLeaf \u003d true;\n+        _currToken \u003d JsonToken.FIELD_NAME;\n+        return null;\n+    }\n+    switch(token) {\n+        case XmlTokenStream.XML_END_ELEMENT:\n+            if (_mayBeLeaf) {\n+                _mayBeLeaf \u003d false;\n+                _currToken \u003d JsonToken.VALUE_STRING;\n+                return (_currText \u003d \"\");\n+            }\n+            _currToken \u003d _parsingContext.inArray() ? JsonToken.END_ARRAY : JsonToken.END_OBJECT;\n+            _parsingContext \u003d _parsingContext.getParent();\n+            _namesToWrap \u003d _parsingContext.getNamesToWrap();\n+            break;\n+        case XmlTokenStream.XML_ATTRIBUTE_NAME:\n+            if (_mayBeLeaf) {\n+                _mayBeLeaf \u003d false;\n+                _nextToken \u003d JsonToken.FIELD_NAME;\n+                _currText \u003d _xmlTokens.getText();\n+                _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n+                _currToken \u003d JsonToken.START_OBJECT;\n+            } else {\n+                _parsingContext.setCurrentName(_xmlTokens.getLocalName());\n+                _currToken \u003d JsonToken.FIELD_NAME;\n+            }\n+            break;\n+        case XmlTokenStream.XML_ATTRIBUTE_VALUE:\n+            _currText \u003d _xmlTokens.getText();\n+            _currToken \u003d JsonToken.VALUE_STRING;\n+            break;\n+        case XmlTokenStream.XML_TEXT:\n+            _currText \u003d _xmlTokens.getText();\n+            if (_mayBeLeaf) {\n+                _mayBeLeaf \u003d false;\n+                _xmlTokens.skipEndElement();\n+                _currToken \u003d JsonToken.VALUE_STRING;\n+                return _currText;\n+            }\n+            _parsingContext.setCurrentName(_cfgNameForTextElement);\n+            _nextToken \u003d JsonToken.VALUE_STRING;\n+            _currToken \u003d JsonToken.FIELD_NAME;\n+            break;\n+        case XmlTokenStream.XML_END:\n+            _currToken \u003d null;\n+    }\n+    return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[IOException, JsonParseException]",
+            "newValue": "[IOException]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Fix #129\n",
+          "commitDate": "12/30/14, 8:28 PM",
+          "commitName": "ac88d6619cbd9003444532219ff5f70f5273321f",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "12/29/14, 10:19 PM",
+          "commitNameOld": "7cebda943332cec620720fe47dd9ecd7c7edffa4",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.92,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic String nextTextValue() throws IOException {\n    _binaryValue \u003d null;\n    if (_nextToken !\u003d null) {\n        JsonToken t \u003d _nextToken;\n        _currToken \u003d t;\n        _nextToken \u003d null;\n        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n            return _currText;\n        }\n        _updateState(t);\n        return null;\n    }\n    int token \u003d _xmlTokens.next();\n    while (token \u003d\u003d XmlTokenStream.XML_START_ELEMENT) {\n        if (_mayBeLeaf) {\n            _nextToken \u003d JsonToken.FIELD_NAME;\n            _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n            _currToken \u003d JsonToken.START_OBJECT;\n            return null;\n        }\n        if (_parsingContext.inArray()) {\n            token \u003d _xmlTokens.next();\n            _mayBeLeaf \u003d true;\n            continue;\n        }\n        String name \u003d _xmlTokens.getLocalName();\n        _parsingContext.setCurrentName(name);\n        if (_namesToWrap !\u003d null \u0026\u0026 _namesToWrap.contains(name)) {\n            _xmlTokens.repeatStartElement();\n        }\n        _mayBeLeaf \u003d true;\n        _currToken \u003d JsonToken.FIELD_NAME;\n        return null;\n    }\n    switch(token) {\n        case XmlTokenStream.XML_END_ELEMENT:\n            if (_mayBeLeaf) {\n                _mayBeLeaf \u003d false;\n                _currToken \u003d JsonToken.VALUE_STRING;\n                return (_currText \u003d \"\");\n            }\n            _currToken \u003d _parsingContext.inArray() ? JsonToken.END_ARRAY : JsonToken.END_OBJECT;\n            _parsingContext \u003d _parsingContext.getParent();\n            _namesToWrap \u003d _parsingContext.getNamesToWrap();\n            break;\n        case XmlTokenStream.XML_ATTRIBUTE_NAME:\n            if (_mayBeLeaf) {\n                _mayBeLeaf \u003d false;\n                _nextToken \u003d JsonToken.FIELD_NAME;\n                _currText \u003d _xmlTokens.getText();\n                _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n                _currToken \u003d JsonToken.START_OBJECT;\n            } else {\n                _parsingContext.setCurrentName(_xmlTokens.getLocalName());\n                _currToken \u003d JsonToken.FIELD_NAME;\n            }\n            break;\n        case XmlTokenStream.XML_ATTRIBUTE_VALUE:\n            _currText \u003d _xmlTokens.getText();\n            _currToken \u003d JsonToken.VALUE_STRING;\n            break;\n        case XmlTokenStream.XML_TEXT:\n            _currText \u003d _xmlTokens.getText();\n            if (_mayBeLeaf) {\n                _mayBeLeaf \u003d false;\n                _xmlTokens.skipEndElement();\n                _currToken \u003d JsonToken.VALUE_STRING;\n                return _currText;\n            }\n            _parsingContext.setCurrentName(_cfgNameForTextElement);\n            _nextToken \u003d JsonToken.VALUE_STRING;\n            _currToken \u003d JsonToken.FIELD_NAME;\n            break;\n        case XmlTokenStream.XML_END:\n            _currToken \u003d null;\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java",
+          "functionStartLine": 559,
+          "functionName": "nextTextValue",
+          "functionAnnotation": "@Override",
+          "functionDoc": "Method overridden to support more reliable deserialization of\nString collections.\n",
+          "diff": "@@ -1,4 +1,79 @@\n @Override\n-public String nextTextValue() throws IOException, JsonParseException {\n-    return (nextToken() \u003d\u003d JsonToken.VALUE_STRING) ? getText() : null;\n+public String nextTextValue() throws IOException {\n+    _binaryValue \u003d null;\n+    if (_nextToken !\u003d null) {\n+        JsonToken t \u003d _nextToken;\n+        _currToken \u003d t;\n+        _nextToken \u003d null;\n+        if (t \u003d\u003d JsonToken.VALUE_STRING) {\n+            return _currText;\n+        }\n+        _updateState(t);\n+        return null;\n+    }\n+    int token \u003d _xmlTokens.next();\n+    while (token \u003d\u003d XmlTokenStream.XML_START_ELEMENT) {\n+        if (_mayBeLeaf) {\n+            _nextToken \u003d JsonToken.FIELD_NAME;\n+            _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n+            _currToken \u003d JsonToken.START_OBJECT;\n+            return null;\n+        }\n+        if (_parsingContext.inArray()) {\n+            token \u003d _xmlTokens.next();\n+            _mayBeLeaf \u003d true;\n+            continue;\n+        }\n+        String name \u003d _xmlTokens.getLocalName();\n+        _parsingContext.setCurrentName(name);\n+        if (_namesToWrap !\u003d null \u0026\u0026 _namesToWrap.contains(name)) {\n+            _xmlTokens.repeatStartElement();\n+        }\n+        _mayBeLeaf \u003d true;\n+        _currToken \u003d JsonToken.FIELD_NAME;\n+        return null;\n+    }\n+    switch(token) {\n+        case XmlTokenStream.XML_END_ELEMENT:\n+            if (_mayBeLeaf) {\n+                _mayBeLeaf \u003d false;\n+                _currToken \u003d JsonToken.VALUE_STRING;\n+                return (_currText \u003d \"\");\n+            }\n+            _currToken \u003d _parsingContext.inArray() ? JsonToken.END_ARRAY : JsonToken.END_OBJECT;\n+            _parsingContext \u003d _parsingContext.getParent();\n+            _namesToWrap \u003d _parsingContext.getNamesToWrap();\n+            break;\n+        case XmlTokenStream.XML_ATTRIBUTE_NAME:\n+            if (_mayBeLeaf) {\n+                _mayBeLeaf \u003d false;\n+                _nextToken \u003d JsonToken.FIELD_NAME;\n+                _currText \u003d _xmlTokens.getText();\n+                _parsingContext \u003d _parsingContext.createChildObjectContext(-1, -1);\n+                _currToken \u003d JsonToken.START_OBJECT;\n+            } else {\n+                _parsingContext.setCurrentName(_xmlTokens.getLocalName());\n+                _currToken \u003d JsonToken.FIELD_NAME;\n+            }\n+            break;\n+        case XmlTokenStream.XML_ATTRIBUTE_VALUE:\n+            _currText \u003d _xmlTokens.getText();\n+            _currToken \u003d JsonToken.VALUE_STRING;\n+            break;\n+        case XmlTokenStream.XML_TEXT:\n+            _currText \u003d _xmlTokens.getText();\n+            if (_mayBeLeaf) {\n+                _mayBeLeaf \u003d false;\n+                _xmlTokens.skipEndElement();\n+                _currToken \u003d JsonToken.VALUE_STRING;\n+                return _currText;\n+            }\n+            _parsingContext.setCurrentName(_cfgNameForTextElement);\n+            _nextToken \u003d JsonToken.VALUE_STRING;\n+            _currToken \u003d JsonToken.FIELD_NAME;\n+            break;\n+        case XmlTokenStream.XML_END:\n+            _currToken \u003d null;\n+    }\n+    return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "7cebda943332cec620720fe47dd9ecd7c7edffa4": {
+      "type": "Yintroduced",
+      "commitMessage": "minor refactoring\n",
+      "commitDate": "12/29/14, 10:19 PM",
+      "commitName": "7cebda943332cec620720fe47dd9ecd7c7edffa4",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+@Override\n+public String nextTextValue() throws IOException, JsonParseException {\n+    return (nextToken() \u003d\u003d JsonToken.VALUE_STRING) ? getText() : null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic String nextTextValue() throws IOException, JsonParseException {\n    return (nextToken() \u003d\u003d JsonToken.VALUE_STRING) ? getText() : null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java",
+      "functionStartLine": 559,
+      "functionName": "nextTextValue",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Method overridden to support more reliable deserialization of\nString collections.\n"
+    }
+  }
+}

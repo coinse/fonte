@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-35b",
+  "repositoryPath": "/tmp/Jsoup-35b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtil.java",
+  "functionName": "padding",
+  "functionId": "padding___width-int",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/StringUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns space padding\n\n@param width amount of padding desired\n@return string of spaces * width\n",
+  "functionStartLine": 50,
+  "functionEndLine": 61,
+  "numCommitsSeen": 8,
+  "timeTaken": 916,
+  "changeHistory": [
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5"
+  ],
+  "changeHistoryShort": {
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5": {
+      "type": "Yintroduced",
+      "commitMessage": "Removed dependency on Apache Commons-lang. Jsoup now has no external dependencies.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+public static String padding(int width) {\n+    if (width \u003c 0)\n+        throw new IllegalArgumentException(\"width must be \u003e 0\");\n+    if (width \u003c padding.length)\n+        return padding[width];\n+    char[] out \u003d new char[width];\n+    for (int i \u003d 0; i \u003c width; i++) out[i] \u003d \u0027 \u0027;\n+    return String.valueOf(out);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String padding(int width) {\n    if (width \u003c 0)\n        throw new IllegalArgumentException(\"width must be \u003e 0\");\n    if (width \u003c padding.length)\n        return padding[width];\n    char[] out \u003d new char[width];\n    for (int i \u003d 0; i \u003c width; i++) out[i] \u003d \u0027 \u0027;\n    return String.valueOf(out);\n}",
+      "path": "src/main/java/org/jsoup/helper/StringUtil.java",
+      "functionStartLine": 50,
+      "functionName": "padding",
+      "functionAnnotation": "",
+      "functionDoc": "Returns space padding\n\n@param width amount of padding desired\n@return string of spaces * width\n"
+    }
+  }
+}

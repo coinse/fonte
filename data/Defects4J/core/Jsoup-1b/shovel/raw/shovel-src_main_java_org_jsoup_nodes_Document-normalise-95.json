@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-1b",
+  "repositoryPath": "/tmp/Jsoup-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Document.java",
+  "functionName": "normalise",
+  "functionId": "normalise",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Document.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Normalise the document. This happens after the parse phase so generally does not need to be called.\n     Moves any text content that is not in the body element into the body.\n\n@ @return this document after normalisation\n",
+  "functionStartLine": 95,
+  "functionEndLine": 108,
+  "numCommitsSeen": 17,
+  "timeTaken": 437,
+  "changeHistory": [
+    "6b60af669bc6102f0328af330532986b8670f3ac",
+    "d24b485e252d9e86858207da7a57678d41d3f72c"
+  ],
+  "changeHistoryShort": {
+    "6b60af669bc6102f0328af330532986b8670f3ac": "Ybodychange",
+    "d24b485e252d9e86858207da7a57678d41d3f72c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b60af669bc6102f0328af330532986b8670f3ac": {
+      "type": "Ybodychange",
+      "commitMessage": "Normalise head by prepending, not appending.\n\nCloses #9.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "6b60af669bc6102f0328af330532986b8670f3ac",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "d24b485e252d9e86858207da7a57678d41d3f72c",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Document normalise() {\n    if (select(\"html\").isEmpty())\n        appendElement(\"html\");\n    if (head() \u003d\u003d null)\n        select(\"html\").first().prependElement(\"head\");\n    if (body() \u003d\u003d null)\n        select(\"html\").first().appendElement(\"body\");\n    normalise(this);\n    normalise(select(\"html\").first());\n    normalise(head());\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 95,
+      "functionName": "normalise",
+      "functionAnnotation": "",
+      "functionDoc": "     Normalise the document. This happens after the parse phase so generally does not need to be called.\n     Moves any text content that is not in the body element into the body.\n\n@ @return this document after normalisation\n",
+      "diff": "@@ -1,12 +1,12 @@\n public Document normalise() {\n     if (select(\"html\").isEmpty())\n         appendElement(\"html\");\n     if (head() \u003d\u003d null)\n-        select(\"html\").first().appendElement(\"head\");\n+        select(\"html\").first().prependElement(\"head\");\n     if (body() \u003d\u003d null)\n         select(\"html\").first().appendElement(\"body\");\n     normalise(this);\n     normalise(select(\"html\").first());\n     normalise(head());\n     return this;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d24b485e252d9e86858207da7a57678d41d3f72c": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved document normalisation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "d24b485e252d9e86858207da7a57678d41d3f72c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,12 @@\n+public Document normalise() {\n+    if (select(\"html\").isEmpty())\n+        appendElement(\"html\");\n+    if (head() \u003d\u003d null)\n+        select(\"html\").first().appendElement(\"head\");\n+    if (body() \u003d\u003d null)\n+        select(\"html\").first().appendElement(\"body\");\n+    normalise(this);\n+    normalise(select(\"html\").first());\n+    normalise(head());\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Document normalise() {\n    if (select(\"html\").isEmpty())\n        appendElement(\"html\");\n    if (head() \u003d\u003d null)\n        select(\"html\").first().appendElement(\"head\");\n    if (body() \u003d\u003d null)\n        select(\"html\").first().appendElement(\"body\");\n    normalise(this);\n    normalise(select(\"html\").first());\n    normalise(head());\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 95,
+      "functionName": "normalise",
+      "functionAnnotation": "",
+      "functionDoc": "     Normalise the document. This happens after the parse phase so generally does not need to be called.\n     Moves any text content that is not in the body element into the body.\n\n@ @return this document after normalisation\n"
+    }
+  }
+}

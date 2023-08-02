@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonWriter.java",
+  "functionName": "getSerializeNulls",
+  "functionId": "getSerializeNulls",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns true if object members are serialized when their value is null.\nThis has no impact on array elements. The default is true.\n",
+  "functionStartLine": 276,
+  "functionEndLine": 278,
+  "numCommitsSeen": 17,
+  "timeTaken": 661,
+  "changeHistory": [
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075"
+  ],
+  "changeHistoryShort": {
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bb7f0b6bb01b0e98e32229cb528772a66a9d6075": {
+      "type": "Yintroduced",
+      "commitMessage": "Adopt JsonElementWriter in GSON.\nAdd setSerializeNulls() to JsonWriter, so nulls can be skipped from serialization. This does not yet impact JsonElementWriter.\n\nOne change in behavior: if the only value is skipped, we now emit \"null\" rather than \"\".\n",
+      "commitDate": "9/30/11, 12:08 AM",
+      "commitName": "bb7f0b6bb01b0e98e32229cb528772a66a9d6075",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,3 @@\n+public final boolean getSerializeNulls() {\n+    return serializeNulls;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final boolean getSerializeNulls() {\n    return serializeNulls;\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 236,
+      "functionName": "getSerializeNulls",
+      "functionAnnotation": "",
+      "functionDoc": "Returns true if object members are serialized when their value is null.\nThis has no impact on array elements. The default is true.\n"
+    }
+  }
+}

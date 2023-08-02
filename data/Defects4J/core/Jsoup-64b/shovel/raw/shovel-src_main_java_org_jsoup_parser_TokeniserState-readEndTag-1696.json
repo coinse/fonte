@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokeniserState.java",
+  "functionName": "readEndTag",
+  "functionId": "readEndTag___t-Tokeniser__r-CharacterReader__a-TokeniserState__b-TokeniserState",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1696,
+  "functionEndLine": 1704,
+  "numCommitsSeen": 30,
+  "timeTaken": 979,
+  "changeHistory": [
+    "99286c8986c92ef12861710c0cbf5cd51b8c93f0"
+  ],
+  "changeHistoryShort": {
+    "99286c8986c92ef12861710c0cbf5cd51b8c93f0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "99286c8986c92ef12861710c0cbf5cd51b8c93f0": {
+      "type": "Yintroduced",
+      "commitMessage": "Cleaned a few dupe\n",
+      "commitDate": "4/23/16, 12:37 PM",
+      "commitName": "99286c8986c92ef12861710c0cbf5cd51b8c93f0",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+private static void readEndTag(Tokeniser t, CharacterReader r, TokeniserState a, TokeniserState b) {\n+    if (r.matchesLetter()) {\n+        t.createTagPending(false);\n+        t.transition(a);\n+    } else {\n+        t.emit(\"\u003c/\");\n+        t.transition(b);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void readEndTag(Tokeniser t, CharacterReader r, TokeniserState a, TokeniserState b) {\n    if (r.matchesLetter()) {\n        t.createTagPending(false);\n        t.transition(a);\n    } else {\n        t.emit(\"\u003c/\");\n        t.transition(b);\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1691,
+      "functionName": "readEndTag",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Attribute.java",
+  "functionName": "createFromEncoded",
+  "functionId": "createFromEncoded___unencodedKey-String__encodedValue-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Attribute.java",
+  "functionAnnotation": "",
+  "functionDoc": "Create a new Attribute from an unencoded key and a HMTL attribute encoded value.\n\n@param unencodedKey assumes the key is not encoded, as can be only run of simple \\w chars.\n@param encodedValue HTML attribute encoded value\n@return attribute\n",
+  "functionStartLine": 94,
+  "functionEndLine": 97,
+  "numCommitsSeen": 16,
+  "timeTaken": 337,
+  "changeHistory": [
+    "050c5b2c4e3b6b6993b71313a82ac50c64d94555",
+    "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce"
+  ],
+  "changeHistoryShort": {
+    "050c5b2c4e3b6b6993b71313a82ac50c64d94555": "Ybodychange",
+    "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "050c5b2c4e3b6b6993b71313a82ac50c64d94555": {
+      "type": "Ybodychange",
+      "commitMessage": "Use jsoup escaper for attributes, not Apache\u0027s.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "050c5b2c4e3b6b6993b71313a82ac50c64d94555",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "57bce6dc8424637621f6b660855f23e72a08c4b3",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Attribute createFromEncoded(String unencodedKey, String encodedValue) {\n    String value \u003d Entities.unescape(encodedValue);\n    return new Attribute(unencodedKey, value);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attribute.java",
+      "functionStartLine": 95,
+      "functionName": "createFromEncoded",
+      "functionAnnotation": "",
+      "functionDoc": "Create a new Attribute from an unencoded key and a HMTL attribute encoded value.\n\n@param unencodedKey assumes the key is not encoded, as can be only run of simple \\w chars.\n@param encodedValue HTML attribute encoded value\n@return attribute\n",
+      "diff": "@@ -1,4 +1,4 @@\n public static Attribute createFromEncoded(String unencodedKey, String encodedValue) {\n-    String value \u003d StringEscapeUtils.unescapeHtml(encodedValue);\n+    String value \u003d Entities.unescape(encodedValue);\n     return new Attribute(unencodedKey, value);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce": {
+      "type": "Yintroduced",
+      "commitMessage": "Handle HTML encoded (escaped) data in text nodes and attributes.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "eaf6bf4ad42f86fb6c2608e4a8bb5d5fdf1e46ce",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+public static Attribute createFromEncoded(String unencodedKey, String encodedValue) {\n+    String value \u003d StringEscapeUtils.unescapeHtml(encodedValue);\n+    return new Attribute(unencodedKey, value);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Attribute createFromEncoded(String unencodedKey, String encodedValue) {\n    String value \u003d StringEscapeUtils.unescapeHtml(encodedValue);\n    return new Attribute(unencodedKey, value);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attribute.java",
+      "functionStartLine": 51,
+      "functionName": "createFromEncoded",
+      "functionAnnotation": "",
+      "functionDoc": "Create a new Attribute from an unencoded key and a HMTL attribute encoded value.\n\n@param unencodedKey assumes the key is not encoded, as can be only run of simple \\w chars.\n@param encodedValue HTML attribute encoded value\n@return attribute\n"
+    }
+  }
+}

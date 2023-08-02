@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ToXmlGenerator.java",
+  "functionName": "setNextNameIfMissing",
+  "functionId": "setNextNameIfMissing___name-QName",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+  "functionAnnotation": "",
+  "functionDoc": "Method that does same as {@link #setNextName}, unless\na name has already been set.\n\n@since 2.1.2\n",
+  "functionStartLine": 356,
+  "functionEndLine": 363,
+  "numCommitsSeen": 31,
+  "timeTaken": 1589,
+  "changeHistory": [
+    "e11f6cb52d5fec07a6cd2e148026bca7e37421dc",
+    "0ad0c4977f7b1e93036152641042437523de7eb5"
+  ],
+  "changeHistoryShort": {
+    "e11f6cb52d5fec07a6cd2e148026bca7e37421dc": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "0ad0c4977f7b1e93036152641042437523de7eb5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e11f6cb52d5fec07a6cd2e148026bca7e37421dc": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "minor tweak to earlier fix, to ensure root name will be forcibly set\n",
+      "commitDate": "11/28/12, 9:04 PM",
+      "commitName": "e11f6cb52d5fec07a6cd2e148026bca7e37421dc",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "minor tweak to earlier fix, to ensure root name will be forcibly set\n",
+          "commitDate": "11/28/12, 9:04 PM",
+          "commitName": "e11f6cb52d5fec07a6cd2e148026bca7e37421dc",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "11/28/12, 8:58 PM",
+          "commitNameOld": "0ad0c4977f7b1e93036152641042437523de7eb5",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final boolean setNextNameIfMissing(QName name) {\n    if (_nextName \u003d\u003d null) {\n        _nextName \u003d name;\n        return true;\n    }\n    return false;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+          "functionStartLine": 264,
+          "functionName": "setNextNameIfMissing",
+          "functionAnnotation": "",
+          "functionDoc": "Method that does same as {@link #setNextName}, unless\na name has already been set.\n\n@since 2.1.2\n",
+          "diff": "@@ -1,5 +1,7 @@\n-public final void setNextNameIfMissing(QName name) {\n+public final boolean setNextNameIfMissing(QName name) {\n     if (_nextName \u003d\u003d null) {\n         _nextName \u003d name;\n+        return true;\n     }\n+    return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "void",
+            "newValue": "boolean"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "minor tweak to earlier fix, to ensure root name will be forcibly set\n",
+          "commitDate": "11/28/12, 9:04 PM",
+          "commitName": "e11f6cb52d5fec07a6cd2e148026bca7e37421dc",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "11/28/12, 8:58 PM",
+          "commitNameOld": "0ad0c4977f7b1e93036152641042437523de7eb5",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public final boolean setNextNameIfMissing(QName name) {\n    if (_nextName \u003d\u003d null) {\n        _nextName \u003d name;\n        return true;\n    }\n    return false;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+          "functionStartLine": 264,
+          "functionName": "setNextNameIfMissing",
+          "functionAnnotation": "",
+          "functionDoc": "Method that does same as {@link #setNextName}, unless\na name has already been set.\n\n@since 2.1.2\n",
+          "diff": "@@ -1,5 +1,7 @@\n-public final void setNextNameIfMissing(QName name) {\n+public final boolean setNextNameIfMissing(QName name) {\n     if (_nextName \u003d\u003d null) {\n         _nextName \u003d name;\n+        return true;\n     }\n+    return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "0ad0c4977f7b1e93036152641042437523de7eb5": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix [Issue#42]\n",
+      "commitDate": "11/28/12, 8:58 PM",
+      "commitName": "0ad0c4977f7b1e93036152641042437523de7eb5",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,5 @@\n+public final void setNextNameIfMissing(QName name) {\n+    if (_nextName \u003d\u003d null) {\n+        _nextName \u003d name;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final void setNextNameIfMissing(QName name) {\n    if (_nextName \u003d\u003d null) {\n        _nextName \u003d name;\n    }\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+      "functionStartLine": 264,
+      "functionName": "setNextNameIfMissing",
+      "functionAnnotation": "",
+      "functionDoc": "Method that does same as {@link #setNextName}, unless\na name has already been set.\n\n@since 2.1.2\n"
+    }
+  }
+}
