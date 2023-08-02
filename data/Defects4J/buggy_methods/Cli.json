@@ -1,0 +1,696 @@
+{
+	"Cli-1b": [
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"options"
+			],
+			"begin_line": 46,
+			"end_line": 46,
+			"comment": " the processed options "
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "hasOption",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.CommandLine.hasOption(java.lang.String)",
+			"begin_line": 67,
+			"end_line": 70,
+			"comment": " \n     * Query to see if an option has been set.\n     *\n     * @param opt Short name of the option\n     * @return true if set, false if not\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "addOption",
+			"arg_types": "Lorg/apache/commons/cli/Option;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.CommandLine.addOption(org.apache.commons.cli.Option)",
+			"begin_line": 276,
+			"end_line": 289,
+			"comment": "\n     * Add an option to the command line.  The values of \n     * the option are stored.\n     *\n     * @param opt the processed option\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"hashcodeMap"
+			],
+			"begin_line": 51,
+			"end_line": 51,
+			"comment": "    private Set allOptions = new HashSet();"
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "getOptionValues",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.CommandLine.getOptionValues(java.lang.String)",
+			"begin_line": 147,
+			"end_line": 163,
+			"comment": " \n     * Retrieves the array of values, if any, of an option.\n     *\n     * @param opt string name of the option\n     * @return Values of the argument if option is set, and has an argument,\n     * otherwise null.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"names"
+			],
+			"begin_line": 47,
+			"end_line": 47,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "getOptions",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.cli.CommandLine.getOptions()",
+			"begin_line": 307,
+			"end_line": 316,
+			"comment": "\n     * Returns an array of the processed {@link Option}s.\n     *\n     * @return an array of the processed {@link Option}s.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "iterator",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.cli.CommandLine.iterator()",
+			"begin_line": 297,
+			"end_line": 300,
+			"comment": "\n     * Returns an iterator over the Option members of CommandLine.\n     *\n     * @return an <code>Iterator</code> over the processed {@link Option} \n     * members of this {@link CommandLine}\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/CommandLine.java",
+			"method_name": "getOptionObject",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.CommandLine.getOptionObject(java.lang.String)",
+			"begin_line": 89,
+			"end_line": 101,
+			"comment": "\n     * Return the <code>Object</code> type of this <code>Option</code>.\n     *\n     * @param opt the name of the option\n     * @return the type of this <code>Option</code>\n     "
+		}
+	],
+	"Cli-2b": [
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "burstToken",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.burstToken(java.lang.String, boolean)",
+			"begin_line": 278,
+			"end_line": 308,
+			"comment": "\n     * <p>Breaks <code>token</code> into its constituent parts\n     * using the following algorithm.\n     * <ul>\n     *  <li>ignore the first character (\"<b>-</b>\")</li>\n     *  <li>foreach remaining character check if an {@link Option}\n     *  exists with that id.</li>\n     *  <li>if an {@link Option} does exist then add that character\n     *  prepended with \"<b>-</b>\" to the list of processed tokens.</li>\n     *  <li>if the {@link Option} can have an argument value and there \n     *  are remaining characters in the token then add the remaining \n     *  characters as a token to the list of processed tokens.</li>\n     *  <li>if an {@link Option} does <b>NOT</b> exist <b>AND</b> \n     *  <code>stopAtNonOption</code> <b>IS</b> set then add the special token\n     *  \"<b>--</b>\" followed by the remaining characters and also \n     *  the remaining tokens directly to the processed tokens list.</li>\n     *  <li>if an {@link Option} does <b>NOT</b> exist <b>AND</b>\n     *  <code>stopAtNonOption</code> <b>IS NOT</b> set then add that\n     *  character prepended with \"<b>-</b>\".</li>\n     * </ul>\n     * </p>\n     *\n     * @param token The current token to be <b>burst</b>\n     * @param stopAtNonOption Specifies whether to stop processing\n     * at the first non-Option encountered.\n     "
+		}
+	],
+	"Cli-3b": [
+		{
+			"class_file": "org/apache/commons/cli/TypeHandler.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.TypeHandler.createNumber(java.lang.String)",
+			"begin_line": 158,
+			"end_line": 170,
+			"comment": "\n     * <p>Create a number from a String. If a . is present, it creates a \n     *    Double, otherwise a Long. </p>\n     *\n     * @param str the value\n     * @return the number represented by <code>str</code>, if <code>str</code>\n     * is not a number, null is returned.\n     "
+		}
+	],
+	"Cli-4b": [
+		{
+			"class_file": "org/apache/commons/cli/Parser.java",
+			"method_name": "checkRequiredOptions",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Parser.checkRequiredOptions()",
+			"begin_line": 290,
+			"end_line": 309,
+			"comment": "\n     * <p>Throws a {@link MissingOptionException} if all of the\n     * required options are no present.</p>\n     *\n     * @throws MissingOptionException if any of the required Options\n     * are not present.\n     "
+		}
+	],
+	"Cli-5b": [
+		{
+			"class_file": "org/apache/commons/cli/Util.java",
+			"method_name": "stripLeadingHyphens",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Util.stripLeadingHyphens(java.lang.String)",
+			"begin_line": 34,
+			"end_line": 46,
+			"comment": "\n     * <p>Remove the hyphens from the begining of <code>str</code> and\n     * return the new String.</p>\n     *\n     * @param str The string from which the hyphens should be removed.\n     *\n     * @return the new String.\n     "
+		}
+	],
+	"Cli-7b": [
+		{
+			"class_file": "org/apache/commons/cli2/builder/PatternBuilder.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"options"
+			],
+			"begin_line": 67,
+			"end_line": 67,
+			"comment": ""
+		}
+	],
+	"Cli-8b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "renderWrappedText",
+			"arg_types": "Ljava/lang/StringBuffer;IILjava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.renderWrappedText(java.lang.StringBuffer, int, int, java.lang.String)",
+			"begin_line": 792,
+			"end_line": 823,
+			"comment": "\n     * <p>Render the specified text and return the rendered Options\n     * in a StringBuffer.</p>\n     *\n     * @param sb The StringBuffer to place the rendered text into.\n     * @param width The number of characters to display per line\n     * @param nextLineTabStop The position on the next line for the first tab.\n     * @param text The text to be rendered.\n     *\n     * @return the StringBuffer with the rendered Options contents.\n     "
+		}
+	],
+	"Cli-9b": [
+		{
+			"class_file": "org/apache/commons/cli/Parser.java",
+			"method_name": "checkRequiredOptions",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Parser.checkRequiredOptions()",
+			"begin_line": 303,
+			"end_line": 324,
+			"comment": "\n     * <p>Throws a {@link MissingOptionException} if all of the\n     * required options are no present.</p>\n     *\n     * @throws MissingOptionException if any of the required Options\n     * are not present.\n     "
+		}
+	],
+	"Cli-10b": [
+		{
+			"class_file": "org/apache/commons/cli/Parser.java",
+			"method_name": "setOptions",
+			"arg_types": "Lorg/apache/commons/cli/Options;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Parser.setOptions(org.apache.commons.cli.Options)",
+			"begin_line": 44,
+			"end_line": 47,
+			"comment": ""
+		}
+	],
+	"Cli-11b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "appendOption",
+			"arg_types": "Ljava/lang/StringBuffer;Lorg/apache/commons/cli/Option;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.appendOption(java.lang.StringBuffer, org.apache.commons.cli.Option, boolean)",
+			"begin_line": 613,
+			"end_line": 642,
+			"comment": "\n     * Appends the usage clause for an Option to a StringBuffer.  \n     *\n     * @param buff the StringBuffer to append to\n     * @param option the Option to append\n     * @param required whether the Option is required or not\n     "
+		}
+	],
+	"Cli-12b": [
+		{
+			"class_file": "org/apache/commons/cli/GnuParser.java",
+			"method_name": "flatten",
+			"arg_types": "Lorg/apache/commons/cli/Options;[Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.GnuParser.flatten(org.apache.commons.cli.Options, java.lang.String[], boolean)",
+			"begin_line": 52,
+			"end_line": 110,
+			"comment": "\n     * <p>This flatten method does so using the following rules:\n     * <ol>\n     *  <li>If an {@link Option} exists for the first character of \n     *  the <code>arguments</code> entry <b>AND</b> an {@link Option} \n     *  does not exist for the whole <code>argument</code> then\n     *  add the first character as an option to the processed tokens\n     *  list e.g. \"-D\" and add the rest of the entry to the also.</li>\n     *  <li>Otherwise just add the token to the processed tokens list.\n     *  </li>\n     * </ol>\n     * </p>\n     *\n     * @param options The Options to parse the arguments by.\n     * @param arguments The arguments that have to be flattened.\n     * @param stopAtNonOption specifies whether to stop \n     * flattening when a non option has been encountered\n     * @return a String array of the flattened arguments\n     "
+		}
+	],
+	"Cli-13b": [
+		{
+			"class_file": "org/apache/commons/cli2/option/ArgumentImpl.java",
+			"method_name": "processValues",
+			"arg_types": "Lorg/apache/commons/cli2/WriteableCommandLine;Ljava/util/ListIterator;Lorg/apache/commons/cli2/Option;",
+			"type": "method",
+			"signature": "org.apache.commons.cli2.option.ArgumentImpl.processValues(org.apache.commons.cli2.WriteableCommandLine, java.util.ListIterator, org.apache.commons.cli2.Option)",
+			"begin_line": 139,
+			"end_line": 189,
+			"comment": ""
+		}
+	],
+	"Cli-14b": [
+		{
+			"class_file": "org/apache/commons/cli2/option/GroupImpl.java",
+			"method_name": "validate",
+			"arg_types": "Lorg/apache/commons/cli2/WriteableCommandLine;",
+			"type": "method",
+			"signature": "org.apache.commons.cli2.option.GroupImpl.validate(org.apache.commons.cli2.WriteableCommandLine)",
+			"begin_line": 237,
+			"end_line": 282,
+			"comment": ""
+		}
+	],
+	"Cli-15b": [
+		{
+			"class_file": "org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java",
+			"method_name": "getValues",
+			"arg_types": "Lorg/apache/commons/cli2/Option;Ljava/util/List;",
+			"type": "method",
+			"signature": "org.apache.commons.cli2.commandline.WriteableCommandLineImpl.getValues(org.apache.commons.cli2.Option, java.util.List)",
+			"begin_line": 111,
+			"end_line": 130,
+			"comment": ""
+		}
+	],
+	"Cli-16b": [
+		{
+			"class_file": "org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java",
+			"method_name": "addOption",
+			"arg_types": "Lorg/apache/commons/cli/Option;",
+			"type": "method",
+			"signature": "org.apache.commons.cli2.commandline.WriteableCommandLineImpl.addOption(org.apache.commons.cli2.Option)",
+			"begin_line": 65,
+			"end_line": 74,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/cli2/option/GroupImpl.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/util/List;Ljava/lang/String;Ljava/lang/String;II",
+			"type": "constructor",
+			"signature": "org.apache.commons.cli2.option.GroupImpl.GroupImpl(java.util.List, java.lang.String, java.lang.String, int, int)",
+			"begin_line": 64,
+			"end_line": 111,
+			"comment": "\n     * Creates a new GroupImpl using the specified parameters.\n     *\n     * @param options the Options and Arguments that make up the Group\n     * @param name the name of this Group, or null\n     * @param description a description of this Group\n     * @param minimum the minimum number of Options for a valid CommandLine\n     * @param maximum the maximum number of Options for a valid CommandLine\n     "
+		}
+	],
+	"Cli-17b": [
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "burstToken",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.burstToken(java.lang.String, boolean)",
+			"begin_line": 282,
+			"end_line": 310,
+			"comment": "\n     * <p>Breaks <code>token</code> into its constituent parts\n     * using the following algorithm.\n     * <ul>\n     *  <li>ignore the first character (\"<b>-</b>\")</li>\n     *  <li>foreach remaining character check if an {@link Option}\n     *  exists with that id.</li>\n     *  <li>if an {@link Option} does exist then add that character\n     *  prepended with \"<b>-</b>\" to the list of processed tokens.</li>\n     *  <li>if the {@link Option} can have an argument value and there \n     *  are remaining characters in the token then add the remaining \n     *  characters as a token to the list of processed tokens.</li>\n     *  <li>if an {@link Option} does <b>NOT</b> exist <b>AND</b> \n     *  <code>stopAtNonOption</code> <b>IS</b> set then add the special token\n     *  \"<b>--</b>\" followed by the remaining characters and also \n     *  the remaining tokens directly to the processed tokens list.</li>\n     *  <li>if an {@link Option} does <b>NOT</b> exist <b>AND</b>\n     *  <code>stopAtNonOption</code> <b>IS NOT</b> set then add that\n     *  character prepended with \"<b>-</b>\".</li>\n     * </ul>\n     * </p>\n     *\n     * @param token The current token to be <b>burst</b>\n     * @param stopAtNonOption Specifies whether to stop processing\n     * at the first non-Option encountered.\n     "
+		}
+	],
+	"Cli-18b": [
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "flatten",
+			"arg_types": "Lorg/apache/commons/cli/Options;[Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.flatten(org.apache.commons.cli.Options, java.lang.String[], boolean)",
+			"begin_line": 97,
+			"end_line": 159,
+			"comment": "\n     * <p>An implementation of {@link Parser}'s abstract\n     * {@link Parser#flatten(Options,String[],boolean) flatten} method.</p>\n     *\n     * <p>The following are the rules used by this flatten method.\n     * <ol>\n     *  <li>if <code>stopAtNonOption</code> is <b>true</b> then do not\n     *  burst anymore of <code>arguments</code> entries, just add each\n     *  successive entry without further processing.  Otherwise, ignore\n     *  <code>stopAtNonOption</code>.</li>\n     *  <li>if the current <code>arguments</code> entry is \"<b>--</b>\"\n     *  just add the entry to the list of processed tokens</li>\n     *  <li>if the current <code>arguments</code> entry is \"<b>-</b>\"\n     *  just add the entry to the list of processed tokens</li>\n     *  <li>if the current <code>arguments</code> entry is two characters\n     *  in length and the first character is \"<b>-</b>\" then check if this\n     *  is a valid {@link Option} id.  If it is a valid id, then add the\n     *  entry to the list of processed tokens and set the current {@link Option}\n     *  member.  If it is not a valid id and <code>stopAtNonOption</code>\n     *  is true, then the remaining entries are copied to the list of \n     *  processed tokens.  Otherwise, the current entry is ignored.</li>\n     *  <li>if the current <code>arguments</code> entry is more than two\n     *  characters in length and the first character is \"<b>-</b>\" then\n     *  we need to burst the entry to determine its constituents.  For more\n     *  information on the bursting algorithm see \n     *  {@link PosixParser#burstToken(String, boolean) burstToken}.</li>\n     *  <li>if the current <code>arguments</code> entry is not handled \n     *  by any of the previous rules, then the entry is added to the list\n     *  of processed tokens.</li>\n     * </ol>\n     * </p>\n     *\n     * @param options The command line {@link Options}\n     * @param arguments The command line arguments to be parsed\n     * @param stopAtNonOption Specifies whether to stop flattening\n     * when an non option is found.\n     * @return The flattened <code>arguments</code> String array.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "processOptionToken",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.processOptionToken(java.lang.String, boolean)",
+			"begin_line": 231,
+			"end_line": 242,
+			"comment": "\n     * <p>If an {@link Option} exists for <code>token</code> then\n     * set the current option and add the token to the processed \n     * list.</p>\n     *\n     * <p>If an {@link Option} does not exist and <code>stopAtNonOption</code>\n     * is set then ignore the current token and add the remaining tokens\n     * to the processed tokens list directly.</p>\n     *\n     * @param token The current option token\n     * @param stopAtNonOption Specifies whether flattening should halt\n     * at the first non option.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "processSingleHyphen",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.processSingleHyphen(java.lang.String)",
+			"begin_line": 213,
+			"end_line": 216,
+			"comment": ""
+		}
+	],
+	"Cli-19b": [
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "processOptionToken",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.processOptionToken(java.lang.String, boolean)",
+			"begin_line": 227,
+			"end_line": 239,
+			"comment": "\n     * <p>If an {@link Option} exists for <code>token</code> then\n     * set the current option and add the token to the processed \n     * list.</p>\n     *\n     * <p>If an {@link Option} does not exist and <code>stopAtNonOption</code>\n     * is set then ignore the current token and add the remaining tokens\n     * to the processed tokens list directly.</p>\n     *\n     * @param token The current option token\n     * @param stopAtNonOption Specifies whether flattening should halt\n     * at the first non option.\n     "
+		}
+	],
+	"Cli-20b": [
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "flatten",
+			"arg_types": "Lorg/apache/commons/cli/Options;[Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.flatten(org.apache.commons.cli.Options, java.lang.String[], boolean)",
+			"begin_line": 97,
+			"end_line": 159,
+			"comment": "\n     * <p>An implementation of {@link Parser}'s abstract\n     * {@link Parser#flatten(Options,String[],boolean) flatten} method.</p>\n     *\n     * <p>The following are the rules used by this flatten method.\n     * <ol>\n     *  <li>if <code>stopAtNonOption</code> is <b>true</b> then do not\n     *  burst anymore of <code>arguments</code> entries, just add each\n     *  successive entry without further processing.  Otherwise, ignore\n     *  <code>stopAtNonOption</code>.</li>\n     *  <li>if the current <code>arguments</code> entry is \"<b>--</b>\"\n     *  just add the entry to the list of processed tokens</li>\n     *  <li>if the current <code>arguments</code> entry is \"<b>-</b>\"\n     *  just add the entry to the list of processed tokens</li>\n     *  <li>if the current <code>arguments</code> entry is two characters\n     *  in length and the first character is \"<b>-</b>\" then check if this\n     *  is a valid {@link Option} id.  If it is a valid id, then add the\n     *  entry to the list of processed tokens and set the current {@link Option}\n     *  member.  If it is not a valid id and <code>stopAtNonOption</code>\n     *  is true, then the remaining entries are copied to the list of \n     *  processed tokens.  Otherwise, the current entry is ignored.</li>\n     *  <li>if the current <code>arguments</code> entry is more than two\n     *  characters in length and the first character is \"<b>-</b>\" then\n     *  we need to burst the entry to determine its constituents.  For more\n     *  information on the bursting algorithm see \n     *  {@link PosixParser#burstToken(String, boolean) burstToken}.</li>\n     *  <li>if the current <code>arguments</code> entry is not handled \n     *  by any of the previous rules, then the entry is added to the list\n     *  of processed tokens.</li>\n     * </ol>\n     * </p>\n     *\n     * @param options The command line {@link Options}\n     * @param arguments The command line arguments to be parsed\n     * @param stopAtNonOption Specifies whether to stop flattening\n     * when an non option is found.\n     * @return The flattened <code>arguments</code> String array.\n     "
+		}
+	],
+	"Cli-21b": [
+		{
+			"class_file": "org/apache/commons/cli2/option/GroupImpl.java",
+			"method_name": "looksLikeOption",
+			"arg_types": "Lorg/apache/commons/cli2/WriteableCommandLine;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli2.option.GroupImpl.looksLikeOption(org.apache.commons.cli2.WriteableCommandLine, java.lang.String)",
+			"begin_line": 511,
+			"end_line": 514,
+			"comment": "\n     * Helper method for testing whether an element of the command line looks\n     * like an option. This method queries the command line, but sets the\n     * current option first.\n     *\n     * @param commandLine the command line\n     * @param trigger the trigger to be checked\n     * @return a flag whether this element looks like an option\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java",
+			"method_name": "looksLikeOption",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli2.commandline.WriteableCommandLineImpl.looksLikeOption(java.lang.String)",
+			"begin_line": 232,
+			"end_line": 246,
+			"comment": "\n     * Tests whether the passed in trigger looks like an option. This\n     * implementation first checks whether the passed in string starts with a\n     * prefix that indicates an option. If this is the case, it is also checked\n     * whether an option of this name is known for the current option. (This can\n     * lead to reentrant invocations of this method, so care has to be taken\n     * about this.)\n     *\n     * @param trigger the command line element to test\n     * @return a flag whether this element seems to be an option\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java",
+			"method_name": "<init>",
+			"arg_types": "Lorg/apache/commons/cli2/Option;Ljava/util/List;",
+			"type": "constructor",
+			"signature": "org.apache.commons.cli2.commandline.WriteableCommandLineImpl.WriteableCommandLineImpl(org.apache.commons.cli2.Option, java.util.List)",
+			"begin_line": 59,
+			"end_line": 63,
+			"comment": "\n     * Creates a new WriteableCommandLineImpl rooted on the specified Option, to\n     * hold the parsed arguments.\n     *\n     * @param rootOption the CommandLine's root Option\n     * @param arguments the arguments this CommandLine represents\n     "
+		}
+	],
+	"Cli-22b": [
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "flatten",
+			"arg_types": "Lorg/apache/commons/cli/Options;[Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.flatten(org.apache.commons.cli.Options, java.lang.String[], boolean)",
+			"begin_line": 94,
+			"end_line": 159,
+			"comment": "\n     * <p>An implementation of {@link Parser}'s abstract\n     * {@link Parser#flatten(Options,String[],boolean) flatten} method.</p>\n     *\n     * <p>The following are the rules used by this flatten method.\n     * <ol>\n     *  <li>if <code>stopAtNonOption</code> is <b>true</b> then do not\n     *  burst anymore of <code>arguments</code> entries, just add each\n     *  successive entry without further processing.  Otherwise, ignore\n     *  <code>stopAtNonOption</code>.</li>\n     *  <li>if the current <code>arguments</code> entry is \"<b>--</b>\"\n     *  just add the entry to the list of processed tokens</li>\n     *  <li>if the current <code>arguments</code> entry is \"<b>-</b>\"\n     *  just add the entry to the list of processed tokens</li>\n     *  <li>if the current <code>arguments</code> entry is two characters\n     *  in length and the first character is \"<b>-</b>\" then check if this\n     *  is a valid {@link Option} id.  If it is a valid id, then add the\n     *  entry to the list of processed tokens and set the current {@link Option}\n     *  member.  If it is not a valid id and <code>stopAtNonOption</code>\n     *  is true, then the remaining entries are copied to the list of\n     *  processed tokens.  Otherwise, the current entry is ignored.</li>\n     *  <li>if the current <code>arguments</code> entry is more than two\n     *  characters in length and the first character is \"<b>-</b>\" then\n     *  we need to burst the entry to determine its constituents.  For more\n     *  information on the bursting algorithm see\n     *  {@link PosixParser#burstToken(String, boolean) burstToken}.</li>\n     *  <li>if the current <code>arguments</code> entry is not handled\n     *  by any of the previous rules, then the entry is added to the list\n     *  of processed tokens.</li>\n     * </ol>\n     * </p>\n     *\n     * @param options The command line {@link Options}\n     * @param arguments The command line arguments to be parsed\n     * @param stopAtNonOption Specifies whether to stop flattening\n     * when an non option is found.\n     * @return The flattened <code>arguments</code> String array.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "burstToken",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.burstToken(java.lang.String, boolean)",
+			"begin_line": 241,
+			"end_line": 271,
+			"comment": "\n     * Breaks <code>token</code> into its constituent parts\n     * using the following algorithm.\n     *\n     * <ul>\n     *  <li>ignore the first character (\"<b>-</b>\")</li>\n     *  <li>foreach remaining character check if an {@link Option}\n     *  exists with that id.</li>\n     *  <li>if an {@link Option} does exist then add that character\n     *  prepended with \"<b>-</b>\" to the list of processed tokens.</li>\n     *  <li>if the {@link Option} can have an argument value and there\n     *  are remaining characters in the token then add the remaining\n     *  characters as a token to the list of processed tokens.</li>\n     *  <li>if an {@link Option} does <b>NOT</b> exist <b>AND</b>\n     *  <code>stopAtNonOption</code> <b>IS</b> set then add the special token\n     *  \"<b>--</b>\" followed by the remaining characters and also\n     *  the remaining tokens directly to the processed tokens list.</li>\n     *  <li>if an {@link Option} does <b>NOT</b> exist <b>AND</b>\n     *  <code>stopAtNonOption</code> <b>IS NOT</b> set then add that\n     *  character prepended with \"<b>-</b>\".</li>\n     * </ul>\n     *\n     * @param token The current token to be <b>burst</b>\n     * @param stopAtNonOption Specifies whether to stop processing\n     * at the first non-Option encountered.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "processNonOptionToken",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.processNonOptionToken(java.lang.String)",
+			"begin_line": 184,
+			"end_line": 190,
+			"comment": "\n     * Add the special token \"<b>--</b>\" and the current <code>value</code>\n     * to the processed tokens list. Then add all the remaining\n     * <code>argument</code> values to the processed tokens list.\n     *\n     * @param value The current token\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/PosixParser.java",
+			"method_name": "processOptionToken",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.PosixParser.processOptionToken(java.lang.String, boolean)",
+			"begin_line": 204,
+			"end_line": 213,
+			"comment": "\n     * <p>If an {@link Option} exists for <code>token</code> then\n     * add the token to the processed list.</p>\n     *\n     * <p>If an {@link Option} does not exist and <code>stopAtNonOption</code>\n     * is set then add the remaining tokens to the processed tokens list\n     * directly.</p>\n     *\n     * @param token The current option token\n     * @param stopAtNonOption Specifies whether flattening should halt\n     * at the first non option.\n     "
+		}
+	],
+	"Cli-23b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "renderWrappedText",
+			"arg_types": "Ljava/lang/StringBuffer;IILjava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.renderWrappedText(java.lang.StringBuffer, int, int, java.lang.String)",
+			"begin_line": 805,
+			"end_line": 841,
+			"comment": "\n     * Render the specified text and return the rendered Options\n     * in a StringBuffer.\n     *\n     * @param sb The StringBuffer to place the rendered text into.\n     * @param width The number of characters to display per line\n     * @param nextLineTabStop The position on the next line for the first tab.\n     * @param text The text to be rendered.\n     *\n     * @return the StringBuffer with the rendered Options contents.\n     "
+		}
+	],
+	"Cli-24b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "renderWrappedText",
+			"arg_types": "Ljava/lang/StringBuffer;IILjava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.renderWrappedText(java.lang.StringBuffer, int, int, java.lang.String)",
+			"begin_line": 809,
+			"end_line": 852,
+			"comment": "\n     * Render the specified text and return the rendered Options\n     * in a StringBuffer.\n     *\n     * @param sb The StringBuffer to place the rendered text into.\n     * @param width The number of characters to display per line\n     * @param nextLineTabStop The position on the next line for the first tab.\n     * @param text The text to be rendered.\n     *\n     * @return the StringBuffer with the rendered Options contents.\n     "
+		}
+	],
+	"Cli-25b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "renderWrappedText",
+			"arg_types": "Ljava/lang/StringBuffer;IILjava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.renderWrappedText(java.lang.StringBuffer, int, int, java.lang.String)",
+			"begin_line": 809,
+			"end_line": 851,
+			"comment": "\n     * Render the specified text and return the rendered Options\n     * in a StringBuffer.\n     *\n     * @param sb The StringBuffer to place the rendered text into.\n     * @param width The number of characters to display per line\n     * @param nextLineTabStop The position on the next line for the first tab.\n     * @param text The text to be rendered.\n     *\n     * @return the StringBuffer with the rendered Options contents.\n     "
+		}
+	],
+	"Cli-26b": [
+		{
+			"class_file": "org/apache/commons/cli/OptionBuilder.java",
+			"method_name": "create",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.OptionBuilder.create(java.lang.String)",
+			"begin_line": 346,
+			"end_line": 364,
+			"comment": "\n     * Create an Option using the current settings and with\n     * the specified Option <code>char</code>.\n     *\n     * @param opt the <code>java.lang.String</code> representation\n     * of the Option\n     * @return the Option instance\n     * @throws IllegalArgumentException if <code>opt</code> is not\n     * a valid character.  See Option.\n     "
+		}
+	],
+	"Cli-27b": [
+		{
+			"class_file": "org/apache/commons/cli/OptionGroup.java",
+			"method_name": "setSelected",
+			"arg_types": "Lorg/apache/commons/cli/Option;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.OptionGroup.setSelected(org.apache.commons.cli.Option)",
+			"begin_line": 86,
+			"end_line": 106,
+			"comment": "\n     * Set the selected option of this group to <code>name</code>.\n     *\n     * @param option the option that is selected\n     * @throws AlreadySelectedException if an option from this group has \n     * already been selected.\n     "
+		}
+	],
+	"Cli-28b": [
+		{
+			"class_file": "org/apache/commons/cli/Parser.java",
+			"method_name": "processProperties",
+			"arg_types": "Ljava/util/Properties;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Parser.processProperties(java.util.Properties)",
+			"begin_line": 252,
+			"end_line": 296,
+			"comment": "\n     * Sets the values of Options using the values in <code>properties</code>.\n     *\n     * @param properties The value properties to be processed.\n     "
+		}
+	],
+	"Cli-29b": [
+		{
+			"class_file": "org/apache/commons/cli/Util.java",
+			"method_name": "stripLeadingAndTrailingQuotes",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Util.stripLeadingAndTrailingQuotes(java.lang.String)",
+			"begin_line": 63,
+			"end_line": 76,
+			"comment": "\n     * Remove the leading and trailing quotes from <code>str</code>.\n     * E.g. if str is '\"one two\"', then 'one two' is returned.\n     *\n     * @param str The string from which the leading and trailing quotes\n     * should be removed.\n     *\n     * @return The string without the leading and trailing quotes.\n     "
+		}
+	],
+	"Cli-30b": [
+		{
+			"class_file": "org/apache/commons/cli/Parser.java",
+			"method_name": "processProperties",
+			"arg_types": "Ljava/util/Properties;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Parser.processProperties(java.util.Properties)",
+			"begin_line": 252,
+			"end_line": 299,
+			"comment": "\n     * Sets the values of Options using the values in <code>properties</code>.\n     *\n     * @param properties The value properties to be processed.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/DefaultParser.java",
+			"method_name": "handleProperties",
+			"arg_types": "Ljava/util/Properties;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.DefaultParser.handleProperties(java.util.Properties)",
+			"begin_line": 139,
+			"end_line": 178,
+			"comment": "\n     * Sets the values of Options using the values in <code>properties</code>.\n     *\n     * @param properties The value properties to be processed.\n     "
+		}
+	],
+	"Cli-31b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "appendOption",
+			"arg_types": "Ljava/lang/StringBuffer;Lorg/apache/commons/cli/Option;Z",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.appendOption(java.lang.StringBuffer, org.apache.commons.cli.Option, boolean)",
+			"begin_line": 636,
+			"end_line": 664,
+			"comment": "\n     * Appends the usage clause for an Option to a StringBuffer.  \n     *\n     * @param buff the StringBuffer to append to\n     * @param option the Option to append\n     * @param required whether the Option is required or not\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/OptionBuilder.java",
+			"method_name": "reset",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.cli.OptionBuilder.reset()",
+			"begin_line": 77,
+			"end_line": 87,
+			"comment": "\n     * Resets the member variables to their default values.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/Option.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"argName"
+			],
+			"begin_line": 57,
+			"end_line": 57,
+			"comment": " the name of the argument for this option "
+		}
+	],
+	"Cli-32b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "findWrapPos",
+			"arg_types": "Ljava/lang/String;II",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.findWrapPos(java.lang.String, int, int)",
+			"begin_line": 902,
+			"end_line": 943,
+			"comment": "\n     * Finds the next text wrap position after <code>startPos</code> for the\n     * text in <code>text</code> with the column width <code>width</code>.\n     * The wrap point is the last position before startPos+width having a \n     * whitespace character (space, \\n, \\r). If there is no whitespace character\n     * before startPos+width, it will return startPos+width.\n     *\n     * @param text The text being searched for the wrap position\n     * @param width width of the wrapped text\n     * @param startPos position from which to start the lookup whitespace\n     * character\n     * @return postion on which the text must be wrapped or -1 if the wrap\n     * position is at the end of the text\n     "
+		}
+	],
+	"Cli-33b": [
+		{
+			"class_file": "org/apache/commons/cli/HelpFormatter.java",
+			"method_name": "printWrapped",
+			"arg_types": "Ljava/io/PrintWriter;IILjava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.HelpFormatter.printWrapped(java.io.PrintWriter, int, int, java.lang.String)",
+			"begin_line": 726,
+			"end_line": 732,
+			"comment": "\n     * Print the specified text to the specified PrintWriter.\n     *\n     * @param pw The printWriter to write the help to\n     * @param width The number of characters to display per line\n     * @param nextLineTabStop The position on the next line for the first tab.\n     * @param text The text to be written to the PrintWriter\n     "
+		}
+	],
+	"Cli-34b": [
+		{
+			"class_file": "org/apache/commons/cli/OptionBuilder.java",
+			"method_name": "reset",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.cli.OptionBuilder.reset()",
+			"begin_line": 79,
+			"end_line": 89,
+			"comment": "\n     * Resets the member variables to their default values.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/cli/Option.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"type"
+			],
+			"begin_line": 72,
+			"end_line": 72,
+			"comment": " the type of this Option "
+		}
+	],
+	"Cli-35b": [
+		{
+			"class_file": "org/apache/commons/cli/Options.java",
+			"method_name": "getMatchingOptions",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.Options.getMatchingOptions(java.lang.String)",
+			"begin_line": 233,
+			"end_line": 250,
+			"comment": "\n     * Returns the options with a long name starting with the name specified.\n     * \n     * @param opt the partial name of the option\n     * @return the options matching the partial name specified, or an empty list if none matches\n     * @since 1.3\n     "
+		}
+	],
+	"Cli-36b": [
+		{
+			"class_file": "org/apache/commons/cli/OptionGroup.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"optionMap"
+			],
+			"begin_line": 37,
+			"end_line": 37,
+			"comment": " hold the options "
+		},
+		{
+			"class_file": "org/apache/commons/cli/Options.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"optionGroups"
+			],
+			"begin_line": 61,
+			"end_line": 61,
+			"comment": " a map of the option groups "
+		}
+	],
+	"Cli-37b": [
+		{
+			"class_file": "org/apache/commons/cli/DefaultParser.java",
+			"method_name": "isShortOption",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.DefaultParser.isShortOption(java.lang.String)",
+			"begin_line": 299,
+			"end_line": 305,
+			"comment": "\n     * Tells if the token looks like a short option.\n     * \n     * @param token\n     "
+		}
+	],
+	"Cli-38b": [
+		{
+			"class_file": "org/apache/commons/cli/DefaultParser.java",
+			"method_name": "isShortOption",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.DefaultParser.isShortOption(java.lang.String)",
+			"begin_line": 299,
+			"end_line": 312,
+			"comment": "\n     * Tells if the token looks like a short option.\n     * \n     * @param token\n     "
+		}
+	],
+	"Cli-39b": [
+		{
+			"class_file": "org/apache/commons/cli/TypeHandler.java",
+			"method_name": "createValue",
+			"arg_types": "Ljava/lang/String;Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.TypeHandler.createValue(java.lang.String, java.lang.Class<?>)",
+			"begin_line": 64,
+			"end_line": 106,
+			"comment": "\n     * Returns the <code>Object</code> of type <code>clazz</code>\n     * with the value of <code>str</code>.\n     *\n     * @param str the command line value\n     * @param clazz the type of argument\n     * @return The instance of <code>clazz</code> initialised with\n     * the value of <code>str</code>.\n     * @throws ParseException if the value creation for the given class failed\n     "
+		}
+	],
+	"Cli-40b": [
+		{
+			"class_file": "org/apache/commons/cli/TypeHandler.java",
+			"method_name": "createValue",
+			"arg_types": "Ljava/lang/String;Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.apache.commons.cli.TypeHandler.createValue(java.lang.String, java.lang.Class<T>)",
+			"begin_line": 62,
+			"end_line": 105,
+			"comment": "\n     * Returns the <code>Object</code> of type <code>clazz</code>\n     * with the value of <code>str</code>.\n     *\n     * @param str the command line value\n     * @param clazz the type of argument\n     * @return The instance of <code>clazz</code> initialised with\n     * the value of <code>str</code>.\n     * @throws ParseException if the value creation for the given class failed\n     "
+		}
+	]
+}

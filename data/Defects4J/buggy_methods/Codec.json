@@ -1,0 +1,271 @@
+{
+	"Codec-1b": [
+		{
+			"class_file": "org/apache/commons/codec/language/Caverphone.java",
+			"method_name": "caverphone",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.Caverphone.caverphone(java.lang.String)",
+			"begin_line": 50,
+			"end_line": 140,
+			"comment": "\n     * Find the caverphone value of a String. \n     *\n     * @param txt String to find the caverphone code for\n     * @return A caverphone code corresponding to the String supplied\n     "
+		},
+		{
+			"class_file": "org/apache/commons/codec/language/SoundexUtils.java",
+			"method_name": "clean",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.SoundexUtils.clean(java.lang.String)",
+			"begin_line": 40,
+			"end_line": 56,
+			"comment": "\n\t * Cleans up the input string before Soundex processing by only returning\n\t * upper case letters.\n\t * \n\t * @param str\n\t *                  The String to clean.\n\t * @return A clean String.\n\t "
+		},
+		{
+			"class_file": "org/apache/commons/codec/language/Metaphone.java",
+			"method_name": "metaphone",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.Metaphone.metaphone(java.lang.String)",
+			"begin_line": 81,
+			"end_line": 313,
+			"comment": "\n     * Find the metaphone value of a String. This is similar to the\n     * soundex algorithm, but better at finding similar sounding words.\n     * All input is converted to upper case.\n     * Limitations: Input format is expected to be a single ASCII word\n     * with only characters in the A - Z range, no punctuation or numbers.\n     *\n     * @param txt String to find the metaphone code for\n     * @return A metaphone code corresponding to the String supplied\n     "
+		}
+	],
+	"Codec-2b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64.java",
+			"method_name": "encode",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.Base64.encode(byte[], int, int)",
+			"begin_line": 414,
+			"end_line": 473,
+			"comment": "\n     * <p>\n     * Encodes all of the provided data, starting at inPos, for inAvail bytes.\n     * Must be called at least twice:  once with the data to encode, and once\n     * with inAvail set to \"-1\" to alert encoder that EOF has been reached,\n     * so flush last remaining bytes (if not multiple of 3).\n     * </p><p>\n     * Thanks to \"commons\" project in ws.apache.org for the bitwise operations,\n     * and general approach.\n     * http://svn.apache.org/repos/asf/webservices/commons/trunk/modules/util/\n     * </p>\n     *\n     * @param in byte[] array of binary data to base64 encode.\n     * @param inPos Position to start reading data from.\n     * @param inAvail Amount of bytes available from input for encoding.\n     "
+		}
+	],
+	"Codec-3b": [
+		{
+			"class_file": "org/apache/commons/codec/language/DoubleMetaphone.java",
+			"method_name": "handleG",
+			"arg_types": "Ljava/lang/String;Lorg/apache/commons/codec/language/DoubleMetaphone$DoubleMetaphoneResult;IZ",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.DoubleMetaphone.handleG(java.lang.String, org.apache.commons.codec.language.DoubleMetaphone.DoubleMetaphoneResult, int, boolean)",
+			"begin_line": 418,
+			"end_line": 469,
+			"comment": "\n     * Handles 'G' cases\n     "
+		}
+	],
+	"Codec-4b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64.java",
+			"method_name": "<init>",
+			"arg_types": "",
+			"type": "constructor",
+			"signature": "org.apache.commons.codec.binary.Base64.Base64()",
+			"begin_line": 224,
+			"end_line": 226,
+			"comment": "\n     * Creates a Base64 codec used for decoding (all modes) and encoding in URL-unsafe mode.\n     * <p>\n     * When encoding the line length is 0 (no chunking), and the encoding table is STANDARD_ENCODE_TABLE.\n     * </p>\n     * \n     * <p>\n     * When decoding all variants are supported.\n     * </p>\n     "
+		}
+	],
+	"Codec-5b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64.java",
+			"method_name": "decode",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.Base64.decode(byte[], int, int)",
+			"begin_line": 550,
+			"end_line": 599,
+			"comment": "\n     * <p>\n     * Decodes all of the provided data, starting at inPos, for inAvail bytes. Should be called at least twice: once\n     * with the data to decode, and once with inAvail set to \"-1\" to alert decoder that EOF has been reached. The \"-1\"\n     * call is not necessary when decoding, but it doesn't hurt, either.\n     * </p>\n     * <p>\n     * Ignores all non-base64 characters. This is how chunked (e.g. 76 character) data is handled, since CR and LF are\n     * silently ignored, but has implications for other bytes, too. This method subscribes to the garbage-in,\n     * garbage-out philosophy: it will not check the provided data for validity.\n     * </p>\n     * <p>\n     * Thanks to \"commons\" project in ws.apache.org for the bitwise operations, and general approach.\n     * http://svn.apache.org/repos/asf/webservices/commons/trunk/modules/util/\n     * </p>\n     * \n     * @param in\n     *            byte[] array of ascii data to base64 decode.\n     * @param inPos\n     *            Position to start reading data from.\n     * @param inAvail\n     *            Amount of bytes available from input for encoding.\n     "
+		}
+	],
+	"Codec-6b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64InputStream.java",
+			"method_name": "read",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.Base64InputStream.read(byte[], int, int)",
+			"begin_line": 138,
+			"end_line": 180,
+			"comment": "\n     * Attempts to read <code>len</code> bytes into the specified <code>b</code> array starting at <code>offset</code>\n     * from this InputStream.\n     * \n     * @param b\n     *            destination byte array\n     * @param offset\n     *            where to start writing the bytes\n     * @param len\n     *            maximum number of bytes to read\n     * \n     * @return number of bytes read\n     * @throws IOException\n     *             if an I/O error occurs.\n     * @throws NullPointerException\n     *             if the byte array parameter is null\n     * @throws IndexOutOfBoundsException\n     *             if offset, len or buffer size are invalid\n     "
+		}
+	],
+	"Codec-7b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64.java",
+			"method_name": "encodeBase64String",
+			"arg_types": "[B",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.Base64.encodeBase64String(byte[])",
+			"begin_line": 669,
+			"end_line": 671,
+			"comment": "\n     * Encodes binary data using the base64 algorithm into 76 character blocks separated by CRLF.\n     *\n     * @param binaryData\n     *            binary data to encode\n     * @return String containing Base64 characters.\n     * @since 1.4\n     "
+		}
+	],
+	"Codec-8b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64InputStream.java",
+			"method_name": "read",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.Base64InputStream.read(byte[], int, int)",
+			"begin_line": 138,
+			"end_line": 182,
+			"comment": "\n     * Attempts to read <code>len</code> bytes into the specified <code>b</code> array starting at <code>offset</code>\n     * from this InputStream.\n     * \n     * @param b\n     *            destination byte array\n     * @param offset\n     *            where to start writing the bytes\n     * @param len\n     *            maximum number of bytes to read\n     * \n     * @return number of bytes read\n     * @throws IOException\n     *             if an I/O error occurs.\n     * @throws NullPointerException\n     *             if the byte array parameter is null\n     * @throws IndexOutOfBoundsException\n     *             if offset, len or buffer size are invalid\n     "
+		},
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64.java",
+			"method_name": "setInitialBuffer",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.Base64.setInitialBuffer(byte[], int, int)",
+			"begin_line": 419,
+			"end_line": 425,
+			"comment": ""
+		}
+	],
+	"Codec-9b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base64.java",
+			"method_name": "encodeBase64",
+			"arg_types": "[BZZI",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.Base64.encodeBase64(byte[], boolean, boolean, int)",
+			"begin_line": 822,
+			"end_line": 837,
+			"comment": "\n     * Encodes binary data using the base64 algorithm, optionally chunking the output into 76 character blocks.\n     * \n     * @param binaryData\n     *            Array containing binary data to encode.\n     * @param isChunked\n     *            if <code>true</code> this encoder will chunk the base64 output into 76 character blocks\n     * @param urlSafe\n     *            if <code>true</code> this encoder will emit - and _ instead of the usual + and / characters.\n     * @param maxResultSize\n     *            The maximum result size to accept.\n     * @return Base64-encoded data.\n     * @throws IllegalArgumentException\n     *             Thrown when the input array needs an output array bigger than maxResultSize\n     * @since 1.4\n     "
+		}
+	],
+	"Codec-10b": [
+		{
+			"class_file": "org/apache/commons/codec/language/Caverphone.java",
+			"method_name": "caverphone",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.Caverphone.caverphone(java.lang.String)",
+			"begin_line": 50,
+			"end_line": 142,
+			"comment": "\n     * Encodes the given String into a Caverphone value.\n     *\n     * @param txt String the source string\n     * @return A caverphone code for the given String\n     "
+		}
+	],
+	"Codec-11b": [
+		{
+			"class_file": "org/apache/commons/codec/net/QuotedPrintableCodec.java",
+			"method_name": "decodeQuotedPrintable",
+			"arg_types": "[B",
+			"type": "method",
+			"signature": "org.apache.commons.codec.net.QuotedPrintableCodec.decodeQuotedPrintable(byte[])",
+			"begin_line": 219,
+			"end_line": 241,
+			"comment": "\n     * Decodes an array quoted-printable characters into an array of original bytes. Escaped characters are\n     * converted back to their original representation.\n     *\n     * <p>\n     * This function fully implements the quoted-printable encoding specification (rule #1 through rule #5) as\n     * defined in RFC 1521.\n     * </p>\n     *\n     * @param bytes\n     *                  array of quoted-printable characters\n     * @return array of original bytes\n     * @throws DecoderException\n     *                  Thrown if quoted-printable decoding is unsuccessful\n     "
+		},
+		{
+			"class_file": "org/apache/commons/codec/net/QuotedPrintableCodec.java",
+			"method_name": "encodeQuotedPrintable",
+			"arg_types": "Ljava/util/BitSet;[B",
+			"type": "method",
+			"signature": "org.apache.commons.codec.net.QuotedPrintableCodec.encodeQuotedPrintable(java.util.BitSet, byte[])",
+			"begin_line": 167,
+			"end_line": 202,
+			"comment": "\n     * Encodes an array of bytes into an array of quoted-printable 7-bit characters. Unsafe characters are escaped.\n     *\n     * <p>\n     * This function fully implements the quoted-printable encoding specification (rule #1 through rule #5)\n     * as defined in RFC 1521 and is suitable for encoding binary data and unformatted text.\n     * </p>\n     *\n     * @param printable\n     *                  bitset of characters deemed quoted-printable\n     * @param bytes\n     *                  array of bytes to be encoded\n     * @return array of bytes containing quoted-printable data\n     "
+		},
+		{
+			"class_file": "org/apache/commons/codec/net/QuotedPrintableCodec.java",
+			"method_name": "encodeQuotedPrintable",
+			"arg_types": "ILjava/io/ByteArrayOutputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.codec.net.QuotedPrintableCodec.encodeQuotedPrintable(int, java.io.ByteArrayOutputStream)",
+			"begin_line": 114,
+			"end_line": 120,
+			"comment": "\n     * Encodes byte into its quoted-printable representation.\n     * \n     * @param b\n     *            byte to encode\n     * @param buffer\n     *            the buffer to write to\n     * @return The number of bytes written to the <code>buffer</code>\n     "
+		}
+	],
+	"Codec-12b": [],
+	"Codec-13b": [
+		{
+			"class_file": "org/apache/commons/codec/language/DoubleMetaphone.java",
+			"method_name": "isDoubleMetaphoneEqual",
+			"arg_types": "Ljava/lang/String;Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.DoubleMetaphone.isDoubleMetaphoneEqual(java.lang.String, java.lang.String, boolean)",
+			"begin_line": 243,
+			"end_line": 245,
+			"comment": "\n     * Check if the Double Metaphone values of two <code>String</code> values\n     * are equal, optionally using the alternate value.\n     *\n     * @param value1 The left-hand side of the encoded {@link String#equals(Object)}.\n     * @param value2 The right-hand side of the encoded {@link String#equals(Object)}.\n     * @param alternate use the alternate value if {@code true}.\n     * @return {@code true} if the encoded <code>String</code>s are equal;\n     *          {@code false} otherwise.\n     "
+		}
+	],
+	"Codec-14b": [
+		{
+			"class_file": "org/apache/commons/codec/language/bm/Lang.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"LANGUAGE_RULES_RN"
+			],
+			"begin_line": 98,
+			"end_line": 98,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/codec/language/bm/PhoneticEngine.java",
+			"method_name": "applyFinalRules",
+			"arg_types": "Lorg/apache/commons/codec/language/bm/PhoneticEngine$PhonemeBuilder;Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.bm.PhoneticEngine.applyFinalRules(org.apache.commons.codec.language.bm.PhoneticEngine.PhonemeBuilder, java.util.Map<java.lang.String, java.util.List<org.apache.commons.codec.language.bm.Rule>>)",
+			"begin_line": 329,
+			"end_line": 365,
+			"comment": "\n     * Applies the final rules to convert from a language-specific phonetic representation to a\n     * language-independent representation.\n     *\n     * @param phonemeBuilder the current phonemes\n     * @param finalRules the final rules to apply\n     * @return the resulting phonemes\n     "
+		}
+	],
+	"Codec-15b": [
+		{
+			"class_file": "org/apache/commons/codec/language/Soundex.java",
+			"method_name": "getMappingCode",
+			"arg_types": "Ljava/lang/String;I",
+			"type": "method",
+			"signature": "org.apache.commons.codec.language.Soundex.getMappingCode(java.lang.String, int)",
+			"begin_line": 183,
+			"end_line": 198,
+			"comment": "\n     * Used internally by the Soundex algorithm.\n     *\n     * Consonants from the same code group separated by W or H are treated as one.\n     *\n     * @param str\n     *                  the cleaned working string to encode (in upper case).\n     * @param index\n     *                  the character position to encode\n     * @return Mapping code for a particular character\n     * @throws IllegalArgumentException\n     *                  if the character is not mapped\n     "
+		}
+	],
+	"Codec-16b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/Base32.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"HEX_DECODE_TABLE"
+			],
+			"begin_line": 92,
+			"end_line": 100,
+			"comment": "\n     * This array is a lookup table that translates Unicode characters drawn from the \"Base32 Hex Alphabet\" (as\n     * specified in Table 4 of RFC 4648) into their 5-bit positive integer equivalents. Characters that are not in the\n     * Base32 Hex alphabet but fall within the bounds of the array are translated to -1.\n     "
+		}
+	],
+	"Codec-17b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/StringUtils.java",
+			"method_name": "newStringIso8859_1",
+			"arg_types": "[B",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.StringUtils.newStringIso8859_1(byte[])",
+			"begin_line": 338,
+			"end_line": 340,
+			"comment": "\n     * Constructs a new <code>String</code> by decoding the specified array of bytes using the ISO-8859-1 charset.\n     *\n     * @param bytes\n     *            The bytes to be decoded into characters, may be <code>null</code>\n     * @return A new <code>String</code> decoded from the specified array of bytes using the ISO-8859-1 charset, or\n     *         <code>null</code> if the input byte array was <code>null</code>.\n     * @throws NullPointerException\n     *             Thrown if {@link Charsets#ISO_8859_1} is not initialized, which should never happen since it is\n     *             required by the Java platform specification.\n     * @since As of 1.7, throws {@link NullPointerException} instead of UnsupportedEncodingException\n     "
+		}
+	],
+	"Codec-18b": [
+		{
+			"class_file": "org/apache/commons/codec/binary/StringUtils.java",
+			"method_name": "equals",
+			"arg_types": "Ljava/lang/CharSequence;Ljava/lang/CharSequence;",
+			"type": "method",
+			"signature": "org.apache.commons.codec.binary.StringUtils.equals(java.lang.CharSequence, java.lang.CharSequence)",
+			"begin_line": 71,
+			"end_line": 82,
+			"comment": "\n     * <p>\n     * Compares two CharSequences, returning <code>true</code> if they represent equal sequences of characters.\n     * </p>\n     *\n     * <p>\n     * <code>null</code>s are handled without exceptions. Two <code>null</code> references are considered to be equal.\n     * The comparison is case sensitive.\n     * </p>\n     *\n     * <pre>\n     * StringUtils.equals(null, null)   = true\n     * StringUtils.equals(null, \"abc\")  = false\n     * StringUtils.equals(\"abc\", null)  = false\n     * StringUtils.equals(\"abc\", \"abc\") = true\n     * StringUtils.equals(\"abc\", \"ABC\") = false\n     * </pre>\n     *\n     * <p>\n     * Copied from Apache Commons Lang r1583482 on April 10, 2014 (day of 3.3.2 release).\n     * </p>\n     *\n     * @see Object#equals(Object)\n     * @param cs1\n     *            the first CharSequence, may be <code>null</code>\n     * @param cs2\n     *            the second CharSequence, may be <code>null</code>\n     * @return <code>true</code> if the CharSequences are equal (case-sensitive), or both <code>null</code>\n     * @since 1.10\n     "
+		}
+	]
+}
