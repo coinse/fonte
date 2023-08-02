@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Document.java",
+  "functionName": "syntax",
+  "functionId": "$syntax",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Document.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the document\u0027s current output syntax.\n\n@return current syntax\n",
+  "functionStartLine": 447,
+  "functionEndLine": 449,
+  "numCommitsSeen": 52,
+  "timeTaken": 1184,
+  "changeHistory": [
+    "6c4f16f233cdfd7aedef33374609e9aa4ede255c"
+  ],
+  "changeHistoryShort": {
+    "6c4f16f233cdfd7aedef33374609e9aa4ede255c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6c4f16f233cdfd7aedef33374609e9aa4ede255c": {
+      "type": "Yintroduced",
+      "commitMessage": "Support for HTML output syntax, enabled by default\n\nIntroduced the ability to chose between HTML and XML output, and made\nHTML the default. This means img tags are\noutput as \u003cimg\u003e, not \u003cimg /\u003e. XML is the default when using the\nXmlTreeBuilder. Control this with the\nDocument.OutputSettings.syntax() method.\n\nTightened the scope of what characters are escaped in attributes and\ntextnodes, to align with the spec. Also, when\nusing the extended escape entities map, only escape a character if the\ncurrent output charset does not support it.\nThis produces smaller, more legible HTML, with greated control over the\noutput (by setting charset and escape mode).\n\nFixes #322\nFixes #373\nFixes #346\nFixes #150\n",
+      "commitDate": "11/17/13, 7:11 PM",
+      "commitName": "6c4f16f233cdfd7aedef33374609e9aa4ede255c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+public Syntax syntax() {\n+    return syntax;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Syntax syntax() {\n    return syntax;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 301,
+      "functionName": "syntax",
+      "functionAnnotation": "",
+      "functionDoc": "Get the document\u0027s current output syntax.\n\n@return current syntax\n"
+    }
+  }
+}

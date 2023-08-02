@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-51b",
+  "repositoryPath": "/tmp/Jsoup-51b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Elements.java",
+  "functionName": "text",
+  "functionId": "text",
+  "sourceFilePath": "src/main/java/org/jsoup/select/Elements.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the combined text of all the matched elements.\n\u003cp\u003e\nNote that it is possible to get repeats if the matched elements contain both parent elements and their own\nchildren, as the Element.text() method returns the combined text of a parent and all its children.\n\n@return string of all text: unescaped and no HTML.\n@see Element#text()\n",
+  "functionStartLine": 185,
+  "functionEndLine": 193,
+  "numCommitsSeen": 37,
+  "timeTaken": 846,
+  "changeHistory": [
+    "b9c174056fa44d575e23b5759d13610eae685beb",
+    "56bacbd1532e9a985a879e686fdfdbf65d24be7c"
+  ],
+  "changeHistoryShort": {
+    "b9c174056fa44d575e23b5759d13610eae685beb": "Ybodychange",
+    "56bacbd1532e9a985a879e686fdfdbf65d24be7c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b9c174056fa44d575e23b5759d13610eae685beb": {
+      "type": "Ybodychange",
+      "commitMessage": "Refactor the Elements collection to extend instead of delegate",
+      "commitDate": "10/28/14, 9:26 AM",
+      "commitName": "b9c174056fa44d575e23b5759d13610eae685beb",
+      "commitAuthor": "cromoteca",
+      "commitDateOld": "10/17/14, 1:11 PM",
+      "commitNameOld": "e613360fa4f0cd3bdfdece02d2bc1b58be640cac",
+      "commitAuthorOld": "offa",
+      "daysBetweenCommits": 10.84,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String text() {\n    StringBuilder sb \u003d new StringBuilder();\n    for (Element element : this) {\n        if (sb.length() !\u003d 0)\n            sb.append(\" \");\n        sb.append(element.text());\n    }\n    return sb.toString();\n}",
+      "path": "src/main/java/org/jsoup/select/Elements.java",
+      "functionStartLine": 184,
+      "functionName": "text",
+      "functionAnnotation": "",
+      "functionDoc": "Get the combined text of all the matched elements.\n\u003cp\u003e\nNote that it is possible to get repeats if the matched elements contain both parent elements and their own\nchildren, as the Element.text() method returns the combined text of a parent and all its children.\n\n@return string of all text: unescaped and no HTML.\n@see Element#text()\n",
+      "diff": "@@ -1,9 +1,9 @@\n public String text() {\n     StringBuilder sb \u003d new StringBuilder();\n-    for (Element element : contents) {\n+    for (Element element : this) {\n         if (sb.length() !\u003d 0)\n             sb.append(\" \");\n         sb.append(element.text());\n     }\n     return sb.toString();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "56bacbd1532e9a985a879e686fdfdbf65d24be7c": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented Elements methods text(), eq(), and is().\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "56bacbd1532e9a985a879e686fdfdbf65d24be7c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+public String text() {\n+    StringBuilder sb \u003d new StringBuilder();\n+    for (Element element : contents) {\n+        if (sb.length() !\u003d 0)\n+            sb.append(\" \");\n+        sb.append(element.text());\n+    }\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String text() {\n    StringBuilder sb \u003d new StringBuilder();\n    for (Element element : contents) {\n        if (sb.length() !\u003d 0)\n            sb.append(\" \");\n        sb.append(element.text());\n    }\n    return sb.toString();\n}",
+      "path": "src/main/java/org/jsoup/select/Elements.java",
+      "functionStartLine": 84,
+      "functionName": "text",
+      "functionAnnotation": "",
+      "functionDoc": "Get the combined text of all the matched elements.\n\u003cp\u003e\nNote that it is possible to get repeats if the matched elements contain both parent elements and their own\nchildren, as the Element.text() method returns the combined text of a parent and all its children.\n\n@return string of all text: unescaped and no HTML.\n@see Element#text()\n"
+    }
+  }
+}

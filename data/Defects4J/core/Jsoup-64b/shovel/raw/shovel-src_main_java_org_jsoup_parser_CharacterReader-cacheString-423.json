@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "cacheString",
+  "functionId": "cacheString___charBuf-char[](modifiers-final)__stringCache-String[](modifiers-final)__start-int(modifiers-final)__count-int(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "Caches short strings, as a flywheel pattern, to reduce GC load. Just for this doc, to prevent leaks.\n\u003cp /\u003e\nSimplistic, and on hash collisions just falls back to creating a new string, vs a full HashMap with Entry list.\nThat saves both having to create objects as hash keys, and running through the entry list, at the expense of\nsome more duplicates.\n",
+  "functionStartLine": 423,
+  "functionEndLine": 451,
+  "numCommitsSeen": 45,
+  "timeTaken": 727,
+  "changeHistory": [
+    "654bc6f981587bd4b39b66702550bad33e1eacc9",
+    "6a8fcb2a1eae6f1cc4f7ed91c92fbd2b8b8aa476",
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510"
+  ],
+  "changeHistoryShort": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": "Ymultichange(Yparameterchange,Ymodifierchange,Ybodychange)",
+    "6a8fcb2a1eae6f1cc4f7ed91c92fbd2b8b8aa476": "Ybodychange",
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": {
+      "type": "Ymultichange(Yparameterchange,Ymodifierchange,Ybodychange)",
+      "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+      "commitDate": "6/24/17, 11:47 PM",
+      "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+          "commitDate": "6/24/17, 11:47 PM",
+          "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "10/23/16, 5:59 PM",
+          "commitNameOld": "6dc38f26dd31f1a367961f27c56b143cd0462e5a",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 244.24,
+          "commitsBetweenForRepo": 65,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {\n    if (count \u003e maxStringCacheLen)\n        return new String(charBuf, start, count);\n    int hash \u003d 0;\n    int offset \u003d start;\n    for (int i \u003d 0; i \u003c count; i++) {\n        hash \u003d 31 * hash + charBuf[offset++];\n    }\n    final int index \u003d hash \u0026 stringCache.length - 1;\n    String cached \u003d stringCache[index];\n    if (cached \u003d\u003d null) {\n        cached \u003d new String(charBuf, start, count);\n        stringCache[index] \u003d cached;\n    } else {\n        if (rangeEquals(charBuf, start, count, cached)) {\n            return cached;\n        } else {\n            cached \u003d new String(charBuf, start, count);\n            stringCache[index] \u003d cached;\n        }\n    }\n    return cached;\n}",
+          "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+          "functionStartLine": 423,
+          "functionName": "cacheString",
+          "functionAnnotation": "",
+          "functionDoc": "Caches short strings, as a flywheel pattern, to reduce GC load. Just for this doc, to prevent leaks.\n\u003cp /\u003e\nSimplistic, and on hash collisions just falls back to creating a new string, vs a full HashMap with Entry list.\nThat saves both having to create objects as hash keys, and running through the entry list, at the expense of\nsome more duplicates.\n",
+          "diff": "@@ -1,25 +1,23 @@\n-private String cacheString(final int start, final int count) {\n-    final char[] val \u003d input;\n-    final String[] cache \u003d stringCache;\n-    if (count \u003e maxCacheLen)\n-        return new String(val, start, count);\n+private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {\n+    if (count \u003e maxStringCacheLen)\n+        return new String(charBuf, start, count);\n     int hash \u003d 0;\n     int offset \u003d start;\n     for (int i \u003d 0; i \u003c count; i++) {\n-        hash \u003d 31 * hash + val[offset++];\n+        hash \u003d 31 * hash + charBuf[offset++];\n     }\n-    final int index \u003d hash \u0026 cache.length - 1;\n-    String cached \u003d cache[index];\n+    final int index \u003d hash \u0026 stringCache.length - 1;\n+    String cached \u003d stringCache[index];\n     if (cached \u003d\u003d null) {\n-        cached \u003d new String(val, start, count);\n-        cache[index] \u003d cached;\n+        cached \u003d new String(charBuf, start, count);\n+        stringCache[index] \u003d cached;\n     } else {\n-        if (rangeEquals(start, count, cached)) {\n+        if (rangeEquals(charBuf, start, count, cached)) {\n             return cached;\n         } else {\n-            cached \u003d new String(val, start, count);\n-            cache[index] \u003d cached;\n+            cached \u003d new String(charBuf, start, count);\n+            stringCache[index] \u003d cached;\n         }\n     }\n     return cached;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[start-int(modifiers-final), count-int(modifiers-final)]",
+            "newValue": "[charBuf-char[](modifiers-final), stringCache-String[](modifiers-final), start-int(modifiers-final), count-int(modifiers-final)]"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+          "commitDate": "6/24/17, 11:47 PM",
+          "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "10/23/16, 5:59 PM",
+          "commitNameOld": "6dc38f26dd31f1a367961f27c56b143cd0462e5a",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 244.24,
+          "commitsBetweenForRepo": 65,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {\n    if (count \u003e maxStringCacheLen)\n        return new String(charBuf, start, count);\n    int hash \u003d 0;\n    int offset \u003d start;\n    for (int i \u003d 0; i \u003c count; i++) {\n        hash \u003d 31 * hash + charBuf[offset++];\n    }\n    final int index \u003d hash \u0026 stringCache.length - 1;\n    String cached \u003d stringCache[index];\n    if (cached \u003d\u003d null) {\n        cached \u003d new String(charBuf, start, count);\n        stringCache[index] \u003d cached;\n    } else {\n        if (rangeEquals(charBuf, start, count, cached)) {\n            return cached;\n        } else {\n            cached \u003d new String(charBuf, start, count);\n            stringCache[index] \u003d cached;\n        }\n    }\n    return cached;\n}",
+          "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+          "functionStartLine": 423,
+          "functionName": "cacheString",
+          "functionAnnotation": "",
+          "functionDoc": "Caches short strings, as a flywheel pattern, to reduce GC load. Just for this doc, to prevent leaks.\n\u003cp /\u003e\nSimplistic, and on hash collisions just falls back to creating a new string, vs a full HashMap with Entry list.\nThat saves both having to create objects as hash keys, and running through the entry list, at the expense of\nsome more duplicates.\n",
+          "diff": "@@ -1,25 +1,23 @@\n-private String cacheString(final int start, final int count) {\n-    final char[] val \u003d input;\n-    final String[] cache \u003d stringCache;\n-    if (count \u003e maxCacheLen)\n-        return new String(val, start, count);\n+private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {\n+    if (count \u003e maxStringCacheLen)\n+        return new String(charBuf, start, count);\n     int hash \u003d 0;\n     int offset \u003d start;\n     for (int i \u003d 0; i \u003c count; i++) {\n-        hash \u003d 31 * hash + val[offset++];\n+        hash \u003d 31 * hash + charBuf[offset++];\n     }\n-    final int index \u003d hash \u0026 cache.length - 1;\n-    String cached \u003d cache[index];\n+    final int index \u003d hash \u0026 stringCache.length - 1;\n+    String cached \u003d stringCache[index];\n     if (cached \u003d\u003d null) {\n-        cached \u003d new String(val, start, count);\n-        cache[index] \u003d cached;\n+        cached \u003d new String(charBuf, start, count);\n+        stringCache[index] \u003d cached;\n     } else {\n-        if (rangeEquals(start, count, cached)) {\n+        if (rangeEquals(charBuf, start, count, cached)) {\n             return cached;\n         } else {\n-            cached \u003d new String(val, start, count);\n-            cache[index] \u003d cached;\n+            cached \u003d new String(charBuf, start, count);\n+            stringCache[index] \u003d cached;\n         }\n     }\n     return cached;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[private]",
+            "newValue": "[private, static]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+          "commitDate": "6/24/17, 11:47 PM",
+          "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "10/23/16, 5:59 PM",
+          "commitNameOld": "6dc38f26dd31f1a367961f27c56b143cd0462e5a",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 244.24,
+          "commitsBetweenForRepo": 65,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {\n    if (count \u003e maxStringCacheLen)\n        return new String(charBuf, start, count);\n    int hash \u003d 0;\n    int offset \u003d start;\n    for (int i \u003d 0; i \u003c count; i++) {\n        hash \u003d 31 * hash + charBuf[offset++];\n    }\n    final int index \u003d hash \u0026 stringCache.length - 1;\n    String cached \u003d stringCache[index];\n    if (cached \u003d\u003d null) {\n        cached \u003d new String(charBuf, start, count);\n        stringCache[index] \u003d cached;\n    } else {\n        if (rangeEquals(charBuf, start, count, cached)) {\n            return cached;\n        } else {\n            cached \u003d new String(charBuf, start, count);\n            stringCache[index] \u003d cached;\n        }\n    }\n    return cached;\n}",
+          "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+          "functionStartLine": 423,
+          "functionName": "cacheString",
+          "functionAnnotation": "",
+          "functionDoc": "Caches short strings, as a flywheel pattern, to reduce GC load. Just for this doc, to prevent leaks.\n\u003cp /\u003e\nSimplistic, and on hash collisions just falls back to creating a new string, vs a full HashMap with Entry list.\nThat saves both having to create objects as hash keys, and running through the entry list, at the expense of\nsome more duplicates.\n",
+          "diff": "@@ -1,25 +1,23 @@\n-private String cacheString(final int start, final int count) {\n-    final char[] val \u003d input;\n-    final String[] cache \u003d stringCache;\n-    if (count \u003e maxCacheLen)\n-        return new String(val, start, count);\n+private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {\n+    if (count \u003e maxStringCacheLen)\n+        return new String(charBuf, start, count);\n     int hash \u003d 0;\n     int offset \u003d start;\n     for (int i \u003d 0; i \u003c count; i++) {\n-        hash \u003d 31 * hash + val[offset++];\n+        hash \u003d 31 * hash + charBuf[offset++];\n     }\n-    final int index \u003d hash \u0026 cache.length - 1;\n-    String cached \u003d cache[index];\n+    final int index \u003d hash \u0026 stringCache.length - 1;\n+    String cached \u003d stringCache[index];\n     if (cached \u003d\u003d null) {\n-        cached \u003d new String(val, start, count);\n-        cache[index] \u003d cached;\n+        cached \u003d new String(charBuf, start, count);\n+        stringCache[index] \u003d cached;\n     } else {\n-        if (rangeEquals(start, count, cached)) {\n+        if (rangeEquals(charBuf, start, count, cached)) {\n             return cached;\n         } else {\n-            cached \u003d new String(val, start, count);\n-            cache[index] \u003d cached;\n+            cached \u003d new String(charBuf, start, count);\n+            stringCache[index] \u003d cached;\n         }\n     }\n     return cached;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "6a8fcb2a1eae6f1cc4f7ed91c92fbd2b8b8aa476": {
+      "type": "Ybodychange",
+      "commitMessage": "Update the string cache on conflicts\n\nImproves hit ratio from ~ 75% to 90%\n",
+      "commitDate": "3/27/16, 1:40 PM",
+      "commitName": "6a8fcb2a1eae6f1cc4f7ed91c92fbd2b8b8aa476",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/28/14, 10:14 PM",
+      "commitNameOld": "7d7a298864223fd4ecea3acaa42257d24ddec1e8",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 515.64,
+      "commitsBetweenForRepo": 89,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private String cacheString(final int start, final int count) {\n    final char[] val \u003d input;\n    final String[] cache \u003d stringCache;\n    if (count \u003e maxCacheLen)\n        return new String(val, start, count);\n    int hash \u003d 0;\n    int offset \u003d start;\n    for (int i \u003d 0; i \u003c count; i++) {\n        hash \u003d 31 * hash + val[offset++];\n    }\n    final int index \u003d hash \u0026 cache.length - 1;\n    String cached \u003d cache[index];\n    if (cached \u003d\u003d null) {\n        cached \u003d new String(val, start, count);\n        cache[index] \u003d cached;\n    } else {\n        if (rangeEquals(start, count, cached)) {\n            return cached;\n        } else {\n            cached \u003d new String(val, start, count);\n            cache[index] \u003d cached;\n        }\n    }\n    return cached;\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 346,
+      "functionName": "cacheString",
+      "functionAnnotation": "",
+      "functionDoc": "Caches short strings, as a flywheel pattern, to reduce GC load. Just for this doc, to prevent leaks.\n\u003cp /\u003e\nSimplistic, and on hash collisions just falls back to creating a new string, vs a full HashMap with Entry list.\nThat saves both having to create objects as hash keys, and running through the entry list, at the expense of\nsome more duplicates.\n",
+      "diff": "@@ -1,24 +1,25 @@\n private String cacheString(final int start, final int count) {\n     final char[] val \u003d input;\n     final String[] cache \u003d stringCache;\n     if (count \u003e maxCacheLen)\n         return new String(val, start, count);\n     int hash \u003d 0;\n     int offset \u003d start;\n     for (int i \u003d 0; i \u003c count; i++) {\n         hash \u003d 31 * hash + val[offset++];\n     }\n     final int index \u003d hash \u0026 cache.length - 1;\n     String cached \u003d cache[index];\n     if (cached \u003d\u003d null) {\n         cached \u003d new String(val, start, count);\n         cache[index] \u003d cached;\n     } else {\n         if (rangeEquals(start, count, cached)) {\n             return cached;\n         } else {\n             cached \u003d new String(val, start, count);\n+            cache[index] \u003d cached;\n         }\n     }\n     return cached;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510": {
+      "type": "Yintroduced",
+      "commitMessage": "Speed improvements\n\nAndroid focussed speed improvements.\nReduced GC load with a flywheel on short strings.\nOptimized core consumeTo methods.\n",
+      "commitDate": "10/26/14, 3:50 PM",
+      "commitName": "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,24 @@\n+private String cacheString(final int start, final int count) {\n+    final char[] val \u003d input;\n+    final String[] cache \u003d stringCache;\n+    if (count \u003e maxCacheLen)\n+        return new String(val, start, count);\n+    int hash \u003d 0;\n+    int offset \u003d start;\n+    for (int i \u003d 0; i \u003c count; i++) {\n+        hash \u003d 31 * hash + val[offset++];\n+    }\n+    final int index \u003d hash \u0026 cache.length - 1;\n+    String cached \u003d cache[index];\n+    if (cached \u003d\u003d null) {\n+        cached \u003d new String(val, start, count);\n+        cache[index] \u003d cached;\n+    } else {\n+        if (rangeEquals(start, count, cached)) {\n+            return cached;\n+        } else {\n+            cached \u003d new String(val, start, count);\n+        }\n+    }\n+    return cached;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String cacheString(final int start, final int count) {\n    final char[] val \u003d input;\n    final String[] cache \u003d stringCache;\n    if (count \u003e maxCacheLen)\n        return new String(val, start, count);\n    int hash \u003d 0;\n    int offset \u003d start;\n    for (int i \u003d 0; i \u003c count; i++) {\n        hash \u003d 31 * hash + val[offset++];\n    }\n    final int index \u003d hash \u0026 cache.length - 1;\n    String cached \u003d cache[index];\n    if (cached \u003d\u003d null) {\n        cached \u003d new String(val, start, count);\n        cache[index] \u003d cached;\n    } else {\n        if (rangeEquals(start, count, cached)) {\n            return cached;\n        } else {\n            cached \u003d new String(val, start, count);\n        }\n    }\n    return cached;\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 346,
+      "functionName": "cacheString",
+      "functionAnnotation": "",
+      "functionDoc": "Caches short strings, as a flywheel pattern, to reduce GC load. Just for this doc, to prevent leaks.\n\u003cp /\u003e\nSimplistic, and on hash collisions just falls back to creating a new string, vs a full HashMap with Entry list.\nThat saves both having to create objects as hash keys, and running through the entry list, at the expense of\nsome more duplicates.\n"
+    }
+  }
+}

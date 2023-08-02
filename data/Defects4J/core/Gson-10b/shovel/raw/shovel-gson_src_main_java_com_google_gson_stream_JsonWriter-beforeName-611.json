@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonWriter.java",
+  "functionName": "beforeName",
+  "functionId": "beforeName",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Inserts any necessary separators and whitespace before a name. Also\nadjusts the stack to expect the name\u0027s value.\n",
+  "functionStartLine": 611,
+  "functionEndLine": 620,
+  "numCommitsSeen": 17,
+  "timeTaken": 624,
+  "changeHistory": [
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e"
+  ],
+  "changeHistoryShort": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": "Ybodychange",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": {
+      "type": "Ybodychange",
+      "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+      "commitDate": "8/14/12, 2:32 PM",
+      "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "6/29/12, 7:46 PM",
+      "commitNameOld": "1c7aee40f3d0d6f50b3d149e94a2b3b4627ca8a9",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 45.78,
+      "commitsBetweenForRepo": 19,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void beforeName() throws IOException {\n    int context \u003d peek();\n    if (context \u003d\u003d NONEMPTY_OBJECT) {\n        out.write(\u0027,\u0027);\n    } else if (context !\u003d EMPTY_OBJECT) {\n        throw new IllegalStateException(\"Nesting problem.\");\n    }\n    newline();\n    replaceTop(DANGLING_NAME);\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 579,
+      "functionName": "beforeName",
+      "functionAnnotation": "",
+      "functionDoc": "Inserts any necessary separators and whitespace before a name. Also\nadjusts the stack to expect the name\u0027s value.\n",
+      "diff": "@@ -1,10 +1,10 @@\n private void beforeName() throws IOException {\n-    JsonScope context \u003d peek();\n-    if (context \u003d\u003d JsonScope.NONEMPTY_OBJECT) {\n+    int context \u003d peek();\n+    if (context \u003d\u003d NONEMPTY_OBJECT) {\n         out.write(\u0027,\u0027);\n-    } else if (context !\u003d JsonScope.EMPTY_OBJECT) {\n-        throw new IllegalStateException(\"Nesting problem: \" + stack);\n+    } else if (context !\u003d EMPTY_OBJECT) {\n+        throw new IllegalStateException(\"Nesting problem.\");\n     }\n     newline();\n-    replaceTop(JsonScope.DANGLING_NAME);\n+    replaceTop(DANGLING_NAME);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": {
+      "type": "Yintroduced",
+      "commitMessage": "Brand new classes for streaming JSON efficiently.\n\nNotable features:\n - Efficiency. The parser is faster than the current javacc parser. It\u0027s also faster than popular libraries for JSON streaming.\n - Toggle lenient/strict\n - Toggle pretty/compact\n - Friendly error messages on bad JSON\n - GSON-quality Javadoc\n - Non-execute prefix handling\n\nThis doesn\u0027t wire JsonReader up into Gson just yet. That\u0027s coming soon...\n",
+      "commitDate": "8/26/10, 1:44 AM",
+      "commitName": "765a9f1ecdfaf96f3587f488385111c9d6a4927e",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,10 @@\n+private void beforeName() throws IOException {\n+    JsonScope context \u003d peek();\n+    if (context \u003d\u003d JsonScope.NONEMPTY_OBJECT) {\n+        out.write(\u0027,\u0027);\n+    } else if (context !\u003d JsonScope.EMPTY_OBJECT) {\n+        throw new IllegalStateException(\"Nesting problem: \" + stack);\n+    }\n+    newline();\n+    replaceTop(JsonScope.DANGLING_NAME);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void beforeName() throws IOException {\n    JsonScope context \u003d peek();\n    if (context \u003d\u003d JsonScope.NONEMPTY_OBJECT) {\n        out.write(\u0027,\u0027);\n    } else if (context !\u003d JsonScope.EMPTY_OBJECT) {\n        throw new IllegalStateException(\"Nesting problem: \" + stack);\n    }\n    newline();\n    replaceTop(JsonScope.DANGLING_NAME);\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 443,
+      "functionName": "beforeName",
+      "functionAnnotation": "",
+      "functionDoc": "Inserts any necessary separators and whitespace before a name. Also\nadjusts the stack to expect the name\u0027s value.\n"
+    }
+  }
+}

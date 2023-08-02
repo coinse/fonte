@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "isIgnorableEndTag",
+  "functionId": "isIgnorableEndTag___child-Tag",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 200,
+  "functionEndLine": 206,
+  "numCommitsSeen": 36,
+  "timeTaken": 578,
+  "changeHistory": [
+    "78d40f41b9567d7e8a0c891f31b7deee2b1f3f19"
+  ],
+  "changeHistoryShort": {
+    "78d40f41b9567d7e8a0c891f31b7deee2b1f3f19": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "78d40f41b9567d7e8a0c891f31b7deee2b1f3f19": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved malformed table parsing by implementing ignorable end tags.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "78d40f41b9567d7e8a0c891f31b7deee2b1f3f19",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,7 @@\n+boolean isIgnorableEndTag(Tag child) {\n+    for (Tag endTag : ignoreEndTags) {\n+        if (child.equals(endTag))\n+            return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean isIgnorableEndTag(Tag child) {\n    for (Tag endTag : ignoreEndTags) {\n        if (child.equals(endTag))\n            return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 200,
+      "functionName": "isIgnorableEndTag",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

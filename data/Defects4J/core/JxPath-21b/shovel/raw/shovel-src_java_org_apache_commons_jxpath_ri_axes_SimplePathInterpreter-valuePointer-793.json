@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplePathInterpreter.java",
+  "functionName": "valuePointer",
+  "functionId": "valuePointer___pointer-NodePointer",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+  "functionAnnotation": "",
+  "functionDoc": "For an intermediate pointer (e.g. PropertyPointer, ContainerPointer)\nreturns a pointer for the contained value.\n\n@param pointer input pointer\n@return NodePointer\n",
+  "functionStartLine": 793,
+  "functionEndLine": 795,
+  "numCommitsSeen": 26,
+  "timeTaken": 1397,
+  "changeHistory": [
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+    "430fdd01e75a5e681274aa65adeb2d9826ee45a8",
+    "e6b562c6eca79b82a57a4532768d775d76f48694"
+  ],
+  "changeHistoryShort": {
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05": "Ydocchange",
+    "430fdd01e75a5e681274aa65adeb2d9826ee45a8": "Ybodychange",
+    "e6b562c6eca79b82a57a4532768d775d76f48694": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05": {
+      "type": "Ydocchange",
+      "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@604783 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/16/07, 11:29 PM",
+      "commitName": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+      "commitAuthor": "Matthew Jason Benson",
+      "commitDateOld": "12/5/07, 1:04 PM",
+      "commitNameOld": "48294fe62b52a1786a65aa3e15fbccd99f8e5bca",
+      "commitAuthorOld": "Matthew Jason Benson",
+      "daysBetweenCommits": 11.43,
+      "commitsBetweenForRepo": 25,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static NodePointer valuePointer(NodePointer pointer) {\n    return pointer \u003d\u003d null ? null : pointer.getValuePointer();\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+      "functionStartLine": 792,
+      "functionName": "valuePointer",
+      "functionAnnotation": "",
+      "functionDoc": "For an intermediate pointer (e.g. PropertyPointer, ContainerPointer)\nreturns a pointer for the contained value.\n\n@param pointer input pointer\n@return NodePointer\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "For an intermediate pointer (e.g. PropertyPointer, ContainerPointer)\nreturns a pointer for the contained value.\n",
+        "newValue": "For an intermediate pointer (e.g. PropertyPointer, ContainerPointer)\nreturns a pointer for the contained value.\n\n@param pointer input pointer\n@return NodePointer\n"
+      }
+    },
+    "430fdd01e75a5e681274aa65adeb2d9826ee45a8": {
+      "type": "Ybodychange",
+      "commitMessage": "Organized imports, formatted code\nFixed problems with getValue() and getNode()\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136826 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/25/02, 5:20 PM",
+      "commitName": "430fdd01e75a5e681274aa65adeb2d9826ee45a8",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "10/12/02, 7:59 PM",
+      "commitNameOld": "d5a51635e77e49efbf18c5b51834f533e7972953",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 43.93,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static NodePointer valuePointer(NodePointer pointer) {\n    return pointer \u003d\u003d null ? null : pointer.getValuePointer();\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+      "functionStartLine": 677,
+      "functionName": "valuePointer",
+      "functionAnnotation": "",
+      "functionDoc": "For an intermediate pointer (e.g. PropertyPointer, ContainerPointer)\nreturns a pointer for the contained value.\n",
+      "diff": "@@ -1,6 +1,3 @@\n private static NodePointer valuePointer(NodePointer pointer) {\n-    while (pointer !\u003d null \u0026\u0026 !pointer.isNode()) {\n-        pointer \u003d pointer.getValuePointer();\n-    }\n-    return pointer;\n+    return pointer \u003d\u003d null ? null : pointer.getValuePointer();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e6b562c6eca79b82a57a4532768d775d76f48694": {
+      "type": "Yintroduced",
+      "commitMessage": "A complete re-write to address multiple additional use cases\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136790 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/9/02, 6:35 PM",
+      "commitName": "e6b562c6eca79b82a57a4532768d775d76f48694",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,6 @@\n+private static NodePointer valuePointer(NodePointer pointer) {\n+    while (pointer !\u003d null \u0026\u0026 !pointer.isNode()) {\n+        pointer \u003d pointer.getValuePointer();\n+    }\n+    return pointer;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static NodePointer valuePointer(NodePointer pointer) {\n    while (pointer !\u003d null \u0026\u0026 !pointer.isNode()) {\n        pointer \u003d pointer.getValuePointer();\n    }\n    return pointer;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+      "functionStartLine": 665,
+      "functionName": "valuePointer",
+      "functionAnnotation": "",
+      "functionDoc": "For an intermediate pointer (e.g. PropertyPointer, ContainerPointer)\nreturns a pointer for the contained value.\n"
+    }
+  }
+}

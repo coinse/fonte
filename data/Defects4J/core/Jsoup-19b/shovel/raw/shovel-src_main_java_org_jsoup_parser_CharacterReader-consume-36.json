@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "consume",
+  "functionId": "consume",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 36,
+  "functionEndLine": 40,
+  "numCommitsSeen": 4,
+  "timeTaken": 959,
+  "changeHistory": [
+    "f16c0c17aa38ecff097f5fc50db7cd5e247c8737",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "f16c0c17aa38ecff097f5fc50db7cd5e247c8737": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f16c0c17aa38ecff097f5fc50db7cd5e247c8737": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed CharacterReader to handle unconsuming at EOF correctly. Additional \u003cscript\u003e test at EOF.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "f16c0c17aa38ecff097f5fc50db7cd5e247c8737",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "437d8eca9f51dd0ed7af5b828412ee96ac192f17",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 19,
+      "commitsBetweenForFile": 1,
+      "actualSource": "char consume() {\n    char val \u003d isEmpty() ? EOF : input.charAt(pos);\n    pos++;\n    return val;\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 31,
+      "functionName": "consume",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,5 @@\n char consume() {\n-    return isEmpty() ? EOF : input.charAt(pos++);\n+    char val \u003d isEmpty() ? EOF : input.charAt(pos);\n+    pos++;\n+    return val;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+char consume() {\n+    return isEmpty() ? EOF : input.charAt(pos++);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "char consume() {\n    return isEmpty() ? EOF : input.charAt(pos++);\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 31,
+      "functionName": "consume",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

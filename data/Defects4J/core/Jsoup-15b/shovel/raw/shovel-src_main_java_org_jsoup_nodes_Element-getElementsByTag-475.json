@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-15b",
+  "repositoryPath": "/tmp/Jsoup-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "getElementsByTag",
+  "functionId": "getElementsByTag___tagName-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "Finds elements, including and recursively under this element, with the specified tag name.\n\n@param tagName The tag name to search for (case insensitively).\n@return a matching unmodifiable list of elements. Will be empty if this element and none of its children match.\n",
+  "functionStartLine": 475,
+  "functionEndLine": 480,
+  "numCommitsSeen": 72,
+  "timeTaken": 1806,
+  "changeHistory": [
+    "3dd9e66bc21c6f53aaa21ce45666610f68540555",
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2",
+    "f5b1a2ab1294970be9b4fc6abefe38ac7e5039be",
+    "9db51cf756951fa62a7670b70d314af2f0ffc197"
+  ],
+  "changeHistoryShort": {
+    "3dd9e66bc21c6f53aaa21ce45666610f68540555": "Yreturntypechange",
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": "Ybodychange",
+    "f5b1a2ab1294970be9b4fc6abefe38ac7e5039be": "Ymultichange(Ybodychange,Ydocchange)",
+    "9db51cf756951fa62a7670b70d314af2f0ffc197": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3dd9e66bc21c6f53aaa21ce45666610f68540555": {
+      "type": "Yreturntypechange",
+      "commitMessage": "Have Element DOM methods return Elements instead of List\u003cElement\u003e, to give ready access to .select(query)\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "3dd9e66bc21c6f53aaa21ce45666610f68540555",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "ce691239d40e469b75fa22b0bb6a065202c475a7",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Elements getElementsByTag(String tagName) {\n    Validate.notEmpty(tagName);\n    tagName \u003d tagName.toLowerCase().trim();\n    return Collector.collect(new Evaluator.Tag(tagName), this);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 123,
+      "functionName": "getElementsByTag",
+      "functionAnnotation": "",
+      "functionDoc": "Finds elements, including and recursively under this element, with the specified tag name.\n\n@param tagName The tag name to search for (case insensitively).\n@return a matching unmodifiable list of elements. Will be empty if this element and none of its children match.\n",
+      "diff": "@@ -1,5 +1,5 @@\n-public List\u003cElement\u003e getElementsByTag(String tagName) {\n+public Elements getElementsByTag(String tagName) {\n     Validate.notEmpty(tagName);\n     tagName \u003d tagName.toLowerCase().trim();\n     return Collector.collect(new Evaluator.Tag(tagName), this);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "List\u003cElement\u003e",
+        "newValue": "Elements"
+      }
+    },
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": {
+      "type": "Ybodychange",
+      "commitMessage": "Implemented:\n * Element.getElementsByClass\n * Element.getElementsWithAttribute\n * Element.getElementsWithAttributeValue\n * Element.className\n * Element.hasClass\n * Elmenet.classNames\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f435b791e193cfe771d7dbd28d2822c32a0889e2",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "ffde882f49c01900d6ff3b65e9407a3da3d57f1c",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public List\u003cElement\u003e getElementsByTag(String tagName) {\n    Validate.notEmpty(tagName);\n    tagName \u003d tagName.toLowerCase().trim();\n    return Collector.collect(new Evaluator.Tag(tagName), this);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 117,
+      "functionName": "getElementsByTag",
+      "functionAnnotation": "",
+      "functionDoc": "Finds elements, including and recursively under this element, with the specified tag name.\n\n@param tagName The tag name to search for (case insensitively).\n@return a matching unmodifiable list of elements. Will be empty if this element and none of its children match.\n",
+      "diff": "@@ -1,11 +1,5 @@\n public List\u003cElement\u003e getElementsByTag(String tagName) {\n     Validate.notEmpty(tagName);\n     tagName \u003d tagName.toLowerCase().trim();\n-    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n-    if (this.tag.getName().equals(tagName))\n-        elements.add(this);\n-    for (Element child : elementChildren) {\n-        elements.addAll(child.getElementsByTag(tagName));\n-    }\n-    return Collections.unmodifiableList(elements);\n+    return Collector.collect(new Evaluator.Tag(tagName), this);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f5b1a2ab1294970be9b4fc6abefe38ac7e5039be": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Implemented Element.getElementById\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f5b1a2ab1294970be9b4fc6abefe38ac7e5039be",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implemented Element.getElementById\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "f5b1a2ab1294970be9b4fc6abefe38ac7e5039be",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "9db51cf756951fa62a7670b70d314af2f0ffc197",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public List\u003cElement\u003e getElementsByTag(String tagName) {\n    Validate.notEmpty(tagName);\n    tagName \u003d tagName.toLowerCase().trim();\n    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n    if (this.tag.getName().equals(tagName))\n        elements.add(this);\n    for (Element child : elementChildren) {\n        elements.addAll(child.getElementsByTag(tagName));\n    }\n    return Collections.unmodifiableList(elements);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 87,
+          "functionName": "getElementsByTag",
+          "functionAnnotation": "",
+          "functionDoc": "Finds elements, including and recursively under this element, with the specified tag name.\n\n@param tagName The tag name to search for (case insensitively).\n@return a matching unmodifiable list of elements. Will be empty if this element and none of its children match.\n",
+          "diff": "@@ -1,11 +1,11 @@\n public List\u003cElement\u003e getElementsByTag(String tagName) {\n     Validate.notEmpty(tagName);\n     tagName \u003d tagName.toLowerCase().trim();\n     List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n-    if (tag.getName().equals(tagName))\n+    if (this.tag.getName().equals(tagName))\n         elements.add(this);\n     for (Element child : elementChildren) {\n         elements.addAll(child.getElementsByTag(tagName));\n     }\n-    return elements;\n+    return Collections.unmodifiableList(elements);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Implemented Element.getElementById\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "f5b1a2ab1294970be9b4fc6abefe38ac7e5039be",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "9db51cf756951fa62a7670b70d314af2f0ffc197",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public List\u003cElement\u003e getElementsByTag(String tagName) {\n    Validate.notEmpty(tagName);\n    tagName \u003d tagName.toLowerCase().trim();\n    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n    if (this.tag.getName().equals(tagName))\n        elements.add(this);\n    for (Element child : elementChildren) {\n        elements.addAll(child.getElementsByTag(tagName));\n    }\n    return Collections.unmodifiableList(elements);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 87,
+          "functionName": "getElementsByTag",
+          "functionAnnotation": "",
+          "functionDoc": "Finds elements, including and recursively under this element, with the specified tag name.\n\n@param tagName The tag name to search for (case insensitively).\n@return a matching unmodifiable list of elements. Will be empty if this element and none of its children match.\n",
+          "diff": "@@ -1,11 +1,11 @@\n public List\u003cElement\u003e getElementsByTag(String tagName) {\n     Validate.notEmpty(tagName);\n     tagName \u003d tagName.toLowerCase().trim();\n     List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n-    if (tag.getName().equals(tagName))\n+    if (this.tag.getName().equals(tagName))\n         elements.add(this);\n     for (Element child : elementChildren) {\n         elements.addAll(child.getElementsByTag(tagName));\n     }\n-    return elements;\n+    return Collections.unmodifiableList(elements);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "Finds elements, including and recursively under this element, with the specified tag name.\n\n@param tagName The tag name to search for (case insensitively).\n@return a matching unmodifiable list of elements. Will be empty if this element and none of its children match.\n"
+          }
+        }
+      ]
+    },
+    "9db51cf756951fa62a7670b70d314af2f0ffc197": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented getElementsByTagName\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "9db51cf756951fa62a7670b70d314af2f0ffc197",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+public List\u003cElement\u003e getElementsByTag(String tagName) {\n+    Validate.notEmpty(tagName);\n+    tagName \u003d tagName.toLowerCase().trim();\n+    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n+    if (tag.getName().equals(tagName))\n+        elements.add(this);\n+    for (Element child : elementChildren) {\n+        elements.addAll(child.getElementsByTag(tagName));\n+    }\n+    return elements;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public List\u003cElement\u003e getElementsByTag(String tagName) {\n    Validate.notEmpty(tagName);\n    tagName \u003d tagName.toLowerCase().trim();\n    List\u003cElement\u003e elements \u003d new ArrayList\u003cElement\u003e();\n    if (tag.getName().equals(tagName))\n        elements.add(this);\n    for (Element child : elementChildren) {\n        elements.addAll(child.getElementsByTag(tagName));\n    }\n    return elements;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 79,
+      "functionName": "getElementsByTag",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

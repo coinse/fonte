@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-5b",
+  "repositoryPath": "/tmp/Gson-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ISO8601Utils.java",
+  "functionName": "indexOfNonDigit",
+  "functionId": "indexOfNonDigit___string-String__offset-int",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the index of the first character in the string that is not a digit, starting at offset.\n",
+  "functionStartLine": 340,
+  "functionEndLine": 346,
+  "numCommitsSeen": 2,
+  "timeTaken": 231,
+  "changeHistory": [
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92"
+  ],
+  "changeHistoryShort": {
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92": {
+      "type": "Yintroduced",
+      "commitMessage": "Added ISO8601 complete support for date deserialization\n",
+      "commitDate": "11/22/15, 10:11 PM",
+      "commitName": "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92",
+      "commitAuthor": "Gorik",
+      "diff": "@@ -0,0 +1,8 @@\n+private static int indexOfNonDigit(String string, int offset) {\n+    for (int i \u003d offset; i \u003c string.length(); i++) {\n+        char c \u003d string.charAt(i);\n+        if (c \u003c \u00270\u0027 || c \u003e \u00279\u0027)\n+            return i;\n+    }\n+    return string.length();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static int indexOfNonDigit(String string, int offset) {\n    for (int i \u003d offset; i \u003c string.length(); i++) {\n        char c \u003d string.charAt(i);\n        if (c \u003c \u00270\u0027 || c \u003e \u00279\u0027)\n            return i;\n    }\n    return string.length();\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java",
+      "functionStartLine": 340,
+      "functionName": "indexOfNonDigit",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the index of the first character in the string that is not a digit, starting at offset.\n"
+    }
+  }
+}

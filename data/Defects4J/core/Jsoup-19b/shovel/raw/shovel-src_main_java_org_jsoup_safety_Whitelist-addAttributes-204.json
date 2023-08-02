@@ -1,0 +1,118 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Whitelist.java",
+  "functionName": "addAttributes",
+  "functionId": "addAttributes___tag-String__keys-String",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Whitelist.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Add a list of allowed attributes to a tag. (If an attribute is not allowed on an element, it will be removed.)\n     \u003cp/\u003e\n     To make an attribute valid for \u003cb\u003eall tags\u003c/b\u003e, use the pseudo tag \u003ccode\u003e:all\u003c/code\u003e, e.g.\n     \u003ccode\u003eaddAttributes(\":all\", \"class\")\u003c/code\u003e.\n\n@ @param tag  The tag the attributes are for\n     @param keys List of valid attributes for the tag\n     @return this (for chaining)\n",
+  "functionStartLine": 204,
+  "functionEndLine": 221,
+  "numCommitsSeen": 11,
+  "timeTaken": 382,
+  "changeHistory": [
+    "577b29272d3cefacef578ea035e90efd78a1360b",
+    "0eeefe41eef0c037f514965618e7f9c2d2129d7b"
+  ],
+  "changeHistoryShort": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+    "0eeefe41eef0c037f514965618e7f9c2d2129d7b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "577b29272d3cefacef578ea035e90efd78a1360b": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange,Ydocchange)",
+      "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "0eeefe41eef0c037f514965618e7f9c2d2129d7b",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Whitelist addAttributes(String tag, String... keys) {\n    Validate.notEmpty(tag);\n    Validate.notNull(keys);\n    TagName tagName \u003d TagName.valueOf(tag);\n    Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n    for (String key : keys) {\n        Validate.notEmpty(key);\n        attributeSet.add(AttributeKey.valueOf(key));\n    }\n    if (attributes.containsKey(tagName)) {\n        Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n        currentSet.addAll(attributeSet);\n    } else {\n        attributes.put(tagName, attributeSet);\n    }\n    return this;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 182,
+          "functionName": "addAttributes",
+          "functionAnnotation": "",
+          "functionDoc": "     Add a list of allowed attributes to a tag. (If an attribute is not allowed on an element, it will be removed.)\n     \u003cp/\u003e\n     To make an attribute valid for \u003cb\u003eall tags\u003c/b\u003e, use the pseudo tag \u003ccode\u003e:all\u003c/code\u003e, e.g.\n     \u003ccode\u003eaddAttributes(\":all\", \"class\")\u003c/code\u003e.\n\n@ @param tag  The tag the attributes are for\n     @param keys List of valid attributes for the tag\n     @return this (for chaining)\n",
+          "diff": "@@ -1,14 +1,17 @@\n-public Whitelist addAttributes(String tag, String... attribute) {\n+public Whitelist addAttributes(String tag, String... keys) {\n+    Validate.notEmpty(tag);\n+    Validate.notNull(keys);\n     TagName tagName \u003d TagName.valueOf(tag);\n     Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n-    for (String key : attribute) {\n+    for (String key : keys) {\n+        Validate.notEmpty(key);\n         attributeSet.add(AttributeKey.valueOf(key));\n     }\n     if (attributes.containsKey(tagName)) {\n         Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n         currentSet.addAll(attributeSet);\n     } else {\n         attributes.put(tagName, attributeSet);\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[tag-String, attribute-String]",
+            "newValue": "[tag-String, keys-String]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "0eeefe41eef0c037f514965618e7f9c2d2129d7b",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Whitelist addAttributes(String tag, String... keys) {\n    Validate.notEmpty(tag);\n    Validate.notNull(keys);\n    TagName tagName \u003d TagName.valueOf(tag);\n    Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n    for (String key : keys) {\n        Validate.notEmpty(key);\n        attributeSet.add(AttributeKey.valueOf(key));\n    }\n    if (attributes.containsKey(tagName)) {\n        Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n        currentSet.addAll(attributeSet);\n    } else {\n        attributes.put(tagName, attributeSet);\n    }\n    return this;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 182,
+          "functionName": "addAttributes",
+          "functionAnnotation": "",
+          "functionDoc": "     Add a list of allowed attributes to a tag. (If an attribute is not allowed on an element, it will be removed.)\n     \u003cp/\u003e\n     To make an attribute valid for \u003cb\u003eall tags\u003c/b\u003e, use the pseudo tag \u003ccode\u003e:all\u003c/code\u003e, e.g.\n     \u003ccode\u003eaddAttributes(\":all\", \"class\")\u003c/code\u003e.\n\n@ @param tag  The tag the attributes are for\n     @param keys List of valid attributes for the tag\n     @return this (for chaining)\n",
+          "diff": "@@ -1,14 +1,17 @@\n-public Whitelist addAttributes(String tag, String... attribute) {\n+public Whitelist addAttributes(String tag, String... keys) {\n+    Validate.notEmpty(tag);\n+    Validate.notNull(keys);\n     TagName tagName \u003d TagName.valueOf(tag);\n     Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n-    for (String key : attribute) {\n+    for (String key : keys) {\n+        Validate.notEmpty(key);\n         attributeSet.add(AttributeKey.valueOf(key));\n     }\n     if (attributes.containsKey(tagName)) {\n         Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n         currentSet.addAll(attributeSet);\n     } else {\n         attributes.put(tagName, attributeSet);\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Initial implementation of Whitelist cleaner config.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "577b29272d3cefacef578ea035e90efd78a1360b",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "0eeefe41eef0c037f514965618e7f9c2d2129d7b",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Whitelist addAttributes(String tag, String... keys) {\n    Validate.notEmpty(tag);\n    Validate.notNull(keys);\n    TagName tagName \u003d TagName.valueOf(tag);\n    Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n    for (String key : keys) {\n        Validate.notEmpty(key);\n        attributeSet.add(AttributeKey.valueOf(key));\n    }\n    if (attributes.containsKey(tagName)) {\n        Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n        currentSet.addAll(attributeSet);\n    } else {\n        attributes.put(tagName, attributeSet);\n    }\n    return this;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 182,
+          "functionName": "addAttributes",
+          "functionAnnotation": "",
+          "functionDoc": "     Add a list of allowed attributes to a tag. (If an attribute is not allowed on an element, it will be removed.)\n     \u003cp/\u003e\n     To make an attribute valid for \u003cb\u003eall tags\u003c/b\u003e, use the pseudo tag \u003ccode\u003e:all\u003c/code\u003e, e.g.\n     \u003ccode\u003eaddAttributes(\":all\", \"class\")\u003c/code\u003e.\n\n@ @param tag  The tag the attributes are for\n     @param keys List of valid attributes for the tag\n     @return this (for chaining)\n",
+          "diff": "@@ -1,14 +1,17 @@\n-public Whitelist addAttributes(String tag, String... attribute) {\n+public Whitelist addAttributes(String tag, String... keys) {\n+    Validate.notEmpty(tag);\n+    Validate.notNull(keys);\n     TagName tagName \u003d TagName.valueOf(tag);\n     Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n-    for (String key : attribute) {\n+    for (String key : keys) {\n+        Validate.notEmpty(key);\n         attributeSet.add(AttributeKey.valueOf(key));\n     }\n     if (attributes.containsKey(tagName)) {\n         Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n         currentSet.addAll(attributeSet);\n     } else {\n         attributes.put(tagName, attributeSet);\n     }\n     return this;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "     Add a list of allowed attributes to a tag. (If an attribute is not allowed on an element, it will be removed.)\n     \u003cp/\u003e\n     To make an attribute valid for \u003cb\u003eall tags\u003c/b\u003e, use the pseudo tag \u003ccode\u003e:all\u003c/code\u003e, e.g.\n     \u003ccode\u003eaddAttributes(\":all\", \"class\")\u003c/code\u003e.\n\n@ @param tag  The tag the attributes are for\n     @param keys List of valid attributes for the tag\n     @return this (for chaining)\n"
+          }
+        }
+      ]
+    },
+    "0eeefe41eef0c037f514965618e7f9c2d2129d7b": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial bits of HTML cleaner.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "0eeefe41eef0c037f514965618e7f9c2d2129d7b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,14 @@\n+public Whitelist addAttributes(String tag, String... attribute) {\n+    TagName tagName \u003d TagName.valueOf(tag);\n+    Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n+    for (String key : attribute) {\n+        attributeSet.add(AttributeKey.valueOf(key));\n+    }\n+    if (attributes.containsKey(tagName)) {\n+        Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n+        currentSet.addAll(attributeSet);\n+    } else {\n+        attributes.put(tagName, attributeSet);\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Whitelist addAttributes(String tag, String... attribute) {\n    TagName tagName \u003d TagName.valueOf(tag);\n    Set\u003cAttributeKey\u003e attributeSet \u003d new HashSet\u003cAttributeKey\u003e();\n    for (String key : attribute) {\n        attributeSet.add(AttributeKey.valueOf(key));\n    }\n    if (attributes.containsKey(tagName)) {\n        Set\u003cAttributeKey\u003e currentSet \u003d attributes.get(tagName);\n        currentSet.addAll(attributeSet);\n    } else {\n        attributes.put(tagName, attributeSet);\n    }\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+      "functionStartLine": 30,
+      "functionName": "addAttributes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

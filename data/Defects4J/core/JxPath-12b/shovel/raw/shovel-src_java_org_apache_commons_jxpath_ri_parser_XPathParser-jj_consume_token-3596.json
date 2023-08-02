@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-12b",
+  "repositoryPath": "/tmp/JxPath-12b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XPathParser.java",
+  "functionName": "jj_consume_token",
+  "functionId": "jj_consume_token___kind-int",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 3596,
+  "functionEndLine": 3618,
+  "numCommitsSeen": 7,
+  "timeTaken": 1547,
+  "changeHistory": [
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,26 @@\n+private final Token jj_consume_token(int kind) throws ParseException {\n+    Token oldToken \u003d token;\n+    if ((token \u003d jj_nt).next !\u003d null)\n+        jj_nt \u003d jj_nt.next;\n+    else\n+        jj_nt \u003d jj_nt.next \u003d token_source.getNextToken();\n+    if (token.kind \u003d\u003d kind) {\n+        jj_gen++;\n+        if (++jj_gc \u003e 100) {\n+            jj_gc \u003d 0;\n+            for (int i \u003d 0; i \u003c jj_2_rtns.length; i++) {\n+                JJCalls c \u003d jj_2_rtns[i];\n+                while (c !\u003d null) {\n+                    if (c.gen \u003c jj_gen)\n+                        c.first \u003d null;\n+                    c \u003d c.next;\n+                }\n+            }\n+        }\n+        return token;\n+    }\n+    jj_nt \u003d token;\n+    token \u003d oldToken;\n+    jj_kind \u003d kind;\n+    throw generateParseException();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final Token jj_consume_token(int kind) throws ParseException {\n    Token oldToken \u003d token;\n    if ((token \u003d jj_nt).next !\u003d null)\n        jj_nt \u003d jj_nt.next;\n    else\n        jj_nt \u003d jj_nt.next \u003d token_source.getNextToken();\n    if (token.kind \u003d\u003d kind) {\n        jj_gen++;\n        if (++jj_gc \u003e 100) {\n            jj_gc \u003d 0;\n            for (int i \u003d 0; i \u003c jj_2_rtns.length; i++) {\n                JJCalls c \u003d jj_2_rtns[i];\n                while (c !\u003d null) {\n                    if (c.gen \u003c jj_gen)\n                        c.first \u003d null;\n                    c \u003d c.next;\n                }\n            }\n        }\n        return token;\n    }\n    jj_nt \u003d token;\n    token \u003d oldToken;\n    jj_kind \u003d kind;\n    throw generateParseException();\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+      "functionStartLine": 3478,
+      "functionName": "jj_consume_token",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

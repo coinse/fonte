@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-49b",
+  "repositoryPath": "/tmp/Jsoup-49b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "reparentChild",
+  "functionId": "reparentChild___child-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 455,
+  "functionEndLine": 459,
+  "numCommitsSeen": 67,
+  "timeTaken": 1288,
+  "changeHistory": [
+    "990285bdbb080038fef44cd2306526b4cba520d5",
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9"
+  ],
+  "changeHistoryShort": {
+    "990285bdbb080038fef44cd2306526b4cba520d5": "Ymodifierchange",
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "990285bdbb080038fef44cd2306526b4cba520d5": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Short-circuit addChildren\n\nSaves a bunch of GC on each insert.\n",
+      "commitDate": "10/27/14, 10:38 PM",
+      "commitName": "990285bdbb080038fef44cd2306526b4cba520d5",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/17/14, 1:23 PM",
+      "commitNameOld": "e936b1b664500166bef0403011c5924c7bd7d086",
+      "commitAuthorOld": "offa",
+      "daysBetweenCommits": 10.39,
+      "commitsBetweenForRepo": 18,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void reparentChild(Node child) {\n    if (child.parentNode !\u003d null)\n        child.parentNode.removeChild(child);\n    child.setParentNode(this);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 456,
+      "functionName": "reparentChild",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n-private void reparentChild(Node child) {\n+protected void reparentChild(Node child) {\n     if (child.parentNode !\u003d null)\n         child.parentNode.removeChild(child);\n     child.setParentNode(this);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private]",
+        "newValue": "[protected]"
+      }
+    },
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9": {
+      "type": "Yintroduced",
+      "commitMessage": "Optimise adding nodes to end of childnode list.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "674dab0387c4bfad01465574c4be6ea4b3f4f6e9",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,5 @@\n+private void reparentChild(Node child) {\n+    if (child.parentNode !\u003d null)\n+        child.parentNode.removeChild(child);\n+    child.setParentNode(this);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void reparentChild(Node child) {\n    if (child.parentNode !\u003d null)\n        child.parentNode.removeChild(child);\n    child.setParentNode(this);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 276,
+      "functionName": "reparentChild",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

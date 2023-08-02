@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-2b",
+  "repositoryPath": "/tmp/Jsoup-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Attributes.java",
+  "functionName": "asList",
+  "functionId": "asList",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Attributes.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Get the attributes as a List, for iteration. Do not modify the keys of the attributes via this view, as changes\n     to keys will not be recognised in the containing set.\n\n@ @return an view of the attributes as a List.\n",
+  "functionStartLine": 96,
+  "functionEndLine": 102,
+  "numCommitsSeen": 11,
+  "timeTaken": 418,
+  "changeHistory": [
+    "28418f8335d2b359690e80e61d0081f4e892769c",
+    "5b4070635f916b7d9d99e306a4c3016473828db6",
+    "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268"
+  ],
+  "changeHistoryShort": {
+    "28418f8335d2b359690e80e61d0081f4e892769c": "Ydocchange",
+    "5b4070635f916b7d9d99e306a4c3016473828db6": "Ybodychange",
+    "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "28418f8335d2b359690e80e61d0081f4e892769c": {
+      "type": "Ydocchange",
+      "commitMessage": "Javadoc\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "28418f8335d2b359690e80e61d0081f4e892769c",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "d8dbde85408a685075e5cbec0709877317393497",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 23,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public List\u003cAttribute\u003e asList() {\n    List\u003cAttribute\u003e list \u003d new ArrayList\u003cAttribute\u003e(attributes.size());\n    for (Map.Entry\u003cString, Attribute\u003e entry : attributes.entrySet()) {\n        list.add(entry.getValue());\n    }\n    return Collections.unmodifiableList(list);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 96,
+      "functionName": "asList",
+      "functionAnnotation": "",
+      "functionDoc": "     Get the attributes as a List, for iteration. Do not modify the keys of the attributes via this view, as changes\n     to keys will not be recognised in the containing set.\n\n@ @return an view of the attributes as a List.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "     Get the attributes as a List, for iteration. Do not modify the keys of the attributes via this view, as changes\n     to keys will not be recognised in the containing set.\n\n@ @return an view of the attributes as a List.\n"
+      }
+    },
+    "5b4070635f916b7d9d99e306a4c3016473828db6": {
+      "type": "Ybodychange",
+      "commitMessage": "Attributes values back to Attribute\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "5b4070635f916b7d9d99e306a4c3016473828db6",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "1f3cfcfb08a5e7454e61513389b814c7da6072ac",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 68,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public List\u003cAttribute\u003e asList() {\n    List\u003cAttribute\u003e list \u003d new ArrayList\u003cAttribute\u003e(attributes.size());\n    for (Map.Entry\u003cString, Attribute\u003e entry : attributes.entrySet()) {\n        list.add(entry.getValue());\n    }\n    return Collections.unmodifiableList(list);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 58,
+      "functionName": "asList",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,7 @@\n public List\u003cAttribute\u003e asList() {\n     List\u003cAttribute\u003e list \u003d new ArrayList\u003cAttribute\u003e(attributes.size());\n-    for (Map.Entry\u003cString, String\u003e entry : attributes.entrySet()) {\n-        Attribute attribute \u003d new Attribute(entry.getKey(), entry.getValue());\n-        list.add(attribute);\n+    for (Map.Entry\u003cString, Attribute\u003e entry : attributes.entrySet()) {\n+        list.add(entry.getValue());\n     }\n     return Collections.unmodifiableList(list);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplemented parser.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "2f0a7bf507020d98b3bdbf0a93bb1c753dd90268",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,8 @@\n+public List\u003cAttribute\u003e asList() {\n+    List\u003cAttribute\u003e list \u003d new ArrayList\u003cAttribute\u003e(attributes.size());\n+    for (Map.Entry\u003cString, String\u003e entry : attributes.entrySet()) {\n+        Attribute attribute \u003d new Attribute(entry.getKey(), entry.getValue());\n+        list.add(attribute);\n+    }\n+    return Collections.unmodifiableList(list);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public List\u003cAttribute\u003e asList() {\n    List\u003cAttribute\u003e list \u003d new ArrayList\u003cAttribute\u003e(attributes.size());\n    for (Map.Entry\u003cString, String\u003e entry : attributes.entrySet()) {\n        Attribute attribute \u003d new Attribute(entry.getKey(), entry.getValue());\n        list.add(attribute);\n    }\n    return Collections.unmodifiableList(list);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 49,
+      "functionName": "asList",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

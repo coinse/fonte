@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Whitelist.java",
+  "functionName": "getEnforcedAttributes",
+  "functionId": "getEnforcedAttributes___tagName-String",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Whitelist.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 354,
+  "functionEndLine": 364,
+  "numCommitsSeen": 10,
+  "timeTaken": 635,
+  "changeHistory": [
+    "83b8d1a6c8db2d34fbb344ae3125781978910725"
+  ],
+  "changeHistoryShort": {
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial Cleaner implementation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "83b8d1a6c8db2d34fbb344ae3125781978910725",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+Attributes getEnforcedAttributes(String tagName) {\n+    Attributes attrs \u003d new Attributes();\n+    TagName tag \u003d TagName.valueOf(tagName);\n+    if (enforcedAttributes.containsKey(tag)) {\n+        Map\u003cAttributeKey, AttributeValue\u003e keyVals \u003d enforcedAttributes.get(tag);\n+        for (Map.Entry\u003cAttributeKey, AttributeValue\u003e entry : keyVals.entrySet()) {\n+            attrs.put(entry.getKey().toString(), entry.getValue().toString());\n+        }\n+    }\n+    return attrs;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Attributes getEnforcedAttributes(String tagName) {\n    Attributes attrs \u003d new Attributes();\n    TagName tag \u003d TagName.valueOf(tagName);\n    if (enforcedAttributes.containsKey(tag)) {\n        Map\u003cAttributeKey, AttributeValue\u003e keyVals \u003d enforcedAttributes.get(tag);\n        for (Map.Entry\u003cAttributeKey, AttributeValue\u003e entry : keyVals.entrySet()) {\n            attrs.put(entry.getKey().toString(), entry.getValue().toString());\n        }\n    }\n    return attrs;\n}",
+      "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+      "functionStartLine": 311,
+      "functionName": "getEnforcedAttributes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

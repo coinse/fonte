@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-49b",
+  "repositoryPath": "/tmp/Jsoup-49b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "insertChildren",
+  "functionId": "insertChildren___index-int__children-Collection__? extends Node__",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "Inserts the given child nodes into this element at the specified index. Current nodes will be shifted to the\nright. The inserted nodes will be moved from their current parent. To prevent moving, copy the nodes first.\n\n@param index 0-based index to insert children at. Specify {@code 0} to insert at the start, {@code -1} at the\nend\n@param children child nodes to insert\n@return this element, for chaining.\n",
+  "functionStartLine": 316,
+  "functionEndLine": 326,
+  "numCommitsSeen": 105,
+  "timeTaken": 2126,
+  "changeHistory": [
+    "deaf9f6a51b928dcad619fd8300ee3926345d1ea"
+  ],
+  "changeHistoryShort": {
+    "deaf9f6a51b928dcad619fd8300ee3926345d1ea": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "deaf9f6a51b928dcad619fd8300ee3926345d1ea": {
+      "type": "Yintroduced",
+      "commitMessage": "Added Element.insertChildren\n\nAlso tidied up JavaDoc, and returned Node.childNodes to a unmodifiable\nlist.\n\nFixes #239 (with alternative implementation)\n",
+      "commitDate": "12/23/12, 1:17 PM",
+      "commitName": "deaf9f6a51b928dcad619fd8300ee3926345d1ea",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+public Element insertChildren(int index, Collection\u003c? extends Node\u003e children) {\n+    Validate.notNull(children, \"Children collection to be inserted must not be null.\");\n+    int currentSize \u003d childNodeSize();\n+    if (index \u003c 0)\n+        index +\u003d currentSize + 1;\n+    Validate.isTrue(index \u003e\u003d 0 \u0026\u0026 index \u003c\u003d currentSize, \"Insert position out of bounds.\");\n+    ArrayList\u003cNode\u003e nodes \u003d new ArrayList\u003cNode\u003e(children);\n+    Node[] nodeArray \u003d nodes.toArray(new Node[nodes.size()]);\n+    addChildren(index, nodeArray);\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Element insertChildren(int index, Collection\u003c? extends Node\u003e children) {\n    Validate.notNull(children, \"Children collection to be inserted must not be null.\");\n    int currentSize \u003d childNodeSize();\n    if (index \u003c 0)\n        index +\u003d currentSize + 1;\n    Validate.isTrue(index \u003e\u003d 0 \u0026\u0026 index \u003c\u003d currentSize, \"Insert position out of bounds.\");\n    ArrayList\u003cNode\u003e nodes \u003d new ArrayList\u003cNode\u003e(children);\n    Node[] nodeArray \u003d nodes.toArray(new Node[nodes.size()]);\n    addChildren(index, nodeArray);\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 294,
+      "functionName": "insertChildren",
+      "functionAnnotation": "",
+      "functionDoc": "Inserts the given child nodes into this element at the specified index. Current nodes will be shifted to the\nright. The inserted nodes will be moved from their current parent. To prevent moving, copy the nodes first.\n\n@param index 0-based index to insert children at. Specify {@code 0} to insert at the start, {@code -1} at the\nend\n@param children child nodes to insert\n@return this element, for chaining.\n"
+    }
+  }
+}

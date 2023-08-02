@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-24b",
+  "repositoryPath": "/tmp/Jsoup-24b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "removeChild",
+  "functionId": "removeChild___out-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 399,
+  "functionEndLine": 405,
+  "numCommitsSeen": 51,
+  "timeTaken": 938,
+  "changeHistory": [
+    "6b0dd15b9542b184a55040de992e0140e613fec8",
+    "f992e41708287a8251dc9d92ce9db874e0e8f076"
+  ],
+  "changeHistoryShort": {
+    "6b0dd15b9542b184a55040de992e0140e613fec8": "Ybodychange",
+    "f992e41708287a8251dc9d92ce9db874e0e8f076": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b0dd15b9542b184a55040de992e0140e613fec8": {
+      "type": "Ybodychange",
+      "commitMessage": "Performance tweaks.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "6b0dd15b9542b184a55040de992e0140e613fec8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "10cfa0465c9d48f6a3ce3f5996259e77b43fa858",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected void removeChild(Node out) {\n    Validate.isTrue(out.parentNode \u003d\u003d this);\n    int index \u003d out.siblingIndex();\n    childNodes.remove(index);\n    reindexChildren();\n    out.parentNode \u003d null;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 236,
+      "functionName": "removeChild",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,7 @@\n protected void removeChild(Node out) {\n     Validate.isTrue(out.parentNode \u003d\u003d this);\n-    int index \u003d indexInList(out, childNodes);\n+    int index \u003d out.siblingIndex();\n     childNodes.remove(index);\n+    reindexChildren();\n     out.parentNode \u003d null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "f992e41708287a8251dc9d92ce9db874e0e8f076": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented Element#wrap and #Elements#wrap\n\nAlso protected Node.replaceChild, removeChild, addChild.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f992e41708287a8251dc9d92ce9db874e0e8f076",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+protected void removeChild(Node out) {\n+    Validate.isTrue(out.parentNode \u003d\u003d this);\n+    int index \u003d indexInList(out, childNodes);\n+    childNodes.remove(index);\n+    out.parentNode \u003d null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected void removeChild(Node out) {\n    Validate.isTrue(out.parentNode \u003d\u003d this);\n    int index \u003d indexInList(out, childNodes);\n    childNodes.remove(index);\n    out.parentNode \u003d null;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 210,
+      "functionName": "removeChild",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

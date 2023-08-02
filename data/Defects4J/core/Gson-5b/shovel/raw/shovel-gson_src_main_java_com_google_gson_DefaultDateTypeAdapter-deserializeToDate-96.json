@@ -1,0 +1,119 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-5b",
+  "repositoryPath": "/tmp/Gson-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DefaultDateTypeAdapter.java",
+  "functionName": "deserializeToDate",
+  "functionId": "deserializeToDate___json-JsonElement",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 96,
+  "functionEndLine": 110,
+  "numCommitsSeen": 90,
+  "timeTaken": 1550,
+  "changeHistory": [
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92",
+    "4da08b0ec6c35d4d36bf8e91cc402f9fb3117567",
+    "f718784f33c6f52416325039381833645651d2a2"
+  ],
+  "changeHistoryShort": {
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92": "Ybodychange",
+    "4da08b0ec6c35d4d36bf8e91cc402f9fb3117567": "Ymultichange(Ymovefromfile,Yformatchange)",
+    "f718784f33c6f52416325039381833645651d2a2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92": {
+      "type": "Ybodychange",
+      "commitMessage": "Added ISO8601 complete support for date deserialization\n",
+      "commitDate": "11/22/15, 10:11 PM",
+      "commitName": "bcd52a1fdc4883731ee25b79e2c3f6a7d578bf92",
+      "commitAuthor": "Gorik",
+      "commitDateOld": "11/4/15, 6:52 PM",
+      "commitNameOld": "e5b3f6368db33c846b094b0d695d3a1b826e3892",
+      "commitAuthorOld": "Inderjeet Singh",
+      "daysBetweenCommits": 18.14,
+      "commitsBetweenForRepo": 14,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private Date deserializeToDate(JsonElement json) {\n    synchronized (localFormat) {\n        try {\n            return localFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return enUsFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return ISO8601Utils.parse(json.getAsString(), new ParsePosition(0));\n        } catch (ParseException e) {\n            throw new JsonSyntaxException(json.getAsString(), e);\n        }\n    }\n}",
+      "path": "gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java",
+      "functionStartLine": 96,
+      "functionName": "deserializeToDate",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,17 +1,17 @@\n private Date deserializeToDate(JsonElement json) {\n     synchronized (localFormat) {\n         try {\n             return localFormat.parse(json.getAsString());\n         } catch (ParseException ignored) {\n         }\n         try {\n             return enUsFormat.parse(json.getAsString());\n         } catch (ParseException ignored) {\n         }\n         try {\n-            return iso8601Format.parse(json.getAsString());\n+            return ISO8601Utils.parse(json.getAsString(), new ParsePosition(0));\n         } catch (ParseException e) {\n             throw new JsonSyntaxException(json.getAsString(), e);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "4da08b0ec6c35d4d36bf8e91cc402f9fb3117567": {
+      "type": "Ymultichange(Ymovefromfile,Yformatchange)",
+      "commitMessage": "Remove two implementation classes that weren\u0027t generally useful:\n - The cache interface has only one implementation. Drop the interface; we can add it back later if necessary.\n - The DefaultTypeAdapters class contains one member class. Just make that a top-level class.\n",
+      "commitDate": "11/20/11, 10:23 PM",
+      "commitName": "4da08b0ec6c35d4d36bf8e91cc402f9fb3117567",
+      "commitAuthor": "Jesse Wilson",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Remove two implementation classes that weren\u0027t generally useful:\n - The cache interface has only one implementation. Drop the interface; we can add it back later if necessary.\n - The DefaultTypeAdapters class contains one member class. Just make that a top-level class.\n",
+          "commitDate": "11/20/11, 10:23 PM",
+          "commitName": "4da08b0ec6c35d4d36bf8e91cc402f9fb3117567",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "11/20/11, 10:14 PM",
+          "commitNameOld": "7def596775df746f3440f40ffdb937ad5f535265",
+          "commitAuthorOld": "Jesse Wilson",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Date deserializeToDate(JsonElement json) {\n    synchronized (localFormat) {\n        try {\n            return localFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return enUsFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return iso8601Format.parse(json.getAsString());\n        } catch (ParseException e) {\n            throw new JsonSyntaxException(json.getAsString(), e);\n        }\n    }\n}",
+          "path": "gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java",
+          "functionStartLine": 94,
+          "functionName": "deserializeToDate",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "",
+          "extendedDetails": {
+            "oldPath": "gson/src/main/java/com/google/gson/DefaultTypeAdapters.java",
+            "newPath": "gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java",
+            "oldMethodName": "deserializeToDate",
+            "newMethodName": "deserializeToDate"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "Remove two implementation classes that weren\u0027t generally useful:\n - The cache interface has only one implementation. Drop the interface; we can add it back later if necessary.\n - The DefaultTypeAdapters class contains one member class. Just make that a top-level class.\n",
+          "commitDate": "11/20/11, 10:23 PM",
+          "commitName": "4da08b0ec6c35d4d36bf8e91cc402f9fb3117567",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "11/20/11, 10:14 PM",
+          "commitNameOld": "7def596775df746f3440f40ffdb937ad5f535265",
+          "commitAuthorOld": "Jesse Wilson",
+          "daysBetweenCommits": 0.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private Date deserializeToDate(JsonElement json) {\n    synchronized (localFormat) {\n        try {\n            return localFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return enUsFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return iso8601Format.parse(json.getAsString());\n        } catch (ParseException e) {\n            throw new JsonSyntaxException(json.getAsString(), e);\n        }\n    }\n}",
+          "path": "gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java",
+          "functionStartLine": 94,
+          "functionName": "deserializeToDate",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "f718784f33c6f52416325039381833645651d2a2": {
+      "type": "Yintroduced",
+      "commitMessage": "Use the date format for java.sql.Date and java.sql.Timestamp.\n\nFixes issue 230.\n",
+      "commitDate": "3/29/11, 2:36 PM",
+      "commitName": "f718784f33c6f52416325039381833645651d2a2",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,17 @@\n+private Date deserializeToDate(JsonElement json) {\n+    synchronized (localFormat) {\n+        try {\n+            return localFormat.parse(json.getAsString());\n+        } catch (ParseException ignored) {\n+        }\n+        try {\n+            return enUsFormat.parse(json.getAsString());\n+        } catch (ParseException ignored) {\n+        }\n+        try {\n+            return iso8601Format.parse(json.getAsString());\n+        } catch (ParseException e) {\n+            throw new JsonSyntaxException(json.getAsString(), e);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Date deserializeToDate(JsonElement json) {\n    synchronized (localFormat) {\n        try {\n            return localFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return enUsFormat.parse(json.getAsString());\n        } catch (ParseException ignored) {\n        }\n        try {\n            return iso8601Format.parse(json.getAsString());\n        } catch (ParseException e) {\n            throw new JsonSyntaxException(json.getAsString(), e);\n        }\n    }\n}",
+      "path": "gson/src/main/java/com/google/gson/DefaultTypeAdapters.java",
+      "functionStartLine": 363,
+      "functionName": "deserializeToDate",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

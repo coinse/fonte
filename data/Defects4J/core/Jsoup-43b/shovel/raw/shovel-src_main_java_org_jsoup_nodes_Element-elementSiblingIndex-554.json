@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "elementSiblingIndex",
+  "functionId": "elementSiblingIndex",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the list index of this element in its element sibling list. I.e. if this is the first element\nsibling, returns 0.\n\n@return position in element sibling list\n",
+  "functionStartLine": 554,
+  "functionEndLine": 557,
+  "numCommitsSeen": 101,
+  "timeTaken": 2505,
+  "changeHistory": [
+    "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0",
+    "79c672355bb31aa69c23d2dd1ed8cc3f89dd2844"
+  ],
+  "changeHistoryShort": {
+    "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0": "Ybodychange",
+    "79c672355bb31aa69c23d2dd1ed8cc3f89dd2844": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0": {
+      "type": "Ybodychange",
+      "commitMessage": "Added selector support for :eq, :lt, and gt\n\nCloses #16\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "5eecccd3eae2d7af9c8426473e9ee53bc01bc7c0",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "fcab98cdd311deb3dd4fd63fef2bc6c4c397f186",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Integer elementSiblingIndex() {\n    if (parent() \u003d\u003d null)\n        return 0;\n    return indexInList(this, parent().children());\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 383,
+      "functionName": "elementSiblingIndex",
+      "functionAnnotation": "",
+      "functionDoc": "Get the list index of this element in its element sibling list. I.e. if this is the first element\nsibling, returns 0.\n\n@return position in element sibling list\n",
+      "diff": "@@ -1,3 +1,5 @@\n public Integer elementSiblingIndex() {\n+    if (parent() \u003d\u003d null)\n+        return 0;\n     return indexInList(this, parent().children());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "79c672355bb31aa69c23d2dd1ed8cc3f89dd2844": {
+      "type": "Yintroduced",
+      "commitMessage": "New: E + F adjacent sibling selector, E ~ F preceding sibling.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "79c672355bb31aa69c23d2dd1ed8cc3f89dd2844",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+public Integer elementSiblingIndex() {\n+    return indexInList(this, parent().children());\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Integer elementSiblingIndex() {\n    return indexInList(this, parent().children());\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 382,
+      "functionName": "elementSiblingIndex",
+      "functionAnnotation": "",
+      "functionDoc": "Get the list index of this element in its element sibling list. I.e. if this is the first element\nsibling, returns 0.\n\n@return position in element sibling list\n"
+    }
+  }
+}

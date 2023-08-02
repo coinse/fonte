@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-37b",
+  "repositoryPath": "/tmp/Jsoup-37b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "ownerDocument",
+  "functionId": "ownerDocument",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "Gets the Document associated with this Node.\n\n@return the Document associated with this Node, or null if there is no such Document.\n",
+  "functionStartLine": 262,
+  "functionEndLine": 269,
+  "numCommitsSeen": 58,
+  "timeTaken": 830,
+  "changeHistory": [
+    "2ca58b79dd165a6eec7ce990cf53ceaf9445e5f0"
+  ],
+  "changeHistoryShort": {
+    "2ca58b79dd165a6eec7ce990cf53ceaf9445e5f0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2ca58b79dd165a6eec7ce990cf53ceaf9445e5f0": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented Node.ownerDocument DOM API method.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "2ca58b79dd165a6eec7ce990cf53ceaf9445e5f0",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,8 @@\n+public Document ownerDocument() {\n+    if (this instanceof Document)\n+        return (Document) this;\n+    else if (parentNode \u003d\u003d null)\n+        return null;\n+    else\n+        return parentNode.ownerDocument();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Document ownerDocument() {\n    if (this instanceof Document)\n        return (Document) this;\n    else if (parentNode \u003d\u003d null)\n        return null;\n    else\n        return parentNode.ownerDocument();\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 203,
+      "functionName": "ownerDocument",
+      "functionAnnotation": "",
+      "functionDoc": "Gets the Document associated with this Node.\n\n@return the Document associated with this Node, or null if there is no such Document.\n"
+    }
+  }
+}

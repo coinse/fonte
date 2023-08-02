@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-12b",
+  "repositoryPath": "/tmp/JxPath-12b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DocumentContainer.java",
+  "functionName": "parseXML",
+  "functionId": "parseXML___stream-InputStream",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/xml/DocumentContainer.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses XML using the parser for the specified model.\n",
+  "functionStartLine": 131,
+  "functionEndLine": 144,
+  "numCommitsSeen": 12,
+  "timeTaken": 220,
+  "changeHistory": [
+    "2962ae198015d4a26500a858b34d3d780738d4a8"
+  ],
+  "changeHistoryShort": {
+    "2962ae198015d4a26500a858b34d3d780738d4a8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2962ae198015d4a26500a858b34d3d780738d4a8": {
+      "type": "Yintroduced",
+      "commitMessage": "Added support for parser features\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136884 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/17/04, 5:42 PM",
+      "commitName": "2962ae198015d4a26500a858b34d3d780738d4a8",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,13 @@\n+public Object parseXML(InputStream stream) {\n+    XMLParser parser \u003d getParser(model);\n+    if (parser instanceof XMLParser2) {\n+        XMLParser2 parser2 \u003d (XMLParser2) parser;\n+        parser2.setValidating(isValidating());\n+        parser2.setNamespaceAware(isNamespaceAware());\n+        parser2.setIgnoringElementContentWhitespace(isIgnoringElementContentWhitespace());\n+        parser2.setExpandEntityReferences(isExpandEntityReferences());\n+        parser2.setIgnoringComments(isIgnoringComments());\n+        parser2.setCoalescing(isCoalescing());\n+    }\n+    return parser.parseXML(stream);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Object parseXML(InputStream stream) {\n    XMLParser parser \u003d getParser(model);\n    if (parser instanceof XMLParser2) {\n        XMLParser2 parser2 \u003d (XMLParser2) parser;\n        parser2.setValidating(isValidating());\n        parser2.setNamespaceAware(isNamespaceAware());\n        parser2.setIgnoringElementContentWhitespace(isIgnoringElementContentWhitespace());\n        parser2.setExpandEntityReferences(isExpandEntityReferences());\n        parser2.setIgnoringComments(isIgnoringComments());\n        parser2.setCoalescing(isCoalescing());\n    }\n    return parser.parseXML(stream);\n}",
+      "path": "src/java/org/apache/commons/jxpath/xml/DocumentContainer.java",
+      "functionStartLine": 176,
+      "functionName": "parseXML",
+      "functionAnnotation": "",
+      "functionDoc": "Parses XML using the parser for the specified model.\n"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Csv-4b",
+  "repositoryPath": "/tmp/Csv-4b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CSVParser.java",
+  "functionName": "getHeaderMap",
+  "functionId": "getHeaderMap",
+  "sourceFilePath": "src/main/java/org/apache/commons/csv/CSVParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a copy of the header map that iterates in column order.\n\u003cp\u003e\nThe map keys are column names. The map values are 0-based indices.\n\n@return a copy of the header map that iterates in column order.\n",
+  "functionStartLine": 287,
+  "functionEndLine": 289,
+  "numCommitsSeen": 107,
+  "timeTaken": 1377,
+  "changeHistory": [
+    "316a51f5208bc95f22124d1579882131a4f441b2",
+    "69997467d419487cb4098ff116188091907b5ff1",
+    "3cd5c85e8a9e1cdcaad4059d5aa3eb4c15228ecf"
+  ],
+  "changeHistoryShort": {
+    "316a51f5208bc95f22124d1579882131a4f441b2": "Ydocchange",
+    "69997467d419487cb4098ff116188091907b5ff1": "Ybodychange",
+    "3cd5c85e8a9e1cdcaad4059d5aa3eb4c15228ecf": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "316a51f5208bc95f22124d1579882131a4f441b2": {
+      "type": "Ydocchange",
+      "commitMessage": "- Add some real world CSV files. \n- Add a record API to get column values using an Enum.\n- Throw a better exception when a resource is not found in a class loader for the parser.\n- Replace some tabs with spaces.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1509068 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/31/13, 7:03 PM",
+      "commitName": "316a51f5208bc95f22124d1579882131a4f441b2",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "7/31/13, 8:39 AM",
+      "commitNameOld": "97d34575a1074197b8a1b5832d3b2cd3e7656d8f",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 0.43,
+      "commitsBetweenForRepo": 9,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Map\u003cString, Integer\u003e getHeaderMap() {\n    return new LinkedHashMap\u003cString, Integer\u003e(this.headerMap);\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+      "functionStartLine": 314,
+      "functionName": "getHeaderMap",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a copy of the header map that iterates in column order.\n\u003cp\u003e\nThe map keys are column names. The map values are 0-based indices.\n\n@return a copy of the header map that iterates in column order.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Returns a copy of the header map that iterates in column order.\n\u003cp\u003e\nThe map keys are column names.\nThe map values are 0-based indices.\n\n@return a copy of the header map that iterates in column order.\n",
+        "newValue": "Returns a copy of the header map that iterates in column order.\n\u003cp\u003e\nThe map keys are column names. The map values are 0-based indices.\n\n@return a copy of the header map that iterates in column order.\n"
+      }
+    },
+    "69997467d419487cb4098ff116188091907b5ff1": {
+      "type": "Ybodychange",
+      "commitMessage": "Refactor to only have minimal CSVParser constructors in favor of CSVParser factory methods for String, resource path, URL, and File. Update some tests to use the APIs.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1508544 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/30/13, 10:36 AM",
+      "commitName": "69997467d419487cb4098ff116188091907b5ff1",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "7/30/13, 9:26 AM",
+      "commitNameOld": "61fdb7a03a22065de4c63525a4b836ba616aa1f1",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 0.05,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Map\u003cString, Integer\u003e getHeaderMap() {\n    return new LinkedHashMap\u003cString, Integer\u003e(this.headerMap);\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+      "functionStartLine": 285,
+      "functionName": "getHeaderMap",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a copy of the header map that iterates in column order.\n\u003cp\u003e\nThe map keys are column names.\nThe map values are 0-based indices.\n\n@return a copy of the header map that iterates in column order.\n",
+      "diff": "@@ -1,3 +1,3 @@\n public Map\u003cString, Integer\u003e getHeaderMap() {\n-    return new LinkedHashMap\u003cString, Integer\u003e(headerMap);\n+    return new LinkedHashMap\u003cString, Integer\u003e(this.headerMap);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "3cd5c85e8a9e1cdcaad4059d5aa3eb4c15228ecf": {
+      "type": "Yintroduced",
+      "commitMessage": "[CVS-92] Need a way to extract parsed headers, e.g. for use in formatting output.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1383934 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/12/12, 6:41 AM",
+      "commitName": "3cd5c85e8a9e1cdcaad4059d5aa3eb4c15228ecf",
+      "commitAuthor": "Gary D. Gregory",
+      "diff": "@@ -0,0 +1,3 @@\n+public Map\u003cString, Integer\u003e getHeaderMap() {\n+    return new LinkedHashMap\u003cString, Integer\u003e(headerMap);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Map\u003cString, Integer\u003e getHeaderMap() {\n    return new LinkedHashMap\u003cString, Integer\u003e(headerMap);\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+      "functionStartLine": 133,
+      "functionName": "getHeaderMap",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a copy of the header map that iterates in column order.\n\u003cp\u003e\nThe map keys are column names.\nThe map values are 0-based indices.\n\n@return a copy of the header map that iterates in column order.\n"
+    }
+  }
+}

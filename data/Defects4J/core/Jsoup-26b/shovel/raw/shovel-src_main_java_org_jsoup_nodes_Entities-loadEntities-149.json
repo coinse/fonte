@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Entities.java",
+  "functionName": "loadEntities",
+  "functionId": "loadEntities___filename-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Entities.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 149,
+  "functionEndLine": 166,
+  "numCommitsSeen": 15,
+  "timeTaken": 311,
+  "changeHistory": [
+    "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d"
+  ],
+  "changeHistoryShort": {
+    "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed GAE support: load HTML entities from a file on startup, instead of embedding in the class.\n",
+      "commitDate": "4/14/12, 8:59 PM",
+      "commitName": "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,17 @@\n+private static Map\u003cString, Character\u003e loadEntities(String filename) {\n+    Properties properties \u003d new Properties();\n+    Map\u003cString, Character\u003e entities \u003d new HashMap\u003cString, Character\u003e();\n+    try {\n+        InputStream in \u003d Entities.class.getResourceAsStream(filename);\n+        properties.load(in);\n+        in.close();\n+    } catch (IOException e) {\n+        throw new MissingResourceException(\"Error loading entities resource: \" + e.getMessage(), \"Entities\", filename);\n+    }\n+    for (Map.Entry entry : properties.entrySet()) {\n+        Character val \u003d Character.valueOf((char) Integer.parseInt((String) entry.getValue(), 16));\n+        String name \u003d (String) entry.getKey();\n+        entities.put(name, val);\n+    }\n+    return entities;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Map\u003cString, Character\u003e loadEntities(String filename) {\n    Properties properties \u003d new Properties();\n    Map\u003cString, Character\u003e entities \u003d new HashMap\u003cString, Character\u003e();\n    try {\n        InputStream in \u003d Entities.class.getResourceAsStream(filename);\n        properties.load(in);\n        in.close();\n    } catch (IOException e) {\n        throw new MissingResourceException(\"Error loading entities resource: \" + e.getMessage(), \"Entities\", filename);\n    }\n    for (Map.Entry entry : properties.entrySet()) {\n        Character val \u003d Character.valueOf((char) Integer.parseInt((String) entry.getValue(), 16));\n        String name \u003d (String) entry.getKey();\n        entities.put(name, val);\n    }\n    return entities;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Entities.java",
+      "functionStartLine": 149,
+      "functionName": "loadEntities",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

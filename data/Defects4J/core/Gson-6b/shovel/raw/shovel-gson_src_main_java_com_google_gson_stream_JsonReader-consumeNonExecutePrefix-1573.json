@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-6b",
+  "repositoryPath": "/tmp/Gson-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonReader.java",
+  "functionName": "consumeNonExecutePrefix",
+  "functionId": "consumeNonExecutePrefix",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "Consumes the non-execute prefix if it exists.\n",
+  "functionStartLine": 1573,
+  "functionEndLine": 1590,
+  "numCommitsSeen": 53,
+  "timeTaken": 2030,
+  "changeHistory": [
+    "e7bfd0c97d2196047bad996b6625d3bb197aae13",
+    "b96d2d983793ee6c70f059936cf95f325519ca7a"
+  ],
+  "changeHistoryShort": {
+    "e7bfd0c97d2196047bad996b6625d3bb197aae13": "Yfilerename",
+    "b96d2d983793ee6c70f059936cf95f325519ca7a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e7bfd0c97d2196047bad996b6625d3bb197aae13": {
+      "type": "Yfilerename",
+      "commitMessage": "Promote JsonReader2 to be the main JsonReader implementation.\n",
+      "commitDate": "8/26/12, 12:34 PM",
+      "commitName": "e7bfd0c97d2196047bad996b6625d3bb197aae13",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "8/26/12, 12:33 PM",
+      "commitNameOld": "553fa6b742ef6c00f04465c401c7cc464a6f9ea0",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void consumeNonExecutePrefix() throws IOException {\n    nextNonWhitespace(true);\n    pos--;\n    if (pos + NON_EXECUTE_PREFIX.length \u003e limit \u0026\u0026 !fillBuffer(NON_EXECUTE_PREFIX.length)) {\n        return;\n    }\n    for (int i \u003d 0; i \u003c NON_EXECUTE_PREFIX.length; i++) {\n        if (buffer[pos + i] !\u003d NON_EXECUTE_PREFIX[i]) {\n            return;\n        }\n    }\n    pos +\u003d NON_EXECUTE_PREFIX.length;\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonReader.java",
+      "functionStartLine": 1426,
+      "functionName": "consumeNonExecutePrefix",
+      "functionAnnotation": "",
+      "functionDoc": "Consumes the non-execute prefix if it exists.\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "gson/src/main/java/com/google/gson/stream/JsonReader2.java",
+        "newPath": "gson/src/main/java/com/google/gson/stream/JsonReader.java"
+      }
+    },
+    "b96d2d983793ee6c70f059936cf95f325519ca7a": {
+      "type": "Yintroduced",
+      "commitMessage": "Support non-execute prefixes.\n",
+      "commitDate": "8/26/12, 12:31 PM",
+      "commitName": "b96d2d983793ee6c70f059936cf95f325519ca7a",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,13 @@\n+private void consumeNonExecutePrefix() throws IOException {\n+    nextNonWhitespace(true);\n+    pos--;\n+    if (pos + NON_EXECUTE_PREFIX.length \u003e limit \u0026\u0026 !fillBuffer(NON_EXECUTE_PREFIX.length)) {\n+        return;\n+    }\n+    for (int i \u003d 0; i \u003c NON_EXECUTE_PREFIX.length; i++) {\n+        if (buffer[pos + i] !\u003d NON_EXECUTE_PREFIX[i]) {\n+            return;\n+        }\n+    }\n+    pos +\u003d NON_EXECUTE_PREFIX.length;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void consumeNonExecutePrefix() throws IOException {\n    nextNonWhitespace(true);\n    pos--;\n    if (pos + NON_EXECUTE_PREFIX.length \u003e limit \u0026\u0026 !fillBuffer(NON_EXECUTE_PREFIX.length)) {\n        return;\n    }\n    for (int i \u003d 0; i \u003c NON_EXECUTE_PREFIX.length; i++) {\n        if (buffer[pos + i] !\u003d NON_EXECUTE_PREFIX[i]) {\n            return;\n        }\n    }\n    pos +\u003d NON_EXECUTE_PREFIX.length;\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonReader2.java",
+      "functionStartLine": 1426,
+      "functionName": "consumeNonExecutePrefix",
+      "functionAnnotation": "",
+      "functionDoc": "Consumes the non-execute prefix if it exists.\n"
+    }
+  }
+}

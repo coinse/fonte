@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-17b",
+  "repositoryPath": "/tmp/Jsoup-17b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TreeBuilder.java",
+  "functionName": "initialiseParse",
+  "functionId": "initialiseParse___input-String__baseUri-String",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 42,
+  "functionEndLine": 48,
+  "numCommitsSeen": 4,
+  "timeTaken": 1149,
+  "changeHistory": [
+    "e30ed5d35cbcb92584d7fee8ae862f3929e443d8",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "e30ed5d35cbcb92584d7fee8ae862f3929e443d8": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e30ed5d35cbcb92584d7fee8ae862f3929e443d8": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix Java 1.5 compatibility\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "e30ed5d35cbcb92584d7fee8ae862f3929e443d8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void initialiseParse(String input, String baseUri) {\n    doc \u003d new Document(baseUri);\n    reader \u003d new CharacterReader(input);\n    tokeniser \u003d new Tokeniser(reader);\n    stack \u003d new DescendableLinkedList\u003cElement\u003e();\n    this.baseUri \u003d baseUri;\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 42,
+      "functionName": "initialiseParse",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,7 @@\n private void initialiseParse(String input, String baseUri) {\n     doc \u003d new Document(baseUri);\n     reader \u003d new CharacterReader(input);\n     tokeniser \u003d new Tokeniser(reader);\n-    stack \u003d new LinkedList\u003cElement\u003e();\n+    stack \u003d new DescendableLinkedList\u003cElement\u003e();\n     this.baseUri \u003d baseUri;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,7 @@\n+private void initialiseParse(String input, String baseUri) {\n+    doc \u003d new Document(baseUri);\n+    reader \u003d new CharacterReader(input);\n+    tokeniser \u003d new Tokeniser(reader);\n+    stack \u003d new LinkedList\u003cElement\u003e();\n+    this.baseUri \u003d baseUri;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void initialiseParse(String input, String baseUri) {\n    doc \u003d new Document(baseUri);\n    reader \u003d new CharacterReader(input);\n    tokeniser \u003d new Tokeniser(reader);\n    stack \u003d new LinkedList\u003cElement\u003e();\n    this.baseUri \u003d baseUri;\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 41,
+      "functionName": "initialiseParse",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

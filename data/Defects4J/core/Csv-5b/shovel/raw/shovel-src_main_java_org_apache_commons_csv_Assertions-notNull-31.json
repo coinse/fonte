@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Csv-5b",
+  "repositoryPath": "/tmp/Csv-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Assertions.java",
+  "functionName": "notNull",
+  "functionId": "notNull___parameter-Object(modifiers-final)__parameterName-String(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/csv/Assertions.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 31,
+  "functionEndLine": 35,
+  "numCommitsSeen": 6,
+  "timeTaken": 727,
+  "changeHistory": [
+    "59411494e069c8aae9123f182aa3a70136bd3dc3",
+    "724c88dbece877782f3533eae37154b5273d8c6d",
+    "a2fef00ab8950771735bc09793f05fc842a0cd97"
+  ],
+  "changeHistoryShort": {
+    "59411494e069c8aae9123f182aa3a70136bd3dc3": "Yparametermetachange",
+    "724c88dbece877782f3533eae37154b5273d8c6d": "Yparameterchange",
+    "a2fef00ab8950771735bc09793f05fc842a0cd97": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "59411494e069c8aae9123f182aa3a70136bd3dc3": {
+      "type": "Yparametermetachange",
+      "commitMessage": "Use final.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1559908 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/20/14, 6:44 PM",
+      "commitName": "59411494e069c8aae9123f182aa3a70136bd3dc3",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "8/30/13, 7:10 AM",
+      "commitNameOld": "724c88dbece877782f3533eae37154b5273d8c6d",
+      "commitAuthorOld": "Benedikt Ritter",
+      "daysBetweenCommits": 143.52,
+      "commitsBetweenForRepo": 41,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static void notNull(final Object parameter, final String parameterName) {\n    if (parameter \u003d\u003d null) {\n        throw new IllegalArgumentException(\"Parameter \u0027\" + parameterName + \"\u0027 must not be null!\");\n    }\n}",
+      "path": "src/main/java/org/apache/commons/csv/Assertions.java",
+      "functionStartLine": 31,
+      "functionName": "notNull",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n-public static void notNull(Object parameter, String parameterName) {\n+public static void notNull(final Object parameter, final String parameterName) {\n     if (parameter \u003d\u003d null) {\n         throw new IllegalArgumentException(\"Parameter \u0027\" + parameterName + \"\u0027 must not be null!\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[parameter-Object, parameterName-String]",
+        "newValue": "[parameter-Object(modifiers-final), parameterName-String(modifiers-final)]"
+      }
+    },
+    "724c88dbece877782f3533eae37154b5273d8c6d": {
+      "type": "Yparameterchange",
+      "commitMessage": "Remove unnecessary generics\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1518974 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/30/13, 7:10 AM",
+      "commitName": "724c88dbece877782f3533eae37154b5273d8c6d",
+      "commitAuthor": "Benedikt Ritter",
+      "commitDateOld": "8/29/13, 1:25 PM",
+      "commitNameOld": "6c44286b6d9d02c99b30527f1d1651dfb9e7639f",
+      "commitAuthorOld": "Benedikt Ritter",
+      "daysBetweenCommits": 0.74,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static void notNull(Object parameter, String parameterName) {\n    if (parameter \u003d\u003d null) {\n        throw new IllegalArgumentException(\"Parameter \u0027\" + parameterName + \"\u0027 must not be null!\");\n    }\n}",
+      "path": "src/main/java/org/apache/commons/csv/Assertions.java",
+      "functionStartLine": 31,
+      "functionName": "notNull",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,5 +1,5 @@\n-public static \u003cT\u003e void notNull(T parameter, String parameterName) {\n+public static void notNull(Object parameter, String parameterName) {\n     if (parameter \u003d\u003d null) {\n         throw new IllegalArgumentException(\"Parameter \u0027\" + parameterName + \"\u0027 must not be null!\");\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[parameter-T, parameterName-String]",
+        "newValue": "[parameter-Object, parameterName-String]"
+      }
+    },
+    "a2fef00ab8950771735bc09793f05fc842a0cd97": {
+      "type": "Yintroduced",
+      "commitMessage": "Make methods that create parsers or printers fail early and provide an expressive error messages. Document new behavior in JavaDoc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1518802 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/13, 1:18 PM",
+      "commitName": "a2fef00ab8950771735bc09793f05fc842a0cd97",
+      "commitAuthor": "Benedikt Ritter",
+      "diff": "@@ -0,0 +1,5 @@\n+public static \u003cT\u003e void notNull(T parameter, String parameterName) {\n+    if (parameter \u003d\u003d null) {\n+        throw new IllegalArgumentException(\"Parameter \u0027\" + parameterName + \"\u0027 must not be null!\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static \u003cT\u003e void notNull(T parameter, String parameterName) {\n    if (parameter \u003d\u003d null) {\n        throw new IllegalArgumentException(\"Parameter \u0027\" + parameterName + \"\u0027 must not be null!\");\n    }\n}",
+      "path": "src/main/java/org/apache/commons/csv/Assertions.java",
+      "functionStartLine": 14,
+      "functionName": "notNull",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

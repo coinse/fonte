@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-72b",
+  "repositoryPath": "/tmp/Jsoup-72b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "bufferUp",
+  "functionId": "bufferUp",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 46,
+  "functionEndLine": 62,
+  "numCommitsSeen": 24,
+  "timeTaken": 1491,
+  "changeHistory": [
+    "654bc6f981587bd4b39b66702550bad33e1eacc9"
+  ],
+  "changeHistoryShort": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": {
+      "type": "Yintroduced",
+      "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+      "commitDate": "6/24/17, 11:47 PM",
+      "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,16 @@\n+private void bufferUp() {\n+    if (bufPos \u003c bufSplitPoint)\n+        return;\n+    try {\n+        readerPos +\u003d bufPos;\n+        reader.skip(bufPos);\n+        reader.mark(maxBufferLen);\n+        bufLength \u003d reader.read(charBuf);\n+        reader.reset();\n+        bufPos \u003d 0;\n+        bufMark \u003d 0;\n+        bufSplitPoint \u003d bufLength \u003e readAheadLimit ? readAheadLimit : bufLength;\n+    } catch (IOException e) {\n+        throw new UncheckedIOException(e);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void bufferUp() {\n    if (bufPos \u003c bufSplitPoint)\n        return;\n    try {\n        readerPos +\u003d bufPos;\n        reader.skip(bufPos);\n        reader.mark(maxBufferLen);\n        bufLength \u003d reader.read(charBuf);\n        reader.reset();\n        bufPos \u003d 0;\n        bufMark \u003d 0;\n        bufSplitPoint \u003d bufLength \u003e readAheadLimit ? readAheadLimit : bufLength;\n    } catch (IOException e) {\n        throw new UncheckedIOException(e);\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 46,
+      "functionName": "bufferUp",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

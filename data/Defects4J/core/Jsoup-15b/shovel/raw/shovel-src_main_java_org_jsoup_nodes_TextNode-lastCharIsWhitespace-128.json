@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-15b",
+  "repositoryPath": "/tmp/Jsoup-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextNode.java",
+  "functionName": "lastCharIsWhitespace",
+  "functionId": "lastCharIsWhitespace___sb-StringBuilder",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/TextNode.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 128,
+  "functionEndLine": 130,
+  "numCommitsSeen": 26,
+  "timeTaken": 500,
+  "changeHistory": [
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5",
+    "ad405f99cb5f41fb311fa086dbd6762a8e84264d"
+  ],
+  "changeHistoryShort": {
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5": "Ybodychange",
+    "ad405f99cb5f41fb311fa086dbd6762a8e84264d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5": {
+      "type": "Ybodychange",
+      "commitMessage": "Removed dependency on Apache Commons-lang. Jsoup now has no external dependencies.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "09d99e7e5edc96348b9fa50131274aed3ee1bd2e",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static boolean lastCharIsWhitespace(StringBuilder sb) {\n    return sb.length() !\u003d 0 \u0026\u0026 sb.charAt(sb.length() - 1) \u003d\u003d \u0027 \u0027;\n}",
+      "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+      "functionStartLine": 103,
+      "functionName": "lastCharIsWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,7 +1,3 @@\n static boolean lastCharIsWhitespace(StringBuilder sb) {\n-    if (sb.length() \u003d\u003d 0)\n-        return false;\n-    String lastChar \u003d sb.substring(sb.length() - 1, sb.length());\n-    Validate.isTrue(lastChar.length() \u003d\u003d 1);\n-    return lastChar.equals(\" \");\n+    return sb.length() !\u003d 0 \u0026\u0026 sb.charAt(sb.length() - 1) \u003d\u003d \u0027 \u0027;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "ad405f99cb5f41fb311fa086dbd6762a8e84264d": {
+      "type": "Yintroduced",
+      "commitMessage": "Text normalisation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ad405f99cb5f41fb311fa086dbd6762a8e84264d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,7 @@\n+static boolean lastCharIsWhitespace(StringBuilder sb) {\n+    if (sb.length() \u003d\u003d 0)\n+        return false;\n+    String lastChar \u003d sb.substring(sb.length() - 1, sb.length());\n+    Validate.isTrue(lastChar.length() \u003d\u003d 1);\n+    return lastChar.equals(\" \");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean lastCharIsWhitespace(StringBuilder sb) {\n    if (sb.length() \u003d\u003d 0)\n        return false;\n    String lastChar \u003d sb.substring(sb.length() - 1, sb.length());\n    Validate.isTrue(lastChar.length() \u003d\u003d 1);\n    return lastChar.equals(\" \");\n}",
+      "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+      "functionStartLine": 58,
+      "functionName": "lastCharIsWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

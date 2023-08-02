@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-48b",
+  "repositoryPath": "/tmp/Jsoup-48b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HttpConnection.java",
+  "functionName": "scanHeaders",
+  "functionId": "$scanHeaders___name-String",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 315,
+  "functionEndLine": 322,
+  "numCommitsSeen": 56,
+  "timeTaken": 2079,
+  "changeHistory": [
+    "3091fd44859c3e5849fbc51fcab48342823276c2"
+  ],
+  "changeHistoryShort": {
+    "3091fd44859c3e5849fbc51fcab48342823276c2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3091fd44859c3e5849fbc51fcab48342823276c2": {
+      "type": "Yintroduced",
+      "commitMessage": "Treat HTTP headers as case insensitive in Jsoup.Connection. Improves compatibility for HTTP responses.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "3091fd44859c3e5849fbc51fcab48342823276c2",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,8 @@\n+private Map.Entry\u003cString, String\u003e scanHeaders(String name) {\n+    String lc \u003d name.toLowerCase();\n+    for (Map.Entry\u003cString, String\u003e entry : headers.entrySet()) {\n+        if (entry.getKey().toLowerCase().equals(lc))\n+            return entry;\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Map.Entry\u003cString, String\u003e scanHeaders(String name) {\n    String lc \u003d name.toLowerCase();\n    for (Map.Entry\u003cString, String\u003e entry : headers.entrySet()) {\n        if (entry.getKey().toLowerCase().equals(lc))\n            return entry;\n    }\n    return null;\n}",
+      "path": "src/main/java/org/jsoup/helper/HttpConnection.java",
+      "functionStartLine": 238,
+      "functionName": "scanHeaders",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

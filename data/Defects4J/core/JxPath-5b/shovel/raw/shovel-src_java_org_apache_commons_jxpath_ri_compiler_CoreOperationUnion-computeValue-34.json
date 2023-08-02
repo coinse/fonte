@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-5b",
+  "repositoryPath": "/tmp/JxPath-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CoreOperationUnion.java",
+  "functionName": "computeValue",
+  "functionId": "computeValue___context-EvalContext",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationUnion.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 34,
+  "functionEndLine": 46,
+  "numCommitsSeen": 5,
+  "timeTaken": 568,
+  "changeHistory": [
+    "f3eb1977debfe1fd0704d78285e99243e6b7aa07"
+  ],
+  "changeHistoryShort": {
+    "f3eb1977debfe1fd0704d78285e99243e6b7aa07": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f3eb1977debfe1fd0704d78285e99243e6b7aa07": {
+      "type": "Yintroduced",
+      "commitMessage": "Refactoring of CoreOperation and expression.toString()\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136840 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/19/03, 3:59 PM",
+      "commitName": "f3eb1977debfe1fd0704d78285e99243e6b7aa07",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,12 @@\n+public Object computeValue(EvalContext context) {\n+    EvalContext[] argCtxs \u003d new EvalContext[args.length];\n+    for (int i \u003d 0; i \u003c args.length; i++) {\n+        Object value \u003d args[i].compute(context);\n+        if (value instanceof EvalContext) {\n+            argCtxs[i] \u003d (EvalContext) value;\n+        } else {\n+            argCtxs[i] \u003d context.getRootContext().getConstantContext(value);\n+        }\n+    }\n+    return new UnionContext(context.getRootContext(), argCtxs);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Object computeValue(EvalContext context) {\n    EvalContext[] argCtxs \u003d new EvalContext[args.length];\n    for (int i \u003d 0; i \u003c args.length; i++) {\n        Object value \u003d args[i].compute(context);\n        if (value instanceof EvalContext) {\n            argCtxs[i] \u003d (EvalContext) value;\n        } else {\n            argCtxs[i] \u003d context.getRootContext().getConstantContext(value);\n        }\n    }\n    return new UnionContext(context.getRootContext(), argCtxs);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationUnion.java",
+      "functionStartLine": 71,
+      "functionName": "computeValue",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

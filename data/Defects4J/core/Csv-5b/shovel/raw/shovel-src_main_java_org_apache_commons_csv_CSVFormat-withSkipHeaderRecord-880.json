@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Csv-5b",
+  "repositoryPath": "/tmp/Csv-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CSVFormat.java",
+  "functionName": "withSkipHeaderRecord",
+  "functionId": "withSkipHeaderRecord___skipHeaderRecord-boolean(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Sets whether to skip the header record.\n\n@param skipHeaderRecord whether to skip the header record.\n@return A new CSVFormat that is equal to this but with the the specified skipHeaderRecord setting.\n@see #withHeader(String...)\n",
+  "functionStartLine": 880,
+  "functionEndLine": 883,
+  "numCommitsSeen": 167,
+  "timeTaken": 1106,
+  "changeHistory": [
+    "97d34575a1074197b8a1b5832d3b2cd3e7656d8f"
+  ],
+  "changeHistoryShort": {
+    "97d34575a1074197b8a1b5832d3b2cd3e7656d8f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "97d34575a1074197b8a1b5832d3b2cd3e7656d8f": {
+      "type": "Yintroduced",
+      "commitMessage": "Revert back to NOT skipping a record when withHeader is called with a non-empty array. Add skipHeaderRecord setting to CSVFormat and use when headers are initialized.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1508933 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/31/13, 8:39 AM",
+      "commitName": "97d34575a1074197b8a1b5832d3b2cd3e7656d8f",
+      "commitAuthor": "Gary D. Gregory",
+      "diff": "@@ -0,0 +1,3 @@\n+public CSVFormat withSkipHeaderRecord(final boolean skipHeaderRecord) {\n+    return new CSVFormat(delimiter, quoteChar, quotePolicy, commentStart, escape, ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, header, skipHeaderRecord);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public CSVFormat withSkipHeaderRecord(final boolean skipHeaderRecord) {\n    return new CSVFormat(delimiter, quoteChar, quotePolicy, commentStart, escape, ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, header, skipHeaderRecord);\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+      "functionStartLine": 784,
+      "functionName": "withSkipHeaderRecord",
+      "functionAnnotation": "",
+      "functionDoc": "Sets whether to skip the header record.\n\n@param skipHeaderRecord whether to skip the header record.\n@return A new CSVFormat that is equal to this but with the the specified skipHeaderRecord setting.\n@see #withHeader(String...)\n"
+    }
+  }
+}

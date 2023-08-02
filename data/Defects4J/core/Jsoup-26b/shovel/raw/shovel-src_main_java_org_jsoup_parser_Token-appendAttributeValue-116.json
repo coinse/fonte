@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Token.java",
+  "functionName": "appendAttributeValue",
+  "functionId": "$appendAttributeValue___append-String",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Token.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 116,
+  "functionEndLine": 118,
+  "numCommitsSeen": 11,
+  "timeTaken": 1224,
+  "changeHistory": [
+    "ede131697f4a1e76d9c291e5070b700143622d30",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "ede131697f4a1e76d9c291e5070b700143622d30": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ede131697f4a1e76d9c291e5070b700143622d30": {
+      "type": "Ybodychange",
+      "commitMessage": "Use a StringBuilder to accumulate attribute values.\n\nWhen initially implemented I expected attribute values to normally be read in one sweep,\nremoving the need to accumulate values. However profiling shows that attributes are\noften accumulated, and so the string concatination implementation was very slow.\n\nUsing a StringBuilder here gives reduces parse times \u003e 50%.\n",
+      "commitDate": "5/28/12, 6:39 PM",
+      "commitName": "ede131697f4a1e76d9c291e5070b700143622d30",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "3/19/12, 9:02 PM",
+      "commitNameOld": "be94f5547d6b8f15ee48117afe46ae302c361464",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 69.9,
+      "commitsBetweenForRepo": 42,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void appendAttributeValue(String append) {\n    pendingAttributeValue \u003d pendingAttributeValue \u003d\u003d null ? new StringBuilder(append) : pendingAttributeValue.append(append);\n}",
+      "path": "src/main/java/org/jsoup/parser/Token.java",
+      "functionStartLine": 112,
+      "functionName": "appendAttributeValue",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,3 @@\n void appendAttributeValue(String append) {\n-    pendingAttributeValue \u003d pendingAttributeValue \u003d\u003d null ? append : pendingAttributeValue.concat(append);\n+    pendingAttributeValue \u003d pendingAttributeValue \u003d\u003d null ? new StringBuilder(append) : pendingAttributeValue.append(append);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+void appendAttributeValue(String append) {\n+    pendingAttributeValue \u003d pendingAttributeValue \u003d\u003d null ? append : pendingAttributeValue.concat(append);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void appendAttributeValue(String append) {\n    pendingAttributeValue \u003d pendingAttributeValue \u003d\u003d null ? append : pendingAttributeValue.concat(append);\n}",
+      "path": "src/main/java/org/jsoup/parser/Token.java",
+      "functionStartLine": 106,
+      "functionName": "appendAttributeValue",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

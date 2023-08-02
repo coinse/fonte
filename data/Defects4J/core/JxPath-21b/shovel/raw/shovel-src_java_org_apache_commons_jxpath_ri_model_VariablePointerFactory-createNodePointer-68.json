@@ -1,0 +1,113 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "VariablePointerFactory.java",
+  "functionName": "createNodePointer",
+  "functionId": "createNodePointer___name-QName__object-Object__locale-Locale",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/model/VariablePointerFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 68,
+  "functionEndLine": 85,
+  "numCommitsSeen": 5,
+  "timeTaken": 357,
+  "changeHistory": [
+    "cd0b3e7260bd6dbc87f0ae86308cf35d79e14d8f",
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1",
+    "732384e20a231887cfa5bf07d5476ea98fbdeaac",
+    "626e5e5994a651085e9d2ccb1ca99c701f88bc68"
+  ],
+  "changeHistoryShort": {
+    "cd0b3e7260bd6dbc87f0ae86308cf35d79e14d8f": "Ydocchange",
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1": "Ydocchange",
+    "732384e20a231887cfa5bf07d5476ea98fbdeaac": "Ybodychange",
+    "626e5e5994a651085e9d2ccb1ca99c701f88bc68": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cd0b3e7260bd6dbc87f0ae86308cf35d79e14d8f": {
+      "type": "Ydocchange",
+      "commitMessage": "Improved the Javadoc:\n- added external links to JDOM, BeanUtils, and JEE\n- added @links in the class and method documentations to improve the navigation\n- removed the @inheritDoc with no additional comments\nAdded line feeds at the end of the source files\nRemoved the old constructors and the suite() methods from the JUnit tests\nUpdated the relocated artifacts in the POM\nDowngraded the dependency on JUnit to 3.8.1\nAdded PMD to the reports\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@652845 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/2/08, 10:46 AM",
+      "commitName": "cd0b3e7260bd6dbc87f0ae86308cf35d79e14d8f",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "2/3/08, 12:19 PM",
+      "commitNameOld": "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1",
+      "commitAuthorOld": "Matthew Jason Benson",
+      "daysBetweenCommits": 88.89,
+      "commitsBetweenForRepo": 26,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public NodePointer createNodePointer(QName name, Object object, Locale locale) {\n    if (object instanceof VariableContextWrapper) {\n        JXPathContext varCtx \u003d ((VariableContextWrapper) object).getContext();\n        while (varCtx !\u003d null) {\n            Variables vars \u003d varCtx.getVariables();\n            if (vars.isDeclaredVariable(name.toString())) {\n                return new VariablePointer(vars, name);\n            }\n            varCtx \u003d varCtx.getParentContext();\n        }\n        return new VariablePointer(name);\n    }\n    return null;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/model/VariablePointerFactory.java",
+      "functionStartLine": 68,
+      "functionName": "createNodePointer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "@inheritDoc}\n",
+        "newValue": ""
+      }
+    },
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1": {
+      "type": "Ydocchange",
+      "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@618074 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/3/08, 12:19 PM",
+      "commitName": "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1",
+      "commitAuthor": "Matthew Jason Benson",
+      "commitDateOld": "12/16/07, 11:29 PM",
+      "commitNameOld": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+      "commitAuthorOld": "Matthew Jason Benson",
+      "daysBetweenCommits": 48.53,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public NodePointer createNodePointer(QName name, Object object, Locale locale) {\n    if (object instanceof VariableContextWrapper) {\n        JXPathContext varCtx \u003d ((VariableContextWrapper) object).getContext();\n        while (varCtx !\u003d null) {\n            Variables vars \u003d varCtx.getVariables();\n            if (vars.isDeclaredVariable(name.toString())) {\n                return new VariablePointer(vars, name);\n            }\n            varCtx \u003d varCtx.getParentContext();\n        }\n        return new VariablePointer(name);\n    }\n    return null;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/model/VariablePointerFactory.java",
+      "functionStartLine": 71,
+      "functionName": "createNodePointer",
+      "functionAnnotation": "",
+      "functionDoc": "@inheritDoc}\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "@inheritDoc}\n"
+      }
+    },
+    "732384e20a231887cfa5bf07d5476ea98fbdeaac": {
+      "type": "Ybodychange",
+      "commitMessage": "[JXPATH-101] Original context from VariableContextWrapper is not visible; from Sergey Vladimirov\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@570184 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/27/07, 10:05 AM",
+      "commitName": "732384e20a231887cfa5bf07d5476ea98fbdeaac",
+      "commitAuthor": "Matthew Jason Benson",
+      "commitDateOld": "7/18/07, 1:22 PM",
+      "commitNameOld": "626e5e5994a651085e9d2ccb1ca99c701f88bc68",
+      "commitAuthorOld": "Matthew Jason Benson",
+      "daysBetweenCommits": 39.86,
+      "commitsBetweenForRepo": 30,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public NodePointer createNodePointer(QName name, Object object, Locale locale) {\n    if (object instanceof VariableContextWrapper) {\n        JXPathContext varCtx \u003d ((VariableContextWrapper) object).getContext();\n        while (varCtx !\u003d null) {\n            Variables vars \u003d varCtx.getVariables();\n            if (vars.isDeclaredVariable(name.toString())) {\n                return new VariablePointer(vars, name);\n            }\n            varCtx \u003d varCtx.getParentContext();\n        }\n        return new VariablePointer(name);\n    }\n    return null;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/model/VariablePointerFactory.java",
+      "functionStartLine": 69,
+      "functionName": "createNodePointer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,14 +1,14 @@\n public NodePointer createNodePointer(QName name, Object object, Locale locale) {\n     if (object instanceof VariableContextWrapper) {\n-        JXPathContext varCtx \u003d ((VariableContextWrapper) object).context;\n+        JXPathContext varCtx \u003d ((VariableContextWrapper) object).getContext();\n         while (varCtx !\u003d null) {\n             Variables vars \u003d varCtx.getVariables();\n             if (vars.isDeclaredVariable(name.toString())) {\n                 return new VariablePointer(vars, name);\n             }\n             varCtx \u003d varCtx.getParentContext();\n         }\n         return new VariablePointer(name);\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "626e5e5994a651085e9d2ccb1ca99c701f88bc68": {
+      "type": "Yintroduced",
+      "commitMessage": "[JXPATH-96] use NodePointerFactory for VariablePointers\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@557381 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/18/07, 1:22 PM",
+      "commitName": "626e5e5994a651085e9d2ccb1ca99c701f88bc68",
+      "commitAuthor": "Matthew Jason Benson",
+      "diff": "@@ -0,0 +1,14 @@\n+public NodePointer createNodePointer(QName name, Object object, Locale locale) {\n+    if (object instanceof VariableContextWrapper) {\n+        JXPathContext varCtx \u003d ((VariableContextWrapper) object).context;\n+        while (varCtx !\u003d null) {\n+            Variables vars \u003d varCtx.getVariables();\n+            if (vars.isDeclaredVariable(name.toString())) {\n+                return new VariablePointer(vars, name);\n+            }\n+            varCtx \u003d varCtx.getParentContext();\n+        }\n+        return new VariablePointer(name);\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public NodePointer createNodePointer(QName name, Object object, Locale locale) {\n    if (object instanceof VariableContextWrapper) {\n        JXPathContext varCtx \u003d ((VariableContextWrapper) object).context;\n        while (varCtx !\u003d null) {\n            Variables vars \u003d varCtx.getVariables();\n            if (vars.isDeclaredVariable(name.toString())) {\n                return new VariablePointer(vars, name);\n            }\n            varCtx \u003d varCtx.getParentContext();\n        }\n        return new VariablePointer(name);\n    }\n    return null;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/model/VariablePointerFactory.java",
+      "functionStartLine": 60,
+      "functionName": "createNodePointer",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

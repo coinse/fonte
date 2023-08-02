@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-35b",
+  "repositoryPath": "/tmp/Jsoup-35b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Token.java",
+  "functionName": "ensureAttributeValue",
+  "functionId": "$ensureAttributeValue",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Token.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 131,
+  "functionEndLine": 134,
+  "numCommitsSeen": 13,
+  "timeTaken": 652,
+  "changeHistory": [
+    "43cd48ba8e4701d429c8a7c1eea503ad139aaf90"
+  ],
+  "changeHistoryShort": {
+    "43cd48ba8e4701d429c8a7c1eea503ad139aaf90": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "43cd48ba8e4701d429c8a7c1eea503ad139aaf90": {
+      "type": "Yintroduced",
+      "commitMessage": "Tweaked mingfai\u0027s surrogate pair implementation for efficiency.\n\nOn the core cases where characters are not surrogate pairs, I\u0027ve kept\nto pushing chars around. This is to try and minimize the number of\nshort-lived String objects.\n",
+      "commitDate": "1/27/13, 1:33 PM",
+      "commitName": "43cd48ba8e4701d429c8a7c1eea503ad139aaf90",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+private final void ensureAttributeValue() {\n+    if (pendingAttributeValue \u003d\u003d null)\n+        pendingAttributeValue \u003d new StringBuilder();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final void ensureAttributeValue() {\n    if (pendingAttributeValue \u003d\u003d null)\n        pendingAttributeValue \u003d new StringBuilder();\n}",
+      "path": "src/main/java/org/jsoup/parser/Token.java",
+      "functionStartLine": 131,
+      "functionName": "ensureAttributeValue",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Csv-7b",
+  "repositoryPath": "/tmp/Csv-7b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CSVParser.java",
+  "functionName": "parse",
+  "functionId": "parse___string-String(modifiers-final)__format-CSVFormat(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/csv/CSVParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates a parser for the given {@link String}.\n\n@param string a CSV string. Must not be null.\n@param format the CSVFormat used for CSV parsing. Must not be null.\n@return a new parser\n@throws IllegalArgumentException\n            If the parameters of the format are inconsistent or if either string or format are null.\n@throws IOException\n            If an I/O error occurs\n",
+  "functionStartLine": 167,
+  "functionEndLine": 172,
+  "numCommitsSeen": 209,
+  "timeTaken": 1390,
+  "changeHistory": [
+    "59411494e069c8aae9123f182aa3a70136bd3dc3",
+    "a2fef00ab8950771735bc09793f05fc842a0cd97",
+    "152d50c4f7204c5620277e18c9ab032aac03416d",
+    "69997467d419487cb4098ff116188091907b5ff1"
+  ],
+  "changeHistoryShort": {
+    "59411494e069c8aae9123f182aa3a70136bd3dc3": "Yparametermetachange",
+    "a2fef00ab8950771735bc09793f05fc842a0cd97": "Ymultichange(Ybodychange,Ydocchange)",
+    "152d50c4f7204c5620277e18c9ab032aac03416d": "Yrename",
+    "69997467d419487cb4098ff116188091907b5ff1": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "59411494e069c8aae9123f182aa3a70136bd3dc3": {
+      "type": "Yparametermetachange",
+      "commitMessage": "Use final.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1559908 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/20/14, 6:44 PM",
+      "commitName": "59411494e069c8aae9123f182aa3a70136bd3dc3",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "1/16/14, 11:07 AM",
+      "commitNameOld": "5ec59afdda90cffe90ec6c8d6e663f616aaec91b",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 4.32,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static CSVParser parse(final String string, final CSVFormat format) throws IOException {\n    Assertions.notNull(string, \"string\");\n    Assertions.notNull(format, \"format\");\n    return new CSVParser(new StringReader(string), format);\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+      "functionStartLine": 168,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a parser for the given {@link String}.\n\n@param string a CSV string. Must not be null.\n@param format the CSVFormat used for CSV parsing. Must not be null.\n@return a new parser\n@throws IllegalArgumentException\n            If the parameters of the format are inconsistent or if either string or format are null.\n@throws IOException\n            If an I/O error occurs\n",
+      "diff": "@@ -1,5 +1,5 @@\n-public static CSVParser parse(String string, final CSVFormat format) throws IOException {\n+public static CSVParser parse(final String string, final CSVFormat format) throws IOException {\n     Assertions.notNull(string, \"string\");\n     Assertions.notNull(format, \"format\");\n     return new CSVParser(new StringReader(string), format);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[string-String, format-CSVFormat(modifiers-final)]",
+        "newValue": "[string-String(modifiers-final), format-CSVFormat(modifiers-final)]"
+      }
+    },
+    "a2fef00ab8950771735bc09793f05fc842a0cd97": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Make methods that create parsers or printers fail early and provide an expressive error messages. Document new behavior in JavaDoc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1518802 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/29/13, 1:18 PM",
+      "commitName": "a2fef00ab8950771735bc09793f05fc842a0cd97",
+      "commitAuthor": "Benedikt Ritter",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Make methods that create parsers or printers fail early and provide an expressive error messages. Document new behavior in JavaDoc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1518802 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/29/13, 1:18 PM",
+          "commitName": "a2fef00ab8950771735bc09793f05fc842a0cd97",
+          "commitAuthor": "Benedikt Ritter",
+          "commitDateOld": "8/14/13, 11:07 AM",
+          "commitNameOld": "33cf28990720e1c5a4ba92e4363a0fe1cf80a6c9",
+          "commitAuthorOld": "Benedikt Ritter",
+          "daysBetweenCommits": 15.09,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static CSVParser parse(String string, final CSVFormat format) throws IOException {\n    Assertions.notNull(string, \"string\");\n    Assertions.notNull(format, \"format\");\n    return new CSVParser(new StringReader(string), format);\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+          "functionStartLine": 128,
+          "functionName": "parse",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a parser for the given {@link String}.\n\n@param string a CSV string. Must not be null.\n@param format the CSVFormat used for CSV parsing. Must not be null.\n@return a new parser\n@throws IllegalArgumentException\n            If the parameters of the format are inconsistent or if either string or format are null.\n@throws IOException\n            If an I/O error occurs\n",
+          "diff": "@@ -1,3 +1,5 @@\n public static CSVParser parse(String string, final CSVFormat format) throws IOException {\n+    Assertions.notNull(string, \"string\");\n+    Assertions.notNull(format, \"format\");\n     return new CSVParser(new StringReader(string), format);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Make methods that create parsers or printers fail early and provide an expressive error messages. Document new behavior in JavaDoc\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1518802 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "8/29/13, 1:18 PM",
+          "commitName": "a2fef00ab8950771735bc09793f05fc842a0cd97",
+          "commitAuthor": "Benedikt Ritter",
+          "commitDateOld": "8/14/13, 11:07 AM",
+          "commitNameOld": "33cf28990720e1c5a4ba92e4363a0fe1cf80a6c9",
+          "commitAuthorOld": "Benedikt Ritter",
+          "daysBetweenCommits": 15.09,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static CSVParser parse(String string, final CSVFormat format) throws IOException {\n    Assertions.notNull(string, \"string\");\n    Assertions.notNull(format, \"format\");\n    return new CSVParser(new StringReader(string), format);\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+          "functionStartLine": 128,
+          "functionName": "parse",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a parser for the given {@link String}.\n\n@param string a CSV string. Must not be null.\n@param format the CSVFormat used for CSV parsing. Must not be null.\n@return a new parser\n@throws IllegalArgumentException\n            If the parameters of the format are inconsistent or if either string or format are null.\n@throws IOException\n            If an I/O error occurs\n",
+          "diff": "@@ -1,3 +1,5 @@\n public static CSVParser parse(String string, final CSVFormat format) throws IOException {\n+    Assertions.notNull(string, \"string\");\n+    Assertions.notNull(format, \"format\");\n     return new CSVParser(new StringReader(string), format);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Creates a parser for the given {@link String}.\n\n@param string a CSV string\n@param format the CSVFormat used for CSV parsing\n@return a new parser\n@throws IOException\n            If an I/O error occurs\n",
+            "newValue": "Creates a parser for the given {@link String}.\n\n@param string a CSV string. Must not be null.\n@param format the CSVFormat used for CSV parsing. Must not be null.\n@return a new parser\n@throws IllegalArgumentException\n            If the parameters of the format are inconsistent or if either string or format are null.\n@throws IOException\n            If an I/O error occurs\n"
+          }
+        }
+      ]
+    },
+    "152d50c4f7204c5620277e18c9ab032aac03416d": {
+      "type": "Yrename",
+      "commitMessage": "Remove type names from static factory APIs in org.apache.commons.csv.CSVParser.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1511883 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/8/13, 10:11 AM",
+      "commitName": "152d50c4f7204c5620277e18c9ab032aac03416d",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "8/8/13, 9:52 AM",
+      "commitNameOld": "a36bbffdd37b15c133914a0216a0359962c0e70e",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static CSVParser parse(String string, final CSVFormat format) throws IOException {\n    return new CSVParser(new StringReader(string), format);\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+      "functionStartLine": 174,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a parser for the given {@link String}.\n\n@param string a CSV string\n@param format the CSVFormat used for CSV parsing\n@return a new parser\n@throws IOException\n            If an I/O error occurs\n",
+      "diff": "@@ -1,3 +1,3 @@\n-public static CSVParser parseString(String string, final CSVFormat format) throws IOException {\n+public static CSVParser parse(String string, final CSVFormat format) throws IOException {\n     return new CSVParser(new StringReader(string), format);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "parseString",
+        "newValue": "parse"
+      }
+    },
+    "69997467d419487cb4098ff116188091907b5ff1": {
+      "type": "Yintroduced",
+      "commitMessage": "Refactor to only have minimal CSVParser constructors in favor of CSVParser factory methods for String, resource path, URL, and File. Update some tests to use the APIs.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1508544 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "7/30/13, 10:36 AM",
+      "commitName": "69997467d419487cb4098ff116188091907b5ff1",
+      "commitAuthor": "Gary D. Gregory",
+      "diff": "@@ -0,0 +1,3 @@\n+public static CSVParser parseString(String string, final CSVFormat format) throws IOException {\n+    return new CSVParser(new StringReader(string), format);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static CSVParser parseString(String string, final CSVFormat format) throws IOException {\n    return new CSVParser(new StringReader(string), format);\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVParser.java",
+      "functionStartLine": 143,
+      "functionName": "parseString",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a parser for the given {@link String}.\n\n@param string a CSV string\n@param format the CSVFormat used for CSV parsing\n@return a new parser\n@throws IOException\n            If an I/O error occurs\n"
+    }
+  }
+}

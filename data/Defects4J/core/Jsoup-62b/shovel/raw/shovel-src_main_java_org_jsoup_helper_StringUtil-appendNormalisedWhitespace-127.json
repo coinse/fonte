@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-62b",
+  "repositoryPath": "/tmp/Jsoup-62b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtil.java",
+  "functionName": "appendNormalisedWhitespace",
+  "functionId": "appendNormalisedWhitespace___accum-StringBuilder__string-String__stripLeading-boolean",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/StringUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "After normalizing the whitespace within a string, appends it to a string builder.\n\n@param accum builder to append to\n@param string string to normalize whitespace within\n@param stripLeading set to true if you wish to remove any leading whitespace\n",
+  "functionStartLine": 127,
+  "functionEndLine": 147,
+  "numCommitsSeen": 13,
+  "timeTaken": 589,
+  "changeHistory": [
+    "0ca6fc9d20eb322646975192cc37e35063b9178f",
+    "d6fd1637307f6b088eb226c3f979085725530f32"
+  ],
+  "changeHistoryShort": {
+    "0ca6fc9d20eb322646975192cc37e35063b9178f": "Ydocchange",
+    "d6fd1637307f6b088eb226c3f979085725530f32": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "0ca6fc9d20eb322646975192cc37e35063b9178f": {
+      "type": "Ydocchange",
+      "commitMessage": "Nix jdoc warning\n",
+      "commitDate": "10/1/14, 9:25 PM",
+      "commitName": "0ca6fc9d20eb322646975192cc37e35063b9178f",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "11/16/13, 2:02 PM",
+      "commitNameOld": "d6fd1637307f6b088eb226c3f979085725530f32",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 319.27,
+      "commitsBetweenForRepo": 55,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static void appendNormalisedWhitespace(StringBuilder accum, String string, boolean stripLeading) {\n    boolean lastWasWhite \u003d false;\n    boolean reachedNonWhite \u003d false;\n    int len \u003d string.length();\n    int c;\n    for (int i \u003d 0; i \u003c len; i +\u003d Character.charCount(c)) {\n        c \u003d string.codePointAt(i);\n        if (isWhitespace(c)) {\n            if ((stripLeading \u0026\u0026 !reachedNonWhite) || lastWasWhite)\n                continue;\n            accum.append(\u0027 \u0027);\n            lastWasWhite \u003d true;\n        } else {\n            accum.appendCodePoint(c);\n            lastWasWhite \u003d false;\n            reachedNonWhite \u003d true;\n        }\n    }\n}",
+      "path": "src/main/java/org/jsoup/helper/StringUtil.java",
+      "functionStartLine": 124,
+      "functionName": "appendNormalisedWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": "After normalizing the whitespace within a string, appends it to a string builder.\n\n@param accum builder to append to\n@param string string to normalize whitespace within\n@param stripLeading set to true if you wish to remove any leading whitespace\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "After normalizing the whitespace within a string, appends it to a string builder.\n\n@param accum builder to append to\n@param string string to normalize whitespace within\n@param stripLeading set to true if you wish to remove any leading whitespace\n@return\n",
+        "newValue": "After normalizing the whitespace within a string, appends it to a string builder.\n\n@param accum builder to append to\n@param string string to normalize whitespace within\n@param stripLeading set to true if you wish to remove any leading whitespace\n"
+      }
+    },
+    "d6fd1637307f6b088eb226c3f979085725530f32": {
+      "type": "Yintroduced",
+      "commitMessage": "Performance improvment for Element.text\n\nIncrease the speed of getting an element\u0027s text content by 220%, by\nreducing new object creation. Also reduces GC load.\n",
+      "commitDate": "11/16/13, 2:02 PM",
+      "commitName": "d6fd1637307f6b088eb226c3f979085725530f32",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,19 @@\n+public static void appendNormalisedWhitespace(StringBuilder accum, String string, boolean stripLeading) {\n+    boolean lastWasWhite \u003d false;\n+    boolean reachedNonWhite \u003d false;\n+    int len \u003d string.length();\n+    int c;\n+    for (int i \u003d 0; i \u003c len; i +\u003d Character.charCount(c)) {\n+        c \u003d string.codePointAt(i);\n+        if (isWhitespace(c)) {\n+            if ((stripLeading \u0026\u0026 !reachedNonWhite) || lastWasWhite)\n+                continue;\n+            accum.append(\u0027 \u0027);\n+            lastWasWhite \u003d true;\n+        } else {\n+            accum.appendCodePoint(c);\n+            lastWasWhite \u003d false;\n+            reachedNonWhite \u003d true;\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static void appendNormalisedWhitespace(StringBuilder accum, String string, boolean stripLeading) {\n    boolean lastWasWhite \u003d false;\n    boolean reachedNonWhite \u003d false;\n    int len \u003d string.length();\n    int c;\n    for (int i \u003d 0; i \u003c len; i +\u003d Character.charCount(c)) {\n        c \u003d string.codePointAt(i);\n        if (isWhitespace(c)) {\n            if ((stripLeading \u0026\u0026 !reachedNonWhite) || lastWasWhite)\n                continue;\n            accum.append(\u0027 \u0027);\n            lastWasWhite \u003d true;\n        } else {\n            accum.appendCodePoint(c);\n            lastWasWhite \u003d false;\n            reachedNonWhite \u003d true;\n        }\n    }\n}",
+      "path": "src/main/java/org/jsoup/helper/StringUtil.java",
+      "functionStartLine": 125,
+      "functionName": "appendNormalisedWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": "After normalizing the whitespace within a string, appends it to a string builder.\n\n@param accum builder to append to\n@param string string to normalize whitespace within\n@param stripLeading set to true if you wish to remove any leading whitespace\n@return\n"
+    }
+  }
+}

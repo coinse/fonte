@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DataUtil.java",
+  "functionName": "readToByteBuffer",
+  "functionId": "readToByteBuffer___inStream-InputStream",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/DataUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 168,
+  "functionEndLine": 170,
+  "numCommitsSeen": 27,
+  "timeTaken": 564,
+  "changeHistory": [
+    "a8da2e7da25921dffd9fe6bbd53668bed08dd148",
+    "ce843ec83988e3e3318fa7db38133b06be741a1f"
+  ],
+  "changeHistoryShort": {
+    "a8da2e7da25921dffd9fe6bbd53668bed08dd148": "Ybodychange",
+    "ce843ec83988e3e3318fa7db38133b06be741a1f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a8da2e7da25921dffd9fe6bbd53668bed08dd148": {
+      "type": "Ybodychange",
+      "commitMessage": "Added a maximum body response size to Jsoup.Connection\n",
+      "commitDate": "12/10/12, 11:19 PM",
+      "commitName": "a8da2e7da25921dffd9fe6bbd53668bed08dd148",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "9/21/12, 8:11 PM",
+      "commitNameOld": "398f9cf93414253c216585efdfca3b9f73f90d74",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 80.17,
+      "commitsBetweenForRepo": 16,
+      "commitsBetweenForFile": 1,
+      "actualSource": "static ByteBuffer readToByteBuffer(InputStream inStream) throws IOException {\n    return readToByteBuffer(inStream, 0);\n}",
+      "path": "src/main/java/org/jsoup/helper/DataUtil.java",
+      "functionStartLine": 133,
+      "functionName": "readToByteBuffer",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,13 +1,3 @@\n static ByteBuffer readToByteBuffer(InputStream inStream) throws IOException {\n-    byte[] buffer \u003d new byte[bufferSize];\n-    ByteArrayOutputStream outStream \u003d new ByteArrayOutputStream(bufferSize);\n-    int read;\n-    while (true) {\n-        read \u003d inStream.read(buffer);\n-        if (read \u003d\u003d -1)\n-            break;\n-        outStream.write(buffer, 0, read);\n-    }\n-    ByteBuffer byteData \u003d ByteBuffer.wrap(outStream.toByteArray());\n-    return byteData;\n+    return readToByteBuffer(inStream, 0);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "ce843ec83988e3e3318fa7db38133b06be741a1f": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial implementation of Connection\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ce843ec83988e3e3318fa7db38133b06be741a1f",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,13 @@\n+static ByteBuffer readToByteBuffer(InputStream inStream) throws IOException {\n+    byte[] buffer \u003d new byte[bufferSize];\n+    ByteArrayOutputStream outStream \u003d new ByteArrayOutputStream(bufferSize);\n+    int read;\n+    while (true) {\n+        read \u003d inStream.read(buffer);\n+        if (read \u003d\u003d -1)\n+            break;\n+        outStream.write(buffer, 0, read);\n+    }\n+    ByteBuffer byteData \u003d ByteBuffer.wrap(outStream.toByteArray());\n+    return byteData;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static ByteBuffer readToByteBuffer(InputStream inStream) throws IOException {\n    byte[] buffer \u003d new byte[bufferSize];\n    ByteArrayOutputStream outStream \u003d new ByteArrayOutputStream(bufferSize);\n    int read;\n    while (true) {\n        read \u003d inStream.read(buffer);\n        if (read \u003d\u003d -1)\n            break;\n        outStream.write(buffer, 0, read);\n    }\n    ByteBuffer byteData \u003d ByteBuffer.wrap(outStream.toByteArray());\n    return byteData;\n}",
+      "path": "src/main/java/org/jsoup/helper/DataUtil.java",
+      "functionStartLine": 66,
+      "functionName": "readToByteBuffer",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

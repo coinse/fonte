@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-35b",
+  "repositoryPath": "/tmp/Jsoup-35b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Document.java",
+  "functionName": "findFirstElementByTagName",
+  "functionId": "findFirstElementByTagName___tag-String__node-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Document.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 165,
+  "functionEndLine": 176,
+  "numCommitsSeen": 33,
+  "timeTaken": 431,
+  "changeHistory": [
+    "daf4666075b44c4405f7dc648467bdd39c236556"
+  ],
+  "changeHistoryShort": {
+    "daf4666075b44c4405f7dc648467bdd39c236556": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "daf4666075b44c4405f7dc648467bdd39c236556": {
+      "type": "Yintroduced",
+      "commitMessage": "Optimised document normalisation\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "daf4666075b44c4405f7dc648467bdd39c236556",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,12 @@\n+private Element findFirstElementByTagName(String tag, Node node) {\n+    if (node.nodeName().equals(tag))\n+        return (Element) node;\n+    else {\n+        for (Node child : node.childNodes) {\n+            Element found \u003d findFirstElementByTagName(tag, child);\n+            if (found !\u003d null)\n+                return found;\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Element findFirstElementByTagName(String tag, Node node) {\n    if (node.nodeName().equals(tag))\n        return (Element) node;\n    else {\n        for (Node child : node.childNodes) {\n            Element found \u003d findFirstElementByTagName(tag, child);\n            if (found !\u003d null)\n                return found;\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 136,
+      "functionName": "findFirstElementByTagName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

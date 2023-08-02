@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tokeniser.java",
+  "functionName": "emit",
+  "functionId": "emit___str-String(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 86,
+  "functionEndLine": 98,
+  "numCommitsSeen": 36,
+  "timeTaken": 1318,
+  "changeHistory": [
+    "4ec4cf2fc80c7faed010275d8a59f6e9decc33e2",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "4ec4cf2fc80c7faed010275d8a59f6e9decc33e2": "Ymultichange(Ybodychange,Yparametermetachange)",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4ec4cf2fc80c7faed010275d8a59f6e9decc33e2": {
+      "type": "Ymultichange(Ybodychange,Yparametermetachange)",
+      "commitMessage": "Reduce GC by not forcing string builders\n",
+      "commitDate": "10/26/14, 4:27 PM",
+      "commitName": "4ec4cf2fc80c7faed010275d8a59f6e9decc33e2",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Reduce GC by not forcing string builders\n",
+          "commitDate": "10/26/14, 4:27 PM",
+          "commitName": "4ec4cf2fc80c7faed010275d8a59f6e9decc33e2",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "10/26/14, 3:51 PM",
+          "commitNameOld": "8e524450bbaf0eb3210f0f0d2fff3cc4d54cb0a7",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void emit(final String str) {\n    if (charsString \u003d\u003d null) {\n        charsString \u003d str;\n    } else {\n        if (charsBuilder.length() \u003d\u003d 0) {\n            charsBuilder.append(charsString);\n        }\n        charsBuilder.append(str);\n    }\n}",
+          "path": "src/main/java/org/jsoup/parser/Tokeniser.java",
+          "functionStartLine": 83,
+          "functionName": "emit",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,10 @@\n-void emit(String str) {\n-    charBuffer.append(str);\n+void emit(final String str) {\n+    if (charsString \u003d\u003d null) {\n+        charsString \u003d str;\n+    } else {\n+        if (charsBuilder.length() \u003d\u003d 0) {\n+            charsBuilder.append(charsString);\n+        }\n+        charsBuilder.append(str);\n+    }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yparametermetachange",
+          "commitMessage": "Reduce GC by not forcing string builders\n",
+          "commitDate": "10/26/14, 4:27 PM",
+          "commitName": "4ec4cf2fc80c7faed010275d8a59f6e9decc33e2",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "10/26/14, 3:51 PM",
+          "commitNameOld": "8e524450bbaf0eb3210f0f0d2fff3cc4d54cb0a7",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.03,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "void emit(final String str) {\n    if (charsString \u003d\u003d null) {\n        charsString \u003d str;\n    } else {\n        if (charsBuilder.length() \u003d\u003d 0) {\n            charsBuilder.append(charsString);\n        }\n        charsBuilder.append(str);\n    }\n}",
+          "path": "src/main/java/org/jsoup/parser/Tokeniser.java",
+          "functionStartLine": 83,
+          "functionName": "emit",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,3 +1,10 @@\n-void emit(String str) {\n-    charBuffer.append(str);\n+void emit(final String str) {\n+    if (charsString \u003d\u003d null) {\n+        charsString \u003d str;\n+    } else {\n+        if (charsBuilder.length() \u003d\u003d 0) {\n+            charsBuilder.append(charsString);\n+        }\n+        charsBuilder.append(str);\n+    }\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[str-String]",
+            "newValue": "[str-String(modifiers-final)]"
+          }
+        }
+      ]
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+void emit(String str) {\n+    charBuffer.append(str);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void emit(String str) {\n    charBuffer.append(str);\n}",
+      "path": "src/main/java/org/jsoup/parser/Tokeniser.java",
+      "functionStartLine": 73,
+      "functionName": "emit",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "AnnotationUtil.java",
+  "functionName": "findIsTextAnnotation",
+  "functionId": "findIsTextAnnotation___ai-AnnotationIntrospector__prop-AnnotatedMember",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/AnnotationUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 48,
+  "functionEndLine": 65,
+  "numCommitsSeen": 5,
+  "timeTaken": 492,
+  "changeHistory": [
+    "eb05a1c840bbc423160281db9bb30fb6132640d8",
+    "1dff4683a6e66f1bc12fe3171ecb31c7cac5a6ca"
+  ],
+  "changeHistoryShort": {
+    "eb05a1c840bbc423160281db9bb30fb6132640d8": "Ybodychange",
+    "1dff4683a6e66f1bc12fe3171ecb31c7cac5a6ca": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "eb05a1c840bbc423160281db9bb30fb6132640d8": {
+      "type": "Ybodychange",
+      "commitMessage": "Implement #111\n",
+      "commitDate": "3/24/14, 10:44 PM",
+      "commitName": "eb05a1c840bbc423160281db9bb30fb6132640d8",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "9/5/12, 8:02 PM",
+      "commitNameOld": "c95e6bf1c44e59eb56a1c938a157cb9c9f278762",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 565.11,
+      "commitsBetweenForRepo": 190,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Boolean findIsTextAnnotation(AnnotationIntrospector ai, AnnotatedMember prop) {\n    for (AnnotationIntrospector intr : ai.allIntrospectors()) {\n        if (intr instanceof XmlAnnotationIntrospector) {\n            Boolean b \u003d ((XmlAnnotationIntrospector) intr).isOutputAsText(prop);\n            if (b !\u003d null) {\n                return b;\n            }\n        } else if (intr instanceof JaxbAnnotationIntrospector) {\n            Boolean b \u003d ((JaxbAnnotationIntrospector) intr).isOutputAsText(prop);\n            if (b !\u003d null) {\n                return b;\n            }\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/AnnotationUtil.java",
+      "functionStartLine": 48,
+      "functionName": "findIsTextAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,16 @@\n public static Boolean findIsTextAnnotation(AnnotationIntrospector ai, AnnotatedMember prop) {\n     for (AnnotationIntrospector intr : ai.allIntrospectors()) {\n         if (intr instanceof XmlAnnotationIntrospector) {\n             Boolean b \u003d ((XmlAnnotationIntrospector) intr).isOutputAsText(prop);\n             if (b !\u003d null) {\n                 return b;\n             }\n+        } else if (intr instanceof JaxbAnnotationIntrospector) {\n+            Boolean b \u003d ((JaxbAnnotationIntrospector) intr).isOutputAsText(prop);\n+            if (b !\u003d null) {\n+                return b;\n+            }\n         }\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "1dff4683a6e66f1bc12fe3171ecb31c7cac5a6ca": {
+      "type": "Yintroduced",
+      "commitMessage": "First part of [Issue-23] implemented: @JacksonXmlText now added, works for serialization\n",
+      "commitDate": "4/4/12, 5:02 PM",
+      "commitName": "1dff4683a6e66f1bc12fe3171ecb31c7cac5a6ca",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,11 @@\n+public static Boolean findIsTextAnnotation(AnnotationIntrospector ai, AnnotatedMember prop) {\n+    for (AnnotationIntrospector intr : ai.allIntrospectors()) {\n+        if (intr instanceof XmlAnnotationIntrospector) {\n+            Boolean b \u003d ((XmlAnnotationIntrospector) intr).isOutputAsText(prop);\n+            if (b !\u003d null) {\n+                return b;\n+            }\n+        }\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Boolean findIsTextAnnotation(AnnotationIntrospector ai, AnnotatedMember prop) {\n    for (AnnotationIntrospector intr : ai.allIntrospectors()) {\n        if (intr instanceof XmlAnnotationIntrospector) {\n            Boolean b \u003d ((XmlAnnotationIntrospector) intr).isOutputAsText(prop);\n            if (b !\u003d null) {\n                return b;\n            }\n        }\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/util/AnnotationUtil.java",
+      "functionStartLine": 39,
+      "functionName": "findIsTextAnnotation",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

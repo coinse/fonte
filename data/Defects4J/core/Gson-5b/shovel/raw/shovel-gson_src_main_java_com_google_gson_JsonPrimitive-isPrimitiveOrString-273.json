@@ -1,0 +1,144 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-5b",
+  "repositoryPath": "/tmp/Gson-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonPrimitive.java",
+  "functionName": "isPrimitiveOrString",
+  "functionId": "isPrimitiveOrString___target-Object",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 273,
+  "functionEndLine": 285,
+  "numCommitsSeen": 45,
+  "timeTaken": 1102,
+  "changeHistory": [
+    "b506183d9459f2474550a150fb0b5eae1a36c2bd",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b"
+  ],
+  "changeHistoryShort": {
+    "b506183d9459f2474550a150fb0b5eae1a36c2bd": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Yannotationchange)",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b506183d9459f2474550a150fb0b5eae1a36c2bd": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Yannotationchange)",
+      "commitMessage": "Move isPrimitiveOrString() method from ObjectNavigator to JsonPrimitive.\n",
+      "commitDate": "11/26/08, 4:40 PM",
+      "commitName": "b506183d9459f2474550a150fb0b5eae1a36c2bd",
+      "commitAuthor": "Joel Leitch",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Move isPrimitiveOrString() method from ObjectNavigator to JsonPrimitive.\n",
+          "commitDate": "11/26/08, 4:40 PM",
+          "commitName": "b506183d9459f2474550a150fb0b5eae1a36c2bd",
+          "commitAuthor": "Joel Leitch",
+          "commitDateOld": "11/26/08, 1:46 PM",
+          "commitNameOld": "d6d1daeedd50b05ff3319cd0f154cbef2e235cc8",
+          "commitAuthorOld": "Joel Leitch",
+          "daysBetweenCommits": 0.12,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static boolean isPrimitiveOrString(Object target) {\n    if (target instanceof String) {\n        return true;\n    }\n    Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n        if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n            return true;\n        }\n    }\n    return false;\n}",
+          "path": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+          "functionStartLine": 325,
+          "functionName": "isPrimitiveOrString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,12 @@\n-@SuppressWarnings(\"unchecked\")\n-static boolean isPrimitiveOrString(Object target) {\n+private static boolean isPrimitiveOrString(Object target) {\n     if (target instanceof String) {\n         return true;\n     }\n     Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n-    for (Class standardPrimitive : PRIMITIVE_TYPES) {\n+    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n         if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "gson/src/main/java/com/google/gson/ObjectNavigator.java",
+            "newPath": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+            "oldMethodName": "isPrimitiveOrString",
+            "newMethodName": "isPrimitiveOrString"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Move isPrimitiveOrString() method from ObjectNavigator to JsonPrimitive.\n",
+          "commitDate": "11/26/08, 4:40 PM",
+          "commitName": "b506183d9459f2474550a150fb0b5eae1a36c2bd",
+          "commitAuthor": "Joel Leitch",
+          "commitDateOld": "11/26/08, 1:46 PM",
+          "commitNameOld": "d6d1daeedd50b05ff3319cd0f154cbef2e235cc8",
+          "commitAuthorOld": "Joel Leitch",
+          "daysBetweenCommits": 0.12,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static boolean isPrimitiveOrString(Object target) {\n    if (target instanceof String) {\n        return true;\n    }\n    Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n        if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n            return true;\n        }\n    }\n    return false;\n}",
+          "path": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+          "functionStartLine": 325,
+          "functionName": "isPrimitiveOrString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,12 @@\n-@SuppressWarnings(\"unchecked\")\n-static boolean isPrimitiveOrString(Object target) {\n+private static boolean isPrimitiveOrString(Object target) {\n     if (target instanceof String) {\n         return true;\n     }\n     Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n-    for (Class standardPrimitive : PRIMITIVE_TYPES) {\n+    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n         if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[static]",
+            "newValue": "[private, static]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Move isPrimitiveOrString() method from ObjectNavigator to JsonPrimitive.\n",
+          "commitDate": "11/26/08, 4:40 PM",
+          "commitName": "b506183d9459f2474550a150fb0b5eae1a36c2bd",
+          "commitAuthor": "Joel Leitch",
+          "commitDateOld": "11/26/08, 1:46 PM",
+          "commitNameOld": "d6d1daeedd50b05ff3319cd0f154cbef2e235cc8",
+          "commitAuthorOld": "Joel Leitch",
+          "daysBetweenCommits": 0.12,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static boolean isPrimitiveOrString(Object target) {\n    if (target instanceof String) {\n        return true;\n    }\n    Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n        if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n            return true;\n        }\n    }\n    return false;\n}",
+          "path": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+          "functionStartLine": 325,
+          "functionName": "isPrimitiveOrString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,12 @@\n-@SuppressWarnings(\"unchecked\")\n-static boolean isPrimitiveOrString(Object target) {\n+private static boolean isPrimitiveOrString(Object target) {\n     if (target instanceof String) {\n         return true;\n     }\n     Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n-    for (Class standardPrimitive : PRIMITIVE_TYPES) {\n+    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n         if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yannotationchange",
+          "commitMessage": "Move isPrimitiveOrString() method from ObjectNavigator to JsonPrimitive.\n",
+          "commitDate": "11/26/08, 4:40 PM",
+          "commitName": "b506183d9459f2474550a150fb0b5eae1a36c2bd",
+          "commitAuthor": "Joel Leitch",
+          "commitDateOld": "11/26/08, 1:46 PM",
+          "commitNameOld": "d6d1daeedd50b05ff3319cd0f154cbef2e235cc8",
+          "commitAuthorOld": "Joel Leitch",
+          "daysBetweenCommits": 0.12,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static boolean isPrimitiveOrString(Object target) {\n    if (target instanceof String) {\n        return true;\n    }\n    Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n        if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n            return true;\n        }\n    }\n    return false;\n}",
+          "path": "gson/src/main/java/com/google/gson/JsonPrimitive.java",
+          "functionStartLine": 325,
+          "functionName": "isPrimitiveOrString",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,13 +1,12 @@\n-@SuppressWarnings(\"unchecked\")\n-static boolean isPrimitiveOrString(Object target) {\n+private static boolean isPrimitiveOrString(Object target) {\n     if (target instanceof String) {\n         return true;\n     }\n     Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n-    for (Class standardPrimitive : PRIMITIVE_TYPES) {\n+    for (Class\u003c?\u003e standardPrimitive : PRIMITIVE_TYPES) {\n         if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "@SuppressWarnings(\"unchecked\")",
+            "newValue": ""
+          }
+        }
+      ]
+    },
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": {
+      "type": "Yintroduced",
+      "commitMessage": "moved gson as a project under trunk\n",
+      "commitDate": "8/31/08, 8:13 PM",
+      "commitName": "57d1f32de5bf3a7dd54613384cc7e979fba2660b",
+      "commitAuthor": "Inderjeet Singh",
+      "diff": "@@ -0,0 +1,13 @@\n+@SuppressWarnings(\"unchecked\")\n+static boolean isPrimitiveOrString(Object target) {\n+    if (target instanceof String) {\n+        return true;\n+    }\n+    Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n+    for (Class standardPrimitive : PRIMITIVE_TYPES) {\n+        if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@SuppressWarnings(\"unchecked\")\nstatic boolean isPrimitiveOrString(Object target) {\n    if (target instanceof String) {\n        return true;\n    }\n    Class\u003c?\u003e classOfPrimitive \u003d target.getClass();\n    for (Class standardPrimitive : PRIMITIVE_TYPES) {\n        if (standardPrimitive.isAssignableFrom(classOfPrimitive)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "gson/src/main/java/com/google/gson/ObjectNavigator.java",
+      "functionStartLine": 190,
+      "functionName": "isPrimitiveOrString",
+      "functionAnnotation": "@SuppressWarnings(\"unchecked\")",
+      "functionDoc": ""
+    }
+  }
+}

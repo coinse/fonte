@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokeniserState.java",
+  "functionName": "readData",
+  "functionId": "readData___t-Tokeniser__r-CharacterReader__current-TokeniserState__advance-TokeniserState",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1667,
+  "functionEndLine": 1685,
+  "numCommitsSeen": 30,
+  "timeTaken": 1055,
+  "changeHistory": [
+    "654bc6f981587bd4b39b66702550bad33e1eacc9",
+    "99286c8986c92ef12861710c0cbf5cd51b8c93f0"
+  ],
+  "changeHistoryShort": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": "Ybodychange",
+    "99286c8986c92ef12861710c0cbf5cd51b8c93f0": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": {
+      "type": "Ybodychange",
+      "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+      "commitDate": "6/24/17, 11:47 PM",
+      "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/24/16, 6:01 PM",
+      "commitNameOld": "c28e5bf53a9ce9e32ab84ce2e6eba87ec747d1a0",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 243.24,
+      "commitsBetweenForRepo": 63,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void readData(Tokeniser t, CharacterReader r, TokeniserState current, TokeniserState advance) {\n    switch(r.current()) {\n        case \u0027\u003c\u0027:\n            t.advanceTransition(advance);\n            break;\n        case nullChar:\n            t.error(current);\n            r.advance();\n            t.emit(replacementChar);\n            break;\n        case eof:\n            t.emit(new Token.EOF());\n            break;\n        default:\n            String data \u003d r.consumeToAny(\u0027\u003c\u0027, nullChar);\n            t.emit(data);\n            break;\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1667,
+      "functionName": "readData",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "99286c8986c92ef12861710c0cbf5cd51b8c93f0": {
+      "type": "Yintroduced",
+      "commitMessage": "Cleaned a few dupe\n",
+      "commitDate": "4/23/16, 12:37 PM",
+      "commitName": "99286c8986c92ef12861710c0cbf5cd51b8c93f0",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,19 @@\n+private static void readData(Tokeniser t, CharacterReader r, TokeniserState current, TokeniserState advance) {\n+    switch(r.current()) {\n+        case \u0027\u003c\u0027:\n+            t.advanceTransition(advance);\n+            break;\n+        case nullChar:\n+            t.error(current);\n+            r.advance();\n+            t.emit(replacementChar);\n+            break;\n+        case eof:\n+            t.emit(new Token.EOF());\n+            break;\n+        default:\n+            String data \u003d r.consumeToAny(\u0027\u003c\u0027, nullChar);\n+            t.emit(data);\n+            break;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void readData(Tokeniser t, CharacterReader r, TokeniserState current, TokeniserState advance) {\n    switch(r.current()) {\n        case \u0027\u003c\u0027:\n            t.advanceTransition(advance);\n            break;\n        case nullChar:\n            t.error(current);\n            r.advance();\n            t.emit(replacementChar);\n            break;\n        case eof:\n            t.emit(new Token.EOF());\n            break;\n        default:\n            String data \u003d r.consumeToAny(\u0027\u003c\u0027, nullChar);\n            t.emit(data);\n            break;\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1662,
+      "functionName": "readData",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

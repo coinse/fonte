@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JsonWriter.java",
+  "functionName": "peek",
+  "functionId": "peek",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the value on the top of the stack.\n",
+  "functionStartLine": 365,
+  "functionEndLine": 370,
+  "numCommitsSeen": 17,
+  "timeTaken": 700,
+  "changeHistory": [
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+    "2c8bec27d48d0d9ba9d99ff5fb7a9bae36906c48",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e"
+  ],
+  "changeHistoryShort": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "2c8bec27d48d0d9ba9d99ff5fb7a9bae36906c48": "Ybodychange",
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "35c13173b0c509fd7088566fcc8f75473d5a3b7c": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+      "commitDate": "8/14/12, 2:32 PM",
+      "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+      "commitAuthor": "Jesse Wilson",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+          "commitDate": "8/14/12, 2:32 PM",
+          "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "6/29/12, 7:46 PM",
+          "commitNameOld": "1c7aee40f3d0d6f50b3d149e94a2b3b4627ca8a9",
+          "commitAuthorOld": "Jesse Wilson",
+          "daysBetweenCommits": 45.78,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private int peek() {\n    if (stackSize \u003d\u003d 0) {\n        throw new IllegalStateException(\"JsonWriter is closed.\");\n    }\n    return stack[stackSize - 1];\n}",
+          "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+          "functionStartLine": 365,
+          "functionName": "peek",
+          "functionAnnotation": "",
+          "functionDoc": "Returns the value on the top of the stack.\n",
+          "diff": "@@ -1,7 +1,6 @@\n-private JsonScope peek() {\n-    int size \u003d stack.size();\n-    if (size \u003d\u003d 0) {\n+private int peek() {\n+    if (stackSize \u003d\u003d 0) {\n         throw new IllegalStateException(\"JsonWriter is closed.\");\n     }\n-    return stack.get(size - 1);\n+    return stack[stackSize - 1];\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "JsonScope",
+            "newValue": "int"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Switch on ints rather than enums in JsonReader.\n\nUsing enums was triggering this Android bug:\nhttp://code.google.com/p/android/issues/detail?id\u003d36349\n",
+          "commitDate": "8/14/12, 2:32 PM",
+          "commitName": "35c13173b0c509fd7088566fcc8f75473d5a3b7c",
+          "commitAuthor": "Jesse Wilson",
+          "commitDateOld": "6/29/12, 7:46 PM",
+          "commitNameOld": "1c7aee40f3d0d6f50b3d149e94a2b3b4627ca8a9",
+          "commitAuthorOld": "Jesse Wilson",
+          "daysBetweenCommits": 45.78,
+          "commitsBetweenForRepo": 19,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private int peek() {\n    if (stackSize \u003d\u003d 0) {\n        throw new IllegalStateException(\"JsonWriter is closed.\");\n    }\n    return stack[stackSize - 1];\n}",
+          "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+          "functionStartLine": 365,
+          "functionName": "peek",
+          "functionAnnotation": "",
+          "functionDoc": "Returns the value on the top of the stack.\n",
+          "diff": "@@ -1,7 +1,6 @@\n-private JsonScope peek() {\n-    int size \u003d stack.size();\n-    if (size \u003d\u003d 0) {\n+private int peek() {\n+    if (stackSize \u003d\u003d 0) {\n         throw new IllegalStateException(\"JsonWriter is closed.\");\n     }\n-    return stack.get(size - 1);\n+    return stack[stackSize - 1];\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "2c8bec27d48d0d9ba9d99ff5fb7a9bae36906c48": {
+      "type": "Ybodychange",
+      "commitMessage": "Permit multiple top-level values in JsonWriter in lenient mode. Also fix some cases where we don\u0027t throw the right thing on a closed JsonWriter.\n\nI\u0027d prefer to not support multiple top-level values, but we support it in JsonReader and it\u0027s easier to be consistent. Kevin Hayen\u0027s patch pointed me in the right direction here, but I needed to do more work to cover some of the edge cases.\n\nFixes issue 397.\n",
+      "commitDate": "2/12/12, 12:42 PM",
+      "commitName": "2c8bec27d48d0d9ba9d99ff5fb7a9bae36906c48",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "9/30/11, 12:08 AM",
+      "commitNameOld": "bb7f0b6bb01b0e98e32229cb528772a66a9d6075",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 135.56,
+      "commitsBetweenForRepo": 147,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private JsonScope peek() {\n    int size \u003d stack.size();\n    if (size \u003d\u003d 0) {\n        throw new IllegalStateException(\"JsonWriter is closed.\");\n    }\n    return stack.get(size - 1);\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 316,
+      "functionName": "peek",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the value on the top of the stack.\n",
+      "diff": "@@ -1,3 +1,7 @@\n private JsonScope peek() {\n-    return stack.get(stack.size() - 1);\n+    int size \u003d stack.size();\n+    if (size \u003d\u003d 0) {\n+        throw new IllegalStateException(\"JsonWriter is closed.\");\n+    }\n+    return stack.get(size - 1);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "765a9f1ecdfaf96f3587f488385111c9d6a4927e": {
+      "type": "Yintroduced",
+      "commitMessage": "Brand new classes for streaming JSON efficiently.\n\nNotable features:\n - Efficiency. The parser is faster than the current javacc parser. It\u0027s also faster than popular libraries for JSON streaming.\n - Toggle lenient/strict\n - Toggle pretty/compact\n - Friendly error messages on bad JSON\n - GSON-quality Javadoc\n - Non-execute prefix handling\n\nThis doesn\u0027t wire JsonReader up into Gson just yet. That\u0027s coming soon...\n",
+      "commitDate": "8/26/10, 1:44 AM",
+      "commitName": "765a9f1ecdfaf96f3587f488385111c9d6a4927e",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,3 @@\n+private JsonScope peek() {\n+    return stack.get(stack.size() - 1);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private JsonScope peek() {\n    return stack.get(stack.size() - 1);\n}",
+      "path": "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+      "functionStartLine": 244,
+      "functionName": "peek",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the value on the top of the stack.\n"
+    }
+  }
+}

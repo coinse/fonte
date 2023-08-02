@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-32b",
+  "repositoryPath": "/tmp/Jsoup-32b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "doClone",
+  "functionId": "doClone___parent-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 599,
+  "functionEndLine": 616,
+  "numCommitsSeen": 56,
+  "timeTaken": 886,
+  "changeHistory": [
+    "5ca6b4041d0605025f1a1582a605d2aee377bc1c"
+  ],
+  "changeHistoryShort": {
+    "5ca6b4041d0605025f1a1582a605d2aee377bc1c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5ca6b4041d0605025f1a1582a605d2aee377bc1c": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented Node.clone() to create deep, independent copies of Nodes, Elements, and Documents.\n\nFixes #47\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "5ca6b4041d0605025f1a1582a605d2aee377bc1c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,15 @@\n+protected Node doClone(Node parent) {\n+    Node clone;\n+    try {\n+        clone \u003d (Node) super.clone();\n+    } catch (CloneNotSupportedException e) {\n+        throw new RuntimeException(e);\n+    }\n+    clone.parentNode \u003d parent;\n+    clone.siblingIndex \u003d parent \u003d\u003d null ? 0 : siblingIndex;\n+    clone.attributes \u003d attributes !\u003d null ? attributes.clone() : null;\n+    clone.baseUri \u003d baseUri;\n+    clone.childNodes \u003d new ArrayList\u003cNode\u003e(childNodes.size());\n+    for (Node child : childNodes) clone.childNodes.add(child.doClone(clone));\n+    return clone;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected Node doClone(Node parent) {\n    Node clone;\n    try {\n        clone \u003d (Node) super.clone();\n    } catch (CloneNotSupportedException e) {\n        throw new RuntimeException(e);\n    }\n    clone.parentNode \u003d parent;\n    clone.siblingIndex \u003d parent \u003d\u003d null ? 0 : siblingIndex;\n    clone.attributes \u003d attributes !\u003d null ? attributes.clone() : null;\n    clone.baseUri \u003d baseUri;\n    clone.childNodes \u003d new ArrayList\u003cNode\u003e(childNodes.size());\n    for (Node child : childNodes) clone.childNodes.add(child.doClone(clone));\n    return clone;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 415,
+      "functionName": "doClone",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

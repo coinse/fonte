@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-10b",
+  "repositoryPath": "/tmp/JxPath-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JXPathContextFactory.java",
+  "functionName": "newInstance",
+  "functionId": "newInstance",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/JXPathContextFactory.java",
+  "functionAnnotation": "",
+  "functionDoc": "Obtain a new instance of a \u003ccode\u003eJXPathContextFactory\u003c/code\u003e.\nThis static method creates a new factory instance.\nThis method uses the following ordered lookup procedure to determine\nthe \u003ccode\u003eJXPathContextFactory\u003c/code\u003e implementation class to load:\n\u003cul\u003e\n\u003cli\u003e\nUse  the \u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e\nsystem property.\n\u003c/li\u003e\n\u003cli\u003e\nAlternatively, use the JAVA_HOME (the parent directory where jdk is\ninstalled)/lib/jxpath.properties for a property file that contains the\nname of the implementation class keyed on\n\u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e.\n\u003c/li\u003e\n\u003cli\u003e\nUse the Services API (as detailed in the JAR specification), if\navailable, to determine the classname. The Services API will look\nfor a classname in the file\n\u003ccode\u003eMETA- INF/services/\u003ci\u003eorg.apache.commons.jxpath.\nJXPathContextFactory\u003c/i\u003e\u003c/code\u003e in jars available to the runtime.\n\u003c/li\u003e\n\u003cli\u003e\nPlatform default \u003ccode\u003eJXPathContextFactory\u003c/code\u003e instance.\n\u003c/li\u003e\n\u003c/ul\u003e\n\nOnce an application has obtained a reference to a\n\u003ccode\u003eJXPathContextFactory\u003c/code\u003e it can use the factory to\nobtain JXPathContext instances.\n\n@exception JXPathFactoryConfigurationError if the implementation is not\navailable or cannot be instantiated.\n",
+  "functionStartLine": 97,
+  "functionEndLine": 118,
+  "numCommitsSeen": 10,
+  "timeTaken": 322,
+  "changeHistory": [
+    "b5225ea81fd5446418f13d058545751bfb1b8e83",
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "b5225ea81fd5446418f13d058545751bfb1b8e83": "Ybodychange",
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": "Ymultichange(Ybodychange,Ydocchange)",
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b5225ea81fd5446418f13d058545751bfb1b8e83": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed Bug 22333:  JXPathContextFactory doesn\u0027t cache most common result of search\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136874 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/23/03, 7:30 PM",
+      "commitName": "b5225ea81fd5446418f13d058545751bfb1b8e83",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "3/10/03, 4:59 PM",
+      "commitNameOld": "bdf423f27a76d2006ffe1058d6530eebf619c877",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 166.06,
+      "commitsBetweenForRepo": 17,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static JXPathContextFactory newInstance() {\n    if (factoryImplName \u003d\u003d null) {\n        factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, DEFAULT_FACTORY_CLASS);\n    }\n    JXPathContextFactory factoryImpl;\n    try {\n        Class clazz \u003d Class.forName(factoryImplName);\n        factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n    } catch (ClassNotFoundException cnfe) {\n        throw new JXPathContextFactoryConfigurationError(cnfe);\n    } catch (IllegalAccessException iae) {\n        throw new JXPathContextFactoryConfigurationError(iae);\n    } catch (InstantiationException ie) {\n        throw new JXPathContextFactoryConfigurationError(ie);\n    }\n    return factoryImpl;\n}",
+      "path": "src/java/org/apache/commons/jxpath/JXPathContextFactory.java",
+      "functionStartLine": 143,
+      "functionName": "newInstance",
+      "functionAnnotation": "",
+      "functionDoc": "Obtain a new instance of a \u003ccode\u003eJXPathContextFactory\u003c/code\u003e.\nThis static method creates a new factory instance.\nThis method uses the following ordered lookup procedure to determine\nthe \u003ccode\u003eJXPathContextFactory\u003c/code\u003e implementation class to load:\n\u003cul\u003e\n\u003cli\u003e\nUse  the \u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e\nsystem property.\n\u003c/li\u003e\n\u003cli\u003e\nAlternatively, use the JAVA_HOME (the parent directory where jdk is\ninstalled)/lib/jxpath.properties for a property file that contains the\nname of the implementation class keyed on\n\u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e.\n\u003c/li\u003e\n\u003cli\u003e\nUse the Services API (as detailed in the JAR specification), if\navailable, to determine the classname. The Services API will look\nfor a classname in the file\n\u003ccode\u003eMETA- INF/services/\u003ci\u003eorg.apache.commons.jxpath.\nJXPathContextFactory\u003c/i\u003e\u003c/code\u003e in jars available to the runtime.\n\u003c/li\u003e\n\u003cli\u003e\nPlatform default \u003ccode\u003eJXPathContextFactory\u003c/code\u003e instance.\n\u003c/li\u003e\n\u003c/ul\u003e\n\nOnce an application has obtained a reference to a\n\u003ccode\u003eJXPathContextFactory\u003c/code\u003e it can use the factory to\nobtain JXPathContext instances.\n\n@exception JXPathFactoryConfigurationError if the implementation is not\navailable or cannot be instantiated.\n",
+      "diff": "@@ -1,18 +1,17 @@\n public static JXPathContextFactory newInstance() {\n-    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, DEFAULT_FACTORY_CLASS);\n     if (factoryImplName \u003d\u003d null) {\n-        throw new JXPathContextFactoryConfigurationError(\"No default implementation found\");\n+        factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, DEFAULT_FACTORY_CLASS);\n     }\n     JXPathContextFactory factoryImpl;\n     try {\n         Class clazz \u003d Class.forName(factoryImplName);\n         factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n     } catch (ClassNotFoundException cnfe) {\n         throw new JXPathContextFactoryConfigurationError(cnfe);\n     } catch (IllegalAccessException iae) {\n         throw new JXPathContextFactoryConfigurationError(iae);\n     } catch (InstantiationException ie) {\n         throw new JXPathContextFactoryConfigurationError(ie);\n     }\n     return factoryImpl;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/10/03, 9:41 PM",
+      "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+      "commitAuthor": "Dmitri Plotnikov",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/10/03, 9:41 PM",
+          "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "4/23/02, 9:06 PM",
+          "commitNameOld": "3b6b30adb846a9f2f0fa070f9c8c848f04d8b37f",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 262.07,
+          "commitsBetweenForRepo": 103,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static JXPathContextFactory newInstance() {\n    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, DEFAULT_FACTORY_CLASS);\n    if (factoryImplName \u003d\u003d null) {\n        throw new JXPathContextFactoryConfigurationError(\"No default implementation found\");\n    }\n    JXPathContextFactory factoryImpl;\n    try {\n        Class clazz \u003d Class.forName(factoryImplName);\n        factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n    } catch (ClassNotFoundException cnfe) {\n        throw new JXPathContextFactoryConfigurationError(cnfe);\n    } catch (IllegalAccessException iae) {\n        throw new JXPathContextFactoryConfigurationError(iae);\n    } catch (InstantiationException ie) {\n        throw new JXPathContextFactoryConfigurationError(ie);\n    }\n    return factoryImpl;\n}",
+          "path": "src/java/org/apache/commons/jxpath/JXPathContextFactory.java",
+          "functionStartLine": 137,
+          "functionName": "newInstance",
+          "functionAnnotation": "",
+          "functionDoc": "Obtain a new instance of a \u003ccode\u003eJXPathContextFactory\u003c/code\u003e.\nThis static method creates a new factory instance.\nThis method uses the following ordered lookup procedure to determine\nthe \u003ccode\u003eJXPathContextFactory\u003c/code\u003e implementation class to load:\n\u003cul\u003e\n\u003cli\u003e\nUse  the \u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e\nsystem property.\n\u003c/li\u003e\n\u003cli\u003e\nAlternatively, use the JAVA_HOME (the parent directory where jdk is\ninstalled)/lib/jxpath.properties for a property file that contains the\nname of the implementation class keyed on\n\u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e.\n\u003c/li\u003e\n\u003cli\u003e\nUse the Services API (as detailed in the JAR specification), if\navailable, to determine the classname. The Services API will look\nfor a classname in the file\n\u003ccode\u003eMETA- INF/services/\u003ci\u003eorg.apache.commons.jxpath.\nJXPathContextFactory\u003c/i\u003e\u003c/code\u003e in jars available to the runtime.\n\u003c/li\u003e\n\u003cli\u003e\nPlatform default \u003ccode\u003eJXPathContextFactory\u003c/code\u003e instance.\n\u003c/li\u003e\n\u003c/ul\u003e\n\nOnce an application has obtained a reference to a\n\u003ccode\u003eJXPathContextFactory\u003c/code\u003e it can use the factory to\nobtain JXPathContext instances.\n\n@exception JXPathFactoryConfigurationError if the implementation is not\navailable or cannot be instantiated.\n",
+          "diff": "@@ -1,18 +1,18 @@\n public static JXPathContextFactory newInstance() {\n-    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, defaultClassName);\n+    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, DEFAULT_FACTORY_CLASS);\n     if (factoryImplName \u003d\u003d null) {\n         throw new JXPathContextFactoryConfigurationError(\"No default implementation found\");\n     }\n     JXPathContextFactory factoryImpl;\n     try {\n         Class clazz \u003d Class.forName(factoryImplName);\n         factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n     } catch (ClassNotFoundException cnfe) {\n         throw new JXPathContextFactoryConfigurationError(cnfe);\n     } catch (IllegalAccessException iae) {\n         throw new JXPathContextFactoryConfigurationError(iae);\n     } catch (InstantiationException ie) {\n         throw new JXPathContextFactoryConfigurationError(ie);\n     }\n     return factoryImpl;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/10/03, 9:41 PM",
+          "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "4/23/02, 9:06 PM",
+          "commitNameOld": "3b6b30adb846a9f2f0fa070f9c8c848f04d8b37f",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 262.07,
+          "commitsBetweenForRepo": 103,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static JXPathContextFactory newInstance() {\n    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, DEFAULT_FACTORY_CLASS);\n    if (factoryImplName \u003d\u003d null) {\n        throw new JXPathContextFactoryConfigurationError(\"No default implementation found\");\n    }\n    JXPathContextFactory factoryImpl;\n    try {\n        Class clazz \u003d Class.forName(factoryImplName);\n        factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n    } catch (ClassNotFoundException cnfe) {\n        throw new JXPathContextFactoryConfigurationError(cnfe);\n    } catch (IllegalAccessException iae) {\n        throw new JXPathContextFactoryConfigurationError(iae);\n    } catch (InstantiationException ie) {\n        throw new JXPathContextFactoryConfigurationError(ie);\n    }\n    return factoryImpl;\n}",
+          "path": "src/java/org/apache/commons/jxpath/JXPathContextFactory.java",
+          "functionStartLine": 137,
+          "functionName": "newInstance",
+          "functionAnnotation": "",
+          "functionDoc": "Obtain a new instance of a \u003ccode\u003eJXPathContextFactory\u003c/code\u003e.\nThis static method creates a new factory instance.\nThis method uses the following ordered lookup procedure to determine\nthe \u003ccode\u003eJXPathContextFactory\u003c/code\u003e implementation class to load:\n\u003cul\u003e\n\u003cli\u003e\nUse  the \u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e\nsystem property.\n\u003c/li\u003e\n\u003cli\u003e\nAlternatively, use the JAVA_HOME (the parent directory where jdk is\ninstalled)/lib/jxpath.properties for a property file that contains the\nname of the implementation class keyed on\n\u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e.\n\u003c/li\u003e\n\u003cli\u003e\nUse the Services API (as detailed in the JAR specification), if\navailable, to determine the classname. The Services API will look\nfor a classname in the file\n\u003ccode\u003eMETA- INF/services/\u003ci\u003eorg.apache.commons.jxpath.\nJXPathContextFactory\u003c/i\u003e\u003c/code\u003e in jars available to the runtime.\n\u003c/li\u003e\n\u003cli\u003e\nPlatform default \u003ccode\u003eJXPathContextFactory\u003c/code\u003e instance.\n\u003c/li\u003e\n\u003c/ul\u003e\n\nOnce an application has obtained a reference to a\n\u003ccode\u003eJXPathContextFactory\u003c/code\u003e it can use the factory to\nobtain JXPathContext instances.\n\n@exception JXPathFactoryConfigurationError if the implementation is not\navailable or cannot be instantiated.\n",
+          "diff": "@@ -1,18 +1,18 @@\n public static JXPathContextFactory newInstance() {\n-    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, defaultClassName);\n+    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, DEFAULT_FACTORY_CLASS);\n     if (factoryImplName \u003d\u003d null) {\n         throw new JXPathContextFactoryConfigurationError(\"No default implementation found\");\n     }\n     JXPathContextFactory factoryImpl;\n     try {\n         Class clazz \u003d Class.forName(factoryImplName);\n         factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n     } catch (ClassNotFoundException cnfe) {\n         throw new JXPathContextFactoryConfigurationError(cnfe);\n     } catch (IllegalAccessException iae) {\n         throw new JXPathContextFactoryConfigurationError(iae);\n     } catch (InstantiationException ie) {\n         throw new JXPathContextFactoryConfigurationError(ie);\n     }\n     return factoryImpl;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "Obtain a new instance of a \u003ccode\u003eJXPathContextFactory\u003c/code\u003e.\nThis static method creates a new factory instance.\nThis method uses the following ordered lookup procedure to determine\nthe \u003ccode\u003eJXPathContextFactory\u003c/code\u003e implementation class to load:\n\u003cul\u003e\n\u003cli\u003e\nUse  the \u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e\nsystem property.\n\u003c/li\u003e\n\u003cli\u003e\nAlternatively, use the JAVA_HOME (the parent directory where jdk is\ninstalled)/lib/jxpath.properties for a property file that contains the\nname of the implementation class keyed on\n\u003ccode\u003eorg.apache.commons.jxpath.JXPathContextFactory\u003c/code\u003e.\n\u003c/li\u003e\n\u003cli\u003e\nUse the Services API (as detailed in the JAR specification), if\navailable, to determine the classname. The Services API will look\nfor a classname in the file\n\u003ccode\u003eMETA- INF/services/\u003ci\u003eorg.apache.commons.jxpath.\nJXPathContextFactory\u003c/i\u003e\u003c/code\u003e in jars available to the runtime.\n\u003c/li\u003e\n\u003cli\u003e\nPlatform default \u003ccode\u003eJXPathContextFactory\u003c/code\u003e instance.\n\u003c/li\u003e\n\u003c/ul\u003e\n\nOnce an application has obtained a reference to a\n\u003ccode\u003eJXPathContextFactory\u003c/code\u003e it can use the factory to\nobtain JXPathContext instances.\n\n@exception JXPathFactoryConfigurationError if the implementation is not\navailable or cannot be instantiated.\n"
+          }
+        }
+      ]
+    },
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,18 @@\n+public static JXPathContextFactory newInstance() {\n+    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, defaultClassName);\n+    if (factoryImplName \u003d\u003d null) {\n+        throw new JXPathContextFactoryConfigurationError(\"No default implementation found\");\n+    }\n+    JXPathContextFactory factoryImpl;\n+    try {\n+        Class clazz \u003d Class.forName(factoryImplName);\n+        factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n+    } catch (ClassNotFoundException cnfe) {\n+        throw new JXPathContextFactoryConfigurationError(cnfe);\n+    } catch (IllegalAccessException iae) {\n+        throw new JXPathContextFactoryConfigurationError(iae);\n+    } catch (InstantiationException ie) {\n+        throw new JXPathContextFactoryConfigurationError(ie);\n+    }\n+    return factoryImpl;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static JXPathContextFactory newInstance() {\n    String factoryImplName \u003d findFactory(FACTORY_NAME_PROPERTY, defaultClassName);\n    if (factoryImplName \u003d\u003d null) {\n        throw new JXPathContextFactoryConfigurationError(\"No default implementation found\");\n    }\n    JXPathContextFactory factoryImpl;\n    try {\n        Class clazz \u003d Class.forName(factoryImplName);\n        factoryImpl \u003d (JXPathContextFactory) clazz.newInstance();\n    } catch (ClassNotFoundException cnfe) {\n        throw new JXPathContextFactoryConfigurationError(cnfe);\n    } catch (IllegalAccessException iae) {\n        throw new JXPathContextFactoryConfigurationError(iae);\n    } catch (InstantiationException ie) {\n        throw new JXPathContextFactoryConfigurationError(ie);\n    }\n    return factoryImpl;\n}",
+      "path": "src/java/org/apache/commons/jxpath/JXPathContextFactory.java",
+      "functionStartLine": 135,
+      "functionName": "newInstance",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

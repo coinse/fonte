@@ -1,0 +1,178 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-24b",
+  "repositoryPath": "/tmp/Jsoup-24b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HtmlTreeBuilder.java",
+  "functionName": "parseFragment",
+  "functionId": "parseFragment___inputFragment-String__context-Element__baseUri-String__errors-ParseErrorList",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 40,
+  "functionEndLine": 78,
+  "numCommitsSeen": 13,
+  "timeTaken": 1937,
+  "changeHistory": [
+    "f8a5dfb037d363a6b6657fa71af59b66c6bec257",
+    "433d2f180058b8b73e1951c6cfbb986714e68b0f",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "f8a5dfb037d363a6b6657fa71af59b66c6bec257": "Ymultichange(Yparameterchange,Ybodychange)",
+    "433d2f180058b8b73e1951c6cfbb986714e68b0f": "Ymultichange(Yparameterchange,Ybodychange)",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": "Ymovefromfile",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f8a5dfb037d363a6b6657fa71af59b66c6bec257": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Updated parser error tracking to cap the max size of errors tracked. Defaults to 0 (disabled).\n",
+      "commitDate": "3/20/12, 9:55 PM",
+      "commitName": "f8a5dfb037d363a6b6657fa71af59b66c6bec257",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Updated parser error tracking to cap the max size of errors tracked. Defaults to 0 (disabled).\n",
+          "commitDate": "3/20/12, 9:55 PM",
+          "commitName": "f8a5dfb037d363a6b6657fa71af59b66c6bec257",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "3/19/12, 9:02 PM",
+          "commitNameOld": "be94f5547d6b8f15ee48117afe46ae302c361464",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 1.04,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, ParseErrorList errors) {\n    initialiseParse(inputFragment, baseUri, errors);\n    contextElement \u003d context;\n    fragmentParsing \u003d true;\n    Element root \u003d null;\n    if (context !\u003d null) {\n        if (context.ownerDocument() !\u003d null)\n            doc.quirksMode(context.ownerDocument().quirksMode());\n        String contextTag \u003d context.tagName();\n        if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n            tokeniser.transition(TokeniserState.Rcdata);\n        else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n            tokeniser.transition(TokeniserState.Rawtext);\n        else if (contextTag.equals(\"script\"))\n            tokeniser.transition(TokeniserState.ScriptData);\n        else if (contextTag.equals((\"noscript\")))\n            tokeniser.transition(TokeniserState.Data);\n        else if (contextTag.equals(\"plaintext\"))\n            tokeniser.transition(TokeniserState.Data);\n        else\n            tokeniser.transition(TokeniserState.Data);\n        root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n        doc.appendChild(root);\n        stack.push(root);\n        resetInsertionMode();\n    }\n    runParser();\n    if (context !\u003d null)\n        return root.childNodes();\n    else\n        return doc.childNodes();\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+          "functionStartLine": 40,
+          "functionName": "parseFragment",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,32 +1,32 @@\n-List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, boolean trackErrors) {\n-    initialiseParse(inputFragment, baseUri, trackErrors);\n+List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, ParseErrorList errors) {\n+    initialiseParse(inputFragment, baseUri, errors);\n     contextElement \u003d context;\n     fragmentParsing \u003d true;\n     Element root \u003d null;\n     if (context !\u003d null) {\n         if (context.ownerDocument() !\u003d null)\n             doc.quirksMode(context.ownerDocument().quirksMode());\n         String contextTag \u003d context.tagName();\n         if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n             tokeniser.transition(TokeniserState.Rcdata);\n         else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n             tokeniser.transition(TokeniserState.Rawtext);\n         else if (contextTag.equals(\"script\"))\n             tokeniser.transition(TokeniserState.ScriptData);\n         else if (contextTag.equals((\"noscript\")))\n             tokeniser.transition(TokeniserState.Data);\n         else if (contextTag.equals(\"plaintext\"))\n             tokeniser.transition(TokeniserState.Data);\n         else\n             tokeniser.transition(TokeniserState.Data);\n         root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n         doc.appendChild(root);\n         stack.push(root);\n         resetInsertionMode();\n     }\n     runParser();\n     if (context !\u003d null)\n         return root.childNodes();\n     else\n         return doc.childNodes();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[inputFragment-String, context-Element, baseUri-String, trackErrors-boolean]",
+            "newValue": "[inputFragment-String, context-Element, baseUri-String, errors-ParseErrorList]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Updated parser error tracking to cap the max size of errors tracked. Defaults to 0 (disabled).\n",
+          "commitDate": "3/20/12, 9:55 PM",
+          "commitName": "f8a5dfb037d363a6b6657fa71af59b66c6bec257",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "3/19/12, 9:02 PM",
+          "commitNameOld": "be94f5547d6b8f15ee48117afe46ae302c361464",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 1.04,
+          "commitsBetweenForRepo": 5,
+          "commitsBetweenForFile": 1,
+          "actualSource": "List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, ParseErrorList errors) {\n    initialiseParse(inputFragment, baseUri, errors);\n    contextElement \u003d context;\n    fragmentParsing \u003d true;\n    Element root \u003d null;\n    if (context !\u003d null) {\n        if (context.ownerDocument() !\u003d null)\n            doc.quirksMode(context.ownerDocument().quirksMode());\n        String contextTag \u003d context.tagName();\n        if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n            tokeniser.transition(TokeniserState.Rcdata);\n        else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n            tokeniser.transition(TokeniserState.Rawtext);\n        else if (contextTag.equals(\"script\"))\n            tokeniser.transition(TokeniserState.ScriptData);\n        else if (contextTag.equals((\"noscript\")))\n            tokeniser.transition(TokeniserState.Data);\n        else if (contextTag.equals(\"plaintext\"))\n            tokeniser.transition(TokeniserState.Data);\n        else\n            tokeniser.transition(TokeniserState.Data);\n        root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n        doc.appendChild(root);\n        stack.push(root);\n        resetInsertionMode();\n    }\n    runParser();\n    if (context !\u003d null)\n        return root.childNodes();\n    else\n        return doc.childNodes();\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+          "functionStartLine": 40,
+          "functionName": "parseFragment",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,32 +1,32 @@\n-List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, boolean trackErrors) {\n-    initialiseParse(inputFragment, baseUri, trackErrors);\n+List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, ParseErrorList errors) {\n+    initialiseParse(inputFragment, baseUri, errors);\n     contextElement \u003d context;\n     fragmentParsing \u003d true;\n     Element root \u003d null;\n     if (context !\u003d null) {\n         if (context.ownerDocument() !\u003d null)\n             doc.quirksMode(context.ownerDocument().quirksMode());\n         String contextTag \u003d context.tagName();\n         if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n             tokeniser.transition(TokeniserState.Rcdata);\n         else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n             tokeniser.transition(TokeniserState.Rawtext);\n         else if (contextTag.equals(\"script\"))\n             tokeniser.transition(TokeniserState.ScriptData);\n         else if (contextTag.equals((\"noscript\")))\n             tokeniser.transition(TokeniserState.Data);\n         else if (contextTag.equals(\"plaintext\"))\n             tokeniser.transition(TokeniserState.Data);\n         else\n             tokeniser.transition(TokeniserState.Data);\n         root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n         doc.appendChild(root);\n         stack.push(root);\n         resetInsertionMode();\n     }\n     runParser();\n     if (context !\u003d null)\n         return root.childNodes();\n     else\n         return doc.childNodes();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "433d2f180058b8b73e1951c6cfbb986714e68b0f": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Allow an alternate parser to be supplied for core use cases.\n",
+      "commitDate": "2/27/12, 8:55 PM",
+      "commitName": "433d2f180058b8b73e1951c6cfbb986714e68b0f",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Allow an alternate parser to be supplied for core use cases.\n",
+          "commitDate": "2/27/12, 8:55 PM",
+          "commitName": "433d2f180058b8b73e1951c6cfbb986714e68b0f",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "2/26/12, 5:23 PM",
+          "commitNameOld": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 1.15,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, boolean trackErrors) {\n    initialiseParse(inputFragment, baseUri, trackErrors);\n    contextElement \u003d context;\n    fragmentParsing \u003d true;\n    Element root \u003d null;\n    if (context !\u003d null) {\n        if (context.ownerDocument() !\u003d null)\n            doc.quirksMode(context.ownerDocument().quirksMode());\n        String contextTag \u003d context.tagName();\n        if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n            tokeniser.transition(TokeniserState.Rcdata);\n        else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n            tokeniser.transition(TokeniserState.Rawtext);\n        else if (contextTag.equals(\"script\"))\n            tokeniser.transition(TokeniserState.ScriptData);\n        else if (contextTag.equals((\"noscript\")))\n            tokeniser.transition(TokeniserState.Data);\n        else if (contextTag.equals(\"plaintext\"))\n            tokeniser.transition(TokeniserState.Data);\n        else\n            tokeniser.transition(TokeniserState.Data);\n        root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n        doc.appendChild(root);\n        stack.push(root);\n        resetInsertionMode();\n    }\n    runParser();\n    if (context !\u003d null)\n        return root.childNodes();\n    else\n        return doc.childNodes();\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+          "functionStartLine": 40,
+          "functionName": "parseFragment",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,32 +1,32 @@\n-List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri) {\n-    initialiseParse(inputFragment, baseUri);\n+List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, boolean trackErrors) {\n+    initialiseParse(inputFragment, baseUri, trackErrors);\n     contextElement \u003d context;\n     fragmentParsing \u003d true;\n     Element root \u003d null;\n     if (context !\u003d null) {\n         if (context.ownerDocument() !\u003d null)\n             doc.quirksMode(context.ownerDocument().quirksMode());\n         String contextTag \u003d context.tagName();\n         if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n             tokeniser.transition(TokeniserState.Rcdata);\n         else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n             tokeniser.transition(TokeniserState.Rawtext);\n         else if (contextTag.equals(\"script\"))\n             tokeniser.transition(TokeniserState.ScriptData);\n         else if (contextTag.equals((\"noscript\")))\n             tokeniser.transition(TokeniserState.Data);\n         else if (contextTag.equals(\"plaintext\"))\n             tokeniser.transition(TokeniserState.Data);\n         else\n             tokeniser.transition(TokeniserState.Data);\n         root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n         doc.appendChild(root);\n         stack.push(root);\n         resetInsertionMode();\n     }\n     runParser();\n     if (context !\u003d null)\n         return root.childNodes();\n     else\n         return doc.childNodes();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[inputFragment-String, context-Element, baseUri-String]",
+            "newValue": "[inputFragment-String, context-Element, baseUri-String, trackErrors-boolean]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Allow an alternate parser to be supplied for core use cases.\n",
+          "commitDate": "2/27/12, 8:55 PM",
+          "commitName": "433d2f180058b8b73e1951c6cfbb986714e68b0f",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "2/26/12, 5:23 PM",
+          "commitNameOld": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 1.15,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, boolean trackErrors) {\n    initialiseParse(inputFragment, baseUri, trackErrors);\n    contextElement \u003d context;\n    fragmentParsing \u003d true;\n    Element root \u003d null;\n    if (context !\u003d null) {\n        if (context.ownerDocument() !\u003d null)\n            doc.quirksMode(context.ownerDocument().quirksMode());\n        String contextTag \u003d context.tagName();\n        if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n            tokeniser.transition(TokeniserState.Rcdata);\n        else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n            tokeniser.transition(TokeniserState.Rawtext);\n        else if (contextTag.equals(\"script\"))\n            tokeniser.transition(TokeniserState.ScriptData);\n        else if (contextTag.equals((\"noscript\")))\n            tokeniser.transition(TokeniserState.Data);\n        else if (contextTag.equals(\"plaintext\"))\n            tokeniser.transition(TokeniserState.Data);\n        else\n            tokeniser.transition(TokeniserState.Data);\n        root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n        doc.appendChild(root);\n        stack.push(root);\n        resetInsertionMode();\n    }\n    runParser();\n    if (context !\u003d null)\n        return root.childNodes();\n    else\n        return doc.childNodes();\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+          "functionStartLine": 40,
+          "functionName": "parseFragment",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,32 +1,32 @@\n-List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri) {\n-    initialiseParse(inputFragment, baseUri);\n+List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri, boolean trackErrors) {\n+    initialiseParse(inputFragment, baseUri, trackErrors);\n     contextElement \u003d context;\n     fragmentParsing \u003d true;\n     Element root \u003d null;\n     if (context !\u003d null) {\n         if (context.ownerDocument() !\u003d null)\n             doc.quirksMode(context.ownerDocument().quirksMode());\n         String contextTag \u003d context.tagName();\n         if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n             tokeniser.transition(TokeniserState.Rcdata);\n         else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n             tokeniser.transition(TokeniserState.Rawtext);\n         else if (contextTag.equals(\"script\"))\n             tokeniser.transition(TokeniserState.ScriptData);\n         else if (contextTag.equals((\"noscript\")))\n             tokeniser.transition(TokeniserState.Data);\n         else if (contextTag.equals(\"plaintext\"))\n             tokeniser.transition(TokeniserState.Data);\n         else\n             tokeniser.transition(TokeniserState.Data);\n         root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n         doc.appendChild(root);\n         stack.push(root);\n         resetInsertionMode();\n     }\n     runParser();\n     if (context !\u003d null)\n         return root.childNodes();\n     else\n         return doc.childNodes();\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": {
+      "type": "Ymovefromfile",
+      "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+      "commitDate": "2/26/12, 5:23 PM",
+      "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "9/30/11, 6:13 PM",
+      "commitNameOld": "1e84edbe208aab0c9330eadc50f9773d81d70cd6",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 149.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri) {\n    initialiseParse(inputFragment, baseUri);\n    contextElement \u003d context;\n    fragmentParsing \u003d true;\n    Element root \u003d null;\n    if (context !\u003d null) {\n        if (context.ownerDocument() !\u003d null)\n            doc.quirksMode(context.ownerDocument().quirksMode());\n        String contextTag \u003d context.tagName();\n        if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n            tokeniser.transition(TokeniserState.Rcdata);\n        else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n            tokeniser.transition(TokeniserState.Rawtext);\n        else if (contextTag.equals(\"script\"))\n            tokeniser.transition(TokeniserState.ScriptData);\n        else if (contextTag.equals((\"noscript\")))\n            tokeniser.transition(TokeniserState.Data);\n        else if (contextTag.equals(\"plaintext\"))\n            tokeniser.transition(TokeniserState.Data);\n        else\n            tokeniser.transition(TokeniserState.Data);\n        root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n        doc.appendChild(root);\n        stack.push(root);\n        resetInsertionMode();\n    }\n    runParser();\n    if (context !\u003d null)\n        return root.childNodes();\n    else\n        return doc.childNodes();\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 40,
+      "functionName": "parseFragment",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+        "newPath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+        "oldMethodName": "parseFragment",
+        "newMethodName": "parseFragment"
+      }
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,32 @@\n+List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri) {\n+    initialiseParse(inputFragment, baseUri);\n+    contextElement \u003d context;\n+    fragmentParsing \u003d true;\n+    Element root \u003d null;\n+    if (context !\u003d null) {\n+        if (context.ownerDocument() !\u003d null)\n+            doc.quirksMode(context.ownerDocument().quirksMode());\n+        String contextTag \u003d context.tagName();\n+        if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n+            tokeniser.transition(TokeniserState.Rcdata);\n+        else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n+            tokeniser.transition(TokeniserState.Rawtext);\n+        else if (contextTag.equals(\"script\"))\n+            tokeniser.transition(TokeniserState.ScriptData);\n+        else if (contextTag.equals((\"noscript\")))\n+            tokeniser.transition(TokeniserState.Data);\n+        else if (contextTag.equals(\"plaintext\"))\n+            tokeniser.transition(TokeniserState.Data);\n+        else\n+            tokeniser.transition(TokeniserState.Data);\n+        root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n+        doc.appendChild(root);\n+        stack.push(root);\n+        resetInsertionMode();\n+    }\n+    runParser();\n+    if (context !\u003d null)\n+        return root.childNodes();\n+    else\n+        return doc.childNodes();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "List\u003cNode\u003e parseFragment(String inputFragment, Element context, String baseUri) {\n    initialiseParse(inputFragment, baseUri);\n    contextElement \u003d context;\n    fragmentParsing \u003d true;\n    Element root \u003d null;\n    if (context !\u003d null) {\n        if (context.ownerDocument() !\u003d null)\n            doc.quirksMode(context.ownerDocument().quirksMode());\n        String contextTag \u003d context.tagName();\n        if (StringUtil.in(contextTag, \"title\", \"textarea\"))\n            tokeniser.transition(TokeniserState.Rcdata);\n        else if (StringUtil.in(contextTag, \"iframe\", \"noembed\", \"noframes\", \"style\", \"xmp\"))\n            tokeniser.transition(TokeniserState.Rawtext);\n        else if (contextTag.equals(\"script\"))\n            tokeniser.transition(TokeniserState.ScriptData);\n        else if (contextTag.equals((\"noscript\")))\n            tokeniser.transition(TokeniserState.Data);\n        else if (contextTag.equals(\"plaintext\"))\n            tokeniser.transition(TokeniserState.Data);\n        else\n            tokeniser.transition(TokeniserState.Data);\n        root \u003d new Element(Tag.valueOf(\"html\"), baseUri);\n        doc.appendChild(root);\n        stack.push(root);\n        resetInsertionMode();\n    }\n    runParser();\n    if (context !\u003d null)\n        return root.childNodes();\n    else\n        return doc.childNodes();\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 56,
+      "functionName": "parseFragment",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

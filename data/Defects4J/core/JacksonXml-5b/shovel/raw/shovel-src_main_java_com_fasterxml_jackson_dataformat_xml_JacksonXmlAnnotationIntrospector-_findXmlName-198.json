@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonXmlAnnotationIntrospector.java",
+  "functionName": "_findXmlName",
+  "functionId": "_findXmlName___a-Annotated",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 198,
+  "functionEndLine": 205,
+  "numCommitsSeen": 20,
+  "timeTaken": 585,
+  "changeHistory": [
+    "ff0bf89d48836ac2406a8d0e742fa85468b522f4",
+    "e88829ad7ec380b1d84ed2d769310ccc568f015c"
+  ],
+  "changeHistoryShort": {
+    "ff0bf89d48836ac2406a8d0e742fa85468b522f4": "Ymultichange(Yreturntypechange,Ybodychange)",
+    "e88829ad7ec380b1d84ed2d769310ccc568f015c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ff0bf89d48836ac2406a8d0e742fa85468b522f4": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange)",
+      "commitMessage": "Add missing overrides\n",
+      "commitDate": "9/8/12, 4:18 PM",
+      "commitName": "ff0bf89d48836ac2406a8d0e742fa85468b522f4",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Add missing overrides\n",
+          "commitDate": "9/8/12, 4:18 PM",
+          "commitName": "ff0bf89d48836ac2406a8d0e742fa85468b522f4",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/5/12, 8:02 PM",
+          "commitNameOld": "c95e6bf1c44e59eb56a1c938a157cb9c9f278762",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 2.84,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected PropertyName _findXmlName(Annotated a) {\n    JacksonXmlProperty pann \u003d a.getAnnotation(JacksonXmlProperty.class);\n    if (pann !\u003d null) {\n        return PropertyName.construct(pann.localName(), pann.namespace());\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+          "functionStartLine": 195,
+          "functionName": "_findXmlName",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n-protected String _findXmlName(Annotated a) {\n+protected PropertyName _findXmlName(Annotated a) {\n     JacksonXmlProperty pann \u003d a.getAnnotation(JacksonXmlProperty.class);\n     if (pann !\u003d null) {\n-        return pann.localName();\n+        return PropertyName.construct(pann.localName(), pann.namespace());\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "String",
+            "newValue": "PropertyName"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Add missing overrides\n",
+          "commitDate": "9/8/12, 4:18 PM",
+          "commitName": "ff0bf89d48836ac2406a8d0e742fa85468b522f4",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "9/5/12, 8:02 PM",
+          "commitNameOld": "c95e6bf1c44e59eb56a1c938a157cb9c9f278762",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 2.84,
+          "commitsBetweenForRepo": 2,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected PropertyName _findXmlName(Annotated a) {\n    JacksonXmlProperty pann \u003d a.getAnnotation(JacksonXmlProperty.class);\n    if (pann !\u003d null) {\n        return PropertyName.construct(pann.localName(), pann.namespace());\n    }\n    return null;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+          "functionStartLine": 195,
+          "functionName": "_findXmlName",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,7 +1,7 @@\n-protected String _findXmlName(Annotated a) {\n+protected PropertyName _findXmlName(Annotated a) {\n     JacksonXmlProperty pann \u003d a.getAnnotation(JacksonXmlProperty.class);\n     if (pann !\u003d null) {\n-        return pann.localName();\n+        return PropertyName.construct(pann.localName(), pann.namespace());\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e88829ad7ec380b1d84ed2d769310ccc568f015c": {
+      "type": "Yintroduced",
+      "commitMessage": "Further work on issue #17\n",
+      "commitDate": "3/14/12, 7:57 PM",
+      "commitName": "e88829ad7ec380b1d84ed2d769310ccc568f015c",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,7 @@\n+protected String _findXmlName(Annotated a) {\n+    JacksonXmlProperty pann \u003d a.getAnnotation(JacksonXmlProperty.class);\n+    if (pann !\u003d null) {\n+        return pann.localName();\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected String _findXmlName(Annotated a) {\n    JacksonXmlProperty pann \u003d a.getAnnotation(JacksonXmlProperty.class);\n    if (pann !\u003d null) {\n        return pann.localName();\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+      "functionStartLine": 123,
+      "functionName": "_findXmlName",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

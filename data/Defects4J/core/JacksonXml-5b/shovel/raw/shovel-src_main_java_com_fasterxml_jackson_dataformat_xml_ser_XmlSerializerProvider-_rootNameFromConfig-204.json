@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XmlSerializerProvider.java",
+  "functionName": "_rootNameFromConfig",
+  "functionId": "_rootNameFromConfig",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 204,
+  "functionEndLine": 215,
+  "numCommitsSeen": 23,
+  "timeTaken": 783,
+  "changeHistory": [
+    "99abd4b9445137d7fb73e551138c8926226fc91e",
+    "479522112267a0448223d38870bf5d63e77a5c33"
+  ],
+  "changeHistoryShort": {
+    "99abd4b9445137d7fb73e551138c8926226fc91e": "Ybodychange",
+    "479522112267a0448223d38870bf5d63e77a5c33": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "99abd4b9445137d7fb73e551138c8926226fc91e": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix a minor problem with databind rc4\n",
+      "commitDate": "7/11/15, 9:45 PM",
+      "commitName": "99abd4b9445137d7fb73e551138c8926226fc91e",
+      "commitAuthor": "Tatu Saloranta",
+      "commitDateOld": "10/6/14, 9:23 PM",
+      "commitNameOld": "5cb108da85d545201a37f758b896351d504ba4a4",
+      "commitAuthorOld": "Tatu Saloranta",
+      "daysBetweenCommits": 278.02,
+      "commitsBetweenForRepo": 65,
+      "commitsBetweenForFile": 1,
+      "actualSource": "protected QName _rootNameFromConfig() {\n    PropertyName name \u003d _config.getFullRootName();\n    if (name \u003d\u003d null) {\n        return null;\n    }\n    String ns \u003d name.getNamespace();\n    if (ns \u003d\u003d null || ns.isEmpty()) {\n        return new QName(name.getSimpleName());\n    }\n    return new QName(ns, name.getSimpleName());\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+      "functionStartLine": 242,
+      "functionName": "_rootNameFromConfig",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,11 @@\n protected QName _rootNameFromConfig() {\n-    String name \u003d _config.getRootName();\n-    return (name \u003d\u003d null) ? null : new QName(name);\n+    PropertyName name \u003d _config.getFullRootName();\n+    if (name \u003d\u003d null) {\n+        return null;\n+    }\n+    String ns \u003d name.getNamespace();\n+    if (ns \u003d\u003d null || ns.isEmpty()) {\n+        return new QName(name.getSimpleName());\n+    }\n+    return new QName(ns, name.getSimpleName());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "479522112267a0448223d38870bf5d63e77a5c33": {
+      "type": "Yintroduced",
+      "commitMessage": "Implement #38\n",
+      "commitDate": "8/14/13, 10:31 PM",
+      "commitName": "479522112267a0448223d38870bf5d63e77a5c33",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,4 @@\n+protected QName _rootNameFromConfig() {\n+    String name \u003d _config.getRootName();\n+    return (name \u003d\u003d null) ? null : new QName(name);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected QName _rootNameFromConfig() {\n    String name \u003d _config.getRootName();\n    return (name \u003d\u003d null) ? null : new QName(name);\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+      "functionStartLine": 227,
+      "functionName": "_rootNameFromConfig",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

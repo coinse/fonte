@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-25b",
+  "repositoryPath": "/tmp/Jsoup-25b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "appendNormalisedText",
+  "functionId": "appendNormalisedText___accum-StringBuilder__textNode-TextNode",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 848,
+  "functionEndLine": 857,
+  "numCommitsSeen": 76,
+  "timeTaken": 1081,
+  "changeHistory": [
+    "e4917452778b4e1b19b2fcbe9f258e9e4061a97f"
+  ],
+  "changeHistoryShort": {
+    "e4917452778b4e1b19b2fcbe9f258e9e4061a97f": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e4917452778b4e1b19b2fcbe9f258e9e4061a97f": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented Element#ownText()\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "e4917452778b4e1b19b2fcbe9f258e9e4061a97f",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+private void appendNormalisedText(StringBuilder accum, TextNode textNode) {\n+    String text \u003d textNode.getWholeText();\n+    if (!preserveWhitespace()) {\n+        text \u003d TextNode.normaliseWhitespace(text);\n+        if (TextNode.lastCharIsWhitespace(accum))\n+            text \u003d TextNode.stripLeadingWhitespace(text);\n+    }\n+    accum.append(text);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void appendNormalisedText(StringBuilder accum, TextNode textNode) {\n    String text \u003d textNode.getWholeText();\n    if (!preserveWhitespace()) {\n        text \u003d TextNode.normaliseWhitespace(text);\n        if (TextNode.lastCharIsWhitespace(accum))\n            text \u003d TextNode.stripLeadingWhitespace(text);\n    }\n    accum.append(text);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 744,
+      "functionName": "appendNormalisedText",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

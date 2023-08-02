@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XmlSerializerProvider.java",
+  "functionName": "_asXmlGenerator",
+  "functionId": "_asXmlGenerator___gen-JsonGenerator",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 217,
+  "functionEndLine": 230,
+  "numCommitsSeen": 36,
+  "timeTaken": 607,
+  "changeHistory": [
+    "f4c7bb0fa6525e6143d7de21028690addd75e170",
+    "a6df5db642b1e7ed16cffa50f10b1ae6987b3ae3"
+  ],
+  "changeHistoryShort": {
+    "f4c7bb0fa6525e6143d7de21028690addd75e170": "Ymultichange(Yparameterchange,Ybodychange)",
+    "a6df5db642b1e7ed16cffa50f10b1ae6987b3ae3": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f4c7bb0fa6525e6143d7de21028690addd75e170": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Implemented #156\n",
+      "commitDate": "10/1/15, 8:16 PM",
+      "commitName": "f4c7bb0fa6525e6143d7de21028690addd75e170",
+      "commitAuthor": "Tatu Saloranta",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Implemented #156\n",
+          "commitDate": "10/1/15, 8:16 PM",
+          "commitName": "f4c7bb0fa6525e6143d7de21028690addd75e170",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "7/11/15, 9:45 PM",
+          "commitNameOld": "99abd4b9445137d7fb73e551138c8926226fc91e",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 81.94,
+          "commitsBetweenForRepo": 17,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected ToXmlGenerator _asXmlGenerator(JsonGenerator gen) throws JsonMappingException {\n    if (!(gen instanceof ToXmlGenerator)) {\n        if (!(gen instanceof TokenBuffer)) {\n            throw JsonMappingException.from(gen, \"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + gen.getClass().getName());\n        }\n        return null;\n    }\n    return (ToXmlGenerator) gen;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+          "functionStartLine": 255,
+          "functionName": "_asXmlGenerator",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,9 @@\n-protected ToXmlGenerator _asXmlGenerator(JsonGenerator jgen) throws JsonMappingException {\n-    if (!(jgen instanceof ToXmlGenerator)) {\n-        if (!(jgen instanceof TokenBuffer)) {\n-            throw new JsonMappingException(\"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + jgen.getClass().getName());\n+protected ToXmlGenerator _asXmlGenerator(JsonGenerator gen) throws JsonMappingException {\n+    if (!(gen instanceof ToXmlGenerator)) {\n+        if (!(gen instanceof TokenBuffer)) {\n+            throw JsonMappingException.from(gen, \"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + gen.getClass().getName());\n         }\n         return null;\n     }\n-    return (ToXmlGenerator) jgen;\n+    return (ToXmlGenerator) gen;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[jgen-JsonGenerator]",
+            "newValue": "[gen-JsonGenerator]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Implemented #156\n",
+          "commitDate": "10/1/15, 8:16 PM",
+          "commitName": "f4c7bb0fa6525e6143d7de21028690addd75e170",
+          "commitAuthor": "Tatu Saloranta",
+          "commitDateOld": "7/11/15, 9:45 PM",
+          "commitNameOld": "99abd4b9445137d7fb73e551138c8926226fc91e",
+          "commitAuthorOld": "Tatu Saloranta",
+          "daysBetweenCommits": 81.94,
+          "commitsBetweenForRepo": 17,
+          "commitsBetweenForFile": 1,
+          "actualSource": "protected ToXmlGenerator _asXmlGenerator(JsonGenerator gen) throws JsonMappingException {\n    if (!(gen instanceof ToXmlGenerator)) {\n        if (!(gen instanceof TokenBuffer)) {\n            throw JsonMappingException.from(gen, \"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + gen.getClass().getName());\n        }\n        return null;\n    }\n    return (ToXmlGenerator) gen;\n}",
+          "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+          "functionStartLine": 255,
+          "functionName": "_asXmlGenerator",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,9 +1,9 @@\n-protected ToXmlGenerator _asXmlGenerator(JsonGenerator jgen) throws JsonMappingException {\n-    if (!(jgen instanceof ToXmlGenerator)) {\n-        if (!(jgen instanceof TokenBuffer)) {\n-            throw new JsonMappingException(\"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + jgen.getClass().getName());\n+protected ToXmlGenerator _asXmlGenerator(JsonGenerator gen) throws JsonMappingException {\n+    if (!(gen instanceof ToXmlGenerator)) {\n+        if (!(gen instanceof TokenBuffer)) {\n+            throw JsonMappingException.from(gen, \"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + gen.getClass().getName());\n         }\n         return null;\n     }\n-    return (ToXmlGenerator) jgen;\n+    return (ToXmlGenerator) gen;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "a6df5db642b1e7ed16cffa50f10b1ae6987b3ae3": {
+      "type": "Yintroduced",
+      "commitMessage": "Fix #71, problems with XmlMapper.convertValue()\n",
+      "commitDate": "8/15/13, 11:28 AM",
+      "commitName": "a6df5db642b1e7ed16cffa50f10b1ae6987b3ae3",
+      "commitAuthor": "Tatu Saloranta",
+      "diff": "@@ -0,0 +1,9 @@\n+protected ToXmlGenerator _asXmlGenerator(JsonGenerator jgen) throws JsonMappingException {\n+    if (!(jgen instanceof ToXmlGenerator)) {\n+        if (!(jgen instanceof TokenBuffer)) {\n+            throw new JsonMappingException(\"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + jgen.getClass().getName());\n+        }\n+        return null;\n+    }\n+    return (ToXmlGenerator) jgen;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected ToXmlGenerator _asXmlGenerator(JsonGenerator jgen) throws JsonMappingException {\n    if (!(jgen instanceof ToXmlGenerator)) {\n        if (!(jgen instanceof TokenBuffer)) {\n            throw new JsonMappingException(\"XmlMapper does not with generators of type other than ToXmlGenerator; got: \" + jgen.getClass().getName());\n        }\n        return null;\n    }\n    return (ToXmlGenerator) jgen;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+      "functionStartLine": 252,
+      "functionName": "_asXmlGenerator",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

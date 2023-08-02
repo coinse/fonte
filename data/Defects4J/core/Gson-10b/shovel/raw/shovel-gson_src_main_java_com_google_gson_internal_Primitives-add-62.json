@@ -1,0 +1,142 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Primitives.java",
+  "functionName": "add",
+  "functionId": "add___forward-Map__Class__?__,Class__?______backward-Map__Class__?__,Class__?______key-Class__?____value-Class__?__",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/internal/Primitives.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 62,
+  "functionEndLine": 66,
+  "numCommitsSeen": 17,
+  "timeTaken": 687,
+  "changeHistory": [
+    "25c6ae177b1ca56db7f3c29eb574bdd032a06165",
+    "5bc80cd6937faae894c5b578b78ed071c7c8d61d",
+    "4efb133b4a6cc93708dda782d948b9c88c3b5ff0",
+    "861e047a6222d581ecf1f617599629bbf8654d34",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b"
+  ],
+  "changeHistoryShort": {
+    "25c6ae177b1ca56db7f3c29eb574bdd032a06165": "Yfilerename",
+    "5bc80cd6937faae894c5b578b78ed071c7c8d61d": "Yfilerename",
+    "4efb133b4a6cc93708dda782d948b9c88c3b5ff0": "Yfilerename",
+    "861e047a6222d581ecf1f617599629bbf8654d34": "Yfilerename",
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "25c6ae177b1ca56db7f3c29eb574bdd032a06165": {
+      "type": "Yfilerename",
+      "commitMessage": "Down to 22 failing tests.\n\nConsolidated all of the different code paths that we use to construct instances. We now have an ObjectConstructor class that knows what type it constructs; this means that we don\u0027t need to ever do reflection to lookup a constructor at construction time.\n\nCleaned up some buggy type adapters, particularly around handling of null.\n\nRemoved dead code for object graph navigation.\n\nMoved some classes into \u0027internal\u0027 so they are visible to the \u0027bind\u0027 subpackage.\n\nTurned some TypeAdapterFactory/TypeAdapter pairs inside out so that the TypeAdapter is now the inner class. This is necessary so that the factories can take parameters.\n\nAdded an API to request the \u0027next\u0027 type adapter for a type. This allows type adapters to compose other type adapters. We\u0027re using this in two places:\n - where the user has excluded a type from serialization but not deserialization, we need to use the \"default\" deserialization but interpose null on serialization. We create a type adapter that delegates for one and returns null for the other.\n - similarly when a DOM type serializer is registered but no deserializer, or vice versa.\nThis is the biggest change to the MiniGson core.\n\nFor backwards compatibility, return null for the empty string.\n\nSimplify JsonSerializationContext/JsonDeserializationContext to simply call through to GSON. SerializeDefault is currently unsupported.\n\nMore useful error messages when calling getAsBoolean on a JsonNull.\n\nRemove currently unused MemoryRefStack. We might need this back again, though wiring it back in will be much more difficult because we don\u0027t interject ourselves between the users\u0027 various type adapters.\n",
+      "commitDate": "9/11/11, 12:04 AM",
+      "commitName": "25c6ae177b1ca56db7f3c29eb574bdd032a06165",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "9/9/11, 1:17 AM",
+      "commitNameOld": "cdd5d80b85155c21c61f888fb3e70c65e72edef7",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 1.95,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void add(Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e forward, Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e backward, Class\u003c?\u003e key, Class\u003c?\u003e value) {\n    forward.put(key, value);\n    backward.put(value, key);\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/Primitives.java",
+      "functionStartLine": 61,
+      "functionName": "add",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "gson/src/main/java/com/google/gson/Primitives.java",
+        "newPath": "gson/src/main/java/com/google/gson/internal/Primitives.java"
+      }
+    },
+    "5bc80cd6937faae894c5b578b78ed071c7c8d61d": {
+      "type": "Yfilerename",
+      "commitMessage": "Moved Cache, LruCache, Pair, Primitives and UnsafeAllocator to com.google.gson and made them package private.\n",
+      "commitDate": "3/30/11, 6:59 AM",
+      "commitName": "5bc80cd6937faae894c5b578b78ed071c7c8d61d",
+      "commitAuthor": "Inderjeet Singh",
+      "commitDateOld": "3/29/11, 2:48 PM",
+      "commitNameOld": "46a8e9b4119992d73e61dc1ce37f2b94d53c819e",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 0.67,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void add(Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e forward, Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e backward, Class\u003c?\u003e key, Class\u003c?\u003e value) {\n    forward.put(key, value);\n    backward.put(value, key);\n}",
+      "path": "gson/src/main/java/com/google/gson/Primitives.java",
+      "functionStartLine": 62,
+      "functionName": "add",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "gson/src/main/java/com/google/gson/internal/$Primitives.java",
+        "newPath": "gson/src/main/java/com/google/gson/Primitives.java"
+      }
+    },
+    "4efb133b4a6cc93708dda782d948b9c88c3b5ff0": {
+      "type": "Yfilerename",
+      "commitMessage": "bling bling\n\nPrefix internal classes with $ to prevent them from interfering with IDE\u0027s auto import functionality.\n",
+      "commitDate": "3/29/11, 2:24 PM",
+      "commitName": "4efb133b4a6cc93708dda782d948b9c88c3b5ff0",
+      "commitAuthor": "Jesse Wilson",
+      "commitDateOld": "3/29/11, 2:18 PM",
+      "commitNameOld": "5e74dabad9acaed40c2c0db88680f09bbbdbf28d",
+      "commitAuthorOld": "Joel Leitch",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void add(Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e forward, Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e backward, Class\u003c?\u003e key, Class\u003c?\u003e value) {\n    forward.put(key, value);\n    backward.put(value, key);\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/$Primitives.java",
+      "functionStartLine": 60,
+      "functionName": "add",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "gson/src/main/java/com/google/gson/internal/Primitives.java",
+        "newPath": "gson/src/main/java/com/google/gson/internal/$Primitives.java"
+      }
+    },
+    "861e047a6222d581ecf1f617599629bbf8654d34": {
+      "type": "Yfilerename",
+      "commitMessage": "Create an \"internals\" package for classes that we do not want to share, but is needed across multiple pacakges.\n\nAs well, move non-Gson specific classes, such as Preconditions, to this new \"internals\" package.\n",
+      "commitDate": "3/21/11, 3:30 PM",
+      "commitName": "861e047a6222d581ecf1f617599629bbf8654d34",
+      "commitAuthor": "Joel Leitch",
+      "commitDateOld": "3/21/11, 3:10 PM",
+      "commitNameOld": "657688ca797a08975aea47d364b309ac8b7c12bb",
+      "commitAuthorOld": "Jesse Wilson",
+      "daysBetweenCommits": 0.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static void add(Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e forward, Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e backward, Class\u003c?\u003e key, Class\u003c?\u003e value) {\n    forward.put(key, value);\n    backward.put(value, key);\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/Primitives.java",
+      "functionStartLine": 60,
+      "functionName": "add",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "gson/src/main/java/com/google/gson/Primitives.java",
+        "newPath": "gson/src/main/java/com/google/gson/internal/Primitives.java"
+      }
+    },
+    "57d1f32de5bf3a7dd54613384cc7e979fba2660b": {
+      "type": "Yintroduced",
+      "commitMessage": "moved gson as a project under trunk\n",
+      "commitDate": "8/31/08, 8:13 PM",
+      "commitName": "57d1f32de5bf3a7dd54613384cc7e979fba2660b",
+      "commitAuthor": "Inderjeet Singh",
+      "diff": "@@ -0,0 +1,4 @@\n+private static void add(Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e forward, Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e backward, Class\u003c?\u003e key, Class\u003c?\u003e value) {\n+    forward.put(key, value);\n+    backward.put(value, key);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void add(Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e forward, Map\u003cClass\u003c?\u003e, Class\u003c?\u003e\u003e backward, Class\u003c?\u003e key, Class\u003c?\u003e value) {\n    forward.put(key, value);\n    backward.put(value, key);\n}",
+      "path": "gson/src/main/java/com/google/gson/Primitives.java",
+      "functionStartLine": 58,
+      "functionName": "add",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

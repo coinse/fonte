@@ -1,0 +1,89 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-47b",
+  "repositoryPath": "/tmp/Jsoup-47b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HtmlTreeBuilder.java",
+  "functionName": "getActiveFormattingElement",
+  "functionId": "getActiveFormattingElement___nodeName-String",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 654,
+  "functionEndLine": 663,
+  "numCommitsSeen": 26,
+  "timeTaken": 2351,
+  "changeHistory": [
+    "01a62698797658b0f51d323fdfb5e9744d843773",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "01a62698797658b0f51d323fdfb5e9744d843773": "Ybodychange",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": "Ymovefromfile",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "01a62698797658b0f51d323fdfb5e9744d843773": {
+      "type": "Ybodychange",
+      "commitMessage": "Use ArrayList instead of LinkedList\n\nMuch less GC - less iterators, lest next items, etc.\n",
+      "commitDate": "10/26/14, 5:40 PM",
+      "commitName": "01a62698797658b0f51d323fdfb5e9744d843773",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/17/14, 1:42 PM",
+      "commitNameOld": "f879638bfa91af80ad02d9b0c92efb7a5fc86f2a",
+      "commitAuthorOld": "offa",
+      "daysBetweenCommits": 9.17,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "Element getActiveFormattingElement(String nodeName) {\n    for (int pos \u003d formattingElements.size() - 1; pos \u003e\u003d 0; pos--) {\n        Element next \u003d formattingElements.get(pos);\n        if (next \u003d\u003d null)\n            break;\n        else if (next.nodeName().equals(nodeName))\n            return next;\n    }\n    return null;\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 650,
+      "functionName": "getActiveFormattingElement",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,11 +1,10 @@\n Element getActiveFormattingElement(String nodeName) {\n-    Iterator\u003cElement\u003e it \u003d formattingElements.descendingIterator();\n-    while (it.hasNext()) {\n-        Element next \u003d it.next();\n+    for (int pos \u003d formattingElements.size() - 1; pos \u003e\u003d 0; pos--) {\n+        Element next \u003d formattingElements.get(pos);\n         if (next \u003d\u003d null)\n             break;\n         else if (next.nodeName().equals(nodeName))\n             return next;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": {
+      "type": "Ymovefromfile",
+      "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+      "commitDate": "2/26/12, 5:23 PM",
+      "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "9/30/11, 6:13 PM",
+      "commitNameOld": "1e84edbe208aab0c9330eadc50f9773d81d70cd6",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 149.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "Element getActiveFormattingElement(String nodeName) {\n    Iterator\u003cElement\u003e it \u003d formattingElements.descendingIterator();\n    while (it.hasNext()) {\n        Element next \u003d it.next();\n        if (next \u003d\u003d null)\n            break;\n        else if (next.nodeName().equals(nodeName))\n            return next;\n    }\n    return null;\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 621,
+      "functionName": "getActiveFormattingElement",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+        "newPath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+        "oldMethodName": "getActiveFormattingElement",
+        "newMethodName": "getActiveFormattingElement"
+      }
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+Element getActiveFormattingElement(String nodeName) {\n+    Iterator\u003cElement\u003e it \u003d formattingElements.descendingIterator();\n+    while (it.hasNext()) {\n+        Element next \u003d it.next();\n+        if (next \u003d\u003d null)\n+            break;\n+        else if (next.nodeName().equals(nodeName))\n+            return next;\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "Element getActiveFormattingElement(String nodeName) {\n    Iterator\u003cElement\u003e it \u003d formattingElements.descendingIterator();\n    while (it.hasNext()) {\n        Element next \u003d it.next();\n        if (next \u003d\u003d null)\n            break;\n        else if (next.nodeName().equals(nodeName))\n            return next;\n    }\n    return null;\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 647,
+      "functionName": "getActiveFormattingElement",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

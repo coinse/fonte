@@ -1,0 +1,148 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-47b",
+  "repositoryPath": "/tmp/Jsoup-47b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HtmlTreeBuilder.java",
+  "functionName": "isElementInQueue",
+  "functionId": "isElementInQueue___queue-ArrayList__Element____element-Element",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 273,
+  "functionEndLine": 281,
+  "numCommitsSeen": 40,
+  "timeTaken": 2296,
+  "changeHistory": [
+    "01a62698797658b0f51d323fdfb5e9744d843773",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+    "e30ed5d35cbcb92584d7fee8ae862f3929e443d8",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "01a62698797658b0f51d323fdfb5e9744d843773": "Ymultichange(Yparameterchange,Ybodychange)",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": "Ymovefromfile",
+    "e30ed5d35cbcb92584d7fee8ae862f3929e443d8": "Yparameterchange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "01a62698797658b0f51d323fdfb5e9744d843773": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Use ArrayList instead of LinkedList\n\nMuch less GC - less iterators, lest next items, etc.\n",
+      "commitDate": "10/26/14, 5:40 PM",
+      "commitName": "01a62698797658b0f51d323fdfb5e9744d843773",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Use ArrayList instead of LinkedList\n\nMuch less GC - less iterators, lest next items, etc.\n",
+          "commitDate": "10/26/14, 5:40 PM",
+          "commitName": "01a62698797658b0f51d323fdfb5e9744d843773",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "10/17/14, 1:42 PM",
+          "commitNameOld": "f879638bfa91af80ad02d9b0c92efb7a5fc86f2a",
+          "commitAuthorOld": "offa",
+          "daysBetweenCommits": 9.17,
+          "commitsBetweenForRepo": 10,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isElementInQueue(ArrayList\u003cElement\u003e queue, Element element) {\n    for (int pos \u003d queue.size() - 1; pos \u003e\u003d 0; pos--) {\n        Element next \u003d queue.get(pos);\n        if (next \u003d\u003d element) {\n            return true;\n        }\n    }\n    return false;\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+          "functionStartLine": 272,
+          "functionName": "isElementInQueue",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,9 @@\n-private boolean isElementInQueue(DescendableLinkedList\u003cElement\u003e queue, Element element) {\n-    Iterator\u003cElement\u003e it \u003d queue.descendingIterator();\n-    while (it.hasNext()) {\n-        Element next \u003d it.next();\n+private boolean isElementInQueue(ArrayList\u003cElement\u003e queue, Element element) {\n+    for (int pos \u003d queue.size() - 1; pos \u003e\u003d 0; pos--) {\n+        Element next \u003d queue.get(pos);\n         if (next \u003d\u003d element) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[queue-DescendableLinkedList\u003cElement\u003e, element-Element]",
+            "newValue": "[queue-ArrayList\u003cElement\u003e, element-Element]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Use ArrayList instead of LinkedList\n\nMuch less GC - less iterators, lest next items, etc.\n",
+          "commitDate": "10/26/14, 5:40 PM",
+          "commitName": "01a62698797658b0f51d323fdfb5e9744d843773",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "10/17/14, 1:42 PM",
+          "commitNameOld": "f879638bfa91af80ad02d9b0c92efb7a5fc86f2a",
+          "commitAuthorOld": "offa",
+          "daysBetweenCommits": 9.17,
+          "commitsBetweenForRepo": 10,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean isElementInQueue(ArrayList\u003cElement\u003e queue, Element element) {\n    for (int pos \u003d queue.size() - 1; pos \u003e\u003d 0; pos--) {\n        Element next \u003d queue.get(pos);\n        if (next \u003d\u003d element) {\n            return true;\n        }\n    }\n    return false;\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+          "functionStartLine": 272,
+          "functionName": "isElementInQueue",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,9 @@\n-private boolean isElementInQueue(DescendableLinkedList\u003cElement\u003e queue, Element element) {\n-    Iterator\u003cElement\u003e it \u003d queue.descendingIterator();\n-    while (it.hasNext()) {\n-        Element next \u003d it.next();\n+private boolean isElementInQueue(ArrayList\u003cElement\u003e queue, Element element) {\n+    for (int pos \u003d queue.size() - 1; pos \u003e\u003d 0; pos--) {\n+        Element next \u003d queue.get(pos);\n         if (next \u003d\u003d element) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": {
+      "type": "Ymovefromfile",
+      "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+      "commitDate": "2/26/12, 5:23 PM",
+      "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "9/30/11, 6:13 PM",
+      "commitNameOld": "1e84edbe208aab0c9330eadc50f9773d81d70cd6",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 149.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isElementInQueue(DescendableLinkedList\u003cElement\u003e queue, Element element) {\n    Iterator\u003cElement\u003e it \u003d queue.descendingIterator();\n    while (it.hasNext()) {\n        Element next \u003d it.next();\n        if (next \u003d\u003d element) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 227,
+      "functionName": "isElementInQueue",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+        "newPath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+        "oldMethodName": "isElementInQueue",
+        "newMethodName": "isElementInQueue"
+      }
+    },
+    "e30ed5d35cbcb92584d7fee8ae862f3929e443d8": {
+      "type": "Yparameterchange",
+      "commitMessage": "Fix Java 1.5 compatibility\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "e30ed5d35cbcb92584d7fee8ae862f3929e443d8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 20,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean isElementInQueue(DescendableLinkedList\u003cElement\u003e queue, Element element) {\n    Iterator\u003cElement\u003e it \u003d queue.descendingIterator();\n    while (it.hasNext()) {\n        Element next \u003d it.next();\n        if (next \u003d\u003d element) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 255,
+      "functionName": "isElementInQueue",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,10 +1,10 @@\n-private boolean isElementInQueue(LinkedList\u003cElement\u003e queue, Element element) {\n+private boolean isElementInQueue(DescendableLinkedList\u003cElement\u003e queue, Element element) {\n     Iterator\u003cElement\u003e it \u003d queue.descendingIterator();\n     while (it.hasNext()) {\n         Element next \u003d it.next();\n         if (next \u003d\u003d element) {\n             return true;\n         }\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[queue-LinkedList\u003cElement\u003e, element-Element]",
+        "newValue": "[queue-DescendableLinkedList\u003cElement\u003e, element-Element]"
+      }
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,10 @@\n+private boolean isElementInQueue(LinkedList\u003cElement\u003e queue, Element element) {\n+    Iterator\u003cElement\u003e it \u003d queue.descendingIterator();\n+    while (it.hasNext()) {\n+        Element next \u003d it.next();\n+        if (next \u003d\u003d element) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean isElementInQueue(LinkedList\u003cElement\u003e queue, Element element) {\n    Iterator\u003cElement\u003e it \u003d queue.descendingIterator();\n    while (it.hasNext()) {\n        Element next \u003d it.next();\n        if (next \u003d\u003d element) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 254,
+      "functionName": "isElementInQueue",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-12b",
+  "repositoryPath": "/tmp/JxPath-12b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NamespaceResolver.java",
+  "functionName": "registerNamespace",
+  "functionId": "registerNamespace___prefix-String__namespaceURI-String",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/NamespaceResolver.java",
+  "functionAnnotation": "",
+  "functionDoc": "Registers a namespace prefix.\n\n@param prefix A namespace prefix\n@param namespaceURI A URI for that prefix\n",
+  "functionStartLine": 61,
+  "functionEndLine": 67,
+  "numCommitsSeen": 13,
+  "timeTaken": 1156,
+  "changeHistory": [
+    "d856f5476226f91c8531ec19deb8fadf9905c11a",
+    "9c73abdb5ab03982427f71b677987aaecd558aef",
+    "b1e1383fd8c33fc246ee253e6a9f7a047d3da38a"
+  ],
+  "changeHistoryShort": {
+    "d856f5476226f91c8531ec19deb8fadf9905c11a": "Ymultichange(Ymodifierchange,Ybodychange)",
+    "9c73abdb5ab03982427f71b677987aaecd558aef": "Ybodychange",
+    "b1e1383fd8c33fc246ee253e6a9f7a047d3da38a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d856f5476226f91c8531ec19deb8fadf9905c11a": {
+      "type": "Ymultichange(Ymodifierchange,Ybodychange)",
+      "commitMessage": "complete sealing handling\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@546994 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/13/07, 11:45 AM",
+      "commitName": "d856f5476226f91c8531ec19deb8fadf9905c11a",
+      "commitAuthor": "Matthew Jason Benson",
+      "subchanges": [
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "complete sealing handling\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@546994 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "6/13/07, 11:45 AM",
+          "commitName": "d856f5476226f91c8531ec19deb8fadf9905c11a",
+          "commitAuthor": "Matthew Jason Benson",
+          "commitDateOld": "5/24/07, 3:04 PM",
+          "commitNameOld": "2afb75f6bd8896153bc4abe0e3b4640b0a7bcd63",
+          "commitAuthorOld": "Matthew Jason Benson",
+          "daysBetweenCommits": 19.86,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public synchronized void registerNamespace(String prefix, String namespaceURI) {\n    if (isSealed()) {\n        throw new IllegalStateException(\"Cannot register namespaces on a sealed NamespaceResolver\");\n    }\n    namespaceMap.put(prefix, namespaceURI);\n    reverseMap \u003d null;\n}",
+          "path": "src/java/org/apache/commons/jxpath/ri/NamespaceResolver.java",
+          "functionStartLine": 61,
+          "functionName": "registerNamespace",
+          "functionAnnotation": "",
+          "functionDoc": "Registers a namespace prefix.\n\n@param prefix A namespace prefix\n@param namespaceURI A URI for that prefix\n",
+          "diff": "@@ -1,4 +1,7 @@\n-public void registerNamespace(String prefix, String namespaceURI) {\n+public synchronized void registerNamespace(String prefix, String namespaceURI) {\n+    if (isSealed()) {\n+        throw new IllegalStateException(\"Cannot register namespaces on a sealed NamespaceResolver\");\n+    }\n     namespaceMap.put(prefix, namespaceURI);\n     reverseMap \u003d null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[public]",
+            "newValue": "[public, synchronized]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "complete sealing handling\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@546994 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "6/13/07, 11:45 AM",
+          "commitName": "d856f5476226f91c8531ec19deb8fadf9905c11a",
+          "commitAuthor": "Matthew Jason Benson",
+          "commitDateOld": "5/24/07, 3:04 PM",
+          "commitNameOld": "2afb75f6bd8896153bc4abe0e3b4640b0a7bcd63",
+          "commitAuthorOld": "Matthew Jason Benson",
+          "daysBetweenCommits": 19.86,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public synchronized void registerNamespace(String prefix, String namespaceURI) {\n    if (isSealed()) {\n        throw new IllegalStateException(\"Cannot register namespaces on a sealed NamespaceResolver\");\n    }\n    namespaceMap.put(prefix, namespaceURI);\n    reverseMap \u003d null;\n}",
+          "path": "src/java/org/apache/commons/jxpath/ri/NamespaceResolver.java",
+          "functionStartLine": 61,
+          "functionName": "registerNamespace",
+          "functionAnnotation": "",
+          "functionDoc": "Registers a namespace prefix.\n\n@param prefix A namespace prefix\n@param namespaceURI A URI for that prefix\n",
+          "diff": "@@ -1,4 +1,7 @@\n-public void registerNamespace(String prefix, String namespaceURI) {\n+public synchronized void registerNamespace(String prefix, String namespaceURI) {\n+    if (isSealed()) {\n+        throw new IllegalStateException(\"Cannot register namespaces on a sealed NamespaceResolver\");\n+    }\n     namespaceMap.put(prefix, namespaceURI);\n     reverseMap \u003d null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "9c73abdb5ab03982427f71b677987aaecd558aef": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed a bug having to do with the caching or the reverseMap\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136914 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "6/29/04, 3:57 PM",
+      "commitName": "9c73abdb5ab03982427f71b677987aaecd558aef",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "3/31/04, 6:55 PM",
+      "commitNameOld": "b1e1383fd8c33fc246ee253e6a9f7a047d3da38a",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 89.83,
+      "commitsBetweenForRepo": 10,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void registerNamespace(String prefix, String namespaceURI) {\n    namespaceMap.put(prefix, namespaceURI);\n    reverseMap \u003d null;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/NamespaceResolver.java",
+      "functionStartLine": 46,
+      "functionName": "registerNamespace",
+      "functionAnnotation": "",
+      "functionDoc": "Registers a namespace prefix.\n\n@param prefix A namespace prefix\n@param namespaceURI A URI for that prefix\n",
+      "diff": "@@ -1,3 +1,4 @@\n public void registerNamespace(String prefix, String namespaceURI) {\n     namespaceMap.put(prefix, namespaceURI);\n+    reverseMap \u003d null;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "b1e1383fd8c33fc246ee253e6a9f7a047d3da38a": {
+      "type": "Yintroduced",
+      "commitMessage": "Introduced prefix registration with JXPathContext\nFixed a number or problems with namespace matching\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136904 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/31/04, 6:55 PM",
+      "commitName": "b1e1383fd8c33fc246ee253e6a9f7a047d3da38a",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,3 @@\n+public void registerNamespace(String prefix, String namespaceURI) {\n+    namespaceMap.put(prefix, namespaceURI);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void registerNamespace(String prefix, String namespaceURI) {\n    namespaceMap.put(prefix, namespaceURI);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/NamespaceResolver.java",
+      "functionStartLine": 46,
+      "functionName": "registerNamespace",
+      "functionAnnotation": "",
+      "functionDoc": "Registers a namespace prefix.\n\n@param prefix A namespace prefix\n@param namespaceURI A URI for that prefix\n"
+    }
+  }
+}

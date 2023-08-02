@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-25b",
+  "repositoryPath": "/tmp/Jsoup-25b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtil.java",
+  "functionName": "normaliseWhitespace",
+  "functionId": "normaliseWhitespace___string-String",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/StringUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 106,
+  "functionEndLine": 131,
+  "numCommitsSeen": 7,
+  "timeTaken": 402,
+  "changeHistory": [
+    "dd4b68223f30d8142f26a13582d0b996dece6588",
+    "e8e29ca111772980970275662e0027fa695d9f27"
+  ],
+  "changeHistoryShort": {
+    "dd4b68223f30d8142f26a13582d0b996dece6588": "Ybodychange",
+    "e8e29ca111772980970275662e0027fa695d9f27": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "dd4b68223f30d8142f26a13582d0b996dece6588": {
+      "type": "Ybodychange",
+      "commitMessage": "Change what considered as \"whitespace\"\n",
+      "commitDate": "3/14/12, 11:19 PM",
+      "commitName": "dd4b68223f30d8142f26a13582d0b996dece6588",
+      "commitAuthor": "TzeKei Lee",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 256.8,
+      "commitsBetweenForRepo": 56,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static String normaliseWhitespace(String string) {\n    StringBuilder sb \u003d new StringBuilder(string.length());\n    boolean lastWasWhite \u003d false;\n    boolean modified \u003d false;\n    int l \u003d string.length();\n    for (int i \u003d 0; i \u003c l; i++) {\n        int c \u003d string.codePointAt(i);\n        if (isWhitespace(c)) {\n            if (lastWasWhite) {\n                modified \u003d true;\n                continue;\n            }\n            if (c !\u003d \u0027 \u0027)\n                modified \u003d true;\n            sb.append(\u0027 \u0027);\n            lastWasWhite \u003d true;\n        } else {\n            sb.appendCodePoint(c);\n            lastWasWhite \u003d false;\n        }\n    }\n    return modified ? sb.toString() : string;\n}",
+      "path": "src/main/java/org/jsoup/helper/StringUtil.java",
+      "functionStartLine": 109,
+      "functionName": "normaliseWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,23 +1,23 @@\n public static String normaliseWhitespace(String string) {\n     StringBuilder sb \u003d new StringBuilder(string.length());\n     boolean lastWasWhite \u003d false;\n     boolean modified \u003d false;\n     int l \u003d string.length();\n     for (int i \u003d 0; i \u003c l; i++) {\n         int c \u003d string.codePointAt(i);\n-        if (Character.isWhitespace(c)) {\n+        if (isWhitespace(c)) {\n             if (lastWasWhite) {\n                 modified \u003d true;\n                 continue;\n             }\n             if (c !\u003d \u0027 \u0027)\n                 modified \u003d true;\n             sb.append(\u0027 \u0027);\n             lastWasWhite \u003d true;\n         } else {\n             sb.appendCodePoint(c);\n             lastWasWhite \u003d false;\n         }\n     }\n     return modified ? sb.toString() : string;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e8e29ca111772980970275662e0027fa695d9f27": {
+      "type": "Yintroduced",
+      "commitMessage": "Optimised normaliseWhitespace\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "e8e29ca111772980970275662e0027fa695d9f27",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,23 @@\n+public static String normaliseWhitespace(String string) {\n+    StringBuilder sb \u003d new StringBuilder(string.length());\n+    boolean lastWasWhite \u003d false;\n+    boolean modified \u003d false;\n+    int l \u003d string.length();\n+    for (int i \u003d 0; i \u003c l; i++) {\n+        int c \u003d string.codePointAt(i);\n+        if (Character.isWhitespace(c)) {\n+            if (lastWasWhite) {\n+                modified \u003d true;\n+                continue;\n+            }\n+            if (c !\u003d \u0027 \u0027)\n+                modified \u003d true;\n+            sb.append(\u0027 \u0027);\n+            lastWasWhite \u003d true;\n+        } else {\n+            sb.appendCodePoint(c);\n+            lastWasWhite \u003d false;\n+        }\n+    }\n+    return modified ? sb.toString() : string;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static String normaliseWhitespace(String string) {\n    StringBuilder sb \u003d new StringBuilder(string.length());\n    boolean lastWasWhite \u003d false;\n    boolean modified \u003d false;\n    int l \u003d string.length();\n    for (int i \u003d 0; i \u003c l; i++) {\n        int c \u003d string.codePointAt(i);\n        if (Character.isWhitespace(c)) {\n            if (lastWasWhite) {\n                modified \u003d true;\n                continue;\n            }\n            if (c !\u003d \u0027 \u0027)\n                modified \u003d true;\n            sb.append(\u0027 \u0027);\n            lastWasWhite \u003d true;\n        } else {\n            sb.appendCodePoint(c);\n            lastWasWhite \u003d false;\n        }\n    }\n    return modified ? sb.toString() : string;\n}",
+      "path": "src/main/java/org/jsoup/helper/StringUtil.java",
+      "functionStartLine": 97,
+      "functionName": "normaliseWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

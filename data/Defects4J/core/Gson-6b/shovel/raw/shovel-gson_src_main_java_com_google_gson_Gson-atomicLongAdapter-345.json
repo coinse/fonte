@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-6b",
+  "repositoryPath": "/tmp/Gson-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Gson.java",
+  "functionName": "atomicLongAdapter",
+  "functionId": "atomicLongAdapter___longAdapter-TypeAdapter__Number__(modifiers-final)",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/Gson.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 345,
+  "functionEndLine": 355,
+  "numCommitsSeen": 177,
+  "timeTaken": 912,
+  "changeHistory": [
+    "cc54e4dbdd16c6d269eb6686f472999445cba22b",
+    "7821b73202a878bea091d4bc97195fdd87d76382"
+  ],
+  "changeHistoryShort": {
+    "cc54e4dbdd16c6d269eb6686f472999445cba22b": "Ymodifierchange",
+    "7821b73202a878bea091d4bc97195fdd87d76382": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cc54e4dbdd16c6d269eb6686f472999445cba22b": {
+      "type": "Ymodifierchange",
+      "commitMessage": "made methods static\n",
+      "commitDate": "11/5/15, 10:46 AM",
+      "commitName": "cc54e4dbdd16c6d269eb6686f472999445cba22b",
+      "commitAuthor": "Inderjeet Singh",
+      "commitDateOld": "11/5/15, 10:45 AM",
+      "commitNameOld": "7821b73202a878bea091d4bc97195fdd87d76382",
+      "commitAuthorOld": "Inderjeet Singh",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static TypeAdapter\u003cAtomicLong\u003e atomicLongAdapter(final TypeAdapter\u003cNumber\u003e longAdapter) {\n    return new TypeAdapter\u003cAtomicLong\u003e() {\n\n        @Override\n        public void write(JsonWriter out, AtomicLong value) throws IOException {\n            longAdapter.write(out, value.get());\n        }\n\n        @Override\n        public AtomicLong read(JsonReader in) throws IOException {\n            Number value \u003d longAdapter.read(in);\n            return new AtomicLong(value.longValue());\n        }\n    }.nullSafe();\n}",
+      "path": "gson/src/main/java/com/google/gson/Gson.java",
+      "functionStartLine": 336,
+      "functionName": "atomicLongAdapter",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,15 +1,15 @@\n-private TypeAdapter\u003cAtomicLong\u003e atomicLongAdapter(final TypeAdapter\u003cNumber\u003e longAdapter) {\n+private static TypeAdapter\u003cAtomicLong\u003e atomicLongAdapter(final TypeAdapter\u003cNumber\u003e longAdapter) {\n     return new TypeAdapter\u003cAtomicLong\u003e() {\n \n         @Override\n         public void write(JsonWriter out, AtomicLong value) throws IOException {\n             longAdapter.write(out, value.get());\n         }\n \n         @Override\n         public AtomicLong read(JsonReader in) throws IOException {\n             Number value \u003d longAdapter.read(in);\n             return new AtomicLong(value.longValue());\n         }\n     }.nullSafe();\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[private]",
+        "newValue": "[private, static]"
+      }
+    },
+    "7821b73202a878bea091d4bc97195fdd87d76382": {
+      "type": "Yintroduced",
+      "commitMessage": "Added support for AtomicInteger, AtomicBoolean, AtomicLong and AtomicIntegerArray.\n",
+      "commitDate": "11/5/15, 10:45 AM",
+      "commitName": "7821b73202a878bea091d4bc97195fdd87d76382",
+      "commitAuthor": "Inderjeet Singh",
+      "diff": "@@ -0,0 +1,15 @@\n+private TypeAdapter\u003cAtomicLong\u003e atomicLongAdapter(final TypeAdapter\u003cNumber\u003e longAdapter) {\n+    return new TypeAdapter\u003cAtomicLong\u003e() {\n+\n+        @Override\n+        public void write(JsonWriter out, AtomicLong value) throws IOException {\n+            longAdapter.write(out, value.get());\n+        }\n+\n+        @Override\n+        public AtomicLong read(JsonReader in) throws IOException {\n+            Number value \u003d longAdapter.read(in);\n+            return new AtomicLong(value.longValue());\n+        }\n+    }.nullSafe();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private TypeAdapter\u003cAtomicLong\u003e atomicLongAdapter(final TypeAdapter\u003cNumber\u003e longAdapter) {\n    return new TypeAdapter\u003cAtomicLong\u003e() {\n\n        @Override\n        public void write(JsonWriter out, AtomicLong value) throws IOException {\n            longAdapter.write(out, value.get());\n        }\n\n        @Override\n        public AtomicLong read(JsonReader in) throws IOException {\n            Number value \u003d longAdapter.read(in);\n            return new AtomicLong(value.longValue());\n        }\n    }.nullSafe();\n}",
+      "path": "gson/src/main/java/com/google/gson/Gson.java",
+      "functionStartLine": 336,
+      "functionName": "atomicLongAdapter",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

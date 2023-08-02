@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-24b",
+  "repositoryPath": "/tmp/Jsoup-24b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokeniserState.java",
+  "functionName": "anythingElse",
+  "functionId": "$anythingElse___t-Tokeniser__r-CharacterReader",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 588,
+  "functionEndLine": 591,
+  "numCommitsSeen": 8,
+  "timeTaken": 1264,
+  "changeHistory": [
+    "81d1fb98e61ff42c856504b1427a700cda7707f2",
+    "51cb86699beae26b74c594e2daaa098116f9f572"
+  ],
+  "changeHistoryShort": {
+    "81d1fb98e61ff42c856504b1427a700cda7707f2": "Ybodychange",
+    "51cb86699beae26b74c594e2daaa098116f9f572": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "81d1fb98e61ff42c856504b1427a700cda7707f2": {
+      "type": "Ybodychange",
+      "commitMessage": "Refactor of script and rawtext end tag name states.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "81d1fb98e61ff42c856504b1427a700cda7707f2",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "ab4890183496beea6d4908c4adb672e15c1136a5",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void anythingElse(Tokeniser t, CharacterReader r) {\n    t.emit(\"\u003c/\" + t.dataBuffer.toString());\n    t.transition(ScriptDataEscaped);\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 587,
+      "functionName": "anythingElse",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,4 +1,4 @@\n private void anythingElse(Tokeniser t, CharacterReader r) {\n     t.emit(\"\u003c/\" + t.dataBuffer.toString());\n-    t.transition(Rcdata);\n+    t.transition(ScriptDataEscaped);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "51cb86699beae26b74c594e2daaa098116f9f572": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed issue in TokeniserState where the tokeniser could get trapped at EOF if in RCDataEndTag state.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "51cb86699beae26b74c594e2daaa098116f9f572",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+private void anythingElse(Tokeniser t, CharacterReader r) {\n+    t.emit(\"\u003c/\" + t.dataBuffer.toString());\n+    t.transition(Rcdata);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void anythingElse(Tokeniser t, CharacterReader r) {\n    t.emit(\"\u003c/\" + t.dataBuffer.toString());\n    t.transition(Rcdata);\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 276,
+      "functionName": "anythingElse",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}
