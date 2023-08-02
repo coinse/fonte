@@ -1,0 +1,1715 @@
+{
+	"Math-1b": [
+		{
+			"class_file": "org/apache/commons/math3/fraction/Fraction.java",
+			"method_name": "<init>",
+			"arg_types": "DDII",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.fraction.Fraction.Fraction(double, double, int, int)",
+			"begin_line": 178,
+			"end_line": 243,
+			"comment": "\n     * Create a fraction given the double value and either the maximum error\n     * allowed or the maximum number of denominator digits.\n     * <p>\n     *\n     * NOTE: This constructor is called with EITHER\n     *   - a valid epsilon value and the maxDenominator set to Integer.MAX_VALUE\n     *     (that way the maxDenominator has no effect).\n     * OR\n     *   - a valid maxDenominator value and the epsilon value set to zero\n     *     (that way epsilon only has effect if there is an exact match before\n     *     the maxDenominator value is reached).\n     * </p><p>\n     *\n     * It has been done this way so that the same code can be (re)used for both\n     * scenarios. However this could be confusing to users if it were part of\n     * the public API and this constructor should therefore remain PRIVATE.\n     * </p>\n     *\n     * See JIRA issue ticket MATH-181 for more details:\n     *\n     *     https://issues.apache.org/jira/browse/MATH-181\n     *\n     * @param value the double value to convert to a fraction.\n     * @param epsilon maximum error allowed.  The resulting fraction is within\n     *        {@code epsilon} of {@code value}, in absolute terms.\n     * @param maxDenominator maximum denominator value allowed.\n     * @param maxIterations maximum number of convergents\n     * @throws FractionConversionException if the continued fraction failed to\n     *         converge.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math3/fraction/BigFraction.java",
+			"method_name": "<init>",
+			"arg_types": "DDII",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.fraction.BigFraction.BigFraction(double, double, int, int)",
+			"begin_line": 269,
+			"end_line": 335,
+			"comment": "\n     * Create a fraction given the double value and either the maximum error\n     * allowed or the maximum number of denominator digits.\n     * <p>\n     *\n     * NOTE: This constructor is called with EITHER - a valid epsilon value and\n     * the maxDenominator set to Integer.MAX_VALUE (that way the maxDenominator\n     * has no effect). OR - a valid maxDenominator value and the epsilon value\n     * set to zero (that way epsilon only has effect if there is an exact match\n     * before the maxDenominator value is reached).\n     * </p>\n     * <p>\n     *\n     * It has been done this way so that the same code can be (re)used for both\n     * scenarios. However this could be confusing to users if it were part of\n     * the public API and this constructor should therefore remain PRIVATE.\n     * </p>\n     *\n     * See JIRA issue ticket MATH-181 for more details:\n     *\n     * https://issues.apache.org/jira/browse/MATH-181\n     *\n     * @param value\n     *            the double value to convert to a fraction.\n     * @param epsilon\n     *            maximum error allowed. The resulting fraction is within\n     *            <code>epsilon</code> of <code>value</code>, in absolute terms.\n     * @param maxDenominator\n     *            maximum denominator value allowed.\n     * @param maxIterations\n     *            maximum number of convergents.\n     * @throws FractionConversionException\n     *             if the continued fraction failed to converge.\n     "
+		}
+	],
+	"Math-2b": [
+		{
+			"class_file": "org/apache/commons/math3/distribution/HypergeometricDistribution.java",
+			"method_name": "getNumericalMean",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.distribution.HypergeometricDistribution.getNumericalMean()",
+			"begin_line": 267,
+			"end_line": 269,
+			"comment": "\n     * {@inheritDoc}\n     *\n     * For population size {@code N}, number of successes {@code m}, and sample\n     * size {@code n}, the mean is {@code n * m / N}.\n     "
+		}
+	],
+	"Math-3b": [
+		{
+			"class_file": "org/apache/commons/math3/util/MathArrays.java",
+			"method_name": "linearCombination",
+			"arg_types": "[D[D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.util.MathArrays.linearCombination(double[], double[])",
+			"begin_line": 814,
+			"end_line": 872,
+			"comment": "\n     * Compute a linear combination accurately.\n     * This method computes the sum of the products\n     * <code>a<sub>i</sub> b<sub>i</sub></code> to high accuracy.\n     * It does so by using specific multiplication and addition algorithms to\n     * preserve accuracy and reduce cancellation effects.\n     * <br/>\n     * It is based on the 2005 paper\n     * <a href=\"http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.2.1547\">\n     * Accurate Sum and Dot Product</a> by Takeshi Ogita, Siegfried M. Rump,\n     * and Shin'ichi Oishi published in SIAM J. Sci. Comput.\n     *\n     * @param a Factors.\n     * @param b Factors.\n     * @return <code>&Sigma;<sub>i</sub> a<sub>i</sub> b<sub>i</sub></code>.\n     * @throws DimensionMismatchException if arrays dimensions don't match\n     "
+		}
+	],
+	"Math-4b": [
+		{
+			"class_file": "org/apache/commons/math3/geometry/euclidean/threed/SubLine.java",
+			"method_name": "intersection",
+			"arg_types": "Lorg/apache/commons/math3/geometry/euclidean/twod/SubLine;Z",
+			"type": "method",
+			"signature": "org.apache.commons.math3.geometry.euclidean.threed.SubLine.intersection(org.apache.commons.math3.geometry.euclidean.threed.SubLine, boolean)",
+			"begin_line": 110,
+			"end_line": 127,
+			"comment": " Get the intersection of the instance and another sub-line.\n     * <p>\n     * This method is related to the {@link Line#intersection(Line)\n     * intersection} method in the {@link Line Line} class, but in addition\n     * to compute the point along infinite lines, it also checks the point\n     * lies on both sub-line ranges.\n     * </p>\n     * @param subLine other sub-line which may intersect instance\n     * @param includeEndPoints if true, endpoints are considered to belong to\n     * instance (i.e. they are closed sets) and may be returned, otherwise endpoints\n     * are considered to not belong to instance (i.e. they are open sets) and intersection\n     * occurring on endpoints lead to null being returned\n     * @return the intersection point if there is one, null if the sub-lines don't intersect\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math3/geometry/euclidean/twod/SubLine.java",
+			"method_name": "intersection",
+			"arg_types": "Lorg/apache/commons/math3/geometry/euclidean/twod/SubLine;Z",
+			"type": "method",
+			"signature": "org.apache.commons.math3.geometry.euclidean.twod.SubLine.intersection(org.apache.commons.math3.geometry.euclidean.twod.SubLine, boolean)",
+			"begin_line": 110,
+			"end_line": 131,
+			"comment": " Get the intersection of the instance and another sub-line.\n     * <p>\n     * This method is related to the {@link Line#intersection(Line)\n     * intersection} method in the {@link Line Line} class, but in addition\n     * to compute the point along infinite lines, it also checks the point\n     * lies on both sub-line ranges.\n     * </p>\n     * @param subLine other sub-line which may intersect instance\n     * @param includeEndPoints if true, endpoints are considered to belong to\n     * instance (i.e. they are closed sets) and may be returned, otherwise endpoints\n     * are considered to not belong to instance (i.e. they are open sets) and intersection\n     * occurring on endpoints lead to null being returned\n     * @return the intersection point if there is one, null if the sub-lines don't intersect\n     "
+		}
+	],
+	"Math-5b": [
+		{
+			"class_file": "org/apache/commons/math3/complex/Complex.java",
+			"method_name": "reciprocal",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.complex.Complex.reciprocal()",
+			"begin_line": 299,
+			"end_line": 321,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-6b": [
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer.doOptimize()",
+			"begin_line": 283,
+			"end_line": 534,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer.doOptimize()",
+			"begin_line": 79,
+			"end_line": 169,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizer.doOptimize()",
+			"begin_line": 172,
+			"end_line": 268,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizer.doOptimize()",
+			"begin_line": 126,
+			"end_line": 177,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer.doOptimize()",
+			"begin_line": 191,
+			"end_line": 288,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizer.doOptimize()",
+			"begin_line": 367,
+			"end_line": 515,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optim/BaseOptimizer.java",
+			"method_name": "<init>",
+			"arg_types": "Lorg/apache/commons/math3/optim/ConvergenceChecker;",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.optim.BaseOptimizer.BaseOptimizer(org.apache.commons.math3.optim.ConvergenceChecker<PAIR>)",
+			"begin_line": 47,
+			"end_line": 52,
+			"comment": "\n     * @param checker Convergence checker.\n     "
+		}
+	],
+	"Math-7b": [
+		{
+			"class_file": "org/apache/commons/math3/ode/AbstractIntegrator.java",
+			"method_name": "acceptStep",
+			"arg_types": "Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD",
+			"type": "method",
+			"signature": "org.apache.commons.math3.ode.AbstractIntegrator.acceptStep(org.apache.commons.math3.ode.sampling.AbstractStepInterpolator, double[], double[], double)",
+			"begin_line": 296,
+			"end_line": 405,
+			"comment": " Accept a step, triggering events and step handlers.\n     * @param interpolator step interpolator\n     * @param y state vector at step end time, must be reset if an event\n     * asks for resetting or if an events stops integration during the step\n     * @param yDot placeholder array where to put the time derivative of the state vector\n     * @param tEnd final integration time\n     * @return time at end of step\n     * @exception MaxCountExceededException if the interpolator throws one because\n     * the number of functions evaluations is exceeded\n     * @exception NoBracketingException if the location of an event cannot be bracketed\n     * @exception DimensionMismatchException if arrays dimensions do not match equations settings\n     * @since 2.2\n     "
+		}
+	],
+	"Math-8b": [
+		{
+			"class_file": "org/apache/commons/math3/distribution/DiscreteDistribution.java",
+			"method_name": "sample",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math3.distribution.DiscreteDistribution.sample(int)",
+			"begin_line": 181,
+			"end_line": 195,
+			"comment": "\n     * Generate a random sample from the distribution.\n     *\n     * @param sampleSize the number of random values to generate.\n     * @return an array representing the random sample.\n     * @throws NotStrictlyPositiveException if {@code sampleSize} is not\n     * positive.\n     "
+		}
+	],
+	"Math-9b": [
+		{
+			"class_file": "org/apache/commons/math3/geometry/euclidean/threed/Line.java",
+			"method_name": "revert",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.geometry.euclidean.threed.Line.revert()",
+			"begin_line": 86,
+			"end_line": 89,
+			"comment": " Get a line with reversed direction.\n     * @return a new instance, with reversed direction\n     "
+		}
+	],
+	"Math-10b": [
+		{
+			"class_file": "org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+			"method_name": "atan2",
+			"arg_types": "[DI[DI[DI",
+			"type": "method",
+			"signature": "org.apache.commons.math3.analysis.differentiation.DSCompiler.atan2(double[], int, double[], int, double[], int)",
+			"begin_line": 1382,
+			"end_line": 1420,
+			"comment": " Compute two arguments arc tangent of a derivative structure.\n     * @param y array holding the first operand\n     * @param yOffset offset of the first operand in its array\n     * @param x array holding the second operand\n     * @param xOffset offset of the second operand in its array\n     * @param result array where result must be stored (for\n     * two arguments arc tangent the result array <em>cannot</em>\n     * be the input array)\n     * @param resultOffset offset of the result in its array\n     "
+		}
+	],
+	"Math-11b": [
+		{
+			"class_file": "org/apache/commons/math3/distribution/MultivariateNormalDistribution.java",
+			"method_name": "density",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.distribution.MultivariateNormalDistribution.density(double[])",
+			"begin_line": 177,
+			"end_line": 186,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-12b": [],
+	"Math-13b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.java",
+			"method_name": "squareRoot",
+			"arg_types": "Lorg/apache/commons/math3/linear/RealMatrix;",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.general.AbstractLeastSquaresOptimizer.squareRoot(org.apache.commons.math3.linear.RealMatrix)",
+			"begin_line": 561,
+			"end_line": 564,
+			"comment": "\n     * Computes the square-root of the weight matrix.\n     *\n     * @param m Symmetric, positive-definite (weight) matrix.\n     * @return the square-root of the weight matrix.\n     "
+		}
+	],
+	"Math-14b": [
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizer.java",
+			"method_name": "squareRoot",
+			"arg_types": "Lorg/apache/commons/math3/linear/RealMatrix;",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer.squareRoot(org.apache.commons.math3.linear.RealMatrix)",
+			"begin_line": 266,
+			"end_line": 269,
+			"comment": "\n     * Computes the square-root of the weight matrix.\n     *\n     * @param m Symmetric, positive-definite (weight) matrix.\n     * @return the square-root of the weight matrix.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optim/nonlinear/vector/Weight.java",
+			"method_name": "<init>",
+			"arg_types": "[D",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.optim.nonlinear.vector.Weight.Weight(double[])",
+			"begin_line": 41,
+			"end_line": 47,
+			"comment": "\n     * Creates a diagonal weight matrix.\n     *\n     * @param weight List of the values of the diagonal.\n     "
+		}
+	],
+	"Math-15b": [
+		{
+			"class_file": "org/apache/commons/math3/util/FastMath.java",
+			"method_name": "pow",
+			"arg_types": "DD",
+			"type": "method",
+			"signature": "org.apache.commons.math3.util.FastMath.pow(double, double)",
+			"begin_line": 1441,
+			"end_line": 1599,
+			"comment": "\n     * Power function.  Compute x^y.\n     *\n     * @param x   a double\n     * @param y   a double\n     * @return double\n     "
+		}
+	],
+	"Math-16b": [
+		{
+			"class_file": "org/apache/commons/math3/util/FastMath.java",
+			"method_name": "cosh",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.util.FastMath.cosh(double)",
+			"begin_line": 383,
+			"end_line": 437,
+			"comment": " Compute the hyperbolic cosine of a number.\n     * @param x number on which evaluation is done\n     * @return hyperbolic cosine of x\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math3/util/FastMath.java",
+			"method_name": "sinh",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.util.FastMath.sinh(double)",
+			"begin_line": 443,
+			"end_line": 553,
+			"comment": " Compute the hyperbolic sine of a number.\n     * @param x number on which evaluation is done\n     * @return hyperbolic sine of x\n     "
+		}
+	],
+	"Math-17b": [
+		{
+			"class_file": "org/apache/commons/math3/dfp/Dfp.java",
+			"method_name": "multiply",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math3.dfp.Dfp.multiply(int)",
+			"begin_line": 1602,
+			"end_line": 1604,
+			"comment": " Multiply this by a single digit x.\n     * @param x multiplicand\n     * @return product of this and x\n     "
+		}
+	],
+	"Math-18b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/direct/CMAESOptimizer.java",
+			"method_name": "decode",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.direct.CMAESOptimizer.FitnessFunction.decode(double[])",
+			"begin_line": 951,
+			"end_line": 961,
+			"comment": "\n         * @param x Normalized objective variables.\n         * @return the original objective variables.\n         "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optimization/direct/CMAESOptimizer.java",
+			"method_name": "encode",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.direct.CMAESOptimizer.FitnessFunction.encode(double[])",
+			"begin_line": 925,
+			"end_line": 935,
+			"comment": "\n         * @param x Original objective variables.\n         * @return the normalized objective variables.\n         "
+		},
+		{
+			"class_file": "org/apache/commons/math3/optimization/direct/CMAESOptimizer.java",
+			"method_name": "isFeasible",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.direct.CMAESOptimizer.FitnessFunction.isFeasible(double[])",
+			"begin_line": 985,
+			"end_line": 1000,
+			"comment": "\n         * @param x Normalized objective variables.\n         * @return {@code true} if in bounds.\n         "
+		}
+	],
+	"Math-19b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/direct/CMAESOptimizer.java",
+			"method_name": "checkParameters",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.direct.CMAESOptimizer.checkParameters()",
+			"begin_line": 504,
+			"end_line": 561,
+			"comment": "\n     * Checks dimensions and values of boundaries and inputSigma if defined.\n     "
+		}
+	],
+	"Math-20b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/direct/CMAESOptimizer.java",
+			"method_name": "repairAndDecode",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.direct.CMAESOptimizer.FitnessFunction.repairAndDecode(double[])",
+			"begin_line": 920,
+			"end_line": 923,
+			"comment": "\n         * @param x Normalized objective variables.\n         * @return the original objective variables, possibly repaired.\n         "
+		}
+	],
+	"Math-21b": [
+		{
+			"class_file": "org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java",
+			"method_name": "<init>",
+			"arg_types": "Lorg/apache/commons/math3/linear/RealMatrix;D",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.linear.RectangularCholeskyDecomposition.RectangularCholeskyDecomposition(org.apache.commons.math3.linear.RealMatrix, double)",
+			"begin_line": 62,
+			"end_line": 151,
+			"comment": "\n     * Decompose a symmetric positive semidefinite matrix.\n     *\n     * @param matrix Symmetric positive semidefinite matrix.\n     * @param small Diagonal elements threshold under which  column are\n     * considered to be dependent on previous ones and are discarded.\n     * @exception NonPositiveDefiniteMatrixException if the matrix is not\n     * positive semidefinite.\n     "
+		}
+	],
+	"Math-22b": [
+		{
+			"class_file": "org/apache/commons/math3/distribution/FDistribution.java",
+			"method_name": "isSupportLowerBoundInclusive",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.distribution.FDistribution.isSupportLowerBoundInclusive()",
+			"begin_line": 274,
+			"end_line": 276,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/distribution/UniformRealDistribution.java",
+			"method_name": "isSupportUpperBoundInclusive",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.distribution.UniformRealDistribution.isSupportUpperBoundInclusive()",
+			"begin_line": 183,
+			"end_line": 185,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-23b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/univariate/BrentOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.univariate.BrentOptimizer.doOptimize()",
+			"begin_line": 114,
+			"end_line": 281,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-24b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/univariate/BrentOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.univariate.BrentOptimizer.doOptimize()",
+			"begin_line": 108,
+			"end_line": 271,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-25b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/fitting/HarmonicFitter.java",
+			"method_name": "guessAOmega",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.fitting.HarmonicFitter.ParameterGuesser.guessAOmega()",
+			"begin_line": 257,
+			"end_line": 329,
+			"comment": "\n         * Estimate a first guess of the amplitude and angular frequency.\n         * This method assumes that the {@link #sortObservations()} method\n         * has been called previously.\n         *\n         * @throws ZeroException if the abscissa range is zero.\n         * @throws MathIllegalStateException when the guessing procedure cannot\n         * produce sensible results.\n         "
+		}
+	],
+	"Math-26b": [
+		{
+			"class_file": "org/apache/commons/math3/fraction/Fraction.java",
+			"method_name": "<init>",
+			"arg_types": "DDII",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.fraction.Fraction.Fraction(double, double, int, int)",
+			"begin_line": 175,
+			"end_line": 238,
+			"comment": "\n     * Create a fraction given the double value and either the maximum error\n     * allowed or the maximum number of denominator digits.\n     * <p>\n     *\n     * NOTE: This constructor is called with EITHER\n     *   - a valid epsilon value and the maxDenominator set to Integer.MAX_VALUE\n     *     (that way the maxDenominator has no effect).\n     * OR\n     *   - a valid maxDenominator value and the epsilon value set to zero\n     *     (that way epsilon only has effect if there is an exact match before\n     *     the maxDenominator value is reached).\n     * </p><p>\n     *\n     * It has been done this way so that the same code can be (re)used for both\n     * scenarios. However this could be confusing to users if it were part of\n     * the public API and this constructor should therefore remain PRIVATE.\n     * </p>\n     *\n     * See JIRA issue ticket MATH-181 for more details:\n     *\n     *     https://issues.apache.org/jira/browse/MATH-181\n     *\n     * @param value the double value to convert to a fraction.\n     * @param epsilon maximum error allowed.  The resulting fraction is within\n     *        {@code epsilon} of {@code value}, in absolute terms.\n     * @param maxDenominator maximum denominator value allowed.\n     * @param maxIterations maximum number of convergents\n     * @throws FractionConversionException if the continued fraction failed to\n     *         converge.\n     "
+		}
+	],
+	"Math-27b": [
+		{
+			"class_file": "org/apache/commons/math3/fraction/Fraction.java",
+			"method_name": "percentageValue",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.fraction.Fraction.percentageValue()",
+			"begin_line": 596,
+			"end_line": 598,
+			"comment": "\n     * <p>\n     * Gets the fraction percentage as a <tt>double</tt>. This calculates the\n     * fraction as the numerator divided by denominator multiplied by 100.\n     * </p>\n     *\n     * @return the fraction percentage as a <tt>double</tt>.\n     "
+		}
+	],
+	"Math-28b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/linear/SimplexSolver.java",
+			"method_name": "getPivotRow",
+			"arg_types": "Lorg/apache/commons/math3/optimization/linear/SimplexTableau;I",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.linear.SimplexSolver.getPivotRow(org.apache.commons.math3.optimization.linear.SimplexTableau, int)",
+			"begin_line": 90,
+			"end_line": 154,
+			"comment": "\n     * Returns the row with the minimum ratio as given by the minimum ratio test (MRT).\n     * @param tableau simple tableau for the problem\n     * @param col the column to test the ratio of.  See {@link #getPivotColumn(SimplexTableau)}\n     * @return row with the minimum ratio\n     "
+		}
+	],
+	"Math-29b": [
+		{
+			"class_file": "org/apache/commons/math3/linear/OpenMapRealVector.java",
+			"method_name": "ebeMultiply",
+			"arg_types": "Lorg/apache/commons/math3/linear/RealVector;",
+			"type": "method",
+			"signature": "org.apache.commons.math3.linear.OpenMapRealVector.ebeMultiply(org.apache.commons.math3.linear.RealVector)",
+			"begin_line": 358,
+			"end_line": 375,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math3/linear/OpenMapRealVector.java",
+			"method_name": "ebeDivide",
+			"arg_types": "Lorg/apache/commons/math3/linear/RealVector;",
+			"type": "method",
+			"signature": "org.apache.commons.math3.linear.OpenMapRealVector.ebeDivide(org.apache.commons.math3.linear.RealVector)",
+			"begin_line": 340,
+			"end_line": 355,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-30b": [
+		{
+			"class_file": "org/apache/commons/math3/stat/inference/MannWhitneyUTest.java",
+			"method_name": "calculateAsymptoticPValue",
+			"arg_types": "DII",
+			"type": "method",
+			"signature": "org.apache.commons.math3.stat.inference.MannWhitneyUTest.calculateAsymptoticPValue(double, int, int)",
+			"begin_line": 168,
+			"end_line": 184,
+			"comment": "\n     * @param Umin smallest Mann-Whitney U value\n     * @param n1 number of subjects in first sample\n     * @param n2 number of subjects in second sample\n     * @return two-sided asymptotic p-value\n     * @throws ConvergenceException if the p-value can not be computed\n     * due to a convergence error\n     * @throws MaxCountExceededException if the maximum number of\n     * iterations is exceeded\n     "
+		}
+	],
+	"Math-31b": [
+		{
+			"class_file": "org/apache/commons/math3/util/ContinuedFraction.java",
+			"method_name": "evaluate",
+			"arg_types": "DDI",
+			"type": "method",
+			"signature": "org.apache.commons.math3.util.ContinuedFraction.evaluate(double, double, int)",
+			"begin_line": 123,
+			"end_line": 199,
+			"comment": "\n     * <p>\n     * Evaluates the continued fraction at the value x.\n     * </p>\n     *\n     * <p>\n     * The implementation of this method is based on the modified Lentz algorithm as described\n     * on page 18 ff. in:\n     * <ul>\n     * <li>\n     *   I. J. Thompson,  A. R. Barnett. \"Coulomb and Bessel Functions of Complex Arguments and Order.\"\n     *   <a target=\"_blank\" href=\"http://www.fresco.org.uk/papers/Thompson-JCP64p490.pdf\">\n     *   http://www.fresco.org.uk/papers/Thompson-JCP64p490.pdf</a>\n     * </li>\n     * </ul>\n     * Note: the implementation uses the terms a<sub>i</sub> and b<sub>i</sub> as defined in\n     * <a href=\"http://mathworld.wolfram.com/ContinuedFraction.html\">Continued Fraction / MathWorld</a>.\n     * </p>\n     *\n     * @param x the evaluation point.\n     * @param epsilon maximum error allowed.\n     * @param maxIterations maximum number of convergents\n     * @return the value of the continued fraction evaluated at x.\n     * @throws ConvergenceException if the algorithm fails to converge.\n     "
+		}
+	],
+	"Math-32b": [
+		{
+			"class_file": "org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java",
+			"method_name": "computeGeometricalProperties",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet.computeGeometricalProperties()",
+			"begin_line": 129,
+			"end_line": 181,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-33b": [
+		{
+			"class_file": "org/apache/commons/math3/optimization/linear/SimplexTableau.java",
+			"method_name": "dropPhase1Objective",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.optimization.linear.SimplexTableau.dropPhase1Objective()",
+			"begin_line": 327,
+			"end_line": 367,
+			"comment": "\n     * Removes the phase 1 objective function, positive cost non-artificial variables,\n     * and the non-basic artificial variables from this tableau.\n     "
+		}
+	],
+	"Math-34b": [
+		{
+			"class_file": "org/apache/commons/math3/genetics/ListPopulation.java",
+			"method_name": "iterator",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math3.genetics.ListPopulation.iterator()",
+			"begin_line": 208,
+			"end_line": 210,
+			"comment": "\n     * Returns an iterator over the unmodifiable list of chromosomes.\n     * <p>Any call to {@link Iterator#remove()} will result in a {@link UnsupportedOperationException}.</p>\n     *\n     * @return chromosome iterator\n     "
+		}
+	],
+	"Math-35b": [
+		{
+			"class_file": "org/apache/commons/math3/genetics/ElitisticListPopulation.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/util/List;ID",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.genetics.ElitisticListPopulation.ElitisticListPopulation(java.util.List<org.apache.commons.math3.genetics.Chromosome>, int, double)",
+			"begin_line": 47,
+			"end_line": 52,
+			"comment": "\n     * Creates a new ElitisticListPopulation instance.\n     *\n     * @param chromosomes list of chromosomes in the population\n     * @param populationLimit maximal size of the population\n     * @param elitismRate how many best chromosomes will be directly transferred to the\n     *                    next generation [in %]\n     * @throws OutOfRangeException if the elitism rate is outside the [0, 1] range\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math3/genetics/ElitisticListPopulation.java",
+			"method_name": "<init>",
+			"arg_types": "ID",
+			"type": "constructor",
+			"signature": "org.apache.commons.math3.genetics.ElitisticListPopulation.ElitisticListPopulation(int, double)",
+			"begin_line": 63,
+			"end_line": 66,
+			"comment": "\n     * Creates a new ListPopulation instance and initializes its inner\n     * chromosome list.\n     *\n     * @param populationLimit maximal size of the population\n     * @param elitismRate how many best chromosomes will be directly transferred to the\n     *                    next generation [in %]\n     * @throws OutOfRangeException if the elitism rate is outside the [0, 1] range\n     "
+		}
+	],
+	"Math-36b": [
+		{
+			"class_file": "org/apache/commons/math/fraction/BigFraction.java",
+			"method_name": "floatValue",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.fraction.BigFraction.floatValue()",
+			"begin_line": 730,
+			"end_line": 736,
+			"comment": "\n     * <p>\n     * Gets the fraction as a <tt>float</tt>. This calculates the fraction as\n     * the numerator divided by denominator.\n     * </p>\n     *\n     * @return the fraction as a <tt>float</tt>.\n     * @see java.lang.Number#floatValue()\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/fraction/BigFraction.java",
+			"method_name": "doubleValue",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.fraction.BigFraction.doubleValue()",
+			"begin_line": 683,
+			"end_line": 689,
+			"comment": "\n     * <p>\n     * Gets the fraction as a <tt>double</tt>. This calculates the fraction as\n     * the numerator divided by denominator.\n     * </p>\n     *\n     * @return the fraction as a <tt>double</tt>\n     * @see java.lang.Number#doubleValue()\n     "
+		}
+	],
+	"Math-37b": [
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "tanh",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.tanh()",
+			"begin_line": 1062,
+			"end_line": 1072,
+			"comment": "\n     * Compute the\n     * <a href=\"http://mathworld.wolfram.com/HyperbolicTangent.html\" TARGET=\"_top\">\n     * hyperbolic tangent</a> of this complex number.\n     * Implements the formula:\n     * <pre>\n     *  <code>\n     *   tan(a + bi) = sinh(2a)/(cosh(2a)+cos(2b)) + [sin(2b)/(cosh(2a)+cos(2b))]i\n     *  </code>\n     * </pre>\n     * where the (real) functions on the right-hand side are\n     * {@link FastMath#sin}, {@link FastMath#cos}, {@link FastMath#cosh} and\n     * {@link FastMath#sinh}.\n     * <br/>\n     * Returns {@link Complex#NaN} if either real or imaginary part of the\n     * input argument is {@code NaN}.\n     * <br/>\n     * Infinite values in real or imaginary parts of the input may result in\n     * infinite or NaN values returned in parts of the result.\n     * <pre>\n     *  Examples:\n     *  <code>\n     *   tanh(a &plusmn; INFINITY i) = NaN + NaN i\n     *   tanh(&plusmn;INFINITY + bi) = &plusmn;1 + 0 i\n     *   tanh(&plusmn;INFINITY &plusmn; INFINITY i) = NaN + NaN i\n     *   tanh(0 + (&pi;/2)i) = NaN + INFINITY i\n     *  </code>\n     * </pre>\n     *\n     * @return the hyperbolic tangent of {@code this}.\n     * @since 1.2\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "tan",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.tan()",
+			"begin_line": 1017,
+			"end_line": 1028,
+			"comment": "\n     * Compute the\n     * <a href=\"http://mathworld.wolfram.com/Tangent.html\" TARGET=\"_top\">\n     * tangent</a> of this complex number.\n     * Implements the formula:\n     * <pre>\n     *  <code>\n     *   tan(a + bi) = sin(2a)/(cos(2a)+cosh(2b)) + [sinh(2b)/(cos(2a)+cosh(2b))]i\n     *  </code>\n     * </pre>\n     * where the (real) functions on the right-hand side are\n     * {@link FastMath#sin}, {@link FastMath#cos}, {@link FastMath#cosh} and\n     * {@link FastMath#sinh}.\n     * <br/>\n     * Returns {@link Complex#NaN} if either real or imaginary part of the\n     * input argument is {@code NaN}.\n     * <br/>\n     * Infinite (or critical) values in real or imaginary parts of the input may\n     * result in infinite or NaN values returned in parts of the result.\n     * <pre>\n     *  Examples:\n     *  <code>\n     *   tan(a &plusmn; INFINITY i) = 0 &plusmn; i\n     *   tan(&plusmn;INFINITY + bi) = NaN + NaN i\n     *   tan(&plusmn;INFINITY &plusmn; INFINITY i) = NaN + NaN i\n     *   tan(&plusmn;&pi;/2 + 0 i) = &plusmn;INFINITY + NaN i\n     *  </code>\n     * </pre>\n     *\n     * @return the tangent of {@code this}.\n     * @since 1.2\n     "
+		}
+	],
+	"Math-38b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java",
+			"method_name": "prelim",
+			"arg_types": "[D[D",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.direct.BOBYQAOptimizer.prelim(double[], double[])",
+			"begin_line": 1582,
+			"end_line": 1755,
+			"comment": "\n     *     SUBROUTINE PRELIM sets the elements of XBASE, XPT, FVAL, GOPT, HQ, PQ,\n     *     BMAT and ZMAT for the first iteration, and it maintains the values of\n     *     NF and KOPT. The vector X is also changed by PRELIM.\n     *\n     *     The arguments N, NPT, X, XL, XU, RHOBEG, IPRINT and MAXFUN are the\n     *       same as the corresponding arguments in SUBROUTINE BOBYQA.\n     *     The arguments XBASE, XPT, FVAL, HQ, PQ, BMAT, ZMAT, NDIM, SL and SU\n     *       are the same as the corresponding arguments in BOBYQB, the elements\n     *       of SL and SU being set in BOBYQA.\n     *     GOPT is usually the gradient of the quadratic model at XOPT+XBASE, but\n     *       it is set by PRELIM to the gradient of the quadratic model at XBASE.\n     *       If XOPT is nonzero, BOBYQB will change it to its usual value later.\n     *     NF is maintaned as the number of calls of CALFUN so far.\n     *     KOPT will be such that the least calculated value of F so far is at\n     *       the point XPT(KOPT,.)+XBASE in the space of the variables.\n     *\n     * @param lowerBound Lower bounds.\n     * @param upperBound Upper bounds.\n     "
+		}
+	],
+	"Math-39b": [
+		{
+			"class_file": "org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java",
+			"method_name": "integrate",
+			"arg_types": "Lorg/apache/commons/math3/ode/ExpandableStatefulODE;D",
+			"type": "method",
+			"signature": "org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator.integrate(org.apache.commons.math.ode.ExpandableStatefulODE, double)",
+			"begin_line": 190,
+			"end_line": 328,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-40b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java",
+			"method_name": "doSolve",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver.doSolve()",
+			"begin_line": 142,
+			"end_line": 345,
+			"comment": "\n     * {@inheritDoc}\n     "
+		}
+	],
+	"Math-41b": [
+		{
+			"class_file": "org/apache/commons/math/stat/descriptive/moment/Variance.java",
+			"method_name": "evaluate",
+			"arg_types": "[D[DDII",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.descriptive.moment.Variance.evaluate(double[], double[], double, int, int)",
+			"begin_line": 501,
+			"end_line": 532,
+			"comment": "\n     * Returns the weighted variance of the entries in the specified portion of\n     * the input array, using the precomputed weighted mean value.  Returns\n     * <code>Double.NaN</code> if the designated subarray is empty.\n     * <p>\n     * Uses the formula <pre>\n     *   &Sigma;(weights[i]*(values[i] - mean)<sup>2</sup>)/(&Sigma;(weights[i]) - 1)\n     * </pre></p>\n     * <p>\n     * The formula used assumes that the supplied mean value is the weighted arithmetic\n     * mean of the sample data, not a known population parameter. This method\n     * is supplied only to save computation when the mean has already been\n     * computed.</p>\n     * <p>\n     * This formula will not return the same result as the unweighted variance when all\n     * weights are equal, unless all weights are equal to 1. The formula assumes that\n     * weights are to be treated as \"expansion values,\" as will be the case if for example\n     * the weights represent frequency counts. To normalize weights so that the denominator\n     * in the variance computation equals the length of the input vector minus one, use <pre>\n     *   <code>evaluate(values, MathArrays.normalizeArray(weights, values.length), mean); </code>\n     * </pre>\n     * <p>\n     * Returns 0 for a single-value (i.e. length = 1) sample.</p>\n     * <p>\n     * Throws <code>IllegalArgumentException</code> if any of the following are true:\n     * <ul><li>the values array is null</li>\n     *     <li>the weights array is null</li>\n     *     <li>the weights array does not have the same length as the values array</li>\n     *     <li>the weights array contains one or more infinite values</li>\n     *     <li>the weights array contains one or more NaN values</li>\n     *     <li>the weights array contains negative values</li>\n     *     <li>the start and length arguments do not determine a valid array</li>\n     * </ul></p>\n     * <p>\n     * Does not change the internal state of the statistic.</p>\n     *\n     * @param values the input array\n     * @param weights the weights array\n     * @param mean the precomputed weighted mean value\n     * @param begin index of the first array element to include\n     * @param length the number of elements to include\n     * @return the variance of the values or Double.NaN if length = 0\n     * @throws IllegalArgumentException if the parameters are not valid\n     * @since 2.1\n     "
+		}
+	],
+	"Math-42b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/linear/SimplexTableau.java",
+			"method_name": "getSolution",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.linear.SimplexTableau.getSolution()",
+			"begin_line": 396,
+			"end_line": 425,
+			"comment": "\n     * Get the current solution.\n     *\n     * @return current solution\n     "
+		}
+	],
+	"Math-43b": [
+		{
+			"class_file": "org/apache/commons/math/stat/descriptive/SummaryStatistics.java",
+			"method_name": "addValue",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.descriptive.SummaryStatistics.addValue(double)",
+			"begin_line": 149,
+			"end_line": 168,
+			"comment": "\n     * Add a value to the data\n     * @param value the value to add\n     "
+		}
+	],
+	"Math-44b": [
+		{
+			"class_file": "org/apache/commons/math/ode/AbstractIntegrator.java",
+			"method_name": "acceptStep",
+			"arg_types": "Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD",
+			"type": "method",
+			"signature": "org.apache.commons.math.ode.AbstractIntegrator.acceptStep(org.apache.commons.math.ode.sampling.AbstractStepInterpolator, double[], double[], double)",
+			"begin_line": 274,
+			"end_line": 374,
+			"comment": " Accept a step, triggering events and step handlers.\n     * @param interpolator step interpolator\n     * @param y state vector at step end time, must be reset if an event\n     * asks for resetting or if an events stops integration during the step\n     * @param yDot placeholder array where to put the time derivative of the state vector\n     * @param tEnd final integration time\n     * @return time at end of step\n     * @exception MathIllegalStateException if the value of one event state cannot be evaluated\n     * @since 2.2\n     "
+		}
+	],
+	"Math-45b": [
+		{
+			"class_file": "org/apache/commons/math/linear/OpenMapRealMatrix.java",
+			"method_name": "<init>",
+			"arg_types": "II",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.linear.OpenMapRealMatrix.OpenMapRealMatrix(int, int)",
+			"begin_line": 48,
+			"end_line": 53,
+			"comment": "\n     * Build a sparse matrix with the supplied row and column dimensions.\n     *\n     * @param rowDimension Number of rows of the matrix.\n     * @param columnDimension Number of columns of the matrix.\n     "
+		}
+	],
+	"Math-46b": [
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "divide",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.divide(double)",
+			"begin_line": 291,
+			"end_line": 304,
+			"comment": "\n     * Returns a {@code Complex} whose value is {@code (this / divisor)},\n     * with {@code divisor} interpreted as a real number.\n     *\n     * @param  divisor Value by which this {@code Complex} is to be divided.\n     * @return {@code this / divisor}.\n     * @see #divide(Complex)\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "divide",
+			"arg_types": "Lorg/apache/commons/math/complex/Complex;",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.divide(org.apache.commons.math.complex.Complex)",
+			"begin_line": 251,
+			"end_line": 281,
+			"comment": "\n     * Returns a {@code Complex} whose value is\n     * {@code (this / divisor)}.\n     * Implements the definitional formula\n     * <pre>\n     *  <code>\n     *    a + bi          ac + bd + (bc - ad)i\n     *    ----------- = -------------------------\n     *    c + di         c<sup>2</sup> + d<sup>2</sup>\n     *  </code>\n     * </pre>\n     * but uses\n     * <a href=\"http://doi.acm.org/10.1145/1039813.1039814\">\n     * prescaling of operands</a> to limit the effects of overflows and\n     * underflows in the computation.\n     * <br/>\n     * {@code Infinite} and {@code NaN} values are handled according to the\n     * following rules, applied in the order presented:\n     * <ul>\n     *  <li>If either {@code this} or {@code divisor} has a {@code NaN} value\n     *   in either part, {@link #NaN} is returned.\n     *  </li>\n     *  <li>If {@code this} and {@code divisor} are both {@link #ZERO},\n     *   {@link #NaN} is returned.\n     *  </li>\n     *  <li>If {@code divisor} equals {@link #ZERO}, {@link #INF} is returned.\n     *  </li>\n     *  <li>If {@code this} and {@code divisor} are both infinite,\n     *   {@link #NaN} is returned.\n     *  </li>\n     *  <li>If {@code this} is finite (i.e., has no {@code Infinite} or\n     *   {@code NaN} parts) and {@code divisor} is infinite (one or both parts\n     *   infinite), {@link #ZERO} is returned.\n     *  </li>\n     *  <li>If {@code this} is infinite and {@code divisor} is finite,\n     *   {@code NaN} values are returned in the parts of the result if the\n     *   {@link java.lang.Double} rules applied to the definitional formula\n     *   force {@code NaN} results.\n     *  </li>\n     * </ul>\n     *\n     * @param divisor Value by which this {@code Complex} is to be divided.\n     * @return {@code this / divisor}.\n     * @throws NullArgumentException if {@code divisor} is {@code null}.\n     "
+		}
+	],
+	"Math-47b": [
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "divide",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.divide(double)",
+			"begin_line": 288,
+			"end_line": 300,
+			"comment": "\n     * Returns a {@code Complex} whose value is {@code (this / divisor)},\n     * with {@code divisor} interpreted as a real number.\n     *\n     * @param  divisor Value by which this {@code Complex} is to be divided.\n     * @return {@code this / divisor}.\n     * @see #divide(Complex)\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "divide",
+			"arg_types": "Lorg/apache/commons/math/complex/Complex;",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.divide(org.apache.commons.math.complex.Complex)",
+			"begin_line": 249,
+			"end_line": 278,
+			"comment": "\n     * Returns a {@code Complex} whose value is\n     * {@code (this / divisor)}.\n     * Implements the definitional formula\n     * <pre>\n     *  <code>\n     *    a + bi          ac + bd + (bc - ad)i\n     *    ----------- = -------------------------\n     *    c + di         c<sup>2</sup> + d<sup>2</sup>\n     *  </code>\n     * </pre>\n     * but uses\n     * <a href=\"http://doi.acm.org/10.1145/1039813.1039814\">\n     * prescaling of operands</a> to limit the effects of overflows and\n     * underflows in the computation.\n     * <br/>\n     * {@code Infinite} and {@code NaN} values are handled according to the\n     * following rules, applied in the order presented:\n     * <ul>\n     *  <li>If either {@code this} or {@code divisor} has a {@code NaN} value\n     *   in either part, {@link #NaN} is returned.\n     *  </li>\n     *  <li>If {@code this} and {@code divisor} are both {@link #ZERO},\n     *   {@link #NaN} is returned.\n     *  </li>\n     *  <li>If {@code divisor} equals {@link #ZERO}, {@link #INF} is returned.\n     *  </li>\n     *  <li>If {@code this} and {@code divisor} are both infinite,\n     *   {@link #NaN} is returned.\n     *  </li>\n     *  <li>If {@code this} is finite (i.e., has no {@code Infinite} or\n     *   {@code NaN} parts) and {@code divisor} is infinite (one or both parts\n     *   infinite), {@link #ZERO} is returned.\n     *  </li>\n     *  <li>If {@code this} is infinite and {@code divisor} is finite,\n     *   {@code NaN} values are returned in the parts of the result if the\n     *   {@link java.lang.Double} rules applied to the definitional formula\n     *   force {@code NaN} results.\n     *  </li>\n     * </ul>\n     *\n     * @param divisor Value by which this {@code Complex} is to be divided.\n     * @return {@code this / divisor}.\n     * @throws NullArgumentException if {@code divisor} is {@code null}.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "<init>",
+			"arg_types": "DD",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.complex.Complex.Complex(double, double)",
+			"begin_line": 98,
+			"end_line": 105,
+			"comment": "\n     * Create a complex number given the real and imaginary parts.\n     *\n     * @param real Real part.\n     * @param imaginary Imaginary part.\n     "
+		}
+	],
+	"Math-48b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+			"method_name": "doSolve",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.BaseSecantSolver.doSolve()",
+			"begin_line": 129,
+			"end_line": 251,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-49b": [
+		{
+			"class_file": "org/apache/commons/math/linear/OpenMapRealVector.java",
+			"method_name": "ebeMultiply",
+			"arg_types": "Lorg/apache/commons/math3/linear/RealVector;",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.OpenMapRealVector.ebeMultiply(org.apache.commons.math.linear.RealVector)",
+			"begin_line": 367,
+			"end_line": 376,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/OpenMapRealVector.java",
+			"method_name": "ebeMultiply",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.OpenMapRealVector.ebeMultiply(double[])",
+			"begin_line": 379,
+			"end_line": 389,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/OpenMapRealVector.java",
+			"method_name": "ebeDivide",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.OpenMapRealVector.ebeDivide(double[])",
+			"begin_line": 354,
+			"end_line": 364,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/OpenMapRealVector.java",
+			"method_name": "ebeDivide",
+			"arg_types": "Lorg/apache/commons/math3/linear/RealVector;",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.OpenMapRealVector.ebeDivide(org.apache.commons.math.linear.RealVector)",
+			"begin_line": 342,
+			"end_line": 351,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-50b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+			"method_name": "doSolve",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.BaseSecantSolver.doSolve()",
+			"begin_line": 128,
+			"end_line": 253,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-51b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+			"method_name": "doSolve",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.BaseSecantSolver.doSolve()",
+			"begin_line": 128,
+			"end_line": 247,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-52b": [
+		{
+			"class_file": "org/apache/commons/math/geometry/euclidean/threed/Rotation.java",
+			"method_name": "<init>",
+			"arg_types": "Lorg/apache/commons/math/geometry/euclidean/threed/Vector3D;Lorg/apache/commons/math/geometry/euclidean/threed/Vector3D;Lorg/apache/commons/math/geometry/euclidean/threed/Vector3D;Lorg/apache/commons/math/geometry/euclidean/threed/Vector3D;",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.geometry.euclidean.threed.Rotation.Rotation(org.apache.commons.math.geometry.euclidean.threed.Vector3D, org.apache.commons.math.geometry.euclidean.threed.Vector3D, org.apache.commons.math.geometry.euclidean.threed.Vector3D, org.apache.commons.math.geometry.euclidean.threed.Vector3D)",
+			"begin_line": 313,
+			"end_line": 390,
+			"comment": " Build the rotation that transforms a pair of vector into another pair.\n\n   * <p>Except for possible scale factors, if the instance were applied to\n   * the pair (u<sub>1</sub>, u<sub>2</sub>) it will produce the pair\n   * (v<sub>1</sub>, v<sub>2</sub>).</p>\n\n   * <p>If the angular separation between u<sub>1</sub> and u<sub>2</sub> is\n   * not the same as the angular separation between v<sub>1</sub> and\n   * v<sub>2</sub>, then a corrected v'<sub>2</sub> will be used rather than\n   * v<sub>2</sub>, the corrected vector will be in the (v<sub>1</sub>,\n   * v<sub>2</sub>) plane.</p>\n\n   * @param u1 first vector of the origin pair\n   * @param u2 second vector of the origin pair\n   * @param v1 desired image of u1 by the rotation\n   * @param v2 desired image of u2 by the rotation\n   * @exception IllegalArgumentException if the norm of one of the vectors is zero\n   "
+		}
+	],
+	"Math-53b": [
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "add",
+			"arg_types": "Lorg/apache/commons/math/complex/Complex;",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.add(org.apache.commons.math.complex.Complex)",
+			"begin_line": 150,
+			"end_line": 155,
+			"comment": "\n     * Return the sum of this complex number and the given complex number.\n     * <p>\n     * Uses the definitional formula\n     * <pre>\n     * (a + bi) + (c + di) = (a+c) + (b+d)i\n     * </pre></p>\n     * <p>\n     * If either this or <code>rhs</code> has a NaN value in either part,\n     * {@link #NaN} is returned; otherwise Infinite and NaN values are\n     * returned in the parts of the result according to the rules for\n     * {@link java.lang.Double} arithmetic.</p>\n     *\n     * @param rhs the other complex number\n     * @return the complex number sum\n     * @throws NullArgumentException if <code>rhs</code> is null\n     "
+		}
+	],
+	"Math-54b": [
+		{
+			"class_file": "org/apache/commons/math/dfp/Dfp.java",
+			"method_name": "<init>",
+			"arg_types": "Lorg/apache/commons/math3/dfp/DfpField;D",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.dfp.Dfp.Dfp(org.apache.commons.math.dfp.DfpField, double)",
+			"begin_line": 256,
+			"end_line": 314,
+			"comment": " Create an instance from a double value.\n     * @param field field to which this instance belongs\n     * @param x value to convert to an instance\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/dfp/Dfp.java",
+			"method_name": "toDouble",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.dfp.Dfp.toDouble()",
+			"begin_line": 2303,
+			"end_line": 2384,
+			"comment": " Convert the instance into a double.\n     * @return a double approximating the instance\n     * @see #toSplitDouble()\n     "
+		}
+	],
+	"Math-55b": [
+		{
+			"class_file": "org/apache/commons/math/geometry/Vector3D.java",
+			"method_name": "crossProduct",
+			"arg_types": "Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;",
+			"type": "method",
+			"signature": "org.apache.commons.math.geometry.Vector3D.crossProduct(org.apache.commons.math.geometry.Vector3D, org.apache.commons.math.geometry.Vector3D)",
+			"begin_line": 457,
+			"end_line": 475,
+			"comment": " Compute the cross-product of two vectors.\n   * @param v1 first vector\n   * @param v2 second vector\n   * @return the cross product v1 ^ v2 as a new Vector\n   "
+		}
+	],
+	"Math-56b": [
+		{
+			"class_file": "org/apache/commons/math/util/MultidimensionalCounter.java",
+			"method_name": "getCounts",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MultidimensionalCounter.getCounts(int)",
+			"begin_line": 216,
+			"end_line": 246,
+			"comment": "\n     * Convert to multidimensional counter.\n     *\n     * @param index Index in unidimensional counter.\n     * @return the multidimensional counts.\n     * @throws OutOfRangeException if {@code index} is not between\n     * {@code 0} and the value returned by {@link #getSize()} (excluded).\n     "
+		}
+	],
+	"Math-57b": [
+		{
+			"class_file": "org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java",
+			"method_name": "chooseInitialCenters",
+			"arg_types": "Ljava/util/Collection;ILjava/util/Random;",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer.chooseInitialCenters(java.util.Collection<T>, int, java.util.Random)",
+			"begin_line": 161,
+			"end_line": 198,
+			"comment": "\n     * Use K-means++ to choose the initial centers.\n     *\n     * @param <T> type of the points to cluster\n     * @param points the points to choose the initial centers from\n     * @param k the number of centers to choose\n     * @param random random generator to use\n     * @return the initial centers\n     "
+		}
+	],
+	"Math-58b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/fitting/GaussianFitter.java",
+			"method_name": "fit",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.fitting.GaussianFitter.fit()",
+			"begin_line": 119,
+			"end_line": 122,
+			"comment": "\n     * Fits a Gaussian function to the observed points.\n     *\n     * @return the parameters of the Gaussian function that best fits the\n     * observed points (in the same order as above).\n     "
+		}
+	],
+	"Math-59b": [
+		{
+			"class_file": "org/apache/commons/math/util/FastMath.java",
+			"method_name": "max",
+			"arg_types": "FF",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.FastMath.max(float, float)",
+			"begin_line": 3481,
+			"end_line": 3483,
+			"comment": " Compute the maximum of two values\n     * @param a first value\n     * @param b second value\n     * @return b if a is lesser or equal to b, a otherwise\n     "
+		}
+	],
+	"Math-60b": [
+		{
+			"class_file": "org/apache/commons/math/distribution/NormalDistributionImpl.java",
+			"method_name": "cumulativeProbability",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math.distribution.NormalDistributionImpl.cumulativeProbability(double)",
+			"begin_line": 124,
+			"end_line": 138,
+			"comment": "\n     * For this distribution, {@code X}, this method returns {@code P(X < x)}.\n     * If {@code x}is more than 40 standard deviations from the mean, 0 or 1 is returned,\n     * as in these cases the actual value is within {@code Double.MIN_VALUE} of 0 or 1.\n     *\n     * @param x Value at which the CDF is evaluated.\n     * @return CDF evaluated at {@code x}.\n     * @throws MathException if the algorithm fails to converge\n     "
+		}
+	],
+	"Math-61b": [
+		{
+			"class_file": "org/apache/commons/math/distribution/PoissonDistributionImpl.java",
+			"method_name": "<init>",
+			"arg_types": "DDI",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.distribution.PoissonDistributionImpl.PoissonDistributionImpl(double, double, int)",
+			"begin_line": 92,
+			"end_line": 100,
+			"comment": "\n     * Create a new Poisson distribution with the given mean, convergence criterion\n     * and maximum number of iterations.\n     *\n     * @param p the Poisson mean\n     * @param epsilon the convergence criteria for cumulative probabilites\n     * @param maxIterations the maximum number of iterations for cumulative probabilites\n     * @since 2.1\n     "
+		}
+	],
+	"Math-62b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java",
+			"method_name": "optimize",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DDD",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer.optimize(FUNC, org.apache.commons.math.optimization.GoalType, double, double, double)",
+			"begin_line": 150,
+			"end_line": 183,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java",
+			"method_name": "optimize",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DD",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer.optimize(FUNC, org.apache.commons.math.optimization.GoalType, double, double)",
+			"begin_line": 142,
+			"end_line": 147,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-63b": [
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "equals",
+			"arg_types": "DD",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.equals(double, double)",
+			"begin_line": 416,
+			"end_line": 418,
+			"comment": "\n     * Returns true iff they are equal as defined by\n     * {@link #equals(double,double,int) equals(x, y, 1)}.\n     *\n     * @param x first value\n     * @param y second value\n     * @return {@code true} if the values are equal.\n     "
+		}
+	],
+	"Math-64b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer.doOptimize()",
+			"begin_line": 240,
+			"end_line": 464,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-65b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+			"method_name": "getChiSquare",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer.getChiSquare()",
+			"begin_line": 254,
+			"end_line": 261,
+			"comment": "\n     * Get a Chi-Square-like value assuming the N residuals follow N\n     * distinct normal distributions centered on 0 and whose variances are\n     * the reciprocal of the weights.\n     * @return chi-square value\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+			"method_name": "getRMS",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer.getRMS()",
+			"begin_line": 239,
+			"end_line": 246,
+			"comment": "\n     * Get the Root Mean Square value.\n     * Get the Root Mean Square value, i.e. the root of the arithmetic\n     * mean of the square of all weighted residuals. This is related to the\n     * criterion that is minimized by the optimizer as follows: if\n     * <em>c</em> if the criterion, and <em>n</em> is the number of\n     * measurements, then the RMS is <em>sqrt (c/n)</em>.\n     *\n     * @return RMS value\n     "
+		}
+	],
+	"Math-66b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/univariate/BrentOptimizer.java",
+			"method_name": "optimize",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DD",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.univariate.BrentOptimizer.optimize(org.apache.commons.math.analysis.UnivariateRealFunction, org.apache.commons.math.optimization.GoalType, double, double)",
+			"begin_line": 65,
+			"end_line": 67,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/univariate/BrentOptimizer.java",
+			"method_name": "<init>",
+			"arg_types": "",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.optimization.univariate.BrentOptimizer.BrentOptimizer()",
+			"begin_line": 43,
+			"end_line": 48,
+			"comment": "\n     * Construct a solver.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/univariate/BrentOptimizer.java",
+			"method_name": "localMin",
+			"arg_types": "ZLorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DDDDD",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.univariate.BrentOptimizer.localMin(boolean, org.apache.commons.math.analysis.UnivariateRealFunction, org.apache.commons.math.optimization.GoalType, double, double, double, double, double)",
+			"begin_line": 93,
+			"end_line": 244,
+			"comment": "\n     * Find the minimum of the function within the interval {@code (lo, hi)}.\n     *\n     * If the function is defined on the interval {@code (lo, hi)}, then\n     * this method finds an approximation {@code x} to the point at which\n     * the function attains its minimum.<br/>\n     * {@code t} and {@code eps} define a tolerance {@code tol = eps |x| + t}\n     * and the function is never evaluated at two points closer together than\n     * {@code tol}. {@code eps} should be no smaller than <em>2 macheps</em> and\n     * preferable not much less than <em>sqrt(macheps)</em>, where\n     * <em>macheps</em> is the relative machine precision. {@code t} should be\n     * positive.\n     * @param isMinim {@code true} when minimizing the function.\n     * @param lo Lower bound of the interval.\n     * @param mid Point inside the interval {@code [lo, hi]}.\n     * @param hi Higher bound of the interval.\n     * @param eps Relative accuracy.\n     * @param t Absolute accuracy.\n     * @return the optimum point.\n     * @throws MaxIterationsExceededException if the maximum iteration count\n     * is exceeded.\n     * @throws FunctionEvaluationException if an error occurs evaluating\n     * the function.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/univariate/BrentOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.univariate.BrentOptimizer.doOptimize()",
+			"begin_line": 55,
+			"end_line": 58,
+			"comment": "\n     * Perform the optimization.\n     *\n     * @return the optimum.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/univariate/BrentOptimizer.java",
+			"method_name": "optimize",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DDD",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.univariate.BrentOptimizer.optimize(org.apache.commons.math.analysis.UnivariateRealFunction, org.apache.commons.math.optimization.GoalType, double, double, double)",
+			"begin_line": 59,
+			"end_line": 64,
+			"comment": ""
+		}
+	],
+	"Math-67b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/MultiStartUnivariateRealOptimizer.java",
+			"method_name": "getResult",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.MultiStartUnivariateRealOptimizer.getResult()",
+			"begin_line": 96,
+			"end_line": 98,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/MultiStartUnivariateRealOptimizer.java",
+			"method_name": "getFunctionValue",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.MultiStartUnivariateRealOptimizer.getFunctionValue()",
+			"begin_line": 91,
+			"end_line": 93,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-68b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java",
+			"method_name": "doOptimize",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer.doOptimize()",
+			"begin_line": 219,
+			"end_line": 444,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java",
+			"method_name": "<init>",
+			"arg_types": "",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer.LevenbergMarquardtOptimizer()",
+			"begin_line": 160,
+			"end_line": 171,
+			"comment": "\n     * Build an optimizer for least squares problems.\n     * <p>The default values for the algorithm settings are:\n     *   <ul>\n     *    <li>{@link #setConvergenceChecker vectorial convergence checker}: null</li>\n     *    <li>{@link #setInitialStepBoundFactor initial step bound factor}: 100.0</li>\n     *    <li>{@link #setMaxIterations maximal iterations}: 1000</li>\n     *    <li>{@link #setCostRelativeTolerance cost relative tolerance}: 1.0e-10</li>\n     *    <li>{@link #setParRelativeTolerance parameters relative tolerance}: 1.0e-10</li>\n     *    <li>{@link #setOrthoTolerance orthogonality tolerance}: 1.0e-10</li>\n     *   </ul>\n     * </p>\n     * <p>These default values may be overridden after construction. If the {@link\n     * #setConvergenceChecker vectorial convergence checker} is set to a non-null value, it\n     * will be used instead of the {@link #setCostRelativeTolerance cost relative tolerance}\n     * and {@link #setParRelativeTolerance parameters relative tolerance} settings.\n     "
+		}
+	],
+	"Math-69b": [
+		{
+			"class_file": "org/apache/commons/math/stat/correlation/PearsonsCorrelation.java",
+			"method_name": "getCorrelationPValues",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.correlation.PearsonsCorrelation.getCorrelationPValues()",
+			"begin_line": 160,
+			"end_line": 176,
+			"comment": "\n     * Returns a matrix of p-values associated with the (two-sided) null\n     * hypothesis that the corresponding correlation coefficient is zero.\n     * <p><code>getCorrelationPValues().getEntry(i,j)</code> is the probability\n     * that a random variable distributed as <code>t<sub>n-2</sub></code> takes\n     * a value with absolute value greater than or equal to <br>\n     * <code>|r|((n - 2) / (1 - r<sup>2</sup>))<sup>1/2</sup></code></p>\n     * <p>The values in the matrix are sometimes referred to as the\n     * <i>significance</i> of the corresponding correlation coefficients.</p>\n     *\n     * @return matrix of p-values\n     * @throws MathException if an error occurs estimating probabilities\n     "
+		}
+	],
+	"Math-70b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/BisectionSolver.java",
+			"method_name": "solve",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;DDD",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.BisectionSolver.solve(org.apache.commons.math.analysis.UnivariateRealFunction, double, double, double)",
+			"begin_line": 70,
+			"end_line": 73,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-71b": [
+		{
+			"class_file": "org/apache/commons/math/ode/nonstiff/RungeKuttaIntegrator.java",
+			"method_name": "integrate",
+			"arg_types": "Lorg/apache/commons/math3/ode/FirstOrderDifferentialEquations;D[DD[D",
+			"type": "method",
+			"signature": "org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator.integrate(org.apache.commons.math.ode.FirstOrderDifferentialEquations, double, double[], double, double[])",
+			"begin_line": 95,
+			"end_line": 220,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java",
+			"method_name": "integrate",
+			"arg_types": "Lorg/apache/commons/math3/ode/FirstOrderDifferentialEquations;D[DD[D",
+			"type": "method",
+			"signature": "org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator.integrate(org.apache.commons.math.ode.FirstOrderDifferentialEquations, double, double[], double, double[])",
+			"begin_line": 191,
+			"end_line": 366,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-72b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/BrentSolver.java",
+			"method_name": "solve",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;DDD",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.BrentSolver.solve(org.apache.commons.math.analysis.UnivariateRealFunction, double, double, double)",
+			"begin_line": 98,
+			"end_line": 144,
+			"comment": "\n     * Find a zero in the given interval with an initial guess.\n     * <p>Throws <code>IllegalArgumentException</code> if the values of the\n     * function at the three points have the same sign (note that it is\n     * allowed to have endpoints with the same sign if the initial point has\n     * opposite sign function-wise).</p>\n     *\n     * @param f function to solve.\n     * @param min the lower bound for the interval.\n     * @param max the upper bound for the interval.\n     * @param initial the start value to use (must be set to min if no\n     * initial point is known).\n     * @return the value where the function is zero\n     * @throws MaxIterationsExceededException the maximum iteration count\n     * is exceeded\n     * @throws FunctionEvaluationException if an error occurs evaluating\n     *  the function\n     * @throws IllegalArgumentException if initial is not between min and max\n     * (even if it <em>is</em> a root)\n     "
+		}
+	],
+	"Math-73b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/BrentSolver.java",
+			"method_name": "solve",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;DDD",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.BrentSolver.solve(org.apache.commons.math.analysis.UnivariateRealFunction, double, double, double)",
+			"begin_line": 98,
+			"end_line": 140,
+			"comment": "\n     * Find a zero in the given interval with an initial guess.\n     * <p>Throws <code>IllegalArgumentException</code> if the values of the\n     * function at the three points have the same sign (note that it is\n     * allowed to have endpoints with the same sign if the initial point has\n     * opposite sign function-wise).</p>\n     *\n     * @param f function to solve.\n     * @param min the lower bound for the interval.\n     * @param max the upper bound for the interval.\n     * @param initial the start value to use (must be set to min if no\n     * initial point is known).\n     * @return the value where the function is zero\n     * @throws MaxIterationsExceededException the maximum iteration count\n     * is exceeded\n     * @throws FunctionEvaluationException if an error occurs evaluating\n     *  the function\n     * @throws IllegalArgumentException if initial is not between min and max\n     * (even if it <em>is</em> a root)\n     "
+		}
+	],
+	"Math-74b": [
+		{
+			"class_file": "org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java",
+			"method_name": "integrate",
+			"arg_types": "Lorg/apache/commons/math3/ode/FirstOrderDifferentialEquations;D[DD[D",
+			"type": "method",
+			"signature": "org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator.integrate(org.apache.commons.math.ode.FirstOrderDifferentialEquations, double, double[], double, double[])",
+			"begin_line": 191,
+			"end_line": 359,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-75b": [
+		{
+			"class_file": "org/apache/commons/math/stat/Frequency.java",
+			"method_name": "getPct",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.Frequency.getPct(java.lang.Object)",
+			"begin_line": 301,
+			"end_line": 304,
+			"comment": "\n      * Returns the percentage of values that are equal to v\n     * (as a proportion between 0 and 1).\n     * <p>\n     * Returns <code>Double.NaN</code> if no values have been added.</p>\n     *\n     * @param v the value to lookup\n     * @return the proportion of values equal to v\n     * @deprecated replaced by {@link #getPct(Comparable)} as of 2.0\n     "
+		}
+	],
+	"Math-76b": [
+		{
+			"class_file": "org/apache/commons/math/linear/SingularValueDecompositionImpl.java",
+			"method_name": "getV",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.SingularValueDecompositionImpl.getV()",
+			"begin_line": 233,
+			"end_line": 277,
+			"comment": " {@inheritDoc} "
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/SingularValueDecompositionImpl.java",
+			"method_name": "getU",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.SingularValueDecompositionImpl.getU()",
+			"begin_line": 153,
+			"end_line": 198,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-77b": [
+		{
+			"class_file": "org/apache/commons/math/linear/OpenMapRealVector.java",
+			"method_name": "getLInfNorm",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.OpenMapRealVector.getLInfNorm()",
+			"begin_line": 498,
+			"end_line": 506,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/ArrayRealVector.java",
+			"method_name": "getLInfNorm",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.ArrayRealVector.getLInfNorm()",
+			"begin_line": 717,
+			"end_line": 724,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-78b": [
+		{
+			"class_file": "org/apache/commons/math/ode/events/EventState.java",
+			"method_name": "evaluateStep",
+			"arg_types": "Lorg/apache/commons/math/ode/sampling/StepInterpolator;",
+			"type": "method",
+			"signature": "org.apache.commons.math.ode.events.EventState.evaluateStep(org.apache.commons.math.ode.sampling.StepInterpolator)",
+			"begin_line": 167,
+			"end_line": 263,
+			"comment": " Evaluate the impact of the proposed step on the event handler.\n     * @param interpolator step interpolator for the proposed step\n     * @return true if the event handler triggers an event before\n     * the end of the proposed step (this implies the step should be\n     * rejected)\n     * @exception DerivativeException if the interpolator fails to\n     * compute the switching function somewhere within the step\n     * @exception EventException if the switching function\n     * cannot be evaluated\n     * @exception ConvergenceException if an event cannot be located\n     "
+		}
+	],
+	"Math-79b": [
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "distance",
+			"arg_types": "[I[I",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.distance(int[], int[])",
+			"begin_line": 1623,
+			"end_line": 1630,
+			"comment": "\n     * Calculates the L<sub>2</sub> (Euclidean) distance between two points.\n     *\n     * @param p1 the first point\n     * @param p2 the second point\n     * @return the L<sub>2</sub> distance between the two points\n     "
+		}
+	],
+	"Math-80b": [
+		{
+			"class_file": "org/apache/commons/math/linear/EigenDecompositionImpl.java",
+			"method_name": "flipIfWarranted",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.EigenDecompositionImpl.flipIfWarranted(int, int)",
+			"begin_line": 1132,
+			"end_line": 1147,
+			"comment": "\n     * Flip qd array if warranted.\n     * @param n number of rows in the block\n     * @param step within the array (1 for flipping all elements, 2 for flipping\n     * only every other element)\n     * @return true if qd array was flipped\n     "
+		}
+	],
+	"Math-81b": [
+		{
+			"class_file": "org/apache/commons/math/linear/EigenDecompositionImpl.java",
+			"method_name": "computeGershgorinCircles",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.EigenDecompositionImpl.computeGershgorinCircles()",
+			"begin_line": 569,
+			"end_line": 605,
+			"comment": "\n     * Compute the Gershgorin circles for all rows.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/EigenDecompositionImpl.java",
+			"method_name": "computeShiftIncrement",
+			"arg_types": "III",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.EigenDecompositionImpl.computeShiftIncrement(int, int, int)",
+			"begin_line": 1430,
+			"end_line": 1672,
+			"comment": "\n     * Compute the shift increment as an estimate of the smallest eigenvalue.\n     * <p>This implementation is a translation of the LAPACK routine DLAZQ4.</p>\n     * @param start start index\n     * @param end end index\n     * @param deflated number of realEigenvalues just deflated\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/EigenDecompositionImpl.java",
+			"method_name": "processGeneralBlock",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.EigenDecompositionImpl.processGeneralBlock(int)",
+			"begin_line": 822,
+			"end_line": 928,
+			"comment": "\n     * Find realEigenvalues using dqd/dqds algorithms.\n     * <p>This implementation is based on Beresford N. Parlett\n     * and Osni A. Marques paper <a\n     * href=\"http://www.netlib.org/lapack/lawnspdf/lawn155.pdf\">An\n     * Implementation of the dqds Algorithm (Positive Case)</a> and on the\n     * corresponding LAPACK routine DLASQ2.</p>\n     * @param n number of rows of the block\n     * @exception InvalidMatrixException if block cannot be diagonalized\n     * after 30 * n iterations\n     "
+		}
+	],
+	"Math-82b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/linear/SimplexSolver.java",
+			"method_name": "getPivotRow",
+			"arg_types": "ILorg/apache/commons/math/optimization/linear/SimplexTableau;",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.linear.SimplexSolver.getPivotRow(int, org.apache.commons.math.optimization.linear.SimplexTableau)",
+			"begin_line": 76,
+			"end_line": 91,
+			"comment": "\n     * Returns the row with the minimum ratio as given by the minimum ratio test (MRT).\n     * @param tableau simple tableau for the problem\n     * @param col the column to test the ratio of.  See {@link #getPivotColumn(SimplexTableau)}\n     * @return row with the minimum ratio\n     "
+		}
+	],
+	"Math-83b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/linear/SimplexTableau.java",
+			"method_name": "getBasicRow",
+			"arg_types": "IZ",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.linear.SimplexTableau.getBasicRow(int, boolean)",
+			"begin_line": 290,
+			"end_line": 301,
+			"comment": "\n     * Checks whether the given column is basic.\n     * @param col index of the column to check\n     * @return the row that the variable is basic in.  null if the column is not basic\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/optimization/linear/SimplexTableau.java",
+			"method_name": "getSolution",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.linear.SimplexTableau.getSolution()",
+			"begin_line": 339,
+			"end_line": 358,
+			"comment": "\n     * Get the current solution.\n     * \n     * @return current solution\n     "
+		}
+	],
+	"Math-84b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/direct/MultiDirectional.java",
+			"method_name": "iterateSimplex",
+			"arg_types": "Ljava/util/Comparator;",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.direct.MultiDirectional.iterateSimplex(java.util.Comparator<org.apache.commons.math.optimization.RealPointValuePair>)",
+			"begin_line": 60,
+			"end_line": 99,
+			"comment": " {@inheritDoc} "
+		}
+	],
+	"Math-85b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+			"method_name": "bracket",
+			"arg_types": "Lorg/apache/commons/math/analysis/UnivariateRealFunction;DDDI",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils.bracket(org.apache.commons.math.analysis.UnivariateRealFunction, double, double, double, int)",
+			"begin_line": 165,
+			"end_line": 208,
+			"comment": "\n     * This method attempts to find two values a and b satisfying <ul>\n     * <li> <code> lowerBound <= a < initial < b <= upperBound</code> </li>\n     * <li> <code> f(a) * f(b) <= 0 </code> </li>\n     * </ul>\n     * If f is continuous on <code>[a,b],</code> this means that <code>a</code>\n     * and <code>b</code> bracket a root of f.\n     * <p>\n     * The algorithm starts by setting \n     * <code>a := initial -1; b := initial +1,</code> examines the value of the\n     * function at <code>a</code> and <code>b</code> and keeps moving\n     * the endpoints out by one unit each time through a loop that terminates \n     * when one of the following happens: <ul>\n     * <li> <code> f(a) * f(b) <= 0 </code> --  success!</li>\n     * <li> <code> a = lower </code> and <code> b = upper</code> \n     * -- ConvergenceException </li>\n     * <li> <code> maximumIterations</code> iterations elapse \n     * -- ConvergenceException </li></ul></p>\n     * \n     * @param function the function\n     * @param initial initial midpoint of interval being expanded to\n     * bracket a root\n     * @param lowerBound lower bound (a is never lower than this value)\n     * @param upperBound upper bound (b never is greater than this\n     * value)\n     * @param maximumIterations maximum number of iterations to perform\n     * @return a two element array holding {a, b}.\n     * @throws ConvergenceException if the algorithm fails to find a and b\n     * satisfying the desired conditions\n     * @throws FunctionEvaluationException if an error occurs evaluating the \n     * function\n     * @throws IllegalArgumentException if function is null, maximumIterations\n     * is not positive, or initial is not between lowerBound and upperBound\n     "
+		}
+	],
+	"Math-86b": [
+		{
+			"class_file": "org/apache/commons/math/linear/CholeskyDecompositionImpl.java",
+			"method_name": "<init>",
+			"arg_types": "Lorg/apache/commons/math/linear/RealMatrix;DD",
+			"type": "constructor",
+			"signature": "org.apache.commons.math.linear.CholeskyDecompositionImpl.CholeskyDecompositionImpl(org.apache.commons.math.linear.RealMatrix, double, double)",
+			"begin_line": 93,
+			"end_line": 151,
+			"comment": "\n     * Calculates the Cholesky decomposition of the given matrix.\n     * @param matrix the matrix to decompose\n     * @param relativeSymmetryThreshold threshold above which off-diagonal\n     * elements are considered too different and matrix not symmetric\n     * @param absolutePositivityThreshold threshold below which diagonal\n     * elements are considered null and matrix not positive definite\n     * @exception NonSquareMatrixException if matrix is not square\n     * @exception NotSymmetricMatrixException if matrix is not symmetric\n     * @exception NotPositiveDefiniteMatrixException if the matrix is not\n     * strictly positive definite\n     * @see #CholeskyDecompositionImpl(RealMatrix)\n     * @see #DEFAULT_RELATIVE_SYMMETRY_THRESHOLD\n     * @see #DEFAULT_ABSOLUTE_POSITIVITY_THRESHOLD\n     "
+		}
+	],
+	"Math-87b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/linear/SimplexTableau.java",
+			"method_name": "getBasicRow",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.linear.SimplexTableau.getBasicRow(int)",
+			"begin_line": 272,
+			"end_line": 284,
+			"comment": "\n     * Checks whether the given column is basic.\n     * @param col index of the column to check\n     * @return the row that the variable is basic in.  null if the column is not basic\n     "
+		}
+	],
+	"Math-88b": [
+		{
+			"class_file": "org/apache/commons/math/optimization/linear/SimplexTableau.java",
+			"method_name": "getSolution",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.optimization.linear.SimplexTableau.getSolution()",
+			"begin_line": 324,
+			"end_line": 345,
+			"comment": "\n     * Get the current solution.\n     * <p>\n     * {@link #solve} should be called first for this to be the optimal solution.\n     * </p>\n     * @return current solution\n     "
+		}
+	],
+	"Math-89b": [
+		{
+			"class_file": "org/apache/commons/math/stat/Frequency.java",
+			"method_name": "addValue",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.Frequency.addValue(java.lang.Object)",
+			"begin_line": 108,
+			"end_line": 111,
+			"comment": "\n     * Adds 1 to the frequency count for v.\n     * <p>\n     * If other objects have already been added to this Frequency, v must\n     * be comparable to those that have already been added.\n     * </p>\n     * \n     * @param v the value to add.\n     * @throws IllegalArgumentException if <code>v</code> is not Comparable, \n     *         or is not comparable with previous entries\n     * @deprecated use {@link #addValue(Comparable)} instead\n     "
+		}
+	],
+	"Math-90b": [
+		{
+			"class_file": "org/apache/commons/math/stat/Frequency.java",
+			"method_name": "addValue",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.Frequency.addValue(java.lang.Object)",
+			"begin_line": 108,
+			"end_line": 136,
+			"comment": "\n     * Adds 1 to the frequency count for v.\n     * <p>\n     * If other objects have already been added to this Frequency, v must\n     * be comparable to those that have already been added.\n     * </p>\n     * \n     * @param v the value to add.\n     * @throws IllegalArgumentException if <code>v</code> is not comparable with previous entries\n     * @throws ClassCastException if <code>v</code> is not Comparable\n     * @deprecated use {@link #addValue(Comparable)} instead\n     "
+		}
+	],
+	"Math-91b": [
+		{
+			"class_file": "org/apache/commons/math/fraction/Fraction.java",
+			"method_name": "compareTo",
+			"arg_types": "Lorg/apache/commons/lang3/math/Fraction;",
+			"type": "method",
+			"signature": "org.apache.commons.math.fraction.Fraction.compareTo(org.apache.commons.math.fraction.Fraction)",
+			"begin_line": 258,
+			"end_line": 262,
+			"comment": "\n     * Compares this object to another based on size.\n     * @param object the object to compare to\n     * @return -1 if this is less than <tt>object</tt>, +1 if this is greater\n     *         than <tt>object</tt>, 0 if they are equal.\n     "
+		}
+	],
+	"Math-92b": [
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "binomialCoefficientDouble",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.binomialCoefficientDouble(int, int)",
+			"begin_line": 233,
+			"end_line": 237,
+			"comment": "\n     * Returns a <code>double</code> representation of the <a\n     * href=\"http://mathworld.wolfram.com/BinomialCoefficient.html\"> Binomial\n     * Coefficient</a>, \"<code>n choose k</code>\", the number of\n     * <code>k</code>-element subsets that can be selected from an\n     * <code>n</code>-element set.\n     * <p>\n     * <Strong>Preconditions</strong>:\n     * <ul>\n     * <li> <code>0 <= k <= n </code> (otherwise\n     * <code>IllegalArgumentException</code> is thrown)</li>\n     * <li> The result is small enough to fit into a <code>double</code>. The\n     * largest value of <code>n</code> for which all coefficients are <\n     * Double.MAX_VALUE is 1029. If the computed value exceeds Double.MAX_VALUE,\n     * Double.POSITIVE_INFINITY is returned</li>\n     * </ul></p>\n     * \n     * @param n the size of the set\n     * @param k the size of the subsets to be counted\n     * @return <code>n choose k</code>\n     * @throws IllegalArgumentException if preconditions are not met.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "binomialCoefficient",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.binomialCoefficient(int, int)",
+			"begin_line": 169,
+			"end_line": 209,
+			"comment": "\n     * Returns an exact representation of the <a\n     * href=\"http://mathworld.wolfram.com/BinomialCoefficient.html\"> Binomial\n     * Coefficient</a>, \"<code>n choose k</code>\", the number of\n     * <code>k</code>-element subsets that can be selected from an\n     * <code>n</code>-element set.\n     * <p>\n     * <Strong>Preconditions</strong>:\n     * <ul>\n     * <li> <code>0 <= k <= n </code> (otherwise\n     * <code>IllegalArgumentException</code> is thrown)</li>\n     * <li> The result is small enough to fit into a <code>long</code>. The\n     * largest value of <code>n</code> for which all coefficients are\n     * <code> < Long.MAX_VALUE</code> is 66. If the computed value exceeds\n     * <code>Long.MAX_VALUE</code> an <code>ArithMeticException</code> is\n     * thrown.</li>\n     * </ul></p>\n     * \n     * @param n the size of the set\n     * @param k the size of the subsets to be counted\n     * @return <code>n choose k</code>\n     * @throws IllegalArgumentException if preconditions are not met.\n     * @throws ArithmeticException if the result is too large to be represented\n     *         by a long integer.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "binomialCoefficientLog",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.binomialCoefficientLog(int, int)",
+			"begin_line": 257,
+			"end_line": 299,
+			"comment": "\n     * Returns the natural <code>log</code> of the <a\n     * href=\"http://mathworld.wolfram.com/BinomialCoefficient.html\"> Binomial\n     * Coefficient</a>, \"<code>n choose k</code>\", the number of\n     * <code>k</code>-element subsets that can be selected from an\n     * <code>n</code>-element set.\n     * <p>\n     * <Strong>Preconditions</strong>:\n     * <ul>\n     * <li> <code>0 <= k <= n </code> (otherwise\n     * <code>IllegalArgumentException</code> is thrown)</li>\n     * </ul></p>\n     * \n     * @param n the size of the set\n     * @param k the size of the subsets to be counted\n     * @return <code>n choose k</code>\n     * @throws IllegalArgumentException if preconditions are not met.\n     "
+		}
+	],
+	"Math-93b": [
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "factorial",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.factorial(int)",
+			"begin_line": 344,
+			"end_line": 351,
+			"comment": "\n     * Returns n!. Shorthand for <code>n</code> <a\n     * href=\"http://mathworld.wolfram.com/Factorial.html\"> Factorial</a>, the\n     * product of the numbers <code>1,...,n</code>.\n     * <p>\n     * <Strong>Preconditions</strong>:\n     * <ul>\n     * <li> <code>n >= 0</code> (otherwise\n     * <code>IllegalArgumentException</code> is thrown)</li>\n     * <li> The result is small enough to fit into a <code>long</code>. The\n     * largest value of <code>n</code> for which <code>n!</code> <\n     * Long.MAX_VALUE</code> is 20. If the computed value exceeds <code>Long.MAX_VALUE</code>\n     * an <code>ArithMeticException </code> is thrown.</li>\n     * </ul>\n     * </p>\n     * \n     * @param n argument\n     * @return <code>n!</code>\n     * @throws ArithmeticException if the result is too large to be represented\n     *         by a long integer.\n     * @throws IllegalArgumentException if n < 0\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "factorialLog",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.factorialLog(int)",
+			"begin_line": 393,
+			"end_line": 402,
+			"comment": "\n     * Returns the natural logarithm of n!.\n     * <p>\n     * <Strong>Preconditions</strong>:\n     * <ul>\n     * <li> <code>n >= 0</code> (otherwise\n     * <code>IllegalArgumentException</code> is thrown)</li>\n     * </ul></p>\n     * \n     * @param n argument\n     * @return <code>n!</code>\n     * @throws IllegalArgumentException if preconditions are not met.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "factorialDouble",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.factorialDouble(int)",
+			"begin_line": 373,
+			"end_line": 378,
+			"comment": "\n     * Returns n!. Shorthand for <code>n</code> <a\n     * href=\"http://mathworld.wolfram.com/Factorial.html\"> Factorial</a>, the\n     * product of the numbers <code>1,...,n</code> as a <code>double</code>.\n     * <p>\n     * <Strong>Preconditions</strong>:\n     * <ul>\n     * <li> <code>n >= 0</code> (otherwise\n     * <code>IllegalArgumentException</code> is thrown)</li>\n     * <li> The result is small enough to fit into a <code>double</code>. The\n     * largest value of <code>n</code> for which <code>n!</code> <\n     * Double.MAX_VALUE</code> is 170. If the computed value exceeds\n     * Double.MAX_VALUE, Double.POSITIVE_INFINITY is returned</li>\n     * </ul>\n     * </p>\n     * \n     * @param n argument\n     * @return <code>n!</code>\n     * @throws IllegalArgumentException if n < 0\n     "
+		}
+	],
+	"Math-94b": [
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "gcd",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.gcd(int, int)",
+			"begin_line": 411,
+			"end_line": 460,
+			"comment": "\n     * <p>\n     * Gets the greatest common divisor of the absolute value of two numbers,\n     * using the \"binary gcd\" method which avoids division and modulo\n     * operations. See Knuth 4.5.2 algorithm B. This algorithm is due to Josef\n     * Stein (1961).\n     * </p>\n     * \n     * @param u a non-zero number\n     * @param v a non-zero number\n     * @return the greatest common divisor, never zero\n     * @since 1.1\n     "
+		}
+	],
+	"Math-95b": [
+		{
+			"class_file": "org/apache/commons/math/distribution/FDistributionImpl.java",
+			"method_name": "getInitialDomain",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math.distribution.FDistributionImpl.getInitialDomain(double)",
+			"begin_line": 143,
+			"end_line": 149,
+			"comment": "\n     * Access the initial domain value, based on <code>p</code>, used to\n     * bracket a CDF root.  This method is used by\n     * {@link #inverseCumulativeProbability(double)} to find critical values.\n     * \n     * @param p the desired probability for the critical value\n     * @return initial domain value\n     "
+		}
+	],
+	"Math-96b": [
+		{
+			"class_file": "org/apache/commons/math/complex/Complex.java",
+			"method_name": "equals",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.Complex.equals(java.lang.Object)",
+			"begin_line": 245,
+			"end_line": 267,
+			"comment": "\n     * Test for the equality of two Complex objects.\n     * <p>\n     * If both the real and imaginary parts of two Complex numbers\n     * are exactly the same, and neither is <code>Double.NaN</code>, the two\n     * Complex objects are considered to be equal.</p>\n     * <p>\n     * All <code>NaN</code> values are considered to be equal - i.e, if either\n     * (or both) real and imaginary parts of the complex number are equal\n     * to <code>Double.NaN</code>, the complex number is equal to \n     * <code>Complex.NaN</code>.</p>\n     *\n     * @param other Object to test for equality to this\n     * @return true if two Complex objects are equal, false if\n     *         object is null, not an instance of Complex, or\n     *         not equal to this Complex instance\n     * \n     "
+		}
+	],
+	"Math-97b": [
+		{
+			"class_file": "org/apache/commons/math/analysis/BrentSolver.java",
+			"method_name": "solve",
+			"arg_types": "DD",
+			"type": "method",
+			"signature": "org.apache.commons.math.analysis.BrentSolver.solve(double, double)",
+			"begin_line": 125,
+			"end_line": 152,
+			"comment": "\n     * Find a zero in the given interval.\n     * <p>\n     * Requires that the values of the function at the endpoints have opposite\n     * signs. An <code>IllegalArgumentException</code> is thrown if this is not\n     * the case.</p>\n     * \n     * @param min the lower bound for the interval.\n     * @param max the upper bound for the interval.\n     * @return the value where the function is zero\n     * @throws MaxIterationsExceededException if the maximum iteration count is exceeded\n     * @throws FunctionEvaluationException if an error occurs evaluating the\n     * function \n     * @throws IllegalArgumentException if min is not less than max or the\n     * signs of the values of the function at the endpoints are not opposites\n     "
+		}
+	],
+	"Math-98b": [
+		{
+			"class_file": "org/apache/commons/math/linear/BigMatrixImpl.java",
+			"method_name": "operate",
+			"arg_types": "[Ljava/math/BigDecimal;",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.BigMatrixImpl.operate(java.math.BigDecimal[])",
+			"begin_line": 985,
+			"end_line": 1000,
+			"comment": "\n     * Returns the result of multiplying this by the vector <code>v</code>.\n     *\n     * @param v the vector to operate on\n     * @return this*v\n     * @throws IllegalArgumentException if columnDimension != v.size()\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/linear/RealMatrixImpl.java",
+			"method_name": "operate",
+			"arg_types": "[D",
+			"type": "method",
+			"signature": "org.apache.commons.math.linear.RealMatrixImpl.operate(double[])",
+			"begin_line": 773,
+			"end_line": 789,
+			"comment": "\n     * @param v vector to operate on\n     * @throws IllegalArgumentException if columnDimension != v.length\n     * @return resulting vector\n     "
+		}
+	],
+	"Math-99b": [
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "gcd",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.gcd(int, int)",
+			"begin_line": 539,
+			"end_line": 592,
+			"comment": "\n     * <p>\n     * Gets the greatest common divisor of the absolute value of two numbers,\n     * using the \"binary gcd\" method which avoids division and modulo\n     * operations. See Knuth 4.5.2 algorithm B. This algorithm is due to Josef\n     * Stein (1961).\n     * </p>\n     * Special cases:\n     * <ul>\n     * <li>The invocations\n     * <code>gcd(Integer.MIN_VALUE, Integer.MIN_VALUE)</code>,\n     * <code>gcd(Integer.MIN_VALUE, 0)</code> and\n     * <code>gcd(0, Integer.MIN_VALUE)</code> throw an\n     * <code>ArithmeticException</code>, because the result would be 2^31, which\n     * is too large for an int value.</li>\n     * <li>The result of <code>gcd(x, x)</code>, <code>gcd(0, x)</code> and\n     * <code>gcd(x, 0)</code> is the absolute value of <code>x</code>, except\n     * for the special cases above.\n     * <li>The invocation <code>gcd(0, 0)</code> is the only one which returns\n     * <code>0</code>.</li>\n     * </ul>\n     * \n     * @param u any number\n     * @param v any number\n     * @return the greatest common divisor, never negative\n     * @throws ArithmeticException\n     *             if the result cannot be represented as a nonnegative int\n     *             value\n     * @since 1.1\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/util/MathUtils.java",
+			"method_name": "lcm",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.math.util.MathUtils.lcm(int, int)",
+			"begin_line": 709,
+			"end_line": 715,
+			"comment": "\n     * <p>\n     * Returns the least common multiple of the absolute value of two numbers,\n     * using the formula <code>lcm(a,b) = (a / gcd(a,b)) * b</code>.\n     * </p>\n     * Special cases:\n     * <ul>\n     * <li>The invocations <code>lcm(Integer.MIN_VALUE, n)</code> and\n     * <code>lcm(n, Integer.MIN_VALUE)</code>, where <code>abs(n)</code> is a\n     * power of 2, throw an <code>ArithmeticException</code>, because the result\n     * would be 2^31, which is too large for an int value.</li>\n     * <li>The result of <code>lcm(0, x)</code> and <code>lcm(x, 0)</code> is\n     * <code>0</code> for any <code>x</code>.\n     * </ul>\n     * \n     * @param a any number\n     * @param b any number\n     * @return the least common multiple, never negative\n     * @throws ArithmeticException\n     *             if the result cannot be represented as a nonnegative int\n     *             value\n     * @since 1.1\n     "
+		}
+	],
+	"Math-100b": [
+		{
+			"class_file": "org/apache/commons/math/estimation/AbstractEstimator.java",
+			"method_name": "getCovariances",
+			"arg_types": "Lorg/apache/commons/math/estimation/EstimationProblem;",
+			"type": "method",
+			"signature": "org.apache.commons.math.estimation.AbstractEstimator.getCovariances(org.apache.commons.math.estimation.EstimationProblem)",
+			"begin_line": 158,
+			"end_line": 188,
+			"comment": "\n     * Get the covariance matrix of unbound estimated parameters.\n     * @param problem estimation problem\n     * @return covariance matrix\n     * @exception EstimationException if the covariance matrix\n     * cannot be computed (singular problem)\n     "
+		},
+		{
+			"class_file": "org/apache/commons/math/estimation/AbstractEstimator.java",
+			"method_name": "guessParametersErrors",
+			"arg_types": "Lorg/apache/commons/math/estimation/EstimationProblem;",
+			"type": "method",
+			"signature": "org.apache.commons.math.estimation.AbstractEstimator.guessParametersErrors(org.apache.commons.math.estimation.EstimationProblem)",
+			"begin_line": 199,
+			"end_line": 214,
+			"comment": "\n     * Guess the errors in unbound estimated parameters.\n     * <p>Guessing is covariance-based, it only gives rough order of magnitude.</p>\n     * @param problem estimation problem\n     * @return errors in estimated parameters\n     * @exception EstimationException if the covariances matrix cannot be computed\n     * or the number of degrees of freedom is not positive (number of measurements\n     * lesser or equal to number of parameters)\n     "
+		}
+	],
+	"Math-101b": [
+		{
+			"class_file": "org/apache/commons/math/complex/ComplexFormat.java",
+			"method_name": "parse",
+			"arg_types": "Ljava/lang/String;Ljava/text/ParsePosition;",
+			"type": "method",
+			"signature": "org.apache.commons.math.complex.ComplexFormat.parse(java.lang.String, java.text.ParsePosition)",
+			"begin_line": 320,
+			"end_line": 389,
+			"comment": "\n     * Parses a string to produce a {@link Complex} object.\n     *\n     * @param source the string to parse\n     * @param pos input/ouput parsing parameter.\n     * @return the parsed {@link Complex} object.\n     "
+		}
+	],
+	"Math-102b": [
+		{
+			"class_file": "org/apache/commons/math/stat/inference/ChiSquareTestImpl.java",
+			"method_name": "chiSquare",
+			"arg_types": "[D[J",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.inference.ChiSquareTestImpl.chiSquare(double[], long[])",
+			"begin_line": 64,
+			"end_line": 81,
+			"comment": "\n     * {@inheritDoc}\n     * <p><strong>Note: </strong>This implementation rescales the \n     * <code>expected</code> array if necessary to ensure that the sum of the\n     * expected and observed counts are equal.</p>\n     * \n     * @param observed array of observed frequency counts\n     * @param expected array of expected frequency counts\n     * @return chi-square test statistic\n     * @throws IllegalArgumentException if preconditions are not met\n     * or length is less than 2\n     "
+		}
+	],
+	"Math-103b": [
+		{
+			"class_file": "org/apache/commons/math/distribution/NormalDistributionImpl.java",
+			"method_name": "cumulativeProbability",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "org.apache.commons.math.distribution.NormalDistributionImpl.cumulativeProbability(double)",
+			"begin_line": 108,
+			"end_line": 111,
+			"comment": "\n     * For this disbution, X, this method returns P(X &lt; <code>x</code>).\n     * @param x the value at which the CDF is evaluated.\n     * @return CDF evaluted at <code>x</code>. \n     * @throws MathException if the algorithm fails to converge; unless\n     * x is more than 20 standard deviations from the mean, in which case the\n     * convergence exception is caught and 0 or 1 is returned.\n     "
+		}
+	],
+	"Math-104b": [
+		{
+			"class_file": "org/apache/commons/math/special/Gamma.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"DEFAULT_EPSILON"
+			],
+			"begin_line": 37,
+			"end_line": 37,
+			"comment": " Maximum allowed numerical error. "
+		}
+	],
+	"Math-105b": [
+		{
+			"class_file": "org/apache/commons/math/stat/regression/SimpleRegression.java",
+			"method_name": "getSumSquaredErrors",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.math.stat.regression.SimpleRegression.getSumSquaredErrors()",
+			"begin_line": 263,
+			"end_line": 265,
+			"comment": "\n     * Returns the <a href=\"http://www.xycoon.com/SumOfSquares.htm\">\n     * sum of squared errors</a> (SSE) associated with the regression \n     * model.\n     * <p>\n     * The sum is computed using the computational formula\n     * <p>\n     * <code>SSE = SYY - (SXY * SXY / SXX)</code>\n     * <p>\n     * where <code>SYY</code> is the sum of the squared deviations of the y\n     * values about their mean, <code>SXX</code> is similarly defined and\n     * <code>SXY</code> is the sum of the products of x and y mean deviations.\n     * <p>\n     * The sums are accumulated using the updating algorithm referenced in \n     * {@link #addData}.  \n     * <p>\n     * The return value is constrained to be non-negative - i.e., if due to \n     * rounding errors the computational formula returns a negative result, \n     * 0 is returned.\n     * <p>\n     * <strong>Preconditions</strong>: <ul>\n     * <li>At least two observations (with at least two different x values)\n     * must have been added before invoking this method. If this method is \n     * invoked before a model can be estimated, <code>Double,NaN</code> is\n     * returned.\n     * </li></ul>\n     *\n     * @return sum of squared errors associated with the regression model\n     "
+		}
+	],
+	"Math-106b": [
+		{
+			"class_file": "org/apache/commons/math/fraction/ProperFractionFormat.java",
+			"method_name": "parse",
+			"arg_types": "Ljava/lang/String;Ljava/text/ParsePosition;",
+			"type": "method",
+			"signature": "org.apache.commons.math.fraction.ProperFractionFormat.parse(java.lang.String, java.text.ParsePosition)",
+			"begin_line": 130,
+			"end_line": 206,
+			"comment": "\r\n     * Parses a string to produce a {@link Fraction} object.  This method\r\n     * expects the string to be formatted as a proper fraction.\r\n     * <p>\r\n     * Minus signs are only allowed in the whole number part - i.e.,\r\n     * \"-3 1/2\" is legitimate and denotes -7/2, but \"-3 -1/2\" is invalid and\r\n     * will result in a <code>ParseException</code>.\r\n     * \r\n     * @param source the string to parse\r\n     * @param pos input/ouput parsing parameter.\r\n     * @return the parsed {@link Fraction} object.\r\n     "
+		}
+	]
+}

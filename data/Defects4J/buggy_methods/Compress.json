@@ -1,0 +1,848 @@
+{
+	"Compress-1b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java",
+			"method_name": "close",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream.close()",
+			"begin_line": 344,
+			"end_line": 349,
+			"comment": "\n     * Closes the CPIO output stream as well as the stream being filtered.\n     * \n     * @throws IOException\n     *             if an I/O error has occurred or if a CPIO file error has\n     *             occurred\n     "
+		}
+	],
+	"Compress-2b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java",
+			"method_name": "read",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ar.ArArchiveInputStream.read()",
+			"begin_line": 131,
+			"end_line": 135,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java",
+			"method_name": "close",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ar.ArArchiveInputStream.close()",
+			"begin_line": 124,
+			"end_line": 129,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java",
+			"method_name": "getNextArEntry",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ar.ArArchiveInputStream.getNextArEntry()",
+			"begin_line": 59,
+			"end_line": 117,
+			"comment": "\n     * Returns the next AR entry in this stream.\n     * \n     * @return the next AR entry.\n     * @throws IOException\n     *             if the entry could not be read\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java",
+			"method_name": "read",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ar.ArArchiveInputStream.read(byte[], int, int)",
+			"begin_line": 141,
+			"end_line": 146,
+			"comment": ""
+		}
+	],
+	"Compress-3b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+			"method_name": "finish",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream.finish()",
+			"begin_line": 111,
+			"end_line": 114,
+			"comment": "\n     * Ends the TAR archive without closing the underlying OutputStream.\n     * \n     * An archive consists of a series of file entries terminated by an\n     * end-of-archive entry, which consists of two 512 blocks of zero bytes. \n     * POSIX.1 requires two EOF records, like some other implementations.\n     * \n     * @throws IOException on error\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+			"method_name": "putArchiveEntry",
+			"arg_types": "Lorg/apache/commons/compress/archivers/ArchiveEntry;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream.putArchiveEntry(org.apache.commons.compress.archivers.ArchiveEntry)",
+			"begin_line": 153,
+			"end_line": 187,
+			"comment": "\n     * Put an entry on the output stream. This writes the entry's\n     * header record and positions the output stream for writing\n     * the contents of the entry. Once this method is called, the\n     * stream is ready for calls to write() to write the entry's\n     * contents. Once the contents are written, closeArchiveEntry()\n     * <B>MUST</B> be called to ensure that all buffered data\n     * is completely written to the output stream.\n     *\n     * @param archiveEntry The TarEntry to be written to the archive.\n     * @throws IOException on error\n     * @throws ClassCastException if archiveEntry is not an instance of TarArchiveEntry\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+			"method_name": "closeArchiveEntry",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream.closeArchiveEntry()",
+			"begin_line": 199,
+			"end_line": 217,
+			"comment": "\n     * Close an entry. This method MUST be called for all file\n     * entries that contain data. The reason is that we must\n     * buffer data written to the stream in order to satisfy\n     * the buffer's record based writes. Thus, there may be\n     * data fragments still being assembled that must be written\n     * to the output stream before this entry is closed and the\n     * next entry written.\n     * @throws IOException on error\n     "
+		}
+	],
+	"Compress-4b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java",
+			"method_name": "close",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream.close()",
+			"begin_line": 334,
+			"end_line": 340,
+			"comment": "\n     * Closes the CPIO output stream as well as the stream being filtered.\n     * \n     * @throws IOException\n     *             if an I/O error has occurred or if a CPIO file error has\n     *             occurred\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+			"method_name": "close",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream.close()",
+			"begin_line": 124,
+			"end_line": 131,
+			"comment": "\n     * Closes the underlying OutputStream.\n     * @throws IOException on error\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java",
+			"method_name": "close",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream.close()",
+			"begin_line": 529,
+			"end_line": 537,
+			"comment": "\n     * Closes this output stream and releases any system resources\n     * associated with the stream.\n     *\n     * @exception  IOException  if an I/O error occurs.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/changes/ChangeSetPerformer.java",
+			"method_name": "perform",
+			"arg_types": "Lorg/apache/commons/compress/archivers/ArchiveInputStream;Lorg/apache/commons/compress/archivers/ArchiveOutputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.changes.ChangeSetPerformer.perform(org.apache.commons.compress.archivers.ArchiveInputStream, org.apache.commons.compress.archivers.ArchiveOutputStream)",
+			"begin_line": 67,
+			"end_line": 129,
+			"comment": "\n     * Performs all changes collected in this ChangeSet on the input stream and\n     * streams the result to the output stream. Perform may be called more than once.\n     * \n     * This method finishes the stream, no other entries should be added\n     * after that.\n     * \n     * @param in\n     *            the InputStream to perform the changes on\n     * @param out\n     *            the resulting OutputStream with all modifications\n     * @throws IOException\n     *             if an read/write error occurs\n     * @return the results of this operation\n     "
+		}
+	],
+	"Compress-5b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+			"method_name": "read",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.read(byte[], int, int)",
+			"begin_line": 191,
+			"end_line": 246,
+			"comment": ""
+		}
+	],
+	"Compress-6b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/lang/String;",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveEntry.ZipArchiveEntry(java.lang.String)",
+			"begin_line": 62,
+			"end_line": 64,
+			"comment": "\n     * Creates a new zip entry with the specified name.\n     * @param name the name of the entry\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+			"method_name": "equals",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveEntry.equals(java.lang.Object)",
+			"begin_line": 454,
+			"end_line": 470,
+			"comment": " (non-Javadoc)\n     * @see java.lang.Object#equals(java.lang.Object)\n     "
+		}
+	],
+	"Compress-7b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "parseName",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.parseName(byte[], int, int)",
+			"begin_line": 93,
+			"end_line": 105,
+			"comment": "\n     * Parse an entry name from a buffer.\n     * Parsing stops when a NUL is found\n     * or the buffer length is reached.\n     *\n     * @param buffer The buffer from which to parse.\n     * @param offset The offset into the buffer from which to parse.\n     * @param length The maximum number of bytes to parse.\n     * @return The entry name.\n     "
+		}
+	],
+	"Compress-8b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "parseOctal",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.parseOctal(byte[], int, int)",
+			"begin_line": 51,
+			"end_line": 87,
+			"comment": "\n     * Parse an octal string from a buffer.\n     * Leading spaces are ignored.\n     * The buffer must contain a trailing space or NUL,\n     * and may contain an additional trailing space or NUL.\n     *\n     * The input buffer is allowed to contain all NULs,\n     * in which case the method returns 0L\n     * (this allows for missing fields).\n     *\n     * @param buffer The buffer from which to parse.\n     * @param offset The offset into the buffer from which to parse.\n     * @param length The maximum number of bytes to parse - must be at least 2 bytes.\n     * @return The long value of the octal string.\n     * @throws IllegalArgumentException if the trailing space/NUL is missing or if a invalid byte is detected.\n     "
+		}
+	],
+	"Compress-9b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+			"method_name": "write",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream.write(byte[], int, int)",
+			"begin_line": 266,
+			"end_line": 331,
+			"comment": "\n     * Writes bytes to the current tar archive entry. This method\n     * is aware of the current entry and will throw an exception if\n     * you attempt to write bytes past the length specified for the\n     * current entry. The method is also (painfully) aware of the\n     * record buffering required by TarBuffer, and manages buffers\n     * that are not a multiple of recordsize in length, including\n     * assembling records from small buffers.\n     *\n     * @param wBuf The buffer to write to the archive.\n     * @param wOffset The offset in the buffer from which to get bytes.\n     * @param numToWrite The number of bytes to write.\n     * @throws IOException on error\n     "
+		}
+	],
+	"Compress-10b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipFile.java",
+			"method_name": "resolveLocalFileHeaderData",
+			"arg_types": "Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipFile.resolveLocalFileHeaderData(java.util.Map<org.apache.commons.compress.archivers.zip.ZipArchiveEntry, org.apache.commons.compress.archivers.zip.ZipFile.NameAndComment>)",
+			"begin_line": 801,
+			"end_line": 843,
+			"comment": "\n     * Walks through all recorded entries and adds the data available\n     * from the local file header.\n     *\n     * <p>Also records the offsets for the data to read from the\n     * entries.</p>\n     "
+		}
+	],
+	"Compress-11b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/ArchiveStreamFactory.java",
+			"method_name": "createArchiveInputStream",
+			"arg_types": "Ljava/io/InputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ArchiveStreamFactory.createArchiveInputStream(java.io.InputStream)",
+			"begin_line": 197,
+			"end_line": 254,
+			"comment": "\n     * Create an archive input stream from an input stream, autodetecting\n     * the archive type from the first few bytes of the stream. The InputStream\n     * must support marks, like BufferedInputStream.\n     * \n     * @param in the input stream\n     * @return the archive input stream\n     * @throws ArchiveException if the archiver name is not known\n     * @throws IllegalArgumentException if the stream is null or does not support mark\n     "
+		}
+	],
+	"Compress-12b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+			"method_name": "getNextTarEntry",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream.getNextTarEntry()",
+			"begin_line": 172,
+			"end_line": 238,
+			"comment": "\n     * Get the next entry in this tar archive. This will skip\n     * over any remaining data in the current entry, if there\n     * is one, and place the input stream at the header of the\n     * next entry, and read the header and instantiate a new\n     * TarEntry from the header bytes and return that entry.\n     * If there are no more entries in the archive, null will\n     * be returned to indicate that the end of the archive has\n     * been reached.\n     *\n     * @return The next TarEntry in the archive, or null.\n     * @throws IOException on error\n     "
+		}
+	],
+	"Compress-13b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+			"method_name": "setName",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveEntry.setName(java.lang.String)",
+			"begin_line": 511,
+			"end_line": 513,
+			"comment": "\n     * Set the name of the entry.\n     * @param name the name to use\n     "
+		}
+	],
+	"Compress-14b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "parseOctal",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.parseOctal(byte[], int, int)",
+			"begin_line": 56,
+			"end_line": 112,
+			"comment": "\n     * Parse an octal string from a buffer.\n     *\n     * <p>Leading spaces are ignored.\n     * The buffer must contain a trailing space or NUL,\n     * and may contain an additional trailing space or NUL.</p>\n     *\n     * <p>The input buffer is allowed to contain all NULs,\n     * in which case the method returns 0L\n     * (this allows for missing fields).</p>\n     *\n     * <p>To work-around some tar implementations that insert a\n     * leading NUL this method returns 0 if it detects a leading NUL\n     * since Commons Compress 1.4.</p>\n     *\n     * @param buffer The buffer from which to parse.\n     * @param offset The offset into the buffer from which to parse.\n     * @param length The maximum number of bytes to parse - must be at least 2 bytes.\n     * @return The long value of the octal string.\n     * @throws IllegalArgumentException if the trailing space/NUL is missing or if a invalid byte is detected.\n     "
+		}
+	],
+	"Compress-15b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+			"method_name": "equals",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveEntry.equals(java.lang.Object)",
+			"begin_line": 648,
+			"end_line": 688,
+			"comment": " (non-Javadoc)\n     * @see java.lang.Object#equals(java.lang.Object)\n     "
+		}
+	],
+	"Compress-16b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/ArchiveStreamFactory.java",
+			"method_name": "createArchiveInputStream",
+			"arg_types": "Ljava/io/InputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ArchiveStreamFactory.createArchiveInputStream(java.io.InputStream)",
+			"begin_line": 197,
+			"end_line": 258,
+			"comment": "\n     * Create an archive input stream from an input stream, autodetecting\n     * the archive type from the first few bytes of the stream. The InputStream\n     * must support marks, like BufferedInputStream.\n     * \n     * @param in the input stream\n     * @return the archive input stream\n     * @throws ArchiveException if the archiver name is not known\n     * @throws IllegalArgumentException if the stream is null or does not support mark\n     "
+		}
+	],
+	"Compress-17b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "parseOctal",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.parseOctal(byte[], int, int)",
+			"begin_line": 102,
+			"end_line": 151,
+			"comment": "\n     * Parse an octal string from a buffer.\n     *\n     * <p>Leading spaces are ignored.\n     * The buffer must contain a trailing space or NUL,\n     * and may contain an additional trailing space or NUL.</p>\n     *\n     * <p>The input buffer is allowed to contain all NULs,\n     * in which case the method returns 0L\n     * (this allows for missing fields).</p>\n     *\n     * <p>To work-around some tar implementations that insert a\n     * leading NUL this method returns 0 if it detects a leading NUL\n     * since Commons Compress 1.4.</p>\n     *\n     * @param buffer The buffer from which to parse.\n     * @param offset The offset into the buffer from which to parse.\n     * @param length The maximum number of bytes to parse - must be at least 2 bytes.\n     * @return The long value of the octal string.\n     * @throws IllegalArgumentException if the trailing space/NUL is missing or if a invalid byte is detected.\n     "
+		}
+	],
+	"Compress-18b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+			"method_name": "writePaxHeaders",
+			"arg_types": "Ljava/lang/String;Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream.writePaxHeaders(java.lang.String, java.util.Map<java.lang.String, java.lang.String>)",
+			"begin_line": 454,
+			"end_line": 491,
+			"comment": "\n     * Writes a PAX extended header with the given map as contents.\n     * @since 1.4\n     "
+		}
+	],
+	"Compress-19b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java",
+			"method_name": "reparseCentralDirectoryData",
+			"arg_types": "ZZZZ",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.Zip64ExtendedInformationExtraField.reparseCentralDirectoryData(boolean, boolean, boolean, boolean)",
+			"begin_line": 249,
+			"end_line": 287,
+			"comment": "\n     * Parses the raw bytes read from the central directory extra\n     * field with knowledge which fields are expected to be there.\n     *\n     * <p>All four fields inside the zip64 extended information extra\n     * field are optional and must only be present if their corresponding\n     * entry inside the central directory contains the correct magic\n     * value.</p>\n     "
+		}
+	],
+	"Compress-20b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+			"method_name": "readOldAsciiEntry",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream.readOldAsciiEntry()",
+			"begin_line": 355,
+			"end_line": 378,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+			"method_name": "readNewEntry",
+			"arg_types": "Z",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream.readNewEntry(boolean)",
+			"begin_line": 320,
+			"end_line": 353,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+			"method_name": "readOldBinaryEntry",
+			"arg_types": "Z",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream.readOldBinaryEntry(boolean)",
+			"begin_line": 380,
+			"end_line": 405,
+			"comment": ""
+		}
+	],
+	"Compress-21b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java",
+			"method_name": "writeBits",
+			"arg_types": "Ljava/io/DataOutput;Ljava/util/BitSet;I",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.sevenz.SevenZOutputFile.writeBits(java.io.DataOutput, java.util.BitSet, int)",
+			"begin_line": 634,
+			"end_line": 649,
+			"comment": ""
+		}
+	],
+	"Compress-22b": [
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "setupRandPartC",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.setupRandPartC()",
+			"begin_line": 911,
+			"end_line": 923,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "read0",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.read0()",
+			"begin_line": 198,
+			"end_line": 233,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "setupNoRandPartC",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.setupNoRandPartC()",
+			"begin_line": 939,
+			"end_line": 952,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "setupRandPartA",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.setupRandPartA()",
+			"begin_line": 838,
+			"end_line": 862,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/InputStream;Z",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.BZip2CompressorInputStream(java.io.InputStream, boolean)",
+			"begin_line": 129,
+			"end_line": 136,
+			"comment": "\n     * Constructs a new BZip2CompressorInputStream which decompresses bytes\n     * read from the specified stream.\n     *\n     * @param in the InputStream from which this object should be created\n     * @param decompressConcatenated\n     *                     if true, decompress until the end of the input;\n     *                     if false, stop after the first .bz2 stream and\n     *                     leave the input position to point to the next\n     *                     byte after the .bz2 stream\n     *\n     * @throws IOException\n     *             if the stream content is malformed or an I/O error occurs.\n     * @throws NullPointerException\n     *             if <tt>in == null</tt>\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"currentChar"
+			],
+			"begin_line": 67,
+			"end_line": 67,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "setupNoRandPartA",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.setupNoRandPartA()",
+			"begin_line": 864,
+			"end_line": 881,
+			"comment": ""
+		}
+	],
+	"Compress-23b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/sevenz/Coders.java",
+			"method_name": "decode",
+			"arg_types": "Ljava/io/InputStream;Lorg/apache/commons/compress/archivers/sevenz/Coder;[B",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.sevenz.Coders.LZMADecoder.decode(java.io.InputStream, org.apache.commons.compress.archivers.sevenz.Coder, byte[])",
+			"begin_line": 106,
+			"end_line": 118,
+			"comment": ""
+		}
+	],
+	"Compress-24b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "parseOctal",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.parseOctal(byte[], int, int)",
+			"begin_line": 102,
+			"end_line": 153,
+			"comment": "\n     * Parse an octal string from a buffer.\n     *\n     * <p>Leading spaces are ignored.\n     * The buffer must contain a trailing space or NUL,\n     * and may contain an additional trailing space or NUL.</p>\n     *\n     * <p>The input buffer is allowed to contain all NULs,\n     * in which case the method returns 0L\n     * (this allows for missing fields).</p>\n     *\n     * <p>To work-around some tar implementations that insert a\n     * leading NUL this method returns 0 if it detects a leading NUL\n     * since Commons Compress 1.4.</p>\n     *\n     * @param buffer The buffer from which to parse.\n     * @param offset The offset into the buffer from which to parse.\n     * @param length The maximum number of bytes to parse - must be at least 2 bytes.\n     * @return The long value of the octal string.\n     * @throws IllegalArgumentException if the trailing space/NUL is missing or if a invalid byte is detected.\n     "
+		}
+	],
+	"Compress-25b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/InputStream;Ljava/lang/String;ZZ",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.ZipArchiveInputStream(java.io.InputStream, java.lang.String, boolean, boolean)",
+			"begin_line": 174,
+			"end_line": 184,
+			"comment": "\n     * @param encoding the encoding to use for file names, use null\n     * for the platform's default encoding\n     * @param useUnicodeExtraFields whether to use InfoZIP Unicode\n     * Extra Fields (if present) to set the file names.\n     * @param allowStoredEntriesWithDataDescriptor whether the stream\n     * will try to read STORED entries that use a data descriptor\n     * @since 1.1\n     "
+		}
+	],
+	"Compress-26b": [
+		{
+			"class_file": "org/apache/commons/compress/utils/IOUtils.java",
+			"method_name": "skip",
+			"arg_types": "Ljava/io/InputStream;J",
+			"type": "method",
+			"signature": "org.apache.commons.compress.utils.IOUtils.skip(java.io.InputStream, long)",
+			"begin_line": 94,
+			"end_line": 105,
+			"comment": "\n     * Skips the given number of bytes by repeatedly invoking skip on\n     * the given input stream if necessary.\n     *\n     * <p>In a case where the stream's skip() method returns 0 before\n     * the requested number of bytes has been skip this implementation\n     * will fall back to using the read() method.</p>\n     *\n     * <p>This method will only skip less than the requested number of\n     * bytes if the end of the input stream has been reached.</p>\n     *\n     * @param input stream to skip bytes in\n     * @param numToSkip the number of bytes to skip\n     * @return the number of bytes actually skipped\n     * @throws IOException\n     "
+		}
+	],
+	"Compress-27b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "parseOctal",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.parseOctal(byte[], int, int)",
+			"begin_line": 102,
+			"end_line": 150,
+			"comment": "\n     * Parse an octal string from a buffer.\n     *\n     * <p>Leading spaces are ignored.\n     * The buffer must contain a trailing space or NUL,\n     * and may contain an additional trailing space or NUL.</p>\n     *\n     * <p>The input buffer is allowed to contain all NULs,\n     * in which case the method returns 0L\n     * (this allows for missing fields).</p>\n     *\n     * <p>To work-around some tar implementations that insert a\n     * leading NUL this method returns 0 if it detects a leading NUL\n     * since Commons Compress 1.4.</p>\n     *\n     * @param buffer The buffer from which to parse.\n     * @param offset The offset into the buffer from which to parse.\n     * @param length The maximum number of bytes to parse - must be at least 2 bytes.\n     * @return The long value of the octal string.\n     * @throws IllegalArgumentException if the trailing space/NUL is missing or if a invalid byte is detected.\n     "
+		}
+	],
+	"Compress-28b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+			"method_name": "read",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream.read(byte[], int, int)",
+			"begin_line": 568,
+			"end_line": 592,
+			"comment": "\n     * Reads bytes from the current tar archive entry.\n     *\n     * This method is aware of the boundaries of the current\n     * entry in the archive and will deal with them as if they\n     * were this stream's start and EOF.\n     *\n     * @param buf The buffer into which to place bytes read.\n     * @param offset The offset at which to place bytes read.\n     * @param numToRead The number of bytes to read.\n     * @return The number of bytes read, or -1 at EOF.\n     * @throws IOException on error\n     "
+		}
+	],
+	"Compress-29b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/InputStream;ILjava/lang/String;",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream.CpioArchiveInputStream(java.io.InputStream, int, java.lang.String)",
+			"begin_line": 152,
+			"end_line": 156,
+			"comment": "\n     * Construct the cpio input stream with a blocksize of {@link CpioConstants#BLOCK_SIZE BLOCK_SIZE}.\n     * \n     * @param in\n     *            The cpio stream\n     * @param blockSize\n     *            The block size of the archive.\n     * @param encoding\n     *            The encoding of file names to expect - use null for\n     *            the platform's default.\n     * @since 1.6\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/OutputStream;IILjava/lang/String;",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream.TarArchiveOutputStream(java.io.OutputStream, int, int, java.lang.String)",
+			"begin_line": 152,
+			"end_line": 162,
+			"comment": "\n     * Constructor for TarInputStream.\n     * @param os the output stream to use\n     * @param blockSize the block size to use\n     * @param recordSize the record size to use\n     * @param encoding name of the encoding to use for file names\n     * @since 1.4\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/InputStream;Ljava/lang/String;ZZ",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.ZipArchiveInputStream(java.io.InputStream, java.lang.String, boolean, boolean)",
+			"begin_line": 180,
+			"end_line": 191,
+			"comment": "\n     * @param encoding the encoding to use for file names, use null\n     * for the platform's default encoding\n     * @param useUnicodeExtraFields whether to use InfoZIP Unicode\n     * Extra Fields (if present) to set the file names.\n     * @param allowStoredEntriesWithDataDescriptor whether the stream\n     * will try to read STORED entries that use a data descriptor\n     * @since 1.1\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/InputStream;Ljava/lang/String;",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.dump.DumpArchiveInputStream.DumpArchiveInputStream(java.io.InputStream, java.lang.String)",
+			"begin_line": 100,
+			"end_line": 146,
+			"comment": "\n     * Constructor.\n     *\n     * @param is\n     * @param encoding the encoding to use for file names, use null\n     * for the platform's default encoding\n     * @since 1.6\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/OutputStream;SILjava/lang/String;",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream.CpioArchiveOutputStream(java.io.OutputStream, short, int, java.lang.String)",
+			"begin_line": 147,
+			"end_line": 163,
+			"comment": "\n     * Construct the cpio output stream with a specified format using\n     * ASCII as the file name encoding.\n     * \n     * @param out\n     *            The cpio stream\n     * @param format\n     *            The format of the stream\n     * @param blockSize\n     *            The block size of the archive.\n     * @param encoding\n     *            The encoding of file names to write - use null for\n     *            the platform's default.\n     * \n     * @since 1.6\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/ArchiveStreamFactory.java",
+			"method_name": "createArchiveInputStream",
+			"arg_types": "Ljava/io/InputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ArchiveStreamFactory.createArchiveInputStream(java.io.InputStream)",
+			"begin_line": 324,
+			"end_line": 405,
+			"comment": "\n     * Create an archive input stream from an input stream, autodetecting\n     * the archive type from the first few bytes of the stream. The InputStream\n     * must support marks, like BufferedInputStream.\n     * \n     * @param in the input stream\n     * @return the archive input stream\n     * @throws ArchiveException if the archiver name is not known\n     * @throws StreamingNotSupportedException if the format cannot be\n     * read from a stream\n     * @throws IllegalArgumentException if the stream is null or does not support mark\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/ArchiveStreamFactory.java",
+			"method_name": "createArchiveOutputStream",
+			"arg_types": "Ljava/lang/String;Ljava/io/OutputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.ArchiveStreamFactory.createArchiveOutputStream(java.lang.String, java.io.OutputStream)",
+			"begin_line": 269,
+			"end_line": 310,
+			"comment": "\n     * Create an archive output stream from an archiver name and an output stream.\n     * \n     * @param archiverName the archive name,\n     * i.e. {@value #AR}, {@value #ZIP}, {@value #TAR}, {@value #JAR} or {@value #CPIO} \n     * @param out the output stream\n     * @return the archive output stream\n     * @throws ArchiveException if the archiver name is not known\n     * @throws StreamingNotSupportedException if the format cannot be\n     * written to a stream\n     * @throws IllegalArgumentException if the archiver name or stream is null\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/InputStream;IILjava/lang/String;",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream.TarArchiveInputStream(java.io.InputStream, int, int, java.lang.String)",
+			"begin_line": 138,
+			"end_line": 145,
+			"comment": "\n     * Constructor for TarInputStream.\n     * @param is the input stream to use\n     * @param blockSize the block size to use\n     * @param recordSize the record size to use\n     * @param encoding name of the encoding to use for file names\n     * @since 1.4\n     "
+		}
+	],
+	"Compress-30b": [
+		{
+			"class_file": "org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+			"method_name": "read",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.read(byte[], int, int)",
+			"begin_line": 152,
+			"end_line": 179,
+			"comment": "\n     * (non-Javadoc)\n     * \n     * @see java.io.InputStream#read(byte[], int, int)\n     "
+		}
+	],
+	"Compress-31b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "parseOctal",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.parseOctal(byte[], int, int)",
+			"begin_line": 101,
+			"end_line": 148,
+			"comment": "\n     * Parse an octal string from a buffer.\n     *\n     * <p>Leading spaces are ignored.\n     * The buffer must contain a trailing space or NUL,\n     * and may contain an additional trailing space or NUL.</p>\n     *\n     * <p>The input buffer is allowed to contain all NULs,\n     * in which case the method returns 0L\n     * (this allows for missing fields).</p>\n     *\n     * <p>To work-around some tar implementations that insert a\n     * leading NUL this method returns 0 if it detects a leading NUL\n     * since Commons Compress 1.4.</p>\n     *\n     * @param buffer The buffer from which to parse.\n     * @param offset The offset into the buffer from which to parse.\n     * @param length The maximum number of bytes to parse - must be at least 2 bytes.\n     * @return The long value of the octal string.\n     * @throws IllegalArgumentException if the trailing space/NUL is missing or if a invalid byte is detected.\n     "
+		}
+	],
+	"Compress-32b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+			"method_name": "applyPaxHeadersToCurrentEntry",
+			"arg_types": "Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream.applyPaxHeadersToCurrentEntry(java.util.Map<java.lang.String, java.lang.String>)",
+			"begin_line": 481,
+			"end_line": 518,
+			"comment": ""
+		}
+	],
+	"Compress-33b": [
+		{
+			"class_file": "org/apache/commons/compress/compressors/CompressorStreamFactory.java",
+			"method_name": "createCompressorInputStream",
+			"arg_types": "Ljava/io/InputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.compressors.CompressorStreamFactory.createCompressorInputStream(java.io.InputStream)",
+			"begin_line": 204,
+			"end_line": 256,
+			"comment": "\n     * Create an compressor input stream from an input stream, autodetecting\n     * the compressor type from the first few bytes of the stream. The InputStream\n     * must support marks, like BufferedInputStream.\n     * \n     * @param in the input stream\n     * @return the compressor input stream\n     * @throws CompressorException if the compressor name is not known\n     * @throws IllegalArgumentException if the stream is null or does not support mark\n     * @since 1.1\n     "
+		}
+	],
+	"Compress-34b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/X7875_NewUnix.java",
+			"method_name": "getCentralDirectoryLength",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.X7875_NewUnix.getCentralDirectoryLength()",
+			"begin_line": 145,
+			"end_line": 147,
+			"comment": "\n     * Length of the extra field in the central directory data - without\n     * Header-ID or length specifier.\n     *\n     * @return a <code>ZipShort</code> for the length of the data of this extra field\n     "
+		}
+	],
+	"Compress-35b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "verifyCheckSum",
+			"arg_types": "[B",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.verifyCheckSum(byte[])",
+			"begin_line": 593,
+			"end_line": 613,
+			"comment": "\n     * Wikipedia <a href=\"http://en.wikipedia.org/wiki/Tar_(file_format)#File_header\">says</a>:\n     * <blockquote>\n     * The checksum is calculated by taking the sum of the unsigned byte values\n     * of the header block with the eight checksum bytes taken to be ascii\n     * spaces (decimal value 32). It is stored as a six digit octal number with\n     * leading zeroes followed by a NUL and then a space. Various\n     * implementations do not adhere to this format. For better compatibility,\n     * ignore leading and trailing whitespace, and get the first six digits. In\n     * addition, some historic tar implementations treated bytes as signed.\n     * Implementations typically calculate the checksum both ways, and treat it\n     * as good if either the signed or unsigned sum matches the included\n     * checksum.\n     * </blockquote>\n     * <p>\n     * The return value of this method should be treated as a best-effort\n     * heuristic rather than an absolute and final truth. The checksum\n     * verification logic may well evolve over time as more special cases\n     * are encountered.\n     *\n     * @param header tar header\n     * @return whether the checksum is reasonably good\n     * @see <a href=\"https://issues.apache.org/jira/browse/COMPRESS-191\">COMPRESS-191</a>\n     * @since 1.5\n     "
+		}
+	],
+	"Compress-36b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+			"method_name": "getCurrentStream",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.sevenz.SevenZFile.getCurrentStream()",
+			"begin_line": 901,
+			"end_line": 916,
+			"comment": ""
+		}
+	],
+	"Compress-37b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+			"method_name": "parsePaxHeaders",
+			"arg_types": "Ljava/io/InputStream;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream.parsePaxHeaders(java.io.InputStream)",
+			"begin_line": 452,
+			"end_line": 502,
+			"comment": " https://www.gnu.org/software/tar/manual/html_section/tar_92.html#SEC188"
+		}
+	],
+	"Compress-38b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarArchiveEntry.java",
+			"method_name": "isDirectory",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarArchiveEntry.isDirectory()",
+			"begin_line": 849,
+			"end_line": 864,
+			"comment": "\n     * Return whether or not this entry represents a directory.\n     *\n     * @return True if this entry is a directory.\n     "
+		}
+	],
+	"Compress-39b": [
+		{
+			"class_file": "org/apache/commons/compress/utils/ArchiveUtils.java",
+			"method_name": "sanitize",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.utils.ArchiveUtils.sanitize(java.lang.String)",
+			"begin_line": 272,
+			"end_line": 288,
+			"comment": "\n     * Returns a \"sanitized\" version of the string given as arguments,\n     * where sanitized means non-printable characters have been\n     * replaced with a question mark and the outcome is not longer\n     * than 255 chars.\n     *\n     * <p>This method is used to clean up file names when they are\n     * used in exception messages as they may end up in log files or\n     * as console output and may have been read from a corrupted\n     * input.</p>\n     *\n     * @param s the string to sanitize\n     * @return a sanitized version of the argument\n     * @since Compress 1.12\n     "
+		}
+	],
+	"Compress-40b": [
+		{
+			"class_file": "org/apache/commons/compress/utils/BitInputStream.java",
+			"method_name": "readBits",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.compress.utils.BitInputStream.readBits(int)",
+			"begin_line": 81,
+			"end_line": 109,
+			"comment": "\n     * Returns at most 63 bits read from the underlying stream.\n     *\n     * @param count the number of bits to read, must be a positive\n     * number not bigger than 63.\n     * @return the bits concatenated as a long using the stream's byte order.\n     *         -1 if the end of the underlying stream has been reached before reading\n     *         the requested number of bits\n     * @throws IOException on error\n     "
+		}
+	],
+	"Compress-41b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+			"method_name": "getNextZipEntry",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry()",
+			"begin_line": 219,
+			"end_line": 324,
+			"comment": ""
+		}
+	],
+	"Compress-42b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+			"method_name": "isUnixSymlink",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveEntry.isUnixSymlink()",
+			"begin_line": 296,
+			"end_line": 298,
+			"comment": "\n     * Returns true if this entry represents a unix symlink,\n     * in which case the entry's content contains the target path\n     * for the symlink.\n     *\n     * @since 1.5\n     * @return true if the entry represents a unix symlink, false otherwise.\n     "
+		}
+	],
+	"Compress-43b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java",
+			"method_name": "usesDataDescriptor",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream.usesDataDescriptor(int)",
+			"begin_line": 1492,
+			"end_line": 1494,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java",
+			"method_name": "writeDataDescriptor",
+			"arg_types": "Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream.writeDataDescriptor(org.apache.commons.compress.archivers.zip.ZipArchiveEntry)",
+			"begin_line": 1170,
+			"end_line": 1183,
+			"comment": "\n     * Writes the data descriptor entry.\n     * @param ze the entry to write\n     * @throws IOException on error\n     "
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java",
+			"method_name": "writeLocalFileHeader",
+			"arg_types": "Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry;Z",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream.writeLocalFileHeader(org.apache.commons.compress.archivers.zip.ZipArchiveEntry, boolean)",
+			"begin_line": 1024,
+			"end_line": 1038,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java",
+			"method_name": "createLocalFileHeader",
+			"arg_types": "Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry;Ljava/nio/ByteBuffer;ZZJ",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream.createLocalFileHeader(org.apache.commons.compress.archivers.zip.ZipArchiveEntry, java.nio.ByteBuffer, boolean, boolean, long)",
+			"begin_line": 1041,
+			"end_line": 1127,
+			"comment": ""
+		}
+	],
+	"Compress-44b": [
+		{
+			"class_file": "org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/util/zip/Checksum;Ljava/io/InputStream;",
+			"type": "constructor",
+			"signature": "org.apache.commons.compress.utils.ChecksumCalculatingInputStream.ChecksumCalculatingInputStream(java.util.zip.Checksum, java.io.InputStream)",
+			"begin_line": 33,
+			"end_line": 39,
+			"comment": ""
+		}
+	],
+	"Compress-45b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/tar/TarUtils.java",
+			"method_name": "formatLongOctalOrBinaryBytes",
+			"arg_types": "J[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.tar.TarUtils.formatLongOctalOrBinaryBytes(long, byte[], int, int)",
+			"begin_line": 474,
+			"end_line": 492,
+			"comment": "\n     * Write an long integer into a buffer as an octal string if this\n     * will fit, or as a binary number otherwise.\n     * \n     * Uses {@link #formatUnsignedOctalString} to format\n     * the value as an octal string with leading zeros.\n     * The converted number is followed by a space.\n     * \n     * @param value The value to write into the buffer.\n     * @param buf The destination buffer.\n     * @param offset The starting offset into the buffer.\n     * @param length The length of the buffer.\n     * @return The updated offset.\n     * @throws IllegalArgumentException if the value (and trailer)\n     * will not fit in the buffer.\n     * @since 1.4\n     "
+		}
+	],
+	"Compress-46b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java",
+			"method_name": "unixTimeToZipLong",
+			"arg_types": "J",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestamp.unixTimeToZipLong(long)",
+			"begin_line": 528,
+			"end_line": 534,
+			"comment": ""
+		}
+	],
+	"Compress-47b": [
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+			"method_name": "read",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.read(byte[], int, int)",
+			"begin_line": 420,
+			"end_line": 461,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+			"method_name": "canReadEntryData",
+			"arg_types": "Lorg/apache/commons/compress/archivers/ArchiveEntry;",
+			"type": "method",
+			"signature": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.canReadEntryData(org.apache.commons.compress.archivers.ArchiveEntry)",
+			"begin_line": 410,
+			"end_line": 418,
+			"comment": "\n     * Whether this class is able to read the given entry.\n     *\n     * <p>May return false if it is set up to use encryption or a\n     * compression method that hasn't been implemented yet.</p>\n     * @since 1.1\n     "
+		}
+	]
+}

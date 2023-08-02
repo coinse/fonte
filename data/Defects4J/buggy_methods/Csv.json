@@ -1,0 +1,228 @@
+{
+	"Csv-1b": [
+		{
+			"class_file": "org/apache/commons/csv/ExtendedBufferedReader.java",
+			"method_name": "read",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.ExtendedBufferedReader.read()",
+			"begin_line": 55,
+			"end_line": 63,
+			"comment": ""
+		}
+	],
+	"Csv-2b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVRecord.java",
+			"method_name": "get",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVRecord.get(java.lang.String)",
+			"begin_line": 79,
+			"end_line": 86,
+			"comment": "\n     * Returns a value by name.\n     *\n     * @param name\n     *            the name of the column to be retrieved.\n     * @return the column value, or {@code null} if the column name is not found\n     * @throws IllegalStateException\n     *             if no header mapping was provided\n     * @throws IllegalArgumentException\n     *             if the record is inconsistent\n     * @see #isConsistent()\n     "
+		}
+	],
+	"Csv-3b": [
+		{
+			"class_file": "org/apache/commons/csv/Lexer.java",
+			"method_name": "readEscape",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.Lexer.readEscape()",
+			"begin_line": 87,
+			"end_line": 114,
+			"comment": "\n     * Handle an escape sequence.\n     * The current character must be the escape character.\n     * On return, the next character is available by calling {@link ExtendedBufferedReader#getLastChar()}\n     * on the input stream.\n     * \n     * @return the unescaped character (as an int) or {@link END_OF_STREAM} if char following the escape is invalid. \n     * @throws IOException if there is a problem reading the stream or the end of stream is detected: \n     * the escape character is not allowed at end of strem\n     "
+		}
+	],
+	"Csv-4b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVParser.java",
+			"method_name": "getHeaderMap",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVParser.getHeaderMap()",
+			"begin_line": 287,
+			"end_line": 289,
+			"comment": "\n     * Returns a copy of the header map that iterates in column order.\n     * <p>\n     * The map keys are column names. The map values are 0-based indices.\n     * </p>\n     * @return a copy of the header map that iterates in column order.\n     "
+		}
+	],
+	"Csv-5b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVPrinter.java",
+			"method_name": "println",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVPrinter.println()",
+			"begin_line": 323,
+			"end_line": 327,
+			"comment": "\n     * Outputs the record separator.\n     *\n     * @throws IOException\n     *             If an I/O error occurs\n     "
+		}
+	],
+	"Csv-6b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVRecord.java",
+			"method_name": "putIn",
+			"arg_types": "Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVRecord.putIn(M)",
+			"begin_line": 179,
+			"end_line": 185,
+			"comment": "\n     * Puts all values of this record into the given Map.\n     *\n     * @param map The Map to populate.\n     * @return the given map.\n     "
+		}
+	],
+	"Csv-7b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVParser.java",
+			"method_name": "initializeHeader",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVParser.initializeHeader()",
+			"begin_line": 348,
+			"end_line": 376,
+			"comment": "\n     * Initializes the name to index mapping if the format defines a header.\n     *\n     * @return null if the format has no header.\n     "
+		}
+	],
+	"Csv-8b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVFormat.java",
+			"method_name": "<init>",
+			"arg_types": "CLjava/lang/Character;Lorg/apache/commons/csv/Quote;Ljava/lang/Character;Ljava/lang/Character;ZZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Z",
+			"type": "constructor",
+			"signature": "org.apache.commons.csv.CSVFormat.CSVFormat(char, java.lang.Character, org.apache.commons.csv.Quote, java.lang.Character, java.lang.Character, boolean, boolean, java.lang.String, java.lang.String, java.lang.String[], boolean)",
+			"begin_line": 296,
+			"end_line": 319,
+			"comment": "\n     * Creates a customized CSV format.\n     *\n     * @param delimiter\n     *            the char used for value separation, must not be a line break character\n     * @param quoteChar\n     *            the Character used as value encapsulation marker, may be {@code null} to disable\n     * @param quotePolicy\n     *            the quote policy\n     * @param commentStart\n     *            the Character used for comment identification, may be {@code null} to disable\n     * @param escape\n     *            the Character used to escape special characters in values, may be {@code null} to disable\n     * @param ignoreSurroundingSpaces\n     *            <tt>true</tt> when whitespaces enclosing values should be ignored\n     * @param ignoreEmptyLines\n     *            <tt>true</tt> when the parser should skip empty lines\n     * @param recordSeparator\n     *            the line separator to use for output\n     * @param nullString\n     *            the line separator to use for output\n     * @param header\n     *            the header\n     * @param skipHeaderRecord TODO\n     * @throws IllegalArgumentException if the delimiter is a line break character\n     "
+		},
+		{
+			"class_file": "org/apache/commons/csv/CSVFormat.java",
+			"method_name": "validate",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVFormat.validate()",
+			"begin_line": 635,
+			"end_line": 672,
+			"comment": "\n     * Verifies the consistency of the parameters and throws an IllegalStateException if necessary.\n     *\n     * @throws IllegalStateException\n     "
+		}
+	],
+	"Csv-9b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVRecord.java",
+			"method_name": "putIn",
+			"arg_types": "Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVRecord.putIn(M)",
+			"begin_line": 179,
+			"end_line": 187,
+			"comment": "\n     * Puts all values of this record into the given Map.\n     *\n     * @param map The Map to populate.\n     * @return the given map.\n     "
+		}
+	],
+	"Csv-10b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVPrinter.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/lang/Appendable;Lorg/apache/commons/csv/CSVFormat;",
+			"type": "constructor",
+			"signature": "org.apache.commons.csv.CSVPrinter.CSVPrinter(java.lang.Appendable, org.apache.commons.csv.CSVFormat)",
+			"begin_line": 61,
+			"end_line": 70,
+			"comment": "\n     * Creates a printer that will print values to the given stream following the CSVFormat.\n     * <p>\n     * Currently, only a pure encapsulation format or a pure escaping format is supported. Hybrid formats (encapsulation\n     * and escaping with a different character) are not supported.\n     * </p>\n     * \n     * @param out\n     *        stream to which to print. Must not be null.\n     * @param format\n     *        the CSV format. Must not be null.\n     * @throws IOException\n     *         thrown if the optional header cannot be printed.\n     * @throws IllegalArgumentException\n     *         thrown if the parameters of the format are inconsistent or if either out or format are null.\n     "
+		}
+	],
+	"Csv-11b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVParser.java",
+			"method_name": "initializeHeader",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVParser.initializeHeader()",
+			"begin_line": 359,
+			"end_line": 394,
+			"comment": "\n     * Initializes the name to index mapping if the format defines a header.\n     *\n     * @return null if the format has no header.\n     * @throws IOException if there is a problem reading the header or skipping the first record\n     "
+		}
+	],
+	"Csv-12b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVFormat.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"EXCEL"
+			],
+			"begin_line": 219,
+			"end_line": 219,
+			"comment": "\n     * Excel file format (using a comma as the value delimiter). Note that the actual value delimiter used by Excel is\n     * locale dependent, it might be necessary to customize this format to accommodate to your regional settings.\n     *\n     * <p>\n     * For example for parsing or generating a CSV file on a French system the following format will be used:\n     * </p>\n     *\n     * <pre>\n     * CSVFormat fmt = CSVFormat.EXCEL.withDelimiter(';');\n     * </pre>\n     *\n     * <p>\n     * Settings are:\n     * </p>\n     * <ul>\n     *   <li>{@link #withDelimiter(char) withDelimiter(',')}</li>\n     *   <li>{@link #withQuoteChar(String) withQuoteChar('\"')}</li>\n     *   <li>{@link #withRecordSeparator(String) withRecordSeparator(\"\\r\\n\")}</li>\n     *   <li>{@link #withIgnoreEmptyLines(boolean) withIgnoreEmptyLines(false)}</li>\n     *   <li>{@link #withAllowMissingColumnNames(boolean) withAllowMissingColumnNames(true)}</li>\n     * </ul>\n     * <p>\n     * Note: this is currently like {@link #RFC4180} plus {@link #withAllowMissingColumnNames(boolean) withAllowMissingColumnNames(true)}.\n     * </p>\n     "
+		}
+	],
+	"Csv-13b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVPrinter.java",
+			"method_name": "print",
+			"arg_types": "Ljava/lang/Object;Ljava/lang/CharSequence;II",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVPrinter.print(java.lang.Object, java.lang.CharSequence, int, int)",
+			"begin_line": 134,
+			"end_line": 148,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/csv/CSVFormat.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"MYSQL"
+			],
+			"begin_line": 318,
+			"end_line": 319,
+			"comment": "\n     * Default MySQL format used by the {@code SELECT INTO OUTFILE} and {@code LOAD DATA INFILE} operations.\n     *\n     * <p>\n     * This is a tab-delimited format with a LF character as the line separator. Values are not quoted and special\n     * characters are escaped with {@code '\\'}. The default NULL string is {@code \"\\\\N\"}.\n     * </p>\n     *\n     * <p>\n     * Settings are:\n     * </p>\n     * <ul>\n     * <li>withDelimiter('\\t')</li>\n     * <li>withQuote(null)</li>\n     * <li>withRecordSeparator('\\n')</li>\n     * <li>withIgnoreEmptyLines(false)</li>\n     * <li>withEscape('\\\\')</li>\n     * <li>withNullString(\"\\\\N\")</li>\n     * </ul>\n     *\n     * @see Predefined#MySQL\n     * @see <a href=\"http://dev.mysql.com/doc/refman/5.1/en/load-data.html\">\n     *      http://dev.mysql.com/doc/refman/5.1/en/load-data.html</a>\n     "
+		}
+	],
+	"Csv-14b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVFormat.java",
+			"method_name": "printAndQuote",
+			"arg_types": "Ljava/lang/Object;Ljava/lang/CharSequence;IILjava/lang/Appendable;Z",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVFormat.printAndQuote(java.lang.Object, java.lang.CharSequence, int, int, java.lang.Appendable, boolean)",
+			"begin_line": 1001,
+			"end_line": 1106,
+			"comment": " the original object is needed so can check for Number"
+		}
+	],
+	"Csv-15b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVFormat.java",
+			"method_name": "printAndQuote",
+			"arg_types": "Ljava/lang/Object;Ljava/lang/CharSequence;IILjava/lang/Appendable;Z",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVFormat.printAndQuote(java.lang.Object, java.lang.CharSequence, int, int, java.lang.Appendable, boolean)",
+			"begin_line": 1151,
+			"end_line": 1256,
+			"comment": " the original object is needed so can check for Number"
+		}
+	],
+	"Csv-16b": [
+		{
+			"class_file": "org/apache/commons/csv/CSVParser.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/Reader;Lorg/apache/commons/csv/CSVFormat;JJ",
+			"type": "constructor",
+			"signature": "org.apache.commons.csv.CSVParser.CSVParser(java.io.Reader, org.apache.commons.csv.CSVFormat, long, long)",
+			"begin_line": 349,
+			"end_line": 360,
+			"comment": "\n     * Customized CSV parser using the given {@link CSVFormat}\n     *\n     * <p>\n     * If you do not read all records from the given {@code reader}, you should call {@link #close()} on the parser,\n     * unless you close the {@code reader}.\n     * </p>\n     *\n     * @param reader\n     *            a Reader containing CSV-formatted input. Must not be null.\n     * @param format\n     *            the CSVFormat used for CSV parsing. Must not be null.\n     * @param characterOffset\n     *            Lexer offset when the parser does not start parsing at the beginning of the source.\n     * @param recordNumber\n     *            The next record number to assign\n     * @throws IllegalArgumentException\n     *             If the parameters of the format are inconsistent or if either reader or format are null.\n     * @throws IOException\n     *             If there is a problem reading the header or skipping the first record\n     * @since 1.1\n     "
+		},
+		{
+			"class_file": "org/apache/commons/csv/CSVParser.java",
+			"method_name": "iterator",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.csv.CSVParser.iterator()",
+			"begin_line": 521,
+			"end_line": 571,
+			"comment": "\n     * Returns an iterator on the records.\n     *\n     * <p>\n     * An {@link IOException} caught during the iteration are re-thrown as an\n     * {@link IllegalStateException}.\n     * </p>\n     * <p>\n     * If the parser is closed a call to {@link Iterator#next()} will throw a\n     * {@link NoSuchElementException}.\n     * </p>\n     "
+		}
+	]
+}

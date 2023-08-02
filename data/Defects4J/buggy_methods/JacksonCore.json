@@ -1,0 +1,613 @@
+{
+	"JacksonCore-1b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/io/NumberInput.java",
+			"method_name": "parseBigDecimal",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.io.NumberInput.parseBigDecimal(java.lang.String)",
+			"begin_line": 293,
+			"end_line": 296,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/io/NumberInput.java",
+			"method_name": "parseBigDecimal",
+			"arg_types": "[CII",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.io.NumberInput.parseBigDecimal(char[], int, int)",
+			"begin_line": 302,
+			"end_line": 306,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/util/TextBuffer.java",
+			"method_name": "contentsAsDecimal",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.util.TextBuffer.contentsAsDecimal()",
+			"begin_line": 382,
+			"end_line": 399,
+			"comment": "\n     * Convenience method for converting contents of the buffer\n     * into a {@link BigDecimal}.\n     "
+		}
+	],
+	"JacksonCore-2b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "_parseFloat",
+			"arg_types": "[CIIZI",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser._parseFloat(char[], int, int, boolean, int)",
+			"begin_line": 1323,
+			"end_line": 1412,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "_skipWSOrEnd",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWSOrEnd()",
+			"begin_line": 2540,
+			"end_line": 2584,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "_parserNumber2",
+			"arg_types": "[CIZI",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser._parserNumber2(char[], int, boolean, int)",
+			"begin_line": 1253,
+			"end_line": 1284,
+			"comment": "\n     * Method called to handle parsing when input is split across buffer boundary\n     * (or output is longer than segment used to store it)\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "_parseNumber2",
+			"arg_types": "Z",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser._parseNumber2(boolean)",
+			"begin_line": 968,
+			"end_line": 1085,
+			"comment": "\n     * Method called to parse a number, when the primary parse\n     * method has failed to parse it, due to it being split on\n     * buffer boundary. As a result code is very similar, except\n     * that it has to explicitly copy contents to the text buffer\n     * instead of just sharing the main input buffer.\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "_parseNumber",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser._parseNumber(int)",
+			"begin_line": 846,
+			"end_line": 959,
+			"comment": "\n     * Initial parsing method for number values. It needs to be able\n     * to parse enough input to be able to determine whether the\n     * value is to be considered a simple integer value, or a more\n     * generic decimal value: latter of which needs to be expressed\n     * as a floating point number. The basic rule is that if the number\n     * has no fractional or exponential part, it is an integer; otherwise\n     * a floating point number.\n     *<p>\n     * Because much of input has to be processed in any case, no partial\n     * parsing is done: all input text will be stored for further\n     * processing. However, actual numeric value conversion will be\n     * deferred, since it is usually the most complicated and costliest\n     * part of processing.\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "_parseNumber",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser._parseNumber(int)",
+			"begin_line": 1184,
+			"end_line": 1247,
+			"comment": "\n     * Initial parsing method for number values. It needs to be able\n     * to parse enough input to be able to determine whether the\n     * value is to be considered a simple integer value, or a more\n     * generic decimal value: latter of which needs to be expressed\n     * as a floating point number. The basic rule is that if the number\n     * has no fractional or exponential part, it is an integer; otherwise\n     * a floating point number.\n     *<p>\n     * Because much of input has to be processed in any case, no partial\n     * parsing is done: all input text will be stored for further\n     * processing. However, actual numeric value conversion will be\n     * deferred, since it is usually the most complicated and costliest\n     * part of processing.\n     "
+		}
+	],
+	"JacksonCore-3b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/fasterxml/jackson/core/io/IOContext;ILjava/io/InputStream;Lcom/fasterxml/jackson/core/ObjectCodec;Lcom/fasterxml/jackson/core/sym/BytesToNameCanonicalizer;[BIIZ",
+			"type": "constructor",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser.UTF8StreamJsonParser(com.fasterxml.jackson.core.io.IOContext, int, java.io.InputStream, com.fasterxml.jackson.core.ObjectCodec, com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer, byte[], int, int, boolean)",
+			"begin_line": 113,
+			"end_line": 127,
+			"comment": ""
+		}
+	],
+	"JacksonCore-4b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/util/TextBuffer.java",
+			"method_name": "expandCurrentSegment",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.util.TextBuffer.expandCurrentSegment()",
+			"begin_line": 580,
+			"end_line": 588,
+			"comment": "\n     * Method called to expand size of the current segment, to\n     * accommodate for more contiguous content. Usually only\n     * used when parsing tokens like names if even then.\n     "
+		}
+	],
+	"JacksonCore-5b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/JsonPointer.java",
+			"method_name": "_parseIndex",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.JsonPointer._parseIndex(java.lang.String)",
+			"begin_line": 185,
+			"end_line": 205,
+			"comment": ""
+		}
+	],
+	"JacksonCore-6b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/JsonPointer.java",
+			"method_name": "_parseIndex",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.JsonPointer._parseIndex(java.lang.String)",
+			"begin_line": 185,
+			"end_line": 206,
+			"comment": ""
+		}
+	],
+	"JacksonCore-7b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/JsonWriteContext.java",
+			"method_name": "writeValue",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.JsonWriteContext.writeValue()",
+			"begin_line": 166,
+			"end_line": 185,
+			"comment": ""
+		}
+	],
+	"JacksonCore-8b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/util/TextBuffer.java",
+			"method_name": "getTextBuffer",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.util.TextBuffer.getTextBuffer()",
+			"begin_line": 298,
+			"end_line": 310,
+			"comment": ""
+		}
+	],
+	"JacksonCore-9b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "getValueAsString",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser.getValueAsString(java.lang.String)",
+			"begin_line": 257,
+			"end_line": 267,
+			"comment": " @since 2.1"
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "getValueAsString",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser.getValueAsString(java.lang.String)",
+			"begin_line": 309,
+			"end_line": 320,
+			"comment": " @since 2.1"
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "getValueAsString",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser.getValueAsString()",
+			"begin_line": 295,
+			"end_line": 306,
+			"comment": " @since 2.1"
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/base/ParserMinimalBase.java",
+			"method_name": "getValueAsString",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.base.ParserMinimalBase.getValueAsString(java.lang.String)",
+			"begin_line": 395,
+			"end_line": 404,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/base/ParserMinimalBase.java",
+			"method_name": "getValueAsString",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.base.ParserMinimalBase.getValueAsString()",
+			"begin_line": 387,
+			"end_line": 393,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "getValueAsString",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser.getValueAsString()",
+			"begin_line": 243,
+			"end_line": 254,
+			"comment": " @since 2.1"
+		}
+	],
+	"JacksonCore-10b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java",
+			"method_name": "_findOffsetForAdd",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer._findOffsetForAdd(int)",
+			"begin_line": 887,
+			"end_line": 934,
+			"comment": "\n     * Method called to find the location within hash table to add a new symbol in.\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java",
+			"method_name": "calcHash",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer.calcHash(int)",
+			"begin_line": 975,
+			"end_line": 986,
+			"comment": ""
+		}
+	],
+	"JacksonCore-11b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java",
+			"method_name": "_verifySharing",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer._verifySharing()",
+			"begin_line": 874,
+			"end_line": 886,
+			"comment": ""
+		}
+	],
+	"JacksonCore-12b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "getTokenLocation",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser.getTokenLocation()",
+			"begin_line": 3613,
+			"end_line": 3624,
+			"comment": " As per [core#108], must ensure we call the right method"
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "_isNextTokenNameMaybe",
+			"arg_types": "ILjava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser._isNextTokenNameMaybe(int, java.lang.String)",
+			"begin_line": 960,
+			"end_line": 1014,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "_isNextTokenNameYes",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser._isNextTokenNameYes(int)",
+			"begin_line": 914,
+			"end_line": 958,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "getTokenLocation",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser.getTokenLocation()",
+			"begin_line": 2667,
+			"end_line": 2675,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "nextFieldName",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextFieldName()",
+			"begin_line": 810,
+			"end_line": 912,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "nextToken",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken()",
+			"begin_line": 573,
+			"end_line": 705,
+			"comment": "\n     * @return Next token from the stream, if any found, or null\n     *   to indicate end-of-input\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "nextFieldName",
+			"arg_types": "Lcom/fasterxml/jackson/core/SerializableString;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextFieldName(com.fasterxml.jackson.core.SerializableString)",
+			"begin_line": 731,
+			"end_line": 808,
+			"comment": " Implemented since 2.7"
+		}
+	],
+	"JacksonCore-13b": [],
+	"JacksonCore-14b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/io/IOContext.java",
+			"method_name": "_verifyRelease",
+			"arg_types": "[C[C",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.io.IOContext._verifyRelease(char[], char[])",
+			"begin_line": 277,
+			"end_line": 280,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/io/IOContext.java",
+			"method_name": "wrongBuf",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.io.IOContext.wrongBuf()",
+			"begin_line": 282,
+			"end_line": 285,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/io/IOContext.java",
+			"method_name": "_verifyRelease",
+			"arg_types": "[B[B",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.io.IOContext._verifyRelease(byte[], byte[])",
+			"begin_line": 272,
+			"end_line": 275,
+			"comment": ""
+		}
+	],
+	"JacksonCore-15b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/filter/FilteringParserDelegate.java",
+			"method_name": "nextToken",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.filter.FilteringParserDelegate.nextToken()",
+			"begin_line": 221,
+			"end_line": 433,
+			"comment": ""
+		}
+	],
+	"JacksonCore-16b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/util/JsonParserSequence.java",
+			"method_name": "<init>",
+			"arg_types": "[Lcom/fasterxml/jackson/core/JsonParser;",
+			"type": "constructor",
+			"signature": "com.fasterxml.jackson.core.util.JsonParserSequence.JsonParserSequence(com.fasterxml.jackson.core.JsonParser[])",
+			"begin_line": 42,
+			"end_line": 47,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/util/JsonParserSequence.java",
+			"method_name": "nextToken",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.util.JsonParserSequence.nextToken()",
+			"begin_line": 103,
+			"end_line": 113,
+			"comment": ""
+		}
+	],
+	"JacksonCore-17b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8JsonGenerator.java",
+			"method_name": "_outputRawMultiByteChar",
+			"arg_types": "I[CII",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8JsonGenerator._outputRawMultiByteChar(int, char[], int, int)",
+			"begin_line": 1879,
+			"end_line": 1898,
+			"comment": "\n     * Method called to output a character that is beyond range of\n     * 1- and 2-byte UTF-8 encodings, when outputting \"raw\" \n     * text (meaning it is not to be escaped or quoted)\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8JsonGenerator.java",
+			"method_name": "writeRaw",
+			"arg_types": "Ljava/lang/String;II",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8JsonGenerator.writeRaw(java.lang.String, int, int)",
+			"begin_line": 522,
+			"end_line": 542,
+			"comment": ""
+		}
+	],
+	"JacksonCore-18b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/base/GeneratorBase.java",
+			"method_name": "_asString",
+			"arg_types": "Ljava/math/BigDecimal;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.base.GeneratorBase._asString(java.math.BigDecimal)",
+			"begin_line": 433,
+			"end_line": 436,
+			"comment": "\n     * Helper method used to serialize a {@link java.math.BigDecimal} as a String,\n     * for serialization, taking into account configuration settings\n     *\n     * @since 2.7.7\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8JsonGenerator.java",
+			"method_name": "writeNumber",
+			"arg_types": "Ljava/math/BigDecimal;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8JsonGenerator.writeNumber(java.math.BigDecimal)",
+			"begin_line": 902,
+			"end_line": 917,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java",
+			"method_name": "writeNumber",
+			"arg_types": "Ljava/math/BigDecimal;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.WriterBasedJsonGenerator.writeNumber(java.math.BigDecimal)",
+			"begin_line": 679,
+			"end_line": 694,
+			"comment": ""
+		}
+	],
+	"JacksonCore-19b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+			"method_name": "_parseFloat",
+			"arg_types": "[CIIZI",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser._parseFloat(char[], int, int, boolean, int)",
+			"begin_line": 1536,
+			"end_line": 1627,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "_parseNumber2",
+			"arg_types": "ZI",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser._parseNumber2(boolean, int)",
+			"begin_line": 1374,
+			"end_line": 1495,
+			"comment": "\n     * Method called to parse a number, when the primary parse\n     * method has failed to parse it, due to it being split on\n     * buffer boundary. As a result code is very similar, except\n     * that it has to explicitly copy contents to the text buffer\n     * instead of just sharing the main input buffer.\n     "
+		}
+	],
+	"JacksonCore-20b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/JsonGenerator.java",
+			"method_name": "writeEmbeddedObject",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.JsonGenerator.writeEmbeddedObject(java.lang.Object)",
+			"begin_line": 1328,
+			"end_line": 1332,
+			"comment": "\n     * Method that can be called on backends that support passing opaque datatypes of\n     * non-JSON formats\n     *\n     * @since 2.8\n     "
+		}
+	],
+	"JacksonCore-21b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/filter/FilteringParserDelegate.java",
+			"method_name": "nextToken",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.filter.FilteringParserDelegate.nextToken()",
+			"begin_line": 226,
+			"end_line": 454,
+			"comment": ""
+		}
+	],
+	"JacksonCore-22b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/filter/FilteringParserDelegate.java",
+			"method_name": "_nextTokenWithBuffering",
+			"arg_types": "Lcom/fasterxml/jackson/core/filter/TokenFilterContext;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.filter.FilteringParserDelegate._nextTokenWithBuffering(com.fasterxml.jackson.core.filter.TokenFilterContext)",
+			"begin_line": 612,
+			"end_line": 739,
+			"comment": "\n     * Method called when a new potentially included context is found.\n     "
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/filter/FilteringParserDelegate.java",
+			"method_name": "nextToken",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.filter.FilteringParserDelegate.nextToken()",
+			"begin_line": 226,
+			"end_line": 449,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/filter/FilteringParserDelegate.java",
+			"method_name": "_nextToken2",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.filter.FilteringParserDelegate._nextToken2()",
+			"begin_line": 457,
+			"end_line": 607,
+			"comment": "\n     * Offlined handling for cases where there was no buffered token to\n     * return, and the token read next could not be returned as-is,\n     * at least not yet, but where we have not yet established that\n     * buffering is needed.\n     "
+		}
+	],
+	"JacksonCore-23b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java",
+			"method_name": "createInstance",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.util.DefaultPrettyPrinter.createInstance()",
+			"begin_line": 253,
+			"end_line": 256,
+			"comment": ""
+		}
+	],
+	"JacksonCore-24b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/base/ParserBase.java",
+			"method_name": "convertNumberToInt",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt()",
+			"begin_line": 880,
+			"end_line": 912,
+			"comment": ""
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/base/ParserMinimalBase.java",
+			"method_name": "reportOverflowLong",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowLong(java.lang.String)",
+			"begin_line": 581,
+			"end_line": 584,
+			"comment": " @since 2.10"
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/base/ParserMinimalBase.java",
+			"method_name": "reportOverflowInt",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(java.lang.String)",
+			"begin_line": 564,
+			"end_line": 567,
+			"comment": " @since 2.10"
+		},
+		{
+			"class_file": "com/fasterxml/jackson/core/base/ParserBase.java",
+			"method_name": "_reportTooLongIntegral",
+			"arg_types": "ILjava/lang/String;",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.base.ParserBase._reportTooLongIntegral(int, java.lang.String)",
+			"begin_line": 867,
+			"end_line": 872,
+			"comment": " @since 2.9.8"
+		}
+	],
+	"JacksonCore-25b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+			"method_name": "_handleOddName2",
+			"arg_types": "II[I",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddName2(int, int, int[])",
+			"begin_line": 1948,
+			"end_line": 1990,
+			"comment": ""
+		}
+	],
+	"JacksonCore-26b": [
+		{
+			"class_file": "com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java",
+			"method_name": "feedInput",
+			"arg_types": "[BII",
+			"type": "method",
+			"signature": "com.fasterxml.jackson.core.json.async.NonBlockingJsonParser.feedInput(byte[], int, int)",
+			"begin_line": 87,
+			"end_line": 112,
+			"comment": ""
+		}
+	]
+}
