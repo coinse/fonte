@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-72b",
+  "repositoryPath": "/tmp/Jsoup-72b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "nextIndexOf",
+  "functionId": "nextIndexOf___c-char",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the number of characters between the current position and the next instance of the input char\n\n@param c scan target\n@return offset between current position and next instance of target. -1 if not found.\n",
+  "functionStartLine": 120,
+  "functionEndLine": 128,
+  "numCommitsSeen": 24,
+  "timeTaken": 640,
+  "changeHistory": [
+    "654bc6f981587bd4b39b66702550bad33e1eacc9",
+    "231aab61e228513853d08374e188217933f70986"
+  ],
+  "changeHistoryShort": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": "Ybodychange",
+    "231aab61e228513853d08374e188217933f70986": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": {
+      "type": "Ybodychange",
+      "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+      "commitDate": "6/24/17, 11:47 PM",
+      "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/23/16, 5:59 PM",
+      "commitNameOld": "6dc38f26dd31f1a367961f27c56b143cd0462e5a",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 244.24,
+      "commitsBetweenForRepo": 65,
+      "commitsBetweenForFile": 1,
+      "actualSource": "int nextIndexOf(char c) {\n    bufferUp();\n    for (int i \u003d bufPos; i \u003c bufLength; i++) {\n        if (c \u003d\u003d charBuf[i])\n            return i - bufPos;\n    }\n    return -1;\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 120,
+      "functionName": "nextIndexOf",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the number of characters between the current position and the next instance of the input char\n\n@param c scan target\n@return offset between current position and next instance of target. -1 if not found.\n",
+      "diff": "@@ -1,7 +1,8 @@\n int nextIndexOf(char c) {\n-    for (int i \u003d pos; i \u003c length; i++) {\n-        if (c \u003d\u003d input[i])\n-            return i - pos;\n+    bufferUp();\n+    for (int i \u003d bufPos; i \u003c bufLength; i++) {\n+        if (c \u003d\u003d charBuf[i])\n+            return i - bufPos;\n     }\n     return -1;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "231aab61e228513853d08374e188217933f70986": {
+      "type": "Yintroduced",
+      "commitMessage": "Replaced Strings with char array in CharacterReader, for well improved parse times.\n\nFaster to scan, and less garbage created.\n",
+      "commitDate": "6/3/12, 6:44 PM",
+      "commitName": "231aab61e228513853d08374e188217933f70986",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,7 @@\n+int nextIndexOf(char c) {\n+    for (int i \u003d pos; i \u003c length; i++) {\n+        if (c \u003d\u003d input[i])\n+            return i - pos;\n+    }\n+    return -1;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "int nextIndexOf(char c) {\n    for (int i \u003d pos; i \u003c length; i++) {\n        if (c \u003d\u003d input[i])\n            return i - pos;\n    }\n    return -1;\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 67,
+      "functionName": "nextIndexOf",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the number of characters between the current position and the next instance of the input char\n\n@param c scan target\n@return offset between current position and next instance of target. -1 if not found.\n"
+    }
+  }
+}

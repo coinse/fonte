@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassLoaderUtil.java",
+  "functionName": "getClass",
+  "functionId": "getClass___className-String",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/util/ClassLoaderUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns the (initialized) class represented by \u003ccode\u003eclassName\u003c/code\u003e\nusing the current thread\u0027s context class loader. This implementation\nsupports names like \"\u003ccode\u003ejava.lang.String[]\u003c/code\u003e\" as well as\n\"\u003ccode\u003e[Ljava.lang.String;\u003c/code\u003e\".\n\n@param className the class name\n@return the class represented by \u003ccode\u003eclassName\u003c/code\u003e using the current thread\u0027s context class loader\n@throws ClassNotFoundException if the class is not found\n",
+  "functionStartLine": 124,
+  "functionEndLine": 126,
+  "numCommitsSeen": 1,
+  "timeTaken": 410,
+  "changeHistory": [
+    "b67345afa4817cc8bc7f14137ed1ef90ab299062"
+  ],
+  "changeHistoryShort": {
+    "b67345afa4817cc8bc7f14137ed1ef90ab299062": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b67345afa4817cc8bc7f14137ed1ef90ab299062": {
+      "type": "Yintroduced",
+      "commitMessage": "[JXPATH-127] Change dynamic classloading to consult context ClassLoader\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@916559 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/25/10, 7:55 PM",
+      "commitName": "b67345afa4817cc8bc7f14137ed1ef90ab299062",
+      "commitAuthor": "Matthew Jason Benson",
+      "diff": "@@ -0,0 +1,3 @@\n+public static Class getClass(String className) throws ClassNotFoundException {\n+    return getClass(className, true);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Class getClass(String className) throws ClassNotFoundException {\n    return getClass(className, true);\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/ClassLoaderUtil.java",
+      "functionStartLine": 124,
+      "functionName": "getClass",
+      "functionAnnotation": "",
+      "functionDoc": "Returns the (initialized) class represented by \u003ccode\u003eclassName\u003c/code\u003e\nusing the current thread\u0027s context class loader. This implementation\nsupports names like \"\u003ccode\u003ejava.lang.String[]\u003c/code\u003e\" as well as\n\"\u003ccode\u003e[Ljava.lang.String;\u003c/code\u003e\".\n\n@param className the class name\n@return the class represented by \u003ccode\u003eclassName\u003c/code\u003e using the current thread\u0027s context class loader\n@throws ClassNotFoundException if the class is not found\n"
+    }
+  }
+}

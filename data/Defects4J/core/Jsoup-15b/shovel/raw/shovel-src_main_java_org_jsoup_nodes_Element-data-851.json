@@ -1,0 +1,64 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-15b",
+  "repositoryPath": "/tmp/Jsoup-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "data",
+  "functionId": "data",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get the combined data of this element. Data is e.g. the inside of a {@code script} tag.\n\n@return the data, or empty string if none\n",
+  "functionStartLine": 851,
+  "functionEndLine": 865,
+  "numCommitsSeen": 72,
+  "timeTaken": 1825,
+  "changeHistory": [
+    "9bed789bfee6c6433945c0a3e2c710c897616888",
+    "ce691239d40e469b75fa22b0bb6a065202c475a7"
+  ],
+  "changeHistoryShort": {
+    "9bed789bfee6c6433945c0a3e2c710c897616888": "Ydocchange",
+    "ce691239d40e469b75fa22b0bb6a065202c475a7": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "9bed789bfee6c6433945c0a3e2c710c897616888": {
+      "type": "Ydocchange",
+      "commitMessage": "Element documentation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "9bed789bfee6c6433945c0a3e2c710c897616888",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "abdf22714e557304d9f6782d30da9b7254ce017c",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public String data() {\n    StringBuilder sb \u003d new StringBuilder();\n    for (Node childNode : childNodes) {\n        if (childNode instanceof DataNode) {\n            DataNode data \u003d (DataNode) childNode;\n            sb.append(data.getWholeData());\n        } else if (childNode instanceof Element) {\n            Element element \u003d (Element) childNode;\n            String elementData \u003d element.data();\n            sb.append(elementData);\n        }\n    }\n    return sb.toString();\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 462,
+      "functionName": "data",
+      "functionAnnotation": "",
+      "functionDoc": "Get the combined data of this element. Data is e.g. the inside of a {@code script} tag.\n\n@return the data, or empty string if none\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "Get the combined data of this element. Data is e.g. the inside of a {@code script} tag.\n\n@return the data, or empty string if none\n"
+      }
+    },
+    "ce691239d40e469b75fa22b0bb6a065202c475a7": {
+      "type": "Yintroduced",
+      "commitMessage": "Introduced a DataNode, and SCRIPT, TEXTAREA, TITLE etc goes into DataNodes, so that Element.text() does not get clouded with script or style inners.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ce691239d40e469b75fa22b0bb6a065202c475a7",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,14 @@\n+public String data() {\n+    StringBuilder sb \u003d new StringBuilder();\n+    for (Node childNode : childNodes) {\n+        if (childNode instanceof DataNode) {\n+            DataNode data \u003d (DataNode) childNode;\n+            sb.append(data.getWholeData());\n+        } else if (childNode instanceof Element) {\n+            Element element \u003d (Element) childNode;\n+            String elementData \u003d element.data();\n+            sb.append(elementData);\n+        }\n+    }\n+    return sb.toString();\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String data() {\n    StringBuilder sb \u003d new StringBuilder();\n    for (Node childNode : childNodes) {\n        if (childNode instanceof DataNode) {\n            DataNode data \u003d (DataNode) childNode;\n            sb.append(data.getWholeData());\n        } else if (childNode instanceof Element) {\n            Element element \u003d (Element) childNode;\n            String elementData \u003d element.data();\n            sb.append(elementData);\n        }\n    }\n    return sb.toString();\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 189,
+      "functionName": "data",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

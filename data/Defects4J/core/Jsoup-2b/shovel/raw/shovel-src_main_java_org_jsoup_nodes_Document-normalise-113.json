@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-2b",
+  "repositoryPath": "/tmp/Jsoup-2b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Document.java",
+  "functionName": "normalise",
+  "functionId": "normalise___element-Element",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Document.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 113,
+  "functionEndLine": 128,
+  "numCommitsSeen": 18,
+  "timeTaken": 426,
+  "changeHistory": [
+    "27a52f90a25699bebe23ff1ff94d6db361fdb11d",
+    "d24b485e252d9e86858207da7a57678d41d3f72c"
+  ],
+  "changeHistoryShort": {
+    "27a52f90a25699bebe23ff1ff94d6db361fdb11d": "Ybodychange",
+    "d24b485e252d9e86858207da7a57678d41d3f72c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "27a52f90a25699bebe23ff1ff94d6db361fdb11d": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix an issue where text order was incorrect when parsing pre-document HTML.\n\nFixes #23\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "27a52f90a25699bebe23ff1ff94d6db361fdb11d",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "6b60af669bc6102f0328af330532986b8670f3ac",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 25,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void normalise(Element element) {\n    List\u003cNode\u003e toMove \u003d new ArrayList\u003cNode\u003e();\n    for (Node node : element.childNodes) {\n        if (node instanceof TextNode) {\n            TextNode tn \u003d (TextNode) node;\n            if (!tn.isBlank())\n                toMove.add(tn);\n        }\n    }\n    for (Node node : toMove) {\n        element.removeChild(node);\n        body().prependChild(node);\n        body().prependChild(new TextNode(\" \", \"\"));\n    }\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 113,
+      "functionName": "normalise",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,15 +1,15 @@\n private void normalise(Element element) {\n     List\u003cNode\u003e toMove \u003d new ArrayList\u003cNode\u003e();\n     for (Node node : element.childNodes) {\n         if (node instanceof TextNode) {\n             TextNode tn \u003d (TextNode) node;\n             if (!tn.isBlank())\n                 toMove.add(tn);\n         }\n     }\n     for (Node node : toMove) {\n         element.removeChild(node);\n-        body().appendChild(new TextNode(\" \", \"\"));\n-        body().appendChild(node);\n+        body().prependChild(node);\n+        body().prependChild(new TextNode(\" \", \"\"));\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d24b485e252d9e86858207da7a57678d41d3f72c": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved document normalisation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "d24b485e252d9e86858207da7a57678d41d3f72c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,15 @@\n+private void normalise(Element element) {\n+    List\u003cNode\u003e toMove \u003d new ArrayList\u003cNode\u003e();\n+    for (Node node : element.childNodes) {\n+        if (node instanceof TextNode) {\n+            TextNode tn \u003d (TextNode) node;\n+            if (!tn.isBlank())\n+                toMove.add(tn);\n+        }\n+    }\n+    for (Node node : toMove) {\n+        element.removeChild(node);\n+        body().appendChild(new TextNode(\" \", \"\"));\n+        body().appendChild(node);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void normalise(Element element) {\n    List\u003cNode\u003e toMove \u003d new ArrayList\u003cNode\u003e();\n    for (Node node : element.childNodes) {\n        if (node instanceof TextNode) {\n            TextNode tn \u003d (TextNode) node;\n            if (!tn.isBlank())\n                toMove.add(tn);\n        }\n    }\n    for (Node node : toMove) {\n        element.removeChild(node);\n        body().appendChild(new TextNode(\" \", \"\"));\n        body().appendChild(node);\n    }\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 111,
+      "functionName": "normalise",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

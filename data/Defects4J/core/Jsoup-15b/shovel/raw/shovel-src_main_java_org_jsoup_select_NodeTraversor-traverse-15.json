@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-15b",
+  "repositoryPath": "/tmp/Jsoup-15b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "NodeTraversor.java",
+  "functionName": "traverse",
+  "functionId": "traverse___root-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/select/NodeTraversor.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 15,
+  "functionEndLine": 36,
+  "numCommitsSeen": 1,
+  "timeTaken": 479,
+  "changeHistory": [
+    "10cfa0465c9d48f6a3ce3f5996259e77b43fa858"
+  ],
+  "changeHistoryShort": {
+    "10cfa0465c9d48f6a3ce3f5996259e77b43fa858": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "10cfa0465c9d48f6a3ce3f5996259e77b43fa858": {
+      "type": "Yintroduced",
+      "commitMessage": "Use a Visitor instead of recursion for HTML and selectors.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "10cfa0465c9d48f6a3ce3f5996259e77b43fa858",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,21 @@\n+public void traverse(Node root) {\n+    Node node \u003d root;\n+    int depth \u003d 0;\n+    while (node !\u003d null) {\n+        visitor.head(node, depth);\n+        if (node.childNodes().size() \u003e 0) {\n+            node \u003d node.childNode(0);\n+            depth++;\n+        } else {\n+            while (node.nextSibling() \u003d\u003d null \u0026\u0026 depth \u003e 0) {\n+                visitor.tail(node, depth);\n+                node \u003d node.parent();\n+                depth--;\n+            }\n+            visitor.tail(node, depth);\n+            if (node \u003d\u003d root)\n+                break;\n+            node \u003d node.nextSibling();\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void traverse(Node root) {\n    Node node \u003d root;\n    int depth \u003d 0;\n    while (node !\u003d null) {\n        visitor.head(node, depth);\n        if (node.childNodes().size() \u003e 0) {\n            node \u003d node.childNode(0);\n            depth++;\n        } else {\n            while (node.nextSibling() \u003d\u003d null \u0026\u0026 depth \u003e 0) {\n                visitor.tail(node, depth);\n                node \u003d node.parent();\n                depth--;\n            }\n            visitor.tail(node, depth);\n            if (node \u003d\u003d root)\n                break;\n            node \u003d node.nextSibling();\n        }\n    }\n}",
+      "path": "src/main/java/org/jsoup/select/NodeTraversor.java",
+      "functionStartLine": 15,
+      "functionName": "traverse",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

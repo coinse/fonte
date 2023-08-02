@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Whitelist.java",
+  "functionName": "isSafeAttribute",
+  "functionId": "isSafeAttribute___tagName-String__el-Element__attr-Attribute",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Whitelist.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 318,
+  "functionEndLine": 336,
+  "numCommitsSeen": 16,
+  "timeTaken": 688,
+  "changeHistory": [
+    "2660750b2e6691a2d5414f3f9f878b69a49539bb",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725"
+  ],
+  "changeHistoryShort": {
+    "2660750b2e6691a2d5414f3f9f878b69a49539bb": "Ymultichange(Yparameterchange,Ybodychange)",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2660750b2e6691a2d5414f3f9f878b69a49539bb": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Resolve relative links when cleaning.\n\nCloses #12.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "2660750b2e6691a2d5414f3f9f878b69a49539bb",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Resolve relative links when cleaning.\n\nCloses #12.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "2660750b2e6691a2d5414f3f9f878b69a49539bb",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "14db439cfb817b8869bcd6f603960040059d9643",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 15,
+          "commitsBetweenForFile": 1,
+          "actualSource": "boolean isSafeAttribute(String tagName, Element el, Attribute attr) {\n    TagName tag \u003d TagName.valueOf(tagName);\n    AttributeKey key \u003d AttributeKey.valueOf(attr.getKey());\n    if (attributes.containsKey(tag)) {\n        if (attributes.get(tag).contains(key)) {\n            if (protocols.containsKey(tag)) {\n                Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrProts \u003d protocols.get(tag);\n                return !attrProts.containsKey(key) || testValidProtocol(el, attr, attrProts.get(key));\n            } else {\n                return true;\n            }\n        }\n    } else {\n        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", el, attr);\n    }\n    return false;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 297,
+          "functionName": "isSafeAttribute",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,18 +1,17 @@\n-boolean isSafeAttribute(String tagName, Attribute attr) {\n+boolean isSafeAttribute(String tagName, Element el, Attribute attr) {\n     TagName tag \u003d TagName.valueOf(tagName);\n     AttributeKey key \u003d AttributeKey.valueOf(attr.getKey());\n-    AttributeValue value \u003d AttributeValue.valueOf(attr.getValue());\n     if (attributes.containsKey(tag)) {\n         if (attributes.get(tag).contains(key)) {\n             if (protocols.containsKey(tag)) {\n                 Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrProts \u003d protocols.get(tag);\n-                return !attrProts.containsKey(key) || testValidProtocol(value, attrProts.get(key));\n+                return !attrProts.containsKey(key) || testValidProtocol(el, attr, attrProts.get(key));\n             } else {\n                 return true;\n             }\n         }\n     } else {\n-        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", attr);\n+        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", el, attr);\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[tagName-String, attr-Attribute]",
+            "newValue": "[tagName-String, el-Element, attr-Attribute]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Resolve relative links when cleaning.\n\nCloses #12.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "2660750b2e6691a2d5414f3f9f878b69a49539bb",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "14db439cfb817b8869bcd6f603960040059d9643",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 15,
+          "commitsBetweenForFile": 1,
+          "actualSource": "boolean isSafeAttribute(String tagName, Element el, Attribute attr) {\n    TagName tag \u003d TagName.valueOf(tagName);\n    AttributeKey key \u003d AttributeKey.valueOf(attr.getKey());\n    if (attributes.containsKey(tag)) {\n        if (attributes.get(tag).contains(key)) {\n            if (protocols.containsKey(tag)) {\n                Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrProts \u003d protocols.get(tag);\n                return !attrProts.containsKey(key) || testValidProtocol(el, attr, attrProts.get(key));\n            } else {\n                return true;\n            }\n        }\n    } else {\n        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", el, attr);\n    }\n    return false;\n}",
+          "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+          "functionStartLine": 297,
+          "functionName": "isSafeAttribute",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,18 +1,17 @@\n-boolean isSafeAttribute(String tagName, Attribute attr) {\n+boolean isSafeAttribute(String tagName, Element el, Attribute attr) {\n     TagName tag \u003d TagName.valueOf(tagName);\n     AttributeKey key \u003d AttributeKey.valueOf(attr.getKey());\n-    AttributeValue value \u003d AttributeValue.valueOf(attr.getValue());\n     if (attributes.containsKey(tag)) {\n         if (attributes.get(tag).contains(key)) {\n             if (protocols.containsKey(tag)) {\n                 Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrProts \u003d protocols.get(tag);\n-                return !attrProts.containsKey(key) || testValidProtocol(value, attrProts.get(key));\n+                return !attrProts.containsKey(key) || testValidProtocol(el, attr, attrProts.get(key));\n             } else {\n                 return true;\n             }\n         }\n     } else {\n-        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", attr);\n+        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", el, attr);\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial Cleaner implementation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "83b8d1a6c8db2d34fbb344ae3125781978910725",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,18 @@\n+boolean isSafeAttribute(String tagName, Attribute attr) {\n+    TagName tag \u003d TagName.valueOf(tagName);\n+    AttributeKey key \u003d AttributeKey.valueOf(attr.getKey());\n+    AttributeValue value \u003d AttributeValue.valueOf(attr.getValue());\n+    if (attributes.containsKey(tag)) {\n+        if (attributes.get(tag).contains(key)) {\n+            if (protocols.containsKey(tag)) {\n+                Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrProts \u003d protocols.get(tag);\n+                return !attrProts.containsKey(key) || testValidProtocol(value, attrProts.get(key));\n+            } else {\n+                return true;\n+            }\n+        }\n+    } else {\n+        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", attr);\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean isSafeAttribute(String tagName, Attribute attr) {\n    TagName tag \u003d TagName.valueOf(tagName);\n    AttributeKey key \u003d AttributeKey.valueOf(attr.getKey());\n    AttributeValue value \u003d AttributeValue.valueOf(attr.getValue());\n    if (attributes.containsKey(tag)) {\n        if (attributes.get(tag).contains(key)) {\n            if (protocols.containsKey(tag)) {\n                Map\u003cAttributeKey, Set\u003cProtocol\u003e\u003e attrProts \u003d protocols.get(tag);\n                return !attrProts.containsKey(key) || testValidProtocol(value, attrProts.get(key));\n            } else {\n                return true;\n            }\n        }\n    } else {\n        return !tagName.equals(\":all\") \u0026\u0026 isSafeAttribute(\":all\", attr);\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/safety/Whitelist.java",
+      "functionStartLine": 279,
+      "functionName": "isSafeAttribute",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

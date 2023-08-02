@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ClassLoaderUtil.java",
+  "functionName": "toCanonicalName",
+  "functionId": "toCanonicalName___className-String",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/util/ClassLoaderUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Converts a class name to a JLS style class name.\n\n@param className the class name\n@return the converted name\n",
+  "functionStartLine": 158,
+  "functionEndLine": 176,
+  "numCommitsSeen": 1,
+  "timeTaken": 383,
+  "changeHistory": [
+    "b67345afa4817cc8bc7f14137ed1ef90ab299062"
+  ],
+  "changeHistoryShort": {
+    "b67345afa4817cc8bc7f14137ed1ef90ab299062": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b67345afa4817cc8bc7f14137ed1ef90ab299062": {
+      "type": "Yintroduced",
+      "commitMessage": "[JXPATH-127] Change dynamic classloading to consult context ClassLoader\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@916559 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/25/10, 7:55 PM",
+      "commitName": "b67345afa4817cc8bc7f14137ed1ef90ab299062",
+      "commitAuthor": "Matthew Jason Benson",
+      "diff": "@@ -0,0 +1,19 @@\n+private static String toCanonicalName(String className) {\n+    if (className \u003d\u003d null) {\n+        throw new RuntimeException(\"Argument className was null.\");\n+    } else if (className.endsWith(\"[]\")) {\n+        StringBuffer classNameBuffer \u003d new StringBuffer();\n+        while (className.endsWith(\"[]\")) {\n+            className \u003d className.substring(0, className.length() - 2);\n+            classNameBuffer.append(\"[\");\n+        }\n+        String abbreviation \u003d (String) abbreviationMap.get(className);\n+        if (abbreviation !\u003d null) {\n+            classNameBuffer.append(abbreviation);\n+        } else {\n+            classNameBuffer.append(\"L\").append(className).append(\";\");\n+        }\n+        className \u003d classNameBuffer.toString();\n+    }\n+    return className;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static String toCanonicalName(String className) {\n    if (className \u003d\u003d null) {\n        throw new RuntimeException(\"Argument className was null.\");\n    } else if (className.endsWith(\"[]\")) {\n        StringBuffer classNameBuffer \u003d new StringBuffer();\n        while (className.endsWith(\"[]\")) {\n            className \u003d className.substring(0, className.length() - 2);\n            classNameBuffer.append(\"[\");\n        }\n        String abbreviation \u003d (String) abbreviationMap.get(className);\n        if (abbreviation !\u003d null) {\n            classNameBuffer.append(abbreviation);\n        } else {\n            classNameBuffer.append(\"L\").append(className).append(\";\");\n        }\n        className \u003d classNameBuffer.toString();\n    }\n    return className;\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/ClassLoaderUtil.java",
+      "functionStartLine": 158,
+      "functionName": "toCanonicalName",
+      "functionAnnotation": "",
+      "functionDoc": "Converts a class name to a JLS style class name.\n\n@param className the class name\n@return the converted name\n"
+    }
+  }
+}

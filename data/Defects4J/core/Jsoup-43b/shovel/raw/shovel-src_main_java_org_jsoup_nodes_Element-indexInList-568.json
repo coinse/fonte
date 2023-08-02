@@ -1,0 +1,144 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "indexInList",
+  "functionId": "indexInList___search-Element__elements-List__E__",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 568,
+  "functionEndLine": 578,
+  "numCommitsSeen": 128,
+  "timeTaken": 2455,
+  "changeHistory": [
+    "6b0dd15b9542b184a55040de992e0140e613fec8",
+    "ffde882f49c01900d6ff3b65e9407a3da3d57f1c"
+  ],
+  "changeHistoryShort": {
+    "6b0dd15b9542b184a55040de992e0140e613fec8": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Yparameterchange)",
+    "ffde882f49c01900d6ff3b65e9407a3da3d57f1c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6b0dd15b9542b184a55040de992e0140e613fec8": {
+      "type": "Ymultichange(Ymovefromfile,Ymodifierchange,Ybodychange,Yparameterchange)",
+      "commitMessage": "Performance tweaks.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "6b0dd15b9542b184a55040de992e0140e613fec8",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ymovefromfile",
+          "commitMessage": "Performance tweaks.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "6b0dd15b9542b184a55040de992e0140e613fec8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "10cfa0465c9d48f6a3ce3f5996259e77b43fa858",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n    Validate.notNull(search);\n    Validate.notNull(elements);\n    for (int i \u003d 0; i \u003c elements.size(); i++) {\n        E element \u003d elements.get(i);\n        if (element.equals(search))\n            return i;\n    }\n    return null;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 435,
+          "functionName": "indexInList",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-protected static \u003cN extends Node\u003e Integer indexInList(N search, List\u003cN\u003e nodes) {\n+private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n     Validate.notNull(search);\n-    Validate.notNull(nodes);\n-    for (int i \u003d 0; i \u003c nodes.size(); i++) {\n-        N node \u003d nodes.get(i);\n-        if (node.equals(search))\n+    Validate.notNull(elements);\n+    for (int i \u003d 0; i \u003c elements.size(); i++) {\n+        E element \u003d elements.get(i);\n+        if (element.equals(search))\n             return i;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/org/jsoup/nodes/Node.java",
+            "newPath": "src/main/java/org/jsoup/nodes/Element.java",
+            "oldMethodName": "indexInList",
+            "newMethodName": "indexInList"
+          }
+        },
+        {
+          "type": "Ymodifierchange",
+          "commitMessage": "Performance tweaks.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "6b0dd15b9542b184a55040de992e0140e613fec8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "10cfa0465c9d48f6a3ce3f5996259e77b43fa858",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n    Validate.notNull(search);\n    Validate.notNull(elements);\n    for (int i \u003d 0; i \u003c elements.size(); i++) {\n        E element \u003d elements.get(i);\n        if (element.equals(search))\n            return i;\n    }\n    return null;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 435,
+          "functionName": "indexInList",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-protected static \u003cN extends Node\u003e Integer indexInList(N search, List\u003cN\u003e nodes) {\n+private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n     Validate.notNull(search);\n-    Validate.notNull(nodes);\n-    for (int i \u003d 0; i \u003c nodes.size(); i++) {\n-        N node \u003d nodes.get(i);\n-        if (node.equals(search))\n+    Validate.notNull(elements);\n+    for (int i \u003d 0; i \u003c elements.size(); i++) {\n+        E element \u003d elements.get(i);\n+        if (element.equals(search))\n             return i;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[protected, static]",
+            "newValue": "[private, static]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Performance tweaks.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "6b0dd15b9542b184a55040de992e0140e613fec8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "10cfa0465c9d48f6a3ce3f5996259e77b43fa858",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n    Validate.notNull(search);\n    Validate.notNull(elements);\n    for (int i \u003d 0; i \u003c elements.size(); i++) {\n        E element \u003d elements.get(i);\n        if (element.equals(search))\n            return i;\n    }\n    return null;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 435,
+          "functionName": "indexInList",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-protected static \u003cN extends Node\u003e Integer indexInList(N search, List\u003cN\u003e nodes) {\n+private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n     Validate.notNull(search);\n-    Validate.notNull(nodes);\n-    for (int i \u003d 0; i \u003c nodes.size(); i++) {\n-        N node \u003d nodes.get(i);\n-        if (node.equals(search))\n+    Validate.notNull(elements);\n+    for (int i \u003d 0; i \u003c elements.size(); i++) {\n+        E element \u003d elements.get(i);\n+        if (element.equals(search))\n             return i;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Performance tweaks.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "6b0dd15b9542b184a55040de992e0140e613fec8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "10cfa0465c9d48f6a3ce3f5996259e77b43fa858",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n    Validate.notNull(search);\n    Validate.notNull(elements);\n    for (int i \u003d 0; i \u003c elements.size(); i++) {\n        E element \u003d elements.get(i);\n        if (element.equals(search))\n            return i;\n    }\n    return null;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Element.java",
+          "functionStartLine": 435,
+          "functionName": "indexInList",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,10 +1,10 @@\n-protected static \u003cN extends Node\u003e Integer indexInList(N search, List\u003cN\u003e nodes) {\n+private static \u003cE extends Element\u003e Integer indexInList(Element search, List\u003cE\u003e elements) {\n     Validate.notNull(search);\n-    Validate.notNull(nodes);\n-    for (int i \u003d 0; i \u003c nodes.size(); i++) {\n-        N node \u003d nodes.get(i);\n-        if (node.equals(search))\n+    Validate.notNull(elements);\n+    for (int i \u003d 0; i \u003c elements.size(); i++) {\n+        E element \u003d elements.get(i);\n+        if (element.equals(search))\n             return i;\n     }\n     return null;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[search-N, nodes-List\u003cN\u003e]",
+            "newValue": "[search-Element, elements-List\u003cE\u003e]"
+          }
+        }
+      ]
+    },
+    "ffde882f49c01900d6ff3b65e9407a3da3d57f1c": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented sibling methods\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ffde882f49c01900d6ff3b65e9407a3da3d57f1c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,10 @@\n+protected static \u003cN extends Node\u003e Integer indexInList(N search, List\u003cN\u003e nodes) {\n+    Validate.notNull(search);\n+    Validate.notNull(nodes);\n+    for (int i \u003d 0; i \u003c nodes.size(); i++) {\n+        N node \u003d nodes.get(i);\n+        if (node.equals(search))\n+            return i;\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "protected static \u003cN extends Node\u003e Integer indexInList(N search, List\u003cN\u003e nodes) {\n    Validate.notNull(search);\n    Validate.notNull(nodes);\n    for (int i \u003d 0; i \u003c nodes.size(); i++) {\n        N node \u003d nodes.get(i);\n        if (node.equals(search))\n            return i;\n    }\n    return null;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 80,
+      "functionName": "indexInList",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

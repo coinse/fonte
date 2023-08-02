@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Entities.java",
+  "functionName": "toCharacterKey",
+  "functionId": "toCharacterKey___inMap-Map__String,Character__",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Entities.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 249,
+  "functionEndLine": 264,
+  "numCommitsSeen": 25,
+  "timeTaken": 597,
+  "changeHistory": [
+    "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d"
+  ],
+  "changeHistoryShort": {
+    "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed GAE support: load HTML entities from a file on startup, instead of embedding in the class.\n",
+      "commitDate": "4/14/12, 8:59 PM",
+      "commitName": "472c7e55ee9d5cc7e7771696092c6eeca5a91b4d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,14 @@\n+private static Map\u003cCharacter, String\u003e toCharacterKey(Map\u003cString, Character\u003e inMap) {\n+    Map\u003cCharacter, String\u003e outMap \u003d new HashMap\u003cCharacter, String\u003e();\n+    for (Map.Entry\u003cString, Character\u003e entry : inMap.entrySet()) {\n+        Character character \u003d entry.getValue();\n+        String name \u003d entry.getKey();\n+        if (outMap.containsKey(character)) {\n+            if (name.toLowerCase().equals(name))\n+                outMap.put(character, name);\n+        } else {\n+            outMap.put(character, name);\n+        }\n+    }\n+    return outMap;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static Map\u003cCharacter, String\u003e toCharacterKey(Map\u003cString, Character\u003e inMap) {\n    Map\u003cCharacter, String\u003e outMap \u003d new HashMap\u003cCharacter, String\u003e();\n    for (Map.Entry\u003cString, Character\u003e entry : inMap.entrySet()) {\n        Character character \u003d entry.getValue();\n        String name \u003d entry.getKey();\n        if (outMap.containsKey(character)) {\n            if (name.toLowerCase().equals(name))\n                outMap.put(character, name);\n        } else {\n            outMap.put(character, name);\n        }\n    }\n    return outMap;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Entities.java",
+      "functionStartLine": 168,
+      "functionName": "toCharacterKey",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

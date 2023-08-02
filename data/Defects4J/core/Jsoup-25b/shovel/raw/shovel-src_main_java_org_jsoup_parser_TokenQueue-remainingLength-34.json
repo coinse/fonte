@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-25b",
+  "repositoryPath": "/tmp/Jsoup-25b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokenQueue.java",
+  "functionName": "remainingLength",
+  "functionId": "remainingLength",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 34,
+  "functionEndLine": 36,
+  "numCommitsSeen": 32,
+  "timeTaken": 588,
+  "changeHistory": [
+    "027c41520e029ae88e578cc9b28491a74d8bb25a"
+  ],
+  "changeHistoryShort": {
+    "027c41520e029ae88e578cc9b28491a74d8bb25a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "027c41520e029ae88e578cc9b28491a74d8bb25a": {
+      "type": "Yintroduced",
+      "commitMessage": "Parsing optimisation.\n\nModified TokenQueue to use a StringBuilder + offset to back the queue,\ninstead of a linked list. Reduces memory and CPU use.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "027c41520e029ae88e578cc9b28491a74d8bb25a",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+private int remainingLength() {\n+    return queue.length() - pos;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private int remainingLength() {\n    return queue.length() - pos;\n}",
+      "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+      "functionStartLine": 36,
+      "functionName": "remainingLength",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

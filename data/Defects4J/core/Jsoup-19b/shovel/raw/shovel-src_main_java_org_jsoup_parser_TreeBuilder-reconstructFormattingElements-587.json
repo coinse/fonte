@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TreeBuilder.java",
+  "functionName": "reconstructFormattingElements",
+  "functionId": "reconstructFormattingElements",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 587,
+  "functionEndLine": 623,
+  "numCommitsSeen": 4,
+  "timeTaken": 1211,
+  "changeHistory": [
+    "ab4890183496beea6d4908c4adb672e15c1136a5",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "ab4890183496beea6d4908c4adb672e15c1136a5": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ab4890183496beea6d4908c4adb672e15c1136a5": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix an incorrect case fall-through, and add some not-null validations to prevent warnings.\n\nFor #103\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "ab4890183496beea6d4908c4adb672e15c1136a5",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "e30ed5d35cbcb92584d7fee8ae862f3929e443d8",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void reconstructFormattingElements() {\n    int size \u003d formattingElements.size();\n    if (size \u003d\u003d 0 || formattingElements.getLast() \u003d\u003d null || onStack(formattingElements.getLast()))\n        return;\n    Element entry \u003d formattingElements.getLast();\n    int pos \u003d size - 1;\n    boolean skip \u003d false;\n    while (true) {\n        if (pos \u003d\u003d 0) {\n            skip \u003d true;\n            break;\n        }\n        entry \u003d formattingElements.get(--pos);\n        if (entry \u003d\u003d null || onStack(entry))\n            break;\n    }\n    while (true) {\n        if (!skip)\n            entry \u003d formattingElements.get(++pos);\n        Validate.notNull(entry);\n        skip \u003d false;\n        Element newEl \u003d insert(entry.nodeName());\n        newEl.attributes().addAll(entry.attributes());\n        formattingElements.add(pos, newEl);\n        formattingElements.remove(pos + 1);\n        if (pos \u003d\u003d size - 1)\n            break;\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 587,
+      "functionName": "reconstructFormattingElements",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,28 +1,29 @@\n void reconstructFormattingElements() {\n     int size \u003d formattingElements.size();\n     if (size \u003d\u003d 0 || formattingElements.getLast() \u003d\u003d null || onStack(formattingElements.getLast()))\n         return;\n     Element entry \u003d formattingElements.getLast();\n     int pos \u003d size - 1;\n     boolean skip \u003d false;\n     while (true) {\n         if (pos \u003d\u003d 0) {\n             skip \u003d true;\n             break;\n         }\n         entry \u003d formattingElements.get(--pos);\n         if (entry \u003d\u003d null || onStack(entry))\n             break;\n     }\n     while (true) {\n         if (!skip)\n             entry \u003d formattingElements.get(++pos);\n+        Validate.notNull(entry);\n         skip \u003d false;\n         Element newEl \u003d insert(entry.nodeName());\n         newEl.attributes().addAll(entry.attributes());\n         formattingElements.add(pos, newEl);\n         formattingElements.remove(pos + 1);\n         if (pos \u003d\u003d size - 1)\n             break;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,28 @@\n+void reconstructFormattingElements() {\n+    int size \u003d formattingElements.size();\n+    if (size \u003d\u003d 0 || formattingElements.getLast() \u003d\u003d null || onStack(formattingElements.getLast()))\n+        return;\n+    Element entry \u003d formattingElements.getLast();\n+    int pos \u003d size - 1;\n+    boolean skip \u003d false;\n+    while (true) {\n+        if (pos \u003d\u003d 0) {\n+            skip \u003d true;\n+            break;\n+        }\n+        entry \u003d formattingElements.get(--pos);\n+        if (entry \u003d\u003d null || onStack(entry))\n+            break;\n+    }\n+    while (true) {\n+        if (!skip)\n+            entry \u003d formattingElements.get(++pos);\n+        skip \u003d false;\n+        Element newEl \u003d insert(entry.nodeName());\n+        newEl.attributes().addAll(entry.attributes());\n+        formattingElements.add(pos, newEl);\n+        formattingElements.remove(pos + 1);\n+        if (pos \u003d\u003d size - 1)\n+            break;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void reconstructFormattingElements() {\n    int size \u003d formattingElements.size();\n    if (size \u003d\u003d 0 || formattingElements.getLast() \u003d\u003d null || onStack(formattingElements.getLast()))\n        return;\n    Element entry \u003d formattingElements.getLast();\n    int pos \u003d size - 1;\n    boolean skip \u003d false;\n    while (true) {\n        if (pos \u003d\u003d 0) {\n            skip \u003d true;\n            break;\n        }\n        entry \u003d formattingElements.get(--pos);\n        if (entry \u003d\u003d null || onStack(entry))\n            break;\n    }\n    while (true) {\n        if (!skip)\n            entry \u003d formattingElements.get(++pos);\n        skip \u003d false;\n        Element newEl \u003d insert(entry.nodeName());\n        newEl.attributes().addAll(entry.attributes());\n        formattingElements.add(pos, newEl);\n        formattingElements.remove(pos + 1);\n        if (pos \u003d\u003d size - 1)\n            break;\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 586,
+      "functionName": "reconstructFormattingElements",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

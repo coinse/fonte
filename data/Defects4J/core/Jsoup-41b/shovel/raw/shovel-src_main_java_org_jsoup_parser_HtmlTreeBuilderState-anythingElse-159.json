@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-41b",
+  "repositoryPath": "/tmp/Jsoup-41b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HtmlTreeBuilderState.java",
+  "functionName": "anythingElse",
+  "functionId": "$anythingElse___t-Token__tb-TreeBuilder",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 159,
+  "functionEndLine": 162,
+  "numCommitsSeen": 24,
+  "timeTaken": 4197,
+  "changeHistory": [
+    "e99193605b688e923d20054c13db897cff751607",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "e99193605b688e923d20054c13db897cff751607": "Ybodychange",
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": "Ymultichange(Yfilerename,Ybodychange)",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "e99193605b688e923d20054c13db897cff751607": {
+      "type": "Ybodychange",
+      "commitMessage": "Reuse Tokens, instead of creating all the time\n\nSaves an awful lot of GC. These are just data transfer objects, so not\nworth creating every time.\n",
+      "commitDate": "10/27/14, 9:29 PM",
+      "commitName": "e99193605b688e923d20054c13db897cff751607",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/26/14, 5:40 PM",
+      "commitNameOld": "01a62698797658b0f51d323fdfb5e9744d843773",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 1.16,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private boolean anythingElse(Token t, TreeBuilder tb) {\n    boolean processed \u003d tb.processEndTag(\"colgroup\");\n    if (processed)\n        return tb.process(t);\n    return true;\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+      "functionStartLine": 1016,
+      "functionName": "anythingElse",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n private boolean anythingElse(Token t, TreeBuilder tb) {\n-    boolean processed \u003d tb.process(new Token.EndTag(\"colgroup\"));\n+    boolean processed \u003d tb.processEndTag(\"colgroup\");\n     if (processed)\n         return tb.process(t);\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": {
+      "type": "Ymultichange(Yfilerename,Ybodychange)",
+      "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+      "commitDate": "2/26/12, 5:23 PM",
+      "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yfilerename",
+          "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+          "commitDate": "2/26/12, 5:23 PM",
+          "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "9/30/11, 6:13 PM",
+          "commitNameOld": "1e84edbe208aab0c9330eadc50f9773d81d70cd6",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 149.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean anythingElse(Token t, TreeBuilder tb) {\n    boolean processed \u003d tb.process(new Token.EndTag(\"colgroup\"));\n    if (processed)\n        return tb.process(t);\n    return true;\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+          "functionStartLine": 1021,
+          "functionName": "anythingElse",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,6 @@\n private boolean anythingElse(Token t, TreeBuilder tb) {\n-    tb.error(this);\n-    return false;\n+    boolean processed \u003d tb.process(new Token.EndTag(\"colgroup\"));\n+    if (processed)\n+        return tb.process(t);\n+    return true;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldPath": "src/main/java/org/jsoup/parser/TreeBuilderState.java",
+            "newPath": "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+          "commitDate": "2/26/12, 5:23 PM",
+          "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "9/30/11, 6:13 PM",
+          "commitNameOld": "1e84edbe208aab0c9330eadc50f9773d81d70cd6",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 149.01,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private boolean anythingElse(Token t, TreeBuilder tb) {\n    boolean processed \u003d tb.process(new Token.EndTag(\"colgroup\"));\n    if (processed)\n        return tb.process(t);\n    return true;\n}",
+          "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+          "functionStartLine": 1021,
+          "functionName": "anythingElse",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,4 +1,6 @@\n private boolean anythingElse(Token t, TreeBuilder tb) {\n-    tb.error(this);\n-    return false;\n+    boolean processed \u003d tb.process(new Token.EndTag(\"colgroup\"));\n+    if (processed)\n+        return tb.process(t);\n+    return true;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+private boolean anythingElse(Token t, TreeBuilder tb) {\n+    tb.error(this);\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private boolean anythingElse(Token t, TreeBuilder tb) {\n    tb.error(this);\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilderState.java",
+      "functionStartLine": 1289,
+      "functionName": "anythingElse",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

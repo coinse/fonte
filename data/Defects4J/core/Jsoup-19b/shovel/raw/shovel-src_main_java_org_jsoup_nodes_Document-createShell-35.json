@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Document.java",
+  "functionName": "createShell",
+  "functionId": "createShell___baseUri-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Document.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Create a valid, empty shell of a document, suitable for adding more elements to.\n\n@ @param baseUri baseUri of document\n     @return document with html, head, and body elements.\n",
+  "functionStartLine": 35,
+  "functionEndLine": 44,
+  "numCommitsSeen": 28,
+  "timeTaken": 586,
+  "changeHistory": [
+    "28418f8335d2b359690e80e61d0081f4e892769c",
+    "83d1848144abf29b501d59e0c3ec41e40c9cf020",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725"
+  ],
+  "changeHistoryShort": {
+    "28418f8335d2b359690e80e61d0081f4e892769c": "Ymultichange(Ybodychange,Ydocchange)",
+    "83d1848144abf29b501d59e0c3ec41e40c9cf020": "Ybodychange",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "28418f8335d2b359690e80e61d0081f4e892769c": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Javadoc\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "28418f8335d2b359690e80e61d0081f4e892769c",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Javadoc\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "28418f8335d2b359690e80e61d0081f4e892769c",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "37d4c1f1d3297fd078dd8d1574b7f7c2357a99b4",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Document createShell(String baseUri) {\n    Validate.notNull(baseUri);\n    Document doc \u003d new Document(baseUri);\n    Element html \u003d doc.appendElement(\"html\");\n    html.appendElement(\"head\");\n    html.appendElement(\"body\");\n    return doc;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Document.java",
+          "functionStartLine": 27,
+          "functionName": "createShell",
+          "functionAnnotation": "",
+          "functionDoc": "     Create a valid, empty shell of a document, suitable for adding more elements to.\n\n@ @param baseUri baseUri of document\n     @return document with html, head, and body elements.\n",
+          "diff": "@@ -1,11 +1,8 @@\n public static Document createShell(String baseUri) {\n     Validate.notNull(baseUri);\n     Document doc \u003d new Document(baseUri);\n-    Element html \u003d doc.createElement(Tag.valueOf(\"html\"));\n-    Element head \u003d doc.createElement(Tag.valueOf(\"head\"));\n-    Element body \u003d doc.createElement(Tag.valueOf(\"body\"));\n-    doc.appendChild(html);\n-    html.appendChild(head);\n-    html.appendChild(body);\n+    Element html \u003d doc.appendElement(\"html\");\n+    html.appendElement(\"head\");\n+    html.appendElement(\"body\");\n     return doc;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Javadoc\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "28418f8335d2b359690e80e61d0081f4e892769c",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "37d4c1f1d3297fd078dd8d1574b7f7c2357a99b4",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static Document createShell(String baseUri) {\n    Validate.notNull(baseUri);\n    Document doc \u003d new Document(baseUri);\n    Element html \u003d doc.appendElement(\"html\");\n    html.appendElement(\"head\");\n    html.appendElement(\"body\");\n    return doc;\n}",
+          "path": "src/main/java/org/jsoup/nodes/Document.java",
+          "functionStartLine": 27,
+          "functionName": "createShell",
+          "functionAnnotation": "",
+          "functionDoc": "     Create a valid, empty shell of a document, suitable for adding more elements to.\n\n@ @param baseUri baseUri of document\n     @return document with html, head, and body elements.\n",
+          "diff": "@@ -1,11 +1,8 @@\n public static Document createShell(String baseUri) {\n     Validate.notNull(baseUri);\n     Document doc \u003d new Document(baseUri);\n-    Element html \u003d doc.createElement(Tag.valueOf(\"html\"));\n-    Element head \u003d doc.createElement(Tag.valueOf(\"head\"));\n-    Element body \u003d doc.createElement(Tag.valueOf(\"body\"));\n-    doc.appendChild(html);\n-    html.appendChild(head);\n-    html.appendChild(body);\n+    Element html \u003d doc.appendElement(\"html\");\n+    html.appendElement(\"head\");\n+    html.appendElement(\"body\");\n     return doc;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "     Create a valid, empty shell of a document, suitable for adding more elements to (without parsing).\n\n@ @param baseUri baseUri of document\n     @return document with html, head, and body elements.\n",
+            "newValue": "     Create a valid, empty shell of a document, suitable for adding more elements to.\n\n@ @param baseUri baseUri of document\n     @return document with html, head, and body elements.\n"
+          }
+        }
+      ]
+    },
+    "83d1848144abf29b501d59e0c3ec41e40c9cf020": {
+      "type": "Ybodychange",
+      "commitMessage": "Rename Element.addChild to appendChild.\n\nAlso implement Element.addElement(String tagName)\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "83d1848144abf29b501d59e0c3ec41e40c9cf020",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "83b8d1a6c8db2d34fbb344ae3125781978910725",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 19,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Document createShell(String baseUri) {\n    Validate.notNull(baseUri);\n    Document doc \u003d new Document(baseUri);\n    Element html \u003d doc.createElement(Tag.valueOf(\"html\"));\n    Element head \u003d doc.createElement(Tag.valueOf(\"head\"));\n    Element body \u003d doc.createElement(Tag.valueOf(\"body\"));\n    doc.appendChild(html);\n    html.appendChild(head);\n    html.appendChild(body);\n    return doc;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 23,
+      "functionName": "createShell",
+      "functionAnnotation": "",
+      "functionDoc": "     Create a valid, empty shell of a document, suitable for adding more elements to (without parsing).\n\n@ @param baseUri baseUri of document\n     @return document with html, head, and body elements.\n",
+      "diff": "@@ -1,11 +1,11 @@\n public static Document createShell(String baseUri) {\n     Validate.notNull(baseUri);\n     Document doc \u003d new Document(baseUri);\n     Element html \u003d doc.createElement(Tag.valueOf(\"html\"));\n     Element head \u003d doc.createElement(Tag.valueOf(\"head\"));\n     Element body \u003d doc.createElement(Tag.valueOf(\"body\"));\n-    doc.addChild(html);\n-    html.addChild(head);\n-    html.addChild(body);\n+    doc.appendChild(html);\n+    html.appendChild(head);\n+    html.appendChild(body);\n     return doc;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial Cleaner implementation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "83b8d1a6c8db2d34fbb344ae3125781978910725",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+public static Document createShell(String baseUri) {\n+    Validate.notNull(baseUri);\n+    Document doc \u003d new Document(baseUri);\n+    Element html \u003d doc.createElement(Tag.valueOf(\"html\"));\n+    Element head \u003d doc.createElement(Tag.valueOf(\"head\"));\n+    Element body \u003d doc.createElement(Tag.valueOf(\"body\"));\n+    doc.addChild(html);\n+    html.addChild(head);\n+    html.addChild(body);\n+    return doc;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Document createShell(String baseUri) {\n    Validate.notNull(baseUri);\n    Document doc \u003d new Document(baseUri);\n    Element html \u003d doc.createElement(Tag.valueOf(\"html\"));\n    Element head \u003d doc.createElement(Tag.valueOf(\"head\"));\n    Element body \u003d doc.createElement(Tag.valueOf(\"body\"));\n    doc.addChild(html);\n    html.addChild(head);\n    html.addChild(body);\n    return doc;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 23,
+      "functionName": "createShell",
+      "functionAnnotation": "",
+      "functionDoc": "     Create a valid, empty shell of a document, suitable for adding more elements to (without parsing).\n\n@ @param baseUri baseUri of document\n     @return document with html, head, and body elements.\n"
+    }
+  }
+}

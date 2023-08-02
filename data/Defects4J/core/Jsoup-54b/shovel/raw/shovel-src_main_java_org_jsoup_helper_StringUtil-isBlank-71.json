@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-54b",
+  "repositoryPath": "/tmp/Jsoup-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "StringUtil.java",
+  "functionName": "isBlank",
+  "functionId": "isBlank___string-String",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/StringUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Tests if a string is blank: null, emtpy, or only whitespace (\" \", \\r\\n, \\t, etc)\n\n@param string string to test\n@return if string is blank\n",
+  "functionStartLine": 71,
+  "functionEndLine": 81,
+  "numCommitsSeen": 12,
+  "timeTaken": 1241,
+  "changeHistory": [
+    "dd4b68223f30d8142f26a13582d0b996dece6588",
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5"
+  ],
+  "changeHistoryShort": {
+    "dd4b68223f30d8142f26a13582d0b996dece6588": "Ybodychange",
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "dd4b68223f30d8142f26a13582d0b996dece6588": {
+      "type": "Ybodychange",
+      "commitMessage": "Change what considered as \"whitespace\"\n",
+      "commitDate": "3/14/12, 11:19 PM",
+      "commitName": "dd4b68223f30d8142f26a13582d0b996dece6588",
+      "commitAuthor": "TzeKei Lee",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 256.8,
+      "commitsBetweenForRepo": 56,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static boolean isBlank(String string) {\n    if (string \u003d\u003d null || string.length() \u003d\u003d 0)\n        return true;\n    int l \u003d string.length();\n    for (int i \u003d 0; i \u003c l; i++) {\n        if (!StringUtil.isWhitespace(string.codePointAt(i)))\n            return false;\n    }\n    return true;\n}",
+      "path": "src/main/java/org/jsoup/helper/StringUtil.java",
+      "functionStartLine": 68,
+      "functionName": "isBlank",
+      "functionAnnotation": "",
+      "functionDoc": "Tests if a string is blank: null, emtpy, or only whitespace (\" \", \\r\\n, \\t, etc)\n\n@param string string to test\n@return if string is blank\n",
+      "diff": "@@ -1,10 +1,10 @@\n public static boolean isBlank(String string) {\n     if (string \u003d\u003d null || string.length() \u003d\u003d 0)\n         return true;\n     int l \u003d string.length();\n     for (int i \u003d 0; i \u003c l; i++) {\n-        if (!Character.isWhitespace(string.codePointAt(i)))\n+        if (!StringUtil.isWhitespace(string.codePointAt(i)))\n             return false;\n     }\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5": {
+      "type": "Yintroduced",
+      "commitMessage": "Removed dependency on Apache Commons-lang. Jsoup now has no external dependencies.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "18e9a8f2ba83bd50dff8766bb0dab902a317f2f5",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,10 @@\n+public static boolean isBlank(String string) {\n+    if (string \u003d\u003d null || string.length() \u003d\u003d 0)\n+        return true;\n+    int l \u003d string.length();\n+    for (int i \u003d 0; i \u003c l; i++) {\n+        if (!Character.isWhitespace(string.codePointAt(i)))\n+            return false;\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static boolean isBlank(String string) {\n    if (string \u003d\u003d null || string.length() \u003d\u003d 0)\n        return true;\n    int l \u003d string.length();\n    for (int i \u003d 0; i \u003c l; i++) {\n        if (!Character.isWhitespace(string.codePointAt(i)))\n            return false;\n    }\n    return true;\n}",
+      "path": "src/main/java/org/jsoup/helper/StringUtil.java",
+      "functionStartLine": 68,
+      "functionName": "isBlank",
+      "functionAnnotation": "",
+      "functionDoc": "Tests if a string is blank: null, emtpy, or only whitespace (\" \", \\r\\n, \\t, etc)\n\n@param string string to test\n@return if string is blank\n"
+    }
+  }
+}

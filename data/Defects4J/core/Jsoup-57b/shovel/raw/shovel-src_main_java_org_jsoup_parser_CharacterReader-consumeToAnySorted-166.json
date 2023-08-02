@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-57b",
+  "repositoryPath": "/tmp/Jsoup-57b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "consumeToAnySorted",
+  "functionId": "consumeToAnySorted___chars-char(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 166,
+  "functionEndLine": 178,
+  "numCommitsSeen": 22,
+  "timeTaken": 600,
+  "changeHistory": [
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510"
+  ],
+  "changeHistoryShort": {
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510": {
+      "type": "Yintroduced",
+      "commitMessage": "Speed improvements\n\nAndroid focussed speed improvements.\nReduced GC load with a flywheel on short strings.\nOptimized core consumeTo methods.\n",
+      "commitDate": "10/26/14, 3:50 PM",
+      "commitName": "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+String consumeToAnySorted(final char... chars) {\n+    final int start \u003d pos;\n+    final int remaining \u003d length;\n+    final char[] val \u003d input;\n+    while (pos \u003c remaining) {\n+        if (Arrays.binarySearch(chars, val[pos]) \u003e\u003d 0)\n+            break;\n+        pos++;\n+    }\n+    return pos \u003e start ? cacheString(start, pos - start) : \"\";\n+}\n\\ No newline at end of file\n",
+      "actualSource": "String consumeToAnySorted(final char... chars) {\n    final int start \u003d pos;\n    final int remaining \u003d length;\n    final char[] val \u003d input;\n    while (pos \u003c remaining) {\n        if (Arrays.binarySearch(chars, val[pos]) \u003e\u003d 0)\n            break;\n        pos++;\n    }\n    return pos \u003e start ? cacheString(start, pos - start) : \"\";\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 140,
+      "functionName": "consumeToAnySorted",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

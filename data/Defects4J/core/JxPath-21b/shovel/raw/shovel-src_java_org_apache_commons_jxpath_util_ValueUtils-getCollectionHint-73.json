@@ -1,0 +1,143 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "ValueUtils.java",
+  "functionName": "getCollectionHint",
+  "functionId": "getCollectionHint___clazz-Class",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns 1 if the type is a collection,\n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n\n@param clazz to test\n@return int\n",
+  "functionStartLine": 73,
+  "functionEndLine": 95,
+  "numCommitsSeen": 35,
+  "timeTaken": 2292,
+  "changeHistory": [
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1",
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+    "430fdd01e75a5e681274aa65adeb2d9826ee45a8"
+  ],
+  "changeHistoryShort": {
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1": "Ydocchange",
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05": "Ymultichange(Ydocchange,Yformatchange)",
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": "Yformatchange",
+    "430fdd01e75a5e681274aa65adeb2d9826ee45a8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1": {
+      "type": "Ydocchange",
+      "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@618074 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/3/08, 12:19 PM",
+      "commitName": "cdfbbfb11a27aadeb7d3902a236fe0f261d87cd1",
+      "commitAuthor": "Matthew Jason Benson",
+      "commitDateOld": "12/16/07, 11:29 PM",
+      "commitNameOld": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+      "commitAuthorOld": "Matthew Jason Benson",
+      "daysBetweenCommits": 48.53,
+      "commitsBetweenForRepo": 22,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static int getCollectionHint(Class clazz) {\n    if (clazz.isArray()) {\n        return 1;\n    }\n    if (Collection.class.isAssignableFrom(clazz)) {\n        return 1;\n    }\n    if (clazz.isPrimitive()) {\n        return -1;\n    }\n    if (clazz.isInterface()) {\n        return 0;\n    }\n    if (Modifier.isFinal(clazz.getModifiers())) {\n        return -1;\n    }\n    return 0;\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+      "functionStartLine": 73,
+      "functionName": "getCollectionHint",
+      "functionAnnotation": "",
+      "functionDoc": "Returns 1 if the type is a collection,\n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n\n@param clazz to test\n@return int\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Returns 1 if the type is a collection,\n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n",
+        "newValue": "Returns 1 if the type is a collection,\n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n\n@param clazz to test\n@return int\n"
+      }
+    },
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05": {
+      "type": "Ymultichange(Ydocchange,Yformatchange)",
+      "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@604783 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/16/07, 11:29 PM",
+      "commitName": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+      "commitAuthor": "Matthew Jason Benson",
+      "subchanges": [
+        {
+          "type": "Ydocchange",
+          "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@604783 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/16/07, 11:29 PM",
+          "commitName": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+          "commitAuthor": "Matthew Jason Benson",
+          "commitDateOld": "3/16/07, 10:08 AM",
+          "commitNameOld": "bdad5fece9aab24999d25beb23591778d57bf8ec",
+          "commitAuthorOld": "Matthew Jason Benson",
+          "daysBetweenCommits": 275.6,
+          "commitsBetweenForRepo": 110,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getCollectionHint(Class clazz) {\n    if (clazz.isArray()) {\n        return 1;\n    }\n    if (Collection.class.isAssignableFrom(clazz)) {\n        return 1;\n    }\n    if (clazz.isPrimitive()) {\n        return -1;\n    }\n    if (clazz.isInterface()) {\n        return 0;\n    }\n    if (Modifier.isFinal(clazz.getModifiers())) {\n        return -1;\n    }\n    return 0;\n}",
+          "path": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+          "functionStartLine": 69,
+          "functionName": "getCollectionHint",
+          "functionAnnotation": "",
+          "functionDoc": "Returns 1 if the type is a collection,\n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n",
+          "diff": "",
+          "extendedDetails": {
+            "oldValue": "Returns 1 if the type is a collection, \n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n",
+            "newValue": "Returns 1 if the type is a collection,\n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n"
+          }
+        },
+        {
+          "type": "Yformatchange",
+          "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@604783 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "12/16/07, 11:29 PM",
+          "commitName": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+          "commitAuthor": "Matthew Jason Benson",
+          "commitDateOld": "3/16/07, 10:08 AM",
+          "commitNameOld": "bdad5fece9aab24999d25beb23591778d57bf8ec",
+          "commitAuthorOld": "Matthew Jason Benson",
+          "daysBetweenCommits": 275.6,
+          "commitsBetweenForRepo": 110,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public static int getCollectionHint(Class clazz) {\n    if (clazz.isArray()) {\n        return 1;\n    }\n    if (Collection.class.isAssignableFrom(clazz)) {\n        return 1;\n    }\n    if (clazz.isPrimitive()) {\n        return -1;\n    }\n    if (clazz.isInterface()) {\n        return 0;\n    }\n    if (Modifier.isFinal(clazz.getModifiers())) {\n        return -1;\n    }\n    return 0;\n}",
+          "path": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+          "functionStartLine": 69,
+          "functionName": "getCollectionHint",
+          "functionAnnotation": "",
+          "functionDoc": "Returns 1 if the type is a collection,\n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n",
+          "diff": "",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": {
+      "type": "Yformatchange",
+      "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/10/03, 9:41 PM",
+      "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "11/25/02, 5:33 PM",
+      "commitNameOld": "594ff3b180fd1ac7addb40e2c32a15e4567eed3c",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 46.17,
+      "commitsBetweenForRepo": 7,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static int getCollectionHint(Class clazz) {\n    if (clazz.isArray()) {\n        return 1;\n    }\n    if (Collection.class.isAssignableFrom(clazz)) {\n        return 1;\n    }\n    if (clazz.isPrimitive()) {\n        return -1;\n    }\n    if (clazz.isInterface()) {\n        return 0;\n    }\n    if (Modifier.isFinal(clazz.getModifiers())) {\n        return -1;\n    }\n    return 0;\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+      "functionStartLine": 110,
+      "functionName": "getCollectionHint",
+      "functionAnnotation": "",
+      "functionDoc": "Returns 1 if the type is a collection, \n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "430fdd01e75a5e681274aa65adeb2d9826ee45a8": {
+      "type": "Yintroduced",
+      "commitMessage": "Organized imports, formatted code\nFixed problems with getValue() and getNode()\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136826 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/25/02, 5:20 PM",
+      "commitName": "430fdd01e75a5e681274aa65adeb2d9826ee45a8",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,18 @@\n+public static int getCollectionHint(Class clazz) {\n+    if (clazz.isArray()) {\n+        return 1;\n+    }\n+    if (Collection.class.isAssignableFrom(clazz)) {\n+        return 1;\n+    }\n+    if (clazz.isPrimitive()) {\n+        return -1;\n+    }\n+    if (clazz.isInterface()) {\n+        return 0;\n+    }\n+    if (Modifier.isFinal(clazz.getModifiers())) {\n+        return -1;\n+    }\n+    return 0;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static int getCollectionHint(Class clazz) {\n    if (clazz.isArray()) {\n        return 1;\n    }\n    if (Collection.class.isAssignableFrom(clazz)) {\n        return 1;\n    }\n    if (clazz.isPrimitive()) {\n        return -1;\n    }\n    if (clazz.isInterface()) {\n        return 0;\n    }\n    if (Modifier.isFinal(clazz.getModifiers())) {\n        return -1;\n    }\n    return 0;\n}",
+      "path": "src/java/org/apache/commons/jxpath/util/ValueUtils.java",
+      "functionStartLine": 104,
+      "functionName": "getCollectionHint",
+      "functionAnnotation": "",
+      "functionDoc": "Returns 1 if the type is a collection, \n-1 if it is definitely not\nand 0 if it may be a collection in some cases.\n"
+    }
+  }
+}

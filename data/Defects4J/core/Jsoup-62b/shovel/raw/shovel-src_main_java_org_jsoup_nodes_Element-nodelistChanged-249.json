@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-62b",
+  "repositoryPath": "/tmp/Jsoup-62b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Element.java",
+  "functionName": "nodelistChanged",
+  "functionId": "nodelistChanged",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Element.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Clears the cached shadow child elements.\n",
+  "functionStartLine": 249,
+  "functionEndLine": 252,
+  "numCommitsSeen": 121,
+  "timeTaken": 746,
+  "changeHistory": [
+    "38049ce2808cafce3884c25c4613aaaff9f2d0d8"
+  ],
+  "changeHistoryShort": {
+    "38049ce2808cafce3884c25c4613aaaff9f2d0d8": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "38049ce2808cafce3884c25c4613aaaff9f2d0d8": {
+      "type": "Yintroduced",
+      "commitMessage": "Memoize the child element list, so that sibling index queries are much faster\n\nMeasurement was 24 ops/s prior, now 450 ops/s. (When matching ~ 12K\nelements in a loop)\n",
+      "commitDate": "6/10/17, 12:25 PM",
+      "commitName": "38049ce2808cafce3884c25c4613aaaff9f2d0d8",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,5 @@\n+@Override\n+void nodelistChanged() {\n+    super.nodelistChanged();\n+    shadowChildrenRef \u003d null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\nvoid nodelistChanged() {\n    super.nodelistChanged();\n    shadowChildrenRef \u003d null;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Element.java",
+      "functionStartLine": 249,
+      "functionName": "nodelistChanged",
+      "functionAnnotation": "@Override",
+      "functionDoc": "Clears the cached shadow child elements.\n"
+    }
+  }
+}

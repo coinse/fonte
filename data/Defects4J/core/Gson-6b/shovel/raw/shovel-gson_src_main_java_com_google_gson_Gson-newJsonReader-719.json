@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-6b",
+  "repositoryPath": "/tmp/Gson-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Gson.java",
+  "functionName": "newJsonReader",
+  "functionId": "newJsonReader___reader-Reader",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/Gson.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a new JSON writer configured for the settings on this Gson instance.\n",
+  "functionStartLine": 719,
+  "functionEndLine": 723,
+  "numCommitsSeen": 177,
+  "timeTaken": 649,
+  "changeHistory": [
+    "3360c93a76a74d1182b912052973e08ffa868b43"
+  ],
+  "changeHistoryShort": {
+    "3360c93a76a74d1182b912052973e08ffa868b43": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "3360c93a76a74d1182b912052973e08ffa868b43": {
+      "type": "Yintroduced",
+      "commitMessage": "Add setting for leniency on Gson instance.\n\nAdd a JsonReader factory (for parity with the JsonWriter one) which provides a configured instance using the Gson settings.\n",
+      "commitDate": "1/18/16, 9:08 AM",
+      "commitName": "3360c93a76a74d1182b912052973e08ffa868b43",
+      "commitAuthor": "Jake Wharton",
+      "diff": "@@ -0,0 +1,5 @@\n+public JsonReader newJsonReader(Reader reader) {\n+    JsonReader jsonReader \u003d new JsonReader(reader);\n+    jsonReader.setLenient(lenient);\n+    return jsonReader;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public JsonReader newJsonReader(Reader reader) {\n    JsonReader jsonReader \u003d new JsonReader(reader);\n    jsonReader.setLenient(lenient);\n    return jsonReader;\n}",
+      "path": "gson/src/main/java/com/google/gson/Gson.java",
+      "functionStartLine": 719,
+      "functionName": "newJsonReader",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a new JSON writer configured for the settings on this Gson instance.\n"
+    }
+  }
+}

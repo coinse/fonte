@@ -1,0 +1,66 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-35b",
+  "repositoryPath": "/tmp/Jsoup-35b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "HtmlTreeBuilder.java",
+  "functionName": "isSpecial",
+  "functionId": "isSpecial___el-Element",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 551,
+  "functionEndLine": 563,
+  "numCommitsSeen": 13,
+  "timeTaken": 1969,
+  "changeHistory": [
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": "Ymovefromfile",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "5000be31966a575f54d80ef85ee49ca1f5cb6ea8": {
+      "type": "Ymovefromfile",
+      "commitMessage": "First draft of a simple XML treebuilder / parser.\n\nThis provides an alternative to the HTML5 parser which enforces HTML\nsemantics on the parsed input. The simple XML parser has no understanding\nof HTML, and will parse the input as-is into a DOM.\n",
+      "commitDate": "2/26/12, 5:23 PM",
+      "commitName": "5000be31966a575f54d80ef85ee49ca1f5cb6ea8",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "9/30/11, 6:13 PM",
+      "commitNameOld": "1e84edbe208aab0c9330eadc50f9773d81d70cd6",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 149.01,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean isSpecial(Element el) {\n    String name \u003d el.nodeName();\n    return StringUtil.in(name, \"address\", \"applet\", \"area\", \"article\", \"aside\", \"base\", \"basefont\", \"bgsound\", \"blockquote\", \"body\", \"br\", \"button\", \"caption\", \"center\", \"col\", \"colgroup\", \"command\", \"dd\", \"details\", \"dir\", \"div\", \"dl\", \"dt\", \"embed\", \"fieldset\", \"figcaption\", \"figure\", \"footer\", \"form\", \"frame\", \"frameset\", \"h1\", \"h2\", \"h3\", \"h4\", \"h5\", \"h6\", \"head\", \"header\", \"hgroup\", \"hr\", \"html\", \"iframe\", \"img\", \"input\", \"isindex\", \"li\", \"link\", \"listing\", \"marquee\", \"menu\", \"meta\", \"nav\", \"noembed\", \"noframes\", \"noscript\", \"object\", \"ol\", \"p\", \"param\", \"plaintext\", \"pre\", \"script\", \"section\", \"select\", \"style\", \"summary\", \"table\", \"tbody\", \"td\", \"textarea\", \"tfoot\", \"th\", \"thead\", \"title\", \"tr\", \"ul\", \"wbr\", \"xmp\");\n}",
+      "path": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+      "functionStartLine": 517,
+      "functionName": "isSpecial",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+        "newPath": "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+        "oldMethodName": "isSpecial",
+        "newMethodName": "isSpecial"
+      }
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+boolean isSpecial(Element el) {\n+    String name \u003d el.nodeName();\n+    return StringUtil.in(name, \"address\", \"applet\", \"area\", \"article\", \"aside\", \"base\", \"basefont\", \"bgsound\", \"blockquote\", \"body\", \"br\", \"button\", \"caption\", \"center\", \"col\", \"colgroup\", \"command\", \"dd\", \"details\", \"dir\", \"div\", \"dl\", \"dt\", \"embed\", \"fieldset\", \"figcaption\", \"figure\", \"footer\", \"form\", \"frame\", \"frameset\", \"h1\", \"h2\", \"h3\", \"h4\", \"h5\", \"h6\", \"head\", \"header\", \"hgroup\", \"hr\", \"html\", \"iframe\", \"img\", \"input\", \"isindex\", \"li\", \"link\", \"listing\", \"marquee\", \"menu\", \"meta\", \"nav\", \"noembed\", \"noframes\", \"noscript\", \"object\", \"ol\", \"p\", \"param\", \"plaintext\", \"pre\", \"script\", \"section\", \"select\", \"style\", \"summary\", \"table\", \"tbody\", \"td\", \"textarea\", \"tfoot\", \"th\", \"thead\", \"title\", \"tr\", \"ul\", \"wbr\", \"xmp\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean isSpecial(Element el) {\n    String name \u003d el.nodeName();\n    return StringUtil.in(name, \"address\", \"applet\", \"area\", \"article\", \"aside\", \"base\", \"basefont\", \"bgsound\", \"blockquote\", \"body\", \"br\", \"button\", \"caption\", \"center\", \"col\", \"colgroup\", \"command\", \"dd\", \"details\", \"dir\", \"div\", \"dl\", \"dt\", \"embed\", \"fieldset\", \"figcaption\", \"figure\", \"footer\", \"form\", \"frame\", \"frameset\", \"h1\", \"h2\", \"h3\", \"h4\", \"h5\", \"h6\", \"head\", \"header\", \"hgroup\", \"hr\", \"html\", \"iframe\", \"img\", \"input\", \"isindex\", \"li\", \"link\", \"listing\", \"marquee\", \"menu\", \"meta\", \"nav\", \"noembed\", \"noframes\", \"noscript\", \"object\", \"ol\", \"p\", \"param\", \"plaintext\", \"pre\", \"script\", \"section\", \"select\", \"style\", \"summary\", \"table\", \"tbody\", \"td\", \"textarea\", \"tfoot\", \"th\", \"thead\", \"title\", \"tr\", \"ul\", \"wbr\", \"xmp\");\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 544,
+      "functionName": "isSpecial",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

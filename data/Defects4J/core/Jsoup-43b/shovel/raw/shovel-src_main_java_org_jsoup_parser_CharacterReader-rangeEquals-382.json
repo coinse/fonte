@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "rangeEquals",
+  "functionId": "rangeEquals___start-int(modifiers-final)__count-int__cached-String(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "Check if the value of the provided range equals the string.\n",
+  "functionStartLine": 382,
+  "functionEndLine": 394,
+  "numCommitsSeen": 17,
+  "timeTaken": 523,
+  "changeHistory": [
+    "59453e27d90962ed2c28a8dc06a5a9e401667e12",
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510"
+  ],
+  "changeHistoryShort": {
+    "59453e27d90962ed2c28a8dc06a5a9e401667e12": "Ybodychange",
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "59453e27d90962ed2c28a8dc06a5a9e401667e12": {
+      "type": "Ybodychange",
+      "commitMessage": "Less GC in cache check\n\nAt expense of getField\n",
+      "commitDate": "10/26/14, 4:30 PM",
+      "commitName": "59453e27d90962ed2c28a8dc06a5a9e401667e12",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/26/14, 3:50 PM",
+      "commitNameOld": "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.03,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean rangeEquals(final int start, int count, final String cached) {\n    if (count \u003d\u003d cached.length()) {\n        char[] one \u003d input;\n        int i \u003d start;\n        int j \u003d 0;\n        while (count-- !\u003d 0) {\n            if (one[i++] !\u003d cached.charAt(j++))\n                return false;\n        }\n        return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 382,
+      "functionName": "rangeEquals",
+      "functionAnnotation": "",
+      "functionDoc": "Check if the value of the provided range equals the string.\n",
+      "diff": "@@ -1,14 +1,13 @@\n boolean rangeEquals(final int start, int count, final String cached) {\n     if (count \u003d\u003d cached.length()) {\n         char[] one \u003d input;\n-        char[] two \u003d cached.toCharArray();\n         int i \u003d start;\n         int j \u003d 0;\n         while (count-- !\u003d 0) {\n-            if (one[i++] !\u003d two[j++])\n+            if (one[i++] !\u003d cached.charAt(j++))\n                 return false;\n         }\n         return true;\n     }\n     return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510": {
+      "type": "Yintroduced",
+      "commitMessage": "Speed improvements\n\nAndroid focussed speed improvements.\nReduced GC load with a flywheel on short strings.\nOptimized core consumeTo methods.\n",
+      "commitDate": "10/26/14, 3:50 PM",
+      "commitName": "d1b57703e1131ba316beb84e8d9f6fcfa9ba6510",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,14 @@\n+boolean rangeEquals(final int start, int count, final String cached) {\n+    if (count \u003d\u003d cached.length()) {\n+        char[] one \u003d input;\n+        char[] two \u003d cached.toCharArray();\n+        int i \u003d start;\n+        int j \u003d 0;\n+        while (count-- !\u003d 0) {\n+            if (one[i++] !\u003d two[j++])\n+                return false;\n+        }\n+        return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean rangeEquals(final int start, int count, final String cached) {\n    if (count \u003d\u003d cached.length()) {\n        char[] one \u003d input;\n        char[] two \u003d cached.toCharArray();\n        int i \u003d start;\n        int j \u003d 0;\n        while (count-- !\u003d 0) {\n            if (one[i++] !\u003d two[j++])\n                return false;\n        }\n        return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 382,
+      "functionName": "rangeEquals",
+      "functionAnnotation": "",
+      "functionDoc": "Check if the value of the provided range equals the string.\n"
+    }
+  }
+}

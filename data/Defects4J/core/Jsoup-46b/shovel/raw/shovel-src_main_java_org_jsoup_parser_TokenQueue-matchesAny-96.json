@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokenQueue.java",
+  "functionName": "matchesAny",
+  "functionId": "matchesAny___seq-char",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 96,
+  "functionEndLine": 105,
+  "numCommitsSeen": 36,
+  "timeTaken": 618,
+  "changeHistory": [
+    "19aecf27292e894fefe4552309549325387163d2"
+  ],
+  "changeHistoryShort": {
+    "19aecf27292e894fefe4552309549325387163d2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "19aecf27292e894fefe4552309549325387163d2": {
+      "type": "Yintroduced",
+      "commitMessage": "TokenQueue optimisations\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "19aecf27292e894fefe4552309549325387163d2",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,9 @@\n+public boolean matchesAny(char... seq) {\n+    if (isEmpty())\n+        return false;\n+    for (char c : seq) {\n+        if (queue.charAt(pos) \u003d\u003d c)\n+            return true;\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean matchesAny(char... seq) {\n    if (isEmpty())\n        return false;\n    for (char c : seq) {\n        if (queue.charAt(pos) \u003d\u003d c)\n            return true;\n    }\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/parser/TokenQueue.java",
+      "functionStartLine": 103,
+      "functionName": "matchesAny",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

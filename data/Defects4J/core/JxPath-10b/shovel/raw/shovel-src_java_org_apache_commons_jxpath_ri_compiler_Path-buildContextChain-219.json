@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-10b",
+  "repositoryPath": "/tmp/JxPath-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Path.java",
+  "functionName": "buildContextChain",
+  "functionId": "buildContextChain___context-EvalContext__stepCount-int__createInitialContext-boolean",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/compiler/Path.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 219,
+  "functionEndLine": 247,
+  "numCommitsSeen": 21,
+  "timeTaken": 797,
+  "changeHistory": [
+    "301243c9ea777977c3c37172b746d3a65b8ad949",
+    "26ed002f4905b94a6a4275f9ad263cb8a2cadf00"
+  ],
+  "changeHistoryShort": {
+    "301243c9ea777977c3c37172b746d3a65b8ad949": "Ybodychange",
+    "26ed002f4905b94a6a4275f9ad263cb8a2cadf00": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "301243c9ea777977c3c37172b746d3a65b8ad949": {
+      "type": "Ybodychange",
+      "commitMessage": "Corrected behavior of chained predicates.  \nEach predicate is supposed to form its own node set.\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@329513 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "10/29/05, 8:07 PM",
+      "commitName": "301243c9ea777977c3c37172b746d3a65b8ad949",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "2/26/05, 5:07 AM",
+      "commitNameOld": "ecb571fc93e4a7bed9545a295c177d1ab4b1f4bf",
+      "commitAuthorOld": "Dirk Verbeeck",
+      "daysBetweenCommits": 245.58,
+      "commitsBetweenForRepo": 15,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private EvalContext buildContextChain(EvalContext context, int stepCount, boolean createInitialContext) {\n    if (createInitialContext) {\n        context \u003d new InitialContext(context);\n    }\n    if (steps.length \u003d\u003d 0) {\n        return context;\n    }\n    for (int i \u003d 0; i \u003c stepCount; i++) {\n        context \u003d createContextForStep(context, steps[i].getAxis(), steps[i].getNodeTest());\n        Expression[] predicates \u003d steps[i].getPredicates();\n        if (predicates !\u003d null) {\n            for (int j \u003d 0; j \u003c predicates.length; j++) {\n                if (j !\u003d 0) {\n                    context \u003d new UnionContext(context, new EvalContext[] { context });\n                }\n                context \u003d new PredicateContext(context, predicates[j]);\n            }\n        }\n    }\n    return context;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/compiler/Path.java",
+      "functionStartLine": 222,
+      "functionName": "buildContextChain",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,18 +1,21 @@\n private EvalContext buildContextChain(EvalContext context, int stepCount, boolean createInitialContext) {\n     if (createInitialContext) {\n         context \u003d new InitialContext(context);\n     }\n     if (steps.length \u003d\u003d 0) {\n         return context;\n     }\n     for (int i \u003d 0; i \u003c stepCount; i++) {\n         context \u003d createContextForStep(context, steps[i].getAxis(), steps[i].getNodeTest());\n         Expression[] predicates \u003d steps[i].getPredicates();\n         if (predicates !\u003d null) {\n             for (int j \u003d 0; j \u003c predicates.length; j++) {\n+                if (j !\u003d 0) {\n+                    context \u003d new UnionContext(context, new EvalContext[] { context });\n+                }\n                 context \u003d new PredicateContext(context, predicates[j]);\n             }\n         }\n     }\n     return context;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "26ed002f4905b94a6a4275f9ad263cb8a2cadf00": {
+      "type": "Yintroduced",
+      "commitMessage": "Fixed an issue with searches in graphs containing DynamicPropertyHandlers\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136888 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/22/04, 5:10 PM",
+      "commitName": "26ed002f4905b94a6a4275f9ad263cb8a2cadf00",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,18 @@\n+private EvalContext buildContextChain(EvalContext context, int stepCount, boolean createInitialContext) {\n+    if (createInitialContext) {\n+        context \u003d new InitialContext(context);\n+    }\n+    if (steps.length \u003d\u003d 0) {\n+        return context;\n+    }\n+    for (int i \u003d 0; i \u003c stepCount; i++) {\n+        context \u003d createContextForStep(context, steps[i].getAxis(), steps[i].getNodeTest());\n+        Expression[] predicates \u003d steps[i].getPredicates();\n+        if (predicates !\u003d null) {\n+            for (int j \u003d 0; j \u003c predicates.length; j++) {\n+                context \u003d new PredicateContext(context, predicates[j]);\n+            }\n+        }\n+    }\n+    return context;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private EvalContext buildContextChain(EvalContext context, int stepCount, boolean createInitialContext) {\n    if (createInitialContext) {\n        context \u003d new InitialContext(context);\n    }\n    if (steps.length \u003d\u003d 0) {\n        return context;\n    }\n    for (int i \u003d 0; i \u003c stepCount; i++) {\n        context \u003d createContextForStep(context, steps[i].getAxis(), steps[i].getNodeTest());\n        Expression[] predicates \u003d steps[i].getPredicates();\n        if (predicates !\u003d null) {\n            for (int j \u003d 0; j \u003c predicates.length; j++) {\n                context \u003d new PredicateContext(context, predicates[j]);\n            }\n        }\n    }\n    return context;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/compiler/Path.java",
+      "functionStartLine": 267,
+      "functionName": "buildContextChain",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

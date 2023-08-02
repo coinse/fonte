@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tokeniser.java",
+  "functionName": "isAppropriateEndTagToken",
+  "functionId": "isAppropriateEndTagToken",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 194,
+  "functionEndLine": 198,
+  "numCommitsSeen": 10,
+  "timeTaken": 1136,
+  "changeHistory": [
+    "002a4940935a7545ed94f1b776e4d7f6bf6c2525",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "002a4940935a7545ed94f1b776e4d7f6bf6c2525": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "002a4940935a7545ed94f1b776e4d7f6bf6c2525": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix NPE in style fragment parse\n\nFixes #189\n",
+      "commitDate": "5/6/12, 12:33 AM",
+      "commitName": "002a4940935a7545ed94f1b776e4d7f6bf6c2525",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "4/14/12, 12:31 PM",
+      "commitNameOld": "1d37cef1d8367af963fee4dc99164708f5d3c6f8",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 21.5,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean isAppropriateEndTagToken() {\n    if (lastStartTag \u003d\u003d null)\n        return false;\n    return tagPending.tagName.equals(lastStartTag.tagName);\n}",
+      "path": "src/main/java/org/jsoup/parser/Tokeniser.java",
+      "functionStartLine": 194,
+      "functionName": "isAppropriateEndTagToken",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,3 +1,5 @@\n boolean isAppropriateEndTagToken() {\n+    if (lastStartTag \u003d\u003d null)\n+        return false;\n     return tagPending.tagName.equals(lastStartTag.tagName);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+boolean isAppropriateEndTagToken() {\n+    return tagPending.tagName.equals(lastStartTag.tagName);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean isAppropriateEndTagToken() {\n    return tagPending.tagName.equals(lastStartTag.tagName);\n}",
+      "path": "src/main/java/org/jsoup/parser/Tokeniser.java",
+      "functionStartLine": 193,
+      "functionName": "isAppropriateEndTagToken",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

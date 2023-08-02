@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-10b",
+  "repositoryPath": "/tmp/JxPath-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JXPathContext.java",
+  "functionName": "setLenient",
+  "functionId": "setLenient___lenient-boolean",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/JXPathContext.java",
+  "functionAnnotation": "",
+  "functionDoc": "If the context is in the lenient mode, then getValue() returns null\nfor inexistent paths.  Otherwise, a path that does not map to\nan existing property will throw an exception.  Note that if the\nproperty exists, but its value is null, the exception is \u003ci\u003enot\u003c/i\u003e\nthrown.\n\u003cp\u003e\nBy default, lenient \u003d false\n",
+  "functionStartLine": 591,
+  "functionEndLine": 594,
+  "numCommitsSeen": 35,
+  "timeTaken": 1047,
+  "changeHistory": [
+    "30e4fdde61866403ce8912dfb8afe328502c4d20",
+    "9d0a382341c4adc5d207b0d795d27367a4098ad3",
+    "d0a64d141367867db5b745734f5c7330644b71ca"
+  ],
+  "changeHistoryShort": {
+    "30e4fdde61866403ce8912dfb8afe328502c4d20": "Ymodifierchange",
+    "9d0a382341c4adc5d207b0d795d27367a4098ad3": "Ybodychange",
+    "d0a64d141367867db5b745734f5c7330644b71ca": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "30e4fdde61866403ce8912dfb8afe328502c4d20": {
+      "type": "Ymodifierchange",
+      "commitMessage": "bulled through JXPath codebase to get a little better familiarity; tiny refactorings and removals of unnecessary elses, etc. along the way\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@509378 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/19/07, 3:24 PM",
+      "commitName": "30e4fdde61866403ce8912dfb8afe328502c4d20",
+      "commitAuthor": "Matthew Jason Benson",
+      "commitDateOld": "11/28/06, 9:37 PM",
+      "commitNameOld": "a78dc45a3795e3b9666daed8c13ccc7f4ff48806",
+      "commitAuthorOld": "Henri Yandell",
+      "daysBetweenCommits": 82.74,
+      "commitsBetweenForRepo": 26,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public synchronized void setLenient(boolean lenient) {\n    this.lenient \u003d lenient;\n    lenientSet \u003d true;\n}",
+      "path": "src/java/org/apache/commons/jxpath/JXPathContext.java",
+      "functionStartLine": 589,
+      "functionName": "setLenient",
+      "functionAnnotation": "",
+      "functionDoc": "If the context is in the lenient mode, then getValue() returns null\nfor inexistent paths.  Otherwise, a path that does not map to\nan existing property will throw an exception.  Note that if the\nproperty exists, but its value is null, the exception is \u003ci\u003enot\u003c/i\u003e\nthrown.\n\u003cp\u003e\nBy default, lenient \u003d false\n",
+      "diff": "@@ -1,4 +1,4 @@\n-public void setLenient(boolean lenient) {\n+public synchronized void setLenient(boolean lenient) {\n     this.lenient \u003d lenient;\n     lenientSet \u003d true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[public]",
+        "newValue": "[public, synchronized]"
+      }
+    },
+    "9d0a382341c4adc5d207b0d795d27367a4098ad3": {
+      "type": "Ybodychange",
+      "commitMessage": "Fixed inheritance of functions and leniency\nCached context factory\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136862 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/4/03, 4:51 PM",
+      "commitName": "9d0a382341c4adc5d207b0d795d27367a4098ad3",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "3/10/03, 4:59 PM",
+      "commitNameOld": "bdf423f27a76d2006ffe1058d6530eebf619c877",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 54.95,
+      "commitsBetweenForRepo": 5,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public void setLenient(boolean lenient) {\n    this.lenient \u003d lenient;\n    lenientSet \u003d true;\n}",
+      "path": "src/java/org/apache/commons/jxpath/JXPathContext.java",
+      "functionStartLine": 628,
+      "functionName": "setLenient",
+      "functionAnnotation": "",
+      "functionDoc": "If the context is in the lenient mode, then getValue() returns null\nfor inexistent paths.  Otherwise, a path that does not map to\nan existing property will throw an exception.  Note that if the\nproperty exists, but its value is null, the exception is \u003ci\u003enot\u003c/i\u003e\nthrown.\n\u003cp\u003e\nBy default, lenient \u003d false\n",
+      "diff": "@@ -1,3 +1,4 @@\n public void setLenient(boolean lenient) {\n     this.lenient \u003d lenient;\n+    lenientSet \u003d true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "d0a64d141367867db5b745734f5c7330644b71ca": {
+      "type": "Yintroduced",
+      "commitMessage": "Added support for non-lenient mode\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136708 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/26/01, 4:37 PM",
+      "commitName": "d0a64d141367867db5b745734f5c7330644b71ca",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,3 @@\n+public void setLenient(boolean lenient) {\n+    this.lenient \u003d lenient;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public void setLenient(boolean lenient) {\n    this.lenient \u003d lenient;\n}",
+      "path": "src/java/org/apache/commons/jxpath/JXPathContext.java",
+      "functionStartLine": 491,
+      "functionName": "setLenient",
+      "functionAnnotation": "",
+      "functionDoc": "If the context is in the lenient mode, then getValue() returns null\nfor inexistent paths.  Otherwise, a path that does not map to\nan existing property will throw an exception.  Note that if the\nproperty exists, but its value is null, the exception is \u003ci\u003enot\u003c/i\u003e\nthrown.\n\u003cp\u003e\nBy default, lenient \u003d false\n"
+    }
+  }
+}

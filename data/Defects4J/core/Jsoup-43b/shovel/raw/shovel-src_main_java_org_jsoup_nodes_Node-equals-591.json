@@ -1,0 +1,117 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "equals",
+  "functionId": "equals___o-Object",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Node.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "Check if this node is equal to another node. A node is considered equal if its attributes and content equal the\nother node; particularly its position in the tree does not influence its equality.\n\n@param o other object to compare to\n@return true if the content of this node is the same as the other\n",
+  "functionStartLine": 591,
+  "functionEndLine": 599,
+  "numCommitsSeen": 65,
+  "timeTaken": 1463,
+  "changeHistory": [
+    "8391b7231a2519557d41209d728acc4f422af381",
+    "e936b1b664500166bef0403011c5924c7bd7d086",
+    "1f3cfcfb08a5e7454e61513389b814c7da6072ac"
+  ],
+  "changeHistoryShort": {
+    "8391b7231a2519557d41209d728acc4f422af381": "Ymultichange(Ybodychange,Ydocchange)",
+    "e936b1b664500166bef0403011c5924c7bd7d086": "Ybodychange",
+    "1f3cfcfb08a5e7454e61513389b814c7da6072ac": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8391b7231a2519557d41209d728acc4f422af381": {
+      "type": "Ymultichange(Ybodychange,Ydocchange)",
+      "commitMessage": "Improved hashcode and equals for Node\n\nFixes #537\n",
+      "commitDate": "3/29/15, 6:10 PM",
+      "commitName": "8391b7231a2519557d41209d728acc4f422af381",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Improved hashcode and equals for Node\n\nFixes #537\n",
+          "commitDate": "3/29/15, 6:10 PM",
+          "commitName": "8391b7231a2519557d41209d728acc4f422af381",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "3/29/15, 3:10 PM",
+          "commitNameOld": "13b55d7e81414d2a96de3bdc8dd95829fd7dad92",
+          "commitAuthorOld": "",
+          "daysBetweenCommits": 0.13,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (this \u003d\u003d o)\n        return true;\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n        return false;\n    Node node \u003d (Node) o;\n    if (childNodes !\u003d null ? !childNodes.equals(node.childNodes) : node.childNodes !\u003d null)\n        return false;\n    return !(attributes !\u003d null ? !attributes.equals(node.attributes) : node.attributes !\u003d null);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Node.java",
+          "functionStartLine": 596,
+          "functionName": "equals",
+          "functionAnnotation": "@Override",
+          "functionDoc": "Check if this node is equal to another node. A node is considered equal if its attributes and content equal the\nother node; particularly its position in the tree does not influence its equality.\n\n@param o other object to compare to\n@return true if the content of this node is the same as the other\n",
+          "diff": "@@ -1,4 +1,11 @@\n @Override\n public boolean equals(Object o) {\n-    return this \u003d\u003d o;\n+    if (this \u003d\u003d o)\n+        return true;\n+    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n+        return false;\n+    Node node \u003d (Node) o;\n+    if (childNodes !\u003d null ? !childNodes.equals(node.childNodes) : node.childNodes !\u003d null)\n+        return false;\n+    return !(attributes !\u003d null ? !attributes.equals(node.attributes) : node.attributes !\u003d null);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Improved hashcode and equals for Node\n\nFixes #537\n",
+          "commitDate": "3/29/15, 6:10 PM",
+          "commitName": "8391b7231a2519557d41209d728acc4f422af381",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "3/29/15, 3:10 PM",
+          "commitNameOld": "13b55d7e81414d2a96de3bdc8dd95829fd7dad92",
+          "commitAuthorOld": "",
+          "daysBetweenCommits": 0.13,
+          "commitsBetweenForRepo": 6,
+          "commitsBetweenForFile": 1,
+          "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (this \u003d\u003d o)\n        return true;\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n        return false;\n    Node node \u003d (Node) o;\n    if (childNodes !\u003d null ? !childNodes.equals(node.childNodes) : node.childNodes !\u003d null)\n        return false;\n    return !(attributes !\u003d null ? !attributes.equals(node.attributes) : node.attributes !\u003d null);\n}",
+          "path": "src/main/java/org/jsoup/nodes/Node.java",
+          "functionStartLine": 596,
+          "functionName": "equals",
+          "functionAnnotation": "@Override",
+          "functionDoc": "Check if this node is equal to another node. A node is considered equal if its attributes and content equal the\nother node; particularly its position in the tree does not influence its equality.\n\n@param o other object to compare to\n@return true if the content of this node is the same as the other\n",
+          "diff": "@@ -1,4 +1,11 @@\n @Override\n public boolean equals(Object o) {\n-    return this \u003d\u003d o;\n+    if (this \u003d\u003d o)\n+        return true;\n+    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n+        return false;\n+    Node node \u003d (Node) o;\n+    if (childNodes !\u003d null ? !childNodes.equals(node.childNodes) : node.childNodes !\u003d null)\n+        return false;\n+    return !(attributes !\u003d null ? !attributes.equals(node.attributes) : node.attributes !\u003d null);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "Check if this node is equal to another node. A node is considered equal if its attributes and content equal the\nother node; particularly its position in the tree does not influence its equality.\n\n@param o other object to compare to\n@return true if the content of this node is the same as the other\n"
+          }
+        }
+      ]
+    },
+    "e936b1b664500166bef0403011c5924c7bd7d086": {
+      "type": "Ybodychange",
+      "commitMessage": "Cleanup.",
+      "commitDate": "10/17/14, 1:23 PM",
+      "commitName": "e936b1b664500166bef0403011c5924c7bd7d086",
+      "commitAuthor": "offa",
+      "commitDateOld": "11/16/13, 4:48 PM",
+      "commitNameOld": "c07ba8a34b6a6d6665928e106fea67bd9144e4e0",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 334.82,
+      "commitsBetweenForRepo": 74,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    return this \u003d\u003d o;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 582,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,4 @@\n @Override\n public boolean equals(Object o) {\n-    if (this \u003d\u003d o)\n-        return true;\n-    return false;\n+    return this \u003d\u003d o;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "1f3cfcfb08a5e7454e61513389b814c7da6072ac": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented select(query, query, query) or group selector.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "1f3cfcfb08a5e7454e61513389b814c7da6072ac",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+@Override\n+public boolean equals(Object o) {\n+    if (this \u003d\u003d o)\n+        return true;\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (this \u003d\u003d o)\n        return true;\n    return false;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 104,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

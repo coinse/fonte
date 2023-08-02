@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "equals",
+  "functionId": "equals___o-Object",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 209,
+  "functionEndLine": 218,
+  "numCommitsSeen": 36,
+  "timeTaken": 753,
+  "changeHistory": [
+    "ba5d66010db39205e29289ae81122fc85299d145",
+    "548ce13435a00bb447fbffdbca8c5ce3be752ee4"
+  ],
+  "changeHistoryShort": {
+    "ba5d66010db39205e29289ae81122fc85299d145": "Ybodychange",
+    "548ce13435a00bb447fbffdbca8c5ce3be752ee4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ba5d66010db39205e29289ae81122fc85299d145": {
+      "type": "Ybodychange",
+      "commitMessage": "Improved tag definitions to allow limited children and excluded children.\nImproved implicit table element creation, particularly around tbody tags.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ba5d66010db39205e29289ae81122fc85299d145",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "7520dee7b688bdab536bfd76fca47a65316d2147",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 3,
+      "commitsBetweenForFile": 1,
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (this \u003d\u003d o)\n        return true;\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n        return false;\n    Tag tag \u003d (Tag) o;\n    if (tagName !\u003d null ? !tagName.equals(tag.tagName) : tag.tagName !\u003d null)\n        return false;\n    return true;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 198,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": "",
+      "diff": "@@ -1,21 +1,11 @@\n @Override\n public boolean equals(Object o) {\n     if (this \u003d\u003d o)\n         return true;\n     if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n         return false;\n     Tag tag \u003d (Tag) o;\n-    if (canContainBlock !\u003d tag.canContainBlock)\n-        return false;\n-    if (canContainInline !\u003d tag.canContainInline)\n-        return false;\n-    if (empty !\u003d tag.empty)\n-        return false;\n-    if (isBlock !\u003d tag.isBlock)\n-        return false;\n-    if (optionalClosing !\u003d tag.optionalClosing)\n-        return false;\n     if (tagName !\u003d null ? !tagName.equals(tag.tagName) : tag.tagName !\u003d null)\n         return false;\n     return true;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "548ce13435a00bb447fbffdbca8c5ce3be752ee4": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial implementation of Tag.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "548ce13435a00bb447fbffdbca8c5ce3be752ee4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,21 @@\n+@Override\n+public boolean equals(Object o) {\n+    if (this \u003d\u003d o)\n+        return true;\n+    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n+        return false;\n+    Tag tag \u003d (Tag) o;\n+    if (canContainBlock !\u003d tag.canContainBlock)\n+        return false;\n+    if (canContainInline !\u003d tag.canContainInline)\n+        return false;\n+    if (empty !\u003d tag.empty)\n+        return false;\n+    if (isBlock !\u003d tag.isBlock)\n+        return false;\n+    if (optionalClosing !\u003d tag.optionalClosing)\n+        return false;\n+    if (tagName !\u003d null ? !tagName.equals(tag.tagName) : tag.tagName !\u003d null)\n+        return false;\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic boolean equals(Object o) {\n    if (this \u003d\u003d o)\n        return true;\n    if (o \u003d\u003d null || getClass() !\u003d o.getClass())\n        return false;\n    Tag tag \u003d (Tag) o;\n    if (canContainBlock !\u003d tag.canContainBlock)\n        return false;\n    if (canContainInline !\u003d tag.canContainInline)\n        return false;\n    if (empty !\u003d tag.empty)\n        return false;\n    if (isBlock !\u003d tag.isBlock)\n        return false;\n    if (optionalClosing !\u003d tag.optionalClosing)\n        return false;\n    if (tagName !\u003d null ? !tagName.equals(tag.tagName) : tag.tagName !\u003d null)\n        return false;\n    return true;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 81,
+      "functionName": "equals",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

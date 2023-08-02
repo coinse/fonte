@@ -1,0 +1,90 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Document.java",
+  "functionName": "escapeMode",
+  "functionId": "$escapeMode___escapeMode-Entities.EscapeMode",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Document.java",
+  "functionAnnotation": "",
+  "functionDoc": "Set the document\u0027s escape mode, which determines how characters are escaped when the output character set\ndoes not support a given character:- using either a named or a numbered escape.\n\n@param escapeMode the new escape mode to use\n@return the document\u0027s output settings, for chaining\n",
+  "functionStartLine": 401,
+  "functionEndLine": 404,
+  "numCommitsSeen": 52,
+  "timeTaken": 1142,
+  "changeHistory": [
+    "6c4f16f233cdfd7aedef33374609e9aa4ede255c",
+    "57bce6dc8424637621f6b660855f23e72a08c4b3",
+    "f8841edabba28d6125dd87ed72f557e85570066b"
+  ],
+  "changeHistoryShort": {
+    "6c4f16f233cdfd7aedef33374609e9aa4ede255c": "Ydocchange",
+    "57bce6dc8424637621f6b660855f23e72a08c4b3": "Ydocchange",
+    "f8841edabba28d6125dd87ed72f557e85570066b": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6c4f16f233cdfd7aedef33374609e9aa4ede255c": {
+      "type": "Ydocchange",
+      "commitMessage": "Support for HTML output syntax, enabled by default\n\nIntroduced the ability to chose between HTML and XML output, and made\nHTML the default. This means img tags are\noutput as \u003cimg\u003e, not \u003cimg /\u003e. XML is the default when using the\nXmlTreeBuilder. Control this with the\nDocument.OutputSettings.syntax() method.\n\nTightened the scope of what characters are escaped in attributes and\ntextnodes, to align with the spec. Also, when\nusing the extended escape entities map, only escape a character if the\ncurrent output charset does not support it.\nThis produces smaller, more legible HTML, with greated control over the\noutput (by setting charset and escape mode).\n\nFixes #322\nFixes #373\nFixes #346\nFixes #150\n",
+      "commitDate": "11/17/13, 7:11 PM",
+      "commitName": "6c4f16f233cdfd7aedef33374609e9aa4ede255c",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "11/10/13, 9:59 PM",
+      "commitNameOld": "1c4fe033f7612d4aeb0f4324538c8e3dd4d25668",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 6.88,
+      "commitsBetweenForRepo": 8,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public OutputSettings escapeMode(Entities.EscapeMode escapeMode) {\n    this.escapeMode \u003d escapeMode;\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 254,
+      "functionName": "escapeMode",
+      "functionAnnotation": "",
+      "functionDoc": "Set the document\u0027s escape mode, which determines how characters are escaped when the output character set\ndoes not support a given character:- using either a named or a numbered escape.\n\n@param escapeMode the new escape mode to use\n@return the document\u0027s output settings, for chaining\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Set the document\u0027s escape mode\n\n@param escapeMode the new escape mode to use\n@return the document\u0027s output settings, for chaining\n",
+        "newValue": "Set the document\u0027s escape mode, which determines how characters are escaped when the output character set\ndoes not support a given character:- using either a named or a numbered escape.\n\n@param escapeMode the new escape mode to use\n@return the document\u0027s output settings, for chaining\n"
+      }
+    },
+    "57bce6dc8424637621f6b660855f23e72a08c4b3": {
+      "type": "Ydocchange",
+      "commitMessage": "Added ability to configure the document\u0027s output charset.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "57bce6dc8424637621f6b660855f23e72a08c4b3",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "f8841edabba28d6125dd87ed72f557e85570066b",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 2,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public OutputSettings escapeMode(Entities.EscapeMode escapeMode) {\n    this.escapeMode \u003d escapeMode;\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 182,
+      "functionName": "escapeMode",
+      "functionAnnotation": "",
+      "functionDoc": "Set the document\u0027s escape mode\n\n@param escapeMode the new escape mode to use\n@return the document\u0027s output settings, for chaining\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "",
+        "newValue": "Set the document\u0027s escape mode\n\n@param escapeMode the new escape mode to use\n@return the document\u0027s output settings, for chaining\n"
+      }
+    },
+    "f8841edabba28d6125dd87ed72f557e85570066b": {
+      "type": "Yintroduced",
+      "commitMessage": "Working on escape/unescape routine.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f8841edabba28d6125dd87ed72f557e85570066b",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+public OutputSettings escapeMode(Entities.EscapeMode escapeMode) {\n+    this.escapeMode \u003d escapeMode;\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public OutputSettings escapeMode(Entities.EscapeMode escapeMode) {\n    this.escapeMode \u003d escapeMode;\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 166,
+      "functionName": "escapeMode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

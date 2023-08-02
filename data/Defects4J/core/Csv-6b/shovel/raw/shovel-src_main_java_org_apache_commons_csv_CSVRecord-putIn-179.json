@@ -1,0 +1,179 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Csv-6b",
+  "repositoryPath": "/tmp/Csv-6b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CSVRecord.java",
+  "functionName": "putIn",
+  "functionId": "putIn___map-M(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/csv/CSVRecord.java",
+  "functionAnnotation": "",
+  "functionDoc": "Puts all values of this record into the given Map.\n\n@param map The Map to populate.\n@return the given map.\n",
+  "functionStartLine": 179,
+  "functionEndLine": 184,
+  "numCommitsSeen": 120,
+  "timeTaken": 485,
+  "changeHistory": [
+    "2414250b697e606d23e6055a5c72a11b5b28c2ee",
+    "5f9a1987ff6a378fa036046cf608395dc1c552ff",
+    "59411494e069c8aae9123f182aa3a70136bd3dc3",
+    "d01e6b5421ea3b389d858a233530a47b8c7e7353"
+  ],
+  "changeHistoryShort": {
+    "2414250b697e606d23e6055a5c72a11b5b28c2ee": "Ymultichange(Yparameterchange,Yreturntypechange)",
+    "5f9a1987ff6a378fa036046cf608395dc1c552ff": "Ymodifierchange",
+    "59411494e069c8aae9123f182aa3a70136bd3dc3": "Ymultichange(Ybodychange,Yparametermetachange)",
+    "d01e6b5421ea3b389d858a233530a47b8c7e7353": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2414250b697e606d23e6055a5c72a11b5b28c2ee": {
+      "type": "Ymultichange(Yparameterchange,Yreturntypechange)",
+      "commitMessage": "Fix generics issue.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1560399 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/22/14, 8:07 AM",
+      "commitName": "2414250b697e606d23e6055a5c72a11b5b28c2ee",
+      "commitAuthor": "Gary D. Gregory",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Fix generics issue.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1560399 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/22/14, 8:07 AM",
+          "commitName": "2414250b697e606d23e6055a5c72a11b5b28c2ee",
+          "commitAuthor": "Gary D. Gregory",
+          "commitDateOld": "1/21/14, 8:51 AM",
+          "commitNameOld": "011510efbd10f07cce3da85e045745a794893ef5",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 0.97,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "\u003cM extends Map\u003cString, String\u003e\u003e M putIn(final M map) {\n    for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n        map.put(entry.getKey(), values[entry.getValue().intValue()]);\n    }\n    return map;\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVRecord.java",
+          "functionStartLine": 179,
+          "functionName": "putIn",
+          "functionAnnotation": "",
+          "functionDoc": "Puts all values of this record into the given Map.\n\n@param map The Map to populate.\n@return the given map.\n",
+          "diff": "@@ -1,6 +1,6 @@\n-Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n+\u003cM extends Map\u003cString, String\u003e\u003e M putIn(final M map) {\n     for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n         map.put(entry.getKey(), values[entry.getValue().intValue()]);\n     }\n     return map;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[map-Map\u003cString,String\u003e(modifiers-final)]",
+            "newValue": "[map-M(modifiers-final)]"
+          }
+        },
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Fix generics issue.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1560399 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/22/14, 8:07 AM",
+          "commitName": "2414250b697e606d23e6055a5c72a11b5b28c2ee",
+          "commitAuthor": "Gary D. Gregory",
+          "commitDateOld": "1/21/14, 8:51 AM",
+          "commitNameOld": "011510efbd10f07cce3da85e045745a794893ef5",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 0.97,
+          "commitsBetweenForRepo": 4,
+          "commitsBetweenForFile": 1,
+          "actualSource": "\u003cM extends Map\u003cString, String\u003e\u003e M putIn(final M map) {\n    for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n        map.put(entry.getKey(), values[entry.getValue().intValue()]);\n    }\n    return map;\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVRecord.java",
+          "functionStartLine": 179,
+          "functionName": "putIn",
+          "functionAnnotation": "",
+          "functionDoc": "Puts all values of this record into the given Map.\n\n@param map The Map to populate.\n@return the given map.\n",
+          "diff": "@@ -1,6 +1,6 @@\n-Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n+\u003cM extends Map\u003cString, String\u003e\u003e M putIn(final M map) {\n     for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n         map.put(entry.getKey(), values[entry.getValue().intValue()]);\n     }\n     return map;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "Map\u003cString,String\u003e",
+            "newValue": "M"
+          }
+        }
+      ]
+    },
+    "5f9a1987ff6a378fa036046cf608395dc1c552ff": {
+      "type": "Ymodifierchange",
+      "commitMessage": "Hide a method.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1560001 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/21/14, 5:30 AM",
+      "commitName": "5f9a1987ff6a378fa036046cf608395dc1c552ff",
+      "commitAuthor": "Gary D. Gregory",
+      "commitDateOld": "1/20/14, 6:44 PM",
+      "commitNameOld": "59411494e069c8aae9123f182aa3a70136bd3dc3",
+      "commitAuthorOld": "Gary D. Gregory",
+      "daysBetweenCommits": 0.45,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n    for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n        map.put(entry.getKey(), values[entry.getValue().intValue()]);\n    }\n    return map;\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVRecord.java",
+      "functionStartLine": 178,
+      "functionName": "putIn",
+      "functionAnnotation": "",
+      "functionDoc": "Puts all values of this record into the given Map.\n\n@param map The Map to populate.\n@return the given map.\n",
+      "diff": "@@ -1,6 +1,6 @@\n-public Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n+Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n     for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n         map.put(entry.getKey(), values[entry.getValue().intValue()]);\n     }\n     return map;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {
+        "oldValue": "[public]",
+        "newValue": "[]"
+      }
+    },
+    "59411494e069c8aae9123f182aa3a70136bd3dc3": {
+      "type": "Ymultichange(Ybodychange,Yparametermetachange)",
+      "commitMessage": "Use final.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1559908 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/20/14, 6:44 PM",
+      "commitName": "59411494e069c8aae9123f182aa3a70136bd3dc3",
+      "commitAuthor": "Gary D. Gregory",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Use final.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1559908 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/20/14, 6:44 PM",
+          "commitName": "59411494e069c8aae9123f182aa3a70136bd3dc3",
+          "commitAuthor": "Gary D. Gregory",
+          "commitDateOld": "1/20/14, 6:12 PM",
+          "commitNameOld": "d01e6b5421ea3b389d858a233530a47b8c7e7353",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n    for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n        map.put(entry.getKey(), values[entry.getValue().intValue()]);\n    }\n    return map;\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVRecord.java",
+          "functionStartLine": 178,
+          "functionName": "putIn",
+          "functionAnnotation": "",
+          "functionDoc": "Puts all values of this record into the given Map.\n\n@param map The Map to populate.\n@return the given map.\n",
+          "diff": "@@ -1,6 +1,6 @@\n-public Map\u003cString, String\u003e putIn(Map\u003cString, String\u003e map) {\n-    for (Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n+public Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n+    for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n         map.put(entry.getKey(), values[entry.getValue().intValue()]);\n     }\n     return map;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yparametermetachange",
+          "commitMessage": "Use final.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1559908 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/20/14, 6:44 PM",
+          "commitName": "59411494e069c8aae9123f182aa3a70136bd3dc3",
+          "commitAuthor": "Gary D. Gregory",
+          "commitDateOld": "1/20/14, 6:12 PM",
+          "commitNameOld": "d01e6b5421ea3b389d858a233530a47b8c7e7353",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 0.02,
+          "commitsBetweenForRepo": 1,
+          "commitsBetweenForFile": 1,
+          "actualSource": "public Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n    for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n        map.put(entry.getKey(), values[entry.getValue().intValue()]);\n    }\n    return map;\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVRecord.java",
+          "functionStartLine": 178,
+          "functionName": "putIn",
+          "functionAnnotation": "",
+          "functionDoc": "Puts all values of this record into the given Map.\n\n@param map The Map to populate.\n@return the given map.\n",
+          "diff": "@@ -1,6 +1,6 @@\n-public Map\u003cString, String\u003e putIn(Map\u003cString, String\u003e map) {\n-    for (Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n+public Map\u003cString, String\u003e putIn(final Map\u003cString, String\u003e map) {\n+    for (final Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n         map.put(entry.getKey(), values[entry.getValue().intValue()]);\n     }\n     return map;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[map-Map\u003cString,String\u003e]",
+            "newValue": "[map-Map\u003cString,String\u003e(modifiers-final)]"
+          }
+        }
+      ]
+    },
+    "d01e6b5421ea3b389d858a233530a47b8c7e7353": {
+      "type": "Yintroduced",
+      "commitMessage": "[CSV-105] Add Map conversion API to CSVRecord.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1559905 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/20/14, 6:12 PM",
+      "commitName": "d01e6b5421ea3b389d858a233530a47b8c7e7353",
+      "commitAuthor": "Gary D. Gregory",
+      "diff": "@@ -0,0 +1,6 @@\n+public Map\u003cString, String\u003e putIn(Map\u003cString, String\u003e map) {\n+    for (Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n+        map.put(entry.getKey(), values[entry.getValue().intValue()]);\n+    }\n+    return map;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Map\u003cString, String\u003e putIn(Map\u003cString, String\u003e map) {\n    for (Entry\u003cString, Integer\u003e entry : mapping.entrySet()) {\n        map.put(entry.getKey(), values[entry.getValue().intValue()]);\n    }\n    return map;\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVRecord.java",
+      "functionStartLine": 178,
+      "functionName": "putIn",
+      "functionAnnotation": "",
+      "functionDoc": "Puts all values of this record into the given Map.\n\n@param map The Map to populate.\n@return the given map.\n"
+    }
+  }
+}

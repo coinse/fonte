@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-43b",
+  "repositoryPath": "/tmp/Jsoup-43b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "matchesLetter",
+  "functionId": "matchesLetter",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 295,
+  "functionEndLine": 300,
+  "numCommitsSeen": 17,
+  "timeTaken": 1179,
+  "changeHistory": [
+    "231aab61e228513853d08374e188217933f70986",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "231aab61e228513853d08374e188217933f70986": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "231aab61e228513853d08374e188217933f70986": {
+      "type": "Ybodychange",
+      "commitMessage": "Replaced Strings with char array in CharacterReader, for well improved parse times.\n\nFaster to scan, and less garbage created.\n",
+      "commitDate": "6/3/12, 6:44 PM",
+      "commitName": "231aab61e228513853d08374e188217933f70986",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "5/29/12, 9:02 PM",
+      "commitNameOld": "07a3c08a7ddb06711c3d1b5b1126076a43efa6e1",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 4.9,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean matchesLetter() {\n    if (isEmpty())\n        return false;\n    char c \u003d input[pos];\n    return (c \u003e\u003d \u0027A\u0027 \u0026\u0026 c \u003c\u003d \u0027Z\u0027) || (c \u003e\u003d \u0027a\u0027 \u0026\u0026 c \u003c\u003d \u0027z\u0027);\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 241,
+      "functionName": "matchesLetter",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,6 @@\n boolean matchesLetter() {\n     if (isEmpty())\n         return false;\n-    char c \u003d input.charAt(pos);\n+    char c \u003d input[pos];\n     return (c \u003e\u003d \u0027A\u0027 \u0026\u0026 c \u003c\u003d \u0027Z\u0027) || (c \u003e\u003d \u0027a\u0027 \u0026\u0026 c \u003c\u003d \u0027z\u0027);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+boolean matchesLetter() {\n+    if (isEmpty())\n+        return false;\n+    char c \u003d input.charAt(pos);\n+    return (c \u003e\u003d \u0027A\u0027 \u0026\u0026 c \u003c\u003d \u0027Z\u0027) || (c \u003e\u003d \u0027a\u0027 \u0026\u0026 c \u003c\u003d \u0027z\u0027);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean matchesLetter() {\n    if (isEmpty())\n        return false;\n    char c \u003d input.charAt(pos);\n    return (c \u003e\u003d \u0027A\u0027 \u0026\u0026 c \u003c\u003d \u0027Z\u0027) || (c \u003e\u003d \u0027a\u0027 \u0026\u0026 c \u003c\u003d \u0027z\u0027);\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 160,
+      "functionName": "matchesLetter",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

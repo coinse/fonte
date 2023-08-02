@@ -1,0 +1,87 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-5b",
+  "repositoryPath": "/tmp/JxPath-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DOMNodeIterator.java",
+  "functionName": "setPosition",
+  "functionId": "setPosition___position-int",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodeIterator.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 64,
+  "functionEndLine": 76,
+  "numCommitsSeen": 18,
+  "timeTaken": 1009,
+  "changeHistory": [
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+    "a6e246c774fb91eefeadf28c46a10e768ac8cc7b",
+    "207c6dd98407506ff367d072be25b56f37989215"
+  ],
+  "changeHistoryShort": {
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": "Ybodychange",
+    "a6e246c774fb91eefeadf28c46a10e768ac8cc7b": "Yfilerename",
+    "207c6dd98407506ff367d072be25b56f37989215": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": {
+      "type": "Ybodychange",
+      "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/10/03, 9:41 PM",
+      "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "8/10/02, 9:13 AM",
+      "commitNameOld": "d1c2ae2b56e1eb4cb22caea0ba06bda89e5d0b4e",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 153.56,
+      "commitsBetweenForRepo": 35,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean setPosition(int position) {\n    while (this.position \u003c position) {\n        if (!next()) {\n            return false;\n        }\n    }\n    while (this.position \u003e position) {\n        if (!previous()) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodeIterator.java",
+      "functionStartLine": 114,
+      "functionName": "setPosition",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {}
+    },
+    "a6e246c774fb91eefeadf28c46a10e768ac8cc7b": {
+      "type": "Yfilerename",
+      "commitMessage": "Major refactoring\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136721 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "4/21/02, 2:52 PM",
+      "commitName": "a6e246c774fb91eefeadf28c46a10e768ac8cc7b",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "4/11/02, 7:28 PM",
+      "commitNameOld": "65bf4da7590edc460ec68e18f35d201ec685bf86",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 9.81,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public boolean setPosition(int position) {\n    while (this.position \u003c position) {\n        if (!next()) {\n            return false;\n        }\n    }\n    while (this.position \u003e position) {\n        if (!previous()) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodeIterator.java",
+      "functionStartLine": 115,
+      "functionName": "setPosition",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "",
+      "extendedDetails": {
+        "oldPath": "src/java/org/apache/commons/jxpath/ri/pointers/DOMNodeIterator.java",
+        "newPath": "src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodeIterator.java"
+      }
+    },
+    "207c6dd98407506ff367d072be25b56f37989215": {
+      "type": "Yintroduced",
+      "commitMessage": "Moved PropertyIterator to ...pointers,\nadded support for DOM objects,\nadded support for Containers,\nfixed some bugs\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136700 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/2/01, 6:22 PM",
+      "commitName": "207c6dd98407506ff367d072be25b56f37989215",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,13 @@\n+public boolean setPosition(int position) {\n+    while (this.position \u003c position) {\n+        if (!next()) {\n+            return false;\n+        }\n+    }\n+    while (this.position \u003e position) {\n+        if (!previous()) {\n+            return false;\n+        }\n+    }\n+    return true;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean setPosition(int position) {\n    while (this.position \u003c position) {\n        if (!next()) {\n            return false;\n        }\n    }\n    while (this.position \u003e position) {\n        if (!previous()) {\n            return false;\n        }\n    }\n    return true;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/pointers/DOMNodeIterator.java",
+      "functionStartLine": 116,
+      "functionName": "setPosition",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

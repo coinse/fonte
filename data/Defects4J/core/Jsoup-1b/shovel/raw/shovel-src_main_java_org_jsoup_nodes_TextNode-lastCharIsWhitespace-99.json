@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-1b",
+  "repositoryPath": "/tmp/Jsoup-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TextNode.java",
+  "functionName": "lastCharIsWhitespace",
+  "functionId": "lastCharIsWhitespace___sb-StringBuilder",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/TextNode.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 99,
+  "functionEndLine": 105,
+  "numCommitsSeen": 16,
+  "timeTaken": 401,
+  "changeHistory": [
+    "ad405f99cb5f41fb311fa086dbd6762a8e84264d"
+  ],
+  "changeHistoryShort": {
+    "ad405f99cb5f41fb311fa086dbd6762a8e84264d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ad405f99cb5f41fb311fa086dbd6762a8e84264d": {
+      "type": "Yintroduced",
+      "commitMessage": "Text normalisation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ad405f99cb5f41fb311fa086dbd6762a8e84264d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,7 @@\n+static boolean lastCharIsWhitespace(StringBuilder sb) {\n+    if (sb.length() \u003d\u003d 0)\n+        return false;\n+    String lastChar \u003d sb.substring(sb.length() - 1, sb.length());\n+    Validate.isTrue(lastChar.length() \u003d\u003d 1);\n+    return lastChar.equals(\" \");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "static boolean lastCharIsWhitespace(StringBuilder sb) {\n    if (sb.length() \u003d\u003d 0)\n        return false;\n    String lastChar \u003d sb.substring(sb.length() - 1, sb.length());\n    Validate.isTrue(lastChar.length() \u003d\u003d 1);\n    return lastChar.equals(\" \");\n}",
+      "path": "src/main/java/org/jsoup/nodes/TextNode.java",
+      "functionStartLine": 58,
+      "functionName": "lastCharIsWhitespace",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

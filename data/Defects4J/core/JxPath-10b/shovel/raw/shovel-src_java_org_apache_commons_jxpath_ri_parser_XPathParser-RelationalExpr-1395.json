@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-10b",
+  "repositoryPath": "/tmp/JxPath-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XPathParser.java",
+  "functionName": "RelationalExpr",
+  "functionId": "RelationalExpr",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1395,
+  "functionEndLine": 1440,
+  "numCommitsSeen": 7,
+  "timeTaken": 1410,
+  "changeHistory": [
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,48 @@\n+public final Object RelationalExpr() throws ParseException {\n+    Object ex, r;\n+    ex \u003d AdditiveExpr();\n+    label_11: while (true) {\n+        switch(jj_nt.kind) {\n+            case LT:\n+            case LTE:\n+            case GT:\n+            case GTE:\n+                ;\n+                break;\n+            default:\n+                jj_la1[28] \u003d jj_gen;\n+                break label_11;\n+        }\n+        switch(jj_nt.kind) {\n+            case LT:\n+                jj_consume_token(LT);\n+                r \u003d AdditiveExpr();\n+                ex \u003d compiler.lessThan(ex, r);\n+                break;\n+            case GT:\n+                jj_consume_token(GT);\n+                r \u003d AdditiveExpr();\n+                ex \u003d compiler.greaterThan(ex, r);\n+                break;\n+            case LTE:\n+                jj_consume_token(LTE);\n+                r \u003d AdditiveExpr();\n+                ex \u003d compiler.lessThanOrEqual(ex, r);\n+                break;\n+            case GTE:\n+                jj_consume_token(GTE);\n+                r \u003d AdditiveExpr();\n+                ex \u003d compiler.greaterThanOrEqual(ex, r);\n+                break;\n+            default:\n+                jj_la1[29] \u003d jj_gen;\n+                jj_consume_token(-1);\n+                throw new ParseException();\n+        }\n+    }\n+    {\n+        if (true)\n+            return ex;\n+    }\n+    throw new Error(\"Missing return statement in function\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final Object RelationalExpr() throws ParseException {\n    Object ex, r;\n    ex \u003d AdditiveExpr();\n    label_11: while (true) {\n        switch(jj_nt.kind) {\n            case LT:\n            case LTE:\n            case GT:\n            case GTE:\n                ;\n                break;\n            default:\n                jj_la1[28] \u003d jj_gen;\n                break label_11;\n        }\n        switch(jj_nt.kind) {\n            case LT:\n                jj_consume_token(LT);\n                r \u003d AdditiveExpr();\n                ex \u003d compiler.lessThan(ex, r);\n                break;\n            case GT:\n                jj_consume_token(GT);\n                r \u003d AdditiveExpr();\n                ex \u003d compiler.greaterThan(ex, r);\n                break;\n            case LTE:\n                jj_consume_token(LTE);\n                r \u003d AdditiveExpr();\n                ex \u003d compiler.lessThanOrEqual(ex, r);\n                break;\n            case GTE:\n                jj_consume_token(GTE);\n                r \u003d AdditiveExpr();\n                ex \u003d compiler.greaterThanOrEqual(ex, r);\n                break;\n            default:\n                jj_la1[29] \u003d jj_gen;\n                jj_consume_token(-1);\n                throw new ParseException();\n        }\n    }\n    {\n        if (true)\n            return ex;\n    }\n    throw new Error(\"Missing return statement in function\");\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+      "functionStartLine": 1354,
+      "functionName": "RelationalExpr",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

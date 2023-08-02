@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TreeBuilder.java",
+  "functionName": "resetInsertionMode",
+  "functionId": "resetInsertionMode",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 379,
+  "functionEndLine": 427,
+  "numCommitsSeen": 4,
+  "timeTaken": 1113,
+  "changeHistory": [
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,49 @@\n+void resetInsertionMode() {\n+    boolean last \u003d false;\n+    Iterator\u003cElement\u003e it \u003d stack.descendingIterator();\n+    while (it.hasNext()) {\n+        Element node \u003d it.next();\n+        if (!it.hasNext()) {\n+            last \u003d true;\n+            node \u003d contextElement;\n+        }\n+        String name \u003d node.nodeName();\n+        if (\"select\".equals(name)) {\n+            transition(TreeBuilderState.InSelect);\n+            break;\n+        } else if ((\"td\".equals(name) || \"td\".equals(name) \u0026\u0026 !last)) {\n+            transition(TreeBuilderState.InCell);\n+            break;\n+        } else if (\"tr\".equals(name)) {\n+            transition(TreeBuilderState.InRow);\n+            break;\n+        } else if (\"tbody\".equals(name) || \"thead\".equals(name) || \"tfoot\".equals(name)) {\n+            transition(TreeBuilderState.InTableBody);\n+            break;\n+        } else if (\"caption\".equals(name)) {\n+            transition(TreeBuilderState.InCaption);\n+            break;\n+        } else if (\"colgroup\".equals(name)) {\n+            transition(TreeBuilderState.InColumnGroup);\n+            break;\n+        } else if (\"table\".equals(name)) {\n+            transition(TreeBuilderState.InTable);\n+            break;\n+        } else if (\"head\".equals(name)) {\n+            transition(TreeBuilderState.InBody);\n+            break;\n+        } else if (\"body\".equals(name)) {\n+            transition(TreeBuilderState.InBody);\n+            break;\n+        } else if (\"frameset\".equals(name)) {\n+            transition(TreeBuilderState.InFrameset);\n+            break;\n+        } else if (\"html\".equals(name)) {\n+            transition(TreeBuilderState.BeforeHead);\n+            break;\n+        } else if (last) {\n+            transition(TreeBuilderState.InBody);\n+            break;\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void resetInsertionMode() {\n    boolean last \u003d false;\n    Iterator\u003cElement\u003e it \u003d stack.descendingIterator();\n    while (it.hasNext()) {\n        Element node \u003d it.next();\n        if (!it.hasNext()) {\n            last \u003d true;\n            node \u003d contextElement;\n        }\n        String name \u003d node.nodeName();\n        if (\"select\".equals(name)) {\n            transition(TreeBuilderState.InSelect);\n            break;\n        } else if ((\"td\".equals(name) || \"td\".equals(name) \u0026\u0026 !last)) {\n            transition(TreeBuilderState.InCell);\n            break;\n        } else if (\"tr\".equals(name)) {\n            transition(TreeBuilderState.InRow);\n            break;\n        } else if (\"tbody\".equals(name) || \"thead\".equals(name) || \"tfoot\".equals(name)) {\n            transition(TreeBuilderState.InTableBody);\n            break;\n        } else if (\"caption\".equals(name)) {\n            transition(TreeBuilderState.InCaption);\n            break;\n        } else if (\"colgroup\".equals(name)) {\n            transition(TreeBuilderState.InColumnGroup);\n            break;\n        } else if (\"table\".equals(name)) {\n            transition(TreeBuilderState.InTable);\n            break;\n        } else if (\"head\".equals(name)) {\n            transition(TreeBuilderState.InBody);\n            break;\n        } else if (\"body\".equals(name)) {\n            transition(TreeBuilderState.InBody);\n            break;\n        } else if (\"frameset\".equals(name)) {\n            transition(TreeBuilderState.InFrameset);\n            break;\n        } else if (\"html\".equals(name)) {\n            transition(TreeBuilderState.BeforeHead);\n            break;\n        } else if (last) {\n            transition(TreeBuilderState.InBody);\n            break;\n        }\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TreeBuilder.java",
+      "functionStartLine": 378,
+      "functionName": "resetInsertionMode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

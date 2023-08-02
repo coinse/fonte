@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "DataUtil.java",
+  "functionName": "load",
+  "functionId": "load___in-InputStream__charsetName-String__baseUri-String",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/DataUtil.java",
+  "functionAnnotation": "",
+  "functionDoc": "Parses a Document from an input steam.\n\n@param in input stream to parse. You will need to close it.\n@param charsetName character set of input\n@param baseUri base URI of document, to resolve relative links against\n@return Document\n@throws IOException on IO error\n",
+  "functionStartLine": 52,
+  "functionEndLine": 55,
+  "numCommitsSeen": 27,
+  "timeTaken": 513,
+  "changeHistory": [
+    "433d2f180058b8b73e1951c6cfbb986714e68b0f",
+    "84de4abc83b1831f96a353e8e87d09def5c1621a"
+  ],
+  "changeHistoryShort": {
+    "433d2f180058b8b73e1951c6cfbb986714e68b0f": "Ybodychange",
+    "84de4abc83b1831f96a353e8e87d09def5c1621a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "433d2f180058b8b73e1951c6cfbb986714e68b0f": {
+      "type": "Ybodychange",
+      "commitMessage": "Allow an alternate parser to be supplied for core use cases.\n",
+      "commitDate": "2/27/12, 8:55 PM",
+      "commitName": "433d2f180058b8b73e1951c6cfbb986714e68b0f",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:12 AM",
+      "commitNameOld": "912d3c14f98af2b3a77eeabf536617ebc9c6f665",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 240.74,
+      "commitsBetweenForRepo": 26,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public static Document load(InputStream in, String charsetName, String baseUri) throws IOException {\n    ByteBuffer byteData \u003d readToByteBuffer(in);\n    return parseByteData(byteData, charsetName, baseUri, Parser.htmlParser());\n}",
+      "path": "src/main/java/org/jsoup/helper/DataUtil.java",
+      "functionStartLine": 52,
+      "functionName": "load",
+      "functionAnnotation": "",
+      "functionDoc": "Parses a Document from an input steam.\n\n@param in input stream to parse. You will need to close it.\n@param charsetName character set of input\n@param baseUri base URI of document, to resolve relative links against\n@return Document\n@throws IOException on IO error\n",
+      "diff": "@@ -1,4 +1,4 @@\n public static Document load(InputStream in, String charsetName, String baseUri) throws IOException {\n     ByteBuffer byteData \u003d readToByteBuffer(in);\n-    return parseByteData(byteData, charsetName, baseUri);\n+    return parseByteData(byteData, charsetName, baseUri, Parser.htmlParser());\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "84de4abc83b1831f96a353e8e87d09def5c1621a": {
+      "type": "Yintroduced",
+      "commitMessage": "Added ability to load and parse HTML from an input stream.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "84de4abc83b1831f96a353e8e87d09def5c1621a",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,4 @@\n+public static Document load(InputStream in, String charsetName, String baseUri) throws IOException {\n+    ByteBuffer byteData \u003d readToByteBuffer(in);\n+    return parseByteData(byteData, charsetName, baseUri);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Document load(InputStream in, String charsetName, String baseUri) throws IOException {\n    ByteBuffer byteData \u003d readToByteBuffer(in);\n    return parseByteData(byteData, charsetName, baseUri);\n}",
+      "path": "src/main/java/org/jsoup/helper/DataUtil.java",
+      "functionStartLine": 51,
+      "functionName": "load",
+      "functionAnnotation": "",
+      "functionDoc": "Parses a Document from an input steam.\n\n@param in input stream to parse. You will need to close it.\n@param charsetName character set of input\n@param baseUri base URI of document, to resolve relative links against\n@return Document\n@throws IOException on IO error\n"
+    }
+  }
+}

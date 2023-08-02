@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-46b",
+  "repositoryPath": "/tmp/Jsoup-46b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Jsoup.java",
+  "functionName": "parse",
+  "functionId": "parse___in-InputStream__charsetName-String__baseUri-String",
+  "sourceFilePath": "src/main/java/org/jsoup/Jsoup.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Read an input stream, and parse it to a Document.\n\n@ @param in          input stream to read. Make sure to close it after parsing.\n     @param charsetName (optional) character set of file contents. Set to {@code null} to determine from {@code http-equiv} meta tag, if\n     present, or fall back to {@code UTF-8} (which is often safe to do).\n     @param baseUri     The URL where the HTML was retrieved from, to resolve relative links against.\n     @return sane HTML\n\n     @throws IOException if the file could not be found, or read, or if the charsetName is invalid.\n",
+  "functionStartLine": 117,
+  "functionEndLine": 119,
+  "numCommitsSeen": 24,
+  "timeTaken": 270,
+  "changeHistory": [
+    "84de4abc83b1831f96a353e8e87d09def5c1621a"
+  ],
+  "changeHistoryShort": {
+    "84de4abc83b1831f96a353e8e87d09def5c1621a": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "84de4abc83b1831f96a353e8e87d09def5c1621a": {
+      "type": "Yintroduced",
+      "commitMessage": "Added ability to load and parse HTML from an input stream.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "84de4abc83b1831f96a353e8e87d09def5c1621a",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,3 @@\n+public static Document parse(InputStream in, String charsetName, String baseUri) throws IOException {\n+    return DataUtil.load(in, charsetName, baseUri);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static Document parse(InputStream in, String charsetName, String baseUri) throws IOException {\n    return DataUtil.load(in, charsetName, baseUri);\n}",
+      "path": "src/main/java/org/jsoup/Jsoup.java",
+      "functionStartLine": 103,
+      "functionName": "parse",
+      "functionAnnotation": "",
+      "functionDoc": "     Read an input stream, and parse it to a Document.\n\n@ @param in          input stream to read. Make sure to close it after parsing.\n     @param charsetName (optional) character set of file contents. Set to {@code null} to determine from {@code http-equiv} meta tag, if\n     present, or fall back to {@code UTF-8} (which is often safe to do).\n     @param baseUri     The URL where the HTML was retrieved from, to resolve relative links against.\n     @return sane HTML\n\n     @throws IOException if the file could not be found, or read, or if the charsetName is invalid.\n"
+    }
+  }
+}

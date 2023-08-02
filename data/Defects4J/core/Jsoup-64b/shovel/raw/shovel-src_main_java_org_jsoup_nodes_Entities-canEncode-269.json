@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-64b",
+  "repositoryPath": "/tmp/Jsoup-64b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Entities.java",
+  "functionName": "canEncode",
+  "functionId": "canEncode___charset-CoreCharset(modifiers-final)__c-char(modifiers-final)__fallback-CharsetEncoder(modifiers-final)",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Entities.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 269,
+  "functionEndLine": 279,
+  "numCommitsSeen": 35,
+  "timeTaken": 485,
+  "changeHistory": [
+    "b14e7357248a0f683b8252be3e68f5e171fb8529"
+  ],
+  "changeHistoryShort": {
+    "b14e7357248a0f683b8252be3e68f5e171fb8529": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "b14e7357248a0f683b8252be3e68f5e171fb8529": {
+      "type": "Yintroduced",
+      "commitMessage": "Speed fix for Android canEncode\n\nFixes #383\n",
+      "commitDate": "4/6/15, 7:30 PM",
+      "commitName": "b14e7357248a0f683b8252be3e68f5e171fb8529",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,10 @@\n+private static boolean canEncode(final CoreCharset charset, final char c, final CharsetEncoder fallback) {\n+    switch(charset) {\n+        case ascii:\n+            return c \u003c 0x80;\n+        case utf:\n+            return true;\n+        default:\n+            return fallback.canEncode(c);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static boolean canEncode(final CoreCharset charset, final char c, final CharsetEncoder fallback) {\n    switch(charset) {\n        case ascii:\n            return c \u003c 0x80;\n        case utf:\n            return true;\n        default:\n            return fallback.canEncode(c);\n    }\n}",
+      "path": "src/main/java/org/jsoup/nodes/Entities.java",
+      "functionStartLine": 184,
+      "functionName": "canEncode",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

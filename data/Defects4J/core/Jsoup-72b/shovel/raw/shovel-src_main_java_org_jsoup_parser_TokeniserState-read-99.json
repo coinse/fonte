@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-72b",
+  "repositoryPath": "/tmp/Jsoup-72b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "TokeniserState.java",
+  "functionName": "read",
+  "functionId": "$read___t-Tokeniser__r-CharacterReader",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 99,
+  "functionEndLine": 121,
+  "numCommitsSeen": 34,
+  "timeTaken": 3717,
+  "changeHistory": [
+    "d32321351ced83c7c2edff2abe4a8b2fa17a6bd7",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "d32321351ced83c7c2edff2abe4a8b2fa17a6bd7": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d32321351ced83c7c2edff2abe4a8b2fa17a6bd7": {
+      "type": "Ybodychange",
+      "commitMessage": "Other buffer underrun tests\n",
+      "commitDate": "11/10/17, 3:29 PM",
+      "commitName": "d32321351ced83c7c2edff2abe4a8b2fa17a6bd7",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "11/10/17, 1:56 PM",
+      "commitNameOld": "e76922661ce7d97c1730052f60062d1e2eb328c4",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.07,
+      "commitsBetweenForRepo": 1,
+      "commitsBetweenForFile": 1,
+      "actualSource": "void read(Tokeniser t, CharacterReader r) {\n    String data \u003d r.consumeTo(\"]]\u003e\");\n    t.emit(data);\n    if (r.matchConsume(\"]]\u003e\") || r.isEmpty()) {\n        t.transition(Data);\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1603,
+      "functionName": "read",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,6 +1,7 @@\n void read(Tokeniser t, CharacterReader r) {\n     String data \u003d r.consumeTo(\"]]\u003e\");\n     t.emit(data);\n-    r.matchConsume(\"]]\u003e\");\n-    t.transition(Data);\n+    if (r.matchConsume(\"]]\u003e\") || r.isEmpty()) {\n+        t.transition(Data);\n+    }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+void read(Tokeniser t, CharacterReader r) {\n+    String data \u003d r.consumeTo(\"]]\u003e\");\n+    t.emit(data);\n+    r.matchConsume(\"]]\u003e\");\n+    t.transition(Data);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void read(Tokeniser t, CharacterReader r) {\n    String data \u003d r.consumeTo(\"]]\u003e\");\n    t.emit(data);\n    r.matchConsume(\"]]\u003e\");\n    t.transition(Data);\n}",
+      "path": "src/main/java/org/jsoup/parser/TokeniserState.java",
+      "functionStartLine": 1764,
+      "functionName": "read",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

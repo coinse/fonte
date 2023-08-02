@@ -1,0 +1,120 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "SimplePathInterpreter.java",
+  "functionName": "createNullPointerForPredicates",
+  "functionId": "createNullPointerForPredicates___context-EvalContext__parent-NodePointer__steps-Step[]__currentStep-int__predicates-Expression[]__currentPredicate-int",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+  "functionAnnotation": "",
+  "functionDoc": "Creates a \"null pointer\" that starts with predicates.\n\n@param context evaluation context\n@param parent parent pointer\n@param steps path steps\n@param currentStep step number\n@param predicates predicates\n@param currentPredicate int predicate number\n@return NodePointer\n",
+  "functionStartLine": 848,
+  "functionEndLine": 874,
+  "numCommitsSeen": 34,
+  "timeTaken": 1386,
+  "changeHistory": [
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+    "e6b562c6eca79b82a57a4532768d775d76f48694"
+  ],
+  "changeHistoryShort": {
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05": "Ydocchange",
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": "Ymultichange(Yparameterchange,Ybodychange)",
+    "e6b562c6eca79b82a57a4532768d775d76f48694": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "21f932ed07fe75a5ca053ee1418b2db6cb99dc05": {
+      "type": "Ydocchange",
+      "commitMessage": "checkstyle\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@604783 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "12/16/07, 11:29 PM",
+      "commitName": "21f932ed07fe75a5ca053ee1418b2db6cb99dc05",
+      "commitAuthor": "Matthew Jason Benson",
+      "commitDateOld": "12/5/07, 1:04 PM",
+      "commitNameOld": "48294fe62b52a1786a65aa3e15fbccd99f8e5bca",
+      "commitAuthorOld": "Matthew Jason Benson",
+      "daysBetweenCommits": 11.43,
+      "commitsBetweenForRepo": 25,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int currentStep, Expression[] predicates, int currentPredicate) {\n    for (int i \u003d currentPredicate; i \u003c predicates.length; i++) {\n        Expression predicate \u003d predicates[i];\n        if (predicate instanceof NameAttributeTest) {\n            String key \u003d keyFromPredicate(context, predicate);\n            parent \u003d valuePointer(parent);\n            NullPropertyPointer pointer \u003d new NullPropertyPointer(parent);\n            pointer.setNameAttributeValue(key);\n            parent \u003d pointer;\n        } else {\n            int index \u003d indexFromPredicate(context, predicate);\n            if (parent instanceof NullPropertyPointer) {\n                parent.setIndex(index);\n            } else {\n                parent \u003d new NullElementPointer(parent, index);\n            }\n        }\n    }\n    return createNullPointer(context, parent, steps, currentStep + 1);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+      "functionStartLine": 847,
+      "functionName": "createNullPointerForPredicates",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a \"null pointer\" that starts with predicates.\n\n@param context evaluation context\n@param parent parent pointer\n@param steps path steps\n@param currentStep step number\n@param predicates predicates\n@param currentPredicate int predicate number\n@return NodePointer\n",
+      "diff": "",
+      "extendedDetails": {
+        "oldValue": "Creates a \"null pointer\" that starts with predicates.\n",
+        "newValue": "Creates a \"null pointer\" that starts with predicates.\n\n@param context evaluation context\n@param parent parent pointer\n@param steps path steps\n@param currentStep step number\n@param predicates predicates\n@param currentPredicate int predicate number\n@return NodePointer\n"
+      }
+    },
+    "2327c42440cd4927ac5fc91ed93756cb0c87c96d": {
+      "type": "Ymultichange(Yparameterchange,Ybodychange)",
+      "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "1/10/03, 9:41 PM",
+      "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+      "commitAuthor": "Dmitri Plotnikov",
+      "subchanges": [
+        {
+          "type": "Yparameterchange",
+          "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/10/03, 9:41 PM",
+          "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "11/25/02, 5:20 PM",
+          "commitNameOld": "430fdd01e75a5e681274aa65adeb2d9826ee45a8",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 46.18,
+          "commitsBetweenForRepo": 8,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int currentStep, Expression[] predicates, int currentPredicate) {\n    for (int i \u003d currentPredicate; i \u003c predicates.length; i++) {\n        Expression predicate \u003d predicates[i];\n        if (predicate instanceof NameAttributeTest) {\n            String key \u003d keyFromPredicate(context, predicate);\n            parent \u003d valuePointer(parent);\n            NullPropertyPointer pointer \u003d new NullPropertyPointer(parent);\n            pointer.setNameAttributeValue(key);\n            parent \u003d pointer;\n        } else {\n            int index \u003d indexFromPredicate(context, predicate);\n            if (parent instanceof NullPropertyPointer) {\n                parent.setIndex(index);\n            } else {\n                parent \u003d new NullElementPointer(parent, index);\n            }\n        }\n    }\n    return createNullPointer(context, parent, steps, currentStep + 1);\n}",
+          "path": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+          "functionStartLine": 825,
+          "functionName": "createNullPointerForPredicates",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a \"null pointer\" that starts with predicates.\n",
+          "diff": "@@ -1,20 +1,20 @@\n-private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int current_step, Expression[] predicates, int current_predicate) {\n-    for (int i \u003d current_predicate; i \u003c predicates.length; i++) {\n+private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int currentStep, Expression[] predicates, int currentPredicate) {\n+    for (int i \u003d currentPredicate; i \u003c predicates.length; i++) {\n         Expression predicate \u003d predicates[i];\n         if (predicate instanceof NameAttributeTest) {\n             String key \u003d keyFromPredicate(context, predicate);\n             parent \u003d valuePointer(parent);\n             NullPropertyPointer pointer \u003d new NullPropertyPointer(parent);\n             pointer.setNameAttributeValue(key);\n             parent \u003d pointer;\n         } else {\n             int index \u003d indexFromPredicate(context, predicate);\n             if (parent instanceof NullPropertyPointer) {\n                 parent.setIndex(index);\n             } else {\n                 parent \u003d new NullElementPointer(parent, index);\n             }\n         }\n     }\n-    return createNullPointer(context, parent, steps, current_step + 1);\n+    return createNullPointer(context, parent, steps, currentStep + 1);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[context-EvalContext, parent-NodePointer, steps-Step[], current_step-int, predicates-Expression[], current_predicate-int]",
+            "newValue": "[context-EvalContext, parent-NodePointer, steps-Step[], currentStep-int, predicates-Expression[], currentPredicate-int]"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Checkstyle, be happy!\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136834 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "1/10/03, 9:41 PM",
+          "commitName": "2327c42440cd4927ac5fc91ed93756cb0c87c96d",
+          "commitAuthor": "Dmitri Plotnikov",
+          "commitDateOld": "11/25/02, 5:20 PM",
+          "commitNameOld": "430fdd01e75a5e681274aa65adeb2d9826ee45a8",
+          "commitAuthorOld": "Dmitri Plotnikov",
+          "daysBetweenCommits": 46.18,
+          "commitsBetweenForRepo": 8,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int currentStep, Expression[] predicates, int currentPredicate) {\n    for (int i \u003d currentPredicate; i \u003c predicates.length; i++) {\n        Expression predicate \u003d predicates[i];\n        if (predicate instanceof NameAttributeTest) {\n            String key \u003d keyFromPredicate(context, predicate);\n            parent \u003d valuePointer(parent);\n            NullPropertyPointer pointer \u003d new NullPropertyPointer(parent);\n            pointer.setNameAttributeValue(key);\n            parent \u003d pointer;\n        } else {\n            int index \u003d indexFromPredicate(context, predicate);\n            if (parent instanceof NullPropertyPointer) {\n                parent.setIndex(index);\n            } else {\n                parent \u003d new NullElementPointer(parent, index);\n            }\n        }\n    }\n    return createNullPointer(context, parent, steps, currentStep + 1);\n}",
+          "path": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+          "functionStartLine": 825,
+          "functionName": "createNullPointerForPredicates",
+          "functionAnnotation": "",
+          "functionDoc": "Creates a \"null pointer\" that starts with predicates.\n",
+          "diff": "@@ -1,20 +1,20 @@\n-private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int current_step, Expression[] predicates, int current_predicate) {\n-    for (int i \u003d current_predicate; i \u003c predicates.length; i++) {\n+private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int currentStep, Expression[] predicates, int currentPredicate) {\n+    for (int i \u003d currentPredicate; i \u003c predicates.length; i++) {\n         Expression predicate \u003d predicates[i];\n         if (predicate instanceof NameAttributeTest) {\n             String key \u003d keyFromPredicate(context, predicate);\n             parent \u003d valuePointer(parent);\n             NullPropertyPointer pointer \u003d new NullPropertyPointer(parent);\n             pointer.setNameAttributeValue(key);\n             parent \u003d pointer;\n         } else {\n             int index \u003d indexFromPredicate(context, predicate);\n             if (parent instanceof NullPropertyPointer) {\n                 parent.setIndex(index);\n             } else {\n                 parent \u003d new NullElementPointer(parent, index);\n             }\n         }\n     }\n-    return createNullPointer(context, parent, steps, current_step + 1);\n+    return createNullPointer(context, parent, steps, currentStep + 1);\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        }
+      ]
+    },
+    "e6b562c6eca79b82a57a4532768d775d76f48694": {
+      "type": "Yintroduced",
+      "commitMessage": "A complete re-write to address multiple additional use cases\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136790 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/9/02, 6:35 PM",
+      "commitName": "e6b562c6eca79b82a57a4532768d775d76f48694",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,20 @@\n+private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int current_step, Expression[] predicates, int current_predicate) {\n+    for (int i \u003d current_predicate; i \u003c predicates.length; i++) {\n+        Expression predicate \u003d predicates[i];\n+        if (predicate instanceof NameAttributeTest) {\n+            String key \u003d keyFromPredicate(context, predicate);\n+            parent \u003d valuePointer(parent);\n+            NullPropertyPointer pointer \u003d new NullPropertyPointer(parent);\n+            pointer.setNameAttributeValue(key);\n+            parent \u003d pointer;\n+        } else {\n+            int index \u003d indexFromPredicate(context, predicate);\n+            if (parent instanceof NullPropertyPointer) {\n+                parent.setIndex(index);\n+            } else {\n+                parent \u003d new NullElementPointer(parent, index);\n+            }\n+        }\n+    }\n+    return createNullPointer(context, parent, steps, current_step + 1);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static NodePointer createNullPointerForPredicates(EvalContext context, NodePointer parent, Step[] steps, int current_step, Expression[] predicates, int current_predicate) {\n    for (int i \u003d current_predicate; i \u003c predicates.length; i++) {\n        Expression predicate \u003d predicates[i];\n        if (predicate instanceof NameAttributeTest) {\n            String key \u003d keyFromPredicate(context, predicate);\n            parent \u003d valuePointer(parent);\n            NullPropertyPointer pointer \u003d new NullPropertyPointer(parent);\n            pointer.setNameAttributeValue(key);\n            parent \u003d pointer;\n        } else {\n            int index \u003d indexFromPredicate(context, predicate);\n            if (parent instanceof NullPropertyPointer) {\n                parent.setIndex(index);\n            } else {\n                parent \u003d new NullElementPointer(parent, index);\n            }\n        }\n    }\n    return createNullPointer(context, parent, steps, current_step + 1);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+      "functionStartLine": 705,
+      "functionName": "createNullPointerForPredicates",
+      "functionAnnotation": "",
+      "functionDoc": "Creates a \"null pointer\" that starts with predicates.\n"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-10b",
+  "repositoryPath": "/tmp/Jsoup-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Tag.java",
+  "functionName": "setExcludes",
+  "functionId": "setExcludes___tagNames-String",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/Tag.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 460,
+  "functionEndLine": 470,
+  "numCommitsSeen": 36,
+  "timeTaken": 561,
+  "changeHistory": [
+    "ba5d66010db39205e29289ae81122fc85299d145"
+  ],
+  "changeHistoryShort": {
+    "ba5d66010db39205e29289ae81122fc85299d145": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "ba5d66010db39205e29289ae81122fc85299d145": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved tag definitions to allow limited children and excluded children.\nImproved implicit table element creation, particularly around tbody tags.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "ba5d66010db39205e29289ae81122fc85299d145",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,11 @@\n+private Tag setExcludes(String... tagNames) {\n+    if (tagNames \u003d\u003d null || tagNames.length \u003d\u003d 0) {\n+        excludes \u003d Collections.emptyList();\n+    } else {\n+        excludes \u003d new ArrayList\u003cTag\u003e(tagNames.length);\n+        for (String name : tagNames) {\n+            excludes.add(Tag.valueOf(name));\n+        }\n+    }\n+    return this;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private Tag setExcludes(String... tagNames) {\n    if (tagNames \u003d\u003d null || tagNames.length \u003d\u003d 0) {\n        excludes \u003d Collections.emptyList();\n    } else {\n        excludes \u003d new ArrayList\u003cTag\u003e(tagNames.length);\n        for (String name : tagNames) {\n            excludes.add(Tag.valueOf(name));\n        }\n    }\n    return this;\n}",
+      "path": "src/main/java/org/jsoup/parser/Tag.java",
+      "functionStartLine": 405,
+      "functionName": "setExcludes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

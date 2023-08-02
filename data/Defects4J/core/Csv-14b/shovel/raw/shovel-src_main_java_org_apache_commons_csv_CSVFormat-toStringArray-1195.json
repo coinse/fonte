@@ -1,0 +1,94 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Csv-14b",
+  "repositoryPath": "/tmp/Csv-14b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CSVFormat.java",
+  "functionName": "toStringArray",
+  "functionId": "toStringArray___values-Object[](modifiers-final)",
+  "sourceFilePath": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1195,
+  "functionEndLine": 1205,
+  "numCommitsSeen": 463,
+  "timeTaken": 2109,
+  "changeHistory": [
+    "4471e9d66a6fe249efb758ac7f2140ed5cd349e4",
+    "a4f737108b806d987ac4d2be686c35196d42bc6e"
+  ],
+  "changeHistoryShort": {
+    "4471e9d66a6fe249efb758ac7f2140ed5cd349e4": "Ymultichange(Ybodychange,Yparametermetachange)",
+    "a4f737108b806d987ac4d2be686c35196d42bc6e": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "4471e9d66a6fe249efb758ac7f2140ed5cd349e4": {
+      "type": "Ymultichange(Ybodychange,Yparametermetachange)",
+      "commitMessage": "[CSV-139] CSVPrinter.printRecord(ResultSet) with metadata.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1638101 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "11/11/14, 6:00 AM",
+      "commitName": "4471e9d66a6fe249efb758ac7f2140ed5cd349e4",
+      "commitAuthor": "Gary D. Gregory",
+      "subchanges": [
+        {
+          "type": "Ybodychange",
+          "commitMessage": "[CSV-139] CSVPrinter.printRecord(ResultSet) with metadata.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1638101 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "11/11/14, 6:00 AM",
+          "commitName": "4471e9d66a6fe249efb758ac7f2140ed5cd349e4",
+          "commitAuthor": "Gary D. Gregory",
+          "commitDateOld": "10/29/14, 7:29 AM",
+          "commitNameOld": "152ce0492537447da235a292297892d9fa37163f",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 12.98,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private String[] toStringArray(final Object[] values) {\n    if (values \u003d\u003d null) {\n        return null;\n    }\n    final String[] strings \u003d new String[values.length];\n    for (int i \u003d 0; i \u003c values.length; i++) {\n        final Object value \u003d values[i];\n        strings[i] \u003d value \u003d\u003d null ? null : value.toString();\n    }\n    return strings;\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+          "functionStartLine": 381,
+          "functionName": "toStringArray",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,11 +1,11 @@\n-private String[] toStringArray(Object[] values) {\n+private String[] toStringArray(final Object[] values) {\n     if (values \u003d\u003d null) {\n         return null;\n     }\n-    String[] strings \u003d new String[values.length];\n+    final String[] strings \u003d new String[values.length];\n     for (int i \u003d 0; i \u003c values.length; i++) {\n-        Object value \u003d values[i];\n+        final Object value \u003d values[i];\n         strings[i] \u003d value \u003d\u003d null ? null : value.toString();\n     }\n     return strings;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Yparametermetachange",
+          "commitMessage": "[CSV-139] CSVPrinter.printRecord(ResultSet) with metadata.\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1638101 13f79535-47bb-0310-9956-ffa450edef68\n",
+          "commitDate": "11/11/14, 6:00 AM",
+          "commitName": "4471e9d66a6fe249efb758ac7f2140ed5cd349e4",
+          "commitAuthor": "Gary D. Gregory",
+          "commitDateOld": "10/29/14, 7:29 AM",
+          "commitNameOld": "152ce0492537447da235a292297892d9fa37163f",
+          "commitAuthorOld": "Gary D. Gregory",
+          "daysBetweenCommits": 12.98,
+          "commitsBetweenForRepo": 20,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private String[] toStringArray(final Object[] values) {\n    if (values \u003d\u003d null) {\n        return null;\n    }\n    final String[] strings \u003d new String[values.length];\n    for (int i \u003d 0; i \u003c values.length; i++) {\n        final Object value \u003d values[i];\n        strings[i] \u003d value \u003d\u003d null ? null : value.toString();\n    }\n    return strings;\n}",
+          "path": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+          "functionStartLine": 381,
+          "functionName": "toStringArray",
+          "functionAnnotation": "",
+          "functionDoc": "",
+          "diff": "@@ -1,11 +1,11 @@\n-private String[] toStringArray(Object[] values) {\n+private String[] toStringArray(final Object[] values) {\n     if (values \u003d\u003d null) {\n         return null;\n     }\n-    String[] strings \u003d new String[values.length];\n+    final String[] strings \u003d new String[values.length];\n     for (int i \u003d 0; i \u003c values.length; i++) {\n-        Object value \u003d values[i];\n+        final Object value \u003d values[i];\n         strings[i] \u003d value \u003d\u003d null ? null : value.toString();\n     }\n     return strings;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "[values-Object[]]",
+            "newValue": "[values-Object[](modifiers-final)]"
+          }
+        }
+      ]
+    },
+    "a4f737108b806d987ac4d2be686c35196d42bc6e": {
+      "type": "Yintroduced",
+      "commitMessage": "[CSV-130] CSVFormat#withHeader doesn\u0027t work well with #printComment, add withHeaderComments(String...)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/csv/trunk@1623984 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "9/10/14, 5:48 AM",
+      "commitName": "a4f737108b806d987ac4d2be686c35196d42bc6e",
+      "commitAuthor": "Gary D. Gregory",
+      "diff": "@@ -0,0 +1,11 @@\n+private String[] toStringArray(Object[] values) {\n+    if (values \u003d\u003d null) {\n+        return null;\n+    }\n+    String[] strings \u003d new String[values.length];\n+    for (int i \u003d 0; i \u003c values.length; i++) {\n+        Object value \u003d values[i];\n+        strings[i] \u003d value \u003d\u003d null ? null : value.toString();\n+    }\n+    return strings;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private String[] toStringArray(Object[] values) {\n    if (values \u003d\u003d null) {\n        return null;\n    }\n    String[] strings \u003d new String[values.length];\n    for (int i \u003d 0; i \u003c values.length; i++) {\n        Object value \u003d values[i];\n        strings[i] \u003d value \u003d\u003d null ? null : value.toString();\n    }\n    return strings;\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+      "functionStartLine": 378,
+      "functionName": "toStringArray",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

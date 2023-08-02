@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Token.java",
+  "functionName": "newToken",
+  "functionId": "newToken___ofKind-int",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/Token.java",
+  "functionAnnotation": "",
+  "functionDoc": "Returns a new Token object, by default. However, if you want, you\ncan create and return subclass objects based on the value of ofKind.\nSimply add the cases to the switch for all those special cases.\nFor example, if you have a subclass of Token called IDToken that\nyou want to create if ofKind is ID, simlpy add something like :\n\n   case MyParserConstants.ID : return new IDToken();\n\nto the following switch statement. Then you can cast matchedToken\nvariable to the appropriate type and use it in your lexical actions.\n",
+  "functionStartLine": 73,
+  "functionEndLine": 79,
+  "numCommitsSeen": 3,
+  "timeTaken": 106,
+  "changeHistory": [
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,6 @@\n+public static final Token newToken(int ofKind) {\n+    switch(ofKind) {\n+        default:\n+            return new Token();\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public static final Token newToken(int ofKind) {\n    switch(ofKind) {\n        default:\n            return new Token();\n    }\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/Token.java",
+      "functionStartLine": 73,
+      "functionName": "newToken",
+      "functionAnnotation": "",
+      "functionDoc": "Returns a new Token object, by default. However, if you want, you\ncan create and return subclass objects based on the value of ofKind.\nSimply add the cases to the switch for all those special cases.\nFor example, if you have a subclass of Token called IDToken that\nyou want to create if ofKind is ID, simlpy add something like :\n\n   case MyParserConstants.ID : return new IDToken();\n\nto the following switch statement. Then you can cast matchedToken\nvariable to the appropriate type and use it in your lexical actions.\n"
+    }
+  }
+}

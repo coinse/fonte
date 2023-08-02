@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Cleaner.java",
+  "functionName": "clean",
+  "functionId": "clean___dirtyDocument-Document",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Cleaner.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Creates a new, clean document, from the original dirty document, containing only elements allowed by the whitelist.\n     The original document is not modified. Only elements from the dirt document\u0027s \u003ccode\u003ebody\u003c/code\u003e are used.\n\n@ @param dirtyDocument Untrusted base document to clean.\n     @return cleaned document.\n",
+  "functionStartLine": 39,
+  "functionEndLine": 46,
+  "numCommitsSeen": 12,
+  "timeTaken": 480,
+  "changeHistory": [
+    "bd3e7c8ada7748dc5cf2428e68c828c0cf744469",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725"
+  ],
+  "changeHistoryShort": {
+    "bd3e7c8ada7748dc5cf2428e68c828c0cf744469": "Ybodychange",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bd3e7c8ada7748dc5cf2428e68c828c0cf744469": {
+      "type": "Ybodychange",
+      "commitMessage": "Simplified Document bean methods for consistency.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "bd3e7c8ada7748dc5cf2428e68c828c0cf744469",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "3205f0ef9409bb622f66315983830aa89d9313cf",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 11,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Document clean(Document dirtyDocument) {\n    Validate.notNull(dirtyDocument);\n    Document clean \u003d Document.createShell(dirtyDocument.baseUri());\n    copySafeNodes(dirtyDocument.body(), clean.body());\n    return clean;\n}",
+      "path": "src/main/java/org/jsoup/safety/Cleaner.java",
+      "functionStartLine": 23,
+      "functionName": "clean",
+      "functionAnnotation": "",
+      "functionDoc": "     Creates a new, clean document, from the original dirty document, containing only elements allowed by the whitelist.\n     The original document is not modified. Only elements from the dirt document\u0027s \u003ccode\u003ebody\u003c/code\u003e are used.\n\n@ @param dirtyDocument Untrusted base document to clean.\n     @return cleaned document.\n",
+      "diff": "@@ -1,6 +1,6 @@\n public Document clean(Document dirtyDocument) {\n     Validate.notNull(dirtyDocument);\n     Document clean \u003d Document.createShell(dirtyDocument.baseUri());\n-    copySafeNodes(dirtyDocument.getBody(), clean.getBody());\n+    copySafeNodes(dirtyDocument.body(), clean.body());\n     return clean;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial Cleaner implementation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "83b8d1a6c8db2d34fbb344ae3125781978910725",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,6 @@\n+public Document clean(Document dirtyDocument) {\n+    Validate.notNull(dirtyDocument);\n+    Document clean \u003d Document.createShell(dirtyDocument.baseUri());\n+    copySafeNodes(dirtyDocument.getBody(), clean.getBody());\n+    return clean;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Document clean(Document dirtyDocument) {\n    Validate.notNull(dirtyDocument);\n    Document clean \u003d Document.createShell(dirtyDocument.baseUri());\n    copySafeNodes(dirtyDocument.getBody(), clean.getBody());\n    return clean;\n}",
+      "path": "src/main/java/org/jsoup/safety/Cleaner.java",
+      "functionStartLine": 24,
+      "functionName": "clean",
+      "functionAnnotation": "",
+      "functionDoc": "     Creates a new, clean document, from the original dirty document, containing only elements allowed by the whitelist.\n     The original document is not modified. Only elements from the dirt document\u0027s \u003ccode\u003ebody\u003c/code\u003e are used.\n\n@ @param dirtyDocument Untrusted base document to clean.\n     @return cleaned document.\n"
+    }
+  }
+}

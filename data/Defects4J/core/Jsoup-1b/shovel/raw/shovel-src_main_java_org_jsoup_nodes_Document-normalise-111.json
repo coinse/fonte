@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-1b",
+  "repositoryPath": "/tmp/Jsoup-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Document.java",
+  "functionName": "normalise",
+  "functionId": "normalise___element-Element",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Document.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 111,
+  "functionEndLine": 126,
+  "numCommitsSeen": 17,
+  "timeTaken": 380,
+  "changeHistory": [
+    "d24b485e252d9e86858207da7a57678d41d3f72c"
+  ],
+  "changeHistoryShort": {
+    "d24b485e252d9e86858207da7a57678d41d3f72c": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "d24b485e252d9e86858207da7a57678d41d3f72c": {
+      "type": "Yintroduced",
+      "commitMessage": "Improved document normalisation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "d24b485e252d9e86858207da7a57678d41d3f72c",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,15 @@\n+private void normalise(Element element) {\n+    List\u003cNode\u003e toMove \u003d new ArrayList\u003cNode\u003e();\n+    for (Node node : element.childNodes) {\n+        if (node instanceof TextNode) {\n+            TextNode tn \u003d (TextNode) node;\n+            if (!tn.isBlank())\n+                toMove.add(tn);\n+        }\n+    }\n+    for (Node node : toMove) {\n+        element.removeChild(node);\n+        body().appendChild(new TextNode(\" \", \"\"));\n+        body().appendChild(node);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void normalise(Element element) {\n    List\u003cNode\u003e toMove \u003d new ArrayList\u003cNode\u003e();\n    for (Node node : element.childNodes) {\n        if (node instanceof TextNode) {\n            TextNode tn \u003d (TextNode) node;\n            if (!tn.isBlank())\n                toMove.add(tn);\n        }\n    }\n    for (Node node : toMove) {\n        element.removeChild(node);\n        body().appendChild(new TextNode(\" \", \"\"));\n        body().appendChild(node);\n    }\n}",
+      "path": "src/main/java/org/jsoup/nodes/Document.java",
+      "functionStartLine": 111,
+      "functionName": "normalise",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

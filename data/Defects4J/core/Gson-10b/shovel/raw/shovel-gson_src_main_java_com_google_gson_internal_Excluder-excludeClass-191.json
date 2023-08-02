@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Gson-10b",
+  "repositoryPath": "/tmp/Gson-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Excluder.java",
+  "functionName": "excludeClass",
+  "functionId": "excludeClass___clazz-Class__?____serialize-boolean",
+  "sourceFilePath": "gson/src/main/java/com/google/gson/internal/Excluder.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 191,
+  "functionEndLine": 213,
+  "numCommitsSeen": 8,
+  "timeTaken": 775,
+  "changeHistory": [
+    "aa2f61b7d8defddc2a78de43b8042178241daedb"
+  ],
+  "changeHistoryShort": {
+    "aa2f61b7d8defddc2a78de43b8042178241daedb": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "aa2f61b7d8defddc2a78de43b8042178241daedb": {
+      "type": "Yintroduced",
+      "commitMessage": "Rename GsonExclusionStrategy to Excluder. The new class is its own factory, which simplifies its caller in GsonBuilder. It no longer implements ExclusionStrategy, which allows the callers to pass in a boolean for serialize/deserialize. This allows us to use one excluder for both code paths. The delegate ExclusionStrategy instances might end up not being shared so it has two lists internally.\n",
+      "commitDate": "11/21/11, 11:37 PM",
+      "commitName": "aa2f61b7d8defddc2a78de43b8042178241daedb",
+      "commitAuthor": "Jesse Wilson",
+      "diff": "@@ -0,0 +1,18 @@\n+public boolean excludeClass(Class\u003c?\u003e clazz, boolean serialize) {\n+    if (version !\u003d Excluder.IGNORE_VERSIONS \u0026\u0026 !isValidVersion(clazz.getAnnotation(Since.class), clazz.getAnnotation(Until.class))) {\n+        return true;\n+    }\n+    if (!serializeInnerClasses \u0026\u0026 isInnerClass(clazz)) {\n+        return true;\n+    }\n+    if (isAnonymousOrLocal(clazz)) {\n+        return true;\n+    }\n+    List\u003cExclusionStrategy\u003e list \u003d serialize ? serializationStrategies : deserializationStrategies;\n+    for (ExclusionStrategy exclusionStrategy : list) {\n+        if (exclusionStrategy.shouldSkipClass(clazz)) {\n+            return true;\n+        }\n+    }\n+    return false;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public boolean excludeClass(Class\u003c?\u003e clazz, boolean serialize) {\n    if (version !\u003d Excluder.IGNORE_VERSIONS \u0026\u0026 !isValidVersion(clazz.getAnnotation(Since.class), clazz.getAnnotation(Until.class))) {\n        return true;\n    }\n    if (!serializeInnerClasses \u0026\u0026 isInnerClass(clazz)) {\n        return true;\n    }\n    if (isAnonymousOrLocal(clazz)) {\n        return true;\n    }\n    List\u003cExclusionStrategy\u003e list \u003d serialize ? serializationStrategies : deserializationStrategies;\n    for (ExclusionStrategy exclusionStrategy : list) {\n        if (exclusionStrategy.shouldSkipClass(clazz)) {\n            return true;\n        }\n    }\n    return false;\n}",
+      "path": "gson/src/main/java/com/google/gson/internal/Excluder.java",
+      "functionStartLine": 190,
+      "functionName": "excludeClass",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

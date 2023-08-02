@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-26b",
+  "repositoryPath": "/tmp/Jsoup-26b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Node.java",
+  "functionName": "reparentChild",
+  "functionId": "reparentChild___child-Node",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Node.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 428,
+  "functionEndLine": 432,
+  "numCommitsSeen": 53,
+  "timeTaken": 713,
+  "changeHistory": [
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9"
+  ],
+  "changeHistoryShort": {
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "674dab0387c4bfad01465574c4be6ea4b3f4f6e9": {
+      "type": "Yintroduced",
+      "commitMessage": "Optimise adding nodes to end of childnode list.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "674dab0387c4bfad01465574c4be6ea4b3f4f6e9",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,5 @@\n+private void reparentChild(Node child) {\n+    if (child.parentNode !\u003d null)\n+        child.parentNode.removeChild(child);\n+    child.setParentNode(this);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void reparentChild(Node child) {\n    if (child.parentNode !\u003d null)\n        child.parentNode.removeChild(child);\n    child.setParentNode(this);\n}",
+      "path": "src/main/java/org/jsoup/nodes/Node.java",
+      "functionStartLine": 276,
+      "functionName": "reparentChild",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Csv-1b",
+  "repositoryPath": "/tmp/Csv-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CSVFormat.java",
+  "functionName": "validate",
+  "functionId": "validate",
+  "sourceFilePath": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+  "functionAnnotation": "",
+  "functionDoc": "Verifies the consistency of the parameters and throws an IllegalArgumentException if necessary.\n",
+  "functionStartLine": 175,
+  "functionEndLine": 195,
+  "numCommitsSeen": 32,
+  "timeTaken": 590,
+  "changeHistory": [
+    "a65806a126d71477b3538b571c45f27de054ff84"
+  ],
+  "changeHistoryShort": {
+    "a65806a126d71477b3538b571c45f27de054ff84": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "a65806a126d71477b3538b571c45f27de054ff84": {
+      "type": "Yintroduced",
+      "commitMessage": "Validation of the format parameters (suggested by Bob Smith in SANDBOX-291)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/sandbox/csv/trunk@1298234 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "3/7/12, 4:00 PM",
+      "commitName": "a65806a126d71477b3538b571c45f27de054ff84",
+      "commitAuthor": "Emmanuel Bourg",
+      "diff": "@@ -0,0 +1,17 @@\n+void validate() throws IllegalArgumentException {\n+    if (delimiter \u003d\u003d encapsulator) {\n+        throw new IllegalArgumentException(\"The encapsulator character and the delimiter cannot be the same (\\\"\" + encapsulator + \"\\\")\");\n+    }\n+    if (delimiter \u003d\u003d escape) {\n+        throw new IllegalArgumentException(\"The escape character and the delimiter cannot be the same (\\\"\" + escape + \"\\\")\");\n+    }\n+    if (delimiter \u003d\u003d commentStart) {\n+        throw new IllegalArgumentException(\"The comment start character and the delimiter cannot be the same (\\\"\" + commentStart + \"\\\")\");\n+    }\n+    if (encapsulator !\u003d DISABLED \u0026\u0026 encapsulator \u003d\u003d commentStart) {\n+        throw new IllegalArgumentException(\"The comment start character and the encapsulator cannot be the same (\\\"\" + commentStart + \"\\\")\");\n+    }\n+    if (escape !\u003d DISABLED \u0026\u0026 escape \u003d\u003d commentStart) {\n+        throw new IllegalArgumentException(\"The comment start and the escape character cannot be the same (\\\"\" + commentStart + \"\\\")\");\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "void validate() throws IllegalArgumentException {\n    if (delimiter \u003d\u003d encapsulator) {\n        throw new IllegalArgumentException(\"The encapsulator character and the delimiter cannot be the same (\\\"\" + encapsulator + \"\\\")\");\n    }\n    if (delimiter \u003d\u003d escape) {\n        throw new IllegalArgumentException(\"The escape character and the delimiter cannot be the same (\\\"\" + escape + \"\\\")\");\n    }\n    if (delimiter \u003d\u003d commentStart) {\n        throw new IllegalArgumentException(\"The comment start character and the delimiter cannot be the same (\\\"\" + commentStart + \"\\\")\");\n    }\n    if (encapsulator !\u003d DISABLED \u0026\u0026 encapsulator \u003d\u003d commentStart) {\n        throw new IllegalArgumentException(\"The comment start character and the encapsulator cannot be the same (\\\"\" + commentStart + \"\\\")\");\n    }\n    if (escape !\u003d DISABLED \u0026\u0026 escape \u003d\u003d commentStart) {\n        throw new IllegalArgumentException(\"The comment start and the escape character cannot be the same (\\\"\" + commentStart + \"\\\")\");\n    }\n}",
+      "path": "src/main/java/org/apache/commons/csv/CSVFormat.java",
+      "functionStartLine": 143,
+      "functionName": "validate",
+      "functionAnnotation": "",
+      "functionDoc": "Verifies the consistency of the parameters and throws an IllegalArgumentException if necessary.\n"
+    }
+  }
+}

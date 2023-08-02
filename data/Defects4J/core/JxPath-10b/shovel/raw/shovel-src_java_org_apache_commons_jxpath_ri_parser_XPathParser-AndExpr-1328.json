@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-10b",
+  "repositoryPath": "/tmp/JxPath-10b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XPathParser.java",
+  "functionName": "AndExpr",
+  "functionId": "AndExpr",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 1328,
+  "functionEndLine": 1355,
+  "numCommitsSeen": 7,
+  "timeTaken": 1501,
+  "changeHistory": [
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,30 @@\n+public final Object AndExpr() throws ParseException {\n+    Object ex, r;\n+    ArrayList list \u003d null;\n+    ex \u003d EqualityExpr();\n+    label_9: while (true) {\n+        switch(jj_nt.kind) {\n+            case AND:\n+                ;\n+                break;\n+            default:\n+                jj_la1[25] \u003d jj_gen;\n+                break label_9;\n+        }\n+        jj_consume_token(AND);\n+        r \u003d EqualityExpr();\n+        if (list \u003d\u003d null) {\n+            list \u003d new ArrayList();\n+            list.add(ex);\n+        }\n+        list.add(r);\n+    }\n+    if (list !\u003d null) {\n+        ex \u003d compiler.and(list.toArray());\n+    }\n+    {\n+        if (true)\n+            return ex;\n+    }\n+    throw new Error(\"Missing return statement in function\");\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public final Object AndExpr() throws ParseException {\n    Object ex, r;\n    ArrayList list \u003d null;\n    ex \u003d EqualityExpr();\n    label_9: while (true) {\n        switch(jj_nt.kind) {\n            case AND:\n                ;\n                break;\n            default:\n                jj_la1[25] \u003d jj_gen;\n                break label_9;\n        }\n        jj_consume_token(AND);\n        r \u003d EqualityExpr();\n        if (list \u003d\u003d null) {\n            list \u003d new ArrayList();\n            list.add(ex);\n        }\n        list.add(r);\n    }\n    if (list !\u003d null) {\n        ex \u003d compiler.and(list.toArray());\n    }\n    {\n        if (true)\n            return ex;\n    }\n    throw new Error(\"Missing return statement in function\");\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+      "functionStartLine": 1287,
+      "functionName": "AndExpr",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

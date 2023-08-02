@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-12b",
+  "repositoryPath": "/tmp/JxPath-12b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "LocationPath.java",
+  "functionName": "computeValue",
+  "functionId": "computeValue___context-EvalContext",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/compiler/LocationPath.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 70,
+  "functionEndLine": 80,
+  "numCommitsSeen": 14,
+  "timeTaken": 947,
+  "changeHistory": [
+    "7d07031398b3e9e0062d597d0ace291a58b59bfe",
+    "323e8b214459b3977973c01a048a979dc778f100"
+  ],
+  "changeHistoryShort": {
+    "7d07031398b3e9e0062d597d0ace291a58b59bfe": "Ybodychange",
+    "323e8b214459b3977973c01a048a979dc778f100": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "7d07031398b3e9e0062d597d0ace291a58b59bfe": {
+      "type": "Ybodychange",
+      "commitMessage": "Added support for relative contexts\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136852 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "2/18/03, 4:59 PM",
+      "commitName": "7d07031398b3e9e0062d597d0ace291a58b59bfe",
+      "commitAuthor": "Dmitri Plotnikov",
+      "commitDateOld": "1/19/03, 3:59 PM",
+      "commitNameOld": "f3eb1977debfe1fd0704d78285e99243e6b7aa07",
+      "commitAuthorOld": "Dmitri Plotnikov",
+      "daysBetweenCommits": 30.04,
+      "commitsBetweenForRepo": 11,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Object computeValue(EvalContext context) {\n    EvalContext rootContext;\n    if (isAbsolute()) {\n        rootContext \u003d context.getRootContext().getAbsoluteRootContext();\n    } else {\n        rootContext \u003d new InitialContext(context);\n    }\n    return getSingleNodePointerForSteps(rootContext);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/compiler/LocationPath.java",
+      "functionStartLine": 119,
+      "functionName": "computeValue",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,9 +1,9 @@\n public Object computeValue(EvalContext context) {\n     EvalContext rootContext;\n     if (isAbsolute()) {\n-        rootContext \u003d context.getRootContext();\n+        rootContext \u003d context.getRootContext().getAbsoluteRootContext();\n     } else {\n-        rootContext \u003d context;\n+        rootContext \u003d new InitialContext(context);\n     }\n-    return getSingleNodePointerForSteps(new InitialContext(rootContext));\n+    return getSingleNodePointerForSteps(rootContext);\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "323e8b214459b3977973c01a048a979dc778f100": {
+      "type": "Yintroduced",
+      "commitMessage": "Refactoring\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136743 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/7/02, 5:40 PM",
+      "commitName": "323e8b214459b3977973c01a048a979dc778f100",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,9 @@\n+public Object computeValue(EvalContext context) {\n+    EvalContext rootContext;\n+    if (isAbsolute()) {\n+        rootContext \u003d context.getRootContext();\n+    } else {\n+        rootContext \u003d context;\n+    }\n+    return getSingleNodePointerForSteps(new InitialContext(rootContext));\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Object computeValue(EvalContext context) {\n    EvalContext rootContext;\n    if (isAbsolute()) {\n        rootContext \u003d context.getRootContext();\n    } else {\n        rootContext \u003d context;\n    }\n    return getSingleNodePointerForSteps(new InitialContext(rootContext));\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/compiler/LocationPath.java",
+      "functionStartLine": 128,
+      "functionName": "computeValue",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

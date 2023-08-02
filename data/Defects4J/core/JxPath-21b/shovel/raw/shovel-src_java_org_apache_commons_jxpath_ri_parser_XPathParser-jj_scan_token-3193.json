@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JxPath-21b",
+  "repositoryPath": "/tmp/JxPath-21b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "XPathParser.java",
+  "functionName": "jj_scan_token",
+  "functionId": "jj_scan_token___kind-int",
+  "sourceFilePath": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 3193,
+  "functionEndLine": 3212,
+  "numCommitsSeen": 8,
+  "timeTaken": 1588,
+  "changeHistory": [
+    "10cb322e1c2fc92d4c2fb9580eb4435dc7242f3d",
+    "bc53a66311b9b22e471dd74860c7df75eebe9837"
+  ],
+  "changeHistoryShort": {
+    "10cb322e1c2fc92d4c2fb9580eb4435dc7242f3d": "Ybodychange",
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "10cb322e1c2fc92d4c2fb9580eb4435dc7242f3d": {
+      "type": "Ybodychange",
+      "commitMessage": "Implemented the ends-with function (JXPATH-132)\n\ngit-svn-id: https://svn.apache.org/repos/asf/commons/proper/jxpath/trunk@779915 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "5/29/09, 3:23 AM",
+      "commitName": "10cb322e1c2fc92d4c2fb9580eb4435dc7242f3d",
+      "commitAuthor": "Emmanuel Bourg",
+      "commitDateOld": "2/1/06, 10:03 AM",
+      "commitNameOld": "36f069cec063cf1638cc07c3e886ac27f3f1557c",
+      "commitAuthorOld": "Martin van den Bemt",
+      "daysBetweenCommits": 1212.68,
+      "commitsBetweenForRepo": 242,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private final boolean jj_scan_token(int kind) {\n    if (jj_scanpos \u003d\u003d jj_lastpos) {\n        jj_la--;\n        if (jj_scanpos.next \u003d\u003d null) {\n            jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next \u003d token_source.getNextToken();\n        } else {\n            jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next;\n        }\n    } else {\n        jj_scanpos \u003d jj_scanpos.next;\n    }\n    if (jj_rescan) {\n        int i \u003d 0;\n        Token tok \u003d token;\n        while (tok !\u003d null \u0026\u0026 tok !\u003d jj_scanpos) {\n            i++;\n            tok \u003d tok.next;\n        }\n        if (tok !\u003d null)\n            jj_add_error_token(kind, i);\n    }\n    if (jj_scanpos.kind !\u003d kind)\n        return true;\n    if (jj_la \u003d\u003d 0 \u0026\u0026 jj_scanpos \u003d\u003d jj_lastpos)\n        throw jj_ls;\n    return false;\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+      "functionStartLine": 3193,
+      "functionName": "jj_scan_token",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,23 +1,27 @@\n private final boolean jj_scan_token(int kind) {\n     if (jj_scanpos \u003d\u003d jj_lastpos) {\n         jj_la--;\n         if (jj_scanpos.next \u003d\u003d null) {\n             jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next \u003d token_source.getNextToken();\n         } else {\n             jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next;\n         }\n     } else {\n         jj_scanpos \u003d jj_scanpos.next;\n     }\n     if (jj_rescan) {\n         int i \u003d 0;\n         Token tok \u003d token;\n         while (tok !\u003d null \u0026\u0026 tok !\u003d jj_scanpos) {\n             i++;\n             tok \u003d tok.next;\n         }\n         if (tok !\u003d null)\n             jj_add_error_token(kind, i);\n     }\n-    return (jj_scanpos.kind !\u003d kind);\n+    if (jj_scanpos.kind !\u003d kind)\n+        return true;\n+    if (jj_la \u003d\u003d 0 \u0026\u0026 jj_scanpos \u003d\u003d jj_lastpos)\n+        throw jj_ls;\n+    return false;\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "bc53a66311b9b22e471dd74860c7df75eebe9837": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial submission\n\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/commons/proper/jxpath/trunk@136698 13f79535-47bb-0310-9956-ffa450edef68\n",
+      "commitDate": "8/22/01, 5:47 PM",
+      "commitName": "bc53a66311b9b22e471dd74860c7df75eebe9837",
+      "commitAuthor": "Dmitri Plotnikov",
+      "diff": "@@ -0,0 +1,23 @@\n+private final boolean jj_scan_token(int kind) {\n+    if (jj_scanpos \u003d\u003d jj_lastpos) {\n+        jj_la--;\n+        if (jj_scanpos.next \u003d\u003d null) {\n+            jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next \u003d token_source.getNextToken();\n+        } else {\n+            jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next;\n+        }\n+    } else {\n+        jj_scanpos \u003d jj_scanpos.next;\n+    }\n+    if (jj_rescan) {\n+        int i \u003d 0;\n+        Token tok \u003d token;\n+        while (tok !\u003d null \u0026\u0026 tok !\u003d jj_scanpos) {\n+            i++;\n+            tok \u003d tok.next;\n+        }\n+        if (tok !\u003d null)\n+            jj_add_error_token(kind, i);\n+    }\n+    return (jj_scanpos.kind !\u003d kind);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private final boolean jj_scan_token(int kind) {\n    if (jj_scanpos \u003d\u003d jj_lastpos) {\n        jj_la--;\n        if (jj_scanpos.next \u003d\u003d null) {\n            jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next \u003d token_source.getNextToken();\n        } else {\n            jj_lastpos \u003d jj_scanpos \u003d jj_scanpos.next;\n        }\n    } else {\n        jj_scanpos \u003d jj_scanpos.next;\n    }\n    if (jj_rescan) {\n        int i \u003d 0;\n        Token tok \u003d token;\n        while (tok !\u003d null \u0026\u0026 tok !\u003d jj_scanpos) {\n            i++;\n            tok \u003d tok.next;\n        }\n        if (tok !\u003d null)\n            jj_add_error_token(kind, i);\n    }\n    return (jj_scanpos.kind !\u003d kind);\n}",
+      "path": "src/java/org/apache/commons/jxpath/ri/parser/XPathParser.java",
+      "functionStartLine": 3502,
+      "functionName": "jj_scan_token",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

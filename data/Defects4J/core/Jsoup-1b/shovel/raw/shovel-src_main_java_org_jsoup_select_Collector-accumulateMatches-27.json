@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-1b",
+  "repositoryPath": "/tmp/Jsoup-1b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Collector.java",
+  "functionName": "accumulateMatches",
+  "functionId": "accumulateMatches___eval-Evaluator__elements-List__Element____element-Element",
+  "sourceFilePath": "src/main/java/org/jsoup/select/Collector.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 27,
+  "functionEndLine": 32,
+  "numCommitsSeen": 5,
+  "timeTaken": 230,
+  "changeHistory": [
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2"
+  ],
+  "changeHistoryShort": {
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "f435b791e193cfe771d7dbd28d2822c32a0889e2": {
+      "type": "Yintroduced",
+      "commitMessage": "Implemented:\n * Element.getElementsByClass\n * Element.getElementsWithAttribute\n * Element.getElementsWithAttributeValue\n * Element.className\n * Element.hasClass\n * Elmenet.classNames\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "f435b791e193cfe771d7dbd28d2822c32a0889e2",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,5 @@\n+private static void accumulateMatches(Evaluator eval, List\u003cElement\u003e elements, Element element) {\n+    if (eval.matches(element))\n+        elements.add(element);\n+    for (Element child : element.children()) accumulateMatches(eval, elements, child);\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private static void accumulateMatches(Evaluator eval, List\u003cElement\u003e elements, Element element) {\n    if (eval.matches(element))\n        elements.add(element);\n    for (Element child : element.children()) accumulateMatches(eval, elements, child);\n}",
+      "path": "src/main/java/org/jsoup/select/Collector.java",
+      "functionStartLine": 21,
+      "functionName": "accumulateMatches",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

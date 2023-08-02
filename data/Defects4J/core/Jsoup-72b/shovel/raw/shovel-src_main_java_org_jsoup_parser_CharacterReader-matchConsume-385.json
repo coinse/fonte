@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-72b",
+  "repositoryPath": "/tmp/Jsoup-72b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "CharacterReader.java",
+  "functionName": "matchConsume",
+  "functionId": "matchConsume___seq-String",
+  "sourceFilePath": "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "functionAnnotation": "",
+  "functionDoc": "",
+  "functionStartLine": 385,
+  "functionEndLine": 393,
+  "numCommitsSeen": 24,
+  "timeTaken": 1355,
+  "changeHistory": [
+    "654bc6f981587bd4b39b66702550bad33e1eacc9",
+    "8749726a79c22451b1f01b14fb2137f734e926b4"
+  ],
+  "changeHistoryShort": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": "Ybodychange",
+    "8749726a79c22451b1f01b14fb2137f734e926b4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "654bc6f981587bd4b39b66702550bad33e1eacc9": {
+      "type": "Ybodychange",
+      "commitMessage": "Stream network loading (#905)\n\nImplements a stream based input reader.\r\n\r\nThis changes URL \u0026 file inputs from buffering the whole content into a\r\nstring before starting to parse, into a stream based read.\r\n\r\nMemory consumption when loading large pages from the network or a file is substantially reduced.",
+      "commitDate": "6/24/17, 11:47 PM",
+      "commitName": "654bc6f981587bd4b39b66702550bad33e1eacc9",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "10/23/16, 5:59 PM",
+      "commitNameOld": "6dc38f26dd31f1a367961f27c56b143cd0462e5a",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 244.24,
+      "commitsBetweenForRepo": 65,
+      "commitsBetweenForFile": 1,
+      "actualSource": "boolean matchConsume(String seq) {\n    bufferUp();\n    if (matches(seq)) {\n        bufPos +\u003d seq.length();\n        return true;\n    } else {\n        return false;\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 385,
+      "functionName": "matchConsume",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,8 +1,9 @@\n boolean matchConsume(String seq) {\n+    bufferUp();\n     if (matches(seq)) {\n-        pos +\u003d seq.length();\n+        bufPos +\u003d seq.length();\n         return true;\n     } else {\n         return false;\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "8749726a79c22451b1f01b14fb2137f734e926b4": {
+      "type": "Yintroduced",
+      "commitMessage": "Reimplementation of parser and tokeniser, to make jsoup a HTML5 conformat parser, against the\nhttp://whatwg.org/html spec.\n",
+      "commitDate": "7/2/11, 4:12 AM",
+      "commitName": "8749726a79c22451b1f01b14fb2137f734e926b4",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,8 @@\n+boolean matchConsume(String seq) {\n+    if (matches(seq)) {\n+        pos +\u003d seq.length();\n+        return true;\n+    } else {\n+        return false;\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "boolean matchConsume(String seq) {\n    if (matches(seq)) {\n        pos +\u003d seq.length();\n        return true;\n    } else {\n        return false;\n    }\n}",
+      "path": "src/main/java/org/jsoup/parser/CharacterReader.java",
+      "functionStartLine": 174,
+      "functionName": "matchConsume",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

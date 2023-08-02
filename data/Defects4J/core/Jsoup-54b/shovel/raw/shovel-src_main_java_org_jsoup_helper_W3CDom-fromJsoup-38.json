@@ -1,0 +1,61 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-54b",
+  "repositoryPath": "/tmp/Jsoup-54b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "W3CDom.java",
+  "functionName": "fromJsoup",
+  "functionId": "fromJsoup___in-org.jsoup.nodes.Document",
+  "sourceFilePath": "src/main/java/org/jsoup/helper/W3CDom.java",
+  "functionAnnotation": "",
+  "functionDoc": "Convert a jsoup Document to a W3C Document.\n\n@param in jsoup doc\n@return w3c doc\n",
+  "functionStartLine": 38,
+  "functionEndLine": 51,
+  "numCommitsSeen": 6,
+  "timeTaken": 249,
+  "changeHistory": [
+    "1dec69d8df78aee955205d8ae8bed0dfe86056f8",
+    "a4883a448416031773bba432bc5bce4492f1e19d"
+  ],
+  "changeHistoryShort": {
+    "1dec69d8df78aee955205d8ae8bed0dfe86056f8": "Ybodychange",
+    "a4883a448416031773bba432bc5bce4492f1e19d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "1dec69d8df78aee955205d8ae8bed0dfe86056f8": {
+      "type": "Ybodychange",
+      "commitMessage": "Fix for bug 671: namespace is included in W3CDom.fromJsoup\n",
+      "commitDate": "1/27/16, 1:26 PM",
+      "commitName": "1dec69d8df78aee955205d8ae8bed0dfe86056f8",
+      "commitAuthor": "Elshad Kasumov",
+      "commitDateOld": "1/3/15, 7:15 AM",
+      "commitNameOld": "842977c381b8d48bf12719e3f5cf6fd669379957",
+      "commitAuthorOld": "offa",
+      "daysBetweenCommits": 389.26,
+      "commitsBetweenForRepo": 71,
+      "commitsBetweenForFile": 1,
+      "actualSource": "public Document fromJsoup(org.jsoup.nodes.Document in) {\n    Validate.notNull(in);\n    DocumentBuilder builder;\n    try {\n        factory.setNamespaceAware(true);\n        builder \u003d factory.newDocumentBuilder();\n        Document out \u003d builder.newDocument();\n        convert(in, out);\n        return out;\n    } catch (ParserConfigurationException e) {\n        throw new IllegalStateException(e);\n    }\n}",
+      "path": "src/main/java/org/jsoup/helper/W3CDom.java",
+      "functionStartLine": 36,
+      "functionName": "fromJsoup",
+      "functionAnnotation": "",
+      "functionDoc": "Convert a jsoup Document to a W3C Document.\n\n@param in jsoup doc\n@return w3c doc\n",
+      "diff": "@@ -1,12 +1,13 @@\n public Document fromJsoup(org.jsoup.nodes.Document in) {\n     Validate.notNull(in);\n     DocumentBuilder builder;\n     try {\n+        factory.setNamespaceAware(true);\n         builder \u003d factory.newDocumentBuilder();\n         Document out \u003d builder.newDocument();\n         convert(in, out);\n         return out;\n     } catch (ParserConfigurationException e) {\n         throw new IllegalStateException(e);\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "a4883a448416031773bba432bc5bce4492f1e19d": {
+      "type": "Yintroduced",
+      "commitMessage": "Support for W3C DOM document conversion.\n",
+      "commitDate": "10/11/14, 7:53 PM",
+      "commitName": "a4883a448416031773bba432bc5bce4492f1e19d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,12 @@\n+public Document fromJsoup(org.jsoup.nodes.Document in) {\n+    Validate.notNull(in);\n+    DocumentBuilder builder;\n+    try {\n+        builder \u003d factory.newDocumentBuilder();\n+        Document out \u003d builder.newDocument();\n+        convert(in, out);\n+        return out;\n+    } catch (ParserConfigurationException e) {\n+        throw new IllegalStateException(e);\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public Document fromJsoup(org.jsoup.nodes.Document in) {\n    Validate.notNull(in);\n    DocumentBuilder builder;\n    try {\n        builder \u003d factory.newDocumentBuilder();\n        Document out \u003d builder.newDocument();\n        convert(in, out);\n        return out;\n    } catch (ParserConfigurationException e) {\n        throw new IllegalStateException(e);\n    }\n}",
+      "path": "src/main/java/org/jsoup/helper/W3CDom.java",
+      "functionStartLine": 34,
+      "functionName": "fromJsoup",
+      "functionAnnotation": "",
+      "functionDoc": "Convert a jsoup Document to a W3C Document.\n\n@param in jsoup doc\n@return w3c doc\n"
+    }
+  }
+}

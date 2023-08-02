@@ -1,0 +1,141 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-19b",
+  "repositoryPath": "/tmp/Jsoup-19b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Cleaner.java",
+  "functionName": "copySafeNodes",
+  "functionId": "copySafeNodes___source-Element__dest-Element",
+  "sourceFilePath": "src/main/java/org/jsoup/safety/Cleaner.java",
+  "functionAnnotation": "",
+  "functionDoc": "     Iterates the input and copies trusted nodes (tags, attributes, text) into the destination.\n\n@ @param source source of HTML\n     @param dest destination element to copy into\n     @return number of discarded elements (that were considered unsafe)\n",
+  "functionStartLine": 72,
+  "functionEndLine": 98,
+  "numCommitsSeen": 11,
+  "timeTaken": 664,
+  "changeHistory": [
+    "19f2541e9dad74a7e734225f3d1b598324a6ea49",
+    "83d1848144abf29b501d59e0c3ec41e40c9cf020",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725"
+  ],
+  "changeHistoryShort": {
+    "19f2541e9dad74a7e734225f3d1b598324a6ea49": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+    "83d1848144abf29b501d59e0c3ec41e40c9cf020": "Ybodychange",
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "19f2541e9dad74a7e734225f3d1b598324a6ea49": {
+      "type": "Ymultichange(Yreturntypechange,Ybodychange,Ydocchange)",
+      "commitMessage": "Cleaner.isValid() method.\n\nCloses #6.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "19f2541e9dad74a7e734225f3d1b598324a6ea49",
+      "commitAuthor": "Jonathan Hedley",
+      "subchanges": [
+        {
+          "type": "Yreturntypechange",
+          "commitMessage": "Cleaner.isValid() method.\n\nCloses #6.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "19f2541e9dad74a7e734225f3d1b598324a6ea49",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "36be16cd662f56ea0fc01bedf14c8651ed74776f",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 40,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private int copySafeNodes(Element source, Element dest) {\n    List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n    int numDiscarded \u003d 0;\n    for (Node sourceChild : sourceChildren) {\n        if (sourceChild instanceof Element) {\n            Element sourceEl \u003d (Element) sourceChild;\n            if (whitelist.isSafeTag(sourceEl.tagName())) {\n                ElementMeta meta \u003d createSafeElement(sourceEl);\n                Element destChild \u003d meta.el;\n                dest.appendChild(destChild);\n                numDiscarded +\u003d meta.numAttribsDiscarded;\n                numDiscarded +\u003d copySafeNodes(sourceEl, destChild);\n            } else {\n                numDiscarded++;\n                numDiscarded +\u003d copySafeNodes(sourceEl, dest);\n            }\n        } else if (sourceChild instanceof TextNode) {\n            TextNode sourceText \u003d (TextNode) sourceChild;\n            TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n            dest.appendChild(destText);\n        }\n    }\n    return numDiscarded;\n}",
+          "path": "src/main/java/org/jsoup/safety/Cleaner.java",
+          "functionStartLine": 72,
+          "functionName": "copySafeNodes",
+          "functionAnnotation": "",
+          "functionDoc": "     Iterates the input and copies trusted nodes (tags, attributes, text) into the destination.\n\n@ @param source source of HTML\n     @param dest destination element to copy into\n     @return number of discarded elements (that were considered unsafe)\n",
+          "diff": "@@ -1,19 +1,24 @@\n-private void copySafeNodes(Element source, Element dest) {\n+private int copySafeNodes(Element source, Element dest) {\n     List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n+    int numDiscarded \u003d 0;\n     for (Node sourceChild : sourceChildren) {\n         if (sourceChild instanceof Element) {\n             Element sourceEl \u003d (Element) sourceChild;\n             if (whitelist.isSafeTag(sourceEl.tagName())) {\n-                Element destChild \u003d createSafeElement(sourceEl);\n+                ElementMeta meta \u003d createSafeElement(sourceEl);\n+                Element destChild \u003d meta.el;\n                 dest.appendChild(destChild);\n-                copySafeNodes(sourceEl, destChild);\n+                numDiscarded +\u003d meta.numAttribsDiscarded;\n+                numDiscarded +\u003d copySafeNodes(sourceEl, destChild);\n             } else {\n-                copySafeNodes(sourceEl, dest);\n+                numDiscarded++;\n+                numDiscarded +\u003d copySafeNodes(sourceEl, dest);\n             }\n         } else if (sourceChild instanceof TextNode) {\n             TextNode sourceText \u003d (TextNode) sourceChild;\n             TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n             dest.appendChild(destText);\n         }\n     }\n+    return numDiscarded;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "void",
+            "newValue": "int"
+          }
+        },
+        {
+          "type": "Ybodychange",
+          "commitMessage": "Cleaner.isValid() method.\n\nCloses #6.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "19f2541e9dad74a7e734225f3d1b598324a6ea49",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "36be16cd662f56ea0fc01bedf14c8651ed74776f",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 40,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private int copySafeNodes(Element source, Element dest) {\n    List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n    int numDiscarded \u003d 0;\n    for (Node sourceChild : sourceChildren) {\n        if (sourceChild instanceof Element) {\n            Element sourceEl \u003d (Element) sourceChild;\n            if (whitelist.isSafeTag(sourceEl.tagName())) {\n                ElementMeta meta \u003d createSafeElement(sourceEl);\n                Element destChild \u003d meta.el;\n                dest.appendChild(destChild);\n                numDiscarded +\u003d meta.numAttribsDiscarded;\n                numDiscarded +\u003d copySafeNodes(sourceEl, destChild);\n            } else {\n                numDiscarded++;\n                numDiscarded +\u003d copySafeNodes(sourceEl, dest);\n            }\n        } else if (sourceChild instanceof TextNode) {\n            TextNode sourceText \u003d (TextNode) sourceChild;\n            TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n            dest.appendChild(destText);\n        }\n    }\n    return numDiscarded;\n}",
+          "path": "src/main/java/org/jsoup/safety/Cleaner.java",
+          "functionStartLine": 72,
+          "functionName": "copySafeNodes",
+          "functionAnnotation": "",
+          "functionDoc": "     Iterates the input and copies trusted nodes (tags, attributes, text) into the destination.\n\n@ @param source source of HTML\n     @param dest destination element to copy into\n     @return number of discarded elements (that were considered unsafe)\n",
+          "diff": "@@ -1,19 +1,24 @@\n-private void copySafeNodes(Element source, Element dest) {\n+private int copySafeNodes(Element source, Element dest) {\n     List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n+    int numDiscarded \u003d 0;\n     for (Node sourceChild : sourceChildren) {\n         if (sourceChild instanceof Element) {\n             Element sourceEl \u003d (Element) sourceChild;\n             if (whitelist.isSafeTag(sourceEl.tagName())) {\n-                Element destChild \u003d createSafeElement(sourceEl);\n+                ElementMeta meta \u003d createSafeElement(sourceEl);\n+                Element destChild \u003d meta.el;\n                 dest.appendChild(destChild);\n-                copySafeNodes(sourceEl, destChild);\n+                numDiscarded +\u003d meta.numAttribsDiscarded;\n+                numDiscarded +\u003d copySafeNodes(sourceEl, destChild);\n             } else {\n-                copySafeNodes(sourceEl, dest);\n+                numDiscarded++;\n+                numDiscarded +\u003d copySafeNodes(sourceEl, dest);\n             }\n         } else if (sourceChild instanceof TextNode) {\n             TextNode sourceText \u003d (TextNode) sourceChild;\n             TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n             dest.appendChild(destText);\n         }\n     }\n+    return numDiscarded;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {}
+        },
+        {
+          "type": "Ydocchange",
+          "commitMessage": "Cleaner.isValid() method.\n\nCloses #6.\n",
+          "commitDate": "7/2/11, 4:11 AM",
+          "commitName": "19f2541e9dad74a7e734225f3d1b598324a6ea49",
+          "commitAuthor": "Jonathan Hedley",
+          "commitDateOld": "7/2/11, 4:11 AM",
+          "commitNameOld": "36be16cd662f56ea0fc01bedf14c8651ed74776f",
+          "commitAuthorOld": "Jonathan Hedley",
+          "daysBetweenCommits": 0.0,
+          "commitsBetweenForRepo": 40,
+          "commitsBetweenForFile": 1,
+          "actualSource": "private int copySafeNodes(Element source, Element dest) {\n    List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n    int numDiscarded \u003d 0;\n    for (Node sourceChild : sourceChildren) {\n        if (sourceChild instanceof Element) {\n            Element sourceEl \u003d (Element) sourceChild;\n            if (whitelist.isSafeTag(sourceEl.tagName())) {\n                ElementMeta meta \u003d createSafeElement(sourceEl);\n                Element destChild \u003d meta.el;\n                dest.appendChild(destChild);\n                numDiscarded +\u003d meta.numAttribsDiscarded;\n                numDiscarded +\u003d copySafeNodes(sourceEl, destChild);\n            } else {\n                numDiscarded++;\n                numDiscarded +\u003d copySafeNodes(sourceEl, dest);\n            }\n        } else if (sourceChild instanceof TextNode) {\n            TextNode sourceText \u003d (TextNode) sourceChild;\n            TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n            dest.appendChild(destText);\n        }\n    }\n    return numDiscarded;\n}",
+          "path": "src/main/java/org/jsoup/safety/Cleaner.java",
+          "functionStartLine": 72,
+          "functionName": "copySafeNodes",
+          "functionAnnotation": "",
+          "functionDoc": "     Iterates the input and copies trusted nodes (tags, attributes, text) into the destination.\n\n@ @param source source of HTML\n     @param dest destination element to copy into\n     @return number of discarded elements (that were considered unsafe)\n",
+          "diff": "@@ -1,19 +1,24 @@\n-private void copySafeNodes(Element source, Element dest) {\n+private int copySafeNodes(Element source, Element dest) {\n     List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n+    int numDiscarded \u003d 0;\n     for (Node sourceChild : sourceChildren) {\n         if (sourceChild instanceof Element) {\n             Element sourceEl \u003d (Element) sourceChild;\n             if (whitelist.isSafeTag(sourceEl.tagName())) {\n-                Element destChild \u003d createSafeElement(sourceEl);\n+                ElementMeta meta \u003d createSafeElement(sourceEl);\n+                Element destChild \u003d meta.el;\n                 dest.appendChild(destChild);\n-                copySafeNodes(sourceEl, destChild);\n+                numDiscarded +\u003d meta.numAttribsDiscarded;\n+                numDiscarded +\u003d copySafeNodes(sourceEl, destChild);\n             } else {\n-                copySafeNodes(sourceEl, dest);\n+                numDiscarded++;\n+                numDiscarded +\u003d copySafeNodes(sourceEl, dest);\n             }\n         } else if (sourceChild instanceof TextNode) {\n             TextNode sourceText \u003d (TextNode) sourceChild;\n             TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n             dest.appendChild(destText);\n         }\n     }\n+    return numDiscarded;\n }\n\\ No newline at end of file\n",
+          "extendedDetails": {
+            "oldValue": "",
+            "newValue": "     Iterates the input and copies trusted nodes (tags, attributes, text) into the destination.\n\n@ @param source source of HTML\n     @param dest destination element to copy into\n     @return number of discarded elements (that were considered unsafe)\n"
+          }
+        }
+      ]
+    },
+    "83d1848144abf29b501d59e0c3ec41e40c9cf020": {
+      "type": "Ybodychange",
+      "commitMessage": "Rename Element.addChild to appendChild.\n\nAlso implement Element.addElement(String tagName)\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "83d1848144abf29b501d59e0c3ec41e40c9cf020",
+      "commitAuthor": "Jonathan Hedley",
+      "commitDateOld": "7/2/11, 4:11 AM",
+      "commitNameOld": "83b8d1a6c8db2d34fbb344ae3125781978910725",
+      "commitAuthorOld": "Jonathan Hedley",
+      "daysBetweenCommits": 0.0,
+      "commitsBetweenForRepo": 19,
+      "commitsBetweenForFile": 1,
+      "actualSource": "private void copySafeNodes(Element source, Element dest) {\n    List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n    for (Node sourceChild : sourceChildren) {\n        if (sourceChild instanceof Element) {\n            Element sourceEl \u003d (Element) sourceChild;\n            if (whitelist.isSafeTag(sourceEl.tagName())) {\n                Element destChild \u003d createSafeElement(sourceEl);\n                dest.appendChild(destChild);\n                copySafeNodes(sourceEl, destChild);\n            } else {\n                copySafeNodes(sourceEl, dest);\n            }\n        } else if (sourceChild instanceof TextNode) {\n            TextNode sourceText \u003d (TextNode) sourceChild;\n            TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n            dest.appendChild(destText);\n        }\n    }\n}",
+      "path": "src/main/java/org/jsoup/safety/Cleaner.java",
+      "functionStartLine": 33,
+      "functionName": "copySafeNodes",
+      "functionAnnotation": "",
+      "functionDoc": "",
+      "diff": "@@ -1,19 +1,19 @@\n private void copySafeNodes(Element source, Element dest) {\n     List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n     for (Node sourceChild : sourceChildren) {\n         if (sourceChild instanceof Element) {\n             Element sourceEl \u003d (Element) sourceChild;\n             if (whitelist.isSafeTag(sourceEl.tagName())) {\n                 Element destChild \u003d createSafeElement(sourceEl);\n-                dest.addChild(destChild);\n+                dest.appendChild(destChild);\n                 copySafeNodes(sourceEl, destChild);\n             } else {\n                 copySafeNodes(sourceEl, dest);\n             }\n         } else if (sourceChild instanceof TextNode) {\n             TextNode sourceText \u003d (TextNode) sourceChild;\n             TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n-            dest.addChild(destText);\n+            dest.appendChild(destText);\n         }\n     }\n }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "83b8d1a6c8db2d34fbb344ae3125781978910725": {
+      "type": "Yintroduced",
+      "commitMessage": "Initial Cleaner implementation.\n",
+      "commitDate": "7/2/11, 4:11 AM",
+      "commitName": "83b8d1a6c8db2d34fbb344ae3125781978910725",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,19 @@\n+private void copySafeNodes(Element source, Element dest) {\n+    List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n+    for (Node sourceChild : sourceChildren) {\n+        if (sourceChild instanceof Element) {\n+            Element sourceEl \u003d (Element) sourceChild;\n+            if (whitelist.isSafeTag(sourceEl.tagName())) {\n+                Element destChild \u003d createSafeElement(sourceEl);\n+                dest.addChild(destChild);\n+                copySafeNodes(sourceEl, destChild);\n+            } else {\n+                copySafeNodes(sourceEl, dest);\n+            }\n+        } else if (sourceChild instanceof TextNode) {\n+            TextNode sourceText \u003d (TextNode) sourceChild;\n+            TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n+            dest.addChild(destText);\n+        }\n+    }\n+}\n\\ No newline at end of file\n",
+      "actualSource": "private void copySafeNodes(Element source, Element dest) {\n    List\u003cNode\u003e sourceChildren \u003d source.childNodes();\n    for (Node sourceChild : sourceChildren) {\n        if (sourceChild instanceof Element) {\n            Element sourceEl \u003d (Element) sourceChild;\n            if (whitelist.isSafeTag(sourceEl.tagName())) {\n                Element destChild \u003d createSafeElement(sourceEl);\n                dest.addChild(destChild);\n                copySafeNodes(sourceEl, destChild);\n            } else {\n                copySafeNodes(sourceEl, dest);\n            }\n        } else if (sourceChild instanceof TextNode) {\n            TextNode sourceText \u003d (TextNode) sourceChild;\n            TextNode destText \u003d new TextNode(sourceText.getWholeText(), sourceChild.baseUri());\n            dest.addChild(destText);\n        }\n    }\n}",
+      "path": "src/main/java/org/jsoup/safety/Cleaner.java",
+      "functionStartLine": 33,
+      "functionName": "copySafeNodes",
+      "functionAnnotation": "",
+      "functionDoc": ""
+    }
+  }
+}

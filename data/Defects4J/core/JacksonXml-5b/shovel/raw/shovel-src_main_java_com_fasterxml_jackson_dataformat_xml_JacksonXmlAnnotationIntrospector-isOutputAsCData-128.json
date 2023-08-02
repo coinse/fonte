@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "JacksonXml-5b",
+  "repositoryPath": "/tmp/JacksonXml-5b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "JacksonXmlAnnotationIntrospector.java",
+  "functionName": "isOutputAsCData",
+  "functionId": "isOutputAsCData___ann-Annotated",
+  "sourceFilePath": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+  "functionAnnotation": "@Override",
+  "functionDoc": "",
+  "functionStartLine": 128,
+  "functionEndLine": 134,
+  "numCommitsSeen": 20,
+  "timeTaken": 671,
+  "changeHistory": [
+    "edf7a8b5f24edbf5c97b19fbb457758b3fb558a4"
+  ],
+  "changeHistoryShort": {
+    "edf7a8b5f24edbf5c97b19fbb457758b3fb558a4": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "edf7a8b5f24edbf5c97b19fbb457758b3fb558a4": {
+      "type": "Yintroduced",
+      "commitMessage": "Add support for specifying properties should be serialized using CData tags.\n",
+      "commitDate": "11/11/14, 10:07 PM",
+      "commitName": "edf7a8b5f24edbf5c97b19fbb457758b3fb558a4",
+      "commitAuthor": "Dan Jasek",
+      "diff": "@@ -0,0 +1,8 @@\n+@Override\n+public Boolean isOutputAsCData(Annotated ann) {\n+    JacksonXmlCData prop \u003d ann.getAnnotation(JacksonXmlCData.class);\n+    if (prop !\u003d null) {\n+        return prop.value() ? Boolean.TRUE : Boolean.FALSE;\n+    }\n+    return null;\n+}\n\\ No newline at end of file\n",
+      "actualSource": "@Override\npublic Boolean isOutputAsCData(Annotated ann) {\n    JacksonXmlCData prop \u003d ann.getAnnotation(JacksonXmlCData.class);\n    if (prop !\u003d null) {\n        return prop.value() ? Boolean.TRUE : Boolean.FALSE;\n    }\n    return null;\n}",
+      "path": "src/main/java/com/fasterxml/jackson/dataformat/xml/JacksonXmlAnnotationIntrospector.java",
+      "functionStartLine": 128,
+      "functionName": "isOutputAsCData",
+      "functionAnnotation": "@Override",
+      "functionDoc": ""
+    }
+  }
+}

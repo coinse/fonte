@@ -1,0 +1,38 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "Jsoup-61b",
+  "repositoryPath": "/tmp/Jsoup-61b//.git",
+  "startCommitName": "HEAD",
+  "sourceFileName": "Attributes.java",
+  "functionName": "getIgnoreCase",
+  "functionId": "getIgnoreCase___key-String",
+  "sourceFilePath": "src/main/java/org/jsoup/nodes/Attributes.java",
+  "functionAnnotation": "",
+  "functionDoc": "Get an attribute\u0027s value by case-insensitive key\n\n@param key the attribute name\n@return the first matching attribute value if set; or empty string if not set.\n",
+  "functionStartLine": 58,
+  "functionEndLine": 68,
+  "numCommitsSeen": 32,
+  "timeTaken": 1819,
+  "changeHistory": [
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d"
+  ],
+  "changeHistoryShort": {
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d": {
+      "type": "Yintroduced",
+      "commitMessage": "Introduced ParseSettings for tag and attribute name case options.\n",
+      "commitDate": "8/5/16, 3:05 PM",
+      "commitName": "6569bb7a3671cb7241c6fcb6e0f1eef7a39f7a1d",
+      "commitAuthor": "Jonathan Hedley",
+      "diff": "@@ -0,0 +1,10 @@\n+public String getIgnoreCase(String key) {\n+    Validate.notEmpty(key);\n+    if (attributes \u003d\u003d null)\n+        return \"\";\n+    for (String attrKey : attributes.keySet()) {\n+        if (attrKey.equalsIgnoreCase(key))\n+            return attributes.get(attrKey).getValue();\n+    }\n+    return \"\";\n+}\n\\ No newline at end of file\n",
+      "actualSource": "public String getIgnoreCase(String key) {\n    Validate.notEmpty(key);\n    if (attributes \u003d\u003d null)\n        return \"\";\n    for (String attrKey : attributes.keySet()) {\n        if (attrKey.equalsIgnoreCase(key))\n            return attributes.get(attrKey).getValue();\n    }\n    return \"\";\n}",
+      "path": "src/main/java/org/jsoup/nodes/Attributes.java",
+      "functionStartLine": 58,
+      "functionName": "getIgnoreCase",
+      "functionAnnotation": "",
+      "functionDoc": "Get an attribute\u0027s value by case-insensitive key\n\n@param key the attribute name\n@return the first matching attribute value if set; or empty string if not set.\n"
+    }
+  }
+}
