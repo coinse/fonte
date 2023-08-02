@@ -1,0 +1,1091 @@
+{
+	"Lang-1b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 450,
+			"end_line": 614,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>If the string starts with {@code 0x} or {@code -0x} (lower or upper case) or {@code #} or {@code -#}, it\n     * will be interpreted as a hexadecimal Integer - or Long, if the number of digits after the\n     * prefix is more than 8 - or BigInteger if there are more than 16 digits.\n     * </p>\n     * <p>Then, the value is examined for a type qualifier on the end, i.e. one of\n     * <code>'f','F','d','D','l','L'</code>.  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can represent the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n    * <code>BigDecimal</code>.</p>\n    * \n     * <p>\n     * Integral values with a leading {@code 0} will be interpreted as octal; the returned number will\n     * be Integer, Long or BigDecimal as appropriate.\n     * </p>\n     *\n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * <p>This method does not trim the input string, i.e., strings with leading\n     * or trailing spaces will generate NumberFormatExceptions.</p>\n     *\n     * @param str  String containing a number, may be null\n     * @return Number created from the string (or null if the input is null)\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-3b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 450,
+			"end_line": 610,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>If the string starts with {@code 0x} or {@code -0x} (lower or upper case) or {@code #} or {@code -#}, it\n     * will be interpreted as a hexadecimal Integer - or Long, if the number of digits after the\n     * prefix is more than 8 - or BigInteger if there are more than 16 digits.\n     * </p>\n     * <p>Then, the value is examined for a type qualifier on the end, i.e. one of\n     * <code>'f','F','d','D','l','L'</code>.  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can represent the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n    * <code>BigDecimal</code>.</p>\n    * \n     * <p>\n     * Integral values with a leading {@code 0} will be interpreted as octal; the returned number will\n     * be Integer, Long or BigDecimal as appropriate.\n     * </p>\n     *\n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * <p>This method does not trim the input string, i.e., strings with leading\n     * or trailing spaces will generate NumberFormatExceptions.</p>\n     *\n     * @param str  String containing a number, may be null\n     * @return Number created from the string (or null if the input is null)\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-4b": [
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/LookupTranslator.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"lookupMap"
+			],
+			"begin_line": 31,
+			"end_line": 31,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/LookupTranslator.java",
+			"method_name": "translate",
+			"arg_types": "Ljava/lang/CharSequence;ILjava/io/Writer;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.text.translate.LookupTranslator.translate(java.lang.CharSequence, int, java.io.Writer)",
+			"begin_line": 68,
+			"end_line": 84,
+			"comment": "\n     * {@inheritDoc}\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/LookupTranslator.java",
+			"method_name": "<init>",
+			"arg_types": "[[Ljava/lang/CharSequence;",
+			"type": "constructor",
+			"signature": "org.apache.commons.lang3.text.translate.LookupTranslator.LookupTranslator(java.lang.CharSequence[]...)",
+			"begin_line": 45,
+			"end_line": 63,
+			"comment": "\n     * Define the lookup table to be used in translation\n     *\n     * Note that, as of Lang 3.1, the key to the lookup table is converted to a \n     * java.lang.String, while the value remains as a java.lang.CharSequence. \n     * This is because we need the key to support hashCode and equals(Object), \n     * allowing it to be the key for a HashMap. See LANG-882.\n     *\n     * @param lookup CharSequence[][] table of size [*][2]\n     "
+		}
+	],
+	"Lang-5b": [
+		{
+			"class_file": "org/apache/commons/lang3/LocaleUtils.java",
+			"method_name": "toLocale",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.LocaleUtils.toLocale(java.lang.String)",
+			"begin_line": 88,
+			"end_line": 128,
+			"comment": "\n     * <p>Converts a String to a Locale.</p>\n     *\n     * <p>This method takes the string format of a locale and creates the\n     * locale object from it.</p>\n     *\n     * <pre>\n     *   LocaleUtils.toLocale(\"en\")         = new Locale(\"en\", \"\")\n     *   LocaleUtils.toLocale(\"en_GB\")      = new Locale(\"en\", \"GB\")\n     *   LocaleUtils.toLocale(\"en_GB_xxx\")  = new Locale(\"en\", \"GB\", \"xxx\")   (#)\n     * </pre>\n     *\n     * <p>(#) The behaviour of the JDK variant constructor changed between JDK1.3 and JDK1.4.\n     * In JDK1.3, the constructor upper cases the variant, in JDK1.4, it doesn't.\n     * Thus, the result from getVariant() may vary depending on your JDK.</p>\n     *\n     * <p>This method validates the input strictly.\n     * The language code must be lowercase.\n     * The country code must be uppercase.\n     * The separator must be an underscore.\n     * The length must be correct.\n     * </p>\n     *\n     * @param str  the locale String to convert, null returns null\n     * @return a Locale, null if null input\n     * @throws IllegalArgumentException if the string is an invalid format\n     "
+		}
+	],
+	"Lang-6b": [
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/CharSequenceTranslator.java",
+			"method_name": "translate",
+			"arg_types": "Ljava/lang/CharSequence;Ljava/io/Writer;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.text.translate.CharSequenceTranslator.translate(java.lang.CharSequence, java.io.Writer)",
+			"begin_line": 75,
+			"end_line": 98,
+			"comment": "\n     * Translate an input onto a Writer. This is intentionally final as its algorithm is \n     * tightly coupled with the abstract method of this class. \n     *\n     * @param input CharSequence that is being translated\n     * @param out Writer to translate the text to\n     * @throws IOException if and only if the Writer produces an IOException\n     "
+		}
+	],
+	"Lang-7b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "createBigDecimal",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.createBigDecimal(java.lang.String)",
+			"begin_line": 713,
+			"end_line": 726,
+			"comment": "\n     * <p>Convert a <code>String</code> to a <code>BigDecimal</code>.</p>\n     * \n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * @param str  a <code>String</code> to convert, may be null\n     * @return converted <code>BigDecimal</code> (or null if the input is null)\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 445,
+			"end_line": 598,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>If the string starts with <code>0x</code> or <code>-0x</code> (lower or upper case), it\n     * will be interpreted as a hexadecimal integer - or long, if the number of digits after the 0x\n     * prefix is more than 8.\n     * Values with leading <code>0</code>'s will not be interpreted as octal.</p>\n     *\n     * <p>Then, the value is examined for a type qualifier on the end, i.e. one of\n     * <code>'f','F','d','D','l','L'</code>.  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can represent the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n     * <code>BigDecimal</code>.</p>\n     *\n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * <p>This method does not trim the input string, i.e., strings with leading\n     * or trailing spaces will generate NumberFormatExceptions.</p>\n     *\n     * @param str  String containing a number, may be null\n     * @return Number created from the string (or null if the input is null)\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-8b": [
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDatePrinter.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/util/TimeZone;Ljava/util/Locale;I",
+			"type": "constructor",
+			"signature": "org.apache.commons.lang3.time.FastDatePrinter.TimeZoneNameRule.TimeZoneNameRule(java.util.TimeZone, java.util.Locale, int)",
+			"begin_line": 1109,
+			"end_line": 1116,
+			"comment": "\n         * Constructs an instance of {@code TimeZoneNameRule} with the specified properties.\n         *\n         * @param timeZone the time zone\n         * @param locale the locale\n         * @param style the style\n         "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDatePrinter.java",
+			"method_name": "appendTo",
+			"arg_types": "Ljava/lang/StringBuffer;Ljava/util/Calendar;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.time.FastDatePrinter.TimeZoneNameRule.appendTo(java.lang.StringBuffer, java.util.Calendar)",
+			"begin_line": 1132,
+			"end_line": 1140,
+			"comment": "\n         * {@inheritDoc}\n         "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDatePrinter.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"zone"
+			],
+			"begin_line": 1098,
+			"end_line": 1098,
+			"comment": ""
+		}
+	],
+	"Lang-9b": [
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDateParser.java",
+			"method_name": "init",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.time.FastDateParser.init()",
+			"begin_line": 115,
+			"end_line": 150,
+			"comment": "\n     * Initialize derived fields from defining fields.\n     * This is called from constructor and from readObject (de-serialization)\n     "
+		}
+	],
+	"Lang-10b": [
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDateParser.java",
+			"method_name": "escapeRegex",
+			"arg_types": "Ljava/lang/StringBuilder;Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.time.FastDateParser.escapeRegex(java.lang.StringBuilder, java.lang.String, boolean)",
+			"begin_line": 303,
+			"end_line": 343,
+			"comment": "\n     * Escape constant fields into regular expression\n     * @param regex The destination regex\n     * @param value The source field\n     * @param unquote If true, replace two success quotes ('') with single quote (')\n     * @return The <code>StringBuilder</code>\n     "
+		}
+	],
+	"Lang-11b": [
+		{
+			"class_file": "org/apache/commons/lang3/RandomStringUtils.java",
+			"method_name": "random",
+			"arg_types": "IIIZZ[CLjava/util/Random;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.RandomStringUtils.random(int, int, int, boolean, boolean, char[], java.util.Random)",
+			"begin_line": 223,
+			"end_line": 289,
+			"comment": "\n     * <p>Creates a random string based on a variety of options, using\n     * supplied source of randomness.</p>\n     *\n     * <p>If start and end are both {@code 0}, start and end are set\n     * to {@code ' '} and {@code 'z'}, the ASCII printable\n     * characters, will be used, unless letters and numbers are both\n     * {@code false}, in which case, start and end are set to\n     * {@code 0} and {@code Integer.MAX_VALUE}.\n     *\n     * <p>If set is not {@code null}, characters between start and\n     * end are chosen.</p>\n     *\n     * <p>This method accepts a user-supplied {@link Random}\n     * instance to use as a source of randomness. By seeding a single \n     * {@link Random} instance with a fixed seed and using it for each call,\n     * the same random sequence of strings can be generated repeatedly\n     * and predictably.</p>\n     *\n     * @param count  the length of random string to create\n     * @param start  the position in set of chars to start at\n     * @param end  the position in set of chars to end before\n     * @param letters  only allow letters?\n     * @param numbers  only allow numbers?\n     * @param chars  the set of chars to choose randoms from, must not be empty.\n     *  If {@code null}, then it will use the set of all chars.\n     * @param random  a source of randomness.\n     * @return the random string\n     * @throws ArrayIndexOutOfBoundsException if there are not\n     *  {@code (end - start) + 1} characters in the set array.\n     * @throws IllegalArgumentException if {@code count} &lt; 0 or the provided chars array is empty.\n     * @since 2.0\n     "
+		}
+	],
+	"Lang-12b": [
+		{
+			"class_file": "org/apache/commons/lang3/RandomStringUtils.java",
+			"method_name": "random",
+			"arg_types": "IIIZZ[CLjava/util/Random;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.RandomStringUtils.random(int, int, int, boolean, boolean, char[], java.util.Random)",
+			"begin_line": 223,
+			"end_line": 282,
+			"comment": "\n     * <p>Creates a random string based on a variety of options, using\n     * supplied source of randomness.</p>\n     *\n     * <p>If start and end are both {@code 0}, start and end are set\n     * to {@code ' '} and {@code 'z'}, the ASCII printable\n     * characters, will be used, unless letters and numbers are both\n     * {@code false}, in which case, start and end are set to\n     * {@code 0} and {@code Integer.MAX_VALUE}.\n     *\n     * <p>If set is not {@code null}, characters between start and\n     * end are chosen.</p>\n     *\n     * <p>This method accepts a user-supplied {@link Random}\n     * instance to use as a source of randomness. By seeding a single \n     * {@link Random} instance with a fixed seed and using it for each call,\n     * the same random sequence of strings can be generated repeatedly\n     * and predictably.</p>\n     *\n     * @param count  the length of random string to create\n     * @param start  the position in set of chars to start at\n     * @param end  the position in set of chars to end before\n     * @param letters  only allow letters?\n     * @param numbers  only allow numbers?\n     * @param chars  the set of chars to choose randoms from, must not be empty.\n     *  If {@code null}, then it will use the set of all chars.\n     * @param random  a source of randomness.\n     * @return the random string\n     * @throws ArrayIndexOutOfBoundsException if there are not\n     *  {@code (end - start) + 1} characters in the set array.\n     * @throws IllegalArgumentException if {@code count} &lt; 0 or the provided chars array is empty.\n     * @since 2.0\n     "
+		}
+	],
+	"Lang-13b": [
+		{
+			"class_file": "org/apache/commons/lang3/SerializationUtils.java",
+			"method_name": "<init>",
+			"arg_types": "Ljava/io/InputStream;Ljava/lang/ClassLoader;",
+			"type": "constructor",
+			"signature": "org.apache.commons.lang3.SerializationUtils.ClassLoaderAwareObjectInputStream.ClassLoaderAwareObjectInputStream(java.io.InputStream, java.lang.ClassLoader)",
+			"begin_line": 248,
+			"end_line": 252,
+			"comment": "\n         * Constructor.\n         * @param in The <code>InputStream</code>.\n         * @param classLoader classloader to use\n         * @throws IOException if an I/O error occurs while reading stream header.\n         * @see java.io.ObjectInputStream\n         "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/SerializationUtils.java",
+			"method_name": "resolveClass",
+			"arg_types": "Ljava/io/ObjectStreamClass;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.SerializationUtils.ClassLoaderAwareObjectInputStream.resolveClass(java.io.ObjectStreamClass)",
+			"begin_line": 262,
+			"end_line": 270,
+			"comment": "\n         * Overriden version that uses the parametrized <code>ClassLoader</code> or the <code>ClassLoader</code>\n         * of the current <code>Thread</code> to resolve the class.\n         * @param desc An instance of class <code>ObjectStreamClass</code>.\n         * @return A <code>Class</code> object corresponding to <code>desc</code>.\n         * @throws IOException Any of the usual Input/Output exceptions.\n         * @throws ClassNotFoundException If class of a serialized object cannot be found.\n         "
+		}
+	],
+	"Lang-14b": [
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "equals",
+			"arg_types": "Ljava/lang/CharSequence;Ljava/lang/CharSequence;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.equals(java.lang.CharSequence, java.lang.CharSequence)",
+			"begin_line": 781,
+			"end_line": 789,
+			"comment": "\n     * <p>Compares two CharSequences, returning {@code true} if they represent\n     * equal sequences of characters.</p>\n     *\n     * <p>{@code null}s are handled without exceptions. Two {@code null}\n     * references are considered to be equal. The comparison is case sensitive.</p>\n     *\n     * <pre>\n     * StringUtils.equals(null, null)   = true\n     * StringUtils.equals(null, \"abc\")  = false\n     * StringUtils.equals(\"abc\", null)  = false\n     * StringUtils.equals(\"abc\", \"abc\") = true\n     * StringUtils.equals(\"abc\", \"ABC\") = false\n     * </pre>\n     *\n     * @see java.lang.CharSequence#equals(Object)\n     * @param cs1  the first CharSequence, may be {@code null}\n     * @param cs2  the second CharSequence, may be {@code null}\n     * @return {@code true} if the CharSequences are equal (case-sensitive), or both {@code null}\n     * @since 3.0 Changed signature from equals(String, String) to equals(CharSequence, CharSequence)\n     "
+		}
+	],
+	"Lang-15b": [
+		{
+			"class_file": "org/apache/commons/lang3/reflect/TypeUtils.java",
+			"method_name": "isAssignable",
+			"arg_types": "Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.reflect.TypeUtils.isAssignable(java.lang.reflect.Type, java.lang.reflect.ParameterizedType, java.util.Map<java.lang.reflect.TypeVariable<?>, java.lang.reflect.Type>)",
+			"begin_line": 179,
+			"end_line": 235,
+			"comment": "\n     * <p> Checks if the subject type may be implicitly cast to the target\n     * parameterized type following the Java generics rules. </p>\n     *\n     * @param type the subject type to be assigned to the target type\n     * @param toParameterizedType the target parameterized type\n     * @param typeVarAssigns a map with type variables\n     * @return true if <code>type</code> is assignable to <code>toType</code>.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/reflect/TypeUtils.java",
+			"method_name": "getTypeArguments",
+			"arg_types": "Ljava/lang/Class;Ljava/lang/Class;Ljava/util/Map;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.reflect.TypeUtils.getTypeArguments(java.lang.Class<?>, java.lang.Class<?>, java.util.Map<java.lang.reflect.TypeVariable<?>, java.lang.reflect.Type>)",
+			"begin_line": 650,
+			"end_line": 681,
+			"comment": "\n     * <p> Return a map of the type arguments of a class in the context of <code>toClass</code>. </p>\n     *\n     * @param cls the class in question\n     * @param toClass the context class\n     * @param subtypeVarAssigns a map with type variables\n     * @return the map with type arguments\n     "
+		}
+	],
+	"Lang-16b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 444,
+			"end_line": 594,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>First, the value is examined for a type qualifier on the end\n     * (<code>'f','F','d','D','l','L'</code>).  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can represent the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n     * <code>BigDecimal</code>.</p>\n     *\n     * <p>If the string starts with <code>0x</code> or <code>-0x</code> (lower or upper case), it\n     * will be interpreted as a hexadecimal integer.  Values with leading\n     * <code>0</code>'s will not be interpreted as octal.</p>\n     *\n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * <p>This method does not trim the input string, i.e., strings with leading\n     * or trailing spaces will generate NumberFormatExceptions.</p>\n     *\n     * @param str  String containing a number, may be null\n     * @return Number created from the string (or null if the input is null)\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-17b": [
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/CharSequenceTranslator.java",
+			"method_name": "translate",
+			"arg_types": "Ljava/lang/CharSequence;Ljava/io/Writer;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.text.translate.CharSequenceTranslator.translate(java.lang.CharSequence, java.io.Writer)",
+			"begin_line": 75,
+			"end_line": 104,
+			"comment": "\n     * Translate an input onto a Writer. This is intentionally final as its algorithm is \n     * tightly coupled with the abstract method of this class. \n     *\n     * @param input CharSequence that is being translated\n     * @param out Writer to translate the text to\n     * @throws IOException if and only if the Writer produces an IOException\n     "
+		}
+	],
+	"Lang-18b": [
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDateFormat.java",
+			"method_name": "parsePattern",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.time.FastDateFormat.parsePattern()",
+			"begin_line": 463,
+			"end_line": 584,
+			"comment": "\n     * <p>Returns a list of Rules given a pattern.</p>\n     *\n     * @return a {@code List} of Rule objects\n     * @throws IllegalArgumentException if pattern is invalid\n     "
+		}
+	],
+	"Lang-19b": [
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+			"method_name": "translate",
+			"arg_types": "Ljava/lang/CharSequence;ILjava/io/Writer;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.text.translate.NumericEntityUnescaper.translate(java.lang.CharSequence, int, java.io.Writer)",
+			"begin_line": 36,
+			"end_line": 83,
+			"comment": "\n     * {@inheritDoc}\n     "
+		}
+	],
+	"Lang-20b": [
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "join",
+			"arg_types": "[Ljava/lang/Object;Ljava/lang/String;II",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.join(java.lang.Object[], java.lang.String, int, int)",
+			"begin_line": 3368,
+			"end_line": 3394,
+			"comment": "\n     * <p>Joins the elements of the provided array into a single String\n     * containing the provided list of elements.</p>\n     *\n     * <p>No delimiter is added before or after the list.\n     * A {@code null} separator is the same as an empty String (\"\").\n     * Null objects or empty strings within the array are represented by\n     * empty strings.</p>\n     *\n     * <pre>\n     * StringUtils.join(null, *)                = null\n     * StringUtils.join([], *)                  = \"\"\n     * StringUtils.join([null], *)              = \"\"\n     * StringUtils.join([\"a\", \"b\", \"c\"], \"--\")  = \"a--b--c\"\n     * StringUtils.join([\"a\", \"b\", \"c\"], null)  = \"abc\"\n     * StringUtils.join([\"a\", \"b\", \"c\"], \"\")    = \"abc\"\n     * StringUtils.join([null, \"\", \"a\"], ',')   = \",,a\"\n     * </pre>\n     *\n     * @param array  the array of values to join together, may be null\n     * @param separator  the separator character to use, null treated as \"\"\n     * @param startIndex the first index to start joining from.  It is\n     * an error to pass in an end index past the end of the array\n     * @param endIndex the index to stop joining from (exclusive). It is\n     * an error to pass in an end index past the end of the array\n     * @return the joined String, {@code null} if null array input\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "join",
+			"arg_types": "[Ljava/lang/Object;CII",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.join(java.lang.Object[], char, int, int)",
+			"begin_line": 3289,
+			"end_line": 3309,
+			"comment": "\n     * <p>Joins the elements of the provided array into a single String\n     * containing the provided list of elements.</p>\n     *\n     * <p>No delimiter is added before or after the list.\n     * Null objects or empty strings within the array are represented by\n     * empty strings.</p>\n     *\n     * <pre>\n     * StringUtils.join(null, *)               = null\n     * StringUtils.join([], *)                 = \"\"\n     * StringUtils.join([null], *)             = \"\"\n     * StringUtils.join([\"a\", \"b\", \"c\"], ';')  = \"a;b;c\"\n     * StringUtils.join([\"a\", \"b\", \"c\"], null) = \"abc\"\n     * StringUtils.join([null, \"\", \"a\"], ';')  = \";;a\"\n     * </pre>\n     *\n     * @param array  the array of values to join together, may be null\n     * @param separator  the separator character to use\n     * @param startIndex the first index to start joining from.  It is\n     * an error to pass in an end index past the end of the array\n     * @param endIndex the index to stop joining from (exclusive). It is\n     * an error to pass in an end index past the end of the array\n     * @return the joined String, {@code null} if null array input\n     * @since 2.0\n     "
+		}
+	],
+	"Lang-21b": [
+		{
+			"class_file": "org/apache/commons/lang3/time/DateUtils.java",
+			"method_name": "isSameLocalTime",
+			"arg_types": "Ljava/util/Calendar;Ljava/util/Calendar;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.time.DateUtils.isSameLocalTime(java.util.Calendar, java.util.Calendar)",
+			"begin_line": 258,
+			"end_line": 270,
+			"comment": "\n     * <p>Checks if two calendar objects represent the same local time.</p>\n     *\n     * <p>This method compares the values of the fields of the two objects.\n     * In addition, both calendars must be the same of the same type.</p>\n     * \n     * @param cal1  the first calendar, not altered, not null\n     * @param cal2  the second calendar, not altered, not null\n     * @return true if they represent the same millisecond instant\n     * @throws IllegalArgumentException if either date is <code>null</code>\n     * @since 2.1\n     "
+		}
+	],
+	"Lang-22b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/Fraction.java",
+			"method_name": "greatestCommonDivisor",
+			"arg_types": "II",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.Fraction.greatestCommonDivisor(int, int)",
+			"begin_line": 581,
+			"end_line": 624,
+			"comment": "\n     * <p>Gets the greatest common divisor of the absolute value of\n     * two numbers, using the \"binary gcd\" method which avoids\n     * division and modulo operations.  See Knuth 4.5.2 algorithm B.\n     * This algorithm is due to Josef Stein (1961).</p>\n     *\n     * @param u  a non-zero number\n     * @param v  a non-zero number\n     * @return the greatest common divisor, never zero\n     "
+		}
+	],
+	"Lang-23b": [],
+	"Lang-24b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "isNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.isNumber(java.lang.String)",
+			"begin_line": 1319,
+			"end_line": 1421,
+			"comment": "\n     * <p>Checks whether the String a valid Java number.</p>\n     *\n     * <p>Valid numbers include hexadecimal marked with the <code>0x</code>\n     * qualifier, scientific notation and numbers marked with a type\n     * qualifier (e.g. 123L).</p>\n     *\n     * <p><code>Null</code> and empty String will return\n     * <code>false</code>.</p>\n     *\n     * @param str  the <code>String</code> to check\n     * @return <code>true</code> if the string is a correctly formatted number\n     "
+		}
+	],
+	"Lang-25b": [
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/EntityArrays.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"ISO8859_1_ESCAPE"
+			],
+			"begin_line": 31,
+			"end_line": 128,
+			"comment": ""
+		}
+	],
+	"Lang-26b": [
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDateFormat.java",
+			"method_name": "format",
+			"arg_types": "Ljava/util/Date;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.time.FastDateFormat.format(java.util.Date)",
+			"begin_line": 819,
+			"end_line": 823,
+			"comment": "\n     * <p>Formats a <code>Date</code> object.</p>\n     * \n     * @param date  the date to format\n     * @return the formatted string\n     "
+		}
+	],
+	"Lang-27b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 452,
+			"end_line": 599,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>First, the value is examined for a type qualifier on the end\n     * (<code>'f','F','d','D','l','L'</code>).  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can represent the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n     * <code>BigDecimal</code>.</p>\n     *\n     * <p>If the string starts with <code>0x</code> or <code>-0x</code>, it\n     * will be interpreted as a hexadecimal integer.  Values with leading\n     * <code>0</code>'s will not be interpreted as octal.</p>\n     *\n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * <p>This method does not trim the input string, i.e., strings with leading\n     * or trailing spaces will generate NumberFormatExceptions.</p>\n     *\n     * @param str  String containing a number, may be null\n     * @return Number created from the string\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-28b": [
+		{
+			"class_file": "org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+			"method_name": "translate",
+			"arg_types": "Ljava/lang/CharSequence;ILjava/io/Writer;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.text.translate.NumericEntityUnescaper.translate(java.lang.CharSequence, int, java.io.Writer)",
+			"begin_line": 34,
+			"end_line": 67,
+			"comment": "\n     * {@inheritDoc}\n     "
+		}
+	],
+	"Lang-29b": [
+		{
+			"class_file": "org/apache/commons/lang3/SystemUtils.java",
+			"method_name": "toJavaVersionInt",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.SystemUtils.toJavaVersionInt(java.lang.String)",
+			"begin_line": 1672,
+			"end_line": 1674,
+			"comment": "\n     * <p>\n     * Converts the given Java version string to an <code>int</code>.\n     * </p>\n     * \n     * <p>\n     * Example return values:\n     * </p>\n     * <ul>\n     * <li><code>120</code> for Java 1.2</li>\n     * <li><code>131</code> for Java 1.3.1</li>\n     * <li><code>160</code> for Java 1.6.0_20</li>\n     * </ul>\n     * \n     * <p>\n     * Patch releases are not reported.\n     * </p>\n     * <p>\n     * This method is package private instead of private to support unit test invocation.\n     * </p>\n     * \n     * @return the version, for example 131 for Java 1.3.1\n     "
+		}
+	],
+	"Lang-30b": [
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "indexOfAny",
+			"arg_types": "Ljava/lang/CharSequence;[C",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.indexOfAny(java.lang.CharSequence, char[])",
+			"begin_line": 1371,
+			"end_line": 1387,
+			"comment": "\n     * <p>Search a CharSequence to find the first index of any\n     * character in the given set of characters.</p>\n     *\n     * <p>A <code>null</code> String will return <code>-1</code>.\n     * A <code>null</code> or zero length search array will return <code>-1</code>.</p>\n     *\n     * <pre>\n     * StringUtils.indexOfAny(null, *)                = -1\n     * StringUtils.indexOfAny(\"\", *)                  = -1\n     * StringUtils.indexOfAny(*, null)                = -1\n     * StringUtils.indexOfAny(*, [])                  = -1\n     * StringUtils.indexOfAny(\"zzabyycdxx\",['z','a']) = 0\n     * StringUtils.indexOfAny(\"zzabyycdxx\",['b','y']) = 3\n     * StringUtils.indexOfAny(\"aba\", ['z'])           = -1\n     * </pre>\n     *\n     * @param cs  the CharSequence to check, may be null\n     * @param searchChars  the chars to search for, may be null\n     * @return the index of any of the chars, -1 if no match or null input\n     * @since 2.0\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "indexOfAnyBut",
+			"arg_types": "Ljava/lang/CharSequence;[C",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.indexOfAnyBut(java.lang.CharSequence, char[])",
+			"begin_line": 1528,
+			"end_line": 1545,
+			"comment": "\n     * <p>Searches a CharSequence to find the first index of any\n     * character not in the given set of characters.</p>\n     *\n     * <p>A <code>null</code> CharSequence will return <code>-1</code>.\n     * A <code>null</code> or zero length search array will return <code>-1</code>.</p>\n     *\n     * <pre>\n     * StringUtils.indexOfAnyBut(null, *)           = -1\n     * StringUtils.indexOfAnyBut(\"\", *)             = -1\n     * StringUtils.indexOfAnyBut(*, null)           = -1\n     * StringUtils.indexOfAnyBut(*, [])             = -1\n     * StringUtils.indexOfAnyBut(\"zzabyycdxx\",'za') = 3\n     * StringUtils.indexOfAnyBut(\"zzabyycdxx\", '')  = 0\n     * StringUtils.indexOfAnyBut(\"aba\", 'ab')       = -1\n     * </pre>\n     *\n     * @param cs  the CharSequence to check, may be null\n     * @param searchChars  the chars to search for, may be null\n     * @return the index of any of the chars, -1 if no match or null input\n     * @since 2.0\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "containsAny",
+			"arg_types": "Ljava/lang/CharSequence;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.containsAny(java.lang.CharSequence, java.lang.String)",
+			"begin_line": 1497,
+			"end_line": 1502,
+			"comment": "\n     * <p>\n     * Checks if the CharSequence contains any character in the given set of characters.\n     * </p>\n     * \n     * <p>\n     * A <code>null</code> CharSequence will return <code>false</code>. A <code>null</code> search CharSequence will return\n     * <code>false</code>.\n     * </p>\n     * \n     * <pre>\n     * StringUtils.containsAny(null, *)            = false\n     * StringUtils.containsAny(\"\", *)              = false\n     * StringUtils.containsAny(*, null)            = false\n     * StringUtils.containsAny(*, \"\")              = false\n     * StringUtils.containsAny(\"zzabyycdxx\", \"za\") = true\n     * StringUtils.containsAny(\"zzabyycdxx\", \"by\") = true\n     * StringUtils.containsAny(\"aba\",\"z\")          = false\n     * </pre>\n     * \n     * @param cs\n     *            the CharSequence to check, may be null\n     * @param searchChars\n     *            the chars to search for, may be null\n     * @return the <code>true</code> if any of the chars are found, <code>false</code> if no match or null input\n     * @since 2.4\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "indexOfAnyBut",
+			"arg_types": "Ljava/lang/String;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.indexOfAnyBut(java.lang.String, java.lang.String)",
+			"begin_line": 1569,
+			"end_line": 1581,
+			"comment": "\n     * <p>Search a String to find the first index of any\n     * character not in the given set of characters.</p>\n     *\n     * <p>A <code>null</code> String will return <code>-1</code>.\n     * A <code>null</code> search string will return <code>-1</code>.</p>\n     *\n     * <pre>\n     * StringUtils.indexOfAnyBut(null, *)            = -1\n     * StringUtils.indexOfAnyBut(\"\", *)              = -1\n     * StringUtils.indexOfAnyBut(*, null)            = -1\n     * StringUtils.indexOfAnyBut(*, \"\")              = -1\n     * StringUtils.indexOfAnyBut(\"zzabyycdxx\", \"za\") = 3\n     * StringUtils.indexOfAnyBut(\"zzabyycdxx\", \"\")   = 0\n     * StringUtils.indexOfAnyBut(\"aba\",\"ab\")         = -1\n     * </pre>\n     *\n     * @param str  the String to check, may be null\n     * @param searchChars  the chars to search for, may be null\n     * @return the index of any of the chars, -1 if no match or null input\n     * @since 2.0\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "containsNone",
+			"arg_types": "Ljava/lang/CharSequence;[C",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.containsNone(java.lang.CharSequence, char[])",
+			"begin_line": 1673,
+			"end_line": 1690,
+			"comment": "\n     * <p>Checks that the CharSequence does not contain certain characters.</p>\n     *\n     * <p>A <code>null</code> CharSequence will return <code>true</code>.\n     * A <code>null</code> invalid character array will return <code>true</code>.\n     * An empty CharSequence (length()=0) always returns true.</p>\n     *\n     * <pre>\n     * StringUtils.containsNone(null, *)       = true\n     * StringUtils.containsNone(*, null)       = true\n     * StringUtils.containsNone(\"\", *)         = true\n     * StringUtils.containsNone(\"ab\", '')      = true\n     * StringUtils.containsNone(\"abab\", 'xyz') = true\n     * StringUtils.containsNone(\"ab1\", 'xyz')  = true\n     * StringUtils.containsNone(\"abz\", 'xyz')  = false\n     * </pre>\n     *\n     * @param cs  the CharSequence to check, may be null\n     * @param searchChars  an array of invalid chars, may be null\n     * @return true if it contains none of the invalid chars, or is null\n     * @since 2.0\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "containsAny",
+			"arg_types": "Ljava/lang/CharSequence;[C",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.containsAny(java.lang.CharSequence, char[])",
+			"begin_line": 1443,
+			"end_line": 1468,
+			"comment": "\n     * <p>Checks if the CharSequence contains any character in the given\n     * set of characters.</p>\n     *\n     * <p>A <code>null</code> CharSequence will return <code>false</code>.\n     * A <code>null</code> or zero length search array will return <code>false</code>.</p>\n     *\n     * <pre>\n     * StringUtils.containsAny(null, *)                = false\n     * StringUtils.containsAny(\"\", *)                  = false\n     * StringUtils.containsAny(*, null)                = false\n     * StringUtils.containsAny(*, [])                  = false\n     * StringUtils.containsAny(\"zzabyycdxx\",['z','a']) = true\n     * StringUtils.containsAny(\"zzabyycdxx\",['b','y']) = true\n     * StringUtils.containsAny(\"aba\", ['z'])           = false\n     * </pre>\n     *\n     * @param cs  the CharSequence to check, may be null\n     * @param searchChars  the chars to search for, may be null\n     * @return the <code>true</code> if any of the chars are found,\n     * <code>false</code> if no match or null input\n     * @since 2.4\n     "
+		}
+	],
+	"Lang-31b": [
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "containsAny",
+			"arg_types": "Ljava/lang/CharSequence;[C",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.containsAny(java.lang.CharSequence, char[])",
+			"begin_line": 1440,
+			"end_line": 1457,
+			"comment": "\n     * <p>Checks if the CharSequence contains any character in the given\n     * set of characters.</p>\n     *\n     * <p>A <code>null</code> CharSequence will return <code>false</code>.\n     * A <code>null</code> or zero length search array will return <code>false</code>.</p>\n     *\n     * <pre>\n     * StringUtils.containsAny(null, *)                = false\n     * StringUtils.containsAny(\"\", *)                  = false\n     * StringUtils.containsAny(*, null)                = false\n     * StringUtils.containsAny(*, [])                  = false\n     * StringUtils.containsAny(\"zzabyycdxx\",['z','a']) = true\n     * StringUtils.containsAny(\"zzabyycdxx\",['b','y']) = true\n     * StringUtils.containsAny(\"aba\", ['z'])           = false\n     * </pre>\n     *\n     * @param cs  the CharSequence to check, may be null\n     * @param searchChars  the chars to search for, may be null\n     * @return the <code>true</code> if any of the chars are found,\n     * <code>false</code> if no match or null input\n     * @since 2.4\n     "
+		}
+	],
+	"Lang-32b": [
+		{
+			"class_file": "org/apache/commons/lang3/builder/HashCodeBuilder.java",
+			"method_name": "initialValue",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.builder.HashCodeBuilder.Anonymous-5a60e531-846c-4c5e-9a62-750a5232fecd.initialValue()",
+			"begin_line": 105,
+			"end_line": 108,
+			"comment": ""
+		},
+		{
+			"class_file": "org/apache/commons/lang3/builder/HashCodeBuilder.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"REGISTRY"
+			],
+			"begin_line": 104,
+			"end_line": 109,
+			"comment": "\n     * <p>\n     * A registry of objects used by reflection methods to detect cyclical object references and avoid infinite loops.\n     * </p>\n     * \n     * @since 2.3\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/builder/HashCodeBuilder.java",
+			"method_name": "register",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.builder.HashCodeBuilder.register(java.lang.Object)",
+			"begin_line": 521,
+			"end_line": 523,
+			"comment": "\n     * <p>\n     * Registers the given object. Used by the reflection methods to avoid infinite loops.\n     * </p>\n     * \n     * @param value\n     *            The object to register.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/builder/HashCodeBuilder.java",
+			"method_name": "unregister",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.builder.HashCodeBuilder.unregister(java.lang.Object)",
+			"begin_line": 537,
+			"end_line": 539,
+			"comment": "\n     * <p>\n     * Unregisters the given object.\n     * </p>\n     * \n     * <p>\n     * Used by the reflection methods to avoid infinite loops.\n     * \n     * @param value\n     *            The object to unregister.\n     * @since 2.3\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/builder/HashCodeBuilder.java",
+			"method_name": "isRegistered",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.builder.HashCodeBuilder.isRegistered(java.lang.Object)",
+			"begin_line": 151,
+			"end_line": 153,
+			"comment": "\n     * <p>\n     * Returns <code>true</code> if the registry contains the given object. Used by the reflection methods to avoid\n     * infinite loops.\n     * </p>\n     * \n     * @param value\n     *            The object to lookup in the registry.\n     * @return boolean <code>true</code> if the registry contains the given object.\n     * @since 2.3\n     "
+		}
+	],
+	"Lang-33b": [
+		{
+			"class_file": "org/apache/commons/lang3/ClassUtils.java",
+			"method_name": "toClass",
+			"arg_types": "[Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.ClassUtils.toClass(java.lang.Object[])",
+			"begin_line": 902,
+			"end_line": 913,
+			"comment": "\n     * <p>Converts an array of <code>Object</code> in to an array of <code>Class</code> objects.\n     * If any of these objects is null, a null element will be inserted into the array.</p>\n     *\n     * <p>This method returns <code>null</code> for a <code>null</code> input array.</p>\n     *\n     * @param array an <code>Object</code> array\n     * @return a <code>Class</code> array, <code>null</code> if null array input\n     * @since 2.4\n     "
+		}
+	],
+	"Lang-34b": [
+		{
+			"class_file": "org/apache/commons/lang3/builder/ToStringStyle.java",
+			"method_name": "isRegistered",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.builder.ToStringStyle.isRegistered(java.lang.Object)",
+			"begin_line": 162,
+			"end_line": 165,
+			"comment": "\n     * <p>\n     * Returns <code>true</code> if the registry contains the given object.\n     * Used by the reflection methods to avoid infinite loops.\n     * </p>\n     *\n     * @param value\n     *                  The object to lookup in the registry.\n     * @return boolean <code>true</code> if the registry contains the given\n     *             object.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/builder/ToStringStyle.java",
+			"method_name": "getRegistry",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.builder.ToStringStyle.getRegistry()",
+			"begin_line": 147,
+			"end_line": 149,
+			"comment": "\n     * <p>\n     * Returns the registry of objects being traversed by the <code>reflectionToString</code>\n     * methods in the current thread.\n     * </p>\n     *\n     * @return Set the registry of objects being traversed\n     "
+		}
+	],
+	"Lang-35b": [
+		{
+			"class_file": "org/apache/commons/lang3/ArrayUtils.java",
+			"method_name": "add",
+			"arg_types": "[Ljava/lang/Object;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.ArrayUtils.add(T[], T)",
+			"begin_line": 3288,
+			"end_line": 3301,
+			"comment": "\n     * <p>Copies the given array and adds the given element at the end of the new array.</p>\n     *\n     * <p>The new array contains the same elements of the input\n     * array plus the given element in the last position. The component type of\n     * the new array is the same as that of the input array.</p>\n     *\n     * <p>If the input array is <code>null</code>, a new one element array is returned\n     *  whose component type is the same as the element, unless the element itself is null,\n     *  in which case the return type is Object[]</p>\n     *\n     * <pre>\n     * ArrayUtils.add(null, null)      = [null]\n     * ArrayUtils.add(null, \"a\")       = [\"a\"]\n     * ArrayUtils.add([\"a\"], null)     = [\"a\", null]\n     * ArrayUtils.add([\"a\"], \"b\")      = [\"a\", \"b\"]\n     * ArrayUtils.add([\"a\", \"b\"], \"c\") = [\"a\", \"b\", \"c\"]\n     * </pre>\n     *\n     * @param array  the array to \"add\" the element to, may be <code>null</code>\n     * @param element  the object to add, may be <code>null</code>\n     * @return A new array containing the existing elements plus the new element\n     * The returned array type will be that of the input array (unless null),\n     * in which case it will have the same type as the element.\n     * If both are null, an IllegalArgumentException is thrown\n     * @since 2.1\n     * @throws IllegalArgumentException if both arguments are null\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/ArrayUtils.java",
+			"method_name": "add",
+			"arg_types": "[Ljava/lang/Object;ILjava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.ArrayUtils.add(T[], int, T)",
+			"begin_line": 3567,
+			"end_line": 3579,
+			"comment": "\n     * <p>Inserts the specified element at the specified position in the array.\n     * Shifts the element currently at that position (if any) and any subsequent\n     * elements to the right (adds one to their indices).</p>\n     *\n     * <p>This method returns a new array with the same elements of the input\n     * array plus the given element on the specified position. The component\n     * type of the returned array is always the same as that of the input\n     * array.</p>\n     *\n     * <p>If the input array is <code>null</code>, a new one element array is returned\n     *  whose component type is the same as the element.</p>\n     *\n     * <pre>\n     * ArrayUtils.add(null, 0, null)      = [null]\n     * ArrayUtils.add(null, 0, \"a\")       = [\"a\"]\n     * ArrayUtils.add([\"a\"], 1, null)     = [\"a\", null]\n     * ArrayUtils.add([\"a\"], 1, \"b\")      = [\"a\", \"b\"]\n     * ArrayUtils.add([\"a\", \"b\"], 3, \"c\") = [\"a\", \"b\", \"c\"]\n     * </pre>\n     *\n     * @param array  the array to add the element to, may be <code>null</code>\n     * @param index  the position of the new object\n     * @param element  the object to add\n     * @return A new array containing the existing elements and the new element\n     * @throws IndexOutOfBoundsException if the index is out of range\n     * (index < 0 || index > array.length).\n     * @throws IllegalArgumentException if both array and element are null\n     "
+		}
+	],
+	"Lang-36b": [
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "isNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.isNumber(java.lang.String)",
+			"begin_line": 1312,
+			"end_line": 1406,
+			"comment": "\n     * <p>Checks whether the String a valid Java number.</p>\n     *\n     * <p>Valid numbers include hexadecimal marked with the <code>0x</code>\n     * qualifier, scientific notation and numbers marked with a type\n     * qualifier (e.g. 123L).</p>\n     *\n     * <p><code>Null</code> and empty String will return\n     * <code>false</code>.</p>\n     *\n     * @param str  the <code>String</code> to check\n     * @return <code>true</code> if the string is a correctly formatted number\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang3/math/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.math.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 448,
+			"end_line": 595,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>First, the value is examined for a type qualifier on the end\n     * (<code>'f','F','d','D','l','L'</code>).  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can represent the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n     * <code>BigDecimal</code>.</p>\n     *\n     * <p>If the string starts with <code>0x</code> or <code>-0x</code>, it\n     * will be interpreted as a hexadecimal integer.  Values with leading\n     * <code>0</code>'s will not be interpreted as octal.</p>\n     *\n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * <p>This method does not trim the input string, i.e., strings with leading\n     * or trailing spaces will generate NumberFormatExceptions.</p>\n     *\n     * @param str  String containing a number, may be null\n     * @return Number created from the string\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-37b": [
+		{
+			"class_file": "org/apache/commons/lang3/ArrayUtils.java",
+			"method_name": "addAll",
+			"arg_types": "[Ljava/lang/Object;[Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.ArrayUtils.addAll(T[], T...)",
+			"begin_line": 2952,
+			"end_line": 2965,
+			"comment": "\n     * <p>Adds all the elements of the given arrays into a new array.</p>\n     * <p>The new array contains all of the element of <code>array1</code> followed\n     * by all of the elements <code>array2</code>. When an array is returned, it is always\n     * a new array.</p>\n     *\n     * <pre>\n     * ArrayUtils.addAll(null, null)     = null\n     * ArrayUtils.addAll(array1, null)   = cloned copy of array1\n     * ArrayUtils.addAll(null, array2)   = cloned copy of array2\n     * ArrayUtils.addAll([], [])         = []\n     * ArrayUtils.addAll([null], [null]) = [null, null]\n     * ArrayUtils.addAll([\"a\", \"b\", \"c\"], [\"1\", \"2\", \"3\"]) = [\"a\", \"b\", \"c\", \"1\", \"2\", \"3\"]\n     * </pre>\n     *\n     * @param array1  the first array whose elements are added to the new array, may be <code>null</code>\n     * @param array2  the second array whose elements are added to the new array, may be <code>null</code>\n     * @return The new array, <code>null</code> if both arrays are <code>null</code>.\n     *      The type of the new array is the type of the first array,\n     *      unless the first array is null, in which case the type is the same as the second array.\n     * @since 2.1\n     "
+		}
+	],
+	"Lang-38b": [
+		{
+			"class_file": "org/apache/commons/lang3/time/FastDateFormat.java",
+			"method_name": "format",
+			"arg_types": "Ljava/util/Calendar;Ljava/lang/StringBuffer;",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.time.FastDateFormat.format(java.util.Calendar, java.lang.StringBuffer)",
+			"begin_line": 870,
+			"end_line": 876,
+			"comment": "\n     * <p>Formats a <code>Calendar</code> object into the\n     * supplied <code>StringBuffer</code>.</p>\n     * \n     * @param calendar  the calendar to format\n     * @param buf  the buffer to format into\n     * @return the specified string buffer\n     "
+		}
+	],
+	"Lang-39b": [
+		{
+			"class_file": "org/apache/commons/lang3/StringUtils.java",
+			"method_name": "replaceEach",
+			"arg_types": "Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZI",
+			"type": "method",
+			"signature": "org.apache.commons.lang3.StringUtils.replaceEach(java.lang.String, java.lang.String[], java.lang.String[], boolean, int)",
+			"begin_line": 3605,
+			"end_line": 3731,
+			"comment": "\n     * <p>\n     * Replaces all occurrences of Strings within another String.\n     * </p>\n     * \n     * <p>\n     * A <code>null</code> reference passed to this method is a no-op, or if\n     * any \"search string\" or \"string to replace\" is null, that replace will be\n     * ignored. \n     * </p>\n     * \n     * <pre>\n     *  StringUtils.replaceEach(null, *, *, *) = null\n     *  StringUtils.replaceEach(\"\", *, *, *) = \"\"\n     *  StringUtils.replaceEach(\"aba\", null, null, *) = \"aba\"\n     *  StringUtils.replaceEach(\"aba\", new String[0], null, *) = \"aba\"\n     *  StringUtils.replaceEach(\"aba\", null, new String[0], *) = \"aba\"\n     *  StringUtils.replaceEach(\"aba\", new String[]{\"a\"}, null, *) = \"aba\"\n     *  StringUtils.replaceEach(\"aba\", new String[]{\"a\"}, new String[]{\"\"}, *) = \"b\"\n     *  StringUtils.replaceEach(\"aba\", new String[]{null}, new String[]{\"a\"}, *) = \"aba\"\n     *  StringUtils.replaceEach(\"abcde\", new String[]{\"ab\", \"d\"}, new String[]{\"w\", \"t\"}, *) = \"wcte\"\n     *  (example of how it repeats)\n     *  StringUtils.replaceEach(\"abcde\", new String[]{\"ab\", \"d\"}, new String[]{\"d\", \"t\"}, false) = \"dcte\"\n     *  StringUtils.replaceEach(\"abcde\", new String[]{\"ab\", \"d\"}, new String[]{\"d\", \"t\"}, true) = \"tcte\"\n     *  StringUtils.replaceEach(\"abcde\", new String[]{\"ab\", \"d\"}, new String[]{\"d\", \"ab\"}, *) = IllegalArgumentException\n     * </pre>\n     * \n     * @param text\n     *            text to search and replace in, no-op if null\n     * @param searchList\n     *            the Strings to search for, no-op if null\n     * @param replacementList\n     *            the Strings to replace them with, no-op if null\n     * @param repeat if true, then replace repeatedly \n     *       until there are no more possible replacements or timeToLive < 0\n     * @param timeToLive\n     *            if less than 0 then there is a circular reference and endless\n     *            loop\n     * @return the text with any replacements processed, <code>null</code> if\n     *         null String input\n     * @throws IllegalArgumentException\n     *             if the search is repeating and there is an endless loop due\n     *             to outputs of one being inputs to another\n     * @throws IndexOutOfBoundsException\n     *             if the lengths of the arrays are not the same (null is ok,\n     *             and/or size 0)\n     * @since 2.4\n     "
+		}
+	],
+	"Lang-40b": [
+		{
+			"class_file": "org/apache/commons/lang/StringUtils.java",
+			"method_name": "containsIgnoreCase",
+			"arg_types": "Ljava/lang/String;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringUtils.containsIgnoreCase(java.lang.String, java.lang.String)",
+			"begin_line": 1044,
+			"end_line": 1049,
+			"comment": "\n     * <p>Checks if String contains a search String irrespective of case,\n     * handling <code>null</code>. Case-insensitivity is defined as by\n     * {@link String#equalsIgnoreCase(String)}.\n     *\n     * <p>A <code>null</code> String will return <code>false</code>.</p>\n     *\n     * <pre>\n     * StringUtils.contains(null, *) = false\n     * StringUtils.contains(*, null) = false\n     * StringUtils.contains(\"\", \"\") = true\n     * StringUtils.contains(\"abc\", \"\") = true\n     * StringUtils.contains(\"abc\", \"a\") = true\n     * StringUtils.contains(\"abc\", \"z\") = false\n     * StringUtils.contains(\"abc\", \"A\") = true\n     * StringUtils.contains(\"abc\", \"Z\") = false\n     * </pre>\n     *\n     * @param str  the String to check, may be null\n     * @param searchStr  the String to find, may be null\n     * @return true if the String contains the search String irrespective of\n     * case or false if not or <code>null</code> string input\n     "
+		}
+	],
+	"Lang-41b": [
+		{
+			"class_file": "org/apache/commons/lang/ClassUtils.java",
+			"method_name": "getPackageName",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.ClassUtils.getPackageName(java.lang.String)",
+			"begin_line": 244,
+			"end_line": 257,
+			"comment": "\n     * <p>Gets the package name from a <code>String</code>.</p>\n     *\n     * <p>The string passed in is assumed to be a class name - it is not checked.</p>\n     * <p>If the class is unpackaged, return an empty string.</p>\n     *\n     * @param className  the className to get the package name for, may be <code>null</code>\n     * @return the package name or an empty string\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/ClassUtils.java",
+			"method_name": "getShortClassName",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.ClassUtils.getShortClassName(java.lang.String)",
+			"begin_line": 183,
+			"end_line": 204,
+			"comment": "\n     * <p>Gets the class name minus the package name from a String.</p>\n     *\n     * <p>The string passed in is assumed to be a class name - it is not checked.</p>\n     *\n     * @param className  the className to get the short name for\n     * @return the class name of the class without the package name or an empty string\n     "
+		}
+	],
+	"Lang-42b": [
+		{
+			"class_file": "org/apache/commons/lang/Entities.java",
+			"method_name": "escape",
+			"arg_types": "Ljava/io/Writer;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.Entities.escape(java.io.Writer, java.lang.String)",
+			"begin_line": 825,
+			"end_line": 844,
+			"comment": "\n     * <p>\n     * Escapes the characters in the <code>String</code> passed and writes the result to the <code>Writer</code>\n     * passed.\n     * </p>\n     * \n     * @param writer\n     *            The <code>Writer</code> to write the results of the escaping to. Assumed to be a non-null value.\n     * @param str\n     *            The <code>String</code> to escape. Assumed to be a non-null value.\n     * @throws IOException\n     *             when <code>Writer</code> passed throws the exception from calls to the {@link Writer#write(int)}\n     *             methods.\n     * \n     * @see #escape(String)\n     * @see Writer\n     "
+		}
+	],
+	"Lang-43b": [
+		{
+			"class_file": "org/apache/commons/lang/text/ExtendedMessageFormat.java",
+			"method_name": "appendQuotedString",
+			"arg_types": "Ljava/lang/String;Ljava/text/ParsePosition;Ljava/lang/StringBuffer;Z",
+			"type": "method",
+			"signature": "org.apache.commons.lang.text.ExtendedMessageFormat.appendQuotedString(java.lang.String, java.text.ParsePosition, java.lang.StringBuffer, boolean)",
+			"begin_line": 417,
+			"end_line": 444,
+			"comment": "\n     * Consume a quoted string, adding it to <code>appendTo</code> if\n     * specified.\n     * \n     * @param pattern pattern to parse\n     * @param pos current parse position\n     * @param appendTo optional StringBuffer to append\n     * @param escapingOn whether to process escaped quotes\n     * @return <code>appendTo</code>\n     "
+		}
+	],
+	"Lang-44b": [
+		{
+			"class_file": "org/apache/commons/lang/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 138,
+			"end_line": 286,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>First, the value is examined for a type qualifier on the end\n     * (<code>'f','F','d','D','l','L'</code>).  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can hold the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n     * <code>BigDecimal</code>.</p>\n     *\n     * <p>If the string starts with <code>0x</code> or <code>-0x</code>, it\n     * will be interpreted as a hexadecimal integer.  Values with leading\n     * <code>0</code>'s will not be interpreted as octal.</p>\n     *\n     * @param val String containing a number\n     * @return Number created from the string\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-45b": [
+		{
+			"class_file": "org/apache/commons/lang/WordUtils.java",
+			"method_name": "abbreviate",
+			"arg_types": "Ljava/lang/String;IILjava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.WordUtils.abbreviate(java.lang.String, int, int, java.lang.String)",
+			"begin_line": 605,
+			"end_line": 642,
+			"comment": "\n     * Abbreviates a string nicely.\n     * \n     * This method searches for the first space after the lower limit and abbreviates\n     * the String there. It will also append any String passed as a parameter\n     * to the end of the String. The upper limit can be specified to forcibly\n     * abbreviate a String.\n     * \n     * @param str         the string to be abbreviated. If null is passed, null is returned.\n     *                    If the empty String is passed, the empty string is returned.\n     * @param lower       the lower limit.\n     * @param upper       the upper limit; specify -1 if no limit is desired.\n     *                    If the upper limit is lower than the lower limit, it will be\n     *                    adjusted to be the same as the lower limit.\n     * @param appendToEnd String to be appended to the end of the abbreviated string.\n     *                    This is appended ONLY if the string was indeed abbreviated.\n     *                    The append does not count towards the lower or upper limits.\n     * @return the abbreviated String.\n     * @since 2.4\n     "
+		}
+	],
+	"Lang-46b": [
+		{
+			"class_file": "org/apache/commons/lang/StringEscapeUtils.java",
+			"method_name": "escapeJava",
+			"arg_types": "Ljava/io/Writer;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringEscapeUtils.escapeJava(java.io.Writer, java.lang.String)",
+			"begin_line": 101,
+			"end_line": 103,
+			"comment": "\n     * <p>Escapes the characters in a <code>String</code> using Java String rules to\n     * a <code>Writer</code>.</p>\n     * \n     * <p>A <code>null</code> string input has no effect.</p>\n     * \n     * @see #escapeJava(java.lang.String)\n     * @param out  Writer to write escaped string into\n     * @param str  String to escape values in, may be null\n     * @throws IllegalArgumentException if the Writer is <code>null</code>\n     * @throws IOException if error occurs on underlying Writer\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/StringEscapeUtils.java",
+			"method_name": "escapeJava",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringEscapeUtils.escapeJava(java.lang.String)",
+			"begin_line": 85,
+			"end_line": 87,
+			"comment": "\n     * <p>Escapes the characters in a <code>String</code> using Java String rules.</p>\n     *\n     * <p>Deals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) </p>\n     *\n     * <p>So a tab becomes the characters <code>'\\\\'</code> and\n     * <code>'t'</code>.</p>\n     *\n     * <p>The only difference between Java strings and JavaScript strings\n     * is that in JavaScript, a single quote must be escaped.</p>\n     *\n     * <p>Example:\n     * <pre>\n     * input string: He didn't say, \"Stop!\"\n     * output string: He didn't say, \\\"Stop!\\\"\n     * </pre>\n     * </p>\n     *\n     * @param str  String to escape values in, may be null\n     * @return String with escaped values, <code>null</code> if null string input\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/StringEscapeUtils.java",
+			"method_name": "escapeJavaScript",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringEscapeUtils.escapeJavaScript(java.lang.String)",
+			"begin_line": 126,
+			"end_line": 128,
+			"comment": "\n     * <p>Escapes the characters in a <code>String</code> using JavaScript String rules.</p>\n     * <p>Escapes any values it finds into their JavaScript String form.\n     * Deals correctly with quotes and control-chars (tab, backslash, cr, ff, etc.) </p>\n     *\n     * <p>So a tab becomes the characters <code>'\\\\'</code> and\n     * <code>'t'</code>.</p>\n     *\n     * <p>The only difference between Java strings and JavaScript strings\n     * is that in JavaScript, a single quote must be escaped.</p>\n     *\n     * <p>Example:\n     * <pre>\n     * input string: He didn't say, \"Stop!\"\n     * output string: He didn\\'t say, \\\"Stop!\\\"\n     * </pre>\n     * </p>\n     *\n     * @param str  String to escape values in, may be null\n     * @return String with escaped values, <code>null</code> if null string input\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/StringEscapeUtils.java",
+			"method_name": "escapeJavaStyleString",
+			"arg_types": "Ljava/io/Writer;Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringEscapeUtils.escapeJavaStyleString(java.io.Writer, java.lang.String, boolean)",
+			"begin_line": 178,
+			"end_line": 253,
+			"comment": "\n     * <p>Worker method for the {@link #escapeJavaScript(String)} method.</p>\n     * \n     * @param out write to receieve the escaped string\n     * @param str String to escape values in, may be null\n     * @param escapeSingleQuote escapes single quotes if <code>true</code>\n     * @param escapeForwardSlash TODO\n     * @throws IOException if an IOException occurs\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/StringEscapeUtils.java",
+			"method_name": "escapeJavaScript",
+			"arg_types": "Ljava/io/Writer;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringEscapeUtils.escapeJavaScript(java.io.Writer, java.lang.String)",
+			"begin_line": 142,
+			"end_line": 144,
+			"comment": "\n     * <p>Escapes the characters in a <code>String</code> using JavaScript String rules\n     * to a <code>Writer</code>.</p>\n     * \n     * <p>A <code>null</code> string input has no effect.</p>\n     * \n     * @see #escapeJavaScript(java.lang.String)\n     * @param out  Writer to write escaped string into\n     * @param str  String to escape values in, may be null\n     * @throws IllegalArgumentException if the Writer is <code>null</code>\n     * @throws IOException if error occurs on underlying Writer\n     *"
+		},
+		{
+			"class_file": "org/apache/commons/lang/StringEscapeUtils.java",
+			"method_name": "escapeJavaStyleString",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringEscapeUtils.escapeJavaStyleString(java.lang.String, boolean)",
+			"begin_line": 154,
+			"end_line": 167,
+			"comment": "\n     * <p>Worker method for the {@link #escapeJavaScript(String)} method.</p>\n     * \n     * @param str String to escape values in, may be null\n     * @param escapeSingleQuotes escapes single quotes if <code>true</code>\n     * @param escapeForwardSlash TODO\n     * @return the escaped string\n     "
+		}
+	],
+	"Lang-47b": [
+		{
+			"class_file": "org/apache/commons/lang/text/StrBuilder.java",
+			"method_name": "appendFixedWidthPadRight",
+			"arg_types": "Ljava/lang/Object;IC",
+			"type": "method",
+			"signature": "org.apache.commons.lang.text.StrBuilder.appendFixedWidthPadRight(java.lang.Object, int, char)",
+			"begin_line": 1226,
+			"end_line": 1243,
+			"comment": "\n     * Appends an object to the builder padding on the right to a fixed length.\n     * The <code>toString</code> of the object is used.\n     * If the object is larger than the length, the right hand side is lost.\n     * If the object is null, null text value is used.\n     * \n     * @param obj  the object to append, null uses null text\n     * @param width  the fixed field width, zero or negative has no effect\n     * @param padChar  the pad character to use\n     * @return this, to enable chaining\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/text/StrBuilder.java",
+			"method_name": "appendFixedWidthPadLeft",
+			"arg_types": "Ljava/lang/Object;IC",
+			"type": "method",
+			"signature": "org.apache.commons.lang.text.StrBuilder.appendFixedWidthPadLeft(java.lang.Object, int, char)",
+			"begin_line": 1182,
+			"end_line": 1199,
+			"comment": "\n     * Appends an object to the builder padding on the left to a fixed width.\n     * The <code>toString</code> of the object is used.\n     * If the object is larger than the length, the left hand side is lost.\n     * If the object is null, the null text value is used.\n     * \n     * @param obj  the object to append, null uses null text\n     * @param width  the fixed field width, zero or negative has no effect\n     * @param padChar  the pad character to use\n     * @return this, to enable chaining\n     "
+		}
+	],
+	"Lang-48b": [
+		{
+			"class_file": "org/apache/commons/lang/builder/EqualsBuilder.java",
+			"method_name": "append",
+			"arg_types": "Ljava/lang/Object;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.builder.EqualsBuilder.append(java.lang.Object, java.lang.Object)",
+			"begin_line": 367,
+			"end_line": 409,
+			"comment": "\n     * <p>Test if two <code>Object</code>s are equal using their\n     * <code>equals</code> method.</p>\n     *\n     * @param lhs  the left hand object\n     * @param rhs  the right hand object\n     * @return EqualsBuilder - used to chain calls.\n     "
+		}
+	],
+	"Lang-49b": [
+		{
+			"class_file": "org/apache/commons/lang/math/Fraction.java",
+			"method_name": "reduce",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.lang.math.Fraction.reduce()",
+			"begin_line": 465,
+			"end_line": 471,
+			"comment": "\n     * <p>Reduce the fraction to the smallest values for the numerator and\n     * denominator, returning the result.</p>\n     * \n     * <p>For example, if this fraction represents 2/4, then the result\n     * will be 1/2.</p>\n     *\n     * @return a new reduced fraction instance, or this if no simplification possible\n     "
+		}
+	],
+	"Lang-50b": [
+		{
+			"class_file": "org/apache/commons/lang/time/FastDateFormat.java",
+			"method_name": "getDateTimeInstance",
+			"arg_types": "IILjava/util/TimeZone;Ljava/util/Locale;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.time.FastDateFormat.getDateTimeInstance(int, int, java.util.TimeZone, java.util.Locale)",
+			"begin_line": 458,
+			"end_line": 486,
+			"comment": "\n     * <p>Gets a date/time formatter instance using the specified style,\n     * time zone and locale.</p>\n     * \n     * @param dateStyle  date style: FULL, LONG, MEDIUM, or SHORT\n     * @param timeStyle  time style: FULL, LONG, MEDIUM, or SHORT\n     * @param timeZone  optional time zone, overrides time zone of\n     *  formatted date\n     * @param locale  optional locale, overrides system locale\n     * @return a localized standard date/time formatter\n     * @throws IllegalArgumentException if the Locale has no date/time\n     *  pattern defined\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/time/FastDateFormat.java",
+			"method_name": "getDateInstance",
+			"arg_types": "ILjava/util/TimeZone;Ljava/util/Locale;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.time.FastDateFormat.getDateInstance(int, java.util.TimeZone, java.util.Locale)",
+			"begin_line": 279,
+			"end_line": 306,
+			"comment": "\n     * <p>Gets a date formatter instance using the specified style, time\n     * zone and locale.</p>\n     * \n     * @param style  date style: FULL, LONG, MEDIUM, or SHORT\n     * @param timeZone  optional time zone, overrides time zone of\n     *  formatted date\n     * @param locale  optional locale, overrides system locale\n     * @return a localized standard date formatter\n     * @throws IllegalArgumentException if the Locale has no date\n     *  pattern defined\n     "
+		}
+	],
+	"Lang-51b": [
+		{
+			"class_file": "org/apache/commons/lang/BooleanUtils.java",
+			"method_name": "toBoolean",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.BooleanUtils.toBoolean(java.lang.String)",
+			"begin_line": 649,
+			"end_line": 700,
+			"comment": "\n     * <p>Converts a String to a boolean (optimised for performance).</p>\n     * \n     * <p><code>'true'</code>, <code>'on'</code> or <code>'yes'</code>\n     * (case insensitive) will return <code>true</code>. Otherwise,\n     * <code>false</code> is returned.</p>\n     * \n     * <p>This method performs 4 times faster (JDK1.4) than\n     * <code>Boolean.valueOf(String)</code>. However, this method accepts\n     * 'on' and 'yes' as true values.\n     *\n     * <pre>\n     *   BooleanUtils.toBoolean(null)    = false\n     *   BooleanUtils.toBoolean(\"true\")  = true\n     *   BooleanUtils.toBoolean(\"TRUE\")  = true\n     *   BooleanUtils.toBoolean(\"tRUe\")  = true\n     *   BooleanUtils.toBoolean(\"on\")    = true\n     *   BooleanUtils.toBoolean(\"yes\")   = true\n     *   BooleanUtils.toBoolean(\"false\") = false\n     *   BooleanUtils.toBoolean(\"x gti\") = false\n     * </pre>\n     *\n     * @param str  the String to check\n     * @return the boolean value of the string, <code>false</code> if no match\n     "
+		}
+	],
+	"Lang-52b": [
+		{
+			"class_file": "org/apache/commons/lang/StringEscapeUtils.java",
+			"method_name": "escapeJavaStyleString",
+			"arg_types": "Ljava/io/Writer;Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "org.apache.commons.lang.StringEscapeUtils.escapeJavaStyleString(java.io.Writer, java.lang.String, boolean)",
+			"begin_line": 171,
+			"end_line": 242,
+			"comment": "\n     * <p>Worker method for the {@link #escapeJavaScript(String)} method.</p>\n     * \n     * @param out write to receieve the escaped string\n     * @param str String to escape values in, may be null\n     * @param escapeSingleQuote escapes single quotes if <code>true</code>\n     * @throws IOException if an IOException occurs\n     "
+		}
+	],
+	"Lang-53b": [
+		{
+			"class_file": "org/apache/commons/lang/time/DateUtils.java",
+			"method_name": "modify",
+			"arg_types": "Ljava/util/Calendar;IZ",
+			"type": "method",
+			"signature": "org.apache.commons.lang.time.DateUtils.modify(java.util.Calendar, int, boolean)",
+			"begin_line": 620,
+			"end_line": 744,
+			"comment": "\n     * <p>Internal calculation method.</p>\n     * \n     * @param val  the calendar\n     * @param field  the field constant\n     * @param round  true to round, false to truncate\n     * @throws ArithmeticException if the year is over 280 million\n     "
+		}
+	],
+	"Lang-54b": [
+		{
+			"class_file": "org/apache/commons/lang/LocaleUtils.java",
+			"method_name": "toLocale",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.LocaleUtils.toLocale(java.lang.String)",
+			"begin_line": 94,
+			"end_line": 127,
+			"comment": "\n     * <p>Converts a String to a Locale.</p>\n     *\n     * <p>This method takes the string format of a locale and creates the\n     * locale object from it.</p>\n     *\n     * <pre>\n     *   LocaleUtils.toLocale(\"en\")         = new Locale(\"en\", \"\")\n     *   LocaleUtils.toLocale(\"en_GB\")      = new Locale(\"en\", \"GB\")\n     *   LocaleUtils.toLocale(\"en_GB_xxx\")  = new Locale(\"en\", \"GB\", \"xxx\")   (#)\n     * </pre>\n     *\n     * <p>(#) The behaviour of the JDK variant constructor changed between JDK1.3 and JDK1.4.\n     * In JDK1.3, the constructor upper cases the variant, in JDK1.4, it doesn't.\n     * Thus, the result from getVariant() may vary depending on your JDK.</p>\n     *\n     * <p>This method validates the input strictly.\n     * The language code must be lowercase.\n     * The country code must be uppercase.\n     * The separator must be an underscore.\n     * The length must be correct.\n     * </p>\n     *\n     * @param str  the locale String to convert, null returns null\n     * @return a Locale, null if null input\n     * @throws IllegalArgumentException if the string is an invalid format\n     "
+		}
+	],
+	"Lang-55b": [
+		{
+			"class_file": "org/apache/commons/lang/time/StopWatch.java",
+			"method_name": "stop",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.apache.commons.lang.time.StopWatch.stop()",
+			"begin_line": 114,
+			"end_line": 120,
+			"comment": "\n     * <p>Stop the stopwatch.</p>\n     * \n     * <p>This method ends a new timing session, allowing the time to be retrieved.</p>\n     *\n     * @throws IllegalStateException if the StopWatch is not running.\n     "
+		}
+	],
+	"Lang-56b": [
+		{
+			"class_file": "org/apache/commons/lang/time/FastDateFormat.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"mRules"
+			],
+			"begin_line": 140,
+			"end_line": 140,
+			"comment": "\n     * The parsed rules.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/time/FastDateFormat.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"mMaxLengthEstimate"
+			],
+			"begin_line": 144,
+			"end_line": 144,
+			"comment": "\n     * The estimated maximum length.\n     "
+		}
+	],
+	"Lang-57b": [
+		{
+			"class_file": "org/apache/commons/lang/LocaleUtils.java",
+			"method_name": "isAvailableLocale",
+			"arg_types": "Ljava/util/Locale;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.LocaleUtils.isAvailableLocale(java.util.Locale)",
+			"begin_line": 222,
+			"end_line": 224,
+			"comment": "\n     * <p>Checks if the locale specified is in the list of available locales.</p>\n     *\n     * @param locale the Locale object to check if it is available\n     * @return true if the locale is a known locale\n     "
+		}
+	],
+	"Lang-58b": [
+		{
+			"class_file": "org/apache/commons/lang/math/NumberUtils.java",
+			"method_name": "createNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.math.NumberUtils.createNumber(java.lang.String)",
+			"begin_line": 397,
+			"end_line": 545,
+			"comment": "\n     * <p>Turns a string value into a java.lang.Number.</p>\n     *\n     * <p>First, the value is examined for a type qualifier on the end\n     * (<code>'f','F','d','D','l','L'</code>).  If it is found, it starts \n     * trying to create successively larger types from the type specified\n     * until one is found that can represent the value.</p>\n     *\n     * <p>If a type specifier is not found, it will check for a decimal point\n     * and then try successively larger types from <code>Integer</code> to\n     * <code>BigInteger</code> and from <code>Float</code> to\n     * <code>BigDecimal</code>.</p>\n     *\n     * <p>If the string starts with <code>0x</code> or <code>-0x</code>, it\n     * will be interpreted as a hexadecimal integer.  Values with leading\n     * <code>0</code>'s will not be interpreted as octal.</p>\n     *\n     * <p>Returns <code>null</code> if the string is <code>null</code>.</p>\n     *\n     * <p>This method does not trim the input string, i.e., strings with leading\n     * or trailing spaces will generate NumberFormatExceptions.</p>\n     *\n     * @param str  String containing a number, may be null\n     * @return Number created from the string\n     * @throws NumberFormatException if the value cannot be converted\n     "
+		}
+	],
+	"Lang-59b": [
+		{
+			"class_file": "org/apache/commons/lang/text/StrBuilder.java",
+			"method_name": "appendFixedWidthPadRight",
+			"arg_types": "Ljava/lang/Object;IC",
+			"type": "method",
+			"signature": "org.apache.commons.lang.text.StrBuilder.appendFixedWidthPadRight(java.lang.Object, int, char)",
+			"begin_line": 878,
+			"end_line": 895,
+			"comment": "\n     * Appends an object to the builder padding on the right to a fixed length.\n     * The <code>toString</code> of the object is used.\n     * If the object is larger than the length, the right hand side is lost.\n     * If the object is null, null text value is used.\n     * \n     * @param obj  the object to append, null uses null text\n     * @param width  the fixed field width, zero or negative has no effect\n     * @param padChar  the pad character to use\n     * @return this, to enable chaining\n     "
+		}
+	],
+	"Lang-60b": [
+		{
+			"class_file": "org/apache/commons/lang/text/StrBuilder.java",
+			"method_name": "contains",
+			"arg_types": "C",
+			"type": "method",
+			"signature": "org.apache.commons.lang.text.StrBuilder.contains(char)",
+			"begin_line": 1671,
+			"end_line": 1679,
+			"comment": "\n     * Checks if the string builder contains the specified char.\n     *\n     * @param ch  the character to find\n     * @return true if the builder contains the character\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/text/StrBuilder.java",
+			"method_name": "indexOf",
+			"arg_types": "CI",
+			"type": "method",
+			"signature": "org.apache.commons.lang.text.StrBuilder.indexOf(char, int)",
+			"begin_line": 1724,
+			"end_line": 1736,
+			"comment": "\n     * Searches the string builder to find the first reference to the specified char.\n     * \n     * @param ch  the character to find\n     * @param startIndex  the index to start at, invalid index rounded to edge\n     * @return the first index of the character, or -1 if not found\n     "
+		}
+	],
+	"Lang-61b": [
+		{
+			"class_file": "org/apache/commons/lang/text/StrBuilder.java",
+			"method_name": "indexOf",
+			"arg_types": "Ljava/lang/String;I",
+			"type": "method",
+			"signature": "org.apache.commons.lang.text.StrBuilder.indexOf(java.lang.String, int)",
+			"begin_line": 1760,
+			"end_line": 1787,
+			"comment": "\n     * Searches the string builder to find the first reference to the specified\n     * string starting searching from the given index.\n     * <p>\n     * Note that a null input string will return -1, whereas the JDK throws an exception.\n     * \n     * @param str  the string to find, null returns -1\n     * @param startIndex  the index to start at, invalid index rounded to edge\n     * @return the first index of the string, or -1 if not found\n     "
+		}
+	],
+	"Lang-62b": [
+		{
+			"class_file": "org/apache/commons/lang/Entities.java",
+			"method_name": "unescape",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.Entities.unescape(java.lang.String)",
+			"begin_line": 813,
+			"end_line": 870,
+			"comment": "\n     * <p>Unescapes the entities in a <code>String</code>.</p>\n     *\n     * <p>For example, if you have called addEntity(&quot;foo&quot;, 0xA1),\n     * unescape(&quot;&amp;foo;&quot;) will return &quot;\\u00A1&quot;</p>\n     *\n     * @param str The <code>String</code> to escape.\n     * @return A new escaped <code>String</code>.\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/Entities.java",
+			"method_name": "unescape",
+			"arg_types": "Ljava/io/Writer;Ljava/lang/String;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.Entities.unescape(java.io.Writer, java.lang.String)",
+			"begin_line": 884,
+			"end_line": 945,
+			"comment": "\n     * <p>Unescapes the escaped entities in the <code>String</code> passed and\n     * writes the result to the <code>Writer</code> passed.</p>\n     * \n     * @param writer The <code>Writer</code> to write the results to; assumed to be non-null.\n     * @param string The <code>String</code> to write the results to; assumed to be non-null.\n     * @throws IOException when <code>Writer</code> passed throws the exception from\n     *                                       calls to the {@link Writer#write(int)} methods.\n     *                                       \n     * @see #escape(String)\n     * @see Writer\n     "
+		}
+	],
+	"Lang-63b": [
+		{
+			"class_file": "org/apache/commons/lang/time/DurationFormatUtils.java",
+			"method_name": "formatPeriod",
+			"arg_types": "JJLjava/lang/String;ZLjava/util/TimeZone;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.time.DurationFormatUtils.formatPeriod(long, long, java.lang.String, boolean, java.util.TimeZone)",
+			"begin_line": 262,
+			"end_line": 361,
+			"comment": "\n     * <p>Formats the time gap as a string, using the specified format.\n     * Padding the left hand side of numbers with zeroes is optional and \n     * the timezone may be specified. \n     * \n     * @param startMillis  the start of the duration\n     * @param endMillis  the end of the duration\n     * @param format  the way in which to format the duration\n     * @param padWithZeros whether to pad the left hand side of numbers with 0's\n     * @param timezone the millis are defined in\n     * @return the time as a String\n     "
+		},
+		{
+			"class_file": "org/apache/commons/lang/time/DurationFormatUtils.java",
+			"method_name": "reduceAndCorrect",
+			"arg_types": "Ljava/util/Calendar;Ljava/util/Calendar;II",
+			"type": "method",
+			"signature": "org.apache.commons.lang.time.DurationFormatUtils.reduceAndCorrect(java.util.Calendar, java.util.Calendar, int, int)",
+			"begin_line": 432,
+			"end_line": 443,
+			"comment": ""
+		}
+	],
+	"Lang-64b": [
+		{
+			"class_file": "org/apache/commons/lang/enums/ValuedEnum.java",
+			"method_name": "compareTo",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.apache.commons.lang.enums.ValuedEnum.compareTo(java.lang.Object)",
+			"begin_line": 182,
+			"end_line": 184,
+			"comment": "\n     * <p>Tests for order.</p>\n     *\n     * <p>The default ordering is numeric by value, but this\n     * can be overridden by subclasses.</p>\n     *\n     * <p>NOTE: From v2.2 the enums must be of the same type.\n     * If the parameter is in a different class loader than this instance,\n     * reflection is used to compare the values.</p>\n     *\n     * @see java.lang.Comparable#compareTo(Object)\n     * @param other  the other object to compare to\n     * @return -ve if this is less than the other object, +ve if greater than,\n     *  <code>0</code> of equal\n     * @throws ClassCastException if other is not an <code>Enum</code>\n     * @throws NullPointerException if other is <code>null</code>\n     "
+		}
+	],
+	"Lang-65b": [
+		{
+			"class_file": "org/apache/commons/lang/time/DateUtils.java",
+			"method_name": "modify",
+			"arg_types": "Ljava/util/Calendar;IZ",
+			"type": "method",
+			"signature": "org.apache.commons.lang.time.DateUtils.modify(java.util.Calendar, int, boolean)",
+			"begin_line": 619,
+			"end_line": 713,
+			"comment": "\n     * <p>Internal calculation method.</p>\n     * \n     * @param val  the calendar\n     * @param field  the field constant\n     * @param round  true to round, false to truncate\n     * @throws ArithmeticException if the year is over 280 million\n     "
+		}
+	]
+}

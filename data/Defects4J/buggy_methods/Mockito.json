@@ -1,0 +1,901 @@
+{
+	"Mockito-1b": [
+		{
+			"class_file": "org/mockito/internal/invocation/InvocationMatcher.java",
+			"method_name": "captureArgumentsFrom",
+			"arg_types": "Lorg/mockito/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.internal.invocation.InvocationMatcher.captureArgumentsFrom(org.mockito.invocation.Invocation)",
+			"begin_line": 120,
+			"end_line": 150,
+			"comment": ""
+		}
+	],
+	"Mockito-2b": [
+		{
+			"class_file": "org/mockito/internal/util/Timer.java",
+			"method_name": "<init>",
+			"arg_types": "J",
+			"type": "constructor",
+			"signature": "org.mockito.internal.util.Timer.Timer(long)",
+			"begin_line": 9,
+			"end_line": 11,
+			"comment": ""
+		}
+	],
+	"Mockito-3b": [
+		{
+			"class_file": "org/mockito/internal/invocation/InvocationMatcher.java",
+			"method_name": "captureArgumentsFrom",
+			"arg_types": "Lorg/mockito/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.internal.invocation.InvocationMatcher.captureArgumentsFrom(org.mockito.invocation.Invocation)",
+			"begin_line": 118,
+			"end_line": 141,
+			"comment": ""
+		}
+	],
+	"Mockito-4b": [
+		{
+			"class_file": "org/mockito/exceptions/Reporter.java",
+			"method_name": "exceptionCauseMessageIfAvailable",
+			"arg_types": "Ljava/lang/Exception;",
+			"type": "method",
+			"signature": "org.mockito.exceptions.Reporter.exceptionCauseMessageIfAvailable(java.lang.Exception)",
+			"begin_line": 676,
+			"end_line": 678,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/exceptions/Reporter.java",
+			"method_name": "noMoreInteractionsWantedInOrder",
+			"arg_types": "Lorg/mockito/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.exceptions.Reporter.noMoreInteractionsWantedInOrder(org.mockito.invocation.Invocation)",
+			"begin_line": 430,
+			"end_line": 437,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/exceptions/Reporter.java",
+			"method_name": "noMoreInteractionsWanted",
+			"arg_types": "Lorg/mockito/invocation/Invocation;Ljava/util/List;",
+			"type": "method",
+			"signature": "org.mockito.exceptions.Reporter.noMoreInteractionsWanted(org.mockito.invocation.Invocation, java.util.List<org.mockito.internal.exceptions.VerificationAwareInvocation>)",
+			"begin_line": 417,
+			"end_line": 428,
+			"comment": ""
+		}
+	],
+	"Mockito-5b": [
+		{
+			"class_file": "org/mockito/internal/verification/VerificationOverTimeImpl.java",
+			"method_name": "verify",
+			"arg_types": "Lorg/mockito/internal/verification/api/VerificationData;",
+			"type": "method",
+			"signature": "org.mockito.internal.verification.VerificationOverTimeImpl.verify(org.mockito.internal.verification.api.VerificationData)",
+			"begin_line": 75,
+			"end_line": 99,
+			"comment": "\n     * Verify the given ongoing verification data, and confirm that it satisfies the delegate verification mode\n     * before the full duration has passed.\n     *\n     * In practice, this polls the delegate verification mode until it is satisfied. If it is not satisfied once\n     * the full duration has passed, the last error returned by the delegate verification mode will be thrown\n     * here in turn. This may be thrown early if the delegate is unsatisfied and the verification mode is known\n     * to never recover from this situation (e.g. {@link AtMost}).\n     *\n     * If it is satisfied before the full duration has passed, behaviour is dependent on the returnOnSuccess parameter\n     * given in the constructor. If true, this verification mode is immediately satisfied once the delegate is. If\n     * false, this verification mode is not satisfied until the delegate is satisfied and the full time has passed.\n     *\n     * @throws MockitoAssertionError if the delegate verification mode does not succeed before the timeout\n     "
+		}
+	],
+	"Mockito-6b": [
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyString",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyString()",
+			"begin_line": 323,
+			"end_line": 325,
+			"comment": "\r\n     * Any <code>String</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return empty String (\"\")\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyCollection",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyCollection()",
+			"begin_line": 441,
+			"end_line": 443,
+			"comment": "\r\n     * Any <code>Collection</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*dones't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return empty Collection.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyCollectionOf",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyCollectionOf(java.lang.Class<T>)",
+			"begin_line": 460,
+			"end_line": 462,
+			"comment": "\r\n     * Generic friendly alias to {@link Matchers#anyCollection()}.\r\n     * It's an alternative to &#064;SuppressWarnings(\"unchecked\") to keep code clean of compiler warnings.     \r\n     * <p>\r\n     * Any <code>Collection</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @param clazz Type owned by the collection to avoid casting\r\n     * @return empty Collection.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyDouble",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyDouble()",
+			"begin_line": 211,
+			"end_line": 213,
+			"comment": "\r\n     * Any <code>double</code>, <code>Double</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>0</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyChar",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyChar()",
+			"begin_line": 151,
+			"end_line": 153,
+			"comment": "\r\n     * Any <code>char</code>, <code>Character</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>0</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyInt",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyInt()",
+			"begin_line": 166,
+			"end_line": 168,
+			"comment": "\r\n     * Any int, Integer or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>0</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyFloat",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyFloat()",
+			"begin_line": 196,
+			"end_line": 198,
+			"comment": "\r\n     * Any <code>float</code>, <code>Float</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>0</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyMap",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyMap()",
+			"begin_line": 406,
+			"end_line": 408,
+			"comment": "\r\n     * Any <code>Map</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return empty Map.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyList",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyList()",
+			"begin_line": 338,
+			"end_line": 340,
+			"comment": "\r\n     * Any <code>List</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return empty List.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anySet",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anySet()",
+			"begin_line": 372,
+			"end_line": 374,
+			"comment": "\r\n     * Any <code>Set</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     *\r\n     * @return empty Set\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyLong",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyLong()",
+			"begin_line": 181,
+			"end_line": 183,
+			"comment": "\r\n     * Any <code>long</code>, <code>Long</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>0</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "any",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.any()",
+			"begin_line": 308,
+			"end_line": 310,
+			"comment": "\r\n     * Any object or <code>null</code>.\r\n     * <p>\r\n     * Shorter alias to {@link Matchers#anyObject()}\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>null</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyObject",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyObject()",
+			"begin_line": 243,
+			"end_line": 245,
+			"comment": "\r\n     * Any <code>Object</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * Has aliases: {@link #any()} and {@link #any(Class clazz)}\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>null</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "any",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.any(java.lang.Class<T>)",
+			"begin_line": 291,
+			"end_line": 293,
+			"comment": "\r\n     * Any kind object, not necessary of the given class.\r\n     * The class argument is provided only to avoid casting.\r\n     * <p>\r\n     * Sometimes looks better than <code>anyObject()</code> - especially when explicit casting is required\r\n     * <p>\r\n     * Alias to {@link Matchers#anyObject()}\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @param clazz The type to avoid casting\r\n     * @return <code>null</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyBoolean",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyBoolean()",
+			"begin_line": 121,
+			"end_line": 123,
+			"comment": "\r\n     * Any <code>boolean</code>, <code>Boolean</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>false</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyMapOf",
+			"arg_types": "Ljava/lang/Class;Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyMapOf(java.lang.Class<K>, java.lang.Class<V>)",
+			"begin_line": 426,
+			"end_line": 428,
+			"comment": "\r\n     * Generic friendly alias to {@link Matchers#anyMap()}.\r\n     * It's an alternative to &#064;SuppressWarnings(\"unchecked\") to keep code clean of compiler warnings.\r\n     * <p>\r\n     * Any <code>Map</code> or <code>null</code>\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     *\r\n     * @param keyClazz Type of the map key to avoid casting\r\n     * @param valueClazz Type of the value to avoid casting\r\n     * @return empty Map.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyByte",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyByte()",
+			"begin_line": 136,
+			"end_line": 138,
+			"comment": "\r\n     * Any <code>byte</code>, <code>Byte</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>0</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyShort",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyShort()",
+			"begin_line": 226,
+			"end_line": 228,
+			"comment": "\r\n     * Any <code>short</code>, <code>Short</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @return <code>0</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anySetOf",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anySetOf(java.lang.Class<T>)",
+			"begin_line": 391,
+			"end_line": 393,
+			"comment": "\r\n     * Generic friendly alias to {@link Matchers#anySet()}.\r\n     * It's an alternative to &#064;SuppressWarnings(\"unchecked\") to keep code clean of compiler warnings.\r\n     * <p>\r\n     * Any <code>Set</code> or <code>null</code>\r\n     * <p>\r\n     * This method <b>*dones't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     *\r\n     * @param clazz Type owned by the Set to avoid casting\r\n     * @return empty Set\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "anyListOf",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.anyListOf(java.lang.Class<T>)",
+			"begin_line": 357,
+			"end_line": 359,
+			"comment": "\r\n     * Generic friendly alias to {@link Matchers#anyList()}.\r\n     * It's an alternative to &#064;SuppressWarnings(\"unchecked\") to keep code clean of compiler warnings.\r\n     * <p>\r\n     * Any <code>List</code> or <code>null</code>.\r\n     * <p>\r\n     * This method <b>*doesn't do any type checks*</b>, it is only there to avoid casting\r\n     * in your code. This might however change (type checks could be added) in a\r\n     * future major release.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @param clazz Type owned by the list to avoid casting\r\n     * @return empty List.\r\n     "
+		}
+	],
+	"Mockito-7b": [
+		{
+			"class_file": "org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+			"method_name": "readTypeVariables",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.internal.util.reflection.GenericMetadataSupport.TypeVariableReturnType.readTypeVariables()",
+			"begin_line": 375,
+			"end_line": 380,
+			"comment": ""
+		}
+	],
+	"Mockito-8b": [
+		{
+			"class_file": "org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+			"method_name": "registerTypeVariablesOn",
+			"arg_types": "Ljava/lang/reflect/Type;",
+			"type": "method",
+			"signature": "org.mockito.internal.util.reflection.GenericMetadataSupport.registerTypeVariablesOn(java.lang.reflect.Type)",
+			"begin_line": 66,
+			"end_line": 84,
+			"comment": ""
+		}
+	],
+	"Mockito-9b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/answers/CallsRealMethods.java",
+			"method_name": "answer",
+			"arg_types": "Lorg/mockito/invocation/InvocationOnMock;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.answers.CallsRealMethods.answer(org.mockito.invocation.InvocationOnMock)",
+			"begin_line": 35,
+			"end_line": 37,
+			"comment": ""
+		}
+	],
+	"Mockito-10b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "withSettingsUsing",
+			"arg_types": "Lorg/mockito/internal/util/reflection/GenericMetadataSupport;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.withSettingsUsing(org.mockito.internal.util.reflection.GenericMetadataSupport)",
+			"begin_line": 94,
+			"end_line": 101,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "newDeepStubMock",
+			"arg_types": "Lorg/mockito/internal/util/reflection/GenericMetadataSupport;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.newDeepStubMock(org.mockito.internal.util.reflection.GenericMetadataSupport)",
+			"begin_line": 87,
+			"end_line": 92,
+			"comment": "\r\n     * Creates a mock using the Generics Metadata.\r\n     *\r\n     * <li>Finally as we want to mock the actual type, but we want to pass along the contextual generics meta-data\r\n     * that was resolved for the current return type, for this to happen we associate to the mock an new instance of\r\n     * {@link ReturnsDeepStubs} answer in which we will store the returned type generic metadata.\r\n     *\r\n     * @param returnTypeGenericMetadata The metadata to use to create the new mock.\r\n     * @param parentMock The parent of the current deep stub mock.\r\n     * @return The mock\r\n     "
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "deepStub",
+			"arg_types": "Lorg/mockito/invocation/InvocationOnMock;Lorg/mockito/internal/util/reflection/GenericMetadataSupport;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.deepStub(org.mockito.invocation.InvocationOnMock, org.mockito.internal.util.reflection.GenericMetadataSupport)",
+			"begin_line": 58,
+			"end_line": 74,
+			"comment": ""
+		}
+	],
+	"Mockito-11b": [
+		{
+			"class_file": "org/mockito/internal/creation/DelegatingMethod.java",
+			"method_name": "hashCode",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.internal.creation.DelegatingMethod.hashCode()",
+			"begin_line": 58,
+			"end_line": 61,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/creation/DelegatingMethod.java",
+			"method_name": "equals",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.creation.DelegatingMethod.equals(java.lang.Object)",
+			"begin_line": 53,
+			"end_line": 56,
+			"comment": "\n     * @return True if the input object is a DelegatingMethod which has an internal Method which is equal to the internal Method of this DelegatingMethod,\n     * or if the input object is a Method which is equal to the internal Method of this DelegatingMethod.\n     "
+		}
+	],
+	"Mockito-12b": [
+		{
+			"class_file": "org/mockito/internal/util/reflection/GenericMaster.java",
+			"method_name": "getGenericType",
+			"arg_types": "Ljava/lang/reflect/Field;",
+			"type": "method",
+			"signature": "org.mockito.internal.util.reflection.GenericMaster.getGenericType(java.lang.reflect.Field)",
+			"begin_line": 16,
+			"end_line": 25,
+			"comment": "\r\n     * Finds the generic type (parametrized type) of the field. If the field is not generic it returns Object.class. \r\n     * \r\n     * @param field\r\n     * @return\r\n     "
+		}
+	],
+	"Mockito-13b": [
+		{
+			"class_file": "org/mockito/internal/MockHandler.java",
+			"method_name": "handle",
+			"arg_types": "Lorg/mockito/internal/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.internal.MockHandler.handle(org.mockito.internal.invocation.Invocation)",
+			"begin_line": 58,
+			"end_line": 106,
+			"comment": ""
+		}
+	],
+	"Mockito-14b": [
+		{
+			"class_file": "org/mockito/internal/MockitoCore.java",
+			"method_name": "verify",
+			"arg_types": "Ljava/lang/Object;Lorg/mockito/verification/VerificationMode;",
+			"type": "method",
+			"signature": "org.mockito.internal.MockitoCore.verify(T, org.mockito.verification.VerificationMode)",
+			"begin_line": 67,
+			"end_line": 75,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/MockHandler.java",
+			"method_name": "handle",
+			"arg_types": "Lorg/mockito/internal/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.internal.MockHandler.handle(org.mockito.internal.invocation.Invocation)",
+			"begin_line": 57,
+			"end_line": 101,
+			"comment": ""
+		}
+	],
+	"Mockito-15b": [
+		{
+			"class_file": "org/mockito/internal/configuration/injection/FinalMockCandidateFilter.java",
+			"method_name": "filterCandidate",
+			"arg_types": "Ljava/util/Collection;Ljava/lang/reflect/Field;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.injection.FinalMockCandidateFilter.filterCandidate(java.util.Collection<java.lang.Object>, java.lang.reflect.Field, java.lang.Object)",
+			"begin_line": 18,
+			"end_line": 40,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/configuration/injection/FinalMockCandidateFilter.java",
+			"method_name": "thenInject",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.injection.FinalMockCandidateFilter.Anonymous-1ed23402-0119-4a42-91fb-c6455fe20304.thenInject()",
+			"begin_line": 23,
+			"end_line": 30,
+			"comment": ""
+		}
+	],
+	"Mockito-16b": [
+		{
+			"class_file": "org/mockito/Mockito.java",
+			"method_name": "spy",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.Mockito.spy(T)",
+			"begin_line": 896,
+			"end_line": 900,
+			"comment": "\r\n     * Creates a spy of the real object. The spy calls <b>real</b> methods unless they are stubbed.\r\n     * <p>\r\n     * Real spies should be used <b>carefully and occasionally</b>, for example when dealing with legacy code.\r\n     * <p>\r\n     * As usual you are going to read <b>the partial mock warning</b>:\r\n     * Object oriented programming is more less tackling complexity by dividing the complexity into separate, specific, SRPy objects.\r\n     * How does partial mock fit into this paradigm? Well, it just doesn't... \r\n     * Partial mock usually means that the complexity has been moved to a different method on the same object.\r\n     * In most cases, this is not the way you want to design your application.\r\n     * <p>\r\n     * However, there are rare cases when partial mocks come handy: \r\n     * dealing with code you cannot change easily (3rd party interfaces, interim refactoring of legacy code etc.)\r\n     * However, I wouldn't use partial mocks for new, test-driven & well-designed code.\r\n     * <p>\r\n     * Example:\r\n     * \r\n     * <pre>\r\n     *   List list = new LinkedList();\r\n     *   List spy = spy(list);\r\n     * \r\n     *   //optionally, you can stub out some methods:\r\n     *   when(spy.size()).thenReturn(100);\r\n     * \r\n     *   //using the spy calls <b>real</b> methods\r\n     *   spy.add(\"one\");\r\n     *   spy.add(\"two\");\r\n     * \r\n     *   //prints \"one\" - the first element of a list\r\n     *   System.out.println(spy.get(0));\r\n     * \r\n     *   //size() method was stubbed - 100 is printed\r\n     *   System.out.println(spy.size());\r\n     * \r\n     *   //optionally, you can verify\r\n     *   verify(spy).add(\"one\");\r\n     *   verify(spy).add(\"two\");\r\n     * </pre>\r\n     * \r\n     * <h4>Important gotcha on spying real objects!</h4>\r\n     * \r\n     * 1. Sometimes it's impossible to use {@link Mockito#when(Object)} for stubbing spies. Example:\r\n     * \r\n     * <pre>\r\n     *   List list = new LinkedList();\r\n     *   List spy = spy(list);\r\n     *   \r\n     *   //Impossible: real method is called so spy.get(0) throws IndexOutOfBoundsException (the list is yet empty)\r\n     *   when(spy.get(0)).thenReturn(\"foo\");\r\n     *   \r\n     *   //You have to use doReturn() for stubbing\r\n     *   doReturn(\"foo\").when(spy).get(0);\r\n     * </pre>\r\n     * \r\n     * 2. Watch out for final methods. \r\n     * Mockito doesn't mock final methods so the bottom line is: when you spy on real objects + you try to stub a final method = trouble.\r\n     * What will happen is the real method will be called *on mock* but *not on the real instance* you passed to the spy() method.\r\n     * Typically you may get a NullPointerException because mock instances don't have fields initiated.\r\n     * \r\n     * <p>\r\n     * See examples in javadoc for {@link Mockito} class\r\n     * \r\n     * @param object\r\n     *            to spy on\r\n     * @return a spy of the real object\r\n     "
+		},
+		{
+			"class_file": "org/mockito/internal/MockitoCore.java",
+			"method_name": "mock",
+			"arg_types": "Ljava/lang/Class;Lorg/mockito/MockSettings;",
+			"type": "method",
+			"signature": "org.mockito.internal.MockitoCore.mock(java.lang.Class<T>, org.mockito.MockSettings)",
+			"begin_line": 33,
+			"end_line": 37,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/MockitoCore.java",
+			"method_name": "mock",
+			"arg_types": "Ljava/lang/Class;Lorg/mockito/MockSettings;Z",
+			"type": "method",
+			"signature": "org.mockito.internal.MockitoCore.mock(java.lang.Class<T>, org.mockito.MockSettings, boolean)",
+			"begin_line": 32,
+			"end_line": 32,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/Mockito.java",
+			"method_name": "mock",
+			"arg_types": "Ljava/lang/Class;Lorg/mockito/MockSettings;",
+			"type": "method",
+			"signature": "org.mockito.Mockito.mock(java.lang.Class<T>, org.mockito.MockSettings)",
+			"begin_line": 826,
+			"end_line": 828,
+			"comment": "\r\n     * Creates a mock with some non-standard settings.\r\n     * <p>\r\n     * The number of configuration points for a mock grows \r\n     * so we need a fluent way to introduce new configuration without adding more and more overloaded Mockito.mock() methods. \r\n     * Hence {@link MockSettings}.\r\n     * <pre>\r\n     *   Listener mock = mock(Listener.class, withSettings()\r\n     *     .name(\"firstListner\").defaultBehavior(RETURNS_SMART_NULLS));\r\n     *   );  \r\n     * </pre>\r\n     * <b>Use it carefully and occasionally</b>. What might be reason your test needs non-standard mocks? \r\n     * Is the code under test so complicated that it requires non-standard mocks? \r\n     * Wouldn't you prefer to refactor the code under test so it is testable in a simple way?\r\n     * <p>\r\n     * See also {@link Mockito#withSettings()}\r\n     * <p>\r\n     * See examples in javadoc for {@link Mockito} class\r\n     * \r\n     * @param classToMock class or interface to mock\r\n     * @param mockSettings additional mock settings\r\n     * @return mock object\r\n     "
+		}
+	],
+	"Mockito-17b": [
+		{
+			"class_file": "org/mockito/internal/creation/MockSettingsImpl.java",
+			"method_name": "isSerializable",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.internal.creation.MockSettingsImpl.isSerializable()",
+			"begin_line": 73,
+			"end_line": 75,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/util/MockUtil.java",
+			"method_name": "createMock",
+			"arg_types": "Ljava/lang/Class;Lorg/mockito/internal/creation/MockSettingsImpl;",
+			"type": "method",
+			"signature": "org.mockito.internal.util.MockUtil.createMock(java.lang.Class<T>, org.mockito.internal.creation.MockSettingsImpl)",
+			"begin_line": 33,
+			"end_line": 56,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/creation/MockSettingsImpl.java",
+			"method_name": "serializable",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.internal.creation.MockSettingsImpl.serializable()",
+			"begin_line": 21,
+			"end_line": 23,
+			"comment": ""
+		}
+	],
+	"Mockito-18b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java",
+			"method_name": "returnValueFor",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues.returnValueFor(java.lang.Class<?>)",
+			"begin_line": 82,
+			"end_line": 118,
+			"comment": ""
+		}
+	],
+	"Mockito-19b": [
+		{
+			"class_file": "org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java",
+			"method_name": "filterCandidate",
+			"arg_types": "Ljava/util/Collection;Ljava/lang/reflect/Field;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter.filterCandidate(java.util.Collection<java.lang.Object>, java.lang.reflect.Field, java.lang.Object)",
+			"begin_line": 20,
+			"end_line": 29,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java",
+			"method_name": "filterCandidate",
+			"arg_types": "Ljava/util/Collection;Ljava/lang/reflect/Field;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter.filterCandidate(java.util.Collection<java.lang.Object>, java.lang.reflect.Field, java.lang.Object)",
+			"begin_line": 23,
+			"end_line": 47,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java",
+			"method_name": "injectMockCandidatesOnFields",
+			"arg_types": "Ljava/util/Set;Ljava/lang/Object;ZLjava/util/List;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.injection.PropertyAndSetterInjection.injectMockCandidatesOnFields(java.util.Set<java.lang.Object>, java.lang.Object, boolean, java.util.List<java.lang.reflect.Field>)",
+			"begin_line": 111,
+			"end_line": 122,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java",
+			"method_name": "filterCandidate",
+			"arg_types": "Ljava/util/Collection;Ljava/lang/reflect/Field;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.injection.filter.MockCandidateFilter.filterCandidate(java.util.Collection<java.lang.Object>, java.lang.reflect.Field, java.lang.Object)",
+			"begin_line": 12,
+			"end_line": 16,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java",
+			"method_name": "filterCandidate",
+			"arg_types": "Ljava/util/Collection;Ljava/lang/reflect/Field;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter.filterCandidate(java.util.Collection<java.lang.Object>, java.lang.reflect.Field, java.lang.Object)",
+			"begin_line": 22,
+			"end_line": 44,
+			"comment": ""
+		}
+	],
+	"Mockito-20b": [
+		{
+			"class_file": "org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java",
+			"method_name": "createMock",
+			"arg_types": "Lorg/mockito/mock/MockCreationSettings;Lorg/mockito/invocation/MockHandler;",
+			"type": "method",
+			"signature": "org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker.createMock(org.mockito.mock.MockCreationSettings<T>, org.mockito.invocation.MockHandler)",
+			"begin_line": 24,
+			"end_line": 53,
+			"comment": ""
+		}
+	],
+	"Mockito-21b": [
+		{
+			"class_file": "org/mockito/internal/creation/instance/ConstructorInstantiator.java",
+			"method_name": "newInstance",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.internal.creation.instance.ConstructorInstantiator.newInstance(java.lang.Class<T>)",
+			"begin_line": 13,
+			"end_line": 18,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/creation/instance/ConstructorInstantiator.java",
+			"method_name": "withOuterClass",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.internal.creation.instance.ConstructorInstantiator.withOuterClass(java.lang.Class<T>)",
+			"begin_line": 20,
+			"end_line": 29,
+			"comment": ""
+		}
+	],
+	"Mockito-22b": [
+		{
+			"class_file": "org/mockito/internal/matchers/Equality.java",
+			"method_name": "areEqual",
+			"arg_types": "Ljava/lang/Object;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.matchers.Equality.areEqual(java.lang.Object, java.lang.Object)",
+			"begin_line": 12,
+			"end_line": 20,
+			"comment": ""
+		}
+	],
+	"Mockito-23b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "answer",
+			"arg_types": "Lorg/mockito/invocation/InvocationOnMock;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.answer(org.mockito.invocation.InvocationOnMock)",
+			"begin_line": 47,
+			"end_line": 57,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "withSettingsUsing",
+			"arg_types": "Lorg/mockito/internal/util/reflection/GenericMetadataSupport;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.withSettingsUsing(org.mockito.internal.util.reflection.GenericMetadataSupport)",
+			"begin_line": 93,
+			"end_line": 101,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"delegate"
+			],
+			"begin_line": 45,
+			"end_line": 45,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"mockitoCore"
+			],
+			"begin_line": 44,
+			"end_line": 44,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "recordDeepStubMock",
+			"arg_types": "Ljava/lang/Object;Lorg/mockito/internal/stubbing/InvocationContainerImpl;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.recordDeepStubMock(java.lang.Object, org.mockito.internal.stubbing.InvocationContainerImpl)",
+			"begin_line": 112,
+			"end_line": 121,
+			"comment": ""
+		}
+	],
+	"Mockito-24b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java",
+			"method_name": "answer",
+			"arg_types": "Lorg/mockito/invocation/InvocationOnMock;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues.answer(org.mockito.invocation.InvocationOnMock)",
+			"begin_line": 63,
+			"end_line": 81,
+			"comment": " (non-Javadoc)\n     * @see org.mockito.stubbing.Answer#answer(org.mockito.invocation.InvocationOnMock)\n     "
+		}
+	],
+	"Mockito-25b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "getMock",
+			"arg_types": "Lorg/mockito/invocation/InvocationOnMock;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.getMock(org.mockito.invocation.InvocationOnMock)",
+			"begin_line": 56,
+			"end_line": 69,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "recordDeepStubMock",
+			"arg_types": "Lorg/mockito/invocation/InvocationOnMock;Lorg/mockito/internal/stubbing/InvocationContainerImpl;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.recordDeepStubMock(org.mockito.invocation.InvocationOnMock, org.mockito.internal.stubbing.InvocationContainerImpl)",
+			"begin_line": 81,
+			"end_line": 92,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+			"method_name": "answer",
+			"arg_types": "Lorg/mockito/invocation/InvocationOnMock;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs.answer(org.mockito.invocation.InvocationOnMock)",
+			"begin_line": 44,
+			"end_line": 54,
+			"comment": ""
+		}
+	],
+	"Mockito-26b": [],
+	"Mockito-27b": [
+		{
+			"class_file": "org/mockito/internal/util/MockUtil.java",
+			"method_name": "resetMock",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.util.MockUtil.resetMock(T)",
+			"begin_line": 62,
+			"end_line": 67,
+			"comment": ""
+		}
+	],
+	"Mockito-28b": [
+		{
+			"class_file": "org/mockito/internal/configuration/DefaultInjectionEngine.java",
+			"method_name": "injectMockCandidate",
+			"arg_types": "Ljava/lang/Class;Ljava/util/Set;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.DefaultInjectionEngine.injectMockCandidate(java.lang.Class<?>, java.util.Set<java.lang.Object>, java.lang.Object)",
+			"begin_line": 91,
+			"end_line": 95,
+			"comment": ""
+		}
+	],
+	"Mockito-29b": [
+		{
+			"class_file": "org/mockito/internal/matchers/Same.java",
+			"method_name": "describeTo",
+			"arg_types": "Lorg/hamcrest/Description;",
+			"type": "method",
+			"signature": "org.mockito.internal.matchers.Same.describeTo(org.hamcrest.Description)",
+			"begin_line": 26,
+			"end_line": 32,
+			"comment": ""
+		}
+	],
+	"Mockito-30b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java",
+			"method_name": "intercept",
+			"arg_types": "Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lorg/mockito/cglib/proxy/MethodProxy;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls.ThrowingInterceptor.intercept(java.lang.Object, java.lang.reflect.Method, java.lang.Object[], org.mockito.cglib.proxy.MethodProxy)",
+			"begin_line": 51,
+			"end_line": 58,
+			"comment": ""
+		},
+		{
+			"class_file": "org/mockito/exceptions/Reporter.java",
+			"method_name": "smartNullPointerException",
+			"arg_types": "Lorg/mockito/internal/debugging/Location;",
+			"type": "method",
+			"signature": "org.mockito.exceptions.Reporter.smartNullPointerException(org.mockito.internal.debugging.Location)",
+			"begin_line": 438,
+			"end_line": 446,
+			"comment": ""
+		}
+	],
+	"Mockito-31b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java",
+			"method_name": "formatMethodCall",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls.ThrowingInterceptor.formatMethodCall()",
+			"begin_line": 59,
+			"end_line": 61,
+			"comment": ""
+		}
+	],
+	"Mockito-32b": [
+		{
+			"class_file": "org/mockito/internal/configuration/SpyAnnotationEngine.java",
+			"method_name": "process",
+			"arg_types": "Ljava/lang/Class;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.configuration.SpyAnnotationEngine.process(java.lang.Class<?>, java.lang.Object)",
+			"begin_line": 27,
+			"end_line": 58,
+			"comment": ""
+		}
+	],
+	"Mockito-33b": [
+		{
+			"class_file": "org/mockito/internal/invocation/InvocationMatcher.java",
+			"method_name": "hasSameMethod",
+			"arg_types": "Lorg/mockito/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.internal.invocation.InvocationMatcher.hasSameMethod(org.mockito.internal.invocation.Invocation)",
+			"begin_line": 92,
+			"end_line": 100,
+			"comment": ""
+		}
+	],
+	"Mockito-34b": [
+		{
+			"class_file": "org/mockito/internal/invocation/InvocationMatcher.java",
+			"method_name": "captureArgumentsFrom",
+			"arg_types": "Lorg/mockito/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.internal.invocation.InvocationMatcher.captureArgumentsFrom(org.mockito.internal.invocation.Invocation)",
+			"begin_line": 103,
+			"end_line": 111,
+			"comment": ""
+		}
+	],
+	"Mockito-35b": [
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "eq",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.eq(T)",
+			"begin_line": 478,
+			"end_line": 480,
+			"comment": "\r\n     * Object argument that is equal to the given value.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @param value\r\n     *            the given value.\r\n     * @return <code>null</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "isA",
+			"arg_types": "Ljava/lang/Class;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.isA(java.lang.Class<T>)",
+			"begin_line": 361,
+			"end_line": 363,
+			"comment": "\r\n     * Object argument that implements the given class. \r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @param <T>\r\n     *            the accepted type.\r\n     * @param clazz\r\n     *            the class of the accepted type.\r\n     * @return <code>null</code>.\r\n     "
+		},
+		{
+			"class_file": "org/mockito/Matchers.java",
+			"method_name": "same",
+			"arg_types": "Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.Matchers.same(T)",
+			"begin_line": 515,
+			"end_line": 517,
+			"comment": "\r\n     * Object argument that is the same as the given value.\r\n     * <p>\r\n     * See examples in javadoc for {@link Matchers} class\r\n     * \r\n     * @param <T>\r\n     *            the type of the object, it is passed through to prevent casts.\r\n     * @param value\r\n     *            the given value.\r\n     * @return <code>null</code>.\r\n     "
+		}
+	],
+	"Mockito-36b": [
+		{
+			"class_file": "org/mockito/internal/invocation/Invocation.java",
+			"method_name": "callRealMethod",
+			"arg_types": "",
+			"type": "method",
+			"signature": "org.mockito.internal.invocation.Invocation.callRealMethod()",
+			"begin_line": 201,
+			"end_line": 203,
+			"comment": ""
+		}
+	],
+	"Mockito-37b": [
+		{
+			"class_file": "org/mockito/internal/stubbing/answers/AnswersValidator.java",
+			"method_name": "validate",
+			"arg_types": "Lorg/mockito/stubbing/Answer;Lorg/mockito/internal/invocation/Invocation;",
+			"type": "method",
+			"signature": "org.mockito.internal.stubbing.answers.AnswersValidator.validate(org.mockito.stubbing.Answer<?>, org.mockito.internal.invocation.Invocation)",
+			"begin_line": 15,
+			"end_line": 28,
+			"comment": ""
+		}
+	],
+	"Mockito-38b": [
+		{
+			"class_file": "org/mockito/internal/verification/argumentmatching/ArgumentMatchingTool.java",
+			"method_name": "toStringEquals",
+			"arg_types": "Lorg/hamcrest/Matcher;Ljava/lang/Object;",
+			"type": "method",
+			"signature": "org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool.toStringEquals(org.hamcrest.Matcher, java.lang.Object)",
+			"begin_line": 47,
+			"end_line": 49,
+			"comment": ""
+		}
+	]
+}

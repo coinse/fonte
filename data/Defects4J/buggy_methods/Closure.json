@@ -1,0 +1,3771 @@
+{
+	"Closure-1b": [
+		{
+			"class_file": "com/google/javascript/jscomp/RemoveUnusedVars.java",
+			"method_name": "removeUnreferencedFunctionArgs",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RemoveUnusedVars.removeUnreferencedFunctionArgs(com.google.javascript.jscomp.Scope)",
+			"begin_line": 369,
+			"end_line": 406,
+			"comment": "\n   * Removes unreferenced arguments from a function declaration and when\n   * possible the function's callSites.\n   *\n   * @param fnScope The scope inside the function\n   "
+		}
+	],
+	"Closure-2b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "checkInterfaceConflictProperties",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Ljava/lang/String;Ljava/util/HashMap;Ljava/util/HashMap;Lcom/google/javascript/rhino/jstype/ObjectType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeCheck.checkInterfaceConflictProperties(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, java.lang.String, java.util.HashMap<java.lang.String, com.google.javascript.rhino.jstype.ObjectType>, java.util.HashMap<java.lang.String, com.google.javascript.rhino.jstype.ObjectType>, com.google.javascript.rhino.jstype.ObjectType)",
+			"begin_line": 1566,
+			"end_line": 1592,
+			"comment": "\n   * Check whether there's any property conflict for for a particular super\n   * interface\n   * @param t The node traversal object that supplies context\n   * @param n The node being visited\n   * @param functionName The function name being checked\n   * @param properties The property names in the super interfaces that have\n   * been visited\n   * @param currentProperties The property names in the super interface\n   * that have been visited\n   * @param interfaceType The super interface that is being visited\n   "
+		}
+	],
+	"Closure-3b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "apply",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FlowSensitiveInlineVariables.Candidate.Anonymous-a39779ca-232c-4cd1-ada4-326c3b396dc8.apply(com.google.javascript.rhino.Node)",
+			"begin_line": 365,
+			"end_line": 377,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "enterScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FlowSensitiveInlineVariables.enterScope(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 124,
+			"end_line": 170,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "canInline",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FlowSensitiveInlineVariables.Candidate.canInline()",
+			"begin_line": 280,
+			"end_line": 411,
+			"comment": ""
+		}
+	],
+	"Closure-4b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/NamedType.java",
+			"method_name": "resolveInternal",
+			"arg_types": "Lcom/google/javascript/rhino/ErrorReporter;Lcom/google/javascript/rhino/jstype/StaticScope;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.NamedType.resolveInternal(com.google.javascript.rhino.ErrorReporter, com.google.javascript.rhino.jstype.StaticScope<com.google.javascript.rhino.jstype.JSType>)",
+			"begin_line": 183,
+			"end_line": 212,
+			"comment": "\n   * Resolve the referenced type within the enclosing scope.\n   "
+		}
+	],
+	"Closure-5b": [
+		{
+			"class_file": "com/google/javascript/jscomp/InlineObjectLiterals.java",
+			"method_name": "isInlinableObject",
+			"arg_types": "Ljava/util/List;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineObjectLiterals.InliningBehavior.isInlinableObject(java.util.List<com.google.javascript.jscomp.ReferenceCollectingCallback.Reference>)",
+			"begin_line": 155,
+			"end_line": 253,
+			"comment": "\n     * Counts the number of direct (full) references to an object.\n     * Specifically, we check for references of the following type:\n     * <pre>\n     *   x;\n     *   x.fn();\n     * </pre>\n     "
+		}
+	],
+	"Closure-6b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeValidator.java",
+			"method_name": "expectCanAssignTo",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/jstype/JSType;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeValidator.expectCanAssignTo(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.jstype.JSType, java.lang.String)",
+			"begin_line": 402,
+			"end_line": 413,
+			"comment": "\n   * Expect that the first type can be assigned to a symbol of the second\n   * type.\n   *\n   * @param t The node traversal.\n   * @param n The node to issue warnings on.\n   * @param rightType The type on the RHS of the assign.\n   * @param leftType The type of the symbol on the LHS of the assign.\n   * @param msg An extra message for the mismatch warning, if necessary.\n   * @return True if the types matched, false otherwise.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypeValidator.java",
+			"method_name": "expectCanAssignToPropertyOf",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeValidator.expectCanAssignToPropertyOf(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 362,
+			"end_line": 389,
+			"comment": "\n   * Expect that the first type can be assigned to a symbol of the second\n   * type.\n   *\n   * @param t The node traversal.\n   * @param n The node to issue warnings on.\n   * @param rightType The type on the RHS of the assign.\n   * @param leftType The type of the symbol on the LHS of the assign.\n   * @param owner The owner of the property being assigned to.\n   * @param propName The name of the property being assigned to.\n   * @return True if the types matched, false otherwise.\n   "
+		}
+	],
+	"Closure-7b": [
+		{
+			"class_file": "com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java",
+			"method_name": "caseObjectType",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/ObjectType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.ChainableReverseAbstractInterpreter.RestrictByOneTypeOfResultVisitor.caseObjectType(com.google.javascript.rhino.jstype.ObjectType)",
+			"begin_line": 609,
+			"end_line": 618,
+			"comment": ""
+		}
+	],
+	"Closure-8b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+			"method_name": "canBeRedeclared",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/Scope;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseVariableDeclarations.GatherCollapses.canBeRedeclared(com.google.javascript.rhino.Node, com.google.javascript.jscomp.Scope)",
+			"begin_line": 190,
+			"end_line": 205,
+			"comment": ""
+		}
+	],
+	"Closure-9b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ProcessCommonJSModules.java",
+			"method_name": "normalizeSourceName",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ProcessCommonJSModules.normalizeSourceName(java.lang.String)",
+			"begin_line": 116,
+			"end_line": 125,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ProcessCommonJSModules.java",
+			"method_name": "visitScript",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ProcessCommonJSModules.ProcessCommonJsModulesCallback.visitScript(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 179,
+			"end_line": 204,
+			"comment": "\n     * Emit goog.provide and add suffix to all global vars to avoid conflicts\n     * with other modules.\n     "
+		}
+	],
+	"Closure-10b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "mayBeString",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.mayBeString(com.google.javascript.rhino.Node, boolean)",
+			"begin_line": 1415,
+			"end_line": 1421,
+			"comment": ""
+		}
+	],
+	"Closure-11b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "visitGetProp",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeCheck.visitGetProp(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1303,
+			"end_line": 1321,
+			"comment": "\n   * Visits a GETPROP node.\n   *\n   * @param t The node traversal object that supplies context, such as the\n   * scope chain to use in name lookups as well as error reporting.\n   * @param n The node being visited.\n   * @param parent The parent of <code>n</code>\n   "
+		}
+	],
+	"Closure-12b": [
+		{
+			"class_file": "com/google/javascript/jscomp/MaybeReachingVariableUse.java",
+			"method_name": "hasExceptionHandler",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MaybeReachingVariableUse.hasExceptionHandler(com.google.javascript.rhino.Node)",
+			"begin_line": 159,
+			"end_line": 161,
+			"comment": ""
+		}
+	],
+	"Closure-13b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+			"method_name": "traverse",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeOptimizationsPass.traverse(com.google.javascript.rhino.Node)",
+			"begin_line": 113,
+			"end_line": 138,
+			"comment": ""
+		}
+	],
+	"Closure-14b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ControlFlowAnalysis.java",
+			"method_name": "computeFollowNode",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/ControlFlowAnalysis;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ControlFlowAnalysis.computeFollowNode(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.jscomp.ControlFlowAnalysis)",
+			"begin_line": 692,
+			"end_line": 789,
+			"comment": "\n   * Computes the follow() node of a given node and its parent. There is a side\n   * effect when calling this function. If this function computed an edge that\n   * exists a FINALLY, it'll attempt to connect the fromNode to the outer\n   * FINALLY according to the finallyMap.\n   *\n   * @param fromNode The original source node since {@code node} is changed\n   *        during recursion.\n   * @param node The node that follow() should compute.\n   "
+		}
+	],
+	"Closure-15b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "apply",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FlowSensitiveInlineVariables.Anonymous-dcdb25aa-b19e-4f8c-beab-f638c0ab6b8a.apply(com.google.javascript.rhino.Node)",
+			"begin_line": 83,
+			"end_line": 109,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"SIDE_EFFECT_PREDICATE"
+			],
+			"begin_line": 81,
+			"end_line": 110,
+			"comment": ""
+		}
+	],
+	"Closure-16b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "fixTypeNode",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.fixTypeNode(com.google.javascript.rhino.Node)",
+			"begin_line": 457,
+			"end_line": 476,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "applyAlias",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.AliasedTypeNode.applyAlias()",
+			"begin_line": 178,
+			"end_line": 181,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/jscomp/ScopedAliases;Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.AliasedTypeNode.AliasedTypeNode(com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 172,
+			"end_line": 176,
+			"comment": ""
+		}
+	],
+	"Closure-17b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "getDeclaredType",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/JSDocInfo;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.getDeclaredType(java.lang.String, com.google.javascript.rhino.JSDocInfo, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1267,
+			"end_line": 1317,
+			"comment": "\n     * Look for a type declaration on a property assignment\n     * (in an ASSIGN or an object literal key).\n     *\n     * @param info The doc info for this property.\n     * @param lValue The l-value node.\n     * @param rValue The node that {@code n} is being initialized to,\n     *     or {@code null} if this is a stub declaration.\n     "
+		}
+	],
+	"Closure-18b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "parseInputs",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.parseInputs()",
+			"begin_line": 1240,
+			"end_line": 1362,
+			"comment": "\n   * Parses the externs and main inputs.\n   *\n   * @return A synthetic root node whose two children are the externs root\n   *     and the main root\n   "
+		}
+	],
+	"Closure-19b": [
+		{
+			"class_file": "com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java",
+			"method_name": "declareNameInScope",
+			"arg_types": "Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.ChainableReverseAbstractInterpreter.declareNameInScope(com.google.javascript.jscomp.type.FlowScope, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 157,
+			"end_line": 178,
+			"comment": "\n   * Declares a refined type in {@code scope} for the name represented by\n   * {@code node}. It must be possible to refine the type of the given node in\n   * the given scope, as determined by {@link #getTypeIfRefinable}.\n   "
+		}
+	],
+	"Closure-20b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+			"method_name": "tryFoldSimpleFunctionCall",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax.tryFoldSimpleFunctionCall(com.google.javascript.rhino.Node)",
+			"begin_line": 208,
+			"end_line": 230,
+			"comment": ""
+		}
+	],
+	"Closure-21b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CheckSideEffects.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckSideEffects.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 83,
+			"end_line": 148,
+			"comment": ""
+		}
+	],
+	"Closure-22b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CheckSideEffects.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckSideEffects.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 83,
+			"end_line": 155,
+			"comment": ""
+		}
+	],
+	"Closure-23b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeFoldConstants.java",
+			"method_name": "tryFoldArrayAccess",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeFoldConstants.tryFoldArrayAccess(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1422,
+			"end_line": 1472,
+			"comment": ""
+		}
+	],
+	"Closure-24b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "findAliases",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.findAliases(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 272,
+			"end_line": 297,
+			"comment": ""
+		}
+	],
+	"Closure-25b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeInference.java",
+			"method_name": "traverseNew",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/type/FlowScope;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeInference.traverseNew(com.google.javascript.rhino.Node, com.google.javascript.jscomp.type.FlowScope)",
+			"begin_line": 1035,
+			"end_line": 1063,
+			"comment": ""
+		}
+	],
+	"Closure-26b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ProcessCommonJSModules.java",
+			"method_name": "visitModuleExports",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ProcessCommonJSModules.ProcessCommonJsModulesCallback.visitModuleExports(com.google.javascript.rhino.Node)",
+			"begin_line": 220,
+			"end_line": 228,
+			"comment": "\n     * Rewrite module.exports to moduleName.module$exports.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ProcessCommonJSModules.java",
+			"method_name": "emitOptionalModuleExportsOverride",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ProcessCommonJSModules.ProcessCommonJsModulesCallback.emitOptionalModuleExportsOverride(com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 205,
+			"end_line": 215,
+			"comment": "\n     * Emit <code>if (moduleName.module$exports) {\n     *    moduleName = moduleName.module$export;\n     * }</code> at end of file.\n     "
+		}
+	],
+	"Closure-27b": [
+		{
+			"class_file": "com/google/javascript/rhino/IR.java",
+			"method_name": "tryCatch",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.IR.tryCatch(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 230,
+			"end_line": 235,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/IR.java",
+			"method_name": "tryFinally",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.IR.tryFinally(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 223,
+			"end_line": 228,
+			"comment": ""
+		}
+	],
+	"Closure-28b": [],
+	"Closure-29b": [
+		{
+			"class_file": "com/google/javascript/jscomp/InlineObjectLiterals.java",
+			"method_name": "isInlinableObject",
+			"arg_types": "Ljava/util/List;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineObjectLiterals.InliningBehavior.isInlinableObject(java.util.List<com.google.javascript.jscomp.ReferenceCollectingCallback.Reference>)",
+			"begin_line": 155,
+			"end_line": 240,
+			"comment": "\n     * Counts the number of direct (full) references to an object.\n     * Specifically we check for references of the following type:\n     * <pre>\n     *   x;\n     *   x.fn();\n     * </pre>\n     "
+		}
+	],
+	"Closure-30b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "process",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FlowSensitiveInlineVariables.process(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 155,
+			"end_line": 158,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MustBeReachingVariableDef.Anonymous-cda1798d-e476-4818-ad2f-760c8cc23c10.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 394,
+			"end_line": 400,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+			"method_name": "computeDependence",
+			"arg_types": "Lcom/google/javascript/jscomp/MustBeReachingVariableDef$Definition;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MustBeReachingVariableDef.computeDependence(com.google.javascript.jscomp.MustBeReachingVariableDef.Definition, com.google.javascript.rhino.Node)",
+			"begin_line": 391,
+			"end_line": 402,
+			"comment": "\n   * Computes all the local variables that rValue reads from and store that\n   * in the def's depends set.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+			"method_name": "dependsOnOuterScopeVars",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MustBeReachingVariableDef.dependsOnOuterScopeVars(java.lang.String, com.google.javascript.rhino.Node)",
+			"begin_line": 425,
+			"end_line": 437,
+			"comment": ""
+		}
+	],
+	"Closure-31b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "parseInputs",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.parseInputs()",
+			"begin_line": 1236,
+			"end_line": 1387,
+			"comment": "\n   * Parses the externs and main inputs.\n   *\n   * @return A synthetic root node whose two children are the externs root\n   *     and the main root\n   "
+		}
+	],
+	"Closure-32b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+			"method_name": "extractMultilineTextualBlock",
+			"arg_types": "Lcom/google/javascript/jscomp/parsing/JsDocToken;Lcom/google/javascript/jscomp/parsing/JsDocInfoParser$WhitespaceOption;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.JsDocInfoParser.extractMultilineTextualBlock(com.google.javascript.jscomp.parsing.JsDocToken, com.google.javascript.jscomp.parsing.JsDocInfoParser.WhitespaceOption)",
+			"begin_line": 1328,
+			"end_line": 1429,
+			"comment": "\n   * Extracts the text found on the current line and all subsequent\n   * until either an annotation, end of comment or end of file is reached.\n   * Note that if this method detects an end of line as the first token, it\n   * will quit immediately (indicating that there is no text where it was\n   * expected).  Note that token = info.token; should be called after this\n   * method is used to update the token properly in the parser.\n   *\n   * @param token The start token.\n   * @param option How to handle whitespace.\n   *\n   * @return The extraction information.\n   "
+		}
+	],
+	"Closure-33b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+			"method_name": "matchConstraint",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/ObjectType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.PrototypeObjectType.matchConstraint(com.google.javascript.rhino.jstype.ObjectType)",
+			"begin_line": 554,
+			"end_line": 580,
+			"comment": ""
+		}
+	],
+	"Closure-34b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodePrinter.java",
+			"method_name": "appendOp",
+			"arg_types": "Ljava/lang/String;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodePrinter.PrettyCodePrinter.appendOp(java.lang.String, boolean)",
+			"begin_line": 331,
+			"end_line": 342,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "add",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/CodeGenerator$Context;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.add(com.google.javascript.rhino.Node, com.google.javascript.jscomp.CodeGenerator.Context)",
+			"begin_line": 85,
+			"end_line": 732,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "unrollBinaryOperator",
+			"arg_types": "Lcom/google/javascript/rhino/Node;ILjava/lang/String;Lcom/google/javascript/jscomp/CodeGenerator$Context;Lcom/google/javascript/jscomp/CodeGenerator$Context;II",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.unrollBinaryOperator(com.google.javascript.rhino.Node, int, java.lang.String, com.google.javascript.jscomp.CodeGenerator.Context, com.google.javascript.jscomp.CodeGenerator.Context, int, int)",
+			"begin_line": 741,
+			"end_line": 757,
+			"comment": "\n   * We could use addList recursively here, but sometimes we produce\n   * very deeply nested operators and run out of stack space, so we\n   * just unroll the recursion when possible.\n   *\n   * We assume nodes are left-recursive.\n   "
+		}
+	],
+	"Closure-35b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeInference.java",
+			"method_name": "inferPropertyTypesToMatchConstraint",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeInference.inferPropertyTypesToMatchConstraint(com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 1113,
+			"end_line": 1137,
+			"comment": "\n   * Suppose X is an object with inferred properties.\n   * Suppose also that X is used in a way where it would only type-check\n   * correctly if some of those properties are widened.\n   * Then we should be polite and automatically widen X's properties for him.\n   *\n   * For a concrete example, consider:\n   * param x {{prop: (number|undefined)}}\n   * function f(x) {}\n   * f({});\n   *\n   * If we give the anonymous object an inferred property of (number|undefined),\n   * then this code will type-check appropriately.\n   "
+		}
+	],
+	"Closure-36b": [
+		{
+			"class_file": "com/google/javascript/jscomp/InlineVariables.java",
+			"method_name": "canInline",
+			"arg_types": "Lcom/google/javascript/jscomp/ReferenceCollectingCallback$Reference;Lcom/google/javascript/jscomp/ReferenceCollectingCallback$Reference;Lcom/google/javascript/jscomp/ReferenceCollectingCallback$Reference;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineVariables.InliningBehavior.canInline(com.google.javascript.jscomp.ReferenceCollectingCallback.Reference, com.google.javascript.jscomp.ReferenceCollectingCallback.Reference, com.google.javascript.jscomp.ReferenceCollectingCallback.Reference)",
+			"begin_line": 519,
+			"end_line": 580,
+			"comment": "\n     * @return true if the provided reference and declaration can be safely\n     *         inlined according to our criteria\n     "
+		}
+	],
+	"Closure-37b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/IRFactory.java",
+			"method_name": "processFunctionNode",
+			"arg_types": "Lcom/google/javascript/rhino/head/ast/FunctionNode;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.IRFactory.TransformDispatcher.processFunctionNode(com.google.javascript.rhino.head.ast.FunctionNode)",
+			"begin_line": 609,
+			"end_line": 673,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/NodeTraversal.java",
+			"method_name": "traverseFunction",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeTraversal.traverseFunction(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 510,
+			"end_line": 545,
+			"comment": "\n   * Traverses a function.\n   "
+		}
+	],
+	"Closure-38b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeConsumer.java",
+			"method_name": "addNumber",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeConsumer.addNumber(double)",
+			"begin_line": 240,
+			"end_line": 267,
+			"comment": ""
+		}
+	],
+	"Closure-39b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+			"method_name": "toStringHelper",
+			"arg_types": "Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.PrototypeObjectType.toStringHelper(boolean)",
+			"begin_line": 352,
+			"end_line": 396,
+			"comment": ""
+		}
+	],
+	"Closure-40b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NameAnalyzer.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NameAnalyzer.FindDeclarationsAndSetters.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 595,
+			"end_line": 642,
+			"comment": ""
+		}
+	],
+	"Closure-41b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionTypeBuilder.java",
+			"method_name": "inferFromOverriddenFunction",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/FunctionType;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionTypeBuilder.inferFromOverriddenFunction(com.google.javascript.rhino.jstype.FunctionType, com.google.javascript.rhino.Node)",
+			"begin_line": 242,
+			"end_line": 296,
+			"comment": "\n   * Infer the parameter and return types of a function from\n   * the parameter and return types of the function it is overriding.\n   *\n   * @param oldType The function being overridden. Does nothing if this is null.\n   * @param paramsParent The LP node of the function that we're assigning to.\n   *     If null, that just means we're not initializing this to a function\n   *     literal.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionTypeBuilder.java",
+			"method_name": "inferParameterTypes",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/JSDocInfo;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionTypeBuilder.inferParameterTypes(com.google.javascript.rhino.Node, com.google.javascript.rhino.JSDocInfo)",
+			"begin_line": 421,
+			"end_line": 494,
+			"comment": "\n   * Infer the parameter types from the list of argument names and\n   * the doc info.\n   "
+		}
+	],
+	"Closure-42b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/IRFactory.java",
+			"method_name": "processForInLoop",
+			"arg_types": "Lcom/google/javascript/rhino/head/ast/ForInLoop;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.IRFactory.TransformDispatcher.processForInLoop(com.google.javascript.rhino.head.ast.ForInLoop)",
+			"begin_line": 566,
+			"end_line": 575,
+			"comment": ""
+		}
+	],
+	"Closure-43b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "attachLiteralTypes",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.attachLiteralTypes(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 549,
+			"end_line": 586,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 497,
+			"end_line": 547,
+			"comment": ""
+		}
+	],
+	"Closure-44b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeConsumer.java",
+			"method_name": "add",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeConsumer.add(java.lang.String)",
+			"begin_line": 181,
+			"end_line": 202,
+			"comment": ""
+		}
+	],
+	"Closure-45b": [
+		{
+			"class_file": "com/google/javascript/jscomp/RemoveUnusedVars.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Z",
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.RemoveUnusedVars.Assign.Assign(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, boolean)",
+			"begin_line": 898,
+			"end_line": 909,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/RemoveUnusedVars.java",
+			"method_name": "interpretAssigns",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RemoveUnusedVars.interpretAssigns()",
+			"begin_line": 704,
+			"end_line": 749,
+			"comment": "\n   * Look at all the property assigns to all variables.\n   * These may or may not count as references. For example,\n   *\n   * <code>\n   * var x = {};\n   * x.foo = 3; // not a reference.\n   * var y = foo();\n   * y.foo = 3; // is a reference.\n   * </code>\n   *\n   * Interpreting assignments could mark a variable as referenced that\n   * wasn't referenced before, in order to keep it alive. Because we find\n   * references by lazily traversing subtrees, marking a variable as\n   * referenced could trigger new traversals of new subtrees, which could\n   * find new references.\n   *\n   * Therefore, this interpretation needs to be run to a fixed point.\n   "
+		}
+	],
+	"Closure-46b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/RecordType.java",
+			"method_name": "getLeastSupertype",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.RecordType.getLeastSupertype(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 140,
+			"end_line": 155,
+			"comment": ""
+		}
+	],
+	"Closure-47b": [
+		{
+			"class_file": "com/google/debugging/sourcemap/SourceMapConsumerV3.java",
+			"method_name": "getOriginalMappingForEntry",
+			"arg_types": "Lcom/google/debugging/sourcemap/SourceMapConsumerV3$Entry;",
+			"type": "method",
+			"signature": "com.google.debugging.sourcemap.SourceMapConsumerV3.getOriginalMappingForEntry(com.google.debugging.sourcemap.SourceMapConsumerV3.Entry)",
+			"begin_line": 482,
+			"end_line": 496,
+			"comment": "\n   * Creates an \"OriginalMapping\" object for the given entry object.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "addMapping",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/debugging/sourcemap/FilePosition;Lcom/google/debugging/sourcemap/FilePosition;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.addMapping(com.google.javascript.rhino.Node, com.google.debugging.sourcemap.FilePosition, com.google.debugging.sourcemap.FilePosition)",
+			"begin_line": 117,
+			"end_line": 143,
+			"comment": ""
+		}
+	],
+	"Closure-48b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "maybeDeclareQualifiedName",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/JSDocInfo;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.maybeDeclareQualifiedName(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.JSDocInfo, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1416,
+			"end_line": 1561,
+			"comment": "\n     * Declare the symbol for a qualified name in the global scope.\n     *\n     * @param info The doc info for this property.\n     * @param n A top-level GETPROP node (it should not be contained inside\n     *     another GETPROP).\n     * @param parent The parent of {@code n}.\n     * @param rhsValue The node that {@code n} is being initialized to,\n     *     or {@code null} if this is a stub declaration.\n     "
+		}
+	],
+	"Closure-49b": [
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "shouldTraverse",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.shouldTraverse(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 113,
+			"end_line": 153,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "enterScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.enterScope(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 75,
+			"end_line": 104,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 155,
+			"end_line": 186,
+			"comment": ""
+		}
+	],
+	"Closure-50b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java",
+			"method_name": "tryFoldArrayJoin",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeReplaceKnownMethods.tryFoldArrayJoin(com.google.javascript.rhino.Node)",
+			"begin_line": 367,
+			"end_line": 476,
+			"comment": "\n   * Try to fold an array join: ['a', 'b', 'c'].join('') -> 'abc';\n   "
+		}
+	],
+	"Closure-51b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeConsumer.java",
+			"method_name": "addNumber",
+			"arg_types": "D",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeConsumer.addNumber(double)",
+			"begin_line": 233,
+			"end_line": 260,
+			"comment": ""
+		}
+	],
+	"Closure-52b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "isSimpleNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.isSimpleNumber(java.lang.String)",
+			"begin_line": 737,
+			"end_line": 746,
+			"comment": ""
+		}
+	],
+	"Closure-53b": [
+		{
+			"class_file": "com/google/javascript/jscomp/InlineObjectLiterals.java",
+			"method_name": "replaceAssignmentExpression",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope$Var;Lcom/google/javascript/jscomp/ReferenceCollectingCallback$Reference;Ljava/util/Map;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineObjectLiterals.InliningBehavior.replaceAssignmentExpression(com.google.javascript.jscomp.Scope.Var, com.google.javascript.jscomp.ReferenceCollectingCallback.Reference, java.util.Map<java.lang.String, java.lang.String>)",
+			"begin_line": 303,
+			"end_line": 360,
+			"comment": "\n     * Replaces an assignment like x = {...} with t1=a,t2=b,t3=c,true.\n     * Note that the resulting expression will always evaluate to\n     * true, as would the x = {...} expression.\n     "
+		}
+	],
+	"Closure-54b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "setPrototypeBasedOn",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/ObjectType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.setPrototypeBasedOn(com.google.javascript.rhino.jstype.ObjectType)",
+			"begin_line": 322,
+			"end_line": 350,
+			"comment": "\n   * Sets the prototype, creating the prototype object from the given\n   * base type.\n   * @param baseType The base type.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "maybeDeclareQualifiedName",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/JSDocInfo;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.maybeDeclareQualifiedName(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.JSDocInfo, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1373,
+			"end_line": 1489,
+			"comment": "\n     * Declare the symbol for a qualified name in the global scope.\n     *\n     * @param info The doc info for this property.\n     * @param n A top-level GETPROP node (it should not be contained inside\n     *     another GETPROP).\n     * @param parent The parent of {@code n}.\n     * @param rhsValue The node that {@code n} is being initialized to,\n     *     or {@code null} if this is a stub declaration.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "setPrototype",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/PrototypeObjectType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.setPrototype(com.google.javascript.rhino.jstype.PrototypeObjectType)",
+			"begin_line": 357,
+			"end_line": 395,
+			"comment": "\n   * Sets the prototype.\n   * @param prototype the prototype. If this value is {@code null} it will\n   *        silently be discarded.\n   "
+		}
+	],
+	"Closure-55b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionRewriter.java",
+			"method_name": "isReduceableFunctionExpression",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionRewriter.isReduceableFunctionExpression(com.google.javascript.rhino.Node)",
+			"begin_line": 116,
+			"end_line": 118,
+			"comment": ""
+		}
+	],
+	"Closure-56b": [
+		{
+			"class_file": "com/google/javascript/jscomp/SourceFile.java",
+			"method_name": "getLine",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceFile.getLine(int)",
+			"begin_line": 205,
+			"end_line": 246,
+			"comment": "\n   * Gets the source line for the indicated line number.\n   *\n   * @param lineNumber the line number, 1 being the first line of the file.\n   * @return The line indicated. Does not include the newline at the end\n   *     of the file. Returns {@code null} if it does not exist,\n   *     or if there was an IO exception.\n   "
+		}
+	],
+	"Closure-57b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ClosureCodingConvention.java",
+			"method_name": "extractClassNameIfGoog",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ClosureCodingConvention.extractClassNameIfGoog(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 188,
+			"end_line": 204,
+			"comment": ""
+		}
+	],
+	"Closure-58b": [
+		{
+			"class_file": "com/google/javascript/jscomp/LiveVariablesAnalysis.java",
+			"method_name": "computeGenKill",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/util/BitSet;Ljava/util/BitSet;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.LiveVariablesAnalysis.computeGenKill(com.google.javascript.rhino.Node, java.util.BitSet, java.util.BitSet, boolean)",
+			"begin_line": 178,
+			"end_line": 263,
+			"comment": "\n   * Computes the GEN and KILL set.\n   *\n   * @param n Root node.\n   * @param gen Local variables that are live because of the instruction at\n   *        {@code n} will be added to this set.\n   * @param kill Local variables that are killed because of the instruction at\n   *        {@code n} will be added to this set.\n   * @param conditional {@code true} if any assignments encountered are\n   *        conditionally executed. These assignments might not kill a variable.\n   "
+		}
+	],
+	"Closure-59b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "initOptions",
+			"arg_types": "Lcom/google/javascript/jscomp/CompilerOptions;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.initOptions(com.google.javascript.jscomp.CompilerOptions)",
+			"begin_line": 226,
+			"end_line": 288,
+			"comment": "\n   * Initialize the compiler options. Only necessary if you're not doing\n   * a normal compile() job.\n   "
+		}
+	],
+	"Closure-60b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "getPureBooleanValue",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.getPureBooleanValue(com.google.javascript.rhino.Node)",
+			"begin_line": 120,
+			"end_line": 163,
+			"comment": "\n   * Gets the boolean value of a node that represents a literal. This method\n   * effectively emulates the <code>Boolean()</code> JavaScript cast function\n   * except it return UNKNOWN for known values with side-effects, use\n   * getExpressionBooleanValue if you don't care about side-effects.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "getImpureBooleanValue",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.getImpureBooleanValue(com.google.javascript.rhino.Node)",
+			"begin_line": 74,
+			"end_line": 112,
+			"comment": "\n   * Gets the boolean value of a node that represents a expression. This method\n   * effectively emulates the <code>Boolean()</code> JavaScript cast function.\n   * Note: unlike getBooleanValue this function does not return UNKNOWN\n   * for expressions with side-effects.\n   "
+		}
+	],
+	"Closure-61b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "functionCallHasSideEffects",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/AbstractCompiler;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.functionCallHasSideEffects(com.google.javascript.rhino.Node, com.google.javascript.jscomp.AbstractCompiler)",
+			"begin_line": 926,
+			"end_line": 976,
+			"comment": "\n   * Returns true if calls to this function have side effects.\n   *\n   * @param callNode The call node to inspected.\n   * @param compiler A compiler object to provide program state changing\n   *     context information. Can be null.\n   "
+		}
+	],
+	"Closure-62b": [
+		{
+			"class_file": "com/google/javascript/jscomp/LightweightMessageFormatter.java",
+			"method_name": "format",
+			"arg_types": "Lcom/google/javascript/jscomp/JSError;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.LightweightMessageFormatter.format(com.google.javascript.jscomp.JSError, boolean)",
+			"begin_line": 66,
+			"end_line": 111,
+			"comment": ""
+		}
+	],
+	"Closure-64b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "toSource",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.toSource(com.google.javascript.rhino.Node)",
+			"begin_line": 1458,
+			"end_line": 1462,
+			"comment": "\n   * Generates JavaScript source code for an AST, doesn't generate source\n   * map info.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "call",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.Anonymous-940a08c1-45de-4e9d-b50e-082c9fa0d5a3.call()",
+			"begin_line": 1397,
+			"end_line": 1450,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "toSource",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/SourceMap;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.toSource(com.google.javascript.rhino.Node, com.google.javascript.jscomp.SourceMap)",
+			"begin_line": 1467,
+			"end_line": 1482,
+			"comment": "\n   * Generates JavaScript source code for an AST.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "toSource",
+			"arg_types": "Lcom/google/javascript/jscomp/Compiler$CodeBuilder;ILcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.toSource(com.google.javascript.jscomp.Compiler.CodeBuilder, int, com.google.javascript.rhino.Node)",
+			"begin_line": 1393,
+			"end_line": 1452,
+			"comment": "\n   * Writes out js code from a root node. If printing input delimiters, this\n   * method will attach a comment to the start of the text indicating which\n   * input the output derived from. If there were any preserve annotations\n   * within the root's source, they will also be printed in a block comment\n   * at the beginning of the output.\n   "
+		}
+	],
+	"Closure-65b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "strEscape",
+			"arg_types": "Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/CharsetEncoder;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.strEscape(java.lang.String, char, java.lang.String, java.lang.String, java.lang.String, java.nio.charset.CharsetEncoder)",
+			"begin_line": 1005,
+			"end_line": 1075,
+			"comment": " Helper to escape javascript string as well as regular expression "
+		}
+	],
+	"Closure-66b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeCheck.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 461,
+			"end_line": 813,
+			"comment": "\n   * This is the meat of the type checking.  It is basically one big switch,\n   * with each case representing one type of parse tree node.  The individual\n   * cases are usually pretty straightforward.\n   *\n   * @param t The node traversal object that supplies context, such as the\n   * scope chain to use in name lookups as well as error reporting.\n   * @param n The node being visited.\n   * @param parent The parent of the node n.\n   "
+		}
+	],
+	"Closure-67b": [
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "isPrototypePropertyAssign",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.isPrototypePropertyAssign(com.google.javascript.rhino.Node)",
+			"begin_line": 314,
+			"end_line": 334,
+			"comment": ""
+		}
+	],
+	"Closure-68b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+			"method_name": "parseBasicTypeExpression",
+			"arg_types": "Lcom/google/javascript/jscomp/parsing/JsDocToken;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.JsDocInfoParser.parseBasicTypeExpression(com.google.javascript.jscomp.parsing.JsDocToken)",
+			"begin_line": 1685,
+			"end_line": 1710,
+			"comment": "\n   * BasicTypeExpression := '*' | 'null' | 'undefined' | TypeName\n   *     | FunctionType | UnionType | RecordType | ArrayType\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+			"method_name": "parseFunctionType",
+			"arg_types": "Lcom/google/javascript/jscomp/parsing/JsDocToken;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.JsDocInfoParser.parseFunctionType(com.google.javascript.jscomp.parsing.JsDocToken)",
+			"begin_line": 1757,
+			"end_line": 1826,
+			"comment": "\n   * FunctionType := 'function' FunctionSignatureType\n   * FunctionSignatureType :=\n   *    TypeParameters '(' 'this' ':' TypeName, ParametersType ')' ResultType\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+			"method_name": "parse",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.JsDocInfoParser.parse()",
+			"begin_line": 169,
+			"end_line": 913,
+			"comment": "\n   * Parses a {@link JSDocInfo} object. This parsing method reads all tokens\n   * returned by the {@link JsDocTokenStream#getJsDocToken()} method until the\n   * {@link JsDocToken#EOC} is returned.\n   *\n   * @return {@code true} if JSDoc information was correctly parsed,\n   *     {@code false} otherwise\n   "
+		}
+	],
+	"Closure-69b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "visitCall",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeCheck.visitCall(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 1544,
+			"end_line": 1590,
+			"comment": "\n   * Visits a CALL node.\n   *\n   * @param t The node traversal object that supplies context, such as the\n   * scope chain to use in name lookups as well as error reporting.\n   * @param n The node being visited.\n   "
+		}
+	],
+	"Closure-70b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "declareArguments",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.LocalScopeBuilder.declareArguments(com.google.javascript.rhino.Node)",
+			"begin_line": 1734,
+			"end_line": 1753,
+			"comment": "\n     * Declares all of a function's arguments.\n     "
+		}
+	],
+	"Closure-71b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CheckAccessControls.java",
+			"method_name": "checkPropertyVisibility",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckAccessControls.checkPropertyVisibility(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 407,
+			"end_line": 500,
+			"comment": "\n   * Determines whether the given property is visible in the current context.\n   * @param t The current traversal.\n   * @param getprop The getprop node.\n   "
+		}
+	],
+	"Closure-72b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionToBlockMutator.java",
+			"method_name": "makeLocalNamesUnique",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionToBlockMutator.makeLocalNamesUnique(com.google.javascript.rhino.Node, boolean)",
+			"begin_line": 142,
+			"end_line": 152,
+			"comment": "\n   * Fix-up all local names to be unique for this subtree.\n   * @param fnNode A mutable instance of the function to be inlined.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/RenameLabels.java",
+			"method_name": "visitLabel",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RenameLabels.ProcessLabels.visitLabel(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 209,
+			"end_line": 235,
+			"comment": "\n     * Rename or remove labels.\n     * @param node  The label node.\n     * @param parent The parent of the label node.\n     "
+		}
+	],
+	"Closure-73b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "strEscape",
+			"arg_types": "Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/CharsetEncoder;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.strEscape(java.lang.String, char, java.lang.String, java.lang.String, java.lang.String, java.nio.charset.CharsetEncoder)",
+			"begin_line": 988,
+			"end_line": 1058,
+			"comment": " Helper to escape javascript string as well as regular expression "
+		}
+	],
+	"Closure-74b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeFoldConstants.java",
+			"method_name": "tryFoldComparison",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeFoldConstants.tryFoldComparison(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 887,
+			"end_line": 1069,
+			"comment": "\n   * Try to fold comparison nodes, e.g ==\n   "
+		}
+	],
+	"Closure-75b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "isStrWhiteSpaceChar",
+			"arg_types": "I",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.isStrWhiteSpaceChar(int)",
+			"begin_line": 372,
+			"end_line": 390,
+			"comment": "\n   * Copied from Rhino's ScriptRuntime\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "getStringNumberValue",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.getStringNumberValue(java.lang.String)",
+			"begin_line": 312,
+			"end_line": 353,
+			"comment": ""
+		}
+	],
+	"Closure-76b": [
+		{
+			"class_file": "com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+			"method_name": "isVariableReadBeforeKill",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.DeadAssignmentsElimination.isVariableReadBeforeKill(com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 338,
+			"end_line": 382,
+			"comment": "\n   * Give an expression and a variable. It returns READ, if the first\n   * reference of that variable is a read. It returns KILL, if the first\n   * reference of that variable is an assignment. It returns MAY_LIVE otherwise.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+			"method_name": "isVariableStillLiveWithinExpression",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.DeadAssignmentsElimination.isVariableStillLiveWithinExpression(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 290,
+			"end_line": 324,
+			"comment": "\n   * Given a variable, node n in the tree and a sub-tree denoted by exprRoot as\n   * the root, this function returns true if there exists a read of that\n   * variable before a write to that variable that is on the right side of n.\n   *\n   * For example, suppose the node is x = 1:\n   *\n   * y = 1, x = 1; // false, there is no reads at all.\n   * y = 1, x = 1, print(x) // true, there is a read right of n.\n   * y = 1, x = 1, x = 2, print(x) // false, there is a read right of n but\n   *                               // it is after a write.\n   *\n   * @param n The current node we should look at.\n   * @param exprRoot The node\n   "
+		}
+	],
+	"Closure-77b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "strEscape",
+			"arg_types": "Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/CharsetEncoder;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.strEscape(java.lang.String, char, java.lang.String, java.lang.String, java.lang.String, java.nio.charset.CharsetEncoder)",
+			"begin_line": 956,
+			"end_line": 1025,
+			"comment": " Helper to escape javascript string as well as regular expression "
+		}
+	],
+	"Closure-78b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeFoldConstants.java",
+			"method_name": "performArithmeticOp",
+			"arg_types": "ILcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeFoldConstants.performArithmeticOp(int, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 664,
+			"end_line": 746,
+			"comment": "\n   * Try to fold arithmetic binary operators\n   "
+		}
+	],
+	"Closure-79b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Normalize.java",
+			"method_name": "process",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Normalize.process(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 118,
+			"end_line": 149,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/VarCheck.java",
+			"method_name": "createSynthesizedExternVar",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.VarCheck.createSynthesizedExternVar(java.lang.String)",
+			"begin_line": 205,
+			"end_line": 221,
+			"comment": "\n   * Create a new variable in a synthetic script. This will prevent\n   * subsequent compiler passes from crashing.\n   "
+		}
+	],
+	"Closure-80b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "isBooleanResultHelper",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.isBooleanResultHelper(com.google.javascript.rhino.Node)",
+			"begin_line": 1242,
+			"end_line": 1266,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "evaluatesToLocalValue",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/common/base/Predicate;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.evaluatesToLocalValue(com.google.javascript.rhino.Node, com.google.common.base.Predicate<com.google.javascript.rhino.Node>)",
+			"begin_line": 2864,
+			"end_line": 2927,
+			"comment": "\n   * @param locals A predicate to apply to unknown local values.\n   * @return Whether the node is known to be a value that is not a reference\n   *     outside the expression scope.\n   "
+		}
+	],
+	"Closure-81b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/IRFactory.java",
+			"method_name": "processFunctionNode",
+			"arg_types": "Lcom/google/javascript/rhino/head/ast/FunctionNode;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.IRFactory.TransformDispatcher.processFunctionNode(com.google.javascript.jscomp.mozilla.rhino.ast.FunctionNode)",
+			"begin_line": 512,
+			"end_line": 562,
+			"comment": ""
+		}
+	],
+	"Closure-82b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSType.java",
+			"method_name": "isEmptyType",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSType.isEmptyType()",
+			"begin_line": 162,
+			"end_line": 164,
+			"comment": ""
+		}
+	],
+	"Closure-83b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "parseArguments",
+			"arg_types": "Lorg/kohsuke/args4j/spi/Parameters;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CommandLineRunner.Flags.BooleanOptionHandler.parseArguments(org.kohsuke.args4j.spi.Parameters)",
+			"begin_line": 332,
+			"end_line": 351,
+			"comment": ""
+		}
+	],
+	"Closure-84b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/IRFactory.java",
+			"method_name": "processAssignment",
+			"arg_types": "Lcom/google/javascript/rhino/head/ast/Assignment;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.IRFactory.TransformDispatcher.processAssignment(com.google.javascript.jscomp.mozilla.rhino.ast.Assignment)",
+			"begin_line": 338,
+			"end_line": 342,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/IRFactory.java",
+			"method_name": "processUnaryExpression",
+			"arg_types": "Lcom/google/javascript/rhino/head/ast/UnaryExpression;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.IRFactory.TransformDispatcher.processUnaryExpression(com.google.javascript.jscomp.mozilla.rhino.ast.UnaryExpression)",
+			"begin_line": 789,
+			"end_line": 804,
+			"comment": ""
+		}
+	],
+	"Closure-85b": [
+		{
+			"class_file": "com/google/javascript/jscomp/UnreachableCodeElimination.java",
+			"method_name": "tryRemoveUnconditionalBranching",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.UnreachableCodeElimination.tryRemoveUnconditionalBranching(com.google.javascript.rhino.Node)",
+			"begin_line": 130,
+			"end_line": 192,
+			"comment": "\n   * Tries to remove n if an unconditional branch node (break, continue or\n   * return) if the target of n is the same as the the follow of n. That is, if\n   * we remove n, the control flow remains the same. Also if n targets to\n   * another unconditional branch, this function will recursively try to remove\n   * the target branch as well. The reason why we want to cascade this removal\n   * is because we only run this pass once. If we have code such as\n   *\n   * break -> break -> break\n   *\n   * where all 3 break's are useless. The order of removal matters. When we\n   * first look at the first break, we see that it branches to the 2nd break.\n   * However, if we remove the last break, the 2nd break becomes useless and\n   * finally the first break becomes useless as well.\n   *\n   * @return The target of this jump. If the target is also useless jump,\n   *     the target of that useless jump recursively.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/UnreachableCodeElimination.java",
+			"method_name": "computeFollowing",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.UnreachableCodeElimination.computeFollowing(com.google.javascript.rhino.Node)",
+			"begin_line": 194,
+			"end_line": 197,
+			"comment": ""
+		}
+	],
+	"Closure-86b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "evaluatesToLocalValue",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/common/base/Predicate;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.evaluatesToLocalValue(com.google.javascript.rhino.Node, com.google.common.base.Predicate<com.google.javascript.rhino.Node>)",
+			"begin_line": 2424,
+			"end_line": 2489,
+			"comment": "\n   * @param locals A predicate to apply to unknown local values.\n   * @return Whether the node is known to be a value that is not a reference\n   *     outside the expression scope.\n   "
+		}
+	],
+	"Closure-87b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+			"method_name": "isFoldableExpressBlock",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax.isFoldableExpressBlock(com.google.javascript.rhino.Node)",
+			"begin_line": 519,
+			"end_line": 538,
+			"comment": "\n   * @return Whether the node is a block with a single statement that is\n   *     an expression.\n   "
+		}
+	],
+	"Closure-88b": [
+		{
+			"class_file": "com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+			"method_name": "isVariableReadBeforeKill",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.DeadAssignmentsElimination.isVariableReadBeforeKill(com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 323,
+			"end_line": 347,
+			"comment": "\n   * Give an expression and a variable. It returns READ, if the first\n   * reference of that variable is a read. It returns KILL, if the first\n   * reference of that variable is an assignment. It returns MAY_LIVE otherwise.\n   "
+		}
+	],
+	"Closure-89b": [
+		{
+			"class_file": "com/google/javascript/jscomp/GlobalNamespace.java",
+			"method_name": "canCollapseUnannotatedChildNames",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.GlobalNamespace.Name.canCollapseUnannotatedChildNames()",
+			"begin_line": 896,
+			"end_line": 925,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseProperties.java",
+			"method_name": "updateSimpleDeclaration",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/jscomp/GlobalNamespace$Name;Lcom/google/javascript/jscomp/GlobalNamespace$Ref;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseProperties.updateSimpleDeclaration(java.lang.String, com.google.javascript.jscomp.GlobalNamespace.Name, com.google.javascript.jscomp.GlobalNamespace.Ref)",
+			"begin_line": 477,
+			"end_line": 540,
+			"comment": "\n   * Updates the initial assignment to a collapsible property at global scope\n   * by changing it to a variable declaration (e.g. a.b = 1 -> var a$b = 1).\n   * The property's value may either be a primitive or an object literal or\n   * function whose properties aren't collapsible.\n   *\n   * @param alias The flattened property name (e.g. \"a$b\")\n   * @param refName The name for the reference being updated.\n   * @param ref An object containing information about the assignment getting\n   *     updated\n   "
+		}
+	],
+	"Closure-90b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionTypeBuilder.java",
+			"method_name": "apply",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionTypeBuilder.ThisTypeValidator.apply(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 176,
+			"end_line": 190,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "resolveInternal",
+			"arg_types": "Lcom/google/javascript/rhino/ErrorReporter;Lcom/google/javascript/rhino/jstype/StaticScope;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.resolveInternal(com.google.javascript.rhino.ErrorReporter, com.google.javascript.rhino.jstype.StaticScope<com.google.javascript.rhino.jstype.JSType>)",
+			"begin_line": 861,
+			"end_line": 903,
+			"comment": ""
+		}
+	],
+	"Closure-91b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CheckGlobalThis.java",
+			"method_name": "shouldTraverse",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckGlobalThis.shouldTraverse(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 82,
+			"end_line": 146,
+			"comment": "\n   * Since this pass reports errors only when a global {@code this} keyword\n   * is encountered, there is no reason to traverse non global contexts.\n   "
+		}
+	],
+	"Closure-92b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+			"method_name": "replace",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ProcessClosurePrimitives.ProvidedName.replace()",
+			"begin_line": 747,
+			"end_line": 809,
+			"comment": "\n     * Replace the provide statement.\n     *\n     * If we're providing a name with no definition, then create one.\n     * If we're providing a name with a duplicate definition, then make sure\n     * that definition becomes a declaration.\n     "
+		}
+	],
+	"Closure-94b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "isValidDefineValue",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/util/Set;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.isValidDefineValue(com.google.javascript.rhino.Node, java.util.Set<java.lang.String>)",
+			"begin_line": 320,
+			"end_line": 347,
+			"comment": "\n   * Determines whether the given value may be assigned to a define.\n   *\n   * @param val The value being assigned.\n   * @param defines The list of names of existing defines.\n   "
+		}
+	],
+	"Closure-95b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "defineSlot",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.defineSlot(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType, boolean)",
+			"begin_line": 872,
+			"end_line": 945,
+			"comment": "\n     * Defines a typed variable. The defining node will be annotated with the\n     * variable's type of {@link JSTypeNative#UNKNOWN_TYPE} if its type is\n     * inferred.\n     *\n     * Slots may be any variable or any qualified name in the global scope.\n     *\n     * @param n the defining NAME or GETPROP node.\n     * @param parent the {@code n}'s parent.\n     * @param type the variable's type. It may be {@code null} if\n     *     {@code inferred} is {@code true}.\n     "
+		}
+	],
+	"Closure-96b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "visitParameterList",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/FunctionType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeCheck.visitParameterList(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.FunctionType)",
+			"begin_line": 1399,
+			"end_line": 1430,
+			"comment": "\n   * Visits the parameters of a CALL or a NEW node.\n   "
+		}
+	],
+	"Closure-97b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeFoldConstants.java",
+			"method_name": "tryFoldShift",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeFoldConstants.tryFoldShift(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 652,
+			"end_line": 713,
+			"comment": "\n   * Try to fold shift operations\n   "
+		}
+	],
+	"Closure-98b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+			"method_name": "isAssignedOnceInLifetime",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ReferenceCollectingCallback.ReferenceCollection.isAssignedOnceInLifetime()",
+			"begin_line": 354,
+			"end_line": 363,
+			"comment": "\n     * @return Whether the variable is only assigned a value once for its\n     *     lifetime.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/jscomp/ReferenceCollectingCallback$BasicBlock;Lcom/google/javascript/rhino/Node;",
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.ReferenceCollectingCallback.BasicBlock.BasicBlock(com.google.javascript.jscomp.ReferenceCollectingCallback.BasicBlock, com.google.javascript.rhino.Node)",
+			"begin_line": 555,
+			"end_line": 562,
+			"comment": "\n     * Creates a new block.\n     * @param parent The containing block.\n     * @param root The root node of the block.\n     "
+		}
+	],
+	"Closure-99b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CheckGlobalThis.java",
+			"method_name": "shouldTraverse",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckGlobalThis.shouldTraverse(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 84,
+			"end_line": 136,
+			"comment": "\n   * Since this pass reports errors only when a global {@code this} keyword\n   * is encountered, there is no reason to traverse non global contexts.\n   "
+		}
+	],
+	"Closure-100b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CheckGlobalThis.java",
+			"method_name": "shouldTraverse",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckGlobalThis.shouldTraverse(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 84,
+			"end_line": 128,
+			"comment": "\n   * Since this pass reports errors only when a global {@code this} keyword\n   * is encountered, there is no reason to traverse non global contexts.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CheckGlobalThis.java",
+			"method_name": "shouldReportThis",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckGlobalThis.shouldReportThis(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 139,
+			"end_line": 147,
+			"comment": ""
+		}
+	],
+	"Closure-101b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "createOptions",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CommandLineRunner.createOptions()",
+			"begin_line": 418,
+			"end_line": 439,
+			"comment": ""
+		}
+	],
+	"Closure-102b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Normalize.java",
+			"method_name": "process",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Normalize.process(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 86,
+			"end_line": 97,
+			"comment": ""
+		}
+	],
+	"Closure-103b": [
+		{
+			"class_file": "com/google/javascript/jscomp/DisambiguateProperties.java",
+			"method_name": "getTypeWithProperty",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.DisambiguateProperties.JSTypeSystem.getTypeWithProperty(java.lang.String, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 736,
+			"end_line": 767,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ControlFlowAnalysis.java",
+			"method_name": "mayThrowException",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ControlFlowAnalysis.mayThrowException(com.google.javascript.rhino.Node)",
+			"begin_line": 884,
+			"end_line": 904,
+			"comment": "\n   * Determines if the subtree might throw an exception.\n   "
+		}
+	],
+	"Closure-104b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/UnionType.java",
+			"method_name": "meet",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.UnionType.meet(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 273,
+			"end_line": 298,
+			"comment": ""
+		}
+	],
+	"Closure-105b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FoldConstants.java",
+			"method_name": "tryFoldStringJoin",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FoldConstants.tryFoldStringJoin(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1461,
+			"end_line": 1549,
+			"comment": "\n   * Try to fold an array join: ['a', 'b', 'c'].join('') -> 'abc';\n   "
+		}
+	],
+	"Closure-106b": [
+		{
+			"class_file": "com/google/javascript/jscomp/GlobalNamespace.java",
+			"method_name": "canCollapseUnannotatedChildNames",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.GlobalNamespace.Name.canCollapseUnannotatedChildNames()",
+			"begin_line": 899,
+			"end_line": 913,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/JSDocInfoBuilder.java",
+			"method_name": "recordBlockDescription",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.JSDocInfoBuilder.recordBlockDescription(java.lang.String)",
+			"begin_line": 188,
+			"end_line": 193,
+			"comment": "\n   * Records a block-level description.\n   *\n   * @return {@code true} if the description was recorded.\n   "
+		}
+	],
+	"Closure-107b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "createOptions",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CommandLineRunner.createOptions()",
+			"begin_line": 805,
+			"end_line": 865,
+			"comment": ""
+		}
+	],
+	"Closure-108b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 522,
+			"end_line": 589,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "exitScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.exitScope(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 308,
+			"end_line": 321,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "findAliases",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.findAliases(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 357,
+			"end_line": 445,
+			"comment": ""
+		}
+	],
+	"Closure-109b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+			"method_name": "parseContextTypeExpression",
+			"arg_types": "Lcom/google/javascript/jscomp/parsing/JsDocToken;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.JsDocInfoParser.parseContextTypeExpression(com.google.javascript.jscomp.parsing.JsDocToken)",
+			"begin_line": 1907,
+			"end_line": 1909,
+			"comment": "\n   * ContextTypeExpression := BasicTypeExpression | '?'\n   * For expressions on the right hand side of a this: or new:\n   "
+		}
+	],
+	"Closure-110b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "findAliases",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.findAliases(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 352,
+			"end_line": 422,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/Node.java",
+			"method_name": "getChildBefore",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.Node.getChildBefore(com.google.javascript.rhino.Node)",
+			"begin_line": 549,
+			"end_line": 562,
+			"comment": ""
+		}
+	],
+	"Closure-111b": [
+		{
+			"class_file": "com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java",
+			"method_name": "caseTopType",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter.Anonymous-631761de-b2e0-47eb-b5a9-bc9e6826f3f5.caseTopType(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 52,
+			"end_line": 55,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"restrictToArrayVisitor"
+			],
+			"begin_line": 50,
+			"end_line": 62,
+			"comment": "\n   * For when {@code goog.isArray} returns true.\n   "
+		}
+	],
+	"Closure-112b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeInference.java",
+			"method_name": "inferTemplatedTypesForCall",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/FunctionType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeInference.inferTemplatedTypesForCall(com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.FunctionType)",
+			"begin_line": 1183,
+			"end_line": 1210,
+			"comment": "\n   * For functions with function(this: T, ...) and T as parameters, type\n   * inference will set the type of this on a function literal argument to the\n   * the actual type of T.\n   "
+		}
+	],
+	"Closure-113b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+			"method_name": "processRequireCall",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ProcessClosurePrimitives.processRequireCall(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 295,
+			"end_line": 334,
+			"comment": "\n   * Handles a goog.require call.\n   "
+		}
+	],
+	"Closure-114b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NameAnalyzer.java",
+			"method_name": "recordAssignment",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NameAnalyzer.FindDependencyScopes.recordAssignment(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 558,
+			"end_line": 588,
+			"comment": ""
+		}
+	],
+	"Closure-115b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionInjector.java",
+			"method_name": "canInlineReferenceDirectly",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionInjector.canInlineReferenceDirectly(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 689,
+			"end_line": 758,
+			"comment": "\n   * Determines whether a function can be inlined at a particular call site.\n   * There are several criteria that the function and reference must hold in\n   * order for the functions to be inlined:\n   * 1) If a call's arguments have side effects,\n   * the corresponding argument in the function must only be referenced once.\n   * For instance, this will not be inlined:\n   * <pre>\n   *     function foo(a) { return a + a }\n   *     x = foo(i++);\n   * </pre>\n   "
+		}
+	],
+	"Closure-116b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionInjector.java",
+			"method_name": "canInlineReferenceDirectly",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionInjector.canInlineReferenceDirectly(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 689,
+			"end_line": 749,
+			"comment": "\n   * Determines whether a function can be inlined at a particular call site.\n   * There are several criteria that the function and reference must hold in\n   * order for the functions to be inlined:\n   * 1) If a call's arguments have side effects,\n   * the corresponding argument in the function must only be referenced once.\n   * For instance, this will not be inlined:\n   * <pre>\n   *     function foo(a) { return a + a }\n   *     x = foo(i++);\n   * </pre>\n   "
+		}
+	],
+	"Closure-117b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeValidator.java",
+			"method_name": "getReadableJSTypeName",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeValidator.getReadableJSTypeName(com.google.javascript.rhino.Node, boolean)",
+			"begin_line": 724,
+			"end_line": 777,
+			"comment": "\n   * Given a node, get a human-readable name for the type of that node so\n   * that will be easy for the programmer to find the original declaration.\n   *\n   * For example, if SubFoo's property \"bar\" might have the human-readable\n   * name \"Foo.prototype.bar\".\n   *\n   * @param n The node.\n   * @param dereference If true, the type of the node will be dereferenced\n   *     to an Object type, if possible.\n   "
+		}
+	],
+	"Closure-118b": [
+		{
+			"class_file": "com/google/javascript/jscomp/DisambiguateProperties.java",
+			"method_name": "handleObjectLit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.DisambiguateProperties.FindRenameableProperties.handleObjectLit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 490,
+			"end_line": 513,
+			"comment": "\n     * Processes a OBJECTLIT node.\n     "
+		}
+	],
+	"Closure-119b": [
+		{
+			"class_file": "com/google/javascript/jscomp/GlobalNamespace.java",
+			"method_name": "collect",
+			"arg_types": "Lcom/google/javascript/jscomp/JSModule;Lcom/google/javascript/jscomp/Scope;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.GlobalNamespace.BuildGlobalNamespace.collect(com.google.javascript.jscomp.JSModule, com.google.javascript.jscomp.Scope, com.google.javascript.rhino.Node)",
+			"begin_line": 306,
+			"end_line": 430,
+			"comment": ""
+		}
+	],
+	"Closure-120b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+			"method_name": "isAssignedOnceInLifetime",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ReferenceCollectingCallback.ReferenceCollection.isAssignedOnceInLifetime()",
+			"begin_line": 421,
+			"end_line": 438,
+			"comment": "\n     * @return Whether the variable is only assigned a value once for its\n     *     lifetime.\n     "
+		}
+	],
+	"Closure-121b": [
+		{
+			"class_file": "com/google/javascript/jscomp/InlineVariables.java",
+			"method_name": "inlineNonConstants",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope$Var;Lcom/google/javascript/jscomp/ReferenceCollectingCallback$ReferenceCollection;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineVariables.InliningBehavior.inlineNonConstants(com.google.javascript.jscomp.Scope.Var, com.google.javascript.jscomp.ReferenceCollectingCallback.ReferenceCollection, boolean)",
+			"begin_line": 254,
+			"end_line": 327,
+			"comment": ""
+		}
+	],
+	"Closure-122b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/IRFactory.java",
+			"method_name": "handleBlockComment",
+			"arg_types": "Lcom/google/javascript/rhino/head/ast/Comment;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.IRFactory.handleBlockComment(com.google.javascript.rhino.head.ast.Comment)",
+			"begin_line": 251,
+			"end_line": 258,
+			"comment": "\n   * Check to see if the given block comment looks like it should be JSDoc.\n   "
+		}
+	],
+	"Closure-123b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "add",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/CodeGenerator$Context;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.add(com.google.javascript.rhino.Node, com.google.javascript.jscomp.CodeGenerator.Context)",
+			"begin_line": 107,
+			"end_line": 771,
+			"comment": ""
+		}
+	],
+	"Closure-124b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ExploitAssigns.java",
+			"method_name": "isSafeReplacement",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ExploitAssigns.isSafeReplacement(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 206,
+			"end_line": 220,
+			"comment": "\n   * Checks name referenced in node to determine if it might have\n   * changed.\n   * @return Whether the replacement can be made.\n   "
+		}
+	],
+	"Closure-125b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "visitNew",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeCheck.visitNew(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 1656,
+			"end_line": 1671,
+			"comment": "\n   * Visits a NEW node.\n   "
+		}
+	],
+	"Closure-126b": [
+		{
+			"class_file": "com/google/javascript/jscomp/MinimizeExitPoints.java",
+			"method_name": "tryMinimizeExits",
+			"arg_types": "Lcom/google/javascript/rhino/Node;ILjava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MinimizeExitPoints.tryMinimizeExits(com.google.javascript.rhino.Node, int, java.lang.String)",
+			"begin_line": 106,
+			"end_line": 201,
+			"comment": "\n   * Attempts to minimize the number of explicit exit points in a control\n   * structure to take advantage of the implied exit at the end of the\n   * structure.  This is accomplished by removing redundant statements, and\n   * moving statements following a qualifying IF node into that node.\n   * For example:\n   *\n   * function () {\n   *   if (x) return;\n   *   else blah();\n   *   foo();\n   * }\n   *\n   * becomes:\n   *\n   * function () {\n   *  if (x) ;\n   *  else {\n   *    blah();\n   *    foo();\n   *  }\n   *\n   * @param n The execution node of a parent to inspect.\n   * @param exitType The type of exit to look for.\n   * @param labelName If parent is a label the name of the label to look for,\n   *   null otherwise.\n   * @nullable labelName non-null only for breaks within labels.\n   "
+		}
+	],
+	"Closure-127b": [
+		{
+			"class_file": "com/google/javascript/jscomp/UnreachableCodeElimination.java",
+			"method_name": "tryRemoveUnconditionalBranching",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.UnreachableCodeElimination.EliminationPass.tryRemoveUnconditionalBranching(com.google.javascript.rhino.Node)",
+			"begin_line": 128,
+			"end_line": 175,
+			"comment": "\n     * Tries to remove n if it is an unconditional branch node (break, continue,\n     * or return) and the target of n is the same as the the follow of n.\n     * That is, if removing n preserves the control flow. Also if n targets\n     * another unconditional branch, this function will recursively try to\n     * remove the target branch as well. The reason why we want to cascade this\n     * removal is because we only run this pass once. If we have code such as\n     *\n     * break -> break -> break\n     *\n     * where all 3 breaks are useless, then the order of removal matters. When\n     * we first look at the first break, we see that it branches to the 2nd\n     * break. However, if we remove the last break, the 2nd break becomes\n     * useless and finally the first break becomes useless as well.\n     *\n     * @returns The target of this jump. If the target is also useless jump,\n     *     the target of that useless jump recursively.\n     "
+		}
+	],
+	"Closure-128b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "isSimpleNumber",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.isSimpleNumber(java.lang.String)",
+			"begin_line": 783,
+			"end_line": 792,
+			"comment": ""
+		}
+	],
+	"Closure-129b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PrepareAst.java",
+			"method_name": "annotateCalls",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PrepareAst.PrepareAnnotations.annotateCalls(com.google.javascript.rhino.Node)",
+			"begin_line": 158,
+			"end_line": 177,
+			"comment": "\n     * There are two types of calls we are interested in calls without explicit\n     * \"this\" values (what we are call \"free\" calls) and direct call to eval.\n     "
+		}
+	],
+	"Closure-130b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseProperties.java",
+			"method_name": "inlineAliases",
+			"arg_types": "Lcom/google/javascript/jscomp/GlobalNamespace;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseProperties.inlineAliases(com.google.javascript.jscomp.GlobalNamespace)",
+			"begin_line": 161,
+			"end_line": 197,
+			"comment": "\n   * For each qualified name N in the global scope, we check if:\n   * (a) No ancestor of N is ever aliased or assigned an unknown value type.\n   *     (If N = \"a.b.c\", \"a\" and \"a.b\" are never aliased).\n   * (b) N has exactly one write, and it lives in the global scope.\n   * (c) N is aliased in a local scope.\n   *\n   * If (a) is true, then GlobalNamespace must know all the writes to N.\n   * If (a) and (b) are true, then N cannot change during the execution of\n   *    a local scope.\n   * If (a) and (b) and (c) are true, then the alias can be inlined if the\n   *    alias obeys the usual rules for how we decide whether a variable is\n   *    inlineable.\n   * @see InlineVariables\n   "
+		}
+	],
+	"Closure-131b": [
+		{
+			"class_file": "com/google/javascript/rhino/TokenStream.java",
+			"method_name": "isJSIdentifier",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.TokenStream.isJSIdentifier(java.lang.String)",
+			"begin_line": 190,
+			"end_line": 206,
+			"comment": ""
+		}
+	],
+	"Closure-132b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+			"method_name": "tryMinimizeIf",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax.tryMinimizeIf(com.google.javascript.rhino.Node)",
+			"begin_line": 636,
+			"end_line": 868,
+			"comment": "\n   * Try turning IF nodes into smaller HOOKs\n   *\n   * Returns the replacement for n or the original if no replacement was\n   * necessary.\n   "
+		}
+	],
+	"Closure-133b": [
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+			"method_name": "getRemainingJSDocLine",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.JsDocInfoParser.getRemainingJSDocLine()",
+			"begin_line": 2399,
+			"end_line": 2402,
+			"comment": "\n   * Returns the remainder of the line.\n   "
+		}
+	],
+	"Closure-134b": [
+		{
+			"class_file": "com/google/javascript/jscomp/AmbiguateProperties.java",
+			"method_name": "addNode",
+			"arg_types": "Lcom/google/javascript/jscomp/AmbiguateProperties$Property;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AmbiguateProperties.PropertySubGraph.addNode(com.google.javascript.jscomp.AmbiguateProperties.Property)",
+			"begin_line": 364,
+			"end_line": 367,
+			"comment": "\n     * Adds the node to the sub graph, adding all of its types to the set of\n     * types in the sub graph and all of its related types to the related types\n     * for the sub graph.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AmbiguateProperties.java",
+			"method_name": "addNonUnionType",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AmbiguateProperties.Property.addNonUnionType(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 588,
+			"end_line": 600,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AmbiguateProperties.java",
+			"method_name": "process",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AmbiguateProperties.process(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 195,
+			"end_line": 249,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AmbiguateProperties.java",
+			"method_name": "isIndependentOf",
+			"arg_types": "Lcom/google/javascript/jscomp/AmbiguateProperties$Property;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AmbiguateProperties.PropertySubGraph.isIndependentOf(com.google.javascript.jscomp.AmbiguateProperties.Property)",
+			"begin_line": 352,
+			"end_line": 357,
+			"comment": "\n     * Returns true if prop is in an independent set from all properties in\n     * this sub graph.  That is, if none of its types is contained in the\n     * related types for this sub graph and if none if its related types is one\n     * of the types in the sub graph.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AmbiguateProperties.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"type"
+			],
+			"begin_line": 553,
+			"end_line": 553,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "findOverriddenFunction",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/ObjectType;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.findOverriddenFunction(com.google.javascript.rhino.jstype.ObjectType, java.lang.String)",
+			"begin_line": 553,
+			"end_line": 565,
+			"comment": "\n     * Find the function that's being overridden on this type, if any.\n     "
+		}
+	],
+	"Closure-135b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "defineProperty",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/jstype/JSType;ZZ",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.defineProperty(java.lang.String, com.google.javascript.rhino.jstype.JSType, boolean, boolean)",
+			"begin_line": 466,
+			"end_line": 480,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/DevirtualizePrototypeMethods.java",
+			"method_name": "replaceReferencesToThis",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.DevirtualizePrototypeMethods.replaceReferencesToThis(com.google.javascript.rhino.Node, java.lang.String)",
+			"begin_line": 354,
+			"end_line": 367,
+			"comment": "\n   * Replaces references to \"this\" with references to name.  Do not\n   * traverse function boundaries.\n   "
+		}
+	],
+	"Closure-136b": [
+		{
+			"class_file": "com/google/javascript/jscomp/RenameVars.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RenameVars.ProcessVars.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 170,
+			"end_line": 226,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MethodCompilerPass.java",
+			"method_name": "addPossibleSignature",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MethodCompilerPass.addPossibleSignature(java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 101,
+			"end_line": 128,
+			"comment": "\n   * Adds a node that may represent a function signature (if it's a function\n   * itself or the name of a function).\n   "
+		}
+	],
+	"Closure-137b": [
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.ContextualRenameInverter.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 284,
+			"end_line": 344,
+			"comment": "\n     * Rename vars for the current scope, and merge any referenced \n     * names into the parent scope reference set.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "addDeclaredName",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.ContextualRenamer.addDeclaredName(java.lang.String)",
+			"begin_line": 390,
+			"end_line": 405,
+			"comment": "\n     * Adds a name to the map of names declared in this scope.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "addDeclaredName",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.InlineRenamer.addDeclaredName(java.lang.String)",
+			"begin_line": 460,
+			"end_line": 465,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "getOrginalNameInternal",
+			"arg_types": "Ljava/lang/String;I",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.ContextualRenameInverter.getOrginalNameInternal(java.lang.String, int)",
+			"begin_line": 266,
+			"end_line": 268,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "getNameSuffix",
+			"arg_types": "Ljava/lang/String;I",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.MakeDeclaredNamesUnique.ContextualRenameInverter.getNameSuffix(java.lang.String, int)",
+			"begin_line": 274,
+			"end_line": 278,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Normalize.java",
+			"method_name": "process",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Normalize.process(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 78,
+			"end_line": 104,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"nameMap"
+			],
+			"begin_line": 244,
+			"end_line": 244,
+			"comment": " Name are globally unique initially, so we don't need a per-scope map."
+		}
+	],
+	"Closure-138b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeInference.java",
+			"method_name": "traverseName",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/type/FlowScope;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeInference.traverseName(com.google.javascript.rhino.Node, com.google.javascript.jscomp.FlowScope)",
+			"begin_line": 621,
+			"end_line": 652,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java",
+			"method_name": "getPreciserScopeKnowingConditionOutcome",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/FlowScope;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ClosureReverseAbstractInterpreter.getPreciserScopeKnowingConditionOutcome(com.google.javascript.rhino.Node, com.google.javascript.jscomp.FlowScope, boolean)",
+			"begin_line": 200,
+			"end_line": 225,
+			"comment": ""
+		}
+	],
+	"Closure-139b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Normalize.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Normalize.NormalizeStatements.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 268,
+			"end_line": 282,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Normalize.java",
+			"method_name": "onRedeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope;Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Normalize.DuplicateDeclarationHandler.onRedeclaration(com.google.javascript.jscomp.Scope, java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 516,
+			"end_line": 527,
+			"comment": "\n     * Remove duplicate VAR declarations encountered discovered during\n     * scope creation.\n     "
+		}
+	],
+	"Closure-140b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "init",
+			"arg_types": "[Lcom/google/javascript/jscomp/JSSourceFile;[Lcom/google/javascript/jscomp/JSModule;Lcom/google/javascript/jscomp/CompilerOptions;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.init(com.google.javascript.jscomp.JSSourceFile[], com.google.javascript.jscomp.JSModule[], com.google.javascript.jscomp.CompilerOptions)",
+			"begin_line": 259,
+			"end_line": 282,
+			"comment": "\n   * Initializes the instance state needed for a compile job.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "getNodeForCodeInsertion",
+			"arg_types": "Lcom/google/javascript/jscomp/JSModule;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.getNodeForCodeInsertion(com.google.javascript.jscomp.JSModule)",
+			"begin_line": 1568,
+			"end_line": 1589,
+			"comment": ""
+		}
+	],
+	"Closure-141b": [
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "canBeSideEffected",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/util/Set;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.canBeSideEffected(com.google.javascript.rhino.Node, java.util.Set<java.lang.String>)",
+			"begin_line": 584,
+			"end_line": 613,
+			"comment": "\n   * @param knownConstants A set of names known to be constant value at\n   * node 'n' (such as locals that are last written before n can execute).\n   * @return Whether the tree can be affected by side-effects or\n   * has side-effects.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/PureFunctionIdentifier.java",
+			"method_name": "getCallableDefinitions",
+			"arg_types": "Lcom/google/javascript/jscomp/DefinitionProvider;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PureFunctionIdentifier.getCallableDefinitions(com.google.javascript.jscomp.DefinitionProvider, com.google.javascript.rhino.Node)",
+			"begin_line": 175,
+			"end_line": 198,
+			"comment": "\n   * Query the DefinitionProvider for the list of definitions that\n   * correspond to a given qualified name subtree.  Return null if\n   * DefinitionProvider does not contain an entry for a given name,\n   * one or more of the values returned by getDeclarations is not\n   * callable, or the \"name\" node is not a GETPROP or NAME.\n   *\n   * @param definitionProvider The name reference graph\n   * @param name Query node\n   * @return non-empty definition list or null\n   "
+		}
+	],
+	"Closure-142b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CoalesceVariableNames.java",
+			"method_name": "enterScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CoalesceVariableNames.enterScope(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 90,
+			"end_line": 120,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+			"method_name": "extractMultilineTextualBlock",
+			"arg_types": "Lcom/google/javascript/jscomp/parsing/JsDocToken;Lcom/google/javascript/jscomp/parsing/JsDocInfoParser$WhitespaceOption;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.JsDocInfoParser.extractMultilineTextualBlock(com.google.javascript.jscomp.parsing.JsDocToken, com.google.javascript.jscomp.parsing.JsDocInfoParser.WhitespaceOption)",
+			"begin_line": 1112,
+			"end_line": 1206,
+			"comment": "\n   * Extracts the text found on the current line and all subsequent\n   * until either an annotation, end of comment or end of file is reached.\n   * Note that if this method detects an end of line as the first token, it\n   * will quit immediately (indicating that there is no text where it was\n   * expected).  Note that token = info.token; should be called after this\n   * method is used to update the token properly in the parser.\n   *\n   * @param token The start token.\n   * @param option How to handle whitespace.\n   *\n   * @return The extraction information.\n   "
+		}
+	],
+	"Closure-143b": [
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "createDefineReplacements",
+			"arg_types": "Ljava/util/List;Lcom/google/javascript/jscomp/CompilerOptions;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AbstractCommandLineRunner.createDefineReplacements(java.util.List<java.lang.String>, com.google.javascript.jscomp.CompilerOptions)",
+			"begin_line": 847,
+			"end_line": 895,
+			"comment": "\n   * Create a map of constant names to constant values from a textual\n   * description of the map.\n   *\n   * @param definitions A list of overriding definitions for defines in\n   *     the form <name>[=<val>], where <val> is a number, boolean, or\n   *     single-quoted string without single quotes.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/RemoveConstantExpressions.java",
+			"method_name": "trySimplify",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RemoveConstantExpressions.RemoveConstantRValuesCallback.trySimplify(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 84,
+			"end_line": 94,
+			"comment": "\n     * Attempts to replace the input node with a simpler but functionally\n     * equivalent set of nodes.\n     "
+		}
+	],
+	"Closure-144b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "cloneWithNewReturnType",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.cloneWithNewReturnType(com.google.javascript.rhino.jstype.JSType, boolean)",
+			"begin_line": 515,
+			"end_line": 521,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionTypeBuilder.java",
+			"method_name": "inferReturnType",
+			"arg_types": "Lcom/google/javascript/rhino/JSDocInfo;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionTypeBuilder.inferReturnType(com.google.javascript.rhino.JSDocInfo)",
+			"begin_line": 198,
+			"end_line": 207,
+			"comment": "\n   * Infer the return type from JSDocInfo.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionTypeBuilder.java",
+			"method_name": "buildAndRegister",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionTypeBuilder.buildAndRegister()",
+			"begin_line": 472,
+			"end_line": 510,
+			"comment": "\n   * Builds the function type, and puts it in the registry.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "getFunctionType",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/JSDocInfo;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.getFunctionType(java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.JSDocInfo, com.google.javascript.rhino.Node)",
+			"begin_line": 550,
+			"end_line": 644,
+			"comment": "\n     * Gets the function type from the function node and its attached\n     * {@link JSDocInfo}.\n     * @param name the function's name\n     * @param rValue the function node. It must be a {@link Token#FUNCTION}.\n     * @param info the {@link JSDocInfo} attached to the function definition\n     * @param lvalueNode The node where this function is being\n     *     assigned. For example, {@code A.prototype.foo = ...} would be used to\n     *     determine that this function is a method of A.prototype. May be\n     *     null to indicate that this is not being assigned to a qualified name.\n     "
+		}
+	],
+	"Closure-145b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "isOneExactlyFunctionOrDo",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.isOneExactlyFunctionOrDo(com.google.javascript.rhino.Node)",
+			"begin_line": 708,
+			"end_line": 715,
+			"comment": "\n   * @return Whether the Node is a DO or FUNCTION (with or without\n   * labels).\n   "
+		}
+	],
+	"Closure-146b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSType.java",
+			"method_name": "getTypesUnderInequality",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSType.getTypesUnderInequality(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 696,
+			"end_line": 715,
+			"comment": "\n   * Computes the subset of {@code this} and {@code that} types if inequality\n   * is observed. If a value {@code v1} of type {@code number} is not equal to a\n   * value {@code v2} of type {@code (undefined,number)}, we can infer that the\n   * type of {@code v1} is {@code number} and the type of {@code v2} is\n   * {@code number} as well.\n   *\n   * @return a pair containing the restricted type of {@code this} as the first\n   *         component and the restricted type of {@code that} as the second\n   *         element. The returned pair is never {@code null} even though its\n   *         components may be {@code null}\n   "
+		}
+	],
+	"Closure-147b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CheckGlobalThis.java",
+			"method_name": "shouldTraverse",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CheckGlobalThis.shouldTraverse(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 84,
+			"end_line": 142,
+			"comment": "\n   * Since this pass reports errors only when a global {@code this} keyword\n   * is encountered, there is no reason to traverse non global contexts.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/RuntimeTypeCheck.java",
+			"method_name": "visitFunction",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RuntimeTypeCheck.AddChecks.visitFunction(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 239,
+			"end_line": 274,
+			"comment": "\n     * Insert checks for the parameters of the function.\n     "
+		}
+	],
+	"Closure-148b": [
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "closeLine",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.LineMapper.closeLine()",
+			"begin_line": 449,
+			"end_line": 451,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeFoldConstants.java",
+			"method_name": "tryFoldTypeof",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeFoldConstants.tryFoldTypeof(com.google.javascript.rhino.Node)",
+			"begin_line": 156,
+			"end_line": 200,
+			"comment": "\n   * Folds 'typeof(foo)' if foo is a literal, e.g.\n   * typeof(\"bar\") --> \"string\"\n   * typeof(6) --> \"number\"\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"lastSourceFileEscaped"
+			],
+			"begin_line": 144,
+			"end_line": 144,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "appendTo",
+			"arg_types": "Ljava/lang/Appendable;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.appendTo(java.lang.Appendable, java.lang.String)",
+			"begin_line": 272,
+			"end_line": 330,
+			"comment": "\n   * Appends the source map in LavaBug format to the given buffer.\n   *\n   * @param out The stream to which the map will be appended.\n   * @param name The name of the generated source file that this source map\n   *   represents.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "openLine",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.LineMapper.openLine()",
+			"begin_line": 445,
+			"end_line": 448,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"UNMAPPED"
+			],
+			"begin_line": 351,
+			"end_line": 351,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"lastSourceFile"
+			],
+			"begin_line": 143,
+			"end_line": 143,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "addCharEntry",
+			"arg_types": "Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.LineMapper.addCharEntry(java.lang.String)",
+			"begin_line": 452,
+			"end_line": 459,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "writeCharsBetween",
+			"arg_types": "Lcom/google/javascript/jscomp/SourceMap$Mapping;Lcom/google/javascript/jscomp/SourceMap$Mapping;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.LineMapper.writeCharsBetween(com.google.javascript.jscomp.SourceMap.Mapping, com.google.javascript.jscomp.SourceMap.Mapping)",
+			"begin_line": 509,
+			"end_line": 516,
+			"comment": "\n     * Write any needed entries to complete the provided mapping.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"line"
+			],
+			"begin_line": 344,
+			"end_line": 344,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "addMapping",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/Position;Lcom/google/javascript/jscomp/Position;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.addMapping(com.google.javascript.rhino.Node, com.google.javascript.jscomp.Position, com.google.javascript.jscomp.Position)",
+			"begin_line": 153,
+			"end_line": 205,
+			"comment": "\n   * Adds a mapping for the given node.  Mappings must be added in order.\n   *\n   * @param node The node that the new mapping represents.\n   * @param startPosition The position on the starting line\n   * @param endPosition The position on the ending line.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "appendTo",
+			"arg_types": "Ljava/lang/Appendable;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.Mapping.appendTo(java.lang.Appendable)",
+			"begin_line": 93,
+			"end_line": 113,
+			"comment": "\n     * Appends the mapping to the given buffer.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"col"
+			],
+			"begin_line": 345,
+			"end_line": 345,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "writeClosedMapping",
+			"arg_types": "Lcom/google/javascript/jscomp/SourceMap$Mapping;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.LineMapper.writeClosedMapping(com.google.javascript.jscomp.SourceMap.Mapping)",
+			"begin_line": 496,
+			"end_line": 504,
+			"comment": "\n     * Write any needed entries from the current position to the end of the\n     * provided mapping.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "findLastLine",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.findLastLine()",
+			"begin_line": 257,
+			"end_line": 264,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "writeCharsUpTo",
+			"arg_types": "III",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.LineMapper.writeCharsUpTo(int, int, int)",
+			"begin_line": 522,
+			"end_line": 547,
+			"comment": "\n     * Write any entries needed between the current position the next position\n     * and update the current position.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "appendLineMappings",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SourceMap.LineMapper.appendLineMappings()",
+			"begin_line": 367,
+			"end_line": 444,
+			"comment": " Append the line mapping entries."
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SourceMap.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"id"
+			],
+			"begin_line": 50,
+			"end_line": 50,
+			"comment": "\n     * A unique ID for this mapping for record keeping purposes.\n     "
+		}
+	],
+	"Closure-149b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CompilerOptions.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"outputCharset"
+			],
+			"begin_line": 588,
+			"end_line": 588,
+			"comment": "\n   * Charset to use when generating code.  If null, then output ASCII.\n   * This needs to be a string because CompilerOptions is serializable.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "doRun",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AbstractCommandLineRunner.doRun()",
+			"begin_line": 504,
+			"end_line": 547,
+			"comment": "\n   * Parses command-line arguments and runs the compiler.\n   *\n   * @return system exit status\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "toSource",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/SourceMap;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.toSource(com.google.javascript.rhino.Node, com.google.javascript.jscomp.SourceMap)",
+			"begin_line": 1355,
+			"end_line": 1366,
+			"comment": "\n   * Generates JavaScript source code for an AST.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "setRunOptions",
+			"arg_types": "Lcom/google/javascript/jscomp/CompilerOptions;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AbstractCommandLineRunner.setRunOptions(com.google.javascript.jscomp.CompilerOptions)",
+			"begin_line": 141,
+			"end_line": 179,
+			"comment": "\n   * Sets options based on the configurations set flags API.\n   * Called during the run() run() method.\n   * If you want to ignore the flags API, or intepret flags your own way,\n   * then you should override this method.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "createOptions",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CommandLineRunner.createOptions()",
+			"begin_line": 454,
+			"end_line": 473,
+			"comment": ""
+		}
+	],
+	"Closure-150b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.LocalScopeBuilder.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1443,
+			"end_line": 1466,
+			"comment": "\n     * Visit a node in a local scope, and add any local variables or catch\n     * parameters into the local symbol table.\n     *\n     * @param t The node traversal.\n     * @param n The node being visited.\n     * @param parent The parent of n\n     "
+		}
+	],
+	"Closure-151b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "initConfigFromFlags",
+			"arg_types": "[Ljava/lang/String;Ljava/io/PrintStream;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CommandLineRunner.initConfigFromFlags(java.lang.String[], java.io.PrintStream)",
+			"begin_line": 385,
+			"end_line": 456,
+			"comment": ""
+		}
+	],
+	"Closure-152b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "resolveInternal",
+			"arg_types": "Lcom/google/javascript/rhino/ErrorReporter;Lcom/google/javascript/rhino/jstype/StaticScope;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.resolveInternal(com.google.javascript.rhino.ErrorReporter, com.google.javascript.rhino.jstype.StaticScope<com.google.javascript.rhino.jstype.JSType>)",
+			"begin_line": 861,
+			"end_line": 892,
+			"comment": ""
+		}
+	],
+	"Closure-153b": [
+		{
+			"class_file": "com/google/javascript/jscomp/SyntacticScopeCreator.java",
+			"method_name": "onRedeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope;Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SyntacticScopeCreator.RedeclarationHandler.onRedeclaration(com.google.javascript.jscomp.Scope, java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 179,
+			"end_line": 181,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/Normalize.java",
+			"method_name": "onRedeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope;Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Normalize.DuplicateDeclarationHandler.onRedeclaration(com.google.javascript.jscomp.Scope, java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 636,
+			"end_line": 683,
+			"comment": "\n     * Remove duplicate VAR declarations encountered discovered during\n     * scope creation.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SyntacticScopeCreator.java",
+			"method_name": "onRedeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope;Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SyntacticScopeCreator.DefaultRedeclarationHandler.onRedeclaration(com.google.javascript.jscomp.Scope, java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 188,
+			"end_line": 226,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SyntacticScopeCreator.java",
+			"method_name": "declareVar",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SyntacticScopeCreator.declareVar(java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.Node)",
+			"begin_line": 235,
+			"end_line": 246,
+			"comment": "\n   * Declares a variable.\n   *\n   * @param n The node corresponding to the variable name.\n   * @param declaredType The variable's type, according to JSDoc\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SyntacticScopeCreator.java",
+			"method_name": "scanVars",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SyntacticScopeCreator.scanVars(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 118,
+			"end_line": 173,
+			"comment": "\n   * Scans and gather variables declarations under a Node\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/SyntacticScopeCreator.java",
+			"method_name": "scanRoot",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/Scope;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.SyntacticScopeCreator.scanRoot(com.google.javascript.rhino.Node, com.google.javascript.jscomp.Scope)",
+			"begin_line": 83,
+			"end_line": 113,
+			"comment": ""
+		}
+	],
+	"Closure-154b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"ALL_DIAGNOSTICS"
+			],
+			"begin_line": 222,
+			"end_line": 253,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"HIDDEN_INTERFACE_PROPERTY_MISMATCH"
+			],
+			"begin_line": 185,
+			"end_line": 191,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypeCheck.java",
+			"method_name": "checkDeclaredPropertyInheritance",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/FunctionType;Ljava/lang/String;Lcom/google/javascript/rhino/JSDocInfo;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeCheck.checkDeclaredPropertyInheritance(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.FunctionType, java.lang.String, com.google.javascript.rhino.JSDocInfo, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 1014,
+			"end_line": 1098,
+			"comment": "\n   * Given a constructor type and a property name, check that the property has\n   * the JSDoc annotation @override iff the property is declared on a\n   * superclass. Several checks regarding inheritance correctness are also\n   * performed.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypeValidator.java",
+			"method_name": "expectInterfaceProperty",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/ObjectType;Lcom/google/javascript/rhino/jstype/ObjectType;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeValidator.expectInterfaceProperty(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.ObjectType, com.google.javascript.rhino.jstype.ObjectType, java.lang.String)",
+			"begin_line": 576,
+			"end_line": 590,
+			"comment": "\n   * Expect that the peroperty in an interface that this type implements is\n   * implemented and correctly typed.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypeValidator.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"ALL_DIAGNOSTICS"
+			],
+			"begin_line": 111,
+			"end_line": 117,
+			"comment": ""
+		}
+	],
+	"Closure-155b": [
+		{
+			"class_file": "com/google/javascript/jscomp/InlineVariables.java",
+			"method_name": "doInlinesForScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Ljava/util/Map;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineVariables.InliningBehavior.doInlinesForScope(com.google.javascript.jscomp.NodeTraversal, java.util.Map<com.google.javascript.jscomp.Scope.Var, com.google.javascript.jscomp.ReferenceCollectingCallback.ReferenceCollection>)",
+			"begin_line": 196,
+			"end_line": 223,
+			"comment": "\n     * For all variables in this scope, see if they are only used once.\n     * If it looks safe to do so, inline them.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ReferenceCollectingCallback.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 121,
+			"end_line": 133,
+			"comment": "\n   * For each node, update the block stack and reference collection\n   * as appropriate.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/InlineVariables.java",
+			"method_name": "inlineNonConstants",
+			"arg_types": "Lcom/google/javascript/jscomp/Scope$Var;Lcom/google/javascript/jscomp/ReferenceCollectingCallback$ReferenceCollection;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineVariables.InliningBehavior.inlineNonConstants(com.google.javascript.jscomp.Scope.Var, com.google.javascript.jscomp.ReferenceCollectingCallback.ReferenceCollection)",
+			"begin_line": 229,
+			"end_line": 297,
+			"comment": ""
+		}
+	],
+	"Closure-156b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseProperties.java",
+			"method_name": "updateObjLitOrFunctionDeclarationAtAssignNode",
+			"arg_types": "Lcom/google/javascript/jscomp/GlobalNamespace$Name;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseProperties.updateObjLitOrFunctionDeclarationAtAssignNode(com.google.javascript.jscomp.GlobalNamespace.Name, java.lang.String)",
+			"begin_line": 608,
+			"end_line": 667,
+			"comment": "\n   * Updates the first initialization (a.k.a \"declaration\") of a global name\n   * that occurs at an ASSIGN node. See comment for\n   * {@link #updateObjLitOrFunctionDeclaration}.\n   *\n   * @param n An object representing a global name (e.g. \"a\", \"a.b.c\")\n   * @param alias The flattened name for {@code n} (e.g. \"a\", \"a$b$c\")\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseProperties.java",
+			"method_name": "updateObjLitOrFunctionDeclarationAtVarNode",
+			"arg_types": "Lcom/google/javascript/jscomp/GlobalNamespace$Name;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseProperties.updateObjLitOrFunctionDeclarationAtVarNode(com.google.javascript.jscomp.GlobalNamespace.Name)",
+			"begin_line": 699,
+			"end_line": 733,
+			"comment": "\n   * Updates the first initialization (a.k.a \"declaration\") of a global name\n   * that occurs at a VAR node. See comment for\n   * {@link #updateObjLitOrFunctionDeclaration}.\n   *\n   * @param n An object representing a global name (e.g. \"a\")\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseProperties.java",
+			"method_name": "updateFunctionDeclarationAtFunctionNode",
+			"arg_types": "Lcom/google/javascript/jscomp/GlobalNamespace$Name;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseProperties.updateFunctionDeclarationAtFunctionNode(com.google.javascript.jscomp.GlobalNamespace.Name)",
+			"begin_line": 742,
+			"end_line": 748,
+			"comment": "\n   * Updates the first initialization (a.k.a \"declaration\") of a global name\n   * that occurs at a FUNCTION node. See comment for\n   * {@link #updateObjLitOrFunctionDeclaration}.\n   *\n   * @param n An object representing a global name (e.g. \"a\")\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseProperties.java",
+			"method_name": "collapseDeclarationOfNameAndDescendants",
+			"arg_types": "Lcom/google/javascript/jscomp/GlobalNamespace$Name;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseProperties.collapseDeclarationOfNameAndDescendants(com.google.javascript.jscomp.GlobalNamespace.Name, java.lang.String)",
+			"begin_line": 451,
+			"end_line": 474,
+			"comment": "\n   * Collapses definitions of the collapsible properties of a global name.\n   * Recurses on subnames that also represent JavaScript objects with\n   * collapsible properties.\n   *\n   * @param n A node representing a global name\n   * @param alias The flattened name for {@code n}\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CollapseProperties.java",
+			"method_name": "updateObjLitOrFunctionDeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/GlobalNamespace$Name;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CollapseProperties.updateObjLitOrFunctionDeclaration(com.google.javascript.jscomp.GlobalNamespace.Name, java.lang.String)",
+			"begin_line": 574,
+			"end_line": 598,
+			"comment": "\n   * Updates the first initialization (a.k.a \"declaration\") of a global name.\n   * This involves flattening the global name (if it's not just a global\n   * variable name already), collapsing object literal keys into global\n   * variables, declaring stub global variables for properties added later\n   * in a local scope.\n   *\n   * It may seem odd that this function also takes care of declaring stubs\n   * for direct children. The ultimate goal of this function is to eliminate\n   * the global name entirely (when possible), so that \"middlemen\" namespaces\n   * disappear, and to do that we need to make sure that all the direct children\n   * will be collapsed as well.\n   *\n   * @param n An object representing a global name (e.g. \"a\", \"a.b.c\")\n   * @param alias The flattened name for {@code n} (e.g. \"a\", \"a$b$c\")\n   * @param canCollapseChildNames Whether it's possible to collapse children of\n   *     this name. (This is mostly passed for convenience; it's equivalent to\n   *     n.canCollapseChildNames()).\n   "
+		}
+	],
+	"Closure-157b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "add",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/CodeGenerator$Context;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.add(com.google.javascript.rhino.Node, com.google.javascript.jscomp.CodeGenerator.Context)",
+			"begin_line": 82,
+			"end_line": 722,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/parsing/IRFactory.java",
+			"method_name": "transformAsString",
+			"arg_types": "Lcom/google/javascript/rhino/head/ast/AstNode;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.parsing.IRFactory.TransformDispatcher.transformAsString(com.google.javascript.jscomp.mozilla.rhino.ast.AstNode)",
+			"begin_line": 343,
+			"end_line": 356,
+			"comment": "\n     * Transforms the given node and then sets its type to Token.STRING if it\n     * was Token.NAME. If its type was already Token.STRING, then quotes it.\n     * Used for properties, as the old AST uses String tokens, while the new one\n     * uses Name tokens for unquoted strings. For example, in\n     * var o = {'a' : 1, b: 2};\n     * the string 'a' is quoted, while the name b is turned into a string, but\n     * unquoted.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/RenamePrototypes.java",
+			"method_name": "processPrototypeParent",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/CompilerInput;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RenamePrototypes.ProcessProperties.processPrototypeParent(com.google.javascript.rhino.Node, com.google.javascript.jscomp.CompilerInput)",
+			"begin_line": 350,
+			"end_line": 385,
+			"comment": "\n     * Processes the parent of a GETPROP prototype, which can either be\n     * another GETPROP (in the case of Foo.prototype.bar), or can be\n     * an assignment (in the case of Foo.prototype = ...).\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/RenamePrototypes.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.RenamePrototypes.ProcessProperties.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 313,
+			"end_line": 343,
+			"comment": ""
+		}
+	],
+	"Closure-158b": [
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"jscomp_error"
+			],
+			"begin_line": 230,
+			"end_line": 233,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/DiagnosticGroups.java",
+			"method_name": "setWarningLevels",
+			"arg_types": "Lcom/google/javascript/jscomp/CompilerOptions;Ljava/util/List;Lcom/google/javascript/jscomp/CheckLevel;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.DiagnosticGroups.setWarningLevels(com.google.javascript.jscomp.CompilerOptions, java.util.List<java.lang.String>, com.google.javascript.jscomp.CheckLevel)",
+			"begin_line": 186,
+			"end_line": 193,
+			"comment": "\n   * Adds warning levels by name.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"jscompOff"
+			],
+			"begin_line": 1513,
+			"end_line": 1513,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "initConfigFromFlags",
+			"arg_types": "[Ljava/lang/String;Ljava/io/PrintStream;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CommandLineRunner.initConfigFromFlags(java.lang.String[], java.io.PrintStream)",
+			"begin_line": 495,
+			"end_line": 563,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"jscompError"
+			],
+			"begin_line": 1497,
+			"end_line": 1497,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"jscomp_off"
+			],
+			"begin_line": 240,
+			"end_line": 243,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"jscomp_warning"
+			],
+			"begin_line": 235,
+			"end_line": 238,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "setRunOptions",
+			"arg_types": "Lcom/google/javascript/jscomp/CompilerOptions;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AbstractCommandLineRunner.setRunOptions(com.google.javascript.jscomp.CompilerOptions)",
+			"begin_line": 193,
+			"end_line": 257,
+			"comment": "\n   * Sets options based on the configurations set flags API.\n   * Called during the run() run() method.\n   * If you want to ignore the flags API, or intepret flags your own way,\n   * then you should override this method.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"jscompWarning"
+			],
+			"begin_line": 1507,
+			"end_line": 1507,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "setJscompOff",
+			"arg_types": "Ljava/util/List;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AbstractCommandLineRunner.CommandLineConfig.setJscompOff(java.util.List<java.lang.String>)",
+			"begin_line": 1514,
+			"end_line": 1518,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "setJscompError",
+			"arg_types": "Ljava/util/List;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AbstractCommandLineRunner.CommandLineConfig.setJscompError(java.util.List<java.lang.String>)",
+			"begin_line": 1502,
+			"end_line": 1506,
+			"comment": "\n     * Add warning guards.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+			"method_name": "setJscompWarning",
+			"arg_types": "Ljava/util/List;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AbstractCommandLineRunner.CommandLineConfig.setJscompWarning(java.util.List<java.lang.String>)",
+			"begin_line": 1508,
+			"end_line": 1512,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CommandLineRunner.java",
+			"method_name": "processFlagFile",
+			"arg_types": "Ljava/io/PrintStream;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CommandLineRunner.processFlagFile(java.io.PrintStream)",
+			"begin_line": 470,
+			"end_line": 493,
+			"comment": ""
+		}
+	],
+	"Closure-159b": [
+		{
+			"class_file": "com/google/javascript/jscomp/InlineFunctions.java",
+			"method_name": "findCalledFunctions",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Ljava/util/Set;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.InlineFunctions.findCalledFunctions(com.google.javascript.rhino.Node, java.util.Set<java.lang.String>)",
+			"begin_line": 773,
+			"end_line": 787,
+			"comment": "\n   * @see #findCalledFunctions(Node)\n   "
+		}
+	],
+	"Closure-160b": [
+		{
+			"class_file": "com/google/javascript/jscomp/Compiler.java",
+			"method_name": "initOptions",
+			"arg_types": "Lcom/google/javascript/jscomp/CompilerOptions;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.Compiler.initOptions(com.google.javascript.jscomp.CompilerOptions)",
+			"begin_line": 226,
+			"end_line": 282,
+			"comment": "\n   * Initialize the compiler options. Only necessary if you're not doing\n   * a normal compile() job.\n   "
+		}
+	],
+	"Closure-161b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeFoldConstants.java",
+			"method_name": "tryFoldArrayAccess",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeFoldConstants.tryFoldArrayAccess(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1278,
+			"end_line": 1322,
+			"comment": ""
+		}
+	],
+	"Closure-162b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 297,
+			"end_line": 367,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "enterScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.enterScope(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 220,
+			"end_line": 227,
+			"comment": ""
+		}
+	],
+	"Closure-163b": [
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "processPrototypeParent",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.processPrototypeParent(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 412,
+			"end_line": 448,
+			"comment": "\n     * Processes the GETPROP of prototype, which can either be under\n     * another GETPROP (in the case of Foo.prototype.bar), or can be\n     * under an assignment (in the case of Foo.prototype = ...).\n     * @return True if a declaration was added.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "remove",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.AssignmentProperty.remove()",
+			"begin_line": 586,
+			"end_line": 590,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "isPrototypePropertyAssign",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.isPrototypePropertyAssign(com.google.javascript.rhino.Node)",
+			"begin_line": 348,
+			"end_line": 375,
+			"comment": "\n     * Returns true if this is the r-value of an assignment.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "isGlobalFunctionDeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.isGlobalFunctionDeclaration(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node)",
+			"begin_line": 335,
+			"end_line": 343,
+			"comment": "\n     * Determines whether {@code n} is the FUNCTION node in a global function\n     * declaration.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/jscomp/AnalyzePrototypeProperties;Lcom/google/javascript/jscomp/AnalyzePrototypeProperties$NameInfo;",
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.NameContext.NameContext(com.google.javascript.jscomp.AnalyzePrototypeProperties.NameInfo)",
+			"begin_line": 667,
+			"end_line": 669,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/jscomp/AnalyzePrototypeProperties;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;",
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.GlobalFunction.GlobalFunction(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.jscomp.JSModule)",
+			"begin_line": 518,
+			"end_line": 524,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CrossModuleMethodMotion.java",
+			"method_name": "moveMethods",
+			"arg_types": "Ljava/util/Collection;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CrossModuleMethodMotion.moveMethods(java.util.Collection<com.google.javascript.jscomp.AnalyzePrototypeProperties.NameInfo>)",
+			"begin_line": 96,
+			"end_line": 196,
+			"comment": "\n   * Move methods deeper in the module graph when possible.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "enterScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.enterScope(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 204,
+			"end_line": 212,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "processGlobalFunctionDeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.processGlobalFunctionDeclaration(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 381,
+			"end_line": 404,
+			"comment": "\n     * Processes a NAME node to see if it's a global function declaration.\n     * If it is, record it and return true. Otherwise, return false.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;",
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.LiteralProperty.LiteralProperty(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.jscomp.JSModule)",
+			"begin_line": 625,
+			"end_line": 632,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "<clinit>",
+			"arg_types": "",
+			"type": "field",
+			"varNames": [
+				"scope"
+			],
+			"begin_line": 665,
+			"end_line": 665,
+			"comment": " corresponding function. Otherwise, it will be null."
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "exitScope",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.exitScope(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 214,
+			"end_line": 217,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 236,
+			"end_line": 309,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "remove",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.LiteralProperty.remove()",
+			"begin_line": 634,
+			"end_line": 638,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "remove",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.GlobalFunction.remove()",
+			"begin_line": 526,
+			"end_line": 536,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;",
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.AssignmentProperty.AssignmentProperty(com.google.javascript.rhino.Node, com.google.javascript.jscomp.JSModule)",
+			"begin_line": 581,
+			"end_line": 584,
+			"comment": "\n     * @param node An EXPR node.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "shouldTraverse",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.shouldTraverse(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 219,
+			"end_line": 234,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+			"method_name": "<init>",
+			"arg_types": null,
+			"type": "constructor",
+			"signature": "com.google.javascript.jscomp.AnalyzePrototypeProperties.ProcessProperties.ProcessProperties()",
+			"begin_line": 201,
+			"end_line": 203,
+			"comment": ""
+		}
+	],
+	"Closure-164b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/ArrowType.java",
+			"method_name": "isSubtype",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.ArrowType.isSubtype(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 79,
+			"end_line": 154,
+			"comment": ""
+		}
+	],
+	"Closure-165b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/RecordTypeBuilder.java",
+			"method_name": "build",
+			"arg_types": "",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.RecordTypeBuilder.build()",
+			"begin_line": 85,
+			"end_line": 93,
+			"comment": "\n   * Creates a record.\n   * @return The record type.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/RecordType.java",
+			"method_name": "getGreatestSubtypeHelper",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.RecordType.getGreatestSubtypeHelper(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 148,
+			"end_line": 207,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/RecordType.java",
+			"method_name": "<init>",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSTypeRegistry;Ljava/util/Map;",
+			"type": "constructor",
+			"signature": "com.google.javascript.rhino.jstype.RecordType.RecordType(com.google.javascript.rhino.jstype.JSTypeRegistry, java.util.Map<java.lang.String, com.google.javascript.rhino.jstype.RecordTypeBuilder.RecordProperty>)",
+			"begin_line": 83,
+			"end_line": 99,
+			"comment": "\n   * Creates a record type.\n   *\n   * @param registry The type registry under which this type lives.\n   * @param properties A map of all the properties of this record type.\n   * @param declared Whether this is a declared or synthesized type.\n   *     A synthesized record type is just used for bookkeeping\n   *     in the type system. A declared record type was actually used in the\n   *     user's program.\n   * @throws IllegalStateException if the {@code RecordProperty} associated\n   *         with a property is null.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+			"method_name": "canPropertyBeDefined",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;Ljava/lang/String;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSTypeRegistry.canPropertyBeDefined(com.google.javascript.rhino.jstype.JSType, java.lang.String)",
+			"begin_line": 690,
+			"end_line": 704,
+			"comment": "\n   * Returns whether the given property can possibly be set on the given type.\n   "
+		}
+	],
+	"Closure-166b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+			"method_name": "matchConstraint",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.PrototypeObjectType.matchConstraint(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 555,
+			"end_line": 574,
+			"comment": ""
+		}
+	],
+	"Closure-167b": [
+		{
+			"class_file": "com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java",
+			"method_name": "caseEquality",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/common/base/Function;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter.caseEquality(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.jscomp.type.FlowScope, com.google.common.base.Function<com.google.javascript.rhino.jstype.JSType.TypePair, com.google.javascript.rhino.jstype.JSType.TypePair>)",
+			"begin_line": 272,
+			"end_line": 305,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java",
+			"method_name": "maybeRestrictName",
+			"arg_types": "Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter.maybeRestrictName(com.google.javascript.jscomp.type.FlowScope, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 392,
+			"end_line": 400,
+			"comment": "\n   * If the restrictedType differs from the originalType, then we should\n   * branch the current flow scope and create a new flow scope with the name\n   * declared with the new type.\n   *\n   * We try not to create spurious child flow scopes as this makes type\n   * inference slower.\n   *\n   * We also do not want spurious slots around in type inference, because\n   * we use these as a signal for \"checked unknown\" types. A \"checked unknown\"\n   * type is a symbol that the programmer has already checked and verified that\n   * it's defined, even if we don't know what it is.\n   *\n   * It is OK to pass non-name nodes into this method, as long as you pass\n   * in {@code null} for a restricted type.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSType.java",
+			"method_name": "getRestrictedTypeGivenToBooleanOutcome",
+			"arg_types": "Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSType.getRestrictedTypeGivenToBooleanOutcome(boolean)",
+			"begin_line": 882,
+			"end_line": 890,
+			"comment": "\n   * Computes the restricted type of this type knowing that the\n   * {@code ToBoolean} predicate has a specific value. For more information\n   * about the {@code ToBoolean} predicate, see\n   * {@link #getPossibleToBooleanOutcomes}.\n   *\n   * @param outcome the value of the {@code ToBoolean} predicate\n   *\n   * @return the restricted type, or the Any Type if the underlying type could\n   *         not have yielded this ToBoolean value\n   *\n   * TODO(user): Move this method to the SemanticRAI and use the visit\n   * method of types to get the restricted type.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java",
+			"method_name": "caseNameOrGetProp",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/type/FlowScope;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter.caseNameOrGetProp(com.google.javascript.rhino.Node, com.google.javascript.jscomp.type.FlowScope, boolean)",
+			"begin_line": 426,
+			"end_line": 437,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java",
+			"method_name": "maybeRestrictTwoNames",
+			"arg_types": "Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/javascript/rhino/Node;ZLcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/Node;ZLcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter.maybeRestrictTwoNames(com.google.javascript.jscomp.type.FlowScope, com.google.javascript.rhino.Node, boolean, com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.Node, boolean, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 405,
+			"end_line": 424,
+			"comment": "\n   * @see maybeRestrictName\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java",
+			"method_name": "caseAndOrNotShortCircuiting",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/type/FlowScope;Z",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter.caseAndOrNotShortCircuiting(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, com.google.javascript.jscomp.type.FlowScope, boolean)",
+			"begin_line": 307,
+			"end_line": 352,
+			"comment": ""
+		}
+	],
+	"Closure-168b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.FirstOrderFunctionAnalyzer.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 1987,
+			"end_line": 2038,
+			"comment": ""
+		}
+	],
+	"Closure-169b": [
+		{
+			"class_file": "com/google/javascript/rhino/jstype/UnionType.java",
+			"method_name": "hasAlternate",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.UnionType.hasAlternate(com.google.javascript.rhino.jstype.JSType, boolean)",
+			"begin_line": 347,
+			"end_line": 354,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/RecordType.java",
+			"method_name": "checkRecordEquivalenceHelper",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/RecordType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.RecordType.checkRecordEquivalenceHelper(com.google.javascript.rhino.jstype.RecordType, boolean)",
+			"begin_line": 117,
+			"end_line": 131,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "hasEqualCallType",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/FunctionType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.hasEqualCallType(com.google.javascript.rhino.jstype.FunctionType)",
+			"begin_line": 917,
+			"end_line": 919,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "tryMergeFunctionPiecewise",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/FunctionType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.tryMergeFunctionPiecewise(com.google.javascript.rhino.jstype.FunctionType, boolean)",
+			"begin_line": 789,
+			"end_line": 828,
+			"comment": "\n   * Try to get the sup/inf of two functions by looking at the\n   * piecewise components.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/ArrowType.java",
+			"method_name": "checkArrowEquivalenceHelper",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/ArrowType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.ArrowType.checkArrowEquivalenceHelper(com.google.javascript.rhino.jstype.ArrowType, boolean)",
+			"begin_line": 203,
+			"end_line": 210,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/ArrowType.java",
+			"method_name": "hasEqualParameters",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/ArrowType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.ArrowType.hasEqualParameters(com.google.javascript.rhino.jstype.ArrowType, boolean)",
+			"begin_line": 177,
+			"end_line": 201,
+			"comment": "\n   * @return True if our parameter spec is equal to {@code that}'s parameter\n   *     spec.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/FunctionType.java",
+			"method_name": "checkFunctionEquivalenceHelper",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/FunctionType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.FunctionType.checkFunctionEquivalenceHelper(com.google.javascript.rhino.jstype.FunctionType, boolean)",
+			"begin_line": 889,
+			"end_line": 910,
+			"comment": "\n   * Two function types are equal if their signatures match. Since they don't\n   * have signatures, two interfaces are equal if their names match.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/RecordType.java",
+			"method_name": "isSubtype",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/ObjectType;Lcom/google/javascript/rhino/jstype/RecordType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.RecordType.isSubtype(com.google.javascript.rhino.jstype.ObjectType, com.google.javascript.rhino.jstype.RecordType)",
+			"begin_line": 243,
+			"end_line": 286,
+			"comment": " Determines if typeA is a subtype of typeB "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSType.java",
+			"method_name": "isEquivalentTo",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSType.isEquivalentTo(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 491,
+			"end_line": 493,
+			"comment": "\n   * Checks if two types are equivalent.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSType.java",
+			"method_name": "isInvariant",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSType.isInvariant(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 499,
+			"end_line": 501,
+			"comment": "\n   * Checks if two types are invariant.\n   * @see EquivalenceMethod\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/RecordType.java",
+			"method_name": "getGreatestSubtypeHelper",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.RecordType.getGreatestSubtypeHelper(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 153,
+			"end_line": 213,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSType.java",
+			"method_name": "differsFrom",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSType.differsFrom(com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 513,
+			"end_line": 515,
+			"comment": "\n   * Whether this type is meaningfully different from {@code that} type for\n   * the purposes of data flow analysis.\n   *\n   * This is a trickier check than pure equality, because it has to properly\n   * handle unknown types. See {@code EquivalenceMethod} for more info.\n   *\n   * @see <a href=\"http://www.youtube.com/watch?v=_RpSv3HjpEw\">Unknown\n   *     unknowns</a>\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/JSType.java",
+			"method_name": "checkEquivalenceHelper",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/JSType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.JSType.checkEquivalenceHelper(com.google.javascript.rhino.jstype.JSType, boolean)",
+			"begin_line": 520,
+			"end_line": 606,
+			"comment": "\n   * An equivalence visitor.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/rhino/jstype/UnionType.java",
+			"method_name": "checkUnionEquivalenceHelper",
+			"arg_types": "Lcom/google/javascript/rhino/jstype/UnionType;Z",
+			"type": "method",
+			"signature": "com.google.javascript.rhino.jstype.UnionType.checkUnionEquivalenceHelper(com.google.javascript.rhino.jstype.UnionType, boolean)",
+			"begin_line": 333,
+			"end_line": 345,
+			"comment": "\n   * Two union types are equal if they have the same number of alternates\n   * and all alternates are equal.\n   "
+		}
+	],
+	"Closure-170b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "getNumUseInUseCfgNode",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FlowSensitiveInlineVariables.Candidate.getNumUseInUseCfgNode(com.google.javascript.rhino.Node)",
+			"begin_line": 474,
+			"end_line": 498,
+			"comment": "\n     * Computes the number of uses of the variable varName and store it in\n     * numUseWithinUseCfgNode.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+			"method_name": "visit",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FlowSensitiveInlineVariables.Candidate.Anonymous-075ae65e-6863-4de2-9133-0dcadbbce2d0.visit(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 480,
+			"end_line": 493,
+			"comment": ""
+		}
+	],
+	"Closure-171b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "isQualifiedNameInferred",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/JSDocInfo;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.isQualifiedNameInferred(java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.JSDocInfo, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 1661,
+			"end_line": 1706,
+			"comment": "\n     * Determines whether a qualified name is inferred.\n     * NOTE(nicksantos): Determining whether a property is declared or not\n     * is really really obnoxious.\n     *\n     * The problem is that there are two (equally valid) coding styles:\n     *\n     * (function() {\n     *   /* The authoritative definition of goog.bar. /\n     *   goog.bar = function() {};\n     * })();\n     *\n     * function f() {\n     *   goog.bar();\n     *   /* Reset goog.bar to a no-op. /\n     *   goog.bar = function() {};\n     * }\n     *\n     * In a dynamic language with first-class functions, it's very difficult\n     * to know which one the user intended without looking at lots of\n     * contextual information (the second example demonstrates a small case\n     * of this, but there are some really pathological cases as well).\n     *\n     * The current algorithm checks if either the declaration has\n     * JsDoc type information, or @const with a known type,\n     * or a function literal with a name we haven't seen before.\n     "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/TypeInference.java",
+			"method_name": "traverseObjectLiteral",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/type/FlowScope;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeInference.traverseObjectLiteral(com.google.javascript.rhino.Node, com.google.javascript.jscomp.type.FlowScope)",
+			"begin_line": 719,
+			"end_line": 773,
+			"comment": ""
+		}
+	],
+	"Closure-172b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypedScopeCreator.java",
+			"method_name": "isQualifiedNameInferred",
+			"arg_types": "Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/JSDocInfo;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypedScopeCreator.AbstractScopeBuilder.isQualifiedNameInferred(java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.JSDocInfo, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 1661,
+			"end_line": 1709,
+			"comment": "\n     * Determines whether a qualified name is inferred.\n     * NOTE(nicksantos): Determining whether a property is declared or not\n     * is really really obnoxious.\n     *\n     * The problem is that there are two (equally valid) coding styles:\n     *\n     * (function() {\n     *   /* The authoritative definition of goog.bar. /\n     *   goog.bar = function() {};\n     * })();\n     *\n     * function f() {\n     *   goog.bar();\n     *   /* Reset goog.bar to a no-op. /\n     *   goog.bar = function() {};\n     * }\n     *\n     * In a dynamic language with first-class functions, it's very difficult\n     * to know which one the user intended without looking at lots of\n     * contextual information (the second example demonstrates a small case\n     * of this, but there are some really pathological cases as well).\n     *\n     * The current algorithm checks if either the declaration has\n     * JsDoc type information, or @const with a known type,\n     * or a function literal with a name we haven't seen before.\n     "
+		}
+	],
+	"Closure-173b": [
+		{
+			"class_file": "com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+			"method_name": "optimizeSubtree",
+			"arg_types": "Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax.optimizeSubtree(com.google.javascript.rhino.Node)",
+			"begin_line": 65,
+			"end_line": 106,
+			"comment": "\n   * Tries apply our various peephole minimizations on the passed in node.\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/CodeGenerator.java",
+			"method_name": "add",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/CodeGenerator$Context;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.CodeGenerator.add(com.google.javascript.rhino.Node, com.google.javascript.jscomp.CodeGenerator.Context)",
+			"begin_line": 107,
+			"end_line": 768,
+			"comment": ""
+		}
+	],
+	"Closure-174b": [
+		{
+			"class_file": "com/google/javascript/jscomp/ScopedAliases.java",
+			"method_name": "findAliases",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.ScopedAliases.Traversal.findAliases(com.google.javascript.jscomp.NodeTraversal)",
+			"begin_line": 351,
+			"end_line": 398,
+			"comment": ""
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/NodeUtil.java",
+			"method_name": "newQualifiedNameNodeDeclaration",
+			"arg_types": "Lcom/google/javascript/jscomp/CodingConvention;Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/JSDocInfo;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.NodeUtil.newQualifiedNameNodeDeclaration(com.google.javascript.jscomp.CodingConvention, java.lang.String, com.google.javascript.rhino.Node, com.google.javascript.rhino.JSDocInfo)",
+			"begin_line": 2360,
+			"end_line": 2372,
+			"comment": "\n   * Creates a node representing a qualified name.\n   *\n   * @param name A qualified name (e.g. \"foo\" or \"foo.bar.baz\")\n   * @return A NAME or GETPROP node\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/JsAst.java",
+			"method_name": "parse",
+			"arg_types": "Lcom/google/javascript/jscomp/AbstractCompiler;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.JsAst.parse(com.google.javascript.jscomp.AbstractCompiler)",
+			"begin_line": 81,
+			"end_line": 108,
+			"comment": ""
+		}
+	],
+	"Closure-175b": [
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionInjector.java",
+			"method_name": "canInlineReferenceDirectly",
+			"arg_types": "Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionInjector.canInlineReferenceDirectly(com.google.javascript.rhino.Node, com.google.javascript.rhino.Node)",
+			"begin_line": 689,
+			"end_line": 737,
+			"comment": "\n   * Determines whether a function can be inlined at a particular call site.\n   * There are several criteria that the function and reference must hold in\n   * order for the functions to be inlined:\n   * 1) If a call's arguments have side effects,\n   * the corresponding argument in the function must only be referenced once.\n   * For instance, this will not be inlined:\n   * <pre>\n   *     function foo(a) { return a + a }\n   *     x = foo(i++);\n   * </pre>\n   "
+		},
+		{
+			"class_file": "com/google/javascript/jscomp/FunctionInjector.java",
+			"method_name": "canInlineReferenceToFunction",
+			"arg_types": "Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Ljava/util/Set;Lcom/google/javascript/jscomp/FunctionInjector$InliningMode;ZZ",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.FunctionInjector.canInlineReferenceToFunction(com.google.javascript.jscomp.NodeTraversal, com.google.javascript.rhino.Node, com.google.javascript.rhino.Node, java.util.Set<java.lang.String>, com.google.javascript.jscomp.FunctionInjector.InliningMode, boolean, boolean)",
+			"begin_line": 173,
+			"end_line": 213,
+			"comment": "\n   * @param t  The traversal use to reach the call site.\n   * @param callNode The CALL node.\n   * @param fnNode The function to evaluate for inlining.\n   * @param needAliases A set of function parameter names that can not be\n   *     used without aliasing. Returned by getUnsafeParameterNames().\n   * @param mode Inlining mode to be used.\n   * @param referencesThis Whether fnNode contains references to its this\n   *     object.\n   * @param containsFunctions Whether fnNode contains inner functions.\n   * @return Whether the inlining can occur.\n   "
+		}
+	],
+	"Closure-176b": [
+		{
+			"class_file": "com/google/javascript/jscomp/TypeInference.java",
+			"method_name": "updateScopeForTypeChange",
+			"arg_types": "Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/jstype/JSType;",
+			"type": "method",
+			"signature": "com.google.javascript.jscomp.TypeInference.updateScopeForTypeChange(com.google.javascript.jscomp.type.FlowScope, com.google.javascript.rhino.Node, com.google.javascript.rhino.jstype.JSType, com.google.javascript.rhino.jstype.JSType)",
+			"begin_line": 523,
+			"end_line": 585,
+			"comment": "\n   * Updates the scope according to the result of a type change, like\n   * an assignment or a type cast.\n   "
+		}
+	]
+}
