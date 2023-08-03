@@ -1,0 +1,71 @@
+I have enabled `defaultTyping`, and serialized `Foo` entity with no type info. I'm trying to read json as a tree with `mapper.readTree(json)`, and it throws an exception 
+
+``` java
+Exception in thread "main" com.fasterxml.jackson.databind.JsonMappingException: 
+Unexpected token (START_OBJECT), expected START_ARRAY: need JSON Array to contain As.WRAPPER_ARRAY 
+type information for class com.fasterxml.jackson.databind.JsonNode
+ at [Source: {
+  "bar" : "bar"
+}; line: 1, column: 1]
+    at com.fasterxml.jackson.databind.JsonMappingException.from(JsonMappingException.java:148)
+    at com.fasterxml.jackson.databind.DeserializationContext.wrongTokenException(DeserializationContext.java:927)
+    at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer._locateTypeId(AsArrayTypeDeserializer.java:127)
+    at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer._deserialize(AsArrayTypeDeserializer.java:93)
+    at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer.deserializeTypedFromAny(AsArrayTypeDeserializer.java:68)
+    at com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer.deserializeWithType(JsonNodeDeserializer.java:144)
+    at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserializeWithType(JsonNodeDeserializer.java:14)
+    at com.fasterxml.jackson.databind.deser.impl.TypeWrappedDeserializer.deserialize(TypeWrappedDeserializer.java:42)
+    at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:3562)
+    at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:2136)
+    at test.App.main(App.java:23)
+```
+
+However, if I disable `defaultTyping`, the same code works fine. So, `readTree(json)` does not actually need type info for the root element, because it works when `defaultTyping` is disabled (i.e. `{"bar" : "bar"}`), but it throws the exception when `defaultTyping` is enabled, that's why it looks like a bug. The same thing happens for `valueToTree(foo)`. 
+Jackson version is `2.5.3`
+Full code is provided.
+
+``` java
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import java.io.IOException;
+
+public class App {
+    public static void main(String[] args) throws IOException {
+        ObjectMapper mapper = new ObjectMapper()
+                .enableDefaultTyping() // works fine with disableDefaultTyping()
+                .enable(MapperFeature.AUTO_DETECT_GETTERS)
+                .enable(MapperFeature.REQUIRE_SETTERS_FOR_GETTERS)
+                .disable(MapperFeature.USE_GETTERS_AS_SETTERS)
+                .disable(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS)
+                .enable(SerializationFeature.INDENT_OUTPUT)
+                .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+
+        Foo foo = new Foo("bar");
+        String serialized = mapper.writeValueAsString(foo); // {"bar" : "bar"}
+
+        JsonNode jsonNode = mapper.readTree(serialized); // exception here
+        JsonNode node = mapper.valueToTree(foo); // and here
+    }
+
+    public static class Foo {
+        private String bar;
+
+        public Foo() {
+        }
+
+        public Foo(String bar) {
+            this.bar = bar;
+        }
+
+        public String getBar() {
+            return bar;
+        }
+
+        public void setBar(String bar) {
+            this.bar = bar;
+        }
+    }
+}
+```

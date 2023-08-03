@@ -1,0 +1,11 @@
+To reproduce:
+1. Create/find a html document of a frameset.
+2. Parse the html.
+3. Create a Cleaner instance and call the clean method with the document from step 2.
+4. NullPointerException
+
+Cause:
+In Cleaner.clean(Document) (https://github.com/jhy/jsoup/blob/master/src/main/java/org/jsoup/safety/Cleaner.java#L43) the copySafeNodes is called with the document.body(). However, this is null when handling a frameset document.
+
+Expected:
+An empty document or perhaps null returned. But not a nullpointerException.

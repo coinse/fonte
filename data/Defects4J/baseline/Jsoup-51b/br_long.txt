@@ -1,0 +1,32 @@
+Hello,
+I have XML file containing Japanese tag names and values.
+JSOUP is not parsing this Japanese tags.
+I am using JSOUP library (version: 1.8.3).
+Please help me to solve this issue.
+
+---
+
+e.g. ( XML File to reproduce problem )
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<進捗推移グラフ>
+    <開始予定凡例名 表示状態="0" 線色="00CED1">&amp;#9312;&amp;#35373;&amp;#35336; &amp;#38283;&amp;#22987;&amp;#20104;&amp;#23450;</開始予定凡例名>
+## </進捗推移グラフ>
+
+//// ***\*  Source Code  ******
+Document doc = Jsoup.parse(XMLString.toString(),"UTF-8",Parser.xmlParser());
+Elements objElementCollection = doc.getAllElements();
+
+int iElementsSize=objElementCollection.size();
+
+for(Element objCurrent : objElementCollection)
+{
+        String szTag=objCurrent.tagName();
+
+```
+    for (TextNode tnTextNode : objCurrent.textNodes()) 
+    {
+        String szVal=tnTextNode.text();
+    }
+```
+
+}

@@ -1,0 +1,14 @@
+I have recently migrated a project from CLI 1.2 to 1.3.1 and have encountered what may be a bug or difference in the way optional arguments are being processed.
+
+I have a command that opens several different kinds of databases by type, or alternately, the last opened database of that type.
+
+Option TYPE1 = Option.builder("t1").hasArg().numberOfArgs(1).optionalArg(true).argName("t1_path").build();
+Option TYPE2 = Option.builder("t2").hasArg().numberOfArgs(1).optionalArg(true).argName("t2_path").build();
+Option LAST  =  Option.builder("last").hasArg(false).build();
+
+Commands then look like "open -t1 path/to/my/db" or "open -t1 -last"
+
+If I use the now deprecated GnuParser, both commands work as expected.  However, if I use the new DefaultParser, for the 2nd example, it thinks "-last" is the argument for -t1 rather than an option in its own right.
+
+I added the numberOfArgs(1) after reading a post on StackOverflow, but it made no difference in the behavior.  Only switching back to the GnuParser seemed to work.
+

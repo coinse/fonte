@@ -1,0 +1,22 @@
+A recent ClearQuest version has an HTML generation bug, which is ignored by both Chrome and Internet Explorer. Jsoup.parse is also successful:
+
+`org.jsoup.nodes.Document doc = Jsoup.parse("<html><head></head><body style=\"color: red\" \"></body></html>");`
+
+(Please note the single quotation mark at the end of the body start tag.)
+
+But trying to convert this to a W3C document fails:
+
+`new W3CDom().fromJsoup(doc);`
+
+```
+Exception in thread "main" org.w3c.dom.DOMException: INVALID_CHARACTER_ERR: An invalid or illegal XML character is specified. 
+    at org.apache.xerces.dom.CoreDocumentImpl.createAttribute(Unknown Source)
+    at org.apache.xerces.dom.ElementImpl.setAttribute(Unknown Source)
+    at org.jsoup.helper.W3CDom$W3CBuilder.copyAttributes(W3CDom.java:124)
+    at org.jsoup.helper.W3CDom$W3CBuilder.head(W3CDom.java:92)
+    at org.jsoup.select.NodeTraversor.traverse(NodeTraversor.java:31)
+    at org.jsoup.helper.W3CDom.convert(W3CDom.java:66)
+    at org.jsoup.helper.W3CDom.fromJsoup(W3CDom.java:46)
+```
+
+Perhaps copyAttributes() should ignore invalid attributes, or catch exactly this error, and ignore it, or W3CDom could have flags to ignore such errors...

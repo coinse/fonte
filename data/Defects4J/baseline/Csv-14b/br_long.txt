@@ -1,0 +1,23 @@
+Negative Numeric values are always quoted in minimal mode if (and only if) they are in the first column.
+
+i.e.
+long,lat,data
+"-92.222",43.333,3
+
+Looking at the code, this is by design but seem to be for an unknown reason.
+
+From v1.2 CSVPrinter line 230:
+
+// TODO where did this rule come from?
+if (newRecord && (c < '0' || (c > '9' && c < 'A') || (c > 'Z' && c < 'a') || (c > 'z'))) {
+    quote = true;
+} else ...
+   
+
+I propose this rule to either be remove or at a minimum be changed to:
+// TODO where did this rule come from?
+if (newRecord && (c !='-' && c < '0' || (c > '9' && c < 'A') || (c > 'Z' && c < 'a') || (c > 'z'))) {
+    quote = true;
+} else ...
+   
+

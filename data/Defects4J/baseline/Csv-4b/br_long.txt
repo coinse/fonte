@@ -1,0 +1,29 @@
+title nearly says it all :-) 
+
+Given a CSVParser parser, the following line throws an NPE:
+
+{code}
+Map<String, Integer> header = parser.getHeaderMap();
+{code}
+
+Stacktrace: 
+
+{noformat}
+Caused by: java.lang.NullPointerException
+at java.util.HashMap.<init>(HashMap.java:318)
+at java.util.LinkedHashMap.<init>(LinkedHashMap.java:212)
+at org.apache.commons.csv.CSVParser.getHeaderMap(CSVParser.java:288)
+{noformat}
+
+happens if the format doesn't have a headerMap.
+
+to fix, check if the parser's headerMap is null before trying to create the returned map:
+
+{code}
+public Map<String, Integer> getHeaderMap() {
+    return this.headerMap != null ?
+       new LinkedHashMap<String, Integer>(this.headerMap)
+       : null;
+}
+
+{code}

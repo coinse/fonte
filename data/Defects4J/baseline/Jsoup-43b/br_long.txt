@@ -1,0 +1,27 @@
+The documentation for elementSiblingIndex states "Get the list index of this element in its element sibling list. I.e. if this is the first element sibling, returns 0".
+
+This would imply that if
+
+```
+n=myElem.elementSiblingIndex();
+```
+
+then
+
+```
+myElem.parent().children().get(n)==myElem.  
+```
+
+However, this is not how elementSiblingIndex behaves. What is guaranteed is that
+
+```
+myElem.parent().children().get(n).equals(myElem).  
+```
+
+For example, if both row 2 and row 5 of a table are
+
+```
+<tr><td>Cell1</td><td>Cell2</td></tr>
+```
+
+then the Element object associated with both rows will have the same `elementSiblingIndex()`.

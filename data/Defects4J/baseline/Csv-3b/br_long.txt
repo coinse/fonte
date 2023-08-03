@@ -1,0 +1,12 @@
+The current escape parsing converts <esc><char> to plain <char> if the <char> is not one of the special characters to be escaped.
+
+This can affect unicode escapes if the <esc> character is backslash.
+
+One way round this is to specifically check for <char> == 'u', but it seems wrong to only do this for 'u'.
+
+Another solution would be to leave <esc><char> as is unless the <char> is one of the special characters.
+
+There are several possible ways to treat unrecognised escapes:
+- treat it as if the escape char had not been present (current behaviour)
+- leave the escape char as is
+- throw an exception

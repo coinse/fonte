@@ -1,0 +1,13 @@
+When testing out the removeIgnoreCase method, I'm now seeing a ConcurrentModificationException with code like: element.select("abc").first().removeAttr("attr1").removeAttr("attr2");
+
+It appears to be due to using a foreach loop over the LinkedHashMap to do the removal. Changing to do the removal directly with an iterator fixes this issue.
+Like so:
+
+```
+for (Iterator<Map.Entry<String, Attribute>> iter = attributes.entrySet().iterator(); iter.hasNext();) {
+            Map.Entry<String, Attribute> entry = iter.next();
+            if (entry.getKey().equalsIgnoreCase("key1")) {
+                iter.remove();
+            }
+        }
+```

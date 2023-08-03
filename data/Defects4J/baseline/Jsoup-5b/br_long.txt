@@ -1,0 +1,26 @@
+If I try to parse a tag with an equals sign (an empty attribute) but without any single or double quotes around an attribute value, then I get a StringIndexOutOfBoundsException.  The stack trace is pasted below.
+
+An example String would be "<a =a"
+
+The following JUnit test case should not throw a StringIndexOutOfBoundsException:
+
+import static org.junit.Assert.assertTrue;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+import org.junit.Test;
+public class BadAttributeTest {
+    @Test
+    public void aTagWithABadAttributeIsValid() throws Exception {
+        assertTrue(Jsoup.isValid("<a =a", Whitelist.relaxed()));
+    }
+}
+
+java.lang.StringIndexOutOfBoundsException: String index out of range: 13
+    at java.lang.String.charAt(String.java:686)
+    at org.jsoup.parser.TokenQueue.consume(TokenQueue.java:130)
+    at org.jsoup.parser.Parser.parseAttribute(Parser.java:207)
+    at org.jsoup.parser.Parser.parseStartTag(Parser.java:142)
+    at org.jsoup.parser.Parser.parse(Parser.java:91)
+    at org.jsoup.parser.Parser.parseBodyFragment(Parser.java:64)
+    at org.jsoup.Jsoup.parseBodyFragment(Jsoup.java:99)
+    at org.jsoup.Jsoup.isValid(Jsoup.java:155)

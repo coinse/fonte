@@ -1,0 +1,44 @@
+Found [this question](http://stackoverflow.com/questions/28970732/jsoup-node-hash-code-collision-when-traversing-dom-tree/28971463) on SO, OP was using `Element.hashCode()` and it wasn't woring right.
+
+The problem is that when jsoup generates the hashCode of an Element, the content text of the element will be ignored, and the hashCode is generated only based on the attributes, and the hashCode of the parent Element.
+
+---
+
+Using the following HTML:
+
+```
+<html>
+    <head>
+    </head>
+    <body>
+        <div style="blah">TODO: write content</div>
+        <div style="blah">Nothing here</div>
+        <p style="test">Empty</p>
+        <p style="nothing">Empty</p>
+    </body>
+</html>
+```
+
+And the following code:
+
+```
+String html = //HTML posted above
+
+Document doc = Jsoup.parse(html);
+
+Elements elements = doc.select("[style]");
+for (Element e : elements) {
+   System.out.println(e.hashCode());
+}
+```
+
+It gives:
+
+```
+-148184373
+-148184373
+-1050420242
+2013043377
+```
+
+I believe the hashCode should be different for the first two Elements, since the content is text is different. Or is this intended behaviour?

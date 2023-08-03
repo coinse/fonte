@@ -1,0 +1,54 @@
+Given the input:
+
+```html
+<html>
+<head>
+	<style />   <!-- < - - this is the culprit -->
+</head>
+<body>
+	<p>Whatever</p>
+</body>
+</html>
+```
+
+JSoup 1.8.2 and also http://try.jsoup.org/~lJwWpjXYUSTBeBZhdEnS3Mt56g4 will produce:
+```html
+    <html>
+     <head> 
+      <style></style>
+     </head>
+     <body>
+       &lt;/head&gt; &lt;body&gt; &lt;p&gt;Whatever&lt;/p&gt; &lt;/body&gt; &lt;/html&gt;
+     </body>
+    </html>
+```
+
+With `<title/>` instead of `<style/>`, the result is different but still wrong (http://try.jsoup.org/~BZ3uoMki-r904fZxUOWJgLJO7r8 ):
+```html
+<html>
+ <head> 
+  <title></title>
+ </head>
+ <body>
+   &lt;/head&gt;  
+  <p>Whatever</p>  
+ </body>
+</html>
+```
+
+That weirdness was fixed for `<script>` with Issue #305: http://try.jsoup.org/~3Ms6TQCrrdaA_uPgxgURYYvwFAg
+```html
+<html>
+ <head> 
+  <script></script> 
+ </head> 
+ <body> 
+  <p>Whatever</p>  
+ </body>
+</html>
+```
+
+Looking [at the source](https://github.com/jhy/jsoup/blob/master/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java#L106), it seems only the HtmlTreeBuilderState handling for `<noframes>`, `<style>` and `<title>` in the methods `handleRawText` and `handleRcData` doesn't get along with the self-closing tags.
+Any other tagname I've checked (and I tried to cover all branches of that `case StartTag` switch) results in a good parse similar to the `<script>` case, which is what I'd expect.
+
+Thanks for looking into this!

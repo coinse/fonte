@@ -1,0 +1,12 @@
+Document doc = Jsoup.parse(new URL("http://www.oschina.net/bbs/thread/12975"), 5*1000);
+Elements es = doc.select("a[href]");
+for(Iterator<Element> it = es.iterator();it.hasNext();){
+    Element e = it.next();
+        System.out.println(e.absUrl("href"));
+}
+
+attr("abs:href")   ------  &lt;a href="?p=1"&gt;1&lt;/a&gt;
+result: -------------------   http://www.oschina.net/bbs/thread/?p=1
+
+I think it's a wrong result~.
+The correct results should be "http://www.oschina.net/bbs/thread/12975?p=1"

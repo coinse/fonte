@@ -1,0 +1,18 @@
+Steps to reproduce
+1. Clone the repository at https://github.com/huxi/sulky
+2. Execute the contained `./gradlew` or `gradlew.bat`
+3. Clone the repository at https://github.com/huxi/lilith/
+4. Change jackson-version [in the project.ext.versions map of dependencyDefinitions.gradle](https://github.com/huxi/lilith/blob/master/dependencyDefinitions.gradle#L6) from `'2.3.3'` to `'2.4.0'`.
+5. Execute the contained `./gradlew` or `gradlew.bat`
+
+There will be six test-failures with 2.4.0 that won't happen with 2.3.3.
+
+There are actually only 2 test-methods that fail 3 times each.
+
+Those methods reside at [full()](https://github.com/huxi/lilith/blob/master/lilith-data/logging-io-test/src/main/java/de/huxhorn/lilith/data/logging/test/LoggingEventIOTestBase.java#L230) and [nullArgument()](https://github.com/huxi/lilith/blob/master/lilith-data/logging-io-test/src/main/java/de/huxhorn/lilith/data/logging/test/LoggingEventIOTestBase.java#L120).
+
+I first suspected that `AfterburnerModule` might be the culprit but removing it from `LoggingJsonDecoder`/`LoggingJsonEncoder` didn't fix the problem.
+
+Sorry for not narrowing down the problem further. I'll give this another look tomorrow but you may already be able to find the issue in the meantime.
+
+The interesting thing is that several other test cases are working as intended...
