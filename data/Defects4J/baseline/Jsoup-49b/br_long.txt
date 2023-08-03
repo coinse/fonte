@@ -1,0 +1,33 @@
+When using org.jsoup.nodes.Element.insertChildren(int, Collection<? extends Node>) to move (more than one!) child-elements from one parent-element to the same parent, but different index then it produces wrong results.
+
+The problem is that the first Element's 'move' leaves the siblingIndex unchanged and then the second 'move' removes a wrong element and produces some crap. Maybe calling reindexChildren() inside the loop in addChildren() fixes this.
+Version 1.8.3.
+Workaround: call remove() on the elements before passing them to insertChildren()
+
+Easy Test Case:
+
+```
+    @Test
+    public void mustCorrectlyMoveChildrenInsideOneParentElement() {
+
+        Document doc = new Document( "" );
+        Element body = doc.appendElement( "body" );
+        body.appendElement( "div1" );
+        body.appendElement( "div2" );
+        Element div3 = body.appendElement( "div3" );
+        Element div4 = body.appendElement( "div4" );
+
+        ArrayList<Element> toMove = new ArrayList<Element>() {
+            {
+                add( div3 );
+                add( div4 );
+            }
+        };
+
+        body.insertChildren( 0, toMove );
+
+        String result = doc.toString().replaceAll( "\\s+", "" );
+        assertEquals( "<body><div3></div3><div4></div4><div1></div1><div2></div2></body>", result );
+
+    }
+```

@@ -1,0 +1,37 @@
+Using JSoup inclusive the last release 1.7.2 there is a bug parsing HTML with unclosed tags.
+
+Example:
+
+``` java
+String tmp = "<a href='www.google.com'>Link<p>Error link</a>";
+Jsoup.parse(tmp);
+```
+
+The Document that generate is:
+
+``` html
+<html>
+ <head></head>
+ <body>
+  <a href="www.google.com">Link</a>
+  <p><a>Error link</a></p>
+ </body>
+</html>
+```
+
+The browsers would generate something as:
+
+``` html
+<html>
+ <head></head>
+ <body>
+  <a href="www.google.com">Link</a>
+  <p><a href="www.google.com">Error link</a></p>
+ </body>
+</html>
+```
+
+Jsoup should works as browsers or as source code.
+
+Also there is a question on stackoverflow:
+http://stackoverflow.com/questions/15813821/jsoup-parsing-unclosed-tags

@@ -1,0 +1,56 @@
+I've been using EscapeMode.xhtml with JSoup to avoid encoding things which don't (from my perspective) need to be encoded, like egrave in a UTF-8 document for example.
+
+While upgrading from JSoup 1.7.2 to 1.8.1 however, I've noticed a problem with a shift-jis related test I have. Here's a simplified/reduced version.
+
+```
+package test;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Entities.EscapeMode;
+import org.junit.Assert;
+import org.junit.Test;
+
+public class ShiftJisTest {
+
+    @Test
+    public void testShiftJisRoundtrip() throws Exception {
+        String input = 
+            "<html>"
+          +   "<head>"
+          +     "<meta http-equiv=\"content-type\" content=\"text/html; charset=Shift_JIS\" />"
+          +   "</head>"
+          +   "<body>"
+          +     "before&nbsp;after"
+          +   "</body>"
+          + "</html>";
+        InputStream is = new ByteArrayInputStream(input.getBytes(Charset.forName("ASCII")));
+
+        Document doc = Jsoup.parse(is, null, "http://example.com");
+        doc.outputSettings().escapeMode(EscapeMode.xhtml);
+
+        String output = new String(doc.html().getBytes(doc.outputSettings().charset()), doc.outputSettings().charset());
+
+        System.out.println(output);
+
+        Assert.assertFalse("Should not have contained a '?'.", output.contains("?"));
+        Assert.assertTrue("Should have contained a '&#xa0;' or a '&nbsp;'.", 
+            output.contains("&#xa0;") || output.contains("&nbsp;"));
+    }
+
+}
+```
+
+Under JSoup 1.7.2, the body of the output in this test is "before&#xa0;after" (which looks as expected when rendered in Firefox), where as under 1.8.1 it is "before?after".
+
+I assume the issue here is that I've asked JSoup to escape only XHTML characters (i.e. not nbsp), and it's producing a charset where (I assume) there's no character to represent 'non-breaking space'.
+
+The upshot of this is that, as a result of upgrading JSoup, I end up with '?' replaced in for what used to be shown as a non breaking space.
+
+It seems like the old behaviour was to fall back to providing an escaped numeric character (odd if there's no valid character for that in Shift_JIS, but it still rendered correctly). From my perspective, the old behaviour was better - Is there any way it can be reinstated (or an escape mode provided for it)?
+
+Obviously using EscapeMode.base instead of EscapeMode.xhtml is a possible workaround, however I would really prefer not to have characters unnecessarily escaped if possible.

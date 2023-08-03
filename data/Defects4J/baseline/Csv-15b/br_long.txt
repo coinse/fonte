@@ -1,0 +1,8 @@
+When using CSVFormat.EXCEL to print a CSV file, the behavior of quote char using is not similar as Microsoft Excel does when the first string contains Chinese, Japanese or Korean (CJK) char(s).
+
+e.g.
+There are 3 data members in a record, with Japanese chars: "あ", "い", "う":
+  Microsoft Excel outputs:
+  あ,い,う
+  Apache Common CSV outputs:
+  "あ",い,う

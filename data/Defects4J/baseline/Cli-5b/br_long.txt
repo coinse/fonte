@@ -1,0 +1,8 @@
+If you try to do a hasOption(null), you get a NPE:
+
+java.lang.NullPointerException
+	at org.apache.commons.cli.Util.stripLeadingHyphens(Util.java:39)
+	at org.apache.commons.cli.CommandLine.resolveOption(CommandLine.java:166)
+	at org.apache.commons.cli.CommandLine.hasOption(CommandLine.java:68)
+
+Either hasOption should reject the null argument, or the function should simply return false.  I think the latter makes more since, as this is how Java collections generally work.

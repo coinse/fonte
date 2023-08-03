@@ -1,0 +1,31 @@
+Loses a single quote when the javascript contains a partial tag, exampled pared from ad section of http://scienceblogs.com/pharyngula.  Note in the result that '&lt;/scr is missing closing ' :
+
+Input:
+
+<pre>
+&lt;HTML>
+&lt;body>
+ &lt;div>
+  &lt;script language="JavaScript1.1"> 
+    document.write('&lt;/scr' + 'ipt>');
+  &lt;/script>
+ &lt;/div>
+&lt;/body>
+&lt;/HTML>
+</pre>
+
+
+Result:
+
+<pre>
+&lt;html>
+ &lt;body> 
+  &lt;div> 
+   &lt;script language="JavaScript1.1"> 
+    document.write('&lt;/scr + 'ipt>');
+  
+   &lt;/script> 
+  &lt;/div>  
+ &lt;/body>
+&lt;/html>
+</pre>

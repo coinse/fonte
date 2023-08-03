@@ -1,0 +1,24 @@
+``` java
+class Value {
+@JsonCreator
+public static Value from(TokenBuffer buffer) {
+...
+}
+```
+
+Given JSON string is  `{ "a":1, "b":null }`, it is expected that while deserializing using delegate buffer,
+current token will be start object `{`, and rest of the tokens will be available in buffer:
+
+```
+[START_OBJECT, FIELD_NAME, VALUE_NUMBER_INT, FIELD_NAME, VALUE_NULL, END_OBJECT]
+```
+
+But, buffers ends up being started with field name and then contains single attribute value
+
+```
+[FIELD_NAME, VALUE_NUMBER_INT]
+```
+
+It's due to how `TokenBuffer#copyCurrentStructure` works when we have current token as a `FIELD_NAME`, rather than `START_OBJECT`, because it's forced to move to next token [BeanDeserializer.java:120](https://github.com/FasterXML/jackson-databind/blob/2.4/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java#L120)
+
+Hope this helps to nail it down. Is it an intended behavior, or it's regression/bug? 

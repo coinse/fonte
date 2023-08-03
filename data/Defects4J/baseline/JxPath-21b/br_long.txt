@@ -1,0 +1,25 @@
+Comparing a vaule to null using unequals (\!=) yields false!
+{noformat}
+        Map<String, Integer> m = new HashMap<String, Integer>();
+        m.put("a", 1);
+        m.put("b", null);
+        m.put("c", 1);
+        JXPathContext c = JXPathContext.newContext(m);
+        System.out.println(c.getValue("a != b") + " should be true");
+        System.out.println(c.getValue("a != c") + " should be false");
+        System.out.println(c.getValue("a = b") + " should be false");
+        System.out.println(c.getValue("a = c") + " should be true");
+        System.out.println(c.getValue("not(a = b)") + " should be true");
+        System.out.println(c.getValue("not(a = c)") + " should be false");
+{noformat} 
+
+Output using 1.3:
+{color:red} false should be true{color}
+false should be false
+false should be false
+true should be true
+true should be true
+false should be false
+
+
+In 1.2 it works correctly!

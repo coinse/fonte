@@ -1,0 +1,26 @@
+Executing : 
+
+            String xml="<r><X>A</X><y>B</y></r>";
+		Parser parser = Parser.htmlParser();
+		parser.settings(ParseSettings.preserveCase);
+		org.jsoup.nodes.Document _doc = parser.parseInput(xml, "/");
+
+
+Results in : 
+&lt;html&gt;
+ &lt;head&gt;&lt;/head&gt;
+ &lt;body&gt;
+  &lt;r&gt;
+   &lt;X&gt;
+    A
+    &lt;y&gt;
+     B
+    &lt;/y&gt;
+   &lt;/X&gt;
+  &lt;/r&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+
+Manual hacking : remove all .toLowerCase() invocations from Token.java (normalName=...)
+
+

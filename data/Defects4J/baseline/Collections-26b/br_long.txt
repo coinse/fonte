@@ -1,0 +1,73 @@
+MultiKey from collections 4 provides a transient hashCode and a *private* readResolve to resolve COLLECTIONS-266: Issue with MultiKey when serialized/deserialized via RMI.
+
+Unfortunately the solution does not work in case of *subclassing*: readResolve in MultiKey should be declared *protected* readResolve() to be called during deserialization of the subclass. Otherwise MultiKey must be final to avoid such subclassing.
+
+*Testcase*:
+{code:java|title=MultiKeySerializationTest.java}
+package de.ivu.test.common.collections4;
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import org.apache.commons.collections4.keyvalue.MultiKey;
+import org.junit.Test;
+
+public class MultiKeySerializationTest {
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testReadResolveEqualHashCode()
+            throws IOException, ClassNotFoundException {
+        class MultiKey2<A, B>
+                extends MultiKey {
+
+            private static final long serialVersionUID = 1928896152249821416L;
+
+            public MultiKey2(A key1, B key2) {
+                super(key1, key2);
+            }
+
+            public A getFirst() {
+                return (A) getKey(0);
+            }
+
+            public B getSecond() {
+                return (B) getKey(1);
+            }
+            
+            // FIXME: MultiKey should either declare protected readResolve() or must be final.
+        }
+        MultiKey2<String, String> one = new MultiKey2<>("bla", "blub");
+        System.out.println(one.hashCode());
+        ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
+        ObjectOutputStream out = new ObjectOutputStream(byteOut);
+        out.writeObject(one);
+        out.close();
+        byte[] serialized = byteOut.toByteArray();
+        ByteArrayInputStream byteIn = new ByteArrayInputStream(serialized);
+        ObjectInputStream in = new ObjectInputStream(byteIn);
+        MultiKey2<String, String> two = (MultiKey2<String, String>) in.readObject();
+        System.out.println(two.hashCode());
+        assertEquals("hashCode must be equal - please check for protected readResolve in MultiKey*", one.hashCode(),
+            two.hashCode());
+    }
+}
+{code}
+
+*Fix:*
+{code:java|title=MultiKey.java}
+@@ -274,7 +274,7 @@
+      * only stable for the same process).
+      * @return the instance with recalculated hash code
+      */
+-    private Object readResolve() {
++    protected Object readResolve() {
+         calculateHashCode(keys);
+         return this;
+     }
+{code}

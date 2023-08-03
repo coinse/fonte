@@ -1,0 +1,76 @@
+`ReflectiveTypeAdapterFactory` correctly detects the `@JsonAdapter` annotation and registers the custom adapter ([source](https://github.com/google/gson/blob/6f6af8050799bec5321d2c06cd3230daadbb6535/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java#L133)), but its `write` method wraps that type adapter in a `TypeAdapterRuntimeTypeWrapper` ([source](https://github.com/google/gson/blob/6f6af8050799bec5321d2c06cd3230daadbb6535/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java#L111)), which overrides the adapter with the default Gson adapter ([source](https://github.com/google/gson/blob/6f6af8050799bec5321d2c06cd3230daadbb6535/gson/src/main/java/com/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper.java#L65)).
+
+Here's a test that demonstrates the behavior:
+
+``` diff
+diff --git a/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest.java b/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest
+index 4c745ec..8cae980 100644
+--- a/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest.java
++++ b/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest.java
+@@ -220,4 +220,43 @@ public final class JsonAdapterAnnotationOnFieldsTest extends TestCase {
+       this.part = part;
+     }
+   }
++
++  public void testPrimitiveFieldAnnotationTakesPrecedenceOverDefault() {
++    Gson gson = new Gson();
++    String json = gson.toJson(new GadgetWithPrimitivePart(42));
++    assertEquals("{\"part\":\"42\"}", json);
++    GadgetWithPrimitivePart gadget = gson.fromJson(json, GadgetWithPrimitivePart.class);
++    assertEquals(42, gadget.part);
++  }
++
++  private static final class GadgetWithPrimitivePart {
++    @JsonAdapter(LongToStringTypeAdapterFactory.class)
++    final long part;
++
++    private GadgetWithPrimitivePart(long part) {
++      this.part = part;
++    }
++  }
++
++  private static final class LongToStringTypeAdapterFactory implements TypeAdapterFactory {
++    static final TypeAdapter<Long> ADAPTER = new TypeAdapter<Long>() {
++      @Override public void write(JsonWriter out, Long value) throws IOException {
++        out.value(value.toString());
++      }
++      @SuppressWarnings("unchecked")
++      @Override public Long read(JsonReader in) throws IOException {
++        return in.nextLong();
++      }
++    };
++    @Override public <T> TypeAdapter<T> create(Gson gson, final TypeToken<T> type) {
++      Class<?> cls = type.getRawType();
++      if (Long.class.isAssignableFrom(cls)) {
++        return (TypeAdapter<T>) ADAPTER;
++      } else if (long.class.isAssignableFrom(cls)) {
++        return (TypeAdapter<T>) ADAPTER;
++      }
++      throw new IllegalStateException("Non-long field of type " + type
++          + " annotated with @JsonAdapter(LongToStringTypeAdapterFactory.class)");
++    }
++  }
+ }
+```
+
+And here's the result of running it:
+
+```
+[snip]
+Running com.google.gson.functional.JsonAdapterAnnotationOnFieldsTest
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec <<< FAILURE!
+[snip]
+Results :
+
+Failed tests:   testPrimitiveFieldAnnotationTakesPrecedenceOverDefault(com.google.gson.functional.JsonAdapterAnnotationOnFieldsTest): expected:<{"part":["42"]}> but was:<{"part":[42]}>
+
+Tests run: 990, Failures: 1, Errors: 0, Skipped: 0
+```
+
+Is this the intended behavior? If so, `JsonAdapter`'s documentation is a bit misleading.
+
+If it's not, I unfortunately do not have a suggested fix. I was actually a bit surprised to see that a new `TypeAdapterRuntimeTypeWrapper` object is constructed for each field that is serialized, on every serialization.
+
+In case you would like to incorporate my test into Gson, I hereby assign copyright of that test to Google.
+
+Thanks!

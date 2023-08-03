@@ -1,0 +1,27 @@
+This HTML, parsed and immediately printed out, results in:
+
+&lt;html&gt;
+&lt;body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var inside = true;
+&lt;/script&gt;
+this should be outside.
+&lt;/body&gt;
+&lt;/html&gt;
+
+Results:
+
+&lt;html&gt; 
+&lt;head&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+ &lt;script type=&quot;text/javascript&quot;&gt; 
+  var inside = true;
+
+this should be outside.
+
+&lt;/script&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;
+
+Note how "this should be outside" ends up inside the &lt;script&gt; tag, instead of following it.  From what I can tell, this only happens to data-only tags.

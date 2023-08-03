@@ -1,0 +1,63 @@
+Example:
+
+``` java
+public class TestOuter {
+
+    @JsonFormat(shape = JsonFormat.Shape.ARRAY)
+    public ArrayList<TestInner> array;
+
+    public TestOuter() {
+        this.array = new ArrayList<TestInner>();
+        this.array.add(new TestInner(1, "one"));
+        this.array.add(new TestInner(0, null));
+    }
+
+    private class TestInner {
+        public int i;
+        public String mayBeNull;
+
+        public TestInner(int i, String s) {
+            this.i = i;
+            this.mayBeNull = s;
+        }
+    }
+}
+```
+
+Serializing an instance of TestOuter will produce the following incorrect result (as of Jackson 2.2.1):
+
+``` json
+"array": [[1, "one"], [0, null, null]]
+```
+
+where the null value is duplicated. The expected result would be:
+
+``` json
+"array": [[1, "one"], [0, null]]
+```
+
+I tracked the issue down to:
+
+``` java
+package com.fasterxml.jackson.databind.ser;
+// ...
+public class BeanPropertyWriter {
+// ...
+    public void serializeAsColumn(Object bean, JsonGenerator jgen, SerializerProvider prov)
+        throws Exception
+    {
+        Object value = get(bean);
+        if (value == null) { // nulls need specialized handling
+            if (_nullSerializer != null) {
+                _nullSerializer.serialize(null, jgen, prov);
+            } else { // can NOT suppress entries in tabular output
+                jgen.writeNull();
+            }
+        }
+        // otherwise find serializer to use
+        JsonSerializer<Object> ser = _serializer;
+    // ... ...
+```
+
+where I suspect there is a missing "return", to exit the function once handling of the null value in the dedicated branch is done.
+As it is now, a null value is first serialized in the dedicated branch (jgen.writeNull()), and then execution continues on the "normal" (non-null) path and eventually the value is serialized once again.
