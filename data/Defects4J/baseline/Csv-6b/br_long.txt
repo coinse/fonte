@@ -1,0 +1,10 @@
+Similar to CSV-96, if .toMap() is called on a record that has fewer fields than we have header columns we'll get an ArrayOutOfBoundsException.
+
+{code}
+@Test
+public void testToMapWhenHeaderTooLong() throws Exception {
+   final CSVParser parser = new CSVParser("a,b", CSVFormat.newBuilder().withHeader("A", "B", "C").build());
+   final CSVRecord record = parser.iterator().next();
+   record.toMap();
+}
+{code}

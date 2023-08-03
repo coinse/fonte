@@ -1,0 +1,21 @@
+If a parameter value is passed that contains a hyphen as the (delimited) first 
+character, CLI parses this a parameter. For example using the call
+java myclass -t "-something"
+Results in the parser creating the invalid parameter -o (noting that it is 
+skipping the 's')
+
+My code is using the Posix parser as follows
+Options options = buildCommandLineOptions();
+CommandLineParser parser = new PosixParser();
+CommandLine commandLine = null;
+try {
+			
+	commandLine = parser.parse(options, args);
+}
+catch (ParseException e) {
+			
+	System.out.println("Invalid parameters. " + e.getMessage() + NEW_LINE);
+	System.exit(EXIT_CODE_ERROR);
+}
+
+This has been tested against the nightly build dated 20050503.

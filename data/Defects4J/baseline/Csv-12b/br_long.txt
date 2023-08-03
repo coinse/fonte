@@ -1,0 +1,15 @@
+I have an Excel file with a first row with N column names
+If there are additional columns that are not labeled, Excel exports empty columns. For example:
+A,B,C,,
+a,b,c,d,e
+
+This causes an IAE like:
+
+{noformat}
+java.lang.IllegalArgumentException: The header contains a duplicate name: "" in [A, B, C, , ]
+	at org.apache.commons.csv.CSVParser.initializeHeader(CSVParser.java:368)
+	at org.apache.commons.csv.CSVParser.<init>(CSVParser.java:248)
+	at org.apache.commons.csv.CSVParser.parse(CSVParser.java:206)
+{noformat}	
+
+It seems like the simplest solution is to ignore empty column names, such that they cannot be addressable and not attempt to index them.

@@ -1,0 +1,10 @@
+CSVRecord does not verify that the size of the header mapping matches the number of values. The following test will produce a ArrayOutOfBoundsException:
+
+{code}
+@Test
+public void testInvalidHeaderTooLong() throws Exception {
+   final CSVParser parser = new CSVParser("a,b", CSVFormat.newBuilder().withHeader("A", "B", "C").build());
+   final CSVRecord record = parser.iterator().next();
+   record.get("C");
+}
+{code}

@@ -1,0 +1,13 @@
+PosixParser doesn't stop the bursting process of a token if stopAtNonOption is enabled and a non option character is encountered.
+
+For example if the options a and b are defined, with stopAtNonOption=true the following command line:
+
+{code}-azb{code}
+
+is turned into:
+
+{code}-a zb -b{code}
+
+the right output should be:
+
+{code}-a zb{code}

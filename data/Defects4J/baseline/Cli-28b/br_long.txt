@@ -1,0 +1,35 @@
+The Properties instance passed to the Parser.parse() method to initialize the default options may be partially processed. This happens when the properties contains an option that doesn't accept arguments and has a default value that isn't evaluated to "true". When this case occurs the processing of the properties is stopped and the remaining options are never handled.
+
+This is caused by the break statement in Parser.processProperties(Properties), a continue statement should have been used instead.
+
+The related test in ValueTest is also wrong, there are two assertions that need to be changed:
+
+{code}
+Options opts = new Options();
+opts.addOption("a", false, "toggle -a");
+opts.addOption("c", "c", false, "toggle -c");
+opts.addOption(OptionBuilder.hasOptionalArg().create('e'));
+
+properties = new Properties();
+properties.setProperty( "a", "false" );
+properties.setProperty( "c", "no" );
+properties.setProperty( "e", "0" );
+
+cmd = parser.parse(opts, null, properties);
+assertTrue( !cmd.hasOption("a") );
+assertTrue( !cmd.hasOption("c") );
+assertTrue( !cmd.hasOption("e") ); // Wrong, this option accepts an argument and should receive the value "0"
+{code}
+
+ and the second one:
+
+{code}
+properties = new Properties();
+properties.setProperty( "a", "just a string" );
+properties.setProperty( "e", "" );
+
+cmd = parser.parse(opts, null, properties);
+assertTrue( !cmd.hasOption("a") );
+assertTrue( !cmd.hasOption("c") );
+assertTrue( !cmd.hasOption("e") ); // Wrong, this option accepts an argument and should receive an empty string as value
+{code}

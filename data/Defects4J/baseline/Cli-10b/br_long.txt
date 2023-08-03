@@ -1,0 +1,50 @@
+When an Options object is used to parse a second set of command arguments it won't throw a MissingOptionException.
+
+{code:java}
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.GnuParser;
+import org.apache.commons.cli.OptionBuilder;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
+
+public class Example
+{
+	public static void main(String[] args) throws ParseException
+	{
+		brokenExample();
+		workingExample();
+	}
+
+	// throws exception as expected
+	private static void workingExample() throws ParseException
+	{
+		String[] args = {};
+
+		Options opts = new Options();
+		opts.addOption(OptionBuilder.isRequired().create('v'));
+
+		GnuParser parser = new GnuParser();
+		CommandLine secondCL = parser.parse(opts, args);
+
+		System.out.println("Done workingExample");
+	}
+
+	// fails to throw exception on second invocation of parse
+	private static void brokenExample() throws ParseException
+	{
+		String[] firstArgs = { "-v" };
+		String[] secondArgs = {};
+
+		Options opts = new Options();
+		opts.addOption(OptionBuilder.isRequired().create('v'));
+
+		GnuParser parser = new GnuParser();
+		CommandLine firstCL = parser.parse(opts, firstArgs);
+		CommandLine secondCL = parser.parse(opts, secondArgs);
+
+		System.out.println("Done brokenExample");
+	}
+}
+{code}
+
+This is a result of the Options object returning the reference to its own list and the parsers modifying that list. The first call is removing the required options as they are found and subsequent calls get back an empty list.

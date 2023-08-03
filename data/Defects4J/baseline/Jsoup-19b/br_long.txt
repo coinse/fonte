@@ -1,0 +1,13 @@
+Ok, so in mail type HTML the following is common
+
+<img src="cid:SDOMSDOFMOSDOMFOSD">
+
+The item after CID: can be almost anything (US-ASCII I think) and of any length. It corresponds to an image linked elsewhere in MIME say like this
+
+--mimebounday
+Content-ID:<SDOMSDOFMOSDOMFOSD>
+Content-Type: image/jpeg.....
+(snip)
+
+So, to mark a long story somewhat shorter, I use Jsoup's sanitizer extensively. However, I need these CID references to be preserved post sanitization. addProtocols does not work because the items are not valid URLs. As a result
+the above becomes <img />. Which for my purposes is not good :)

@@ -1,0 +1,9 @@
+PosixParser doesn't handle properly unrecognized tokens starting with '-' when stopAtNonOption is enabled, the token is simply ignored.
+
+For example, if the option 'a' is defined, the following command line:
+
+{code}-z -a foo{code}
+
+is interpreted as:
+
+{code}-a foo{code}

@@ -1,0 +1,67 @@
+for response headers have duplicate tuple，
+in this case
+X-Powered-By:PHP/5.2.8
+X-Powered-By:ASP.NET
+
+Jsoup can only get the second one
+if I run header（“X-powered-by”） 
+I got Asp.NET
+
+URL：http://01pt.com/
+
+Cache-Control:no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Content-Encoding:gzip
+Content-Length:16224
+Content-Type:text/html;charset=gb2312
+Date:Thu, 27 Aug 2015 09:22:40 GMT
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Pragma:no-cache
+Server:Microsoft-IIS/7.5
+Vary:Accept-Encoding
+X-Powered-By:PHP/5.2.8
+X-Powered-By:ASP.NET
+
+The bug is because 
+if (!values.isEmpty()) header(name, values.get(0));
+
+I change it to
+                 if (!values.isEmpty()) {
+                        String val = "";
+                        for(String str: values) {
+                          val = val.concat(str).concat(" ");
+
+```
+                    }
+                    header(name, val);
+              }
+```
+
+then I am able to get “PHP/5.2.8 ASP.NET” when I run header（“X-powered-by”）
+
+ void processResponseHeaders(Map<String, List<String>> resHeaders) {
+            for (Map.Entry<String, List<String>> entry : resHeaders.entrySet()) {
+                String name = entry.getKey();
+                if (name == null)
+                    continue; // http/1.1 line
+
+```
+            List<String> values = entry.getValue();
+            if (name.equalsIgnoreCase("Set-Cookie")) {
+                for (String value : values) {
+                    if (value == null)
+                        continue;
+                    TokenQueue cd = new TokenQueue(value);
+                    String cookieName = cd.chompTo("=").trim();
+                    String cookieVal = cd.consumeTo(";").trim();
+                    // ignores path, date, domain, validateTLSCertificates et al. req'd?
+                    // name not blank, value not null
+                    if (cookieName.length() > 0)
+                        cookie(cookieName, cookieVal);
+                }
+            } else { // only take the first instance of each header
+                if (!values.isEmpty())
+                    header(name, values.get(0));
+            }
+        }
+    }
+```

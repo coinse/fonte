@@ -1,0 +1,7 @@
+ExtendedBufferReader checks for '\n' (LF) in the read() methods, incrementing linecount when found.
+
+However, the readLine() method calls BufferedReader.readLine() which treats CR, LF and CRLF equally (and drops them).
+
+If the code is to be flexible in what it accepts, the class should also allow for CR alone as a line terminator.
+
+It should work if the code increments the line counter for CR, and for LF if the previous character was not CR.

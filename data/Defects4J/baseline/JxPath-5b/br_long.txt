@@ -1,0 +1,14 @@
+For XPath "$var | /MAIN/A" exception is thrown:
+
+org.apache.commons.jxpath.JXPathException: Cannot compare pointers that do not belong to the same tree: '$var' and ''
+	at org.apache.commons.jxpath.ri.model.NodePointer.compareNodePointers(NodePointer.java:665)
+	at org.apache.commons.jxpath.ri.model.NodePointer.compareNodePointers(NodePointer.java:649)
+	at org.apache.commons.jxpath.ri.model.NodePointer.compareNodePointers(NodePointer.java:649)
+	at org.apache.commons.jxpath.ri.model.NodePointer.compareTo(NodePointer.java:639)
+	at java.util.Arrays.mergeSort(Arrays.java:1152)
+	at java.util.Arrays.sort(Arrays.java:1079)
+	at java.util.Collections.sort(Collections.java:113)
+	at org.apache.commons.jxpath.ri.EvalContext.constructIterator(EvalContext.java:176)
+	at org.apache.commons.jxpath.ri.EvalContext.hasNext(EvalContext.java:100)
+	at org.apache.commons.jxpath.JXPathContext.selectNodes(JXPathContext.java:648)
+	at org.apache.commons.jxpath.ri.model.VariablePointerTestCase.testUnionOfVariableAndNode(VariablePointerTestCase.java:76)

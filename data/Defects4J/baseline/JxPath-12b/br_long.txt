@@ -1,0 +1,21 @@
+Mcduffey, Joe <jdmcduf@nsa.gov>
+
+Can someone tell me how to register namespaces so that attributes with namespaces does not cause the exception
+
+org.apache.common.ri.model.dom.DOMNodePointer.createAttribute
+unknown namespace prefix: xsi
+
+For example the following
+<ElementA  A:myAttr="Mytype">
+  <B:ElementB>MY VALUE</B:ElementB>
+</ElementA>
+
+Would result in the following exception:
+org.apache.common.ri.model.dom.DOMNodePointer.createAttribute
+unknown namespace prefix: A
+
+FYI: In this example there was a namespace decaration in the file and I also manually called the
+registerNamespace(A,"/http...");
+registerNamespace(B,"/http...");
+
+There was no problem encountered for elements. Only attributes. Can someone help? Thanks.

@@ -1,0 +1,33 @@
+Hi guys,
+
+I'm working on a project where I have to parse `2016-01-11T11:06:14.000-02` to java.util.Date which is a valid date according to [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) on page 12.
+
+But I got an Exception trying to archive it
+
+```
+Caused by: com.google.gson.JsonSyntaxException: 2016-01-11T11:06:14.000-02
+        at com.google.gson.DefaultDateTypeAdapter.deserializeToDate(DefaultDateTypeAdapter.java:107)
+        at com.google.gson.DefaultDateTypeAdapter.deserialize(DefaultDateTypeAdapter.java:84)
+        at com.google.gson.DefaultDateTypeAdapter.deserialize(DefaultDateTypeAdapter.java:38)
+        at com.google.gson.TreeTypeAdapter.read(TreeTypeAdapter.java:58)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:117)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:217)
+        at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+        at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:82)
+        at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:61)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:117)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:217)
+        at com.google.gson.Gson.fromJson(Gson.java:861)
+        at com.google.gson.Gson.fromJson(Gson.java:926)
+        at com.google.gson.Gson.fromJson(Gson.java:899)
+        at ...
+Caused by: java.text.ParseException: Failed to parse date ["2016-01-11T11:06:14.000-02']: Mismatching time zone indicator: GMT-02 given, resolves to GMT-02:00
+        at com.google.gson.internal.bind.util.ISO8601Utils.parse(ISO8601Utils.java:270)
+        at com.google.gson.DefaultDateTypeAdapter.deserializeToDate(DefaultDateTypeAdapter.java:105)
+        ... 31 more
+Caused by: java.lang.IndexOutOfBoundsException: Mismatching time zone indicator: GMT-02 given, resolves to GMT-02:00
+        at com.google.gson.internal.bind.util.ISO8601Utils.parse(ISO8601Utils.java:236)
+        ... 32 more
+```
+
+I'm able to fix this if it sounds reasonable.

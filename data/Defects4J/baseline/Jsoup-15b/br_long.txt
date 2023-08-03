@@ -1,0 +1,56 @@
+Thanks for the release, using 1.6.0 now, and getting issues with http://techcrunch.com.  html has a script tag containing tags inside of javascript strings.  Seems to be treating those as real tag openers, creating tag elements and causing the close script tag to be ignored and therefore include a ton of other stuff.  I think this was working in 1.5.2.  
+
+Simplified example:
+
+<pre>
+&lt;HTML>
+&lt;body>
+ &lt;div class=vsc sig=Uga>
+  &lt;div class=before>&lt;/div>
+  &lt;script type="text/javascript">
+   header = jQuery('#header_features');
+   if(header.length){
+    header
+     .prepend('&lt;a class="prevPage browse left " />')
+     .append('&lt;a class="nextPage browse right" />');
+
+    items
+     .wrapAll('&lt;div class="scrollable"/>')
+     .wrapAll('&lt;ul class="items"/>')
+     .wrap('&lt;li/>');
+   }
+   &lt;/script>
+   &lt;div class=after>&lt;/div>
+ &lt;/div>
+&lt;/body>
+&lt;/HTML>
+</pre>
+
+
+Result, notice the script strings become tags and the script tag now subsumes the following div:
+
+<pre>
+&lt;html>
+ &lt;body> 
+  &lt;div class="vsc" sig="Uga"> 
+   &lt;div class="before">&lt;/div> 
+   &lt;script type="text/javascript">
+   header = jQuery('#header_features');
+   if(header.length){
+    header
+     .prepend('
+    &lt;a class="prevPage browse left ">') .append('&lt;/a>
+    &lt;a class="nextPage browse right">'); items .wrapAll('
+     &lt;div class="scrollable">
+      ') .wrapAll('
+      &lt;ul class="items">
+       ') .wrap('
+       &lt;li>'); }  
+        &lt;div class="after">&lt;/div> &lt;/li>
+      &lt;/ul>
+     &lt;/div>  &lt;/a>
+   &lt;/script>
+  &lt;/div>
+ &lt;/body>
+&lt;/html>
+</pre>

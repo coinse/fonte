@@ -1,0 +1,25 @@
+Hi,
+when I parse a html page with a svg element, which contains an image element, the "image" element is replaced by "img". But this is not correct. The "image" must be "image".
+
+Example:
+Input:
+
+``` html
+<svg width="560" height="150">
+<image xlink:href="myimage.jpg"
+   y="5" x="100"  
+   height="140" width="230" />
+</svg>
+```
+
+Output:
+
+``` html
+<svg width="560" height="150">
+<img xlink:href="myimage.jpg"
+   y="5" x="100"  
+   height="140" width="230" />
+</svg>
+```
+
+The problem seems to be in line 457 of HtmlTreeBuilderState.java.
