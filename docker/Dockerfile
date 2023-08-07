@@ -57,7 +57,7 @@ RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install java ${JAVA_
 # Setup Apache Maven
 RUN cd /usr/local/ && mkdir apache-maven/ && \
       cd apache-maven/ && \
-      wget http://mirror.navercorp.com/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
+      wget https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.6.3/apache-maven-3.6.3-bin.tar.gz && \
       tar -zxvf apache-maven-3.6.3-bin.tar.gz
 
 ENV M3_HOME="/usr/local/apache-maven/apache-maven-3.6.3"
