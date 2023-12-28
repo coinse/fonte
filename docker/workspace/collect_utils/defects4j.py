@@ -46,6 +46,10 @@ class D4JBug:
         self._commits = [l.strip() for l in f.readlines()]
     return self._commits
 
+  @property
+  def commit_head(self):
+    return self._commits[0]
+
   def get_coverage_matrix(self, path_to_coverage=None,
     test_types=['failings', 'passings']):
 

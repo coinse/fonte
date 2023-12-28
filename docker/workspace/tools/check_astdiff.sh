@@ -54,7 +54,7 @@ for file in $(cat $workdir/modified_files_${sha}); do
     else
       result='E' # error
     fi
-    echo "--- ASTs are Isomorphic (w/ Rewrite: $use_Rewrite):" $(echo $file.$sha.is_isomorphic)
+    echo "--- ASTs are Isomorphic (w/ Rewrite: $use_Rewrite):" $(cat $file.$sha.is_isomorphic)
 
     rm $file.$sha
     rm $file.$sha~1

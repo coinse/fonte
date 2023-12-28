@@ -35,7 +35,7 @@ def parse_git_log(s):
       if item['before'] and item['after']
     ]
 
-def get_commit_log(project_root, path_to_source, method_name, begin_line, end_line):
+def get_commit_log(project_root, path_to_source, method_name, begin_line, end_line, **kwargs):
     commit_log_cmd = COMMIT_LOG_CMD.format(begin_line, end_line, path_to_source)
     cmd = f"cd {project_root}; {commit_log_cmd} | grep -e '^commit' -e 'diff --git' -A 3"
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)

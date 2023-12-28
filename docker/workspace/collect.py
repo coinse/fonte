@@ -7,6 +7,7 @@ from collect_utils.defects4j import D4JBug
 from collect_utils.javaparser import NodeRanges
 import collect_utils.git as git
 import collect_utils.shovel as shovel
+import collect_utils.tracker as tracker
 
 class NodeInfo:
   def __init__(self, class_file, rel_src_path, method_name, method_signature, begin_line, end_line, commit_log):
@@ -18,11 +19,14 @@ class NodeInfo:
     self.commit_log = commit_log
     self.scores = dict()
 
-def rank_BIC(bug, path_to_coverage, formula='ochiai', commit_history_retriever='git'):
+def get_history_of_suspicious_methods(bug, path_to_coverage, formula='ochiai', 
+                                      commit_history_retriever='git'):
   if commit_history_retriever == 'git':
     log_retriever = git
-  elif commit_history_retriever == 'shovel':
+  elif commit_history_retriever == 'shovel': # CodeShovel
     log_retriever = shovel
+  elif commit_history_retriever == 'tracker': # CodeTracker
+    log_retriever = tracker
   else:
     raise Exception(f"Unsupported commit history retriever: {commit_history_retriever}")
 
@@ -73,7 +77,8 @@ def rank_BIC(bug, path_to_coverage, formula='ochiai', commit_history_retriever='
         try:
           commit_log = log_retriever.get_commit_log(bug.project_root,
             rel_src_path, method_name,
-            node_range.name_begin_line if log_retriever == shovel else begin_line, end_line)
+            node_range.name_begin_line if log_retriever == shovel else begin_line, end_line,
+            start_commit=bug.commit_head)
         except Exception as e:
           print(e)
           use_git_log = True
@@ -143,7 +148,7 @@ if __name__ == "__main__":
   ])
 
   logging.info(f"Search BICs for {args.project_root}")
-  commit_df = rank_BIC(bug,
+  commit_df = get_history_of_suspicious_methods(bug,
     path_to_coverage=os.path.join(output_dir, "coverage.pkl"),
     formula=args.formula,
     commit_history_retriever=args.log_retriever
