@@ -29,16 +29,21 @@ if [ $? -eq 0 ]; then
 
   # collect commit history
   [ ! -d $output_dir/$tool ] && mkdir $output_dir/$tool
-  python collect.py $tmp_dir -v -l $tool -o $output_dir
 
-  # save raw data
-  if [[ $tool == "shovel" ]]; then
-    mkdir $output_dir/$tool/raw
-    cp $tmp_dir/shovel* $output_dir/$tool/raw/
-  fi
-  if [[ $tool == "tracker" ]]; then
-    mkdir $output_dir/$tool/raw
-    cp $tmp_dir/tracker* $output_dir/$tool/raw/
+  if [ ! -f $commit_path ]; then
+    python collect.py $tmp_dir -v -l $tool -o $output_dir
+
+    # save raw data
+    if [[ $tool == "shovel" ]]; then
+      mkdir $output_dir/$tool/raw
+      cp $tmp_dir/shovel* $output_dir/$tool/raw/
+    fi
+    if [[ $tool == "tracker" ]]; then
+      mkdir $output_dir/$tool/raw
+      cp $tmp_dir/tracker* $output_dir/$tool/raw/
+    fi
+  else
+    echo "$commit_path exists"
   fi
 
   source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 11.0.12-open
